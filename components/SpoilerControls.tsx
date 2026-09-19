@@ -145,12 +145,12 @@ export function SpoilerControls({ compact = false, showPresets = true }: Spoiler
             type="checkbox"
             checked={spoilerIf}
             onChange={(e) => setSpoilerIf(e.target.checked)}
-            aria-label="Include IF and Gaiden alternate timeline spoilers"
+            aria-label="Include IF and alternate timeline spoilers"
             className="mt-1 h-4 w-4 rounded border-[var(--border-strong)] text-[var(--accent)] focus:ring-[var(--accent)] cursor-pointer accent-[var(--accent)]"
           />
           <div className="space-y-0.5">
             <span className="text-sm font-semibold text-[var(--text-main)]">
-              Include IF / Gaiden Spoilers
+              Include IF / EX Spoilers
             </span>
             <p className="text-xs text-[var(--text-muted)] leading-relaxed">
               Author-penned alternate timeline stories (Pride, Wrath, Sloth, Greed, Gluttony, etc.). Kept hidden by default to prevent non-linear timeline spoilers.

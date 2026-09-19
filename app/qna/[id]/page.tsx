@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { notFound } from "next/navigation";
 import { getAllQnas } from "../../../lib/content-loader";
 import { QnaCard } from "../../../components/QnaCard";
 import { QnaEntry } from "../../../lib/schema";
@@ -10,6 +9,9 @@ interface PageProps {
 
 export async function generateStaticParams() {
   const qnas = getAllQnas();
+  if (qnas.length === 0) {
+    return [{ id: "_placeholder" }];
+  }
   return qnas.map((q) => ({ id: q.id }));
 }
 
@@ -18,9 +20,10 @@ export async function generateMetadata({ params }: PageProps) {
   const qnas = getAllQnas();
   const entry = qnas.find((q) => q.id === id);
 
-  if (!entry) {
+  if (id === "_placeholder" || !entry) {
     return {
-      title: "Q&A Not Found — Od-Lagna",
+      title: "No Q&A Entries Yet — Od-Lagna",
+      description: "No Q&A entries have been published to the archive yet.",
     };
   }
 
@@ -76,8 +79,40 @@ export default async function QnaDetailPage({ params }: PageProps) {
   const allQnas = getAllQnas();
   const entry = allQnas.find((q) => q.id === id);
 
-  if (!entry) {
-    notFound();
+  if (id === "_placeholder" || !entry) {
+    return (
+      <main className="min-h-screen bg-[var(--bg-main)] text-[var(--text-main)] py-12 sm:py-20">
+        <div className="max-w-2xl mx-auto px-4 text-center space-y-6">
+          <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-[var(--bg-elevated)] border border-[var(--border-subtle)] text-[var(--text-muted)]">
+            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+            </svg>
+          </div>
+          <div className="space-y-2">
+            <h1 className="text-2xl sm:text-3xl font-bold tracking-tight text-[var(--text-main)]">
+              No Q&amp;A entries yet — check back soon
+            </h1>
+            <p className="text-sm text-[var(--text-muted)] max-w-md mx-auto leading-relaxed">
+              The archive has not yet indexed any public statements for this record. Use the local admin tool or browse the main archive.
+            </p>
+          </div>
+          <div className="pt-2 flex items-center justify-center gap-3">
+            <Link
+              href="/"
+              className="px-4 py-2 text-xs font-semibold rounded-lg bg-[var(--accent)] text-white hover:bg-[var(--accent-hover)] transition-colors shadow-xs"
+            >
+              Return to Home
+            </Link>
+            <Link
+              href="/browse"
+              className="px-4 py-2 text-xs font-semibold rounded-lg border border-[var(--border-subtle)] bg-[var(--bg-surface)] hover:bg-[var(--bg-elevated)] text-[var(--text-main)] transition-colors"
+            >
+              Browse Archive
+            </Link>
+          </div>
+        </div>
+      </main>
+    );
   }
 
   const recommendations = computeRecommendations(entry, allQnas, 3);
