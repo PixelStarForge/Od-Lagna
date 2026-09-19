@@ -1,26 +1,92 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-sans: var(--font-inter), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --bg-main: #fbfbfb;
+  --bg-surface: #ffffff;
+  --bg-elevated: #f4f4f5;
+  --border-subtle: #e4e4e7;
+  --border-strong: #d4d4d8;
+  --text-main: #18181b;
+  --text-muted: #52525b;
+  --text-faint: #71717a;
+  --accent: #b91c1c;
+  --accent-hover: #991b1b;
+  --accent-bg: #fef2f2;
+  --accent-border: #fecaca;
+  --accent-text: #991b1b;
+  --verified-text: #15803d;
+  --verified-bg: #f0fdf4;
+  --verified-border: #bbf7d0;
+  --unverified-text: #b45309;
+  --unverified-bg: #fffbeb;
+  --unverified-border: #fde68a;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+.dark {
+  --bg-main: #09090b;
+  --bg-surface: #121215;
+  --bg-elevated: #18181b;
+  --border-subtle: #27272a;
+  --border-strong: #3f3f46;
+  --text-main: #f4f4f5;
+  --text-muted: #a1a1aa;
+  --text-faint: #71717a;
+  --accent: #ef4444;
+  --accent-hover: #f87171;
+  --accent-bg: #2a1215;
+  --accent-border: #451a1d;
+  --accent-text: #fca5a5;
+  --verified-text: #4ade80;
+  --verified-bg: #052e16;
+  --verified-border: #14532d;
+  --unverified-text: #fbbf24;
+  --unverified-bg: #451a03;
+  --unverified-border: #78350f;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--bg-main);
+  color: var(--text-main);
+  font-family: var(--font-sans);
+  min-height: 100vh;
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Custom typography classes */
+.font-prose {
+  font-family: var(--font-sans);
+  line-height: 1.68;
+  letter-spacing: -0.01em;
+}
+
+/* Smooth transitions for theme toggle & modals */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-strong);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-faint);
 }

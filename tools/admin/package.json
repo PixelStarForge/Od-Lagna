@@ -1,0 +1,6 @@
+{
+  "name": "od-lagna-admin",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Local-only admin tool for Od-Lagna Q&A curation. Strictly excluded from production deployment."
+}

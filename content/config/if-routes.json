@@ -1,0 +1,11 @@
+[
+  { "slug": "if-pride", "name": "Pride IF", "divergesFrom": "arc-1" },
+  { "slug": "if-wrath", "name": "Wrath IF", "divergesFrom": "arc-2" },
+  { "slug": "if-sloth", "name": "Sloth IF", "divergesFrom": "arc-3" },
+  { "slug": "if-greed", "name": "Greed IF", "divergesFrom": "arc-4" },
+  { "slug": "if-gluttony", "name": "Gluttony IF", "divergesFrom": "arc-6" },
+  { "slug": "if-lust", "name": "Lust IF", "divergesFrom": null },
+  { "slug": "if-genderbend", "name": "GenderBend IF", "divergesFrom": null },
+  { "slug": "if-azamaku", "name": "Azamaku IF", "divergesFrom": "arc-7" },
+  { "slug": "if-sasageru", "name": "Sasageru IF", "divergesFrom": "arc-9" }
+]
