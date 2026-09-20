@@ -6,6 +6,7 @@ import { useRouter } from "next/navigation";
 import { QnaEntry } from "../lib/schema";
 import { ArcMetadata, getArcMetadata } from "../lib/arc-utils";
 import { usePreferences } from "../lib/preferences";
+import { formatQnaDate, getEntryDate } from "../lib/date-utils";
 
 interface QnaCardProps {
   entry: QnaEntry;
@@ -17,6 +18,9 @@ export function QnaCard({ entry, onTagClick }: QnaCardProps) {
   const { spoilerArc, spoilerIf, mounted } = usePreferences();
   const [isCopied, setIsCopied] = useState(false);
   const [isManuallyRevealed, setIsManuallyRevealed] = useState(false);
+
+  const rawDate = getEntryDate(entry);
+  const dateFormatted = formatQnaDate(rawDate);
 
   const arcMeta: ArcMetadata = getArcMetadata(entry.arc);
 
@@ -95,6 +99,19 @@ export function QnaCard({ entry, onTagClick }: QnaCardProps) {
             >
               <span className="font-bold text-[10px]">!</span>
               <span>Unverified</span>
+            </span>
+          )}
+
+          {/* Statement Date Badge */}
+          {dateFormatted && (
+            <span
+              title={`Statement Date: ${rawDate}`}
+              className="inline-flex items-center gap-1 font-mono text-[11px] px-2 py-0.5 rounded bg-[var(--bg-elevated)] border border-[var(--border-subtle)] text-[var(--text-muted)]"
+            >
+              <svg className="w-3 h-3 text-[var(--text-faint)] shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+              </svg>
+              <span>{dateFormatted}</span>
             </span>
           )}
         </div>

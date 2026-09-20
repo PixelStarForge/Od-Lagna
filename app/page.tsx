@@ -16,7 +16,7 @@ export default function HomePage() {
         </div>
 
         <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-[var(--text-main)]">
-          Every Author Q&amp;A. <br />
+          Every Tappie Q&amp;A. <br />
           <span className="text-[var(--accent)] italic">One Searchable Archive.</span>
         </h1>
 

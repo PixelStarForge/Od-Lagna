@@ -53,16 +53,19 @@ function updateTagRegistries(newCharacters: string[], newTopics: string[]) {
   const charsFile = path.join(CONTENT_CONFIG_DIR, "characters.json");
   const topicsFile = path.join(CONTENT_CONFIG_DIR, "topics.json");
 
+  const cleanChars = newCharacters.map((s) => s.trim()).filter((s) => s.length >= 2);
+  const cleanTopics = newTopics.map((s) => s.trim()).filter((s) => s.length >= 2);
+
   if (fs.existsSync(charsFile)) {
     const existingChars: string[] = JSON.parse(fs.readFileSync(charsFile, "utf-8"));
-    const charSet = new Set([...existingChars, ...newCharacters.filter(Boolean)]);
+    const charSet = new Set([...existingChars, ...cleanChars]);
     const sortedChars = Array.from(charSet).sort();
     fs.writeFileSync(charsFile, JSON.stringify(sortedChars, null, 2), "utf-8");
   }
 
   if (fs.existsSync(topicsFile)) {
     const existingTopics: string[] = JSON.parse(fs.readFileSync(topicsFile, "utf-8"));
-    const topicSet = new Set([...existingTopics, ...newTopics.filter(Boolean)]);
+    const topicSet = new Set([...existingTopics, ...cleanTopics]);
     const sortedTopics = Array.from(topicSet).sort();
     fs.writeFileSync(topicsFile, JSON.stringify(sortedTopics, null, 2), "utf-8");
   }
@@ -83,6 +86,7 @@ function getAllEntriesSummary() {
         question: data.question,
         arc: data.arc,
         verified: data.verified,
+        dateTime: data.dateTime || data.date,
         filename: file,
       });
     } catch {
@@ -316,6 +320,17 @@ const server = http.createServer((req, res) => {
     #status-msg { margin-bottom: 1rem; padding: 0.75rem 1rem; border-radius: 6px; display: none; font-size: 0.85rem; }
     #status-msg.success { background: #064e3b; color: #a7f3d0; display: block; }
     #status-msg.error { background: #7f1d1d; color: #fecaca; display: block; }
+
+    /* Date selector components */
+    .sub-label { font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-muted); margin-bottom: 0.25rem; display: block; }
+    .btn-date-action { background: rgba(255, 255, 255, 0.08); border: 1px solid var(--border); color: var(--text-muted); border-radius: 4px; padding: 0.2rem 0.55rem; font-size: 0.72rem; font-weight: 500; cursor: pointer; transition: all 0.15s; }
+    .btn-date-action:hover { background: rgba(255, 255, 255, 0.16); color: var(--text); border-color: #64748b; }
+    .date-panel { background: rgba(15, 23, 42, 0.45); border: 1px solid var(--border); border-radius: 8px; padding: 0.85rem; }
+    .date-panel-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.6rem; }
+    .date-grid { display: grid; grid-template-columns: 85px 145px 115px 125px; gap: 0.75rem; align-items: end; }
+    @media (max-width: 640px) { .date-grid { grid-template-columns: 1fr 1fr; } }
+    .date-preview-box { margin-top: 0.55rem; font-size: 0.75rem; color: var(--text-muted); font-family: monospace; padding: 0.35rem 0.5rem; border-radius: 4px; background: rgba(0, 0, 0, 0.25); border: 1px solid rgba(255, 255, 255, 0.05); display: flex; align-items: center; gap: 0.5rem; }
+    .date-preview-val { color: #38bdf8; font-weight: 600; }
   </style>
 </head>
 <body>
@@ -364,6 +379,59 @@ const server = http.createServer((req, res) => {
               <input type="checkbox" id="verified">
               <span>Verified Primary Source</span>
             </label>
+          </div>
+        </div>
+
+        <!-- Date & Time Selector Separated by Day -> Month -> Year -->
+        <div class="form-group date-panel">
+          <div class="date-panel-head">
+            <label style="margin-bottom: 0;">Statement Date &amp; Time (Optional)</label>
+            <div style="display: flex; gap: 0.4rem;">
+              <button type="button" class="btn-date-action" onclick="setTodayDate()">Today</button>
+              <button type="button" class="btn-date-action" onclick="clearDateFields()">Clear</button>
+            </div>
+          </div>
+
+          <div class="date-grid">
+            <div>
+              <label for="date-day" class="sub-label">Day</label>
+              <select id="date-day" onchange="updateDatePreview()"></select>
+            </div>
+
+            <div>
+              <label for="date-month" class="sub-label">Month</label>
+              <select id="date-month" onchange="updateDatePreview()">
+                <option value="">Month</option>
+                <option value="01">01 - Jan</option>
+                <option value="02">02 - Feb</option>
+                <option value="03">03 - Mar</option>
+                <option value="04">04 - Apr</option>
+                <option value="05">05 - May</option>
+                <option value="06">06 - Jun</option>
+                <option value="07">07 - Jul</option>
+                <option value="08">08 - Aug</option>
+                <option value="09">09 - Sep</option>
+                <option value="10">10 - Oct</option>
+                <option value="11">11 - Nov</option>
+                <option value="12">12 - Dec</option>
+              </select>
+            </div>
+
+            <div>
+              <label for="date-year" class="sub-label">Year</label>
+              <select id="date-year" onchange="handleYearChange()"></select>
+            </div>
+
+            <div>
+              <label for="date-time-val" class="sub-label">Time (Optional)</label>
+              <input type="time" id="date-time-val" onchange="updateDatePreview()">
+            </div>
+          </div>
+
+          <div id="date-preview-box" class="date-preview-box">
+            <span>Stored ISO:</span>
+            <span id="date-preview-text" class="date-preview-val">None</span>
+            <span id="date-preview-human" style="color: var(--text-muted); font-family: sans-serif; font-size: 0.72rem;"></span>
           </div>
         </div>
 
@@ -433,6 +501,8 @@ const server = http.createServer((req, res) => {
     async function init() {
       await reloadConfigAndEntries();
       populateArcSelect();
+      populateDaySelect();
+      populateYearSelect();
       setupAutocomplete('characters', 'char-autocomplete', 'characters');
       setupAutocomplete('topics', 'topic-autocomplete', 'topics');
       createNew();
@@ -523,7 +593,7 @@ const server = http.createServer((req, res) => {
         tags.push(tag);
       }
 
-      input.value = tags.join(', ');
+      input.value = tags.length > 0 ? tags.join(', ') + ', ' : '';
       renderTagClouds();
     }
 
@@ -581,12 +651,23 @@ const server = http.createServer((req, res) => {
       const afterIndex = val.indexOf(',', lastCommaIndex + 1);
       const after = afterIndex >= 0 ? val.slice(afterIndex) : '';
 
-      input.value = (before + selectedTag + (after ? after : ', ')).replace(/\s*,\s*/g, ', ').replace(/,\s*,/g, ',').trim();
-      if (!input.value.endsWith(',') && !after) {
-        input.value += ', ';
+      const currentTags = (before + selectedTag + (after ? after : '')).split(',').map(s => s.trim()).filter(Boolean);
+      const uniqueTags = [];
+      const seen = new Set();
+      for (const t of currentTags) {
+        const lower = t.toLowerCase();
+        if (!seen.has(lower)) {
+          seen.add(lower);
+          uniqueTags.push(t);
+        }
       }
+
+      input.value = uniqueTags.join(', ') + ', ';
       renderTagClouds();
       input.focus();
+      if (input.setSelectionRange) {
+        input.setSelectionRange(input.value.length, input.value.length);
+      }
     }
 
     function renderEntryList() {
@@ -609,8 +690,9 @@ const server = http.createServer((req, res) => {
         const li = document.createElement('li');
         if (e.id === currentId) li.className = 'active';
         li.onclick = () => loadEntry(e.id);
+        const dateTag = e.dateTime ? ' • ' + (e.dateTime.length > 10 ? e.dateTime.slice(0, 10) : e.dateTime) : '';
         li.innerHTML = 
-          '<div class="entry-meta"><span>#' + e.id + '</span><span>' + e.arc + '</span></div>' +
+          '<div class="entry-meta"><span>#' + e.id + '</span><span>' + e.arc + dateTag + '</span></div>' +
           '<div class="entry-q">' + (e.question || 'Untitled') + '</div>';
         list.appendChild(li);
       });
@@ -623,6 +705,7 @@ const server = http.createServer((req, res) => {
       document.getElementById('btn-delete').style.display = 'none';
       document.getElementById('qna-form').reset();
       document.getElementById('entry-id').value = '';
+      clearDateFields();
       hideStatus();
       renderEntryList();
       renderTagClouds();
@@ -649,6 +732,7 @@ const server = http.createServer((req, res) => {
       document.getElementById('answer').value = data.answer;
       document.getElementById('arc').value = data.arc;
       document.getElementById('verified').checked = !!data.verified;
+      setDateFromValue(data.dateTime || data.date || '');
       document.getElementById('characters').value = (data.characters || []).join(', ');
       document.getElementById('topics').value = (data.topics || []).join(', ');
       document.getElementById('source-type').value = data.source ? data.source.type : 'url';
@@ -670,11 +754,22 @@ const server = http.createServer((req, res) => {
         .map(s => s.trim())
         .filter(Boolean);
 
+      const dayVal = document.getElementById('date-day').value;
+      const monthVal = document.getElementById('date-month').value;
+      const yearVal = document.getElementById('date-year').value;
+
+      if ((dayVal || monthVal) && !yearVal) {
+        showStatus('Please select a Year to complete the date.', 'error');
+        return;
+      }
+
+      const dateTimeVal = getCombinedDateTime();
       const payload = {
         question: document.getElementById('question').value.trim(),
         answer: document.getElementById('answer').value.trim(),
         arc: document.getElementById('arc').value,
         verified: document.getElementById('verified').checked,
+        ...(dateTimeVal ? { dateTime: dateTimeVal } : {}),
         characters: chars,
         topics: topics,
         source: {
@@ -740,6 +835,174 @@ const server = http.createServer((req, res) => {
       const el = document.getElementById('status-msg');
       el.className = '';
       el.style.display = 'none';
+    }
+
+    /* Date & Time helper routines */
+    const MONTH_NAMES = ['', 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+
+    function populateDaySelect() {
+      const sel = document.getElementById('date-day');
+      sel.innerHTML = '<option value="">Day</option>';
+      for (let d = 1; d <= 31; d++) {
+        const opt = document.createElement('option');
+        const val = String(d).padStart(2, '0');
+        opt.value = val;
+        opt.textContent = val;
+        sel.appendChild(opt);
+      }
+    }
+
+    function populateYearSelect() {
+      const sel = document.getElementById('date-year');
+      sel.innerHTML = '<option value="">Year</option>';
+      const currentYear = new Date().getFullYear();
+      for (let y = currentYear + 1; y >= 2011; y--) {
+        const opt = document.createElement('option');
+        opt.value = String(y);
+        opt.textContent = String(y);
+        sel.appendChild(opt);
+      }
+      const optOther = document.createElement('option');
+      optOther.value = 'other';
+      optOther.textContent = 'Other Year...';
+      sel.appendChild(optOther);
+    }
+
+    function ensureYearInSelect(y) {
+      if (!y) return;
+      const sel = document.getElementById('date-year');
+      for (let i = 0; i < sel.options.length; i++) {
+        if (sel.options[i].value === y) return;
+      }
+      const opt = document.createElement('option');
+      opt.value = y;
+      opt.textContent = y;
+      sel.insertBefore(opt, sel.lastElementChild);
+    }
+
+    function handleYearChange() {
+      const sel = document.getElementById('date-year');
+      if (sel.value === 'other') {
+        const custom = prompt('Enter 4-digit Year (e.g. 2008):');
+        if (custom && /^\\d{4}$/.test(custom.trim())) {
+          const cleanYear = custom.trim();
+          ensureYearInSelect(cleanYear);
+          sel.value = cleanYear;
+        } else {
+          sel.value = '';
+        }
+      }
+      updateDatePreview();
+    }
+
+    function getCombinedDateTime() {
+      const day = document.getElementById('date-day').value;
+      const month = document.getElementById('date-month').value;
+      const year = document.getElementById('date-year').value;
+      const time = document.getElementById('date-time-val').value;
+
+      if (!year) return '';
+
+      if (month && day) {
+        let res = year + '-' + month + '-' + day;
+        if (time) {
+          res += 'T' + (time.length === 5 ? time + ':00' : time);
+        }
+        return res;
+      }
+
+      if (month) {
+        return year + '-' + month;
+      }
+
+      return year;
+    }
+
+    function updateDatePreview() {
+      const day = document.getElementById('date-day').value;
+      const month = document.getElementById('date-month').value;
+      const year = document.getElementById('date-year').value;
+      const time = document.getElementById('date-time-val').value;
+      const isoText = document.getElementById('date-preview-text');
+      const humanText = document.getElementById('date-preview-human');
+
+      const iso = getCombinedDateTime();
+      if (!iso) {
+        if (day || month) {
+          isoText.textContent = 'Incomplete (Select Year)';
+          isoText.style.color = '#f87171';
+          humanText.textContent = '';
+        } else {
+          isoText.textContent = 'None';
+          isoText.style.color = 'var(--text-muted)';
+          humanText.textContent = '';
+        }
+        return;
+      }
+
+      isoText.textContent = iso;
+      isoText.style.color = '#38bdf8';
+
+      if (year && month && day) {
+        const mIdx = parseInt(month, 10);
+        const mName = MONTH_NAMES[mIdx] || month;
+        const dNum = parseInt(day, 10);
+        let human = '(' + mName + ' ' + dNum + ', ' + year;
+        if (time) human += ' at ' + time;
+        human += ')';
+        humanText.textContent = human;
+      } else if (year && month) {
+        const mIdx = parseInt(month, 10);
+        humanText.textContent = '(' + (MONTH_NAMES[mIdx] || month) + ' ' + year + ')';
+      } else if (year) {
+        humanText.textContent = '(' + year + ')';
+      }
+    }
+
+    function setDateFromValue(val) {
+      clearDateFields();
+      if (!val || typeof val !== 'string') return;
+      const trimmed = val.trim();
+      if (!trimmed) return;
+
+      const match = trimmed.match(/^(\\d{4})(?:-(\\d{2}))?(?:-(\\d{2}))?(?:[T\\s](\\d{2}:\\d{2}))?/);
+      if (match) {
+        const y = match[1];
+        const m = match[2] || '';
+        const d = match[3] || '';
+        const t = match[4] || '';
+
+        ensureYearInSelect(y);
+        document.getElementById('date-year').value = y;
+        document.getElementById('date-month').value = m;
+        document.getElementById('date-day').value = d;
+        document.getElementById('date-time-val').value = t;
+      }
+      updateDatePreview();
+    }
+
+    function setTodayDate() {
+      const now = new Date();
+      const d = String(now.getDate()).padStart(2, '0');
+      const m = String(now.getMonth() + 1).padStart(2, '0');
+      const y = String(now.getFullYear());
+      const hh = String(now.getHours()).padStart(2, '0');
+      const mm = String(now.getMinutes()).padStart(2, '0');
+
+      ensureYearInSelect(y);
+      document.getElementById('date-year').value = y;
+      document.getElementById('date-month').value = m;
+      document.getElementById('date-day').value = d;
+      document.getElementById('date-time-val').value = hh + ':' + mm;
+      updateDatePreview();
+    }
+
+    function clearDateFields() {
+      document.getElementById('date-day').value = '';
+      document.getElementById('date-month').value = '';
+      document.getElementById('date-year').value = '';
+      document.getElementById('date-time-val').value = '';
+      updateDatePreview();
     }
 
     init();

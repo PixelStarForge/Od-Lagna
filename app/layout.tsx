@@ -9,11 +9,11 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Od-Lagna — Re:Zero Author Q&A Archive",
+  title: "Od-Lagna — Re:Zero Tappie Q&A Archive",
   description:
-    "Comprehensive, searchable index of every Re:Zero author Q&A across events, interviews, and Twitter, featuring granular spoiler protection.",
+    "Comprehensive, searchable index of every Tappie Q&A across events, interviews, and Twitter, featuring granular spoiler protection.",
   openGraph: {
-    title: "Od-Lagna — Re:Zero Author Q&A Archive",
+    title: "Od-Lagna — Re:Zero Tappei Q&A Archive",
     description:
       "Every Q&A by Tappei Nagatsuki indexed in one searchable, spoiler-safe archive.",
     type: "website",
@@ -22,7 +22,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Od-Lagna — Re:Zero Author Q&A Archive",
+    title: "Od-Lagna — Tappei Q&A Archive",
     description:
       "Every Q&A by Tappei Nagatsuki indexed in one searchable, spoiler-safe archive.",
   },

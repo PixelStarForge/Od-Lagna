@@ -6,6 +6,7 @@ import Fuse from "fuse.js";
 import { usePreferences } from "../lib/preferences";
 import { SearchIndexRecord, SearchIndexPayload } from "../lib/search-index";
 import { CANON_ARCS, IF_ROUTES, isArcSpoiler } from "../lib/arc-utils";
+import { formatQnaDate } from "../lib/date-utils";
 
 type SearchResultItem =
   | { type: "qna"; data: SearchIndexRecord }
@@ -418,6 +419,7 @@ export function SearchModal() {
               {groupedResults.qnas.map((qna) => {
                 const itemIndex = currentItemOffset++;
                 const isSelected = selectedIndex === itemIndex;
+                const formattedDate = formatQnaDate(qna.dateTime);
                 return (
                   <div
                     key={qna.id}
@@ -429,11 +431,17 @@ export function SearchModal() {
                     }`}
                   >
                     <div className="flex items-center justify-between gap-2">
-                      <span className="font-mono text-[10px] text-[var(--text-faint)]">
-                        #{qna.id} • {qna.arcName}
-                      </span>
+                      <div className="flex items-center gap-1.5 font-mono text-[10px] text-[var(--text-faint)] truncate">
+                        <span>#{qna.id} • {qna.arcName}</span>
+                        {formattedDate && (
+                          <>
+                            <span>•</span>
+                            <span>{formattedDate}</span>
+                          </>
+                        )}
+                      </div>
                       {qna.verified && (
-                        <span className="text-[10px] text-[var(--verified-text)] font-medium inline-flex items-center gap-0.5">
+                        <span className="text-[10px] text-[var(--verified-text)] font-medium inline-flex items-center gap-0.5 shrink-0">
                           <svg className="w-2.5 h-2.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
                           </svg>

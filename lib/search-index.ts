@@ -8,6 +8,7 @@ export interface SearchIndexRecord {
   arc: string;
   arcName: string;
   verified: boolean;
+  dateTime?: string;
 }
 
 export interface SearchIndexPayload {

@@ -2,6 +2,7 @@ import Link from "next/link";
 import { getAllQnas } from "../../../lib/content-loader";
 import { QnaCard } from "../../../components/QnaCard";
 import { QnaEntry } from "../../../lib/schema";
+import { formatQnaDate, getEntryDate } from "../../../lib/date-utils";
 
 interface PageProps {
   params: Promise<{ id: string }>;
@@ -27,10 +28,12 @@ export async function generateMetadata({ params }: PageProps) {
     };
   }
 
+  const rawDate = getEntryDate(entry);
+  const dateFormatted = formatQnaDate(rawDate);
   const snippet = entry.question.length > 60 ? `${entry.question.slice(0, 57)}...` : entry.question;
   return {
-    title: `Q&A #${entry.id}: "${snippet}" — Od-Lagna`,
-    description: entry.answer.slice(0, 160),
+    title: `Q&A #${entry.id}${dateFormatted ? ` (${dateFormatted})` : ""}: "${snippet}" — Od-Lagna`,
+    description: `${dateFormatted ? `[${dateFormatted}] ` : ""}${entry.answer.slice(0, 160)}`,
   };
 }
 

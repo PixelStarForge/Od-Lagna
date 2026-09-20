@@ -1,0 +1,24 @@
+{
+  "id": "0040",
+  "question": "Ranking on amount of mana (Without order)",
+  "answer": "Emilia, Roswaal, Echidna, Typhon, Carmilla, Daphne, Ferris,",
+  "characters": [
+    "Emilia",
+    "Roswaal L. Mathers",
+    "Echidna",
+    "Typhon",
+    "Carmilla",
+    "Daphne",
+    "Felix Argyle (Ferris)"
+  ],
+  "topics": [
+    "Ranking",
+    "Mana & Magic"
+  ],
+  "arc": "general",
+  "source": {
+    "type": "url",
+    "value": ""
+  },
+  "verified": false
+}

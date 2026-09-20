@@ -7,6 +7,7 @@ import { QnaCard } from "./QnaCard";
 import { SpoilerControls } from "./SpoilerControls";
 import { usePreferences } from "../lib/preferences";
 import { CustomSelect, SelectOption } from "./CustomSelect";
+import { getEntryDate, getYearFromDate } from "../lib/date-utils";
 
 interface BrowseClientProps {
   allQnas: QnaEntry[];
@@ -38,11 +39,14 @@ export function BrowseClient({
   const [selectedTopic, setSelectedTopic] = useState<string>(() => {
     return searchParams.get("topic") || "all";
   });
+  const [selectedYear, setSelectedYear] = useState<string>(() => {
+    return searchParams.get("year") || "all";
+  });
   const [verifiedOnly, setVerifiedOnly] = useState<boolean>(() => {
     return searchParams.get("verified") === "true";
   });
   const [searchFilter, setSearchFilter] = useState<string>("");
-  const [sortBy, setSortBy] = useState<"canon" | "recent" | "oldest">("canon");
+  const [sortBy, setSortBy] = useState<"canon" | "recent" | "oldest" | "date-desc" | "date-asc">("canon");
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [isFilterDrawerOpen, setIsFilterDrawerOpen] = useState<boolean>(false);
 
@@ -106,11 +110,34 @@ export function BrowseClient({
     [allTopics]
   );
 
+  // Year options derived from entries with valid dates
+  const availableYears = useMemo(() => {
+    const set = new Set<string>();
+    for (const q of allQnas) {
+      const y = getYearFromDate(getEntryDate(q));
+      if (y) set.add(y);
+    }
+    return Array.from(set).sort((a, b) => b.localeCompare(a));
+  }, [allQnas]);
+
+  const yearOptions = useMemo<SelectOption[]>(
+    () => [
+      { value: "all", label: "All Years" },
+      ...availableYears.map((y) => ({
+        value: y,
+        label: y,
+      })),
+    ],
+    [availableYears]
+  );
+
   // Sort options for CustomSelect
   const sortOptions: SelectOption[] = [
     { value: "canon", label: "Canon Arc Order" },
     { value: "recent", label: "Recently Added (ID ↓)" },
     { value: "oldest", label: "Oldest (ID ↑)" },
+    { value: "date-desc", label: "Date: Newest First" },
+    { value: "date-asc", label: "Date: Oldest First" },
   ];
 
   // Handle deep-link scrolling to hash on page load (#qna-0001)
@@ -154,6 +181,12 @@ export function BrowseClient({
         if (!entry.topics.includes(selectedTopic)) return false;
       }
 
+      // Year filter
+      if (selectedYear !== "all") {
+        const entryYear = getYearFromDate(getEntryDate(entry));
+        if (entryYear !== selectedYear) return false;
+      }
+
       // Verified filter
       if (verifiedOnly && !entry.verified) {
         return false;
@@ -171,7 +204,7 @@ export function BrowseClient({
 
       return true;
     });
-  }, [allQnas, selectedArc, selectedCharacter, selectedTopic, verifiedOnly, searchFilter]);
+  }, [allQnas, selectedArc, selectedCharacter, selectedTopic, selectedYear, verifiedOnly, searchFilter]);
 
   // Sorting
   const sortedEntries = useMemo(() => {
@@ -195,6 +228,32 @@ export function BrowseClient({
       list.sort((a, b) => b.id.localeCompare(a.id));
     } else if (sortBy === "oldest") {
       list.sort((a, b) => a.id.localeCompare(b.id));
+    } else if (sortBy === "date-desc") {
+      list.sort((a, b) => {
+        const dateA = getEntryDate(a);
+        const dateB = getEntryDate(b);
+        const timeA = dateA ? new Date(dateA).getTime() : -Infinity;
+        const timeB = dateB ? new Date(dateB).getTime() : -Infinity;
+        if (!isNaN(timeA) && !isNaN(timeB) && timeA !== timeB) {
+          return timeB - timeA;
+        }
+        if (dateA && !dateB) return -1;
+        if (!dateA && dateB) return 1;
+        return b.id.localeCompare(a.id);
+      });
+    } else if (sortBy === "date-asc") {
+      list.sort((a, b) => {
+        const dateA = getEntryDate(a);
+        const dateB = getEntryDate(b);
+        const timeA = dateA ? new Date(dateA).getTime() : Infinity;
+        const timeB = dateB ? new Date(dateB).getTime() : Infinity;
+        if (!isNaN(timeA) && !isNaN(timeB) && timeA !== timeB) {
+          return timeA - timeB;
+        }
+        if (dateA && !dateB) return -1;
+        if (!dateA && dateB) return 1;
+        return a.id.localeCompare(b.id);
+      });
     }
 
     return list;
@@ -210,6 +269,7 @@ export function BrowseClient({
     selectedArc !== "all" ||
     selectedCharacter !== "all" ||
     selectedTopic !== "all" ||
+    selectedYear !== "all" ||
     verifiedOnly ||
     searchFilter.trim() !== "";
 
@@ -217,6 +277,7 @@ export function BrowseClient({
     setSelectedArc("all");
     setSelectedCharacter("all");
     setSelectedTopic("all");
+    setSelectedYear("all");
     setVerifiedOnly(false);
     setSearchFilter("");
     setCurrentPage(1);
@@ -346,6 +407,25 @@ export function BrowseClient({
             />
           </div>
 
+          {/* Year Selector */}
+          {availableYears.length > 0 && (
+            <div className="space-y-1.5">
+              <label htmlFor="year-select" className="text-xs font-mono uppercase tracking-wider text-[var(--text-faint)]">
+                Year ({availableYears.length})
+              </label>
+              <CustomSelect
+                id="year-select"
+                value={selectedYear}
+                onChange={(val) => {
+                  setSelectedYear(val);
+                  setCurrentPage(1);
+                }}
+                options={yearOptions}
+                placeholder="All Years"
+              />
+            </div>
+          )}
+
           {/* Verified Only Toggle */}
           <div className="pt-2 border-t border-[var(--border-subtle)]">
             <label className="flex items-center gap-3 cursor-pointer select-none group">
@@ -457,6 +537,20 @@ export function BrowseClient({
                     type="button"
                     onClick={() => setSelectedTopic("all")}
                     aria-label={`Remove topic filter for ${selectedTopic}`}
+                    className="hover:text-[var(--accent)] ml-1 font-bold cursor-pointer"
+                  >
+                    ×
+                  </button>
+                </span>
+              )}
+
+              {selectedYear !== "all" && (
+                <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs bg-[var(--bg-elevated)] border border-[var(--border-subtle)] text-[var(--text-main)]">
+                  Year: {selectedYear}
+                  <button
+                    type="button"
+                    onClick={() => setSelectedYear("all")}
+                    aria-label={`Remove year filter for ${selectedYear}`}
                     className="hover:text-[var(--accent)] ml-1 font-bold cursor-pointer"
                   >
                     ×

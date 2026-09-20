@@ -22,6 +22,8 @@ export const qnaEntrySchema = z.object({
   arc: z.string().min(1, "Arc is required"),
   source: qnaSourceSchema,
   verified: z.boolean(),
+  dateTime: z.string().optional(),
+  date: z.string().optional(),
 });
 
 export type QnaEntry = z.infer<typeof qnaEntrySchema>;

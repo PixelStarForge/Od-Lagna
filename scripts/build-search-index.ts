@@ -17,6 +17,7 @@ export interface SearchIndexRecord {
   arc: string;
   arcName: string;
   verified: boolean;
+  dateTime?: string;
 }
 
 export interface SearchIndexPayload {
@@ -98,6 +99,7 @@ export function buildSearchIndex(): SearchIndexPayload {
           arc: entry.arc,
           arcName: arcMap.get(entry.arc) || entry.arc,
           verified: entry.verified,
+          dateTime: entry.dateTime || entry.date || undefined,
         });
       } catch (err) {
         console.error(`Error indexing file ${file}:`, err);
