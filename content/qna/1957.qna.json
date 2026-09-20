@@ -1,0 +1,18 @@
+{
+  "id": "1957",
+  "question": "How much does Echidna like Subaru?",
+  "answer": "Spoiler",
+  "characters": [
+    "Echidna",
+    "Natsuki Subaru"
+  ],
+  "topics": [
+    "General"
+  ],
+  "arc": "general",
+  "source": {
+    "type": "text",
+    "value": ""
+  },
+  "verified": false
+}

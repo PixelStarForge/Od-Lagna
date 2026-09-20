@@ -1,0 +1,17 @@
+{
+  "id": "3201",
+  "question": "Who does Joshua dislike the most?",
+  "answer": "Perhaps it's himself, isn't it?",
+  "characters": [
+    "Joshua Juukulius"
+  ],
+  "topics": [
+    "General"
+  ],
+  "arc": "general",
+  "source": {
+    "type": "text",
+    "value": ""
+  },
+  "verified": false
+}

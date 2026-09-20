@@ -1,0 +1,15 @@
+{
+  "id": "3805",
+  "question": "Which arc looks like it will be the longest? Compared to arc 3, about how long will it be?",
+  "answer": "The final arc will probably not be twice as long as arc 3.",
+  "characters": [],
+  "topics": [
+    "General"
+  ],
+  "arc": "arc-3",
+  "source": {
+    "type": "text",
+    "value": ""
+  },
+  "verified": false
+}

@@ -1,0 +1,20 @@
+{
+  "id": "2254",
+  "question": "What are Otto's habits?",
+  "answer": "For each of the characters, there's patterns that are often used when they are depicted, and in Otto's case \"put his hand to his forehead\" and \"held his head\" get used often. Subaru is \"crack the bones of his neck\", Garfiel is \"rasp his fangs\", Emilia is \"tilt her head\", etc.",
+  "characters": [
+    "Emilia",
+    "Garfiel Tinsel",
+    "Natsuki Subaru",
+    "Otto Suwen"
+  ],
+  "topics": [
+    "General"
+  ],
+  "arc": "general",
+  "source": {
+    "type": "text",
+    "value": ""
+  },
+  "verified": false
+}

@@ -1,0 +1,17 @@
+{
+  "id": "0380",
+  "question": "Is it possible to hit Reinhard with an attack?",
+  "answer": "It is possible.",
+  "characters": [
+    "Reinhard van Astrea"
+  ],
+  "topics": [
+    "General"
+  ],
+  "arc": "general",
+  "source": {
+    "type": "text",
+    "value": ""
+  },
+  "verified": false
+}

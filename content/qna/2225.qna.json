@@ -1,0 +1,18 @@
+{
+  "id": "2225",
+  "question": "If Otto was in the Priscilla camp, how would he be treated?",
+  "answer": "I don't think Priscilla would take a liking to Otto, so it wouldn't work.",
+  "characters": [
+    "Otto Suwen",
+    "Priscilla Barielle"
+  ],
+  "topics": [
+    "General"
+  ],
+  "arc": "general",
+  "source": {
+    "type": "text",
+    "value": ""
+  },
+  "verified": false
+}

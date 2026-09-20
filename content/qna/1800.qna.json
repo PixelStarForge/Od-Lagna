@@ -1,0 +1,18 @@
+{
+  "id": "1800",
+  "question": "Does he have any favorite foods besides Julius?",
+  "answer": "When you put it like that, it sounds like Julius is a food... He likes things with rich flavor. From that viewpoint, Julius would be said to prefer light flavors.",
+  "characters": [
+    "Joshua Juukulius",
+    "Julius Juukulius"
+  ],
+  "topics": [
+    "General"
+  ],
+  "arc": "general",
+  "source": {
+    "type": "text",
+    "value": ""
+  },
+  "verified": false
+}

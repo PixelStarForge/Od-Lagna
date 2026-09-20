@@ -1,0 +1,17 @@
+{
+  "id": "2259",
+  "question": "What flower does Otto like?",
+  "answer": "It's edible flowers, indeed. Back when he was very poor, he asked animals and bugs about it, and got along by eating them.",
+  "characters": [
+    "Otto Suwen"
+  ],
+  "topics": [
+    "General"
+  ],
+  "arc": "general",
+  "source": {
+    "type": "text",
+    "value": ""
+  },
+  "verified": false
+}

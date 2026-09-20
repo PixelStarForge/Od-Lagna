@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
+import { useRouter, usePathname } from "next/navigation";
 import { QnaEntry } from "../lib/schema";
 import { ArcMetadata, getArcMetadata } from "../lib/arc-utils";
 import { usePreferences } from "../lib/preferences";
@@ -15,6 +15,9 @@ interface QnaCardProps {
 
 export function QnaCard({ entry, onTagClick }: QnaCardProps) {
   const router = useRouter();
+  const pathname = usePathname();
+  const isDetailPage = pathname === `/qna/${entry.id}`;
+
   const { spoilerArc, spoilerIf, mounted } = usePreferences();
   const [isCopied, setIsCopied] = useState(false);
   const [isManuallyRevealed, setIsManuallyRevealed] = useState(false);
@@ -59,24 +62,24 @@ export function QnaCard({ entry, onTagClick }: QnaCardProps) {
       className="group relative rounded-xl border border-[var(--border-subtle)] bg-[var(--bg-surface)] p-5 sm:p-6 transition-all hover:border-[var(--border-strong)] shadow-xs space-y-4"
     >
       {/* Top Meta Bar */}
-      <div className="flex flex-wrap items-center justify-between gap-2 text-xs">
+      <div className="flex flex-wrap items-center justify-between gap-2 text-xs sm:text-sm">
         <div className="flex flex-wrap items-center gap-2">
           {/* Arc / Route Badge */}
           {arcMeta.type === "canon" && arcMeta.order && (
-            <span className="font-mono font-medium px-2 py-0.5 rounded bg-[var(--bg-elevated)] border border-[var(--border-subtle)] text-[var(--text-muted)]">
+            <span className="font-mono font-medium px-2.5 py-0.5 rounded bg-[var(--bg-elevated)] border border-[var(--border-subtle)] text-[var(--text-main)]">
               Arc {arcMeta.order}: {arcMeta.name}
             </span>
           )}
 
           {arcMeta.type === "if" && (
-            <span className="font-mono font-medium px-2 py-0.5 rounded bg-[var(--accent-bg)] border border-[var(--accent-border)] text-[var(--accent-text)]">
+            <span className="font-mono font-medium px-2.5 py-0.5 rounded bg-[var(--accent-bg)] border border-[var(--accent-border)] text-[var(--accent-text)]">
               {arcMeta.name}
               {arcMeta.divergesFrom && ` (Diverges ${arcMeta.divergesFrom.toUpperCase()})`}
             </span>
           )}
 
           {arcMeta.type === "general" && (
-            <span className="font-mono font-medium px-2 py-0.5 rounded bg-[var(--bg-elevated)] border border-[var(--border-subtle)] text-[var(--text-faint)]">
+            <span className="font-mono font-medium px-2.5 py-0.5 rounded bg-[var(--bg-elevated)] border border-[var(--border-subtle)] text-[var(--text-muted)]">
               General / Lore
             </span>
           )}
@@ -85,9 +88,9 @@ export function QnaCard({ entry, onTagClick }: QnaCardProps) {
           {entry.verified ? (
             <span
               title="Verified with primary source"
-              className="inline-flex items-center gap-1 font-medium px-2 py-0.5 rounded-full bg-[var(--verified-bg)] text-[var(--verified-text)] border border-[var(--verified-border)] text-[11px]"
+              className="inline-flex items-center gap-1 font-semibold px-2.5 py-0.5 rounded-full bg-[var(--verified-bg)] text-[var(--verified-text)] border border-[var(--verified-border)] text-xs"
             >
-              <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
               </svg>
               <span>Verified</span>
@@ -95,9 +98,9 @@ export function QnaCard({ entry, onTagClick }: QnaCardProps) {
           ) : (
             <span
               title="Awaiting primary citation verification"
-              className="inline-flex items-center gap-1 font-medium px-2 py-0.5 rounded-full bg-[var(--unverified-bg)] text-[var(--unverified-text)] border border-[var(--unverified-border)] text-[11px]"
+              className="inline-flex items-center gap-1 font-semibold px-2.5 py-0.5 rounded-full bg-[var(--unverified-bg)] text-[var(--unverified-text)] border border-[var(--unverified-border)] text-xs"
             >
-              <span className="font-bold text-[10px]">!</span>
+              <span className="font-bold text-xs">!</span>
               <span>Unverified</span>
             </span>
           )}
@@ -106,9 +109,9 @@ export function QnaCard({ entry, onTagClick }: QnaCardProps) {
           {dateFormatted && (
             <span
               title={`Statement Date: ${rawDate}`}
-              className="inline-flex items-center gap-1 font-mono text-[11px] px-2 py-0.5 rounded bg-[var(--bg-elevated)] border border-[var(--border-subtle)] text-[var(--text-muted)]"
+              className="inline-flex items-center gap-1.5 font-mono text-xs px-2.5 py-0.5 rounded bg-[var(--bg-elevated)] border border-[var(--border-subtle)] text-[var(--text-muted)]"
             >
-              <svg className="w-3 h-3 text-[var(--text-faint)] shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-3.5 h-3.5 text-[var(--text-muted)] shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
               </svg>
               <span>{dateFormatted}</span>
@@ -117,26 +120,29 @@ export function QnaCard({ entry, onTagClick }: QnaCardProps) {
         </div>
 
         {/* Entry ID & Actions */}
-        <div className="flex items-center gap-2">
-          <Link
-            href={`/qna/${entry.id}`}
-            title="Open dedicated page for this Q&A"
-            className="text-[11px] text-[var(--text-faint)] hover:text-[var(--accent)] transition-colors hidden sm:inline"
-          >
-            Full View →
-          </Link>
+        <div className="flex items-center gap-2.5 shrink-0">
+          {!isDetailPage && (
+            <Link
+              href={`/qna/${entry.id}`}
+              title="Open dedicated page for this Q&A"
+              className="text-xs font-semibold px-2 py-0.5 rounded border border-transparent hover:border-[var(--border-subtle)] bg-transparent hover:bg-[var(--bg-elevated)] text-[var(--accent)] hover:text-[var(--accent-hover)] transition-all inline-flex items-center gap-1"
+            >
+              <span>Full View</span>
+              <span>→</span>
+            </Link>
+          )}
           <button
             type="button"
             onClick={handleCopyLink}
             title="Copy direct permalink to this Q&A"
             aria-label="Copy permalink"
-            className="font-mono text-xs text-[var(--text-faint)] hover:text-[var(--text-main)] px-1.5 py-0.5 rounded hover:bg-[var(--bg-elevated)] transition-colors inline-flex items-center gap-1 cursor-pointer"
+            className="font-mono text-xs sm:text-sm text-[var(--text-muted)] hover:text-[var(--text-main)] px-2 py-0.5 rounded hover:bg-[var(--bg-elevated)] transition-colors inline-flex items-center gap-1 cursor-pointer font-medium"
           >
             <span>#{entry.id}</span>
             {isCopied ? (
-              <span className="text-[10px] text-[var(--verified-text)] font-sans">copied</span>
+              <span className="text-xs text-[var(--verified-text)] font-sans font-semibold">copied</span>
             ) : (
-              <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" />
               </svg>
             )}
@@ -159,14 +165,14 @@ export function QnaCard({ entry, onTagClick }: QnaCardProps) {
                   : `Beyond Arc ${spoilerArc} (${arcMeta.name})`}
               </span>
             </p>
-            <p className="text-xs text-[var(--text-muted)] leading-relaxed">
+            <p className="text-sm text-[var(--text-muted)] leading-relaxed">
               The question, author answer, and tags contain narrative revelations beyond your current story cutoff.
             </p>
           </div>
           <button
             type="button"
             onClick={() => setIsManuallyRevealed(true)}
-            className="px-3.5 py-1.5 text-xs font-semibold rounded-md border border-[var(--border-subtle)] bg-[var(--bg-surface)] text-[var(--text-main)] hover:bg-[var(--bg-elevated)] transition-colors cursor-pointer whitespace-nowrap shadow-2xs shrink-0"
+            className="px-3.5 py-1.5 text-xs sm:text-sm font-semibold rounded-md border border-[var(--border-subtle)] bg-[var(--bg-surface)] text-[var(--text-main)] hover:bg-[var(--bg-elevated)] transition-colors cursor-pointer whitespace-nowrap shadow-2xs shrink-0"
           >
             Reveal Spoiler
           </button>
@@ -175,7 +181,7 @@ export function QnaCard({ entry, onTagClick }: QnaCardProps) {
         <div className="space-y-4 animate-in fade-in">
           {/* Question */}
           <div className="space-y-1.5">
-            <h3 className="text-xs font-mono font-semibold uppercase tracking-wider text-[var(--text-faint)]">
+            <h3 className="text-xs font-mono font-bold uppercase tracking-wider text-[var(--text-muted)]">
               Question
             </h3>
             <p className="font-sans font-semibold text-base sm:text-lg text-[var(--text-main)] leading-relaxed tracking-tight">
@@ -185,17 +191,17 @@ export function QnaCard({ entry, onTagClick }: QnaCardProps) {
 
           {/* Author Answer */}
           <div className="space-y-1.5 pt-1">
-            <h4 className="text-xs font-mono font-semibold uppercase tracking-wider text-[var(--text-faint)]">
+            <h4 className="text-xs font-mono font-bold uppercase tracking-wider text-[var(--text-muted)]">
               Author Answer
             </h4>
-            <div className="font-sans text-sm sm:text-base text-[var(--text-main)] leading-relaxed whitespace-pre-line">
+            <div className="font-sans text-base text-[var(--text-main)] leading-relaxed whitespace-pre-line">
               {entry.answer}
             </div>
           </div>
 
           {/* Tags */}
           {(entry.characters.length > 0 || entry.topics.length > 0) && (
-            <div className="flex flex-wrap gap-1.5 pt-2">
+            <div className="flex flex-wrap gap-2 pt-2">
               {entry.characters.map((char) => (
                 <button
                   key={char}
@@ -205,7 +211,7 @@ export function QnaCard({ entry, onTagClick }: QnaCardProps) {
                       ? onTagClick("character", char)
                       : router.push(`/browse?character=${encodeURIComponent(char)}`)
                   }
-                  className="text-xs font-sans px-2.5 py-1 rounded-md border border-[var(--border-subtle)] bg-[var(--bg-elevated)] text-[var(--text-muted)] hover:text-[var(--text-main)] hover:border-[var(--text-faint)] transition-colors cursor-pointer"
+                  className="text-xs sm:text-sm font-medium font-sans px-2.5 py-1 rounded-md border border-[var(--border-subtle)] bg-[var(--bg-elevated)] text-[var(--text-main)] hover:border-[var(--text-muted)] transition-colors cursor-pointer"
                 >
                   {char}
                 </button>
@@ -220,7 +226,7 @@ export function QnaCard({ entry, onTagClick }: QnaCardProps) {
                       ? onTagClick("topic", topic)
                       : router.push(`/browse?topic=${encodeURIComponent(topic)}`)
                   }
-                  className="text-xs font-sans px-2.5 py-1 rounded-md border border-[var(--border-subtle)] bg-[var(--bg-surface)] text-[var(--text-faint)] hover:text-[var(--text-main)] hover:border-[var(--text-faint)] transition-colors cursor-pointer"
+                  className="text-xs sm:text-sm font-medium font-sans px-2.5 py-1 rounded-md border border-[var(--border-subtle)] bg-[var(--bg-surface)] text-[var(--text-muted)] hover:text-[var(--text-main)] hover:border-[var(--text-muted)] transition-colors cursor-pointer"
                 >
                   {topic}
                 </button>
@@ -230,14 +236,14 @@ export function QnaCard({ entry, onTagClick }: QnaCardProps) {
 
           {/* Source Citation */}
           {entry.source && entry.source.value && (
-            <div className="pt-2 text-xs text-[var(--text-faint)] flex items-center gap-1.5 border-t border-[var(--border-subtle)]">
-              <span className="font-mono">Source:</span>
+            <div className="pt-2 text-xs sm:text-sm text-[var(--text-muted)] flex items-center gap-1.5 border-t border-[var(--border-subtle)]">
+              <span className="font-mono font-semibold">Source:</span>
               {entry.source.type === "url" ? (
                 <a
                   href={entry.source.value}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-[var(--accent)] hover:underline truncate max-w-md inline-flex items-center gap-0.5"
+                  className="text-[var(--accent)] hover:underline truncate max-w-md inline-flex items-center gap-0.5 font-medium"
                 >
                   <span>{entry.source.value}</span>
                   <span>↗</span>
@@ -254,7 +260,7 @@ export function QnaCard({ entry, onTagClick }: QnaCardProps) {
               <button
                 type="button"
                 onClick={() => setIsManuallyRevealed(false)}
-                className="text-[11px] text-[var(--text-faint)] hover:text-[var(--text-muted)] underline cursor-pointer"
+                className="text-xs font-medium text-[var(--text-muted)] hover:text-[var(--text-main)] underline cursor-pointer"
               >
                 Hide question &amp; spoiler again
               </button>

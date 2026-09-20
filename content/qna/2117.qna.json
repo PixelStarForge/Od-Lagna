@@ -1,0 +1,17 @@
+{
+  "id": "2117",
+  "question": "Please tell me Old Man Rom's age.",
+  "answer": "One hundred twenty or one hundred thirty. Honestly, this question came up a lot today.",
+  "characters": [
+    "Old Man Rom"
+  ],
+  "topics": [
+    "General"
+  ],
+  "arc": "general",
+  "source": {
+    "type": "text",
+    "value": ""
+  },
+  "verified": false
+}

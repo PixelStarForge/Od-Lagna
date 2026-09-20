@@ -23,7 +23,7 @@ export default function NotFound() {
 
         {/* Header Content */}
         <div className="space-y-2">
-          <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-mono font-medium bg-[var(--bg-elevated)] text-[var(--text-faint)] border border-[var(--border-subtle)]">
+          <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-mono font-medium bg-[var(--bg-elevated)] text-[var(--text-muted)] border border-[var(--border-subtle)]">
             <span>404</span>
             <span>•</span>
             <span>Record Not Found</span>
@@ -42,13 +42,13 @@ export default function NotFound() {
         <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-3">
           <Link
             href="/"
-            className="w-full sm:w-auto px-5 py-2.5 text-xs font-semibold rounded-lg bg-[var(--accent)] text-white hover:bg-[var(--accent-hover)] transition-colors shadow-xs"
+            className="w-full sm:w-auto px-5 py-2.5 text-sm font-semibold rounded-lg bg-[var(--accent)] text-white hover:bg-[var(--accent-hover)] transition-colors shadow-xs text-center"
           >
             Return to Home
           </Link>
           <Link
             href="/browse"
-            className="w-full sm:w-auto px-5 py-2.5 text-xs font-semibold rounded-lg border border-[var(--border-subtle)] bg-[var(--bg-surface)] hover:bg-[var(--bg-elevated)] text-[var(--text-main)] transition-colors"
+            className="w-full sm:w-auto px-5 py-2.5 text-sm font-semibold rounded-lg border border-[var(--border-subtle)] bg-[var(--bg-surface)] hover:bg-[var(--bg-elevated)] text-[var(--text-main)] transition-colors text-center"
           >
             Browse Q&amp;A Archive
           </Link>
@@ -56,8 +56,8 @@ export default function NotFound() {
 
         {/* Quick Search Shortcut Tip */}
         <div className="pt-4 border-t border-[var(--border-subtle)]">
-          <p className="text-xs text-[var(--text-faint)] font-mono">
-            Tip: Press <kbd className="px-1.5 py-0.5 rounded bg-[var(--bg-elevated)] border border-[var(--border-subtle)] text-[var(--text-muted)] font-semibold">/</kbd> anywhere to search all indexed Q&amp;As.
+          <p className="text-xs sm:text-sm text-[var(--text-muted)] font-mono">
+            Tip: Press <kbd className="px-1.5 py-0.5 rounded bg-[var(--bg-elevated)] border border-[var(--border-subtle)] text-[var(--text-main)] font-semibold">/</kbd> anywhere to search all indexed Q&amp;As.
           </p>
         </div>
       </div>

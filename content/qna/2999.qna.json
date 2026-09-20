@@ -1,0 +1,18 @@
+{
+  "id": "2999",
+  "question": "Please tell me her first impression of Subaru!",
+  "answer": "I'd heard of it beforehand, but he's a gentleman with an scary look to his eyes, isn't he.",
+  "characters": [
+    "Frederica Baumann",
+    "Natsuki Subaru"
+  ],
+  "topics": [
+    "Character Relationships"
+  ],
+  "arc": "general",
+  "source": {
+    "type": "text",
+    "value": ""
+  },
+  "verified": false
+}

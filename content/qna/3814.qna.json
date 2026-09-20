@@ -1,0 +1,17 @@
+{
+  "id": "3814",
+  "question": "Will Otto die?",
+  "answer": "If you hit him repeatedly with a dumbbell, he’ll die.",
+  "characters": [
+    "Otto Suwen"
+  ],
+  "topics": [
+    "General"
+  ],
+  "arc": "general",
+  "source": {
+    "type": "text",
+    "value": ""
+  },
+  "verified": false
+}

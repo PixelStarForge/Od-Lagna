@@ -1,0 +1,18 @@
+{
+  "id": "0246",
+  "question": "Between Julius and Anastasia, which is more like an eggplant?",
+  "answer": "Julius is closer to being eggplant-colored.",
+  "characters": [
+    "Anastasia Hoshin",
+    "Julius Juukulius"
+  ],
+  "topics": [
+    "General"
+  ],
+  "arc": "general",
+  "source": {
+    "type": "text",
+    "value": ""
+  },
+  "verified": false
+}

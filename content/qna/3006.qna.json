@@ -1,0 +1,18 @@
+{
+  "id": "3006",
+  "question": "What are Frederica-san's hobbies?",
+  "answer": "Collecting dolls, and putting cute clothes on them. She doesn't think that cute clothing looks good on her large frame, so it seems she enjoys that kind of play. Recently Petra tries on different outfits for her, and she's satisfied. But, she's a little shy about it when Petra tries to get her to try different outfits, too.",
+  "characters": [
+    "Frederica Baumann",
+    "Petra Leyte"
+  ],
+  "topics": [
+    "General"
+  ],
+  "arc": "general",
+  "source": {
+    "type": "text",
+    "value": ""
+  },
+  "verified": false
+}

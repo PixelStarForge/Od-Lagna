@@ -1,0 +1,19 @@
+{
+  "id": "3771",
+  "question": "What are the names of Otto's parents?",
+  "answer": "Haven't decided. I'll come up with them right now. Mazeran and Framir Suwen.",
+  "characters": [
+    "Framir Suwen",
+    "Mazeran Suwen",
+    "Otto Suwen"
+  ],
+  "topics": [
+    "General"
+  ],
+  "arc": "general",
+  "source": {
+    "type": "text",
+    "value": ""
+  },
+  "verified": false
+}

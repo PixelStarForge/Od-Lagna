@@ -1,0 +1,18 @@
+{
+  "id": "1939",
+  "question": "Does she like Roswaal?",
+  "answer": "No. She doesn't like him.",
+  "characters": [
+    "Echidna",
+    "Roswaal L. Mathers"
+  ],
+  "topics": [
+    "General"
+  ],
+  "arc": "general",
+  "source": {
+    "type": "text",
+    "value": ""
+  },
+  "verified": false
+}

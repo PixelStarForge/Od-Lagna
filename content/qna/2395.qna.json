@@ -1,0 +1,17 @@
+{
+  "id": "2395",
+  "question": "What's Elsa's motto?",
+  "answer": "Treasure every bowel.",
+  "characters": [
+    "Elsa Granhiert"
+  ],
+  "topics": [
+    "General"
+  ],
+  "arc": "general",
+  "source": {
+    "type": "text",
+    "value": ""
+  },
+  "verified": false
+}

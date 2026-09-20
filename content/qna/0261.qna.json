@@ -1,0 +1,17 @@
+{
+  "id": "0261",
+  "question": "Roughly how many friends does Julius have?",
+  "answer": "He’s got about as wide a selection of friends as a normal person. He’s a sociable noble, after all.",
+  "characters": [
+    "Julius Juukulius"
+  ],
+  "topics": [
+    "General"
+  ],
+  "arc": "general",
+  "source": {
+    "type": "text",
+    "value": ""
+  },
+  "verified": false
+}

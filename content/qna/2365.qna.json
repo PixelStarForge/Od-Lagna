@@ -1,0 +1,17 @@
+{
+  "id": "2365",
+  "question": "Is Elsa a character that Cat-sensei likes?",
+  "answer": "Yes, I like her.",
+  "characters": [
+    "Elsa Granhiert"
+  ],
+  "topics": [
+    "General"
+  ],
+  "arc": "general",
+  "source": {
+    "type": "text",
+    "value": ""
+  },
+  "verified": false
+}

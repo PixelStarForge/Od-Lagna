@@ -1,18 +1,14 @@
 {
   "id": "0032",
-  "question": "Is there teleportation magic? (Excluding the mysterious powers of the apostles of the Deadly Sins)",
-  "answer": "Beako or Echidna are both able to with conditions attached. Normally it’s impossible though, even for Roswaal.",
-  "characters": [
-    "Beatrice",
-    "Echidna",
-    "Roswaal L. Mathers"
-  ],
+  "question": "If I were to write a derivative work (fanfic) for Rizero then where would I submit it?",
+  "answer": "No idea. Perhaps Narou. If the author says OK then aren’t fanfics alright then? Put the summary and preface in the title, but only if the author says OK.",
+  "characters": [],
   "topics": [
-    "Mana & Magic"
+    "General"
   ],
   "arc": "general",
   "source": {
-    "type": "url",
+    "type": "text",
     "value": ""
   },
   "verified": false

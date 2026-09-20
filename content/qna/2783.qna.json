@@ -1,0 +1,17 @@
+{
+  "id": "2783",
+  "question": "Please tell me Priscilla's skill at housework.",
+  "answer": "She doesn't do anything! I don't know if she can or not. Because she doesn't!",
+  "characters": [
+    "Priscilla Barielle"
+  ],
+  "topics": [
+    "General"
+  ],
+  "arc": "general",
+  "source": {
+    "type": "text",
+    "value": ""
+  },
+  "verified": false
+}

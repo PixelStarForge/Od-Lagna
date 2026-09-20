@@ -1,0 +1,17 @@
+{
+  "id": "3354",
+  "question": "Is Echidna on Team Cat? Team Dog?",
+  "answer": "Dog, perhaps.",
+  "characters": [
+    "Echidna"
+  ],
+  "topics": [
+    "General"
+  ],
+  "arc": "general",
+  "source": {
+    "type": "text",
+    "value": ""
+  },
+  "verified": false
+}

@@ -1,20 +1,14 @@
 {
   "id": "0019",
-  "question": "Weakest 5 (Without order)",
-  "answer": "Subaru, Petra, Anastasia, Ryuzu Meyer(Real one), Ferris",
-  "characters": [
-    "Natsuki Subaru",
-    "Petra Leyte",
-    "Anastasia Hoshin",
-    "Ryuzu Meyer(OG)",
-    "Felix Argyle (Ferris)"
-  ],
+  "question": "Do you like stuff with looping?",
+  "answer": "I don’t like them in particular however I think that there are a lot of masterpieces with loops. I’m not wishing for them like ‘I prefer Loops! Loops!’.",
+  "characters": [],
   "topics": [
-    "Ranking"
+    "Return by Death"
   ],
   "arc": "general",
   "source": {
-    "type": "url",
+    "type": "text",
     "value": ""
   },
   "verified": false

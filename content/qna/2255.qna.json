@@ -1,0 +1,17 @@
+{
+  "id": "2255",
+  "question": "What are Otto's hobbies?",
+  "answer": "\"My hobbies? Hmm, yes. As a result of being a travelling merchant in the past, I would imagine floor plans for the store I set up in the future, and prepare plans to run it, but lately I haven't even had a chance to do that... Huh, what on earth are my hobbies... Ah! Taking care of Verhoe! Caring for Verhoe!\"",
+  "characters": [
+    "Otto Suwen"
+  ],
+  "topics": [
+    "General"
+  ],
+  "arc": "general",
+  "source": {
+    "type": "text",
+    "value": ""
+  },
+  "verified": false
+}

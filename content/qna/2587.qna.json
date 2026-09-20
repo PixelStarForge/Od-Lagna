@@ -1,0 +1,22 @@
+{
+  "id": "2587",
+  "question": "Are there any plans to write a side story where Julius is the main character?",
+  "answer": "I've already written a few episodes which are primarily from Julius' point of view. The short story where Julius, Felis, and Reinhard go to Vollachia, or the story where Cecilus (who appeared in Oboreru) comes to Lugunica to play a bit.",
+  "characters": [
+    "Cecilus Segmunt",
+    "Felix Argyle (Ferris)",
+    "Julius Juukulius",
+    "Reinhard van Astrea"
+  ],
+  "topics": [
+    "IF Routes",
+    "Vollachia Empire",
+    "Wrath IF"
+  ],
+  "arc": "if-wrath",
+  "source": {
+    "type": "text",
+    "value": ""
+  },
+  "verified": false
+}

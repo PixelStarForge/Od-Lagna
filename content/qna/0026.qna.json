@@ -1,17 +1,14 @@
 {
   "id": "0026",
-  "question": "Crusch's combat strength is about the same as who else?",
-  "answer": "Around Rem.",
-  "characters": [
-    "Crusch Karsten",
-    "Rem"
-  ],
+  "question": "Have you already settled on what kind of manner the conclusion for Rizero will be?",
+  "answer": "Since I already decided to write from my ass it has been settled since the beginning.",
+  "characters": [],
   "topics": [
-    "Powerscaling"
+    "General"
   ],
   "arc": "general",
   "source": {
-    "type": "url",
+    "type": "text",
     "value": ""
   },
   "verified": false

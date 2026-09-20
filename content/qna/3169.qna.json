@@ -1,0 +1,18 @@
+{
+  "id": "3169",
+  "question": "Joshua worships Julius, but has he never tried to become a knight?",
+  "answer": "If he'd been able to become a knight, he probably would have.",
+  "characters": [
+    "Joshua Juukulius",
+    "Julius Juukulius"
+  ],
+  "topics": [
+    "Royal Knights"
+  ],
+  "arc": "general",
+  "source": {
+    "type": "text",
+    "value": ""
+  },
+  "verified": false
+}

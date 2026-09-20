@@ -1,0 +1,18 @@
+{
+  "id": "3170",
+  "question": "Joshua's opinion about Otto?",
+  "answer": "He's the Interior Minister of a faction that gets worked up easily, so if he came looking for trouble, it would be frightening.",
+  "characters": [
+    "Joshua Juukulius",
+    "Otto Suwen"
+  ],
+  "topics": [
+    "General"
+  ],
+  "arc": "general",
+  "source": {
+    "type": "text",
+    "value": ""
+  },
+  "verified": false
+}

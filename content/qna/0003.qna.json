@@ -1,15 +1,14 @@
 {
   "id": "0003",
-  "question": "If you put the Royal Selection candidates in order of their fighting strength, what place is Priscilla in?",
-  "answer": "After Emilia-tan starts thinking with her muscles, they're rivals.",
-  "characters": [
-    "Priscilla Barielle",
-    "Emilia"
+  "question": "Among the people who you know, who’s the number one person that likes to gossip?",
+  "answer": "The old lady in the household",
+  "characters": [],
+  "topics": [
+    "General"
   ],
-  "topics": [],
   "arc": "general",
   "source": {
-    "type": "url",
+    "type": "text",
     "value": ""
   },
   "verified": false

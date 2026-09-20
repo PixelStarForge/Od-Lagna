@@ -1,0 +1,17 @@
+{
+  "id": "3791",
+  "question": "What’s Otto doing right now?",
+  "answer": "His legs hurt, so he’s probably sleeping, I’d guess.  I think he’s been forbidden to drink alcohol.",
+  "characters": [
+    "Otto Suwen"
+  ],
+  "topics": [
+    "General"
+  ],
+  "arc": "general",
+  "source": {
+    "type": "text",
+    "value": ""
+  },
+  "verified": false
+}

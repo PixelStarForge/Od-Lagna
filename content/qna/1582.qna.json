@@ -1,0 +1,17 @@
+{
+  "id": "1582",
+  "question": "Has Garf eaten mayonnaise?",
+  "answer": "He's eaten it. He rather liked it.",
+  "characters": [
+    "Garfiel Tinsel"
+  ],
+  "topics": [
+    "General"
+  ],
+  "arc": "general",
+  "source": {
+    "type": "text",
+    "value": ""
+  },
+  "verified": false
+}

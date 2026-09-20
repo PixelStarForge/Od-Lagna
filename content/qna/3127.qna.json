@@ -1,0 +1,18 @@
+{
+  "id": "3127",
+  "question": "Besides Joshua and Julius, are there any other siblings?",
+  "answer": "No, there are only these two Euclius brothers.",
+  "characters": [
+    "Joshua Juukulius",
+    "Julius Juukulius"
+  ],
+  "topics": [
+    "General"
+  ],
+  "arc": "general",
+  "source": {
+    "type": "text",
+    "value": ""
+  },
+  "verified": false
+}

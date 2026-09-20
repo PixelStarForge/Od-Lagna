@@ -1,0 +1,18 @@
+{
+  "id": "3376",
+  "question": "Thanks for all your hard work despite the flu. Is Echidna on Team Cat? Team Dog?",
+  "answer": "Dog. Emilia-tan is cat.",
+  "characters": [
+    "Echidna",
+    "Emilia"
+  ],
+  "topics": [
+    "General"
+  ],
+  "arc": "general",
+  "source": {
+    "type": "text",
+    "value": ""
+  },
+  "verified": false
+}

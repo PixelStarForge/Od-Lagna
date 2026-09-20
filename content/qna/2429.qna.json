@@ -1,0 +1,19 @@
+{
+  "id": "2429",
+  "question": "In the fifty meter dash, which of them would be fastest?",
+  "answer": "It's Mimi. After that, the order would be Tivey, Hetaro.",
+  "characters": [
+    "Hetaro Pearlbaton",
+    "Mimi Pearlbaton",
+    "Tivey Pearlbaton"
+  ],
+  "topics": [
+    "General"
+  ],
+  "arc": "general",
+  "source": {
+    "type": "text",
+    "value": ""
+  },
+  "verified": false
+}

@@ -1,0 +1,18 @@
+{
+  "id": "1803",
+  "question": "Good evening, Cat-sensei! Are the foods that Joshua likes the same as Julius? Or are they different, perhaps?",
+  "answer": "He likes things with rich flavor. Julius likes things that taste sweet, so on that point, I guess their interests overlap. It's just that, no matter if it's salty or sour, or if it's spicy, the richer it is, the better he likes it, so when it goes that way, they differ.",
+  "characters": [
+    "Joshua Juukulius",
+    "Julius Juukulius"
+  ],
+  "topics": [
+    "General"
+  ],
+  "arc": "general",
+  "source": {
+    "type": "text",
+    "value": ""
+  },
+  "verified": false
+}

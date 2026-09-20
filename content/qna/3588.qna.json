@@ -1,0 +1,17 @@
+{
+  "id": "3588",
+  "question": "Please tell me Otto's assessment of mayonnaise.",
+  "answer": "\"Well, it wouldn't do to say much in front of the people who like it. It doesn't do anything for me.\"",
+  "characters": [
+    "Otto Suwen"
+  ],
+  "topics": [
+    "General"
+  ],
+  "arc": "general",
+  "source": {
+    "type": "text",
+    "value": ""
+  },
+  "verified": false
+}

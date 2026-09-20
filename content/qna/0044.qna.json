@@ -1,17 +1,16 @@
 {
   "id": "0044",
-  "question": "In terms of fighting ability, Echidna is around whose level?",
-  "answer": "Around Roswaal",
+  "question": "Is there a relationship between Subaru-kun and the protagonist of [A summer day, the bewitching fox and the young boy]? (another web novel on Narou)",
+  "answer": "You don’t mean something like Natsuki Rugal-kun of a concurrent world right",
   "characters": [
-    "Echidna",
-    "Roswaal L. Mathers"
+    "Natsuki Subaru"
   ],
   "topics": [
-    "Powerscaling"
+    "General"
   ],
   "arc": "general",
   "source": {
-    "type": "url",
+    "type": "text",
     "value": ""
   },
   "verified": false

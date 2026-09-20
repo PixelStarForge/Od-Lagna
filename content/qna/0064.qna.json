@@ -1,0 +1,15 @@
+{
+  "id": "0064",
+  "question": "Was dental brushing the same as dental floss?",
+  "answer": "There’s no particular problem if you had something around a toothbrush",
+  "characters": [],
+  "topics": [
+    "General"
+  ],
+  "arc": "general",
+  "source": {
+    "type": "text",
+    "value": ""
+  },
+  "verified": false
+}

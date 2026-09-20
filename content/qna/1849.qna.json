@@ -1,0 +1,18 @@
+{
+  "id": "1849",
+  "question": "Which of Julius' behaviours does Joshua like?",
+  "answer": "Julius often brushes back his hair and gives a 'hu' laugh; it's that.",
+  "characters": [
+    "Joshua Juukulius",
+    "Julius Juukulius"
+  ],
+  "topics": [
+    "General"
+  ],
+  "arc": "general",
+  "source": {
+    "type": "text",
+    "value": ""
+  },
+  "verified": false
+}

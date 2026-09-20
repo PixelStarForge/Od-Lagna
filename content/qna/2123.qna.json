@@ -1,0 +1,18 @@
+{
+  "id": "2123",
+  "question": "Please tell me what food he likes to eat.",
+  "answer": "It's getemono (note: the word seems to refer to food made from ingredients people would normally hesitate to eat). Even when Felt says \"Anything but this\", he just can't stop eating it. Yeah! Burnt snake!",
+  "characters": [
+    "Felt",
+    "Old Man Rom"
+  ],
+  "topics": [
+    "General"
+  ],
+  "arc": "general",
+  "source": {
+    "type": "text",
+    "value": ""
+  },
+  "verified": false
+}

@@ -1,0 +1,18 @@
+{
+  "id": "3123",
+  "question": "After Julius, the person that Joshua respects the most?",
+  "answer": "Perhaps his parents.",
+  "characters": [
+    "Joshua Juukulius",
+    "Julius Juukulius"
+  ],
+  "topics": [
+    "General"
+  ],
+  "arc": "general",
+  "source": {
+    "type": "text",
+    "value": ""
+  },
+  "verified": false
+}

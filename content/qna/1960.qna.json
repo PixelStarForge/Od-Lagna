@@ -1,0 +1,19 @@
+{
+  "id": "1960",
+  "question": "I'd like to hear about Echidna's daily routine!",
+  "answer": "All day long, she's preparing tea while waiting for someone to come visit. Or, on days that no one is coming to visit, she's chatting with one of the other witches. Usually Sekhmet or Daphne.",
+  "characters": [
+    "Daphne",
+    "Echidna",
+    "Sekhmet"
+  ],
+  "topics": [
+    "General"
+  ],
+  "arc": "general",
+  "source": {
+    "type": "text",
+    "value": ""
+  },
+  "verified": false
+}

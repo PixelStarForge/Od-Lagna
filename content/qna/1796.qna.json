@@ -1,0 +1,17 @@
+{
+  "id": "1796",
+  "question": "Can he use magic?",
+  "answer": "He can't use it. He wasn't trained.",
+  "characters": [
+    "Joshua Juukulius"
+  ],
+  "topics": [
+    "General"
+  ],
+  "arc": "general",
+  "source": {
+    "type": "text",
+    "value": ""
+  },
+  "verified": false
+}

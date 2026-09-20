@@ -1,17 +1,14 @@
 {
   "id": "0004",
-  "question": "How does the true strength of the first Roswaal compare with characters that have appeared so far?",
-  "answer": "It's around Emilia.",
-  "characters": [
-    "Roswaal A. Mathers",
-    "Emilia"
-  ],
+  "question": "And if you were to appear at the same time along with Teren-san on the Narou radio?",
+  "answer": "The performance fee would be 8:2 in my favor",
+  "characters": [],
   "topics": [
-    "Powerscaling"
+    "General"
   ],
   "arc": "general",
   "source": {
-    "type": "url",
+    "type": "text",
     "value": ""
   },
   "verified": false

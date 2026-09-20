@@ -31,17 +31,17 @@ export function Header() {
               <span className="font-bold text-base sm:text-lg tracking-tight text-[var(--text-main)] group-hover:text-[var(--accent)] transition-colors leading-tight">
                 Od-Lagna
               </span>
-              <span className="text-[10px] uppercase font-mono tracking-wider text-[var(--text-faint)] hidden sm:inline">
+              <span className="text-xs uppercase font-mono tracking-wider text-[var(--text-muted)] font-medium hidden sm:inline">
                 Re:Zero Q&amp;A Archive
               </span>
             </div>
           </Link>
 
           {/* Navigation */}
-          <nav className="flex items-center gap-1">
+          <nav className="flex items-center gap-0.5 sm:gap-1">
             <Link
               href="/"
-              className={`px-2.5 py-1 sm:px-3 sm:py-1.5 rounded-md text-xs sm:text-sm font-medium transition-colors ${
+              className={`px-2 py-1 sm:px-3 sm:py-1.5 rounded-md text-xs sm:text-sm font-medium transition-colors ${
                 pathname === "/"
                   ? "bg-[var(--bg-elevated)] text-[var(--text-main)] font-semibold"
                   : "text-[var(--text-muted)] hover:text-[var(--text-main)] hover:bg-[var(--bg-elevated)]"
@@ -51,13 +51,33 @@ export function Header() {
             </Link>
             <Link
               href="/browse"
-              className={`px-2.5 py-1 sm:px-3 sm:py-1.5 rounded-md text-xs sm:text-sm font-medium transition-colors ${
+              className={`px-2 py-1 sm:px-3 sm:py-1.5 rounded-md text-xs sm:text-sm font-medium transition-colors ${
                 pathname === "/browse"
                   ? "bg-[var(--bg-elevated)] text-[var(--text-main)] font-semibold"
                   : "text-[var(--text-muted)] hover:text-[var(--text-main)] hover:bg-[var(--bg-elevated)]"
               }`}
             >
               Browse
+            </Link>
+            <Link
+              href="/about"
+              className={`px-2 py-1 sm:px-3 sm:py-1.5 rounded-md text-xs sm:text-sm font-medium transition-colors hidden sm:inline-block ${
+                pathname === "/about"
+                  ? "bg-[var(--bg-elevated)] text-[var(--text-main)] font-semibold"
+                  : "text-[var(--text-muted)] hover:text-[var(--text-main)] hover:bg-[var(--bg-elevated)]"
+              }`}
+            >
+              About
+            </Link>
+            <Link
+              href="/contribute"
+              className={`px-2 py-1 sm:px-3 sm:py-1.5 rounded-md text-xs sm:text-sm font-medium transition-colors hidden md:inline-block ${
+                pathname === "/contribute"
+                  ? "bg-[var(--bg-elevated)] text-[var(--text-main)] font-semibold"
+                  : "text-[var(--text-muted)] hover:text-[var(--text-main)] hover:bg-[var(--bg-elevated)]"
+              }`}
+            >
+              Contribute
             </Link>
           </nav>
         </div>
@@ -85,7 +105,7 @@ export function Header() {
               />
             </svg>
             <span className="hidden md:inline">Search archive...</span>
-            <kbd className="hidden sm:inline-flex items-center px-1.5 py-0.5 text-[10px] font-mono border rounded bg-[var(--bg-elevated)] border-[var(--border-subtle)] text-[var(--text-faint)]">
+            <kbd className="hidden sm:inline-flex items-center px-1.5 py-0.5 text-xs font-mono border rounded bg-[var(--bg-elevated)] border-[var(--border-subtle)] text-[var(--text-muted)] font-medium">
               /
             </kbd>
           </button>
@@ -108,16 +128,17 @@ export function Header() {
                 />
               </svg>
             ) : theme === "light" ? (
-              <svg className="w-4 h-4 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-4 h-4 text-amber-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <circle cx="12" cy="12" r="4" strokeWidth={2} />
                 <path
                   strokeLinecap="round"
                   strokeLinejoin="round"
                   strokeWidth={2}
-                  d="M12 3v1m0 16v1m9-9h-1M4 9h-1m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"
+                  d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"
                 />
               </svg>
             ) : (
-              <svg className="w-4 h-4 text-[var(--text-faint)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-4 h-4 text-[var(--text-muted)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path
                   strokeLinecap="round"
                   strokeLinejoin="round"

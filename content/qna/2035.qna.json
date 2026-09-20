@@ -1,0 +1,17 @@
+{
+  "id": "2035",
+  "question": "Petra's favorite color",
+  "answer": "It's red. It's shown on her ribbon.",
+  "characters": [
+    "Petra Leyte"
+  ],
+  "topics": [
+    "General"
+  ],
+  "arc": "general",
+  "source": {
+    "type": "text",
+    "value": ""
+  },
+  "verified": false
+}

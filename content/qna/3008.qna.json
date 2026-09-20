@@ -1,0 +1,19 @@
+{
+  "id": "3008",
+  "question": "What does Frederica think about Garfiel and Mimi?",
+  "answer": "To begin with, Frederica hasn't encountered Mimi, so she hasn't heard anything yet.",
+  "characters": [
+    "Frederica Baumann",
+    "Garfiel Tinsel",
+    "Mimi Pearlbaton"
+  ],
+  "topics": [
+    "General"
+  ],
+  "arc": "general",
+  "source": {
+    "type": "text",
+    "value": ""
+  },
+  "verified": false
+}

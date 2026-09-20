@@ -1,0 +1,17 @@
+{
+  "id": "1357",
+  "question": "Please tell me Mr. Cat and Subaru’s training menu, body fat percentage, and BMI!",
+  "answer": "Subaru does roughly one hundred push-ups, sit-ups, and squats every day, while cursing the world. I just do around thirty minutes of muscle training and run for an hour.",
+  "characters": [
+    "Natsuki Subaru"
+  ],
+  "topics": [
+    "General"
+  ],
+  "arc": "general",
+  "source": {
+    "type": "text",
+    "value": ""
+  },
+  "verified": false
+}

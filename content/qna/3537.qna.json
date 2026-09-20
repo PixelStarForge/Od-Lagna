@@ -1,0 +1,17 @@
+{
+  "id": "3537",
+  "question": "Between cats and dogs, which does Otto prefer talking with?",
+  "answer": "There's no distinction. To Otto, they're all people he can talk to.",
+  "characters": [
+    "Otto Suwen"
+  ],
+  "topics": [
+    "General"
+  ],
+  "arc": "general",
+  "source": {
+    "type": "text",
+    "value": ""
+  },
+  "verified": false
+}

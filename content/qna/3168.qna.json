@@ -1,0 +1,18 @@
+{
+  "id": "3168",
+  "question": "Joshua and Tivey wear monocles, but which of them has more monocles?",
+  "answer": "I never imagined that. Tivey wears it because he needs to, and Joshua wears it to look stylish, so it's probably Tivey, isn't it?",
+  "characters": [
+    "Joshua Juukulius",
+    "Tivey Pearlbaton"
+  ],
+  "topics": [
+    "General"
+  ],
+  "arc": "general",
+  "source": {
+    "type": "text",
+    "value": ""
+  },
+  "verified": false
+}

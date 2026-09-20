@@ -1,0 +1,17 @@
+{
+  "id": "1499",
+  "question": "Is there a sweet that Beako likes?",
+  "answer": "She likes pretty much all sweets. She’s a girl, after all.",
+  "characters": [
+    "Beatrice"
+  ],
+  "topics": [
+    "General"
+  ],
+  "arc": "general",
+  "source": {
+    "type": "text",
+    "value": ""
+  },
+  "verified": false
+}

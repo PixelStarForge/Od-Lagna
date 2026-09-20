@@ -1,0 +1,17 @@
+{
+  "id": "0181",
+  "question": "What color is Priscilla-san?",
+  "answer": "Her looks are a flashy red (note: underwear)",
+  "characters": [
+    "Priscilla Barielle"
+  ],
+  "topics": [
+    "General"
+  ],
+  "arc": "general",
+  "source": {
+    "type": "text",
+    "value": ""
+  },
+  "verified": false
+}

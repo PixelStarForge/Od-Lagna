@@ -338,7 +338,7 @@ export function BrowseClient({
         >
           {/* Quick Search */}
           <div className="space-y-1.5">
-            <label htmlFor="filter-search" className="text-xs font-mono uppercase tracking-wider text-[var(--text-faint)]">
+            <label htmlFor="filter-search" className="text-xs font-mono font-bold uppercase tracking-wider text-[var(--text-muted)]">
               Filter By Keyword
             </label>
             <input
@@ -350,13 +350,13 @@ export function BrowseClient({
                 setCurrentPage(1);
               }}
               placeholder="Filter current view..."
-              className="w-full px-3 py-2 text-xs rounded-lg border border-[var(--border-subtle)] bg-[var(--bg-surface)] text-[var(--text-main)] placeholder-[var(--text-faint)] focus:outline-none focus:border-[var(--accent)]"
+              className="w-full px-3 py-2 text-xs sm:text-sm rounded-lg border border-[var(--border-subtle)] bg-[var(--bg-surface)] text-[var(--text-main)] placeholder-[var(--text-muted)] focus:outline-none focus:border-[var(--accent)]"
             />
           </div>
 
           {/* Arc / Storyline Selector */}
           <div className="space-y-1.5">
-            <label htmlFor="arc-select" className="text-xs font-mono uppercase tracking-wider text-[var(--text-faint)]">
+            <label htmlFor="arc-select" className="text-xs font-mono font-bold uppercase tracking-wider text-[var(--text-muted)]">
               Arc / Storyline
             </label>
             <CustomSelect
@@ -373,7 +373,7 @@ export function BrowseClient({
 
           {/* Character Selector */}
           <div className="space-y-1.5">
-            <label htmlFor="char-select" className="text-xs font-mono uppercase tracking-wider text-[var(--text-faint)]">
+            <label htmlFor="char-select" className="text-xs font-mono font-bold uppercase tracking-wider text-[var(--text-muted)]">
               Character ({allCharacters.length})
             </label>
             <CustomSelect
@@ -391,7 +391,7 @@ export function BrowseClient({
 
           {/* Topic Selector */}
           <div className="space-y-1.5">
-            <label htmlFor="topic-select" className="text-xs font-mono uppercase tracking-wider text-[var(--text-faint)]">
+            <label htmlFor="topic-select" className="text-xs font-mono font-bold uppercase tracking-wider text-[var(--text-muted)]">
               Topic ({allTopics.length})
             </label>
             <CustomSelect
@@ -410,7 +410,7 @@ export function BrowseClient({
           {/* Year Selector */}
           {availableYears.length > 0 && (
             <div className="space-y-1.5">
-              <label htmlFor="year-select" className="text-xs font-mono uppercase tracking-wider text-[var(--text-faint)]">
+              <label htmlFor="year-select" className="text-xs font-mono font-bold uppercase tracking-wider text-[var(--text-muted)]">
                 Year ({availableYears.length})
               </label>
               <CustomSelect
@@ -438,7 +438,7 @@ export function BrowseClient({
                 }}
                 className="h-4 w-4 rounded border-[var(--border-strong)] text-[var(--accent)] focus:ring-[var(--accent)] accent-[var(--accent)] cursor-pointer"
               />
-              <span className="text-xs font-medium text-[var(--text-main)] group-hover:text-[var(--accent)] transition-colors">
+              <span className="text-sm font-medium text-[var(--text-main)] group-hover:text-[var(--accent)] transition-colors">
                 Verified Sources Only
               </span>
             </label>
@@ -450,7 +450,7 @@ export function BrowseClient({
               <button
                 type="button"
                 onClick={clearAllFilters}
-                className="w-full py-1.5 px-3 rounded-lg border border-[var(--border-subtle)] bg-[var(--bg-elevated)] hover:bg-[var(--border-subtle)] text-xs text-[var(--text-muted)] hover:text-[var(--text-main)] transition-colors cursor-pointer"
+                className="w-full py-1.5 px-3 rounded-lg border border-[var(--border-subtle)] bg-[var(--bg-elevated)] hover:bg-[var(--border-subtle)] text-sm font-medium text-[var(--text-muted)] hover:text-[var(--text-main)] transition-colors cursor-pointer"
               >
                 Reset All Filters
               </button>
@@ -459,7 +459,7 @@ export function BrowseClient({
 
           {/* Embedded Spoiler Controls in Sidebar */}
           <div className="pt-6 border-t border-[var(--border-subtle)] space-y-2">
-            <h3 className="text-xs font-mono uppercase tracking-wider text-[var(--text-faint)]">
+            <h3 className="text-xs font-mono font-bold uppercase tracking-wider text-[var(--text-muted)]">
               Spoiler Cutoff
             </h3>
             <SpoilerControls compact={true} showPresets={false} />
@@ -469,8 +469,8 @@ export function BrowseClient({
         {/* Content Column: Active Filters, Sort Bar, and Card List */}
         <div className="lg:col-span-3 space-y-6">
           {/* Controls Bar: Sort, Count & Active Filter Pills */}
-          <div className="flex flex-wrap items-center justify-between gap-3 p-3 rounded-xl border border-[var(--border-subtle)] bg-[var(--bg-surface)] text-xs">
-            <div className="text-[var(--text-muted)]">
+          <div className="flex flex-wrap items-center justify-between gap-3 p-3 rounded-xl border border-[var(--border-subtle)] bg-[var(--bg-surface)] text-xs sm:text-sm">
+            <div className="text-[var(--text-muted)] font-medium">
               Showing{" "}
               <strong className="text-[var(--text-main)]">
                 {sortedEntries.length === 0
@@ -482,7 +482,7 @@ export function BrowseClient({
 
             {/* Sort Control */}
             <div className="flex items-center gap-2">
-              <label htmlFor="sort-select" className="text-[var(--text-faint)] shrink-0">
+              <label htmlFor="sort-select" className="text-[var(--text-muted)] font-medium shrink-0">
                 Sort:
               </label>
               <div className="w-48">
@@ -500,10 +500,10 @@ export function BrowseClient({
           {/* Active Filter Pills */}
           {hasActiveFilters && (
             <div className="flex flex-wrap items-center gap-1.5">
-              <span className="text-[11px] font-mono text-[var(--text-faint)] mr-1">Active:</span>
+              <span className="text-xs font-mono font-medium text-[var(--text-muted)] mr-1">Active:</span>
 
               {selectedArc !== "all" && (
-                <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs bg-[var(--bg-elevated)] border border-[var(--border-subtle)] text-[var(--text-main)]">
+                <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs sm:text-sm font-medium bg-[var(--bg-elevated)] border border-[var(--border-subtle)] text-[var(--text-main)]">
                   Arc: {selectedArc}
                   <button
                     type="button"
@@ -517,7 +517,7 @@ export function BrowseClient({
               )}
 
               {selectedCharacter !== "all" && (
-                <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs bg-[var(--bg-elevated)] border border-[var(--border-subtle)] text-[var(--text-main)]">
+                <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs sm:text-sm font-medium bg-[var(--bg-elevated)] border border-[var(--border-subtle)] text-[var(--text-main)]">
                   Character: {selectedCharacter}
                   <button
                     type="button"
@@ -531,7 +531,7 @@ export function BrowseClient({
               )}
 
               {selectedTopic !== "all" && (
-                <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs bg-[var(--bg-elevated)] border border-[var(--border-subtle)] text-[var(--text-main)]">
+                <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs sm:text-sm font-medium bg-[var(--bg-elevated)] border border-[var(--border-subtle)] text-[var(--text-main)]">
                   Topic: {selectedTopic}
                   <button
                     type="button"
@@ -545,7 +545,7 @@ export function BrowseClient({
               )}
 
               {selectedYear !== "all" && (
-                <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs bg-[var(--bg-elevated)] border border-[var(--border-subtle)] text-[var(--text-main)]">
+                <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs sm:text-sm font-medium bg-[var(--bg-elevated)] border border-[var(--border-subtle)] text-[var(--text-main)]">
                   Year: {selectedYear}
                   <button
                     type="button"
@@ -559,7 +559,7 @@ export function BrowseClient({
               )}
 
               {verifiedOnly && (
-                <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs bg-[var(--verified-bg)] border border-[var(--verified-border)] text-[var(--verified-text)]">
+                <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs sm:text-sm font-medium bg-[var(--verified-bg)] border border-[var(--verified-border)] text-[var(--verified-text)]">
                   Verified Only
                   <button
                     type="button"
@@ -573,7 +573,7 @@ export function BrowseClient({
               )}
 
               {searchFilter && (
-                <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs bg-[var(--bg-elevated)] border border-[var(--border-subtle)] text-[var(--text-main)]">
+                <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs sm:text-sm font-medium bg-[var(--bg-elevated)] border border-[var(--border-subtle)] text-[var(--text-main)]">
                   &ldquo;{searchFilter}&rdquo;
                   <button
                     type="button"
@@ -589,7 +589,7 @@ export function BrowseClient({
               <button
                 type="button"
                 onClick={clearAllFilters}
-                className="text-[11px] text-[var(--accent)] hover:underline ml-2 cursor-pointer"
+                className="text-xs sm:text-sm font-semibold text-[var(--accent)] hover:underline ml-2 cursor-pointer"
               >
                 Clear all
               </button>
@@ -609,7 +609,7 @@ export function BrowseClient({
             </div>
           ) : (
             <div className="p-12 rounded-xl border border-[var(--border-subtle)] bg-[var(--bg-surface)] text-center space-y-3">
-              <div className="w-12 h-12 rounded-full bg-[var(--bg-elevated)] border border-[var(--border-subtle)] flex items-center justify-center mx-auto text-[var(--text-faint)]">
+              <div className="w-12 h-12 rounded-full bg-[var(--bg-elevated)] border border-[var(--border-subtle)] flex items-center justify-center mx-auto text-[var(--text-muted)]">
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                 </svg>
@@ -617,7 +617,7 @@ export function BrowseClient({
               <h3 className="text-base font-bold text-[var(--text-main)]">
                 No Q&amp;As match current criteria
               </h3>
-              <p className="text-xs text-[var(--text-muted)] max-w-sm mx-auto">
+              <p className="text-sm text-[var(--text-muted)] max-w-sm mx-auto">
                 {allQnas.length === 0
                   ? "The archive is currently empty. Entries added to content/qna/ will populate here."
                   : "Try resetting filters or loosening your search query."}
@@ -638,51 +638,91 @@ export function BrowseClient({
 
           {/* Pagination Controls */}
           {totalPages > 1 && (
-            <div className="flex items-center justify-between pt-4 border-t border-[var(--border-subtle)]">
-              <button
-                type="button"
-                disabled={currentPage === 1}
-                onClick={() => {
-                  setCurrentPage((p) => Math.max(1, p - 1));
-                  window.scrollTo({ top: 0, behavior: "smooth" });
-                }}
-                className="px-3 py-1.5 rounded-md border border-[var(--border-subtle)] bg-[var(--bg-surface)] text-xs font-medium text-[var(--text-main)] hover:bg-[var(--bg-elevated)] disabled:opacity-40 disabled:cursor-not-allowed cursor-pointer transition-colors"
-              >
-                ← Previous
-              </button>
+            <nav
+              aria-label="Pagination Navigation"
+              className="flex flex-col sm:flex-row items-center justify-between gap-3 pt-6 border-t border-[var(--border-subtle)] text-xs sm:text-sm"
+            >
+              <div className="flex items-center justify-between w-full sm:w-auto gap-2">
+                <button
+                  type="button"
+                  disabled={currentPage === 1}
+                  onClick={() => {
+                    setCurrentPage((p) => Math.max(1, p - 1));
+                    window.scrollTo({ top: 0, behavior: "smooth" });
+                  }}
+                  className="px-3.5 py-1.5 rounded-lg border border-[var(--border-subtle)] bg-[var(--bg-surface)] font-medium text-[var(--text-main)] hover:bg-[var(--bg-elevated)] disabled:opacity-40 disabled:cursor-not-allowed cursor-pointer transition-colors shadow-2xs inline-flex items-center gap-1"
+                >
+                  <span>←</span>
+                  <span>Previous</span>
+                </button>
 
-              <div className="flex items-center gap-1">
-                {Array.from({ length: totalPages }, (_, i) => i + 1).map((pageNum) => (
-                  <button
-                    key={pageNum}
-                    type="button"
-                    onClick={() => {
-                      setCurrentPage(pageNum);
-                      window.scrollTo({ top: 0, behavior: "smooth" });
-                    }}
-                    className={`w-8 h-8 rounded-md text-xs font-medium cursor-pointer transition-colors ${
-                      currentPage === pageNum
-                        ? "bg-[var(--accent)] text-white font-bold"
-                        : "border border-[var(--border-subtle)] bg-[var(--bg-surface)] text-[var(--text-muted)] hover:bg-[var(--bg-elevated)]"
-                    }`}
-                  >
-                    {pageNum}
-                  </button>
-                ))}
+                {/* Mobile page status */}
+                <span className="sm:hidden font-mono text-xs text-[var(--text-muted)] font-medium">
+                  Page {currentPage} of {totalPages}
+                </span>
+
+                <button
+                  type="button"
+                  disabled={currentPage === totalPages}
+                  onClick={() => {
+                    setCurrentPage((p) => Math.min(totalPages, p + 1));
+                    window.scrollTo({ top: 0, behavior: "smooth" });
+                  }}
+                  className="px-3.5 py-1.5 rounded-lg border border-[var(--border-subtle)] bg-[var(--bg-surface)] font-medium text-[var(--text-main)] hover:bg-[var(--bg-elevated)] disabled:opacity-40 disabled:cursor-not-allowed cursor-pointer transition-colors shadow-2xs inline-flex items-center gap-1"
+                >
+                  <span>Next</span>
+                  <span>→</span>
+                </button>
               </div>
 
-              <button
-                type="button"
-                disabled={currentPage === totalPages}
-                onClick={() => {
-                  setCurrentPage((p) => Math.min(totalPages, p + 1));
-                  window.scrollTo({ top: 0, behavior: "smooth" });
-                }}
-                className="px-3 py-1.5 rounded-md border border-[var(--border-subtle)] bg-[var(--bg-surface)] text-xs font-medium text-[var(--text-main)] hover:bg-[var(--bg-elevated)] disabled:opacity-40 disabled:cursor-not-allowed cursor-pointer transition-colors"
-              >
-                Next →
-              </button>
-            </div>
+              {/* Desktop / Laptop page numbers with ellipsis */}
+              <div className="hidden sm:flex items-center gap-1.5">
+                {(() => {
+                  const pages: (number | "...")[] = [];
+                  if (totalPages <= 7) {
+                    for (let i = 1; i <= totalPages; i++) pages.push(i);
+                  } else if (currentPage <= 4) {
+                    pages.push(1, 2, 3, 4, 5, "...", totalPages);
+                  } else if (currentPage >= totalPages - 3) {
+                    pages.push(1, "...", totalPages - 4, totalPages - 3, totalPages - 2, totalPages - 1, totalPages);
+                  } else {
+                    pages.push(1, "...", currentPage - 1, currentPage, currentPage + 1, "...", totalPages);
+                  }
+                  return pages.map((item, idx) =>
+                    item === "..." ? (
+                      <span
+                        key={`ellipsis-${idx}`}
+                        className="w-8 h-8 flex items-center justify-center font-mono text-xs text-[var(--text-muted)] select-none"
+                      >
+                        …
+                      </span>
+                    ) : (
+                      <button
+                        key={item}
+                        type="button"
+                        onClick={() => {
+                          setCurrentPage(item);
+                          window.scrollTo({ top: 0, behavior: "smooth" });
+                        }}
+                        aria-current={currentPage === item ? "page" : undefined}
+                        className={`w-8 h-8 rounded-lg text-xs font-mono font-semibold cursor-pointer transition-all shadow-2xs ${
+                          currentPage === item
+                            ? "bg-[var(--accent)] text-white font-bold"
+                            : "border border-[var(--border-subtle)] bg-[var(--bg-surface)] text-[var(--text-muted)] hover:text-[var(--text-main)] hover:bg-[var(--bg-elevated)]"
+                        }`}
+                      >
+                        {item}
+                      </button>
+                    )
+                  );
+                })()}
+              </div>
+
+              {/* Total Indicator for desktop */}
+              <div className="hidden sm:flex items-center gap-2 text-xs font-mono text-[var(--text-muted)]">
+                <span>Total {totalPages} Pages</span>
+              </div>
+            </nav>
           )}
         </div>
       </div>

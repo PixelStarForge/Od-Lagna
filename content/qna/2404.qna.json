@@ -1,0 +1,17 @@
+{
+  "id": "2404",
+  "question": "Would Elsa prefer chocolate cake or shortcake?",
+  "answer": "Out of those two, shortcake, maybe. She's the type to save the strawberry to the very end.",
+  "characters": [
+    "Elsa Granhiert"
+  ],
+  "topics": [
+    "General"
+  ],
+  "arc": "general",
+  "source": {
+    "type": "text",
+    "value": ""
+  },
+  "verified": false
+}

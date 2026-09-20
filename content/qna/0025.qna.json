@@ -1,17 +1,14 @@
 {
   "id": "0025",
-  "question": "Who is Frederica stronger than and weaker than?",
-  "answer": "She's about the same as Rem. In other words, not that strong.",
-  "characters": [
-    "Frederica Baumann",
-    "Rem"
-  ],
+  "question": "For the sake of the motherland, can you assassinate an existence that has at least been through life and death together with you as a lover for a long time?",
+  "answer": "I dunno about the motherland. If it’s for the sake of family then it can’t be helped.",
+  "characters": [],
   "topics": [
-    "Powerscaling"
+    "General"
   ],
   "arc": "general",
   "source": {
-    "type": "url",
+    "type": "text",
     "value": ""
   },
   "verified": false

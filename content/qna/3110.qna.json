@@ -1,0 +1,17 @@
+{
+  "id": "3110",
+  "question": "What are the first words Reinhard spoke?",
+  "answer": "\"Papa\" or something like that, I think. The normal stuff.",
+  "characters": [
+    "Reinhard van Astrea"
+  ],
+  "topics": [
+    "General"
+  ],
+  "arc": "general",
+  "source": {
+    "type": "text",
+    "value": ""
+  },
+  "verified": false
+}

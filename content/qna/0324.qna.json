@@ -1,0 +1,22 @@
+{
+  "id": "0324",
+  "question": "How do Subaru and the royal candidates compare to animals?",
+  "answer": "Subaru:monkey Emilia:bunny Felt:cat Crusch:swan Anastasia:fox Priscilla: female lion",
+  "characters": [
+    "Anastasia Hoshin",
+    "Crusch Karsten",
+    "Emilia",
+    "Felt",
+    "Natsuki Subaru",
+    "Priscilla Barielle"
+  ],
+  "topics": [
+    "Royal Selection"
+  ],
+  "arc": "general",
+  "source": {
+    "type": "text",
+    "value": ""
+  },
+  "verified": false
+}

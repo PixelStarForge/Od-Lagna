@@ -1,0 +1,19 @@
+{
+  "id": "3191",
+  "question": "What does Joshua think of Reinhard?",
+  "answer": "He wishes he wouldn't influence Julius so much.",
+  "characters": [
+    "Joshua Juukulius",
+    "Julius Juukulius",
+    "Reinhard van Astrea"
+  ],
+  "topics": [
+    "General"
+  ],
+  "arc": "general",
+  "source": {
+    "type": "text",
+    "value": ""
+  },
+  "verified": false
+}

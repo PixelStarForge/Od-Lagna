@@ -1,0 +1,26 @@
+{
+  "id": "0770",
+  "question": "Please tell me the Image Color for each of the witches. For example, Emilia is white and purple, that sort of thing.",
+  "answer": "Sekhmet: black, gray. Typhon: green, blue. Minerva: blue, white. Daphne: purple, black. Carmilla: red, pink. Echidna: white, black. Pandora: gold, white. Hector: gold, brown.",
+  "characters": [
+    "Carmilla",
+    "Daphne",
+    "Echidna",
+    "Emilia",
+    "Hector",
+    "Minerva",
+    "Pandora",
+    "Sekhmet",
+    "Typhon"
+  ],
+  "topics": [
+    "Sin Archbishops",
+    "Witches of Sin"
+  ],
+  "arc": "general",
+  "source": {
+    "type": "text",
+    "value": ""
+  },
+  "verified": false
+}

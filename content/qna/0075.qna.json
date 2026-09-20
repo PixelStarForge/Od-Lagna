@@ -1,0 +1,19 @@
+{
+  "id": "0075",
+  "question": "What kind of face do you make when you are writing about Natsuki Rem?",
+  "answer": "I have the face of a joyful man who is witnessing a blissful family, the best in the world.",
+  "characters": [
+    "Natsuki Subaru",
+    "Rem"
+  ],
+  "topics": [
+    "IF Routes",
+    "Sloth IF"
+  ],
+  "arc": "if-sloth",
+  "source": {
+    "type": "text",
+    "value": ""
+  },
+  "verified": false
+}

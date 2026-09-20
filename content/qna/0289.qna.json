@@ -1,0 +1,17 @@
+{
+  "id": "0289",
+  "question": "Please teach me how Kurgan-style’s sure-fire win technique for rock-paper-scissors.",
+  "answer": "Use eight rocks that are stronger than paper.",
+  "characters": [
+    "Kurgan"
+  ],
+  "topics": [
+    "General"
+  ],
+  "arc": "general",
+  "source": {
+    "type": "text",
+    "value": ""
+  },
+  "verified": false
+}

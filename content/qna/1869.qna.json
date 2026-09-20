@@ -1,0 +1,17 @@
+{
+  "id": "1869",
+  "question": "Favorite animal",
+  "answer": "Dogs, you see. Likely, he's probably not too good with cats, I'd think. I have the mental image of them both being wary of each other.",
+  "characters": [
+    "Felix Argyle (Ferris)"
+  ],
+  "topics": [
+    "General"
+  ],
+  "arc": "general",
+  "source": {
+    "type": "text",
+    "value": ""
+  },
+  "verified": false
+}

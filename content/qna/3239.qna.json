@@ -1,0 +1,18 @@
+{
+  "id": "3239",
+  "question": "Has Ferris ever taken on a student?",
+  "answer": "If Crusch told him to take one on, he probably would, but he wouldn't do it on his own.",
+  "characters": [
+    "Crusch Karsten",
+    "Felix Argyle (Ferris)"
+  ],
+  "topics": [
+    "General"
+  ],
+  "arc": "general",
+  "source": {
+    "type": "text",
+    "value": ""
+  },
+  "verified": false
+}

@@ -1,0 +1,18 @@
+{
+  "id": "2199",
+  "question": "Who gave Anastasia her hair ornament?",
+  "answer": "It was Ricardo.",
+  "characters": [
+    "Anastasia Hoshin",
+    "Ricardo Welkin"
+  ],
+  "topics": [
+    "General"
+  ],
+  "arc": "general",
+  "source": {
+    "type": "text",
+    "value": ""
+  },
+  "verified": false
+}

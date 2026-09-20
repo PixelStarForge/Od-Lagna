@@ -1,0 +1,17 @@
+{
+  "id": "1728",
+  "question": "Is there anything Reinhard would like to do with his family?",
+  "answer": "He'd like to have a friendly meal with them.",
+  "characters": [
+    "Reinhard van Astrea"
+  ],
+  "topics": [
+    "General"
+  ],
+  "arc": "general",
+  "source": {
+    "type": "text",
+    "value": ""
+  },
+  "verified": false
+}

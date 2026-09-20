@@ -1,0 +1,17 @@
+{
+  "id": "0481",
+  "question": "Are there any clergy?",
+  "answer": "Are you unsatisfied with Mr. Petelgeuse?",
+  "characters": [
+    "Petelgeuse Romanée-Conti"
+  ],
+  "topics": [
+    "General"
+  ],
+  "arc": "general",
+  "source": {
+    "type": "text",
+    "value": ""
+  },
+  "verified": false
+}

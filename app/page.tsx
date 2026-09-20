@@ -39,43 +39,43 @@ export default function HomePage() {
       {/* Live Stats Overview */}
       <section className="space-y-4">
         <div className="flex items-center justify-between">
-          <h2 className="text-xs font-mono uppercase tracking-wider text-[var(--text-faint)]">
+          <h2 className="text-xs font-mono font-bold uppercase tracking-wider text-[var(--text-muted)]">
             Live Archive Metrics
           </h2>
-          <span className="text-xs text-[var(--text-faint)]">Updated at build time</span>
+          <span className="text-xs font-mono text-[var(--text-muted)]">Updated at build time</span>
         </div>
 
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
           <div className="p-5 rounded-xl border border-[var(--border-subtle)] bg-[var(--bg-surface)]">
-            <p className="text-xs font-mono text-[var(--text-faint)] uppercase">Total Indexed</p>
+            <p className="text-xs font-mono font-semibold text-[var(--text-muted)] uppercase">Total Indexed</p>
             <p className="text-3xl font-extrabold text-[var(--text-main)] mt-1 font-mono">
               {stats.totalCount}
             </p>
-            <p className="text-xs text-[var(--text-muted)] mt-1">Author Q&amp;A records</p>
+            <p className="text-sm text-[var(--text-muted)] mt-1 font-medium">Author Q&amp;A records</p>
           </div>
 
           <div className="p-5 rounded-xl border border-[var(--border-subtle)] bg-[var(--bg-surface)]">
-            <p className="text-xs font-mono text-[var(--text-faint)] uppercase">Verified Citations</p>
+            <p className="text-xs font-mono font-semibold text-[var(--text-muted)] uppercase">Verified Citations</p>
             <p className="text-3xl font-extrabold text-[var(--verified-text)] mt-1 font-mono">
               {stats.verifiedCount}
             </p>
-            <p className="text-xs text-[var(--text-muted)] mt-1">With primary source URLs</p>
+            <p className="text-sm text-[var(--text-muted)] mt-1 font-medium">With primary source URLs</p>
           </div>
 
           <div className="p-5 rounded-xl border border-[var(--border-subtle)] bg-[var(--bg-surface)]">
-            <p className="text-xs font-mono text-[var(--text-faint)] uppercase">Canon Arcs</p>
+            <p className="text-xs font-mono font-semibold text-[var(--text-muted)] uppercase">Canon Arcs</p>
             <p className="text-3xl font-extrabold text-[var(--text-main)] mt-1 font-mono">
               {arcs.length}
             </p>
-            <p className="text-xs text-[var(--text-muted)] mt-1">Arc 1 through Arc 10</p>
+            <p className="text-sm text-[var(--text-muted)] mt-1 font-medium">Arc 1 through Arc 10</p>
           </div>
 
           <div className="p-5 rounded-xl border border-[var(--border-subtle)] bg-[var(--bg-surface)]">
-            <p className="text-xs font-mono text-[var(--text-faint)] uppercase">IF Timelines</p>
+            <p className="text-xs font-mono font-semibold text-[var(--text-muted)] uppercase">IF Timelines</p>
             <p className="text-3xl font-extrabold text-[var(--text-main)] mt-1 font-mono">
               {ifRoutes.length}
             </p>
-            <p className="text-xs text-[var(--text-muted)] mt-1">Alternate What-If routes</p>
+            <p className="text-sm text-[var(--text-muted)] mt-1 font-medium">Alternate What-If routes</p>
           </div>
         </div>
       </section>
@@ -115,11 +115,11 @@ export default function HomePage() {
             <h2 className="text-lg font-bold text-[var(--text-main)]">
               Canonical Story Progression
             </h2>
-            <p className="text-xs text-[var(--text-muted)]">
+            <p className="text-sm text-[var(--text-muted)]">
               The linear story spine mapped to the spoiler-cutoff slider.
             </p>
           </div>
-          <Link href="/browse" className="text-xs font-semibold text-[var(--accent)] hover:underline">
+          <Link href="/browse" className="text-sm font-semibold text-[var(--accent)] hover:underline">
             View in Browse →
           </Link>
         </div>
@@ -135,18 +135,18 @@ export default function HomePage() {
               >
                 <div className="space-y-1">
                   <div className="flex items-center justify-between">
-                    <span className="text-xs font-mono font-bold px-2 py-0.5 rounded bg-[var(--bg-elevated)] text-[var(--text-faint)] group-hover:text-[var(--accent-text)] group-hover:bg-[var(--accent-bg)] transition-colors">
+                    <span className="text-xs font-mono font-bold px-2 py-0.5 rounded bg-[var(--bg-elevated)] text-[var(--text-muted)] group-hover:text-[var(--accent-text)] group-hover:bg-[var(--accent-bg)] transition-colors">
                       Arc {arc.order}
                     </span>
-                    <span className="text-xs font-mono text-[var(--text-faint)]">
+                    <span className="text-xs font-mono font-medium text-[var(--text-muted)]">
                       {count} Q&amp;A
                     </span>
                   </div>
-                  <h3 className="font-semibold text-sm text-[var(--text-main)] group-hover:text-[var(--accent)] transition-colors line-clamp-2">
+                  <h3 className="font-semibold text-base text-[var(--text-main)] group-hover:text-[var(--accent)] transition-colors line-clamp-2">
                     {arc.name}
                   </h3>
                 </div>
-                <div className="text-[11px] text-[var(--text-faint)] flex items-center gap-1 group-hover:text-[var(--text-muted)]">
+                <div className="text-xs text-[var(--text-muted)] font-medium flex items-center gap-1 group-hover:text-[var(--accent)]">
                   <span>Filter arc</span>
                   <span>→</span>
                 </div>
@@ -162,7 +162,7 @@ export default function HomePage() {
           <h2 className="text-lg font-bold text-[var(--text-main)]">
             Alternate &ldquo;What-If&rdquo; Timelines
           </h2>
-          <p className="text-xs text-[var(--text-muted)]">
+          <p className="text-sm text-[var(--text-muted)]">
             Parallel divergence routes exploring divergent choices made by Subaru Natsuki.
           </p>
         </div>
@@ -178,14 +178,14 @@ export default function HomePage() {
               >
                 <div className="space-y-1">
                   <div className="flex items-center justify-between">
-                    <span className="text-xs font-semibold text-[var(--accent)]">
+                    <span className="text-sm font-semibold text-[var(--accent)]">
                       {route.name}
                     </span>
-                    <span className="text-xs font-mono text-[var(--text-faint)]">
+                    <span className="text-xs font-mono font-medium text-[var(--text-muted)]">
                       {count} Q&amp;A
                     </span>
                   </div>
-                  <p className="text-xs text-[var(--text-muted)]">
+                  <p className="text-sm text-[var(--text-muted)]">
                     {route.divergesFrom
                       ? `Diverges from ${route.divergesFrom.replace("-", " ").toUpperCase()}`
                       : "Independent divergence"}

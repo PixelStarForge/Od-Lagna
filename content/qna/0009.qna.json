@@ -1,14 +1,14 @@
 {
   "id": "0009",
-  "question": "How are Subaru’s Sanity Points (note: Lovecraftian RPG reference)",
-  "answer": "The same as a normal person. However, he does have a certain tolerance in regards to witches.",
-  "characters": [
-    "Natsuki Subaru"
+  "question": "Between the published version and the original web version, which one would be better for me read first? I’m greatly perplexed.",
+  "answer": "Since the web version is advancing further wouldn’t it be fine to read the web version first",
+  "characters": [],
+  "topics": [
+    "General"
   ],
-  "topics": [],
   "arc": "general",
   "source": {
-    "type": "url",
+    "type": "text",
     "value": ""
   },
   "verified": false

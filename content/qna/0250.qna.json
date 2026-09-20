@@ -1,0 +1,18 @@
+{
+  "id": "0250",
+  "question": "Is Joshua’s monocle not meant to help his vision?",
+  "answer": "He’s imitating Tivey’s cool look.",
+  "characters": [
+    "Joshua Juukulius",
+    "Tivey Pearlbaton"
+  ],
+  "topics": [
+    "General"
+  ],
+  "arc": "general",
+  "source": {
+    "type": "text",
+    "value": ""
+  },
+  "verified": false
+}

@@ -1,0 +1,19 @@
+{
+  "id": "2939",
+  "question": "Are Frederica and Emilia good friends?",
+  "answer": "Well, about as good as you'd normally expect. Everyone in the Emilia camp is good friends. Aside from Roswaal.",
+  "characters": [
+    "Emilia",
+    "Frederica Baumann",
+    "Roswaal L. Mathers"
+  ],
+  "topics": [
+    "General"
+  ],
+  "arc": "general",
+  "source": {
+    "type": "text",
+    "value": ""
+  },
+  "verified": false
+}

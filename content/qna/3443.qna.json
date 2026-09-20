@@ -1,0 +1,18 @@
+{
+  "id": "3443",
+  "question": "Is Petra better at cooking than Ram?",
+  "answer": "It's not that Ram can't do it, it just that she doesn't, so if she had to work at it properly, she'd do better than most people. Hence, it's difficult to say if Petra could win at that.",
+  "characters": [
+    "Petra Leyte",
+    "Ram"
+  ],
+  "topics": [
+    "General"
+  ],
+  "arc": "general",
+  "source": {
+    "type": "text",
+    "value": ""
+  },
+  "verified": false
+}

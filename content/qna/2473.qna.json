@@ -1,0 +1,19 @@
+{
+  "id": "2473",
+  "question": "A little of the conversation when Wilhelm went on a trip with Heinkel and Reinhard!!",
+  "answer": "They've never been on one...",
+  "characters": [
+    "Heinkel van Astrea",
+    "Reinhard van Astrea",
+    "Wilhelm van Astrea"
+  ],
+  "topics": [
+    "General"
+  ],
+  "arc": "general",
+  "source": {
+    "type": "text",
+    "value": ""
+  },
+  "verified": false
+}

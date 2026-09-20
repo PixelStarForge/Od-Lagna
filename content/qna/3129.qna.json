@@ -1,0 +1,17 @@
+{
+  "id": "3129",
+  "question": "Between sweet things and spicy things, which does Joshua like more?",
+  "answer": "Sweet things.",
+  "characters": [
+    "Joshua Juukulius"
+  ],
+  "topics": [
+    "General"
+  ],
+  "arc": "general",
+  "source": {
+    "type": "text",
+    "value": ""
+  },
+  "verified": false
+}

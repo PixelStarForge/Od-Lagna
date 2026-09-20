@@ -1,0 +1,17 @@
+{
+  "id": "2235",
+  "question": "Otto's favorite proverb?",
+  "answer": "It's \"A favor isn't kept in stock, doesn't have a time limit, and has no price tag.\".",
+  "characters": [
+    "Otto Suwen"
+  ],
+  "topics": [
+    "General"
+  ],
+  "arc": "general",
+  "source": {
+    "type": "text",
+    "value": ""
+  },
+  "verified": false
+}

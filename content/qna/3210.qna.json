@@ -1,0 +1,17 @@
+{
+  "id": "3210",
+  "question": "Aside from healing magic, can Ferris use offensive magic?",
+  "answer": "He can't, is what he says to those around him. In truth, he can make healing magic go berserk and mess up his opponent's innards, so it's not that he's incapable of it.",
+  "characters": [
+    "Felix Argyle (Ferris)"
+  ],
+  "topics": [
+    "General"
+  ],
+  "arc": "general",
+  "source": {
+    "type": "text",
+    "value": ""
+  },
+  "verified": false
+}

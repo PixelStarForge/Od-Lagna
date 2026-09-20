@@ -1,0 +1,17 @@
+{
+  "id": "2091",
+  "question": "Favorite food?",
+  "answer": "Getemono. Felt makes a face when he offers it to her.",
+  "characters": [
+    "Felt"
+  ],
+  "topics": [
+    "General"
+  ],
+  "arc": "general",
+  "source": {
+    "type": "text",
+    "value": ""
+  },
+  "verified": false
+}

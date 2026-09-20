@@ -1,0 +1,17 @@
+{
+  "id": "1234",
+  "question": "As part of a job for the royal knights, one of the knights takes on an infiltration mission where he has to pretend to be a couple with Ferris.",
+  "answer": "Interesting. I’ll keep it in stock.",
+  "characters": [
+    "Felix Argyle (Ferris)"
+  ],
+  "topics": [
+    "Royal Knights"
+  ],
+  "arc": "general",
+  "source": {
+    "type": "text",
+    "value": ""
+  },
+  "verified": false
+}

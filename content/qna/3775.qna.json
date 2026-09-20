@@ -1,0 +1,17 @@
+{
+  "id": "3775",
+  "question": "What happened the first time Otto drank alcohol?",
+  "answer": "That’s the one where he woke up in the garbage dump the next day.",
+  "characters": [
+    "Otto Suwen"
+  ],
+  "topics": [
+    "General"
+  ],
+  "arc": "general",
+  "source": {
+    "type": "text",
+    "value": ""
+  },
+  "verified": false
+}

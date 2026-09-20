@@ -1,0 +1,17 @@
+{
+  "id": "3432",
+  "question": "How many different kinds of ribbons does Petra have?",
+  "answer": "Petra is style-conscious, so she should have a lot.",
+  "characters": [
+    "Petra Leyte"
+  ],
+  "topics": [
+    "General"
+  ],
+  "arc": "general",
+  "source": {
+    "type": "text",
+    "value": ""
+  },
+  "verified": false
+}

@@ -1,0 +1,19 @@
+{
+  "id": "3004",
+  "question": "To Frederica, what are Ram and Garfiel?",
+  "answer": "Frederica nee-sama's looks on them as a little sister and little brother, so she dearly wishes for both of them to become happy.",
+  "characters": [
+    "Frederica Baumann",
+    "Garfiel Tinsel",
+    "Ram"
+  ],
+  "topics": [
+    "General"
+  ],
+  "arc": "general",
+  "source": {
+    "type": "text",
+    "value": ""
+  },
+  "verified": false
+}

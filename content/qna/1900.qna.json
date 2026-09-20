@@ -1,0 +1,18 @@
+{
+  "id": "1900",
+  "question": "What is Felis' special skill?",
+  "answer": "Aside from healing magic, it's guessing what Crusch is thinking from her expression (literally: the color of her face).",
+  "characters": [
+    "Crusch Karsten",
+    "Felix Argyle (Ferris)"
+  ],
+  "topics": [
+    "General"
+  ],
+  "arc": "general",
+  "source": {
+    "type": "text",
+    "value": ""
+  },
+  "verified": false
+}

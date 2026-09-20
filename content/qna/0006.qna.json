@@ -1,21 +1,15 @@
 {
   "id": "0006",
-  "question": "Ranking of magical strength",
-  "answer": "Roswaal > Emilia(At her best) > Echidna > Beatrice > Fortuna",
-  "characters": [
-    "Roswaal L. Mathers",
-    "Emilia",
-    "Echidna",
-    "Beatrice",
-    "Fortuna"
-  ],
+  "question": "Are you into liberal arts? Science? Or are you sport-oriented?",
+  "answer": "I’m strong in Japanese language and poor in English. I’m weak at mathematics and strong in science. For strength fitness I was in the top 10 in my academic year, for stamina I got the booby prize (second-to-last in Japan). I was that kind of student.",
+  "characters": [],
   "topics": [
     "Ranking",
-    "Mana & Magic"
+    "Worldbuilding"
   ],
   "arc": "general",
   "source": {
-    "type": "url",
+    "type": "text",
     "value": ""
   },
   "verified": false

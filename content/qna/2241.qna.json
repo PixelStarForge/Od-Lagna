@@ -1,0 +1,17 @@
+{
+  "id": "2241",
+  "question": "Please tell me Otto's heroic story!",
+  "answer": "He defeated seven men in a drinking contest at a bar, earned the disfavor of the former boss of the town, and managed to crawl away. The bar burned down. He's a criminal at large, isn't he.",
+  "characters": [
+    "Otto Suwen"
+  ],
+  "topics": [
+    "General"
+  ],
+  "arc": "general",
+  "source": {
+    "type": "text",
+    "value": ""
+  },
+  "verified": false
+}

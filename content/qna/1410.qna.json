@@ -1,0 +1,17 @@
+{
+  "id": "1410",
+  "question": "Does Emilia-tan know the meaning of plaything?",
+  "answer": "She doesn’t.",
+  "characters": [
+    "Emilia"
+  ],
+  "topics": [
+    "General"
+  ],
+  "arc": "general",
+  "source": {
+    "type": "text",
+    "value": ""
+  },
+  "verified": false
+}

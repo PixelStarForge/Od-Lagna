@@ -164,7 +164,7 @@ export function CustomSelect({
           {selectedOption ? selectedOption.label : placeholder}
         </span>
         <svg
-          className={`w-4 h-4 shrink-0 text-[var(--text-faint)] transition-transform duration-200 ${
+          className={`w-4 h-4 shrink-0 text-[var(--text-muted)] transition-transform duration-200 ${
             isOpen ? "rotate-180 text-[var(--accent)]" : ""
           }`}
           fill="none"
@@ -201,7 +201,7 @@ export function CustomSelect({
                   setHighlightedIndex(0);
                 }}
                 placeholder="Search options..."
-                className="w-full px-2.5 py-1.5 text-xs rounded-md border border-[var(--border-subtle)] bg-[var(--bg-surface)] text-[var(--text-main)] placeholder-[var(--text-faint)] focus:outline-none focus:border-[var(--accent)] focus:ring-1 focus:ring-[var(--accent)]"
+                className="w-full px-2.5 py-1.5 text-xs sm:text-sm rounded-md border border-[var(--border-subtle)] bg-[var(--bg-surface)] text-[var(--text-main)] placeholder-[var(--text-muted)] focus:outline-none focus:border-[var(--accent)] focus:ring-1 focus:ring-[var(--accent)]"
               />
             </div>
           )}
@@ -209,14 +209,14 @@ export function CustomSelect({
           {/* Options List */}
           <div className="overflow-y-auto max-h-56 py-1 divide-y divide-[var(--border-subtle)]/30">
             {filteredOptions.length === 0 ? (
-              <div className="p-3 text-center text-xs text-[var(--text-muted)]">
+              <div className="p-3 text-center text-xs sm:text-sm text-[var(--text-muted)]">
                 No matching options found
               </div>
             ) : (
               groupedOptions.map((grp, gIdx) => (
                 <div key={grp.group || `grp-${gIdx}`} className="py-0.5">
                   {grp.group && (
-                    <div className="px-3 py-1 text-[10px] font-mono uppercase tracking-wider font-semibold text-[var(--text-faint)] bg-[var(--bg-canvas)]/60">
+                    <div className="px-3 py-1 text-xs font-mono uppercase tracking-wider font-bold text-[var(--text-muted)] bg-[var(--bg-canvas)]/60">
                       {grp.group}
                     </div>
                   )}
@@ -232,7 +232,7 @@ export function CustomSelect({
                         aria-selected={isSelected}
                         onClick={() => handleSelect(opt.value)}
                         onMouseEnter={() => setHighlightedIndex(flatIdx)}
-                        className={`flex items-center justify-between px-3 py-2 text-xs cursor-pointer transition-colors ${
+                        className={`flex items-center justify-between px-3 py-2 text-xs sm:text-sm cursor-pointer transition-colors ${
                           isSelected
                             ? "bg-[var(--accent-bg)] text-[var(--accent-text)] font-semibold"
                             : isHighlighted

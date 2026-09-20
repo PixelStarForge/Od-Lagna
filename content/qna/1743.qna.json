@@ -1,0 +1,17 @@
+{
+  "id": "1743",
+  "question": "What food does Reinhard like?",
+  "answer": "Food that he can eat together with someone. Who that 'someone' is defined as depends on what happens after this.",
+  "characters": [
+    "Reinhard van Astrea"
+  ],
+  "topics": [
+    "General"
+  ],
+  "arc": "general",
+  "source": {
+    "type": "text",
+    "value": ""
+  },
+  "verified": false
+}

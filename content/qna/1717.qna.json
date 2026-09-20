@@ -1,0 +1,17 @@
+{
+  "id": "1717",
+  "question": "Favorite food",
+  "answer": "He doesn't have a particular favorite food. He enjoys a meal he can eat with someone.",
+  "characters": [
+    "Reinhard van Astrea"
+  ],
+  "topics": [
+    "General"
+  ],
+  "arc": "general",
+  "source": {
+    "type": "text",
+    "value": ""
+  },
+  "verified": false
+}

@@ -1,0 +1,17 @@
+{
+  "id": "0251",
+  "question": "Is there a Julius-tan route?",
+  "answer": "I don’t understand what you’re talking about.",
+  "characters": [
+    "Julius Juukulius"
+  ],
+  "topics": [
+    "General"
+  ],
+  "arc": "general",
+  "source": {
+    "type": "text",
+    "value": ""
+  },
+  "verified": false
+}

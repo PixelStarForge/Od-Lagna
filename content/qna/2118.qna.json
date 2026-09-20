@@ -1,0 +1,17 @@
+{
+  "id": "2118",
+  "question": "Please tell me Old Man Rom's hobbies.",
+  "answer": "Despite being terrible at it, he likes painting pictures.",
+  "characters": [
+    "Old Man Rom"
+  ],
+  "topics": [
+    "General"
+  ],
+  "arc": "general",
+  "source": {
+    "type": "text",
+    "value": ""
+  },
+  "verified": false
+}

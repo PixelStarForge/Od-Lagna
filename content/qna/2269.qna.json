@@ -1,0 +1,17 @@
+{
+  "id": "2269",
+  "question": "What miso soup ingredients does Otto like?",
+  "answer": "It's wheat bran miso, you see. What could it be... it's really, sort of, easy on the stomach.",
+  "characters": [
+    "Otto Suwen"
+  ],
+  "topics": [
+    "General"
+  ],
+  "arc": "general",
+  "source": {
+    "type": "text",
+    "value": ""
+  },
+  "verified": false
+}

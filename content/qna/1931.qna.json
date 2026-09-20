@@ -1,0 +1,17 @@
+{
+  "id": "1931",
+  "question": "Can Echidna cook?",
+  "answer": "She can/can't. (note: the answer is a blend of the pronunciation of 'can' and 'can't', apparently intended to leave the response vague.)",
+  "characters": [
+    "Echidna"
+  ],
+  "topics": [
+    "General"
+  ],
+  "arc": "general",
+  "source": {
+    "type": "text",
+    "value": ""
+  },
+  "verified": false
+}

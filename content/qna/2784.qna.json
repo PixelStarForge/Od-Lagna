@@ -1,0 +1,17 @@
+{
+  "id": "2784",
+  "question": "Please tell me the level of Priscilla's strength.",
+  "answer": "Priscilla is fairly strong, so she'd be around level 88!",
+  "characters": [
+    "Priscilla Barielle"
+  ],
+  "topics": [
+    "General"
+  ],
+  "arc": "general",
+  "source": {
+    "type": "text",
+    "value": ""
+  },
+  "verified": false
+}

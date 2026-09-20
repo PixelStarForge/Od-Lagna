@@ -1,0 +1,17 @@
+{
+  "id": "3080",
+  "question": "Is Reinhard still training with the sword?",
+  "answer": "He practices as part of his daily routine, but not to the point you could call it training.",
+  "characters": [
+    "Reinhard van Astrea"
+  ],
+  "topics": [
+    "General"
+  ],
+  "arc": "general",
+  "source": {
+    "type": "text",
+    "value": ""
+  },
+  "verified": false
+}

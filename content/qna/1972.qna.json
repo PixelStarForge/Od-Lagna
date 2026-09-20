@@ -1,0 +1,17 @@
+{
+  "id": "1972",
+  "question": "Is there a book that Echidna likes?",
+  "answer": "There's a book that she's read over and over, to the point that it would wear out, and it's everything that's made her what she is now.",
+  "characters": [
+    "Echidna"
+  ],
+  "topics": [
+    "General"
+  ],
+  "arc": "general",
+  "source": {
+    "type": "text",
+    "value": ""
+  },
+  "verified": false
+}

@@ -1,0 +1,17 @@
+{
+  "id": "0963",
+  "question": "If you look at Beatrice’s Door Crossing from the back, how does it look?",
+  "answer": "I’m not sure I understand what you mean by ‘from the back’, but probably, if I assume you mean looking at it from inside the attached room, the opened door wouldn’t open for some strange reason. In the case where you fly to the forbidden library from Door A, if you view Door A from Room A, Door A wouldn’t budge at all. This could drive someone crazy.",
+  "characters": [
+    "Beatrice"
+  ],
+  "topics": [
+    "Mana & Magic"
+  ],
+  "arc": "general",
+  "source": {
+    "type": "text",
+    "value": ""
+  },
+  "verified": false
+}

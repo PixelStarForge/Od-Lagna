@@ -1,0 +1,19 @@
+{
+  "id": "2039",
+  "question": "Please tell me Petra's first and second most-liked people.",
+  "answer": "It feels inelegant to be putting them in order, so I don't like it that much, but Subaru and Frederica and her parents are on top.",
+  "characters": [
+    "Frederica Baumann",
+    "Natsuki Subaru",
+    "Petra Leyte"
+  ],
+  "topics": [
+    "General"
+  ],
+  "arc": "general",
+  "source": {
+    "type": "text",
+    "value": ""
+  },
+  "verified": false
+}

@@ -1,0 +1,17 @@
+{
+  "id": "1797",
+  "question": "Does Joshua have a favorite food?",
+  "answer": "Things with a rich flavor. Nothing in particular, just the type of foods with lots of soy sauce or other sauce. It's not good for him, so the people around him try to get him to stop.",
+  "characters": [
+    "Joshua Juukulius"
+  ],
+  "topics": [
+    "General"
+  ],
+  "arc": "general",
+  "source": {
+    "type": "text",
+    "value": ""
+  },
+  "verified": false
+}

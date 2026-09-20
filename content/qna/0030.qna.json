@@ -1,17 +1,16 @@
 {
   "id": "0030",
-  "question": "For her to be able to defeat an oni, Frederica is stronger than I thought...! Thank you very much!",
-  "answer": "Actually, Rem isn't that strong of an oni, you know. She only has one horn, so she's physically weaker than a normal oni. She does try to make up for it with magic and weaponry, though.",
+  "question": "I want to raise a lazy fellow in the future but will it be fine for me to name them Betelgeuse?",
+  "answer": "It might cause trouble in various areas and once that happens, as long as you don’t mention my name, it’s fine.",
   "characters": [
-    "Rem",
-    "Frederica Baumann"
+    "Petelgeuse Romanée-Conti"
   ],
   "topics": [
-    "Powerscaling"
+    "General"
   ],
   "arc": "general",
   "source": {
-    "type": "url",
+    "type": "text",
     "value": ""
   },
   "verified": false

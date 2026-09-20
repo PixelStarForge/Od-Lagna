@@ -1,0 +1,18 @@
+{
+  "id": "2019",
+  "question": "Has Petra forgiven Meili?",
+  "answer": "No, she hasn't forgiven her.",
+  "characters": [
+    "Meili Portroute",
+    "Petra Leyte"
+  ],
+  "topics": [
+    "General"
+  ],
+  "arc": "general",
+  "source": {
+    "type": "text",
+    "value": ""
+  },
+  "verified": false
+}

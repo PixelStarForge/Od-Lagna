@@ -1,0 +1,18 @@
+{
+  "id": "3423",
+  "question": "Does Petra like Subaru? (As a member of the opposite sex",
+  "answer": "Yes.",
+  "characters": [
+    "Natsuki Subaru",
+    "Petra Leyte"
+  ],
+  "topics": [
+    "General"
+  ],
+  "arc": "general",
+  "source": {
+    "type": "text",
+    "value": ""
+  },
+  "verified": false
+}

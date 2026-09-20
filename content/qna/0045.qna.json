@@ -1,20 +1,14 @@
 {
   "id": "0045",
-  "question": "Please tell me the strength ranking out of Wilhelm, Ricardo, Julius, Elsa, and Roswaal!",
-  "answer": "At short range it's Wilhelm, at long range it's Roswaal, in overall strength it's Julius, in tenacity it's Elsa, in vitality it's Ricardo, so out of these five, the victory changes depending on the conditions.",
-  "characters": [
-    "Roswaal L. Mathers",
-    "Wilhelm van Astrea",
-    "Ricardo Welkin",
-    "Julius Juukulius",
-    "Elsa Granhiert"
-  ],
+  "question": "Is there no problem with original characters appearing in derivative works for Rizero?",
+  "answer": "Go ahead",
+  "characters": [],
   "topics": [
-    "Ranking"
+    "General"
   ],
   "arc": "general",
   "source": {
-    "type": "url",
+    "type": "text",
     "value": ""
   },
   "verified": false

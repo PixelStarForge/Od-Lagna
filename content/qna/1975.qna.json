@@ -1,0 +1,17 @@
+{
+  "id": "1975",
+  "question": "Please tell me a food that Dona doesn't like.",
+  "answer": "She can't eat natural foods as-is. If someone hasn't worked on it, she'll barf.",
+  "characters": [
+    "Echidna"
+  ],
+  "topics": [
+    "General"
+  ],
+  "arc": "general",
+  "source": {
+    "type": "text",
+    "value": ""
+  },
+  "verified": false
+}

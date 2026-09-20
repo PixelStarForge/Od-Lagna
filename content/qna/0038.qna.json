@@ -1,15 +1,14 @@
 {
   "id": "0038",
-  "question": "It was said that if Puck is ten meters away from Emilia, he can’t utilize his normal power, but can he change to his true form?",
-  "answer": "If he’s too far away, the surroundings will freeze, but it’s not something he can’t do.",
-  "characters": [
-    "Puck",
-    "Emilia"
+  "question": "In what way was the idea for the Rizero series born from?",
+  "answer": "This question feels like a déjà vu…",
+  "characters": [],
+  "topics": [
+    "General"
   ],
-  "topics": [],
   "arc": "general",
   "source": {
-    "type": "url",
+    "type": "text",
     "value": ""
   },
   "verified": false

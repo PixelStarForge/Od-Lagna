@@ -1,0 +1,17 @@
+{
+  "id": "0304",
+  "question": "About bowel-loving Elsa, is her favorite food variety meats?",
+  "answer": "A steak dripping blood, cooked blue-rare.",
+  "characters": [
+    "Elsa Granhiert"
+  ],
+  "topics": [
+    "General"
+  ],
+  "arc": "general",
+  "source": {
+    "type": "text",
+    "value": ""
+  },
+  "verified": false
+}

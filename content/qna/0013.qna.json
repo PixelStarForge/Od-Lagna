@@ -1,19 +1,14 @@
 {
   "id": "0013",
-  "question": "How effective is Reinhard’s boot camp? How much stronger are Ton, Chin, and Kan compared to themselves a year ago?",
-  "answer": "They’re now stronger than Subaru.",
-  "characters": [
-    "Reinhard van Astrea",
-    "Rachins Hoffman",
-    "Gaston",
-    "Camberley"
-  ],
+  "question": "Did you know about [Narou] from before you began writing Re: Zero? Were you a reader?",
+  "answer": "I knew of [Narou] but I wasn’t a reader, even now I’m not reading it to the extent to be called a ‘reader’. My image for it is that of a huge posting site.",
+  "characters": [],
   "topics": [
-    "Felt Camp"
+    "General"
   ],
   "arc": "general",
   "source": {
-    "type": "url",
+    "type": "text",
     "value": ""
   },
   "verified": false

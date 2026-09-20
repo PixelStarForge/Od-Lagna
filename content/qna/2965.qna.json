@@ -1,0 +1,17 @@
+{
+  "id": "2965",
+  "question": "Happy Birthday? (note: written in English)",
+  "answer": "Yes, Happy Birthday! (note: written in the phonetic Japanese characters approximating the English pronunciation)",
+  "characters": [
+    "Frederica Baumann"
+  ],
+  "topics": [
+    "General"
+  ],
+  "arc": "general",
+  "source": {
+    "type": "text",
+    "value": ""
+  },
+  "verified": false
+}

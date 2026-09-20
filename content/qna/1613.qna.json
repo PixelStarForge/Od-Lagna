@@ -1,0 +1,17 @@
+{
+  "id": "1613",
+  "question": "What is Garfiel's favorite animal?",
+  "answer": "It's beef, you see.",
+  "characters": [
+    "Garfiel Tinsel"
+  ],
+  "topics": [
+    "General"
+  ],
+  "arc": "general",
+  "source": {
+    "type": "text",
+    "value": ""
+  },
+  "verified": false
+}

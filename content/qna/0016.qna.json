@@ -1,17 +1,14 @@
 {
   "id": "0016",
-  "question": "Mr. Bete’s Unseen Hands versus Subaru’s Invisible Providence. Who wins?",
-  "answer": "It’ll be the Unseen Hands. There’s only one arm with Invisible Providence, and it’s range isn’t much different from Subaru’s real arms. Think of it as being not that different from having a third arm sprouting from his chest.",
-  "characters": [
-    "Natsuki Subaru",
-    "Petelgeuse Romanée-Conti"
-  ],
+  "question": "Do you like depressing development genres?",
+  "answer": "For stuff like the story of Anapiya from Dances with the Dragons, I think I came",
+  "characters": [],
   "topics": [
-    "Authorities"
+    "General"
   ],
   "arc": "general",
   "source": {
-    "type": "url",
+    "type": "text",
     "value": ""
   },
   "verified": false

@@ -1,0 +1,18 @@
+{
+  "id": "1493",
+  "question": "I forgot to ask an important question! Please tell me how to smooth-talk Beako! If I gave her something like a Puck doll, would she follow me?",
+  "answer": "That would tilt things in your favor quite a bit, yes.",
+  "characters": [
+    "Beatrice",
+    "Puck"
+  ],
+  "topics": [
+    "General"
+  ],
+  "arc": "general",
+  "source": {
+    "type": "text",
+    "value": ""
+  },
+  "verified": false
+}

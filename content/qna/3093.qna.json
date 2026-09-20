@@ -1,0 +1,17 @@
+{
+  "id": "3093",
+  "question": "Please tell me a warm drink that Reinhard likes.",
+  "answer": "No one dislikes corn potage, so corn potage.",
+  "characters": [
+    "Reinhard van Astrea"
+  ],
+  "topics": [
+    "General"
+  ],
+  "arc": "general",
+  "source": {
+    "type": "text",
+    "value": ""
+  },
+  "verified": false
+}

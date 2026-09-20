@@ -1,0 +1,19 @@
+{
+  "id": "3772",
+  "question": "What are the names of Otto’s family members?",
+  "answer": "His father is Mazeran Suwen, and his mother is Framir Suwen, is what I’ve just decided.",
+  "characters": [
+    "Framir Suwen",
+    "Mazeran Suwen",
+    "Otto Suwen"
+  ],
+  "topics": [
+    "General"
+  ],
+  "arc": "general",
+  "source": {
+    "type": "text",
+    "value": ""
+  },
+  "verified": false
+}

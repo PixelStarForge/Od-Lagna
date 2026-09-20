@@ -14,17 +14,23 @@ export function Footer() {
                 Od-Lagna Archive
               </span>
             </div>
-            <p className="text-xs text-[var(--text-muted)] mt-1 max-w-md">
+            <p className="text-sm text-[var(--text-muted)] mt-1 max-w-md leading-relaxed">
               A comprehensive, static index of verified author statements, event Q&amp;As, and Twitter lore.
             </p>
           </div>
 
-          <div className="flex items-center gap-6 text-xs text-[var(--text-muted)]">
+          <div className="flex flex-wrap items-center gap-4 sm:gap-6 text-sm font-medium text-[var(--text-muted)]">
             <Link href="/" className="hover:text-[var(--text-main)] transition-colors">
               Home
             </Link>
             <Link href="/browse" className="hover:text-[var(--text-main)] transition-colors">
               Browse Q&amp;As
+            </Link>
+            <Link href="/about" className="hover:text-[var(--text-main)] transition-colors">
+              About
+            </Link>
+            <Link href="/contribute" className="hover:text-[var(--text-main)] transition-colors">
+              Contribute
             </Link>
             <a
               href="https://github.com/PixelStarForge/Od-Lagna"
@@ -37,11 +43,11 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="pt-6 border-t border-[var(--border-subtle)] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 text-[11px] text-[var(--text-faint)]">
+        <div className="pt-6 border-t border-[var(--border-subtle)] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 text-xs text-[var(--text-muted)]">
           <p>
             Unofficial, non-commercial fan archive. Re:Zero kara Hajimeru Isekai Seikatsu is copyright © Tappei Nagatsuki / KADOKAWA.
           </p>
-          <p className="font-mono">
+          <p className="font-mono font-medium">
             Od-Lagna Static Export
           </p>
         </div>

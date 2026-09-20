@@ -1,0 +1,18 @@
+{
+  "id": "2142",
+  "question": "What sort of alcohol is Old Man Rom's favorite?",
+  "answer": "It's the alcohol he drank together with Felt, to celebrate her coming of age.",
+  "characters": [
+    "Felt",
+    "Old Man Rom"
+  ],
+  "topics": [
+    "General"
+  ],
+  "arc": "general",
+  "source": {
+    "type": "text",
+    "value": ""
+  },
+  "verified": false
+}

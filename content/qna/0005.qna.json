@@ -1,17 +1,14 @@
 {
   "id": "0005",
-  "question": "If Frederica and Emilia were to arm-wrestle, who would win?",
-  "answer": "They're pretty evenly matched... if she beast-changed, then Frederica, if not then Emilia.",
-  "characters": [
-    "Frederica Baumann",
-    "Emilia"
-  ],
+  "question": "Approximately which arc does the second mayonnaise uproar occur in?",
+  "answer": "Around the fifth arc",
+  "characters": [],
   "topics": [
-    "Powerscaling"
+    "General"
   ],
   "arc": "general",
   "source": {
-    "type": "url",
+    "type": "text",
     "value": ""
   },
   "verified": false

@@ -1,0 +1,18 @@
+{
+  "id": "3142",
+  "question": "Good evening, professor! Is Joshua the type that eats the shortcake's strawberry first? Or is he the type that saves it for later?",
+  "answer": "He's the type that saves it for later and it gets eaten by Mimi.",
+  "characters": [
+    "Joshua Juukulius",
+    "Mimi Pearlbaton"
+  ],
+  "topics": [
+    "General"
+  ],
+  "arc": "general",
+  "source": {
+    "type": "text",
+    "value": ""
+  },
+  "verified": false
+}

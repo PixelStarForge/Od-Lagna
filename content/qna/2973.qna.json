@@ -1,0 +1,17 @@
+{
+  "id": "2973",
+  "question": "I'd like to ask what Frederica's favorite animal is.",
+  "answer": "She likes cows and pigs and such. Since she's a meat eater.",
+  "characters": [
+    "Frederica Baumann"
+  ],
+  "topics": [
+    "General"
+  ],
+  "arc": "general",
+  "source": {
+    "type": "text",
+    "value": ""
+  },
+  "verified": false
+}

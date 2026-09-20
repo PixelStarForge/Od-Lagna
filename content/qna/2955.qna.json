@@ -1,0 +1,18 @@
+{
+  "id": "2955",
+  "question": "Does Frederica like Ricardo? Even if he's lost his right arm?",
+  "answer": "There's no point of contact between the two of them!",
+  "characters": [
+    "Frederica Baumann",
+    "Ricardo Welkin"
+  ],
+  "topics": [
+    "General"
+  ],
+  "arc": "general",
+  "source": {
+    "type": "text",
+    "value": ""
+  },
+  "verified": false
+}

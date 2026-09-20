@@ -1,0 +1,18 @@
+{
+  "id": "3560",
+  "question": "For Otto, who within the camp is the most level-headed when he speaks with them?",
+  "answer": "If it's within the camp, no matter who you ask, Frederica is the most level-headed.",
+  "characters": [
+    "Frederica Baumann",
+    "Otto Suwen"
+  ],
+  "topics": [
+    "General"
+  ],
+  "arc": "general",
+  "source": {
+    "type": "text",
+    "value": ""
+  },
+  "verified": false
+}

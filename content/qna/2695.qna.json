@@ -1,0 +1,21 @@
+{
+  "id": "2695",
+  "question": "Out of the royal selection candidates, what's her position in the combat strength ranking?",
+  "answer": "The top three of Emilia, Priscilla, Crusch are too high, so even not-that-weak Felt is in fourth place.",
+  "characters": [
+    "Crusch Karsten",
+    "Emilia",
+    "Felt",
+    "Priscilla Barielle"
+  ],
+  "topics": [
+    "Ranking",
+    "Royal Selection"
+  ],
+  "arc": "general",
+  "source": {
+    "type": "text",
+    "value": ""
+  },
+  "verified": false
+}

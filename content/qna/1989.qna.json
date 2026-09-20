@@ -1,0 +1,18 @@
+{
+  "id": "1989",
+  "question": "What is Echidna afraid of?",
+  "answer": "It's Emilia.",
+  "characters": [
+    "Echidna",
+    "Emilia"
+  ],
+  "topics": [
+    "General"
+  ],
+  "arc": "general",
+  "source": {
+    "type": "text",
+    "value": ""
+  },
+  "verified": false
+}

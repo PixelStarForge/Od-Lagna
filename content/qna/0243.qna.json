@@ -1,0 +1,17 @@
+{
+  "id": "0243",
+  "question": "About how strong is Marcos?",
+  "answer": "Stronger than Julius.",
+  "characters": [
+    "Julius Juukulius"
+  ],
+  "topics": [
+    "General"
+  ],
+  "arc": "general",
+  "source": {
+    "type": "text",
+    "value": ""
+  },
+  "verified": false
+}

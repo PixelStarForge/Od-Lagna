@@ -1,0 +1,17 @@
+{
+  "id": "1990",
+  "question": "What is Echidna's favorite color?",
+  "answer": "It's silver.",
+  "characters": [
+    "Echidna"
+  ],
+  "topics": [
+    "General"
+  ],
+  "arc": "general",
+  "source": {
+    "type": "text",
+    "value": ""
+  },
+  "verified": false
+}

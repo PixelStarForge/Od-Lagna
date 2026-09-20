@@ -1,17 +1,14 @@
 {
   "id": "0018",
-  "question": "Between Subaru and Ferris, who is stronger?",
-  "answer": "Subaru. Ferris' arms are flimsy.",
-  "characters": [
-    "Natsuki Subaru",
-    "Felix Argyle (Ferris)"
-  ],
+  "question": "Do you like freshly harvested eggplants, bell peppers, and tomatoes? I would certainly like to send some through Sagawa. (Sagawa Express: a parcel delivery company)",
+  "answer": "How awesome, they are the top 3 vegetables that I hate.",
+  "characters": [],
   "topics": [
-    "Powerscaling"
+    "Ranking"
   ],
   "arc": "general",
   "source": {
-    "type": "url",
+    "type": "text",
     "value": ""
   },
   "verified": false

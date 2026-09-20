@@ -1,0 +1,17 @@
+{
+  "id": "3664",
+  "question": "How is Otto (age 65) spending his time?",
+  "answer": "I really don’t know things that far in the future.",
+  "characters": [
+    "Otto Suwen"
+  ],
+  "topics": [
+    "General"
+  ],
+  "arc": "general",
+  "source": {
+    "type": "text",
+    "value": ""
+  },
+  "verified": false
+}

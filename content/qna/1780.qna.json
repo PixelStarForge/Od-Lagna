@@ -1,0 +1,18 @@
+{
+  "id": "1780",
+  "question": "She likes Petra, doesn't she?",
+  "answer": "If it's a question of whether Frederica likes Petra, then she dotes on her, I'd say.",
+  "characters": [
+    "Frederica Baumann",
+    "Petra Leyte"
+  ],
+  "topics": [
+    "General"
+  ],
+  "arc": "general",
+  "source": {
+    "type": "text",
+    "value": ""
+  },
+  "verified": false
+}

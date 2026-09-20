@@ -1,16 +1,14 @@
 {
   "id": "0034",
-  "question": "Supposing that the mansion was safe and the forbidden library hadn’t burned, around how much of Beako’s magic power would have remained?",
-  "answer": "More than half of it should have been left.",
-  "characters": [
-    "Beatrice"
-  ],
+  "question": "If you were in charge of the final performance in the project King of Wrath (it’s a web novel), what kind of final conclusion would you have made it or would you not want to?",
+  "answer": "Without a doubt, the remaining heroine(s) would not survive.",
+  "characters": [],
   "topics": [
-    "Mana & Magic"
+    "General"
   ],
   "arc": "general",
   "source": {
-    "type": "url",
+    "type": "text",
     "value": ""
   },
   "verified": false

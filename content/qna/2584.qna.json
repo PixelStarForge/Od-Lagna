@@ -1,0 +1,18 @@
+{
+  "id": "2584",
+  "question": "Among the knights, around how strong is Julius?",
+  "answer": "He's third. First is Reinhard, second is Marcos.",
+  "characters": [
+    "Julius Juukulius",
+    "Reinhard van Astrea"
+  ],
+  "topics": [
+    "Royal Knights"
+  ],
+  "arc": "general",
+  "source": {
+    "type": "text",
+    "value": ""
+  },
+  "verified": false
+}

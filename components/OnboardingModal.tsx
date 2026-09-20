@@ -47,7 +47,7 @@ export function OnboardingModal() {
 
         {/* Action button */}
         <div className="pt-2 border-t border-[var(--border-subtle)] flex flex-col sm:flex-row items-center justify-between gap-3">
-          <p className="text-xs text-[var(--text-faint)]">
+          <p className="text-xs sm:text-sm text-[var(--text-muted)]">
             You can change this anytime via the Settings icon in the header.
           </p>
           <button

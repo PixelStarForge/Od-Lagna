@@ -1,0 +1,17 @@
+{
+  "id": "2964",
+  "question": "Happy Birthday! Please tell me her favorite food!",
+  "answer": "It's meat. For example, if they're eating grilled meat, she'll eat it cooked blue or blue rare. She resists the urge to eat raw meat.",
+  "characters": [
+    "Frederica Baumann"
+  ],
+  "topics": [
+    "General"
+  ],
+  "arc": "general",
+  "source": {
+    "type": "text",
+    "value": ""
+  },
+  "verified": false
+}

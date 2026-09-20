@@ -1,0 +1,17 @@
+{
+  "id": "2344",
+  "question": "Does Elsa have trouble with heat?",
+  "answer": "She's used to the cold, so she'd probably dislike the heat. It seems like she'd be listless.",
+  "characters": [
+    "Elsa Granhiert"
+  ],
+  "topics": [
+    "General"
+  ],
+  "arc": "general",
+  "source": {
+    "type": "text",
+    "value": ""
+  },
+  "verified": false
+}

@@ -1,0 +1,17 @@
+{
+  "id": "1948",
+  "question": "Favorite food?",
+  "answer": "She likes meat pies. She likes to have them made for her, too, and she also likes teaching how to make them.",
+  "characters": [
+    "Echidna"
+  ],
+  "topics": [
+    "General"
+  ],
+  "arc": "general",
+  "source": {
+    "type": "text",
+    "value": ""
+  },
+  "verified": false
+}

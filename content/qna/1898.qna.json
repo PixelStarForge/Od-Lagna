@@ -1,0 +1,17 @@
+{
+  "id": "1898",
+  "question": "What food does he dislike?",
+  "answer": "Hot foods. He has a cat's tongue, after all.",
+  "characters": [
+    "Felix Argyle (Ferris)"
+  ],
+  "topics": [
+    "General"
+  ],
+  "arc": "general",
+  "source": {
+    "type": "text",
+    "value": ""
+  },
+  "verified": false
+}

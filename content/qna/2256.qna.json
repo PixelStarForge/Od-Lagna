@@ -1,0 +1,19 @@
+{
+  "id": "2256",
+  "question": "What are Otto's parent's names?",
+  "answer": "Dad is Mazeran Suwen, mom is Framir Suwen. In addition, his older brother is Oslo Suwen, and his younger brother is Regin Suwen.",
+  "characters": [
+    "Framir Suwen",
+    "Mazeran Suwen",
+    "Otto Suwen"
+  ],
+  "topics": [
+    "General"
+  ],
+  "arc": "general",
+  "source": {
+    "type": "text",
+    "value": ""
+  },
+  "verified": false
+}

@@ -1,0 +1,17 @@
+{
+  "id": "1919",
+  "question": "A food she likes?",
+  "answer": "Meat pie.",
+  "characters": [
+    "Echidna"
+  ],
+  "topics": [
+    "General"
+  ],
+  "arc": "general",
+  "source": {
+    "type": "text",
+    "value": ""
+  },
+  "verified": false
+}

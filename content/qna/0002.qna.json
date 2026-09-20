@@ -1,17 +1,14 @@
 {
   "id": "0002",
-  "question": "Comparing Priscilla-san and Emilia, which is stronger?",
-  "answer": "If it's the Emilia at the current point of arc six, they're about equal.",
-  "characters": [
-    "Priscilla Barielle",
-    "Emilia"
-  ],
+  "question": "Among all the authors who is it that you see as your nemesis?",
+  "answer": "The one in first place",
+  "characters": [],
   "topics": [
-    "Powerscaling"
+    "General"
   ],
   "arc": "general",
   "source": {
-    "type": "url",
+    "type": "text",
     "value": ""
   },
   "verified": false

@@ -1,0 +1,17 @@
+{
+  "id": "1787",
+  "question": "What type of housework is she best at?",
+  "answer": "Frederica's specialty is cooking. Her tongue is unusually discerning.",
+  "characters": [
+    "Frederica Baumann"
+  ],
+  "topics": [
+    "General"
+  ],
+  "arc": "general",
+  "source": {
+    "type": "text",
+    "value": ""
+  },
+  "verified": false
+}

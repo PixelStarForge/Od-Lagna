@@ -1,0 +1,17 @@
+{
+  "id": "1637",
+  "question": "Does Julius visit a mentor?",
+  "answer": "He does, and he’s actually appeared both in the web version and the novels.",
+  "characters": [
+    "Julius Juukulius"
+  ],
+  "topics": [
+    "General"
+  ],
+  "arc": "general",
+  "source": {
+    "type": "text",
+    "value": ""
+  },
+  "verified": false
+}

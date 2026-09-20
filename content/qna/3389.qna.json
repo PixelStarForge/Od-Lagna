@@ -1,0 +1,17 @@
+{
+  "id": "3389",
+  "question": "What color does Echidna-chan like?",
+  "answer": "Silver.",
+  "characters": [
+    "Echidna"
+  ],
+  "topics": [
+    "General"
+  ],
+  "arc": "general",
+  "source": {
+    "type": "text",
+    "value": ""
+  },
+  "verified": false
+}

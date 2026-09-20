@@ -240,7 +240,7 @@ export function SearchModal() {
       >
         {/* Search Input Bar */}
         <div className="flex items-center gap-3 px-4 py-3.5 border-b border-[var(--border-subtle)] bg-[var(--bg-surface)]">
-          <svg className="w-5 h-5 text-[var(--text-faint)] shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg className="w-5 h-5 text-[var(--text-muted)] shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
           </svg>
           <input
@@ -252,7 +252,7 @@ export function SearchModal() {
               setSelectedIndex(0);
             }}
             placeholder="Search questions, answers, characters, topics, arcs..."
-            className="w-full bg-transparent text-sm focus:outline-none text-[var(--text-main)] placeholder-[var(--text-faint)]"
+            className="w-full bg-transparent text-sm focus:outline-none text-[var(--text-main)] placeholder-[var(--text-muted)]"
             autoComplete="off"
             spellCheck="false"
           />
@@ -264,12 +264,12 @@ export function SearchModal() {
                 setSelectedIndex(0);
                 inputRef.current?.focus();
               }}
-              className="text-xs text-[var(--text-faint)] hover:text-[var(--text-main)] px-1.5 py-0.5 rounded cursor-pointer"
+              className="text-xs text-[var(--text-muted)] hover:text-[var(--text-main)] px-1.5 py-0.5 rounded cursor-pointer font-medium"
             >
               Clear
             </button>
           )}
-          <kbd className="hidden sm:inline-block px-1.5 py-0.5 text-[10px] font-mono border rounded bg-[var(--bg-elevated)] border-[var(--border-subtle)] text-[var(--text-faint)]">
+          <kbd className="hidden sm:inline-block px-1.5 py-0.5 text-xs font-mono border rounded bg-[var(--bg-elevated)] border-[var(--border-subtle)] text-[var(--text-muted)] font-medium">
             ESC
           </kbd>
         </div>
@@ -277,18 +277,18 @@ export function SearchModal() {
         {/* Results Body */}
         <div ref={listRef} className="overflow-y-auto p-2 space-y-4 flex-1">
           {isLoading && (
-            <div className="p-8 text-center text-xs text-[var(--text-faint)] font-mono">
+            <div className="p-8 text-center text-sm text-[var(--text-muted)] font-mono">
               Loading search index...
             </div>
           )}
 
           {!isLoading && query.trim() === "" && (
             <div className="p-6 text-center space-y-3">
-              <p className="text-xs text-[var(--text-muted)]">
+              <p className="text-sm text-[var(--text-muted)]">
                 Type any character name, topic, arc, or keyword to search the archive.
               </p>
               <div className="flex flex-wrap items-center justify-center gap-2 pt-1">
-                <span className="text-[11px] text-[var(--text-faint)] font-mono">Quick searches:</span>
+                <span className="text-xs text-[var(--text-muted)] font-mono font-medium">Quick searches:</span>
                 {["Arc 4", "Subaru", "Emilia", "Rem", "Greed IF", "General"].map((sug) => (
                   <button
                     key={sug}
@@ -298,7 +298,7 @@ export function SearchModal() {
                       setSelectedIndex(0);
                       inputRef.current?.focus();
                     }}
-                    className="text-xs px-2.5 py-1 rounded-md border border-[var(--border-subtle)] bg-[var(--bg-elevated)] text-[var(--text-muted)] hover:text-[var(--text-main)] hover:border-[var(--border-strong)] cursor-pointer transition-colors"
+                    className="text-xs font-medium px-2.5 py-1 rounded-md border border-[var(--border-subtle)] bg-[var(--bg-elevated)] text-[var(--text-main)] hover:border-[var(--border-strong)] cursor-pointer transition-colors"
                   >
                     {sug}
                   </button>
@@ -308,8 +308,8 @@ export function SearchModal() {
           )}
 
           {!isLoading && query.trim() !== "" && groupedResults.flatList.length === 0 && (
-            <div className="p-8 text-center text-xs text-[var(--text-faint)] space-y-1">
-              <p className="font-semibold text-[var(--text-muted)]">No matches found for &ldquo;{query}&rdquo;</p>
+            <div className="p-8 text-center text-sm text-[var(--text-muted)] space-y-1">
+              <p className="font-semibold text-[var(--text-main)]">No matches found for &ldquo;{query}&rdquo;</p>
               <p>Check spelling or try searching for a broader term.</p>
             </div>
           )}
@@ -317,7 +317,7 @@ export function SearchModal() {
           {/* Group 1: Characters */}
           {groupedResults.characters.length > 0 && (
             <div className="space-y-1">
-              <div className="px-3 py-1 text-[10px] font-mono uppercase tracking-wider text-[var(--text-faint)]">
+              <div className="px-3 py-1 text-xs font-mono font-bold uppercase tracking-wider text-[var(--text-muted)]">
                 Characters
               </div>
               {groupedResults.characters.map((char) => {
@@ -327,19 +327,19 @@ export function SearchModal() {
                   <div
                     key={char}
                     onClick={() => handleSelectItem({ type: "character", name: char })}
-                    className={`flex items-center justify-between px-3 py-2 rounded-lg cursor-pointer text-xs transition-colors ${
+                    className={`flex items-center justify-between px-3 py-2 rounded-lg cursor-pointer text-xs sm:text-sm transition-colors ${
                       isSelected
                         ? "bg-[var(--accent-bg)] text-[var(--accent-text)] font-semibold"
                         : "hover:bg-[var(--bg-elevated)] text-[var(--text-main)]"
                     }`}
                   >
                     <div className="flex items-center gap-2">
-                      <svg className="w-3.5 h-3.5 text-[var(--text-faint)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <svg className="w-4 h-4 text-[var(--text-muted)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
                       </svg>
-                      <span>#{char}</span>
+                      <span className="font-medium">#{char}</span>
                     </div>
-                    <span className="text-[11px] text-[var(--text-faint)]">Filter character →</span>
+                    <span className="text-xs text-[var(--text-muted)] font-medium">Filter character →</span>
                   </div>
                 );
               })}
@@ -349,7 +349,7 @@ export function SearchModal() {
           {/* Group 2: Topics */}
           {groupedResults.topics.length > 0 && (
             <div className="space-y-1">
-              <div className="px-3 py-1 text-[10px] font-mono uppercase tracking-wider text-[var(--text-faint)]">
+              <div className="px-3 py-1 text-xs font-mono font-bold uppercase tracking-wider text-[var(--text-muted)]">
                 Topics
               </div>
               {groupedResults.topics.map((topic) => {
@@ -359,19 +359,19 @@ export function SearchModal() {
                   <div
                     key={topic}
                     onClick={() => handleSelectItem({ type: "topic", name: topic })}
-                    className={`flex items-center justify-between px-3 py-2 rounded-lg cursor-pointer text-xs transition-colors ${
+                    className={`flex items-center justify-between px-3 py-2 rounded-lg cursor-pointer text-xs sm:text-sm transition-colors ${
                       isSelected
                         ? "bg-[var(--accent-bg)] text-[var(--accent-text)] font-semibold"
                         : "hover:bg-[var(--bg-elevated)] text-[var(--text-main)]"
                     }`}
                   >
                     <div className="flex items-center gap-2">
-                      <svg className="w-3.5 h-3.5 text-[var(--text-faint)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <svg className="w-4 h-4 text-[var(--text-muted)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z" />
                       </svg>
-                      <span>{topic}</span>
+                      <span className="font-medium">{topic}</span>
                     </div>
-                    <span className="text-[11px] text-[var(--text-faint)]">Filter topic →</span>
+                    <span className="text-xs text-[var(--text-muted)] font-medium">Filter topic →</span>
                   </div>
                 );
               })}
@@ -381,7 +381,7 @@ export function SearchModal() {
           {/* Group 3: Arcs */}
           {groupedResults.arcs.length > 0 && (
             <div className="space-y-1">
-              <div className="px-3 py-1 text-[10px] font-mono uppercase tracking-wider text-[var(--text-faint)]">
+              <div className="px-3 py-1 text-xs font-mono font-bold uppercase tracking-wider text-[var(--text-muted)]">
                 Story Arcs &amp; Timelines
               </div>
               {groupedResults.arcs.map((arc) => {
@@ -391,19 +391,19 @@ export function SearchModal() {
                   <div
                     key={arc.slug}
                     onClick={() => handleSelectItem({ type: "arc", slug: arc.slug, name: arc.name })}
-                    className={`flex items-center justify-between px-3 py-2 rounded-lg cursor-pointer text-xs transition-colors ${
+                    className={`flex items-center justify-between px-3 py-2 rounded-lg cursor-pointer text-xs sm:text-sm transition-colors ${
                       isSelected
                         ? "bg-[var(--accent-bg)] text-[var(--accent-text)] font-semibold"
                         : "hover:bg-[var(--bg-elevated)] text-[var(--text-main)]"
                     }`}
                   >
                     <div className="flex items-center gap-2">
-                      <svg className="w-3.5 h-3.5 text-[var(--text-faint)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <svg className="w-4 h-4 text-[var(--text-muted)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
                       </svg>
-                      <span>{arc.name}</span>
+                      <span className="font-medium">{arc.name}</span>
                     </div>
-                    <span className="text-[11px] text-[var(--text-faint)]">Filter arc →</span>
+                    <span className="text-xs text-[var(--text-muted)] font-medium">Filter arc →</span>
                   </div>
                 );
               })}
@@ -413,7 +413,7 @@ export function SearchModal() {
           {/* Group 4: Questions & Answers */}
           {groupedResults.qnas.length > 0 && (
             <div className="space-y-1">
-              <div className="px-3 py-1 text-[10px] font-mono uppercase tracking-wider text-[var(--text-faint)]">
+              <div className="px-3 py-1 text-xs font-mono font-bold uppercase tracking-wider text-[var(--text-muted)]">
                 Questions ({groupedResults.qnas.length})
               </div>
               {groupedResults.qnas.map((qna) => {
@@ -424,14 +424,14 @@ export function SearchModal() {
                   <div
                     key={qna.id}
                     onClick={() => handleSelectItem({ type: "qna", data: qna })}
-                    className={`px-3 py-2.5 rounded-lg cursor-pointer text-xs transition-colors space-y-1 ${
+                    className={`px-3 py-2.5 rounded-lg cursor-pointer text-xs sm:text-sm transition-colors space-y-1 ${
                       isSelected
                         ? "bg-[var(--accent-bg)] border border-[var(--accent-border)]"
                         : "hover:bg-[var(--bg-elevated)] border border-transparent"
                     }`}
                   >
                     <div className="flex items-center justify-between gap-2">
-                      <div className="flex items-center gap-1.5 font-mono text-[10px] text-[var(--text-faint)] truncate">
+                      <div className="flex items-center gap-1.5 font-mono text-xs text-[var(--text-muted)] truncate font-medium">
                         <span>#{qna.id} • {qna.arcName}</span>
                         {formattedDate && (
                           <>
@@ -441,18 +441,18 @@ export function SearchModal() {
                         )}
                       </div>
                       {qna.verified && (
-                        <span className="text-[10px] text-[var(--verified-text)] font-medium inline-flex items-center gap-0.5 shrink-0">
-                          <svg className="w-2.5 h-2.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <span className="text-xs text-[var(--verified-text)] font-semibold inline-flex items-center gap-0.5 shrink-0">
+                          <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
                           </svg>
                           <span>Verified</span>
                         </span>
                       )}
                     </div>
-                    <p className={`font-medium line-clamp-1 ${isSelected ? "text-[var(--accent-text)]" : "text-[var(--text-main)]"}`}>
+                    <p className={`font-semibold line-clamp-1 text-sm ${isSelected ? "text-[var(--accent-text)]" : "text-[var(--text-main)]"}`}>
                       {qna.question}
                     </p>
-                    <p className="text-[11px] text-[var(--text-muted)] line-clamp-1">
+                    <p className="text-xs sm:text-sm text-[var(--text-muted)] line-clamp-1">
                       {qna.answerSnippet}
                     </p>
                   </div>
@@ -463,7 +463,7 @@ export function SearchModal() {
         </div>
 
         {/* Footer shortcuts */}
-        <div className="px-4 py-2.5 border-t border-[var(--border-subtle)] bg-[var(--bg-elevated)] flex items-center justify-between text-[11px] text-[var(--text-faint)] font-mono">
+        <div className="px-4 py-2.5 border-t border-[var(--border-subtle)] bg-[var(--bg-elevated)] flex items-center justify-between text-xs text-[var(--text-muted)] font-mono font-medium">
           <div className="flex items-center gap-3">
             <span>↑↓ Navigate</span>
             <span>↵ Select</span>

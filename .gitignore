@@ -42,3 +42,5 @@ next-env.d.ts
 # local admin tool (dev-only; never deployed to production)
 tools/admin/node_modules/
 
+tools/__pycache__
+tools/*.py

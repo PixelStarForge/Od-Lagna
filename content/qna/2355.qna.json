@@ -1,0 +1,20 @@
+{
+  "id": "2355",
+  "question": "I'd like to ask you to tell me Elsa's housekeeping skill levels...!",
+  "answer": "cooking: 2, cleaning: 1, washing: 2 (on a scale of one to ten). For reference, Subaru: cooking: 5, cleaning: 6, washing: 6. Rem: cooking: 10, cleaning: 8, washing: 9. Ram: cooking: 5, cleaning: 5, washing: 5, steamed yams: Off the charts!",
+  "characters": [
+    "Elsa Granhiert",
+    "Natsuki Subaru",
+    "Ram",
+    "Rem"
+  ],
+  "topics": [
+    "General"
+  ],
+  "arc": "general",
+  "source": {
+    "type": "text",
+    "value": ""
+  },
+  "verified": false
+}

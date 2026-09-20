@@ -1,0 +1,19 @@
+{
+  "id": "2260",
+  "question": "What food does Otto like?",
+  "answer": "It's spicy foods and bitter foods! He can happily eat bitter food that would make even Ram grimace with an \"Ugh\". Garfiel asks him \"Otto-bro, why is yer tongue dead?\".",
+  "characters": [
+    "Garfiel Tinsel",
+    "Otto Suwen",
+    "Ram"
+  ],
+  "topics": [
+    "General"
+  ],
+  "arc": "general",
+  "source": {
+    "type": "text",
+    "value": ""
+  },
+  "verified": false
+}

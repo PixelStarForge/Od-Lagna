@@ -1,22 +1,14 @@
 {
   "id": "0007",
-  "question": "Subaru, Otto, Garfiel, Julius, Reinhard, Wilhelm, and Ferris have a round-robin arm-wrestling tournament; who can give Reinhard a good challenge?? Probably Garfiel or Wilhelm??",
-  "answer": "I doubt you could push Reinhard to his limits, but if I put them in order, it might be Reinhard, Garf, Wilhelm, Julius, Subaru, Otto, Ferris. It’s a mystery if they could give him a good challenge, though, even if they did their best.",
-  "characters": [
-    "Reinhard van Astrea",
-    "Julius Juukulius",
-    "Natsuki Subaru",
-    "Garfiel Tinsel",
-    "Otto Suwen",
-    "Wilhelm van Astrea",
-    "Felix Argyle (Ferris)"
-  ],
+  "question": "Are you practicing your autograph?",
+  "answer": "The practice is already over, it’s time to put it into practice",
+  "characters": [],
   "topics": [
-    "Ranking"
+    "General"
   ],
   "arc": "general",
   "source": {
-    "type": "url",
+    "type": "text",
     "value": ""
   },
   "verified": false

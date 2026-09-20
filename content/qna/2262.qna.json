@@ -1,0 +1,17 @@
+{
+  "id": "2262",
+  "question": "What is Otto's motto?",
+  "answer": "It's \"Always return what you borrow\", you see. Seriously?",
+  "characters": [
+    "Otto Suwen"
+  ],
+  "topics": [
+    "General"
+  ],
+  "arc": "general",
+  "source": {
+    "type": "text",
+    "value": ""
+  },
+  "verified": false
+}

@@ -1,0 +1,15 @@
+{
+  "id": "0073",
+  "question": "What kind of art do you like the most?",
+  "answer": "I like 2D sketches of a girl lifting her clothes up",
+  "characters": [],
+  "topics": [
+    "General"
+  ],
+  "arc": "general",
+  "source": {
+    "type": "text",
+    "value": ""
+  },
+  "verified": false
+}

@@ -1,0 +1,17 @@
+{
+  "id": "1785",
+  "question": "What fruit does she like?",
+  "answer": "It's stiroberries. When she eats a tart one, she can't help but smile in saisfaction.",
+  "characters": [
+    "Frederica Baumann"
+  ],
+  "topics": [
+    "General"
+  ],
+  "arc": "general",
+  "source": {
+    "type": "text",
+    "value": ""
+  },
+  "verified": false
+}

@@ -1,0 +1,15 @@
+{
+  "id": "0094",
+  "question": "You’re dinner for today?",
+  "answer": "I want to eat sushi",
+  "characters": [],
+  "topics": [
+    "General"
+  ],
+  "arc": "general",
+  "source": {
+    "type": "text",
+    "value": ""
+  },
+  "verified": false
+}

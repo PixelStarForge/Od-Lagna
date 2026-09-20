@@ -1,0 +1,17 @@
+{
+  "id": "1750",
+  "question": "What things does Reinhard like?",
+  "answer": "Nothing in particular. Eating with someone, or in other words a warm dining table. When you say he likes a warm dining table, that sort of sounds like a phantom.",
+  "characters": [
+    "Reinhard van Astrea"
+  ],
+  "topics": [
+    "General"
+  ],
+  "arc": "general",
+  "source": {
+    "type": "text",
+    "value": ""
+  },
+  "verified": false
+}

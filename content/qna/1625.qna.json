@@ -1,0 +1,18 @@
+{
+  "id": "1625",
+  "question": "What's the title of a book that Garfiel enjoyed?",
+  "answer": "It's \"The Legend of Reid Astrea\". It's about Reid's deeds, supposedly written by an expert who was familiar with him. The contents are so crazy, it's value as a historical book is terrible.",
+  "characters": [
+    "Garfiel Tinsel",
+    "Reid van Astrea"
+  ],
+  "topics": [
+    "General"
+  ],
+  "arc": "arc-6",
+  "source": {
+    "type": "text",
+    "value": ""
+  },
+  "verified": false
+}

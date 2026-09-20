@@ -1,0 +1,17 @@
+{
+  "id": "1606",
+  "question": "What are Garfiel's hobbies?",
+  "answer": "Reading! Not school textbooks, he reads storybooks. Recently, he's come to enjoy battling on the chatrange board.",
+  "characters": [
+    "Garfiel Tinsel"
+  ],
+  "topics": [
+    "General"
+  ],
+  "arc": "general",
+  "source": {
+    "type": "text",
+    "value": ""
+  },
+  "verified": false
+}

@@ -1,0 +1,17 @@
+{
+  "id": "2912",
+  "question": "If Garfiel went to a sushi restaurant, what would he call the owner?",
+  "answer": "\"Hey, boss-person who isn't the boss!\"",
+  "characters": [
+    "Garfiel Tinsel"
+  ],
+  "topics": [
+    "General"
+  ],
+  "arc": "general",
+  "source": {
+    "type": "text",
+    "value": ""
+  },
+  "verified": false
+}

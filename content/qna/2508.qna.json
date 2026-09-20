@@ -1,0 +1,21 @@
+{
+  "id": "2508",
+  "question": "Please tell me the strength ranking out of Wilhelm, Ricardo, Julius, Elsa, and Roswaal!",
+  "answer": "At short range it's Wilhelm, at long range it's Roswaal, in overall strength it's Julius, in tenacity it's Elsa, in vitality it's Ricardo, so out of these five, the victory changes depending on the conditions.",
+  "characters": [
+    "Elsa Granhiert",
+    "Julius Juukulius",
+    "Ricardo Welkin",
+    "Roswaal L. Mathers",
+    "Wilhelm van Astrea"
+  ],
+  "topics": [
+    "Ranking"
+  ],
+  "arc": "general",
+  "source": {
+    "type": "text",
+    "value": ""
+  },
+  "verified": false
+}

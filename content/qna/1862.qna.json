@@ -1,0 +1,17 @@
+{
+  "id": "1862",
+  "question": "Around what level of healing is Felis capable of?",
+  "answer": "If it's a simple external wound, he can heal it if it's not immediately fatal. Even something like an arm that has been cut off, if you have the detached arm he can connected it. If it's completely gone, he can't regenerate it.",
+  "characters": [
+    "Felix Argyle (Ferris)"
+  ],
+  "topics": [
+    "General"
+  ],
+  "arc": "general",
+  "source": {
+    "type": "text",
+    "value": ""
+  },
+  "verified": false
+}

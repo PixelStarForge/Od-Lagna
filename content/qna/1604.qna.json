@@ -1,0 +1,18 @@
+{
+  "id": "1604",
+  "question": "What are Garf's hobbies?",
+  "answer": "It's reading, you see. He enjoys books with stories in them. Instead of reading, the part of him that enjoys knowing stories is larger, so recently, he enjoys listening to Subaru tell stories of the other world.",
+  "characters": [
+    "Garfiel Tinsel",
+    "Natsuki Subaru"
+  ],
+  "topics": [
+    "General"
+  ],
+  "arc": "general",
+  "source": {
+    "type": "text",
+    "value": ""
+  },
+  "verified": false
+}

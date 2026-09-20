@@ -1,0 +1,18 @@
+{
+  "id": "3391",
+  "question": "What does Echidna dislike?",
+  "answer": "Emilia-tan.",
+  "characters": [
+    "Echidna",
+    "Emilia"
+  ],
+  "topics": [
+    "General"
+  ],
+  "arc": "general",
+  "source": {
+    "type": "text",
+    "value": ""
+  },
+  "verified": false
+}

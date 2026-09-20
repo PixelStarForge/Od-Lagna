@@ -1,0 +1,18 @@
+{
+  "id": "0249",
+  "question": "I dreamed that Reinard and Julius were drinking alcohol. Do the two of them drink?",
+  "answer": "Julius enjoys it, but Reinhard is completely unable to get drunk, so he only drinks on social occasions.",
+  "characters": [
+    "Julius Juukulius",
+    "Reinhard van Astrea"
+  ],
+  "topics": [
+    "General"
+  ],
+  "arc": "general",
+  "source": {
+    "type": "text",
+    "value": ""
+  },
+  "verified": false
+}

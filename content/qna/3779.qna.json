@@ -1,0 +1,17 @@
+{
+  "id": "3779",
+  "question": "What is on the inside of Otto’s hat?",
+  "answer": "In case he gets robbed, he has a little money hidden there.",
+  "characters": [
+    "Otto Suwen"
+  ],
+  "topics": [
+    "General"
+  ],
+  "arc": "general",
+  "source": {
+    "type": "text",
+    "value": ""
+  },
+  "verified": false
+}

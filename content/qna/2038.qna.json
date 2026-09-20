@@ -1,0 +1,18 @@
+{
+  "id": "2038",
+  "question": "Petra's hobbies?",
+  "answer": "Sewing, making accessories, and giving them as presents. In cold seasons, she enjoyed making plush dolls in front of the fireplace with Subaru.",
+  "characters": [
+    "Natsuki Subaru",
+    "Petra Leyte"
+  ],
+  "topics": [
+    "General"
+  ],
+  "arc": "general",
+  "source": {
+    "type": "text",
+    "value": ""
+  },
+  "verified": false
+}

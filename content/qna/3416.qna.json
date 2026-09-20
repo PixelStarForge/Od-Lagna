@@ -1,0 +1,19 @@
+{
+  "id": "3416",
+  "question": "Between the three of Petra, Meili, and Beatrice, what's in fashion at the moment?",
+  "answer": "Those three aren't particularly friends that get together often, so there's nothing.",
+  "characters": [
+    "Beatrice",
+    "Meili Portroute",
+    "Petra Leyte"
+  ],
+  "topics": [
+    "General"
+  ],
+  "arc": "general",
+  "source": {
+    "type": "text",
+    "value": ""
+  },
+  "verified": false
+}

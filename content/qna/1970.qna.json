@@ -1,0 +1,17 @@
+{
+  "id": "1970",
+  "question": "Ingredient list for Dona tea",
+  "answer": "%100 Dona.",
+  "characters": [
+    "Echidna"
+  ],
+  "topics": [
+    "General"
+  ],
+  "arc": "general",
+  "source": {
+    "type": "text",
+    "value": ""
+  },
+  "verified": false
+}

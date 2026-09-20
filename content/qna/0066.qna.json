@@ -1,0 +1,15 @@
+{
+  "id": "0066",
+  "question": "What are you good at cooking?",
+  "answer": "There is none",
+  "characters": [],
+  "topics": [
+    "General"
+  ],
+  "arc": "general",
+  "source": {
+    "type": "text",
+    "value": ""
+  },
+  "verified": false
+}

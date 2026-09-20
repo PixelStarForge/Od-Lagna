@@ -1,0 +1,19 @@
+{
+  "id": "0432",
+  "question": "By chance, is Heinkel Astrea the vice-commander?",
+  "answer": "He’s the vice-commander, Reinhard’s father, and Wilhelm’s son.",
+  "characters": [
+    "Heinkel van Astrea",
+    "Reinhard van Astrea",
+    "Wilhelm van Astrea"
+  ],
+  "topics": [
+    "General"
+  ],
+  "arc": "general",
+  "source": {
+    "type": "text",
+    "value": ""
+  },
+  "verified": false
+}

@@ -1,0 +1,21 @@
+{
+  "id": "3193",
+  "question": "What does he think about the candidates of the other camps?",
+  "answer": "Emilia > Half-elf, so she's scary. Crusch > A leading favorite in the Royal Selection, so she's scary. Priscilla > All the rumors he hears are scary. Felt > With the scent of intrigue about her being a survivor of the royal family and such, she's scary.",
+  "characters": [
+    "Crusch Karsten",
+    "Emilia",
+    "Felt",
+    "Joshua Juukulius",
+    "Priscilla Barielle"
+  ],
+  "topics": [
+    "Royal Selection"
+  ],
+  "arc": "general",
+  "source": {
+    "type": "text",
+    "value": ""
+  },
+  "verified": false
+}

@@ -1,0 +1,17 @@
+{
+  "id": "3344",
+  "question": "If she were to wear a swimsuit, what sort would she wear?",
+  "answer": "She's the dangerous sort that would aim for a school swimsuit.",
+  "characters": [
+    "Echidna"
+  ],
+  "topics": [
+    "General"
+  ],
+  "arc": "general",
+  "source": {
+    "type": "text",
+    "value": ""
+  },
+  "verified": false
+}

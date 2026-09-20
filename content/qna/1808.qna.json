@@ -1,0 +1,18 @@
+{
+  "id": "1808",
+  "question": "I'd appreciate if you could tell me the reason that Joshua wears a monocle!",
+  "answer": "He became good friends with Tivey, and he wears one, so he copied it to be fashionable.",
+  "characters": [
+    "Joshua Juukulius",
+    "Tivey Pearlbaton"
+  ],
+  "topics": [
+    "General"
+  ],
+  "arc": "general",
+  "source": {
+    "type": "text",
+    "value": ""
+  },
+  "verified": false
+}

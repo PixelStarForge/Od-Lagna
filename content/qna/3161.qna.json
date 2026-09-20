@@ -1,0 +1,18 @@
+{
+  "id": "3161",
+  "question": "Is there anything about Julius that Joshua doesn't like?",
+  "answer": "\"There is not.\"",
+  "characters": [
+    "Joshua Juukulius",
+    "Julius Juukulius"
+  ],
+  "topics": [
+    "General"
+  ],
+  "arc": "general",
+  "source": {
+    "type": "text",
+    "value": ""
+  },
+  "verified": false
+}

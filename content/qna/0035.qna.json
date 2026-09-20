@@ -1,17 +1,14 @@
 {
   "id": "0035",
-  "question": "Similar to how Beatrice absorbs mana from Subaru, if she were to request other people to let her absorb their mana and stock up on it wouldn’t she be able to fight at full strength?",
-  "answer": "Due to Beatrice being contracted to Subaru, she cannot absorb from anyone except Subaru. Since she had absorbed mana from him in the forbidden library during her contract with the library when Subaru entered it, if someone were to enter inside Subaru she might be able to absorb from them.",
-  "characters": [
-    "Natsuki Subaru",
-    "Beatrice"
-  ],
+  "question": "If you were trilingual then what language would the words you speak be in?",
+  "answer": "I don’t understand a single bit of what you are saying.",
+  "characters": [],
   "topics": [
-    "Contracts & Spirits"
+    "Worldbuilding"
   ],
   "arc": "general",
   "source": {
-    "type": "url",
+    "type": "text",
     "value": ""
   },
   "verified": false

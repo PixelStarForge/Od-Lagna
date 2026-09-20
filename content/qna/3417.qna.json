@@ -1,0 +1,19 @@
+{
+  "id": "3417",
+  "question": "Can Petra use magic?",
+  "answer": "She's in training. Emilia's teaching method is abnormally poor, so she's having Ram teach her now.",
+  "characters": [
+    "Emilia",
+    "Petra Leyte",
+    "Ram"
+  ],
+  "topics": [
+    "General"
+  ],
+  "arc": "general",
+  "source": {
+    "type": "text",
+    "value": ""
+  },
+  "verified": false
+}

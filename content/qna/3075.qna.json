@@ -1,0 +1,20 @@
+{
+  "id": "3075",
+  "question": "In the Oboreru story, did Reinhard draw the Dragon Sword Reid while fighting Halibel?",
+  "answer": "No, he couldn't draw it against Halibel.",
+  "characters": [
+    "Reid van Astrea",
+    "Reinhard van Astrea"
+  ],
+  "topics": [
+    "IF Routes",
+    "Metia & Equipment",
+    "Wrath IF"
+  ],
+  "arc": "if-wrath",
+  "source": {
+    "type": "text",
+    "value": ""
+  },
+  "verified": false
+}

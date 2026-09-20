@@ -1,0 +1,17 @@
+{
+  "id": "3032",
+  "question": "Can Reinhard walk while avoiding being hit by the rain?",
+  "answer": "He can.",
+  "characters": [
+    "Reinhard van Astrea"
+  ],
+  "topics": [
+    "General"
+  ],
+  "arc": "general",
+  "source": {
+    "type": "text",
+    "value": ""
+  },
+  "verified": false
+}

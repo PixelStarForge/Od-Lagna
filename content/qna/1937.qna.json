@@ -1,0 +1,17 @@
+{
+  "id": "1937",
+  "question": "Does Echidna like ramen?",
+  "answer": "I'm not sure if she does or not, but she thinks it's noisy.",
+  "characters": [
+    "Echidna"
+  ],
+  "topics": [
+    "General"
+  ],
+  "arc": "general",
+  "source": {
+    "type": "text",
+    "value": ""
+  },
+  "verified": false
+}

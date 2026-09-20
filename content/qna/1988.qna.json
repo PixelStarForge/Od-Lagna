@@ -1,0 +1,17 @@
+{
+  "id": "1988",
+  "question": "What food does she like?",
+  "answer": "It's meat pies. It would be fine to call that her best dish.",
+  "characters": [
+    "Echidna"
+  ],
+  "topics": [
+    "General"
+  ],
+  "arc": "general",
+  "source": {
+    "type": "text",
+    "value": ""
+  },
+  "verified": false
+}

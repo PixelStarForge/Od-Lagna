@@ -1,0 +1,19 @@
+{
+  "id": "0429",
+  "question": "Around where on the strength ranking is Heinkel Astrea?",
+  "answer": "Below Reinhard, above Subaru.",
+  "characters": [
+    "Heinkel van Astrea",
+    "Natsuki Subaru",
+    "Reinhard van Astrea"
+  ],
+  "topics": [
+    "Ranking"
+  ],
+  "arc": "general",
+  "source": {
+    "type": "text",
+    "value": ""
+  },
+  "verified": false
+}

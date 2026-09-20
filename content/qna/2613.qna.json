@@ -1,0 +1,17 @@
+{
+  "id": "2613",
+  "question": "Is Julius the heir of the Euclius family?",
+  "answer": "If nothing goes wrong, that's the plan.",
+  "characters": [
+    "Julius Juukulius"
+  ],
+  "topics": [
+    "General"
+  ],
+  "arc": "general",
+  "source": {
+    "type": "text",
+    "value": ""
+  },
+  "verified": false
+}

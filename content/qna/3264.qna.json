@@ -1,0 +1,17 @@
+{
+  "id": "3264",
+  "question": "Is Ferris able to heal only one person at a time? Can he do several all at once?",
+  "answer": "One at a time. Due to the nature of healing magic, several is impossible.",
+  "characters": [
+    "Felix Argyle (Ferris)"
+  ],
+  "topics": [
+    "General"
+  ],
+  "arc": "general",
+  "source": {
+    "type": "text",
+    "value": ""
+  },
+  "verified": false
+}

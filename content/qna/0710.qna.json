@@ -1,0 +1,17 @@
+{
+  "id": "0710",
+  "question": "Of the Three Great Mabeasts, which is the most delicious?",
+  "answer": "The Great Rabbit is soft and delicious, but the White Whale would probably be very expensive. The Black Snake is a delicacy, but you’d need to remove the poison. Do you really want to eat them that much?",
+  "characters": [
+    "White Whale"
+  ],
+  "topics": [
+    "Great Mabeasts"
+  ],
+  "arc": "arc-4",
+  "source": {
+    "type": "text",
+    "value": ""
+  },
+  "verified": false
+}

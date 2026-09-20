@@ -1,0 +1,18 @@
+{
+  "id": "3143",
+  "question": "Has he ever quarreled with Julius? If he has, I'd be very pleased if you could tell me how it went!",
+  "answer": "Julius would yield to him, so they haven't.",
+  "characters": [
+    "Joshua Juukulius",
+    "Julius Juukulius"
+  ],
+  "topics": [
+    "General"
+  ],
+  "arc": "general",
+  "source": {
+    "type": "text",
+    "value": ""
+  },
+  "verified": false
+}

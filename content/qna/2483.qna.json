@@ -1,0 +1,17 @@
+{
+  "id": "2483",
+  "question": "Does Wilhelm have a blessing?",
+  "answer": "No, he doesn't.",
+  "characters": [
+    "Wilhelm van Astrea"
+  ],
+  "topics": [
+    "Divine Protections"
+  ],
+  "arc": "general",
+  "source": {
+    "type": "text",
+    "value": ""
+  },
+  "verified": false
+}

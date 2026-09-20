@@ -1,0 +1,18 @@
+{
+  "id": "3178",
+  "question": "Professor Cat, thanks for your hard work. Does Joshua have, as Julius does, an interest in history and heroes? If there's anything that he's particularly attracted to, I'd like to know.",
+  "answer": "I think Joshua dislikes heroes.",
+  "characters": [
+    "Joshua Juukulius",
+    "Julius Juukulius"
+  ],
+  "topics": [
+    "General"
+  ],
+  "arc": "general",
+  "source": {
+    "type": "text",
+    "value": ""
+  },
+  "verified": false
+}

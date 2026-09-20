@@ -1,0 +1,17 @@
+{
+  "id": "2339",
+  "question": "Around what age is Elsa?",
+  "answer": "I think I decided her age was around 22 or 23.",
+  "characters": [
+    "Elsa Granhiert"
+  ],
+  "topics": [
+    "General"
+  ],
+  "arc": "general",
+  "source": {
+    "type": "text",
+    "value": ""
+  },
+  "verified": false
+}

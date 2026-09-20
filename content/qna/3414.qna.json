@@ -1,0 +1,18 @@
+{
+  "id": "3414",
+  "question": "Between Emilia and Petra, which is more pure?",
+  "answer": "It's Emilia.",
+  "characters": [
+    "Emilia",
+    "Petra Leyte"
+  ],
+  "topics": [
+    "General"
+  ],
+  "arc": "general",
+  "source": {
+    "type": "text",
+    "value": ""
+  },
+  "verified": false
+}

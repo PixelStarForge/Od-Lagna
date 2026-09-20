@@ -1,0 +1,15 @@
+{
+  "id": "0057",
+  "question": "The brand item you often use is?",
+  "answer": "Shimamura",
+  "characters": [],
+  "topics": [
+    "General"
+  ],
+  "arc": "general",
+  "source": {
+    "type": "text",
+    "value": ""
+  },
+  "verified": false
+}

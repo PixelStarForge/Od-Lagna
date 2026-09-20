@@ -1,0 +1,18 @@
+{
+  "id": "2017",
+  "question": "Happy Birthday to Petra!",
+  "answer": "Thank you! To have people celebrating Petra's birthday is joyful for Frederica too, I'm sure!",
+  "characters": [
+    "Frederica Baumann",
+    "Petra Leyte"
+  ],
+  "topics": [
+    "General"
+  ],
+  "arc": "general",
+  "source": {
+    "type": "text",
+    "value": ""
+  },
+  "verified": false
+}

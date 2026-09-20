@@ -9,9 +9,17 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Od-Lagna — Re:Zero Tappie Q&A Archive",
+  title: "Od-Lagna — Re:Zero Tappei Q&A Archive",
   description:
-    "Comprehensive, searchable index of every Tappie Q&A across events, interviews, and Twitter, featuring granular spoiler protection.",
+    "Comprehensive, searchable index of every Tappei Q&A across events, interviews, and Twitter, featuring granular spoiler protection.",
+  icons: {
+    icon: [
+      { url: "/favicon.svg", type: "image/svg+xml" },
+      { url: "/icon.svg", type: "image/svg+xml" },
+    ],
+    shortcut: "/favicon.svg",
+    apple: "/favicon.svg",
+  },
   openGraph: {
     title: "Od-Lagna — Re:Zero Tappei Q&A Archive",
     description:

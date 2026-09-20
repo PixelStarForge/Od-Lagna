@@ -1,0 +1,18 @@
+{
+  "id": "1798",
+  "question": "Does Joshua hold any secrets about Julius?",
+  "answer": "It's about his own family, so he would probably know the sorts of secrets the average noble would.",
+  "characters": [
+    "Joshua Juukulius",
+    "Julius Juukulius"
+  ],
+  "topics": [
+    "General"
+  ],
+  "arc": "general",
+  "source": {
+    "type": "text",
+    "value": ""
+  },
+  "verified": false
+}

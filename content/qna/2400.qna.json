@@ -1,0 +1,18 @@
+{
+  "id": "2400",
+  "question": "Who was Elsa's most entertaining duel opponent?",
+  "answer": "It's Garfiel, isn't it.",
+  "characters": [
+    "Elsa Granhiert",
+    "Garfiel Tinsel"
+  ],
+  "topics": [
+    "General"
+  ],
+  "arc": "general",
+  "source": {
+    "type": "text",
+    "value": ""
+  },
+  "verified": false
+}

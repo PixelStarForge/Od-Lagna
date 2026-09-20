@@ -1,17 +1,14 @@
 {
   "id": "0047",
-  "question": "If it's just hand-to-hand combat, who is stronger between Roswaal and Garfiel?",
-  "answer": "That'll be Garfiel. Overwhelmingly.",
-  "characters": [
-    "Garfiel Tinsel",
-    "Roswaal L. Mathers"
-  ],
+  "question": "Monkey’s gums (more references)",
+  "answer": "Your mane",
+  "characters": [],
   "topics": [
-    "Powerscaling"
+    "General"
   ],
   "arc": "general",
   "source": {
-    "type": "url",
+    "type": "text",
     "value": ""
   },
   "verified": false

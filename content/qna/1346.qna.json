@@ -1,0 +1,17 @@
+{
+  "id": "1346",
+  "question": "Mr. Cat versus Subaru, do you have a chance of winning?",
+  "answer": "Against Subaru, almost no one has a chance of winning.",
+  "characters": [
+    "Natsuki Subaru"
+  ],
+  "topics": [
+    "General"
+  ],
+  "arc": "general",
+  "source": {
+    "type": "text",
+    "value": ""
+  },
+  "verified": false
+}

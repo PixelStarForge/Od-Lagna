@@ -1,0 +1,18 @@
+{
+  "id": "2665",
+  "question": "Felt's favorite sport?",
+  "answer": "It seems she'd like games where you can duel one-on-one, like badminton, tennis, and table tennis. And it seems like Reinhard would hit the ball back endlessly.",
+  "characters": [
+    "Felt",
+    "Reinhard van Astrea"
+  ],
+  "topics": [
+    "General"
+  ],
+  "arc": "general",
+  "source": {
+    "type": "text",
+    "value": ""
+  },
+  "verified": false
+}

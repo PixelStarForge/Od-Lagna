@@ -1,0 +1,17 @@
+{
+  "id": "3599",
+  "question": "What's the biggest stunt Otto has pulled so far?",
+  "answer": "He burnt down the margrave's house.",
+  "characters": [
+    "Otto Suwen"
+  ],
+  "topics": [
+    "General"
+  ],
+  "arc": "general",
+  "source": {
+    "type": "text",
+    "value": ""
+  },
+  "verified": false
+}

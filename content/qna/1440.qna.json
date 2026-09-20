@@ -1,0 +1,17 @@
+{
+  "id": "1440",
+  "question": "What’s the origin of Emilia’s name?",
+  "answer": "A friend of mine thought of it.",
+  "characters": [
+    "Emilia"
+  ],
+  "topics": [
+    "General"
+  ],
+  "arc": "general",
+  "source": {
+    "type": "text",
+    "value": ""
+  },
+  "verified": false
+}

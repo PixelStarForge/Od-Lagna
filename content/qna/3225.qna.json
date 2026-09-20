@@ -1,0 +1,17 @@
+{
+  "id": "3225",
+  "question": "Does Ferris have paws? (note: the term here refers more to the pad on the bottom of the paw) If he does, if it's possible, I'd like you to ask him if I can touch them.",
+  "answer": "He doesn't have paws.",
+  "characters": [
+    "Felix Argyle (Ferris)"
+  ],
+  "topics": [
+    "General"
+  ],
+  "arc": "general",
+  "source": {
+    "type": "text",
+    "value": ""
+  },
+  "verified": false
+}

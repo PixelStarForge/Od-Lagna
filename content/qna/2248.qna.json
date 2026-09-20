@@ -1,0 +1,17 @@
+{
+  "id": "2248",
+  "question": "Please tell me which animal is the most difficult for Otto to deal with.",
+  "answer": "It's cats. It brings back his trauma. But, he can't help looking.",
+  "characters": [
+    "Otto Suwen"
+  ],
+  "topics": [
+    "General"
+  ],
+  "arc": "general",
+  "source": {
+    "type": "text",
+    "value": ""
+  },
+  "verified": false
+}

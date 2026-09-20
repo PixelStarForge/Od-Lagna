@@ -1,22 +1,14 @@
 {
   "id": "0020",
-  "question": "Among the characters that have appeared until now, what would the five people with high battle strength look like when they are lined up in sequence?",
-  "answer": "Reinhard, Ram(with horn), Regulus, Sekhmet, and Puck in his True form tied with Roswaal. Even though they are like dangos under Reinhard, but these guys are capable of bringing down the white whale by themselves. (Arc 4 only)",
-  "characters": [
-    "Reinhard van Astrea",
-    "Ram",
-    "Regulus Corneas",
-    "Sekhmet",
-    "Puck",
-    "White Whale"
-  ],
+  "question": "Do you think it’s necessary to study for middle school?",
+  "answer": "Regardless of middle school, “Living is learning, in other words, studying is human life” is exactly what backscratcher-sensei said awhile back. (Probably talking about the author of Mushoku Tensei)",
+  "characters": [],
   "topics": [
-    "Powerscaling",
-    "Ranking"
+    "General"
   ],
   "arc": "general",
   "source": {
-    "type": "url",
+    "type": "text",
     "value": ""
   },
   "verified": false

@@ -1,17 +1,14 @@
 {
   "id": "0017",
-  "question": "Are Subaru’s ‘Invisible Providence’ and Betelgeuse’s ‘Unseen Hand’ the same thing? If they’re different, is there a reason they look similar?",
-  "answer": "They’re different, but there is a reason they look similar.",
-  "characters": [
-    "Natsuki Subaru",
-    "Petelgeuse Romanée-Conti"
-  ],
+  "question": "Do you like falling into darkness? From now on is there a possibility of someone falling to darkness?",
+  "answer": "I really like it",
+  "characters": [],
   "topics": [
-    "Authorities"
+    "General"
   ],
   "arc": "general",
   "source": {
-    "type": "url",
+    "type": "text",
     "value": ""
   },
   "verified": false

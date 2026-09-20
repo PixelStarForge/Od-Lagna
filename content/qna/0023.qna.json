@@ -1,16 +1,14 @@
 {
   "id": "0023",
-  "question": "What became of Ram’s severed horn?",
-  "answer": "A part of it became Ram’s favorite wand",
-  "characters": [
-    "Ram"
-  ],
+  "question": "Even if it’s fictional, Sensei’s karma for killing countless humans - everybody, everyone, countlessly, countlessly – I will give judgment to you, please do strike <slash> back at me with dignity and charisma.",
+  "answer": "Saying something like that, aren't you also enjoying the unhappiness of other people?",
+  "characters": [],
   "topics": [
-    "Mana & Magic"
+    "General"
   ],
   "arc": "general",
   "source": {
-    "type": "url",
+    "type": "text",
     "value": ""
   },
   "verified": false

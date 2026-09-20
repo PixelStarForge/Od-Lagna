@@ -1,0 +1,20 @@
+{
+  "id": "3743",
+  "question": "Please tell me Otto's hobbies.",
+  "answer": "\"Hobbies? Ah, well. Lately I've been busy with sorting documents, skimming papers, and having the Margrave sign things... when I have free time, I challenge Garfiel to Shatranj, watch Natsuki-san get into mischief with Beatrice-chan... oh, what? The day's over.\"",
+  "characters": [
+    "Beatrice",
+    "Garfiel Tinsel",
+    "Natsuki Subaru",
+    "Otto Suwen"
+  ],
+  "topics": [
+    "General"
+  ],
+  "arc": "general",
+  "source": {
+    "type": "text",
+    "value": ""
+  },
+  "verified": false
+}

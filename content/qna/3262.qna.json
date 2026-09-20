@@ -1,0 +1,19 @@
+{
+  "id": "3262",
+  "question": "Is Ferris a good cook?",
+  "answer": "He's a good cook. He'd lose to professionals like Rem or Frederica, but he wouldn't lose to the average opponent.",
+  "characters": [
+    "Felix Argyle (Ferris)",
+    "Frederica Baumann",
+    "Rem"
+  ],
+  "topics": [
+    "General"
+  ],
+  "arc": "general",
+  "source": {
+    "type": "text",
+    "value": ""
+  },
+  "verified": false
+}

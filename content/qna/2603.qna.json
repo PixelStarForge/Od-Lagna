@@ -1,0 +1,17 @@
+{
+  "id": "2603",
+  "question": "If Julius played games, what would he be best at?",
+  "answer": "He's focused, so something like Minecraft, perhaps.",
+  "characters": [
+    "Julius Juukulius"
+  ],
+  "topics": [
+    "General"
+  ],
+  "arc": "general",
+  "source": {
+    "type": "text",
+    "value": ""
+  },
+  "verified": false
+}

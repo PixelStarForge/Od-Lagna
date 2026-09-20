@@ -1,0 +1,17 @@
+{
+  "id": "2621",
+  "question": "Please tell me Julius' favorite saying!",
+  "answer": "It's \"Hm\".",
+  "characters": [
+    "Julius Juukulius"
+  ],
+  "topics": [
+    "General"
+  ],
+  "arc": "general",
+  "source": {
+    "type": "text",
+    "value": ""
+  },
+  "verified": false
+}

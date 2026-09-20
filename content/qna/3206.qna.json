@@ -1,0 +1,17 @@
+{
+  "id": "3206",
+  "question": "Are cat ears one of your preferences?",
+  "answer": "Cat ears are better than dog ears.",
+  "characters": [
+    "Felix Argyle (Ferris)"
+  ],
+  "topics": [
+    "General"
+  ],
+  "arc": "general",
+  "source": {
+    "type": "text",
+    "value": ""
+  },
+  "verified": false
+}

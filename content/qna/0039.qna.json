@@ -1,17 +1,16 @@
 {
   "id": "0039",
-  "question": "Between “Red” Roswaal and Puck, which of them can use fire mana more skillfully?",
-  "answer": "If it’s skillfully, then Roswaal. If it’s strongly, then Puck.",
+  "question": "Including the arcs after this, which arc will Subaru have the most number of deaths?",
+  "answer": "Probably, they will all be equal.",
   "characters": [
-    "Roswaal L. Mathers",
-    "Puck"
+    "Natsuki Subaru"
   ],
   "topics": [
-    "Mana & Magic"
+    "General"
   ],
   "arc": "general",
   "source": {
-    "type": "url",
+    "type": "text",
     "value": ""
   },
   "verified": false

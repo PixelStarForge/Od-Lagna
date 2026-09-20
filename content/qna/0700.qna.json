@@ -1,0 +1,15 @@
+{
+  "id": "0700",
+  "question": "Do the snake’s diseases combine in any number of ways?",
+  "answer": "It can cause petrification and rotting away, and it leaves behind viruses in the land as it moves.",
+  "characters": [],
+  "topics": [
+    "Great Mabeasts"
+  ],
+  "arc": "general",
+  "source": {
+    "type": "text",
+    "value": ""
+  },
+  "verified": false
+}

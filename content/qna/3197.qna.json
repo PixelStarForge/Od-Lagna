@@ -1,0 +1,17 @@
+{
+  "id": "3197",
+  "question": "What sort of book is this book? (note: followed by an illustration of Joshua holding a purple book)",
+  "answer": "It's a book where, every day, Joshua makes a record of his realizations and resolutions. Please think of it as something like a journal or memo.",
+  "characters": [
+    "Joshua Juukulius"
+  ],
+  "topics": [
+    "General"
+  ],
+  "arc": "general",
+  "source": {
+    "type": "text",
+    "value": ""
+  },
+  "verified": false
+}

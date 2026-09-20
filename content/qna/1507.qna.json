@@ -1,0 +1,17 @@
+{
+  "id": "1507",
+  "question": "I’d like to get chocolate from Beako.",
+  "answer": "She inadvertently ate it before she could give it to you, you know. She just put a note of gratitude in the box, I suppose. Sorry, you know.",
+  "characters": [
+    "Beatrice"
+  ],
+  "topics": [
+    "General"
+  ],
+  "arc": "general",
+  "source": {
+    "type": "text",
+    "value": ""
+  },
+  "verified": false
+}

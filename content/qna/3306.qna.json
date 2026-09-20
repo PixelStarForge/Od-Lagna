@@ -1,0 +1,17 @@
+{
+  "id": "3306",
+  "question": "Around how good it Echidna at cooking?",
+  "answer": "She never needed to do it, but she knows pretty much all the recipes, and she's not the type to rearrange the recipe, so she could probably finish it up like normal.",
+  "characters": [
+    "Echidna"
+  ],
+  "topics": [
+    "General"
+  ],
+  "arc": "general",
+  "source": {
+    "type": "text",
+    "value": ""
+  },
+  "verified": false
+}

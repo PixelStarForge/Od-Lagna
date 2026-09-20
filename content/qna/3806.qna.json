@@ -1,0 +1,17 @@
+{
+  "id": "3806",
+  "question": "Who exactly is Otto?",
+  "answer": "He’s an normal person.",
+  "characters": [
+    "Otto Suwen"
+  ],
+  "topics": [
+    "General"
+  ],
+  "arc": "general",
+  "source": {
+    "type": "text",
+    "value": ""
+  },
+  "verified": false
+}

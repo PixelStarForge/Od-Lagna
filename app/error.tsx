@@ -49,14 +49,14 @@ export default function ErrorPage({ error, reset }: ErrorProps) {
         {/* Technical Error Box (if message exists) */}
         {error.message && (
           <div className="text-left p-3.5 rounded-xl border border-[var(--border-subtle)] bg-[var(--bg-surface)] space-y-1">
-            <p className="text-[11px] font-mono uppercase tracking-wider text-[var(--text-faint)]">
+            <p className="text-xs font-mono font-bold uppercase tracking-wider text-[var(--text-muted)]">
               Diagnostic Details
             </p>
             <p className="font-mono text-xs text-[var(--accent)] break-words">
               {error.message}
             </p>
             {error.digest && (
-              <p className="font-mono text-[10px] text-[var(--text-faint)]">
+              <p className="font-mono text-xs text-[var(--text-muted)]">
                 Digest: {error.digest}
               </p>
             )}
@@ -68,20 +68,20 @@ export default function ErrorPage({ error, reset }: ErrorProps) {
           <button
             type="button"
             onClick={() => reset()}
-            className="w-full sm:w-auto px-5 py-2.5 text-xs font-semibold rounded-lg bg-[var(--accent)] text-white hover:bg-[var(--accent-hover)] transition-colors cursor-pointer shadow-xs"
+            className="w-full sm:w-auto px-5 py-2.5 text-sm font-semibold rounded-lg bg-[var(--accent)] text-white hover:bg-[var(--accent-hover)] transition-colors cursor-pointer shadow-xs"
           >
             Try Again
           </button>
           <button
             type="button"
             onClick={() => window.location.reload()}
-            className="w-full sm:w-auto px-5 py-2.5 text-xs font-semibold rounded-lg border border-[var(--border-subtle)] bg-[var(--bg-surface)] hover:bg-[var(--bg-elevated)] text-[var(--text-main)] transition-colors cursor-pointer"
+            className="w-full sm:w-auto px-5 py-2.5 text-sm font-semibold rounded-lg border border-[var(--border-subtle)] bg-[var(--bg-surface)] hover:bg-[var(--bg-elevated)] text-[var(--text-main)] transition-colors cursor-pointer"
           >
             Reload Page
           </button>
           <Link
             href="/"
-            className="w-full sm:w-auto px-5 py-2.5 text-xs font-semibold rounded-lg border border-[var(--border-subtle)] bg-[var(--bg-surface)] hover:bg-[var(--bg-elevated)] text-[var(--text-muted)] hover:text-[var(--text-main)] transition-colors"
+            className="w-full sm:w-auto px-5 py-2.5 text-sm font-semibold rounded-lg border border-[var(--border-subtle)] bg-[var(--bg-surface)] hover:bg-[var(--bg-elevated)] text-[var(--text-muted)] hover:text-[var(--text-main)] transition-colors"
           >
             Return Home
           </Link>

@@ -1,0 +1,18 @@
+{
+  "id": "2001",
+  "question": "Which witch is on the best terms with Echidna?",
+  "answer": "It's Minerva. Because she likes to take care of people. Having said that, the witches are all on good enough terms with each other that there's no great need to differentiate. Because they can't be in touch with normal people.",
+  "characters": [
+    "Echidna",
+    "Minerva"
+  ],
+  "topics": [
+    "General"
+  ],
+  "arc": "general",
+  "source": {
+    "type": "text",
+    "value": ""
+  },
+  "verified": false
+}

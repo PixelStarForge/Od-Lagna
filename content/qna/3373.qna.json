@@ -1,0 +1,18 @@
+{
+  "id": "3373",
+  "question": "Sorry about your flu! Please pardon a question! Can Echidna kill Emilia?",
+  "answer": "That's a good question! I don't know the answer!",
+  "characters": [
+    "Echidna",
+    "Emilia"
+  ],
+  "topics": [
+    "General"
+  ],
+  "arc": "general",
+  "source": {
+    "type": "text",
+    "value": ""
+  },
+  "verified": false
+}

@@ -1,0 +1,17 @@
+{
+  "id": "2857",
+  "question": "Is the man himself fond of the nickname Ros-chi?",
+  "answer": "He is.",
+  "characters": [
+    "Roswaal L. Mathers"
+  ],
+  "topics": [
+    "General"
+  ],
+  "arc": "general",
+  "source": {
+    "type": "text",
+    "value": ""
+  },
+  "verified": false
+}

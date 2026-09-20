@@ -1,0 +1,17 @@
+{
+  "id": "2238",
+  "question": "Otto's tale of valor!",
+  "answer": "Something like the time he defeated seven men in a drinking contest at a bar, perhaps.",
+  "characters": [
+    "Otto Suwen"
+  ],
+  "topics": [
+    "General"
+  ],
+  "arc": "general",
+  "source": {
+    "type": "text",
+    "value": ""
+  },
+  "verified": false
+}

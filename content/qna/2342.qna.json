@@ -1,0 +1,17 @@
+{
+  "id": "2342",
+  "question": "Did Elsa meet fairly frequently with Mama? Or have they never met?",
+  "answer": "It's not that they've never met, but it wasn't frequent. Messages came frequently.",
+  "characters": [
+    "Elsa Granhiert"
+  ],
+  "topics": [
+    "General"
+  ],
+  "arc": "general",
+  "source": {
+    "type": "text",
+    "value": ""
+  },
+  "verified": false
+}

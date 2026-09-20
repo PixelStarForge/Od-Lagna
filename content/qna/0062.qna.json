@@ -1,0 +1,18 @@
+{
+  "id": "0062",
+  "question": "Up until now which character was the hardest or easiest birth delivery?",
+  "answer": "The easiest birth was Otto. The hardest birth is always Emilia-tan.",
+  "characters": [
+    "Emilia",
+    "Otto Suwen"
+  ],
+  "topics": [
+    "General"
+  ],
+  "arc": "general",
+  "source": {
+    "type": "text",
+    "value": ""
+  },
+  "verified": false
+}

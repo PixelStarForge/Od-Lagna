@@ -1,0 +1,17 @@
+{
+  "id": "1486",
+  "question": "Has Beako memorized the contents of all the books in the forbidden library?",
+  "answer": "Not all of them.",
+  "characters": [
+    "Beatrice"
+  ],
+  "topics": [
+    "General"
+  ],
+  "arc": "general",
+  "source": {
+    "type": "text",
+    "value": ""
+  },
+  "verified": false
+}

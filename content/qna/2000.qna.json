@@ -1,0 +1,17 @@
+{
+  "id": "2000",
+  "question": "Which fashion style does it seem like Echidna would like!?",
+  "answer": "I think that the outfit I normally wear suits me best, but what do you think? I've worn various outfits during my life, but this one had the best reputation. Well, I'm not the sort that cares much about how I look, but there's nothing better than being praised. I don't dislike making someone else happy, either. Whoops, don't go thinking that I mean anyone in particular...",
+  "characters": [
+    "Echidna"
+  ],
+  "topics": [
+    "General"
+  ],
+  "arc": "general",
+  "source": {
+    "type": "text",
+    "value": ""
+  },
+  "verified": false
+}

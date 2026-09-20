@@ -1,0 +1,17 @@
+{
+  "id": "0625",
+  "question": "Minerva-tan heals injuries when she strikes you, but if she cut you with a knife, would that also heal you? Or would you be injured normally and die?",
+  "answer": "You’d be healed.",
+  "characters": [
+    "Minerva"
+  ],
+  "topics": [
+    "General"
+  ],
+  "arc": "general",
+  "source": {
+    "type": "text",
+    "value": ""
+  },
+  "verified": false
+}

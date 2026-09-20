@@ -1,0 +1,19 @@
+{
+  "id": "3459",
+  "question": "Please tell me one person that Petra likes, and one that she dislikes!",
+  "answer": "One she likes is Subaru, and one she dislikes is Roswaal.",
+  "characters": [
+    "Natsuki Subaru",
+    "Petra Leyte",
+    "Roswaal L. Mathers"
+  ],
+  "topics": [
+    "General"
+  ],
+  "arc": "general",
+  "source": {
+    "type": "text",
+    "value": ""
+  },
+  "verified": false
+}

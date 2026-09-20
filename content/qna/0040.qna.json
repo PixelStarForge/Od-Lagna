@@ -1,23 +1,14 @@
 {
   "id": "0040",
-  "question": "Ranking on amount of mana (Without order)",
-  "answer": "Emilia, Roswaal, Echidna, Typhon, Carmilla, Daphne, Ferris,",
-  "characters": [
-    "Emilia",
-    "Roswaal L. Mathers",
-    "Echidna",
-    "Typhon",
-    "Carmilla",
-    "Daphne",
-    "Felix Argyle (Ferris)"
-  ],
+  "question": "Is (your) writing digital or analog?",
+  "answer": "The plot is analog, the writing is digital",
+  "characters": [],
   "topics": [
-    "Ranking",
-    "Mana & Magic"
+    "General"
   ],
   "arc": "general",
   "source": {
-    "type": "url",
+    "type": "text",
     "value": ""
   },
   "verified": false

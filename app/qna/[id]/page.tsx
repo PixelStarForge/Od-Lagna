@@ -124,7 +124,7 @@ export default async function QnaDetailPage({ params }: PageProps) {
     <main className="min-h-screen bg-[var(--bg-canvas)] text-[var(--text-main)] py-8 sm:py-12">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 space-y-8">
         {/* Navigation Bar & Breadcrumb */}
-        <div className="flex flex-wrap items-center justify-between gap-4 text-xs font-mono text-[var(--text-muted)] border-b border-[var(--border-subtle)] pb-4">
+        <div className="flex flex-wrap items-center justify-between gap-4 text-xs sm:text-sm font-mono text-[var(--text-muted)] border-b border-[var(--border-subtle)] pb-4">
           <nav aria-label="Breadcrumb" className="flex items-center gap-2">
             <Link href="/" className="hover:text-[var(--accent)] transition-colors">
               Home
@@ -139,7 +139,7 @@ export default async function QnaDetailPage({ params }: PageProps) {
 
           <Link
             href={`/browse#qna-${entry.id}`}
-            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-[var(--border-subtle)] bg-[var(--bg-surface)] hover:bg-[var(--bg-elevated)] hover:border-[var(--text-faint)] text-[var(--text-main)] transition-colors"
+            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-[var(--border-subtle)] bg-[var(--bg-surface)] hover:bg-[var(--bg-elevated)] hover:border-[var(--text-muted)] text-[var(--text-main)] transition-colors text-xs sm:text-sm font-medium"
           >
             <span>←</span>
             <span>Back to Archive</span>
@@ -162,13 +162,13 @@ export default async function QnaDetailPage({ params }: PageProps) {
                 <h2 id="recommended-heading" className="text-xl font-sans font-bold text-[var(--text-main)] tracking-tight">
                   Related Q&amp;As
                 </h2>
-                <p className="text-xs text-[var(--text-muted)] mt-0.5">
+                <p className="text-xs sm:text-sm text-[var(--text-muted)] mt-0.5">
                   Curated Re:Zero author Q&amp;As sharing characters, topics, or storyline arcs.
                 </p>
               </div>
               <Link
                 href="/browse"
-                className="text-xs text-[var(--accent)] hover:underline font-medium self-start sm:self-auto"
+                className="text-xs sm:text-sm text-[var(--accent)] hover:underline font-medium self-start sm:self-auto"
               >
                 Browse all {allQnas.length} entries →
               </Link>
@@ -178,7 +178,7 @@ export default async function QnaDetailPage({ params }: PageProps) {
               {recommendations.map(({ entry: recEntry, reasonText }) => (
                 <div key={recEntry.id} className="space-y-1.5">
                   {reasonText && (
-                    <div className="flex items-center gap-1.5 text-[11px] font-mono text-[var(--text-faint)] px-1">
+                    <div className="flex items-center gap-1.5 text-xs font-mono text-[var(--text-muted)] px-1">
                       <span className="text-[var(--accent)]">↳</span>
                       <span>Connected by: {reasonText}</span>
                     </div>

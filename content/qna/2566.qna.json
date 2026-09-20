@@ -1,0 +1,18 @@
+{
+  "id": "2566",
+  "question": "Thearesia's first words on meeting Reinhard.",
+  "answer": "\"You are Reinhard, a child blessed by your family. Please remember that before you learn about the world.\"",
+  "characters": [
+    "Reinhard van Astrea",
+    "Theresia van Astrea"
+  ],
+  "topics": [
+    "General"
+  ],
+  "arc": "general",
+  "source": {
+    "type": "text",
+    "value": ""
+  },
+  "verified": false
+}

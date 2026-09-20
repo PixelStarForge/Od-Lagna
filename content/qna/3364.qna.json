@@ -1,0 +1,17 @@
+{
+  "id": "3364",
+  "question": "Isn't Echidna cute?",
+  "answer": "Her appearance is cute.",
+  "characters": [
+    "Echidna"
+  ],
+  "topics": [
+    "General"
+  ],
+  "arc": "general",
+  "source": {
+    "type": "text",
+    "value": ""
+  },
+  "verified": false
+}

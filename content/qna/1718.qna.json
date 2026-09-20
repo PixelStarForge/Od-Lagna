@@ -1,0 +1,17 @@
+{
+  "id": "1718",
+  "question": "Favorite food!",
+  "answer": "A meal he can eat with someone! A warm dining table, or you might say instead the people who will sit around the dining table!",
+  "characters": [
+    "Reinhard van Astrea"
+  ],
+  "topics": [
+    "General"
+  ],
+  "arc": "general",
+  "source": {
+    "type": "text",
+    "value": ""
+  },
+  "verified": false
+}

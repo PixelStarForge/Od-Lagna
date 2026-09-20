@@ -1,0 +1,19 @@
+{
+  "id": "3137",
+  "question": "Does Joshua think anything of Mimi and Garfiel?",
+  "answer": "Joshua hasn't realized that Mimi likes Garfiel, so he doesn't think anything in particular.",
+  "characters": [
+    "Garfiel Tinsel",
+    "Joshua Juukulius",
+    "Mimi Pearlbaton"
+  ],
+  "topics": [
+    "General"
+  ],
+  "arc": "general",
+  "source": {
+    "type": "text",
+    "value": ""
+  },
+  "verified": false
+}

@@ -1,0 +1,17 @@
+{
+  "id": "2015",
+  "question": "Favorite color?",
+  "answer": "Red. Hence, her ribbon is a big red one!",
+  "characters": [
+    "Petra Leyte"
+  ],
+  "topics": [
+    "General"
+  ],
+  "arc": "general",
+  "source": {
+    "type": "text",
+    "value": ""
+  },
+  "verified": false
+}

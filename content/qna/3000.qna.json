@@ -1,0 +1,21 @@
+{
+  "id": "3000",
+  "question": "Setting aside Ram and Garf that she's known since long ago, which member of the Emilia camp is Frederica most fond of?",
+  "answer": "With those conditions, I can only say Petra...",
+  "characters": [
+    "Emilia",
+    "Frederica Baumann",
+    "Garfiel Tinsel",
+    "Petra Leyte",
+    "Ram"
+  ],
+  "topics": [
+    "General"
+  ],
+  "arc": "general",
+  "source": {
+    "type": "text",
+    "value": ""
+  },
+  "verified": false
+}

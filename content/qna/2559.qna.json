@@ -1,0 +1,18 @@
+{
+  "id": "2559",
+  "question": "Please tell a story of Thearesia's first love!",
+  "answer": "It's Wilhelm.",
+  "characters": [
+    "Theresia van Astrea",
+    "Wilhelm van Astrea"
+  ],
+  "topics": [
+    "General"
+  ],
+  "arc": "general",
+  "source": {
+    "type": "text",
+    "value": ""
+  },
+  "verified": false
+}

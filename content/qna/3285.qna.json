@@ -1,0 +1,18 @@
+{
+  "id": "3285",
+  "question": "What is Ferris' favorite color?",
+  "answer": "Amber, the color of Crusch's eyes.",
+  "characters": [
+    "Crusch Karsten",
+    "Felix Argyle (Ferris)"
+  ],
+  "topics": [
+    "General"
+  ],
+  "arc": "general",
+  "source": {
+    "type": "text",
+    "value": ""
+  },
+  "verified": false
+}
