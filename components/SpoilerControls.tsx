@@ -19,18 +19,24 @@ const ARCS = [
 interface SpoilerControlsProps {
   compact?: boolean;
   showPresets?: boolean;
+  idPrefix?: string;
 }
 
-export function SpoilerControls({ compact = false, showPresets = true }: SpoilerControlsProps) {
+export function SpoilerControls({
+  compact = false,
+  showPresets = true,
+  idPrefix = "default",
+}: SpoilerControlsProps) {
   const { spoilerArc, setSpoilerArc, spoilerIf, setSpoilerIf } = usePreferences();
   const currentArc = ARCS.find((a) => a.order === spoilerArc) || ARCS[0];
+  const sliderId = `${idPrefix}-spoiler-slider`;
 
   return (
-    <div className={compact ? "space-y-4" : "space-y-6"}>
+    <div className={compact ? "space-y-3.5" : "space-y-5 sm:space-y-6"}>
       {/* Arc Slider Section */}
-      <div className="space-y-3">
+      <div className={compact ? "space-y-2.5" : "space-y-3"}>
         <div className="flex items-baseline justify-between">
-          <label htmlFor="spoiler-slider" className="text-sm font-semibold tracking-wide text-[var(--text-main)]">
+          <label htmlFor={sliderId} className="text-sm font-semibold tracking-wide text-[var(--text-main)]">
             Story Progress Cutoff
           </label>
           <div className="text-right">
@@ -40,12 +46,12 @@ export function SpoilerControls({ compact = false, showPresets = true }: Spoiler
           </div>
         </div>
 
-        <div className="p-3.5 rounded-lg border border-[var(--border-subtle)] bg-[var(--bg-elevated)]">
-          <p className="text-xs text-[var(--text-muted)] font-mono font-bold uppercase tracking-wider">Current Allowed Arc</p>
-          <p className="font-sans font-semibold text-base text-[var(--text-main)] mt-0.5">
+        <div className="p-3 sm:p-3.5 rounded-lg border border-[var(--border-subtle)] bg-[var(--bg-elevated)]">
+          <p className="text-[11px] sm:text-xs text-[var(--text-muted)] font-mono font-bold uppercase tracking-wider">Current Allowed Arc</p>
+          <p className="font-sans font-semibold text-sm sm:text-base text-[var(--text-main)] mt-0.5">
             {currentArc.name}
           </p>
-          <p className="text-sm text-[var(--text-muted)] mt-1 leading-relaxed">
+          <p className="text-xs sm:text-sm text-[var(--text-muted)] mt-1 leading-relaxed">
             {currentArc.order === 10
               ? "All canon story Q&As are visible without spoiler barriers."
               : `Answers with information beyond Arc ${currentArc.order} are collapsed behind spoiler gates.`}
@@ -53,9 +59,9 @@ export function SpoilerControls({ compact = false, showPresets = true }: Spoiler
         </div>
 
         {/* The Slider */}
-        <div className="pt-2">
+        <div className="pt-1.5 sm:pt-2">
           <input
-            id="spoiler-slider"
+            id={sliderId}
             type="range"
             min="1"
             max="10"
@@ -82,7 +88,7 @@ export function SpoilerControls({ compact = false, showPresets = true }: Spoiler
             <button
               type="button"
               onClick={() => setSpoilerArc(1)}
-              className={`text-xs font-medium px-2.5 py-1 rounded border cursor-pointer transition-colors ${
+              className={`text-xs font-medium px-2.5 py-1.5 rounded border cursor-pointer transition-colors ${
                 spoilerArc === 1
                   ? "border-[var(--accent)] bg-[var(--accent-bg)] text-[var(--accent-text)] font-semibold"
                   : "border-[var(--border-subtle)] bg-[var(--bg-surface)] text-[var(--text-muted)] hover:bg-[var(--bg-elevated)]"
@@ -93,7 +99,7 @@ export function SpoilerControls({ compact = false, showPresets = true }: Spoiler
             <button
               type="button"
               onClick={() => setSpoilerArc(4)}
-              className={`text-xs font-medium px-2.5 py-1 rounded border cursor-pointer transition-colors ${
+              className={`text-xs font-medium px-2.5 py-1.5 rounded border cursor-pointer transition-colors ${
                 spoilerArc === 4
                   ? "border-[var(--accent)] bg-[var(--accent-bg)] text-[var(--accent-text)] font-semibold"
                   : "border-[var(--border-subtle)] bg-[var(--bg-surface)] text-[var(--text-muted)] hover:bg-[var(--bg-elevated)]"
@@ -104,7 +110,7 @@ export function SpoilerControls({ compact = false, showPresets = true }: Spoiler
             <button
               type="button"
               onClick={() => setSpoilerArc(5)}
-              className={`text-xs font-medium px-2.5 py-1 rounded border cursor-pointer transition-colors ${
+              className={`text-xs font-medium px-2.5 py-1.5 rounded border cursor-pointer transition-colors ${
                 spoilerArc === 5
                   ? "border-[var(--accent)] bg-[var(--accent-bg)] text-[var(--accent-text)] font-semibold"
                   : "border-[var(--border-subtle)] bg-[var(--bg-surface)] text-[var(--text-muted)] hover:bg-[var(--bg-elevated)]"
@@ -115,7 +121,7 @@ export function SpoilerControls({ compact = false, showPresets = true }: Spoiler
             <button
               type="button"
               onClick={() => setSpoilerArc(6)}
-              className={`text-xs font-medium px-2.5 py-1 rounded border cursor-pointer transition-colors ${
+              className={`text-xs font-medium px-2.5 py-1.5 rounded border cursor-pointer transition-colors ${
                 spoilerArc === 6
                   ? "border-[var(--accent)] bg-[var(--accent-bg)] text-[var(--accent-text)] font-semibold"
                   : "border-[var(--border-subtle)] bg-[var(--bg-surface)] text-[var(--text-muted)] hover:bg-[var(--bg-elevated)]"
@@ -126,7 +132,7 @@ export function SpoilerControls({ compact = false, showPresets = true }: Spoiler
             <button
               type="button"
               onClick={() => setSpoilerArc(10)}
-              className={`text-xs font-medium px-2.5 py-1 rounded border cursor-pointer transition-colors ${
+              className={`text-xs font-medium px-2.5 py-1.5 rounded border cursor-pointer transition-colors ${
                 spoilerArc === 10
                   ? "border-[var(--accent)] bg-[var(--accent-bg)] text-[var(--accent-text)] font-semibold"
                   : "border-[var(--border-subtle)] bg-[var(--bg-surface)] text-[var(--text-muted)] hover:bg-[var(--bg-elevated)]"
@@ -152,7 +158,7 @@ export function SpoilerControls({ compact = false, showPresets = true }: Spoiler
             <span className="text-sm font-semibold text-[var(--text-main)]">
               Include IF / EX Spoilers
             </span>
-            <p className="text-sm text-[var(--text-muted)] leading-relaxed">
+            <p className="text-xs sm:text-sm text-[var(--text-muted)] leading-relaxed">
               Author-penned alternate timeline stories (Pride, Wrath, Sloth, Greed, Gluttony, etc.). Kept hidden by default to prevent non-linear timeline spoilers.
             </p>
           </div>

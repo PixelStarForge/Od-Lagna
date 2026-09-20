@@ -91,7 +91,7 @@ export function SettingsModal() {
               Spoiler Protection
             </h3>
           </div>
-          <SpoilerControls />
+          <SpoilerControls idPrefix="settings" />
         </section>
 
         {/* Section 2: Appearance & Theme */}
