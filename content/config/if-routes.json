@@ -7,5 +7,6 @@
   { "slug": "if-lust", "name": "Lust IF", "divergesFrom": null },
   { "slug": "if-genderbend", "name": "GenderBend IF", "divergesFrom": null },
   { "slug": "if-azamaku", "name": "Azamaku IF", "divergesFrom": "arc-7" },
-  { "slug": "if-sasageru", "name": "Sasageru IF", "divergesFrom": "arc-9" }
+  { "slug": "if-sasageru", "name": "Sasageru IF", "divergesFrom": "arc-9" },
+{ "slug": "scorpion-tales", "name": "Scorpion Tales", "divergesFrom": null }
 ]

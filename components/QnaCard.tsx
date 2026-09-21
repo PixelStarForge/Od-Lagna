@@ -18,7 +18,7 @@ export function QnaCard({ entry, onTagClick }: QnaCardProps) {
   const pathname = usePathname();
   const isDetailPage = pathname === `/qna/${entry.id}`;
 
-  const { spoilerArc, spoilerIf, mounted } = usePreferences();
+  const { spoilerArc, isIfRouteAllowed, mounted } = usePreferences();
   const [isCopied, setIsCopied] = useState(false);
   const [isManuallyRevealed, setIsManuallyRevealed] = useState(false);
 
@@ -37,7 +37,7 @@ export function QnaCard({ entry, onTagClick }: QnaCardProps) {
     } else if (arcMeta.type === "canon" && arcMeta.order !== undefined) {
       isGated = arcMeta.order > spoilerArc;
     } else if (arcMeta.type === "if") {
-      isGated = !spoilerIf;
+      isGated = !isIfRouteAllowed(entry.arc);
     }
   }
 

@@ -52,7 +52,7 @@ export function getArcMetadata(slug: string): ArcMetadata {
 export function isArcSpoiler(
   arcSlug: string,
   spoilerArc: number,
-  spoilerIf: boolean
+  allowedIf: boolean | string[]
 ): boolean {
   const meta = getArcMetadata(arcSlug);
   if (meta.type === "general") return false;
@@ -60,7 +60,10 @@ export function isArcSpoiler(
     return meta.order > spoilerArc;
   }
   if (meta.type === "if") {
-    return !spoilerIf;
+    if (Array.isArray(allowedIf)) {
+      return !allowedIf.includes(arcSlug);
+    }
+    return !allowedIf;
   }
   return false;
 }

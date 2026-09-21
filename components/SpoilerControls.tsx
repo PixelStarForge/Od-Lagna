@@ -1,7 +1,8 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import { usePreferences } from "../lib/preferences";
+import { IF_ROUTES } from "../lib/arc-utils";
 
 const ARCS = [
   { order: 1, name: "The Tumultuous First Day" },
@@ -27,12 +28,24 @@ export function SpoilerControls({
   showPresets = true,
   idPrefix = "default",
 }: SpoilerControlsProps) {
-  const { spoilerArc, setSpoilerArc, spoilerIf, setSpoilerIf } = usePreferences();
+  const {
+    spoilerArc,
+    setSpoilerArc,
+    allowedIfRoutes,
+    toggleIfRoute,
+    setAllIfRoutes,
+    isIfRouteAllowed,
+  } = usePreferences();
+
+  const [isIndividualExpanded, setIsIndividualExpanded] = useState(!compact);
+
   const currentArc = ARCS.find((a) => a.order === spoilerArc) || ARCS[0];
   const sliderId = `${idPrefix}-spoiler-slider`;
 
+  const allRoutesAllowed = IF_ROUTES.length > 0 && allowedIfRoutes.length === IF_ROUTES.length;
+
   return (
-    <div className={compact ? "space-y-3.5" : "space-y-5 sm:space-y-6"}>
+    <div className={compact ? "space-y-4" : "space-y-6"}>
       {/* Arc Slider Section */}
       <div className={compact ? "space-y-2.5" : "space-y-3"}>
         <div className="flex items-baseline justify-between">
@@ -145,24 +158,112 @@ export function SpoilerControls({
       </div>
 
       {/* IF Routes Toggle Section */}
-      <div className="pt-2 border-t border-[var(--border-subtle)]">
-        <label className="flex items-start gap-3 cursor-pointer select-none">
-          <input
-            type="checkbox"
-            checked={spoilerIf}
-            onChange={(e) => setSpoilerIf(e.target.checked)}
-            aria-label="Include IF and alternate timeline spoilers"
-            className="mt-1 h-4 w-4 rounded border-[var(--border-strong)] text-[var(--accent)] focus:ring-[var(--accent)] cursor-pointer accent-[var(--accent)]"
-          />
-          <div className="space-y-0.5">
+      <div className="pt-4 border-t border-[var(--border-subtle)] space-y-3">
+        {/* Header with Title, Badge & Bulk Actions */}
+        <div className="flex items-center justify-between gap-2 flex-wrap">
+          <div className="flex items-center gap-2">
             <span className="text-sm font-semibold text-[var(--text-main)]">
-              Include IF / EX Spoilers
+              IF &amp; Alternate Timelines
             </span>
-            <p className="text-xs sm:text-sm text-[var(--text-muted)] leading-relaxed">
-              Author-penned alternate timeline stories (Pride, Wrath, Sloth, Greed, Gluttony, etc.). Kept hidden by default to prevent non-linear timeline spoilers.
-            </p>
+            <span className="text-xs font-mono font-bold px-2 py-0.5 rounded bg-[var(--accent-bg)] text-[var(--accent-text)] border border-[var(--accent-border)]">
+              {allowedIfRoutes.length} of {IF_ROUTES.length} allowed
+            </span>
           </div>
-        </label>
+
+          <div className="flex items-center gap-1.5">
+            <button
+              type="button"
+              onClick={() => setAllIfRoutes(true)}
+              className={`text-xs font-medium px-2 py-1 rounded border cursor-pointer transition-colors ${
+                allRoutesAllowed
+                  ? "border-[var(--accent)] bg-[var(--accent-bg)] text-[var(--accent-text)] font-semibold"
+                  : "border-[var(--border-subtle)] bg-[var(--bg-surface)] text-[var(--text-muted)] hover:bg-[var(--bg-elevated)] hover:text-[var(--text-main)]"
+              }`}
+            >
+              Allow All
+            </button>
+            <button
+              type="button"
+              onClick={() => setAllIfRoutes(false)}
+              className={`text-xs font-medium px-2 py-1 rounded border cursor-pointer transition-colors ${
+                allowedIfRoutes.length === 0
+                  ? "border-[var(--border-strong)] bg-[var(--bg-elevated)] text-[var(--text-main)] font-semibold"
+                  : "border-[var(--border-subtle)] bg-[var(--bg-surface)] text-[var(--text-muted)] hover:bg-[var(--bg-elevated)] hover:text-[var(--text-main)]"
+              }`}
+            >
+              Block All
+            </button>
+          </div>
+        </div>
+
+        <p className="text-xs text-[var(--text-muted)] leading-relaxed">
+          Author-penned alternate timeline &amp; what-if stories. Toggle individual routes below to permit specific timelines without spoiling others.
+        </p>
+
+        {/* Compact Toggle Button to Show/Hide Individual Route Checklist */}
+        {compact && (
+          <button
+            type="button"
+            onClick={() => setIsIndividualExpanded(!isIndividualExpanded)}
+            className="w-full flex items-center justify-between px-3 py-2 text-xs font-semibold rounded-lg border border-[var(--border-subtle)] bg-[var(--bg-elevated)] text-[var(--text-main)] hover:border-[var(--border-strong)] transition-colors cursor-pointer"
+          >
+            <span>
+              {isIndividualExpanded ? "Hide" : "Customize"} Individual Routes ({allowedIfRoutes.length}/{IF_ROUTES.length})
+            </span>
+            <svg
+              className={`w-3.5 h-3.5 text-[var(--text-muted)] transition-transform duration-200 ${
+                isIndividualExpanded ? "rotate-180" : ""
+              }`}
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
+        )}
+
+        {/* List of Individual IF Routes */}
+        {(!compact || isIndividualExpanded) && (
+          <div className={compact ? "space-y-1.5 pt-1" : "grid grid-cols-1 sm:grid-cols-2 gap-2 pt-1"}>
+            {IF_ROUTES.map((route) => {
+              const isAllowed = isIfRouteAllowed(route.slug);
+              const checkboxId = `${idPrefix}-if-${route.slug}`;
+
+              return (
+                <label
+                  key={route.slug}
+                  htmlFor={checkboxId}
+                  className={`flex items-center justify-between p-2.5 rounded-lg border transition-all cursor-pointer select-none text-xs sm:text-sm ${
+                    isAllowed
+                      ? "border-[var(--accent-border)] bg-[var(--accent-bg)]/35 text-[var(--text-main)] shadow-2xs"
+                      : "border-[var(--border-subtle)] bg-[var(--bg-surface)] text-[var(--text-muted)] hover:border-[var(--border-strong)] hover:bg-[var(--bg-elevated)]"
+                  }`}
+                >
+                  <div className="flex items-center gap-2.5 min-w-0 pr-2">
+                    <input
+                      id={checkboxId}
+                      type="checkbox"
+                      checked={isAllowed}
+                      onChange={() => toggleIfRoute(route.slug)}
+                      aria-label={`Toggle ${route.name} spoilers`}
+                      className="h-4 w-4 rounded border-[var(--border-strong)] text-[var(--accent)] focus:ring-[var(--accent)] accent-[var(--accent)] cursor-pointer shrink-0"
+                    />
+                    <span className={`font-semibold truncate ${isAllowed ? "text-[var(--text-main)]" : "text-[var(--text-muted)]"}`}>
+                      {route.name}
+                    </span>
+                  </div>
+
+                  <span className="font-mono text-[10px] sm:text-xs shrink-0 px-2 py-0.5 rounded bg-[var(--bg-elevated)] text-[var(--text-muted)] border border-[var(--border-subtle)]">
+                    {route.divergesFrom
+                      ? route.divergesFrom.replace("arc-", "Arc ")
+                      : "What-If"}
+                  </span>
+                </label>
+              );
+            })}
+          </div>
+        )}
       </div>
     </div>
   );

@@ -15,7 +15,7 @@ type SearchResultItem =
   | { type: "arc"; slug: string; name: string };
 
 export function SearchModal() {
-  const { isSearchOpen, setIsSearchOpen, spoilerArc, spoilerIf } = usePreferences();
+  const { isSearchOpen, setIsSearchOpen, spoilerArc, allowedIfRoutes } = usePreferences();
   const router = useRouter();
 
   const [query, setQuery] = useState("");
@@ -91,9 +91,9 @@ export function SearchModal() {
   // Filter search records strictly according to reader's spoiler cutoff
   const allowedRecords = useMemo(() => {
     return indexRecords.filter(
-      (record) => !isArcSpoiler(record.arc, spoilerArc, spoilerIf)
+      (record) => !isArcSpoiler(record.arc, spoilerArc, allowedIfRoutes)
     );
-  }, [indexRecords, spoilerArc, spoilerIf]);
+  }, [indexRecords, spoilerArc, allowedIfRoutes]);
 
   // Create Fuse instance strictly on spoiler-allowed records
   const fuse = useMemo(() => {
@@ -164,11 +164,10 @@ export function SearchModal() {
         matchedArcs.push({ slug: a.slug, name: `Arc ${a.order}: ${a.name}` });
       }
     }
-    if (spoilerIf) {
-      for (const r of IF_ROUTES) {
-        if (r.name.toLowerCase().includes(q) || r.slug.toLowerCase().includes(q)) {
-          matchedArcs.push({ slug: r.slug, name: r.name });
-        }
+    for (const r of IF_ROUTES) {
+      if (!allowedIfRoutes.includes(r.slug)) continue;
+      if (r.name.toLowerCase().includes(q) || r.slug.toLowerCase().includes(q)) {
+        matchedArcs.push({ slug: r.slug, name: r.name });
       }
     }
 
@@ -181,7 +180,7 @@ export function SearchModal() {
     ];
 
     return { qnas, characters: matchedChars, topics: matchedTopics, arcs: matchedArcs, flatList };
-  }, [query, fuse, allowedRecords, indexCharacters, indexTopics, spoilerArc, spoilerIf]);
+  }, [query, fuse, allowedRecords, indexCharacters, indexTopics, spoilerArc, allowedIfRoutes]);
 
   // Keyboard navigation
   const handleKeyDown = (e: React.KeyboardEvent) => {

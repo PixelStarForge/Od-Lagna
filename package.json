@@ -7,7 +7,7 @@
     "validate": "tsx scripts/validate-content.ts",
     "build:search": "tsx scripts/build-search-index.ts",
     "build": "tsx scripts/validate-content.ts && tsx scripts/build-search-index.ts && next build",
-    "admin": "tsx tools/admin/server.ts",
+    "admin": "tsx watch tools/admin/server.ts",
     "start": "next start",
     "lint": "eslint"
   },

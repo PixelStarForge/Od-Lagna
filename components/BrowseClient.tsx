@@ -27,7 +27,7 @@ export function BrowseClient({
   topics: initialTopics,
 }: BrowseClientProps) {
   const searchParams = useSearchParams();
-  const { spoilerArc, spoilerIf } = usePreferences();
+  const { spoilerArc, allowedIfRoutes } = usePreferences();
 
   // Filter state initialized from URL query params
   const [selectedArc, setSelectedArc] = useState<string>(() => {
@@ -305,7 +305,14 @@ export function BrowseClient({
             </span>
             <span className="text-[var(--text-faint)]">|</span>
             <span>
-              IF Routes: <strong>{spoilerIf ? "Included" : "Hidden"}</strong>
+              IF Routes:{" "}
+              <strong>
+                {allowedIfRoutes.length === 0
+                  ? "Hidden"
+                  : allowedIfRoutes.length === ifRoutes.length
+                  ? "All Included"
+                  : `${allowedIfRoutes.length}/${ifRoutes.length} Allowed`}
+              </strong>
             </span>
           </div>
         </div>

@@ -1,6 +1,7 @@
 "use client";
 
 import React, { createContext, useContext, useEffect, useState, useSyncExternalStore } from "react";
+import { IF_ROUTES } from "./arc-utils";
 
 export type ThemeMode = "light" | "dark" | "system";
 
@@ -11,6 +12,11 @@ export interface PreferencesContextType {
   setSpoilerArc: (arc: number) => void;
   spoilerIf: boolean;
   setSpoilerIf: (include: boolean) => void;
+  allowedIfRoutes: string[];
+  setAllowedIfRoutes: (routes: string[]) => void;
+  toggleIfRoute: (slug: string) => void;
+  isIfRouteAllowed: (slug: string) => boolean;
+  setAllIfRoutes: (allowed: boolean) => void;
   onboardingSeen: boolean;
   setOnboardingSeen: (seen: boolean) => void;
   isSettingsOpen: boolean;
@@ -26,6 +32,7 @@ const STORAGE_KEYS = {
   theme: "od-lagna-theme",
   spoilerArc: "od-lagna-spoiler-arc",
   spoilerIf: "od-lagna-spoiler-if",
+  allowedIfRoutes: "od-lagna-allowed-if-routes",
   onboardingSeen: "od-lagna-onboarding-seen",
 };
 
@@ -46,6 +53,45 @@ function notifyChange() {
     window.dispatchEvent(new Event(PREF_EVENT));
   }
 }
+
+// Cached reference storage to satisfy useSyncExternalStore referential equality
+let cachedAllowedIfKey: string | null = null;
+let cachedAllowedIfValue: string[] = [];
+
+function getAllowedIfSnapshot(): string[] {
+  try {
+    const raw = localStorage.getItem(STORAGE_KEYS.allowedIfRoutes);
+    const legacyRaw = localStorage.getItem(STORAGE_KEYS.spoilerIf);
+    const combinedKey = `${raw}::${legacyRaw}`;
+
+    if (combinedKey === cachedAllowedIfKey) {
+      return cachedAllowedIfValue;
+    }
+
+    cachedAllowedIfKey = combinedKey;
+
+    if (raw) {
+      const parsed = JSON.parse(raw);
+      if (Array.isArray(parsed)) {
+        cachedAllowedIfValue = parsed;
+        return cachedAllowedIfValue;
+      }
+    }
+
+    // Migration/fallback: if old boolean was true, allow all routes
+    if (legacyRaw === "true") {
+      cachedAllowedIfValue = IF_ROUTES.map((r) => r.slug);
+      return cachedAllowedIfValue;
+    }
+
+    cachedAllowedIfValue = [];
+    return cachedAllowedIfValue;
+  } catch {
+    return cachedAllowedIfValue;
+  }
+}
+
+const SERVER_EMPTY_ROUTES: string[] = [];
 
 export function PreferencesProvider({ children }: { children: React.ReactNode }) {
   const [isSettingsOpen, setIsSettingsOpen] = useState(false);
@@ -89,18 +135,15 @@ export function PreferencesProvider({ children }: { children: React.ReactNode })
     () => 1
   );
 
-  // Spoiler IF store
-  const spoilerIf = useSyncExternalStore<boolean>(
+  // Allowed IF routes store
+  const allowedIfRoutes = useSyncExternalStore<string[]>(
     subscribe,
-    () => {
-      try {
-        const stored = localStorage.getItem(STORAGE_KEYS.spoilerIf);
-        return stored === "true";
-      } catch {}
-      return false;
-    },
-    () => false
+    getAllowedIfSnapshot,
+    () => SERVER_EMPTY_ROUTES
   );
+
+  // Legacy spoiler IF boolean (true if all routes enabled or at least one enabled)
+  const spoilerIf = allowedIfRoutes.length > 0;
 
   // Onboarding seen store
   const onboardingSeen = useSyncExternalStore<boolean>(
@@ -164,13 +207,48 @@ export function PreferencesProvider({ children }: { children: React.ReactNode })
     }
   };
 
-  const setSpoilerIf = (include: boolean) => {
+  const setAllowedIfRoutes = (routes: string[]) => {
     try {
-      localStorage.setItem(STORAGE_KEYS.spoilerIf, include ? "true" : "false");
+      localStorage.setItem(STORAGE_KEYS.allowedIfRoutes, JSON.stringify(routes));
+      localStorage.setItem(STORAGE_KEYS.spoilerIf, routes.length > 0 ? "true" : "false");
       notifyChange();
     } catch (e) {
-      console.warn("Could not save spoiler IF:", e);
+      console.warn("Could not save allowed IF routes:", e);
     }
+  };
+
+  const setAllIfRoutes = (allowed: boolean) => {
+    try {
+      const next = allowed ? IF_ROUTES.map((r) => r.slug) : [];
+      localStorage.setItem(STORAGE_KEYS.allowedIfRoutes, JSON.stringify(next));
+      localStorage.setItem(STORAGE_KEYS.spoilerIf, allowed ? "true" : "false");
+      notifyChange();
+    } catch (e) {
+      console.warn("Could not save allowed IF routes:", e);
+    }
+  };
+
+  const toggleIfRoute = (slug: string) => {
+    try {
+      const current = getAllowedIfSnapshot();
+      const next = current.includes(slug)
+        ? current.filter((s) => s !== slug)
+        : [...current, slug];
+      localStorage.setItem(STORAGE_KEYS.allowedIfRoutes, JSON.stringify(next));
+      localStorage.setItem(STORAGE_KEYS.spoilerIf, next.length > 0 ? "true" : "false");
+      notifyChange();
+    } catch (e) {
+      console.warn("Could not toggle IF route:", e);
+    }
+  };
+
+  const isIfRouteAllowed = (slug: string): boolean => {
+    if (!mounted) return false;
+    return allowedIfRoutes.includes(slug);
+  };
+
+  const setSpoilerIf = (include: boolean) => {
+    setAllIfRoutes(include);
   };
 
   const setOnboardingSeen = (seen: boolean) => {
@@ -212,6 +290,11 @@ export function PreferencesProvider({ children }: { children: React.ReactNode })
         setSpoilerArc,
         spoilerIf,
         setSpoilerIf,
+        allowedIfRoutes,
+        setAllowedIfRoutes,
+        toggleIfRoute,
+        isIfRouteAllowed,
+        setAllIfRoutes,
         onboardingSeen,
         setOnboardingSeen,
         isSettingsOpen,
