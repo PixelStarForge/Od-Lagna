@@ -181,7 +181,7 @@ export function QnaCard({ entry, onTagClick }: QnaCardProps) {
         <div className="space-y-4 animate-in fade-in">
           {/* Question */}
           <div className="space-y-1.5">
-            <h3 className="text-xs font-mono font-bold uppercase tracking-wider text-[var(--text-muted)]">
+            <h3 className="text-sm sm:text-base font-mono font-bold uppercase tracking-wider text-[var(--accent)]">
               Question
             </h3>
             <p className="font-sans font-semibold text-base sm:text-lg text-[var(--text-main)] leading-relaxed tracking-tight">
@@ -189,10 +189,10 @@ export function QnaCard({ entry, onTagClick }: QnaCardProps) {
             </p>
           </div>
 
-          {/* Author Answer */}
-          <div className="space-y-1.5 pt-1">
-            <h4 className="text-xs font-mono font-bold uppercase tracking-wider text-[var(--text-muted)]">
-              Author Answer
+          {/* Answer */}
+          <div className="space-y-1.5 pt-2">
+            <h4 className="text-sm sm:text-base font-mono font-bold uppercase tracking-wider text-[var(--accent)]">
+              Answer
             </h4>
             <div className="font-sans text-base text-[var(--text-main)] leading-relaxed whitespace-pre-line">
               {entry.answer}
