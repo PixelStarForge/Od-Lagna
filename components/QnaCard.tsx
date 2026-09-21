@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
-import { useRouter, usePathname } from "next/navigation";
+import { useRouter, usePathname, useSearchParams } from "next/navigation";
 import { QnaEntry } from "../lib/schema";
 import { ArcMetadata, getArcMetadata } from "../lib/arc-utils";
 import { usePreferences } from "../lib/preferences";
@@ -16,7 +16,10 @@ interface QnaCardProps {
 export function QnaCard({ entry, onTagClick }: QnaCardProps) {
   const router = useRouter();
   const pathname = usePathname();
-  const isDetailPage = pathname === `/qna/${entry.id}`;
+  const searchParams = useSearchParams();
+  const isDetailPage =
+    pathname === `/qna/${entry.id}` ||
+    (pathname === "/qna" && searchParams.get("id") === entry.id);
 
   const { spoilerArc, isIfRouteAllowed, mounted } = usePreferences();
   const [isCopied, setIsCopied] = useState(false);
@@ -47,7 +50,7 @@ export function QnaCard({ entry, onTagClick }: QnaCardProps) {
   // Handle permalink copy
   const handleCopyLink = async () => {
     try {
-      const url = `${window.location.origin}/browse#qna-${entry.id}`;
+      const url = `${window.location.origin}/qna?id=${entry.id}`;
       await navigator.clipboard.writeText(url);
       setIsCopied(true);
       setTimeout(() => setIsCopied(false), 2000);
@@ -123,7 +126,7 @@ export function QnaCard({ entry, onTagClick }: QnaCardProps) {
         <div className="flex items-center gap-2.5 shrink-0">
           {!isDetailPage && (
             <Link
-              href={`/qna/${entry.id}`}
+              href={`/qna?id=${entry.id}`}
               title="Open dedicated page for this Q&A"
               className="text-xs font-semibold px-2 py-0.5 rounded border border-transparent hover:border-[var(--border-subtle)] bg-transparent hover:bg-[var(--bg-elevated)] text-[var(--accent)] hover:text-[var(--accent-hover)] transition-all inline-flex items-center gap-1"
             >

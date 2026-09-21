@@ -140,18 +140,7 @@ export function BrowseClient({
     { value: "date-asc", label: "Date: Oldest First" },
   ];
 
-  // Handle deep-link scrolling to hash on page load (#qna-0001)
-  useEffect(() => {
-    if (typeof window !== "undefined" && window.location.hash) {
-      const targetId = window.location.hash.slice(1);
-      setTimeout(() => {
-        const el = document.getElementById(targetId);
-        if (el) {
-          el.scrollIntoView({ behavior: "smooth", block: "center" });
-        }
-      }, 300);
-    }
-  }, []);
+
 
   // Tag click helper
   const handleTagClick = (type: "character" | "topic", tag: string) => {
@@ -263,6 +252,30 @@ export function BrowseClient({
   const totalPages = Math.max(1, Math.ceil(sortedEntries.length / ITEMS_PER_PAGE));
   const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
   const currentEntries = sortedEntries.slice(startIndex, startIndex + ITEMS_PER_PAGE);
+
+  // Handle deep-link scrolling to ?id=0001 or #qna-0001 (auto switches to correct page)
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const searchId = searchParams.get("id") || searchParams.get("qna");
+    const hashId = window.location.hash ? window.location.hash.slice(1).replace(/^qna-/, "") : null;
+    const targetQnaId = searchId || hashId;
+
+    if (targetQnaId) {
+      const itemIndex = sortedEntries.findIndex((e) => e.id === targetQnaId);
+      if (itemIndex !== -1) {
+        const targetPage = Math.floor(itemIndex / ITEMS_PER_PAGE) + 1;
+        if (targetPage !== currentPage) {
+          setCurrentPage(targetPage);
+        }
+        setTimeout(() => {
+          const el = document.getElementById(`qna-${targetQnaId}`);
+          if (el) {
+            el.scrollIntoView({ behavior: "smooth", block: "center" });
+          }
+        }, 150);
+      }
+    }
+  }, [sortedEntries, searchParams]);
 
   // Active filters count
   const hasActiveFilters =

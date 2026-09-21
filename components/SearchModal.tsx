@@ -210,7 +210,7 @@ export function SearchModal() {
   const handleSelectItem = (item: SearchResultItem) => {
     setIsSearchOpen(false);
     if (item.type === "qna") {
-      router.push(`/browse#qna-${item.data.id}`);
+      router.push(`/qna?id=${item.data.id}`);
     } else if (item.type === "character") {
       router.push(`/browse?character=${encodeURIComponent(item.name)}`);
     } else if (item.type === "topic") {

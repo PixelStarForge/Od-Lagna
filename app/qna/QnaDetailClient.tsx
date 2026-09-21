@@ -1,40 +1,14 @@
+"use client";
+
+import React, { useEffect } from "react";
 import Link from "next/link";
-import { getAllQnas } from "../../../lib/content-loader";
-import { QnaCard } from "../../../components/QnaCard";
-import { QnaEntry } from "../../../lib/schema";
-import { formatQnaDate, getEntryDate } from "../../../lib/date-utils";
+import { useSearchParams, usePathname } from "next/navigation";
+import { QnaCard } from "../../components/QnaCard";
+import { QnaEntry } from "../../lib/schema";
+import { formatQnaDate, getEntryDate } from "../../lib/date-utils";
 
-interface PageProps {
-  params: Promise<{ id: string }>;
-}
-
-export async function generateStaticParams() {
-  const qnas = getAllQnas();
-  if (qnas.length === 0) {
-    return [{ id: "_placeholder" }];
-  }
-  return qnas.map((q) => ({ id: q.id }));
-}
-
-export async function generateMetadata({ params }: PageProps) {
-  const { id } = await params;
-  const qnas = getAllQnas();
-  const entry = qnas.find((q) => q.id === id);
-
-  if (id === "_placeholder" || !entry) {
-    return {
-      title: "No Q&A Entries Yet — Od-Lagna",
-      description: "No Q&A entries have been published to the archive yet.",
-    };
-  }
-
-  const rawDate = getEntryDate(entry);
-  const dateFormatted = formatQnaDate(rawDate);
-  const snippet = entry.question.length > 60 ? `${entry.question.slice(0, 57)}...` : entry.question;
-  return {
-    title: `Q&A #${entry.id}${dateFormatted ? ` (${dateFormatted})` : ""}: "${snippet}" — Od-Lagna`,
-    description: `${dateFormatted ? `[${dateFormatted}] ` : ""}${entry.answer.slice(0, 160)}`,
-  };
+interface QnaDetailClientProps {
+  allQnas: QnaEntry[];
 }
 
 function computeRecommendations(current: QnaEntry, all: QnaEntry[], limit = 3) {
@@ -77,12 +51,30 @@ function computeRecommendations(current: QnaEntry, all: QnaEntry[], limit = 3) {
   return scored.slice(0, limit);
 }
 
-export default async function QnaDetailPage({ params }: PageProps) {
-  const { id } = await params;
-  const allQnas = getAllQnas();
+export function QnaDetailClient({ allQnas }: QnaDetailClientProps) {
+  const searchParams = useSearchParams();
+  const pathname = usePathname();
+
+  // Extract ID from either ?id=0001 or pathname /qna/0001
+  const pathParts = pathname.split("/").filter(Boolean);
+  const idFromPath = pathParts.length > 1 && pathParts[0] === "qna" ? pathParts[1] : null;
+  const id = searchParams.get("id") || idFromPath || "";
+
   const entry = allQnas.find((q) => q.id === id);
 
-  if (id === "_placeholder" || !entry) {
+  // Dynamically update document title on client
+  useEffect(() => {
+    if (entry) {
+      const rawDate = getEntryDate(entry);
+      const dateFormatted = formatQnaDate(rawDate);
+      const snippet = entry.question.length > 60 ? `${entry.question.slice(0, 57)}...` : entry.question;
+      document.title = `Q&A #${entry.id}${dateFormatted ? ` (${dateFormatted})` : ""}: "${snippet}" — Od-Lagna`;
+    } else {
+      document.title = "Q&A Not Found — Od-Lagna";
+    }
+  }, [entry]);
+
+  if (!id || !entry) {
     return (
       <main className="min-h-screen bg-[var(--bg-main)] text-[var(--text-main)] py-12 sm:py-20">
         <div className="max-w-2xl mx-auto px-4 text-center space-y-6">
@@ -93,10 +85,10 @@ export default async function QnaDetailPage({ params }: PageProps) {
           </div>
           <div className="space-y-2">
             <h1 className="text-2xl sm:text-3xl font-bold tracking-tight text-[var(--text-main)]">
-              No Q&amp;A entries yet — check back soon
+              {id ? `Q&A #${id} not found` : "No Q&A specified"}
             </h1>
             <p className="text-sm text-[var(--text-muted)] max-w-md mx-auto leading-relaxed">
-              The archive has not yet indexed any public statements for this record. Use the local admin tool or browse the main archive.
+              The archive has not indexed a statement matching this ID. It may have been moved or you may browse the complete archive.
             </p>
           </div>
           <div className="pt-2 flex items-center justify-center gap-3">
@@ -138,7 +130,7 @@ export default async function QnaDetailPage({ params }: PageProps) {
           </nav>
 
           <Link
-            href={`/browse#qna-${entry.id}`}
+            href={`/browse?id=${entry.id}`}
             className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-[var(--border-subtle)] bg-[var(--bg-surface)] hover:bg-[var(--bg-elevated)] hover:border-[var(--text-muted)] text-[var(--text-main)] transition-colors text-xs sm:text-sm font-medium"
           >
             <span>←</span>
