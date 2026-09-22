@@ -4,16 +4,16 @@
   "answer": "Spoilers.",
   "characters": [
     "Cecilus Segmunt",
-    "Reid van Astrea",
     "Reinhard van Astrea"
   ],
   "topics": [
     "Metia & Equipment"
   ],
-  "arc": "arc-6",
+  "arc": "arc-7",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/947857305164333056"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2018-01-01"
 }

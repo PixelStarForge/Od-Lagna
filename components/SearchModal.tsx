@@ -100,6 +100,7 @@ export function SearchModal() {
     if (allowedRecords.length === 0) return null;
     return new Fuse(allowedRecords, {
       keys: [
+        { name: "id", weight: 0.3 },
         { name: "question", weight: 0.4 },
         { name: "answerSearchText", weight: 0.3 },
         { name: "characters", weight: 0.15 },
@@ -118,40 +119,88 @@ export function SearchModal() {
       return { qnas: [], characters: [], topics: [], arcs: [], flatList: [] };
     }
 
-    // 1. QnA Matches via Fuse.js (only non-spoiler records)
-    const qnas: SearchIndexRecord[] = fuse
+    const cleanQ = q.replace(/^#/, "").replace(/^qna[\s#-]+/i, "").trim();
+    const isNumericQuery = /^\d+$/.test(cleanQ);
+
+    // 1. Direct ID matching (exact and partial)
+    const exactIdMatches: SearchIndexRecord[] = [];
+    const partialIdMatches: SearchIndexRecord[] = [];
+
+    if (isNumericQuery) {
+      const targetPadded = cleanQ.padStart(4, "0");
+      for (const record of allowedRecords) {
+        if (record.id === cleanQ || record.id === targetPadded) {
+          exactIdMatches.push(record);
+        } else if (cleanQ.length >= 2 && record.id.includes(cleanQ)) {
+          partialIdMatches.push(record);
+        }
+      }
+    }
+
+    // 2. QnA Matches via Fuse.js (only non-spoiler records)
+    const fuseMatches: SearchIndexRecord[] = fuse
       ? fuse.search(q, { limit: 8 }).map((res) => res.item)
       : [];
 
+    const seenQnaIds = new Set<string>();
+    const qnas: SearchIndexRecord[] = [];
+
+    // Exact ID matches have top priority
+    for (const item of exactIdMatches) {
+      if (!seenQnaIds.has(item.id)) {
+        seenQnaIds.add(item.id);
+        qnas.push(item);
+      }
+    }
+
+    // Partial ID matches (if any, e.g. typing 102...)
+    for (const item of partialIdMatches) {
+      if (qnas.length >= 8) break;
+      if (!seenQnaIds.has(item.id)) {
+        seenQnaIds.add(item.id);
+        qnas.push(item);
+      }
+    }
+
+    // Fuse matches
+    for (const item of fuseMatches) {
+      if (qnas.length >= 8) break;
+      if (!seenQnaIds.has(item.id)) {
+        seenQnaIds.add(item.id);
+        qnas.push(item);
+      }
+    }
+
     // Also check direct substring matches if Fuse returns few
     if (qnas.length < 5) {
-      const qnaIds = new Set(qnas.map((item) => item.id));
       for (const item of allowedRecords) {
-        if (qnaIds.has(item.id)) continue;
+        if (seenQnaIds.has(item.id)) continue;
         if (
+          item.id.includes(cleanQ) ||
+          item.id.toLowerCase().includes(q) ||
           item.question.toLowerCase().includes(q) ||
           item.answerSearchText.toLowerCase().includes(q) ||
           item.characters.some((c) => c.toLowerCase().includes(q)) ||
           item.topics.some((t) => t.toLowerCase().includes(q))
         ) {
           qnas.push(item);
-          qnaIds.add(item.id);
+          seenQnaIds.add(item.id);
           if (qnas.length >= 8) break;
         }
       }
     }
 
-    // 2. Character Matches
+    // 3. Character Matches
     const matchedChars = indexCharacters
-      .filter((c) => c.toLowerCase().includes(q))
+      .filter((c) => c.toLowerCase().includes(q) || (cleanQ && c.toLowerCase().includes(cleanQ)))
       .slice(0, 5);
 
-    // 3. Topic Matches
+    // 4. Topic Matches
     const matchedTopics = indexTopics
-      .filter((t) => t.toLowerCase().includes(q))
+      .filter((t) => t.toLowerCase().includes(q) || (cleanQ && t.toLowerCase().includes(cleanQ)))
       .slice(0, 5);
 
-    // 4. Arc / IF Route Matches (filter by spoiler cutoff as well)
+    // 5. Arc / IF Route Matches (filter by spoiler cutoff as well)
     const matchedArcs: { slug: string; name: string }[] = [];
     for (const a of CANON_ARCS) {
       if (a.order > spoilerArc) continue;
@@ -250,7 +299,7 @@ export function SearchModal() {
               setQuery(e.target.value);
               setSelectedIndex(0);
             }}
-            placeholder="Search questions, answers, characters, topics, arcs..."
+            placeholder="Search questions, answers, characters, topics, arcs, #ID..."
             className="w-full bg-transparent text-sm focus:outline-none text-[var(--text-main)] placeholder-[var(--text-muted)]"
             autoComplete="off"
             spellCheck="false"

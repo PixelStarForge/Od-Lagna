@@ -59,8 +59,15 @@ export function QnaDetailClient({ allQnas }: QnaDetailClientProps) {
   const pathParts = pathname.split("/").filter(Boolean);
   const idFromPath = pathParts.length > 1 && pathParts[0] === "qna" ? pathParts[1] : null;
   const id = searchParams.get("id") || idFromPath || "";
+  const cleanId = id.replace(/^#/, "").replace(/^qna[\s#-]+/i, "").trim();
+  const isNum = /^\d+$/.test(cleanId);
 
-  const entry = allQnas.find((q) => q.id === id);
+  const entry = allQnas.find(
+    (q) =>
+      q.id === id ||
+      q.id === cleanId ||
+      (isNum && (q.id === cleanId.padStart(4, "0") || parseInt(q.id, 10).toString() === cleanId))
+  );
 
   // Dynamically update document title on client
   useEffect(() => {

@@ -183,12 +183,22 @@ export function BrowseClient({
 
       // Text search filter
       if (searchFilter.trim()) {
-        const query = searchFilter.toLowerCase();
+        const rawQ = searchFilter.trim();
+        const query = rawQ.toLowerCase();
+        const idQuery = rawQ.replace(/^#/, "").replace(/^qna[\s#-]+/i, "").trim();
+        const isNumeric = /^\d+$/.test(idQuery);
+
+        const matchesId =
+          entry.id.toLowerCase().includes(query) ||
+          entry.id.includes(idQuery) ||
+          (isNumeric &&
+            (entry.id === idQuery.padStart(4, "0") ||
+              parseInt(entry.id, 10).toString() === idQuery));
         const matchesQ = entry.question.toLowerCase().includes(query);
         const matchesA = entry.answer.toLowerCase().includes(query);
         const matchesC = entry.characters.some((c) => c.toLowerCase().includes(query));
         const matchesT = entry.topics.some((t) => t.toLowerCase().includes(query));
-        if (!matchesQ && !matchesA && !matchesC && !matchesT) return false;
+        if (!matchesId && !matchesQ && !matchesA && !matchesC && !matchesT) return false;
       }
 
       return true;
@@ -261,18 +271,26 @@ export function BrowseClient({
     const targetQnaId = searchId || hashId;
 
     if (targetQnaId) {
-      const itemIndex = sortedEntries.findIndex((e) => e.id === targetQnaId);
+      const cleanTargetId = targetQnaId.replace(/^#/, "").replace(/^qna[\s#-]+/i, "").trim();
+      const isNum = /^\d+$/.test(cleanTargetId);
+      const itemIndex = sortedEntries.findIndex(
+        (e) =>
+          e.id === targetQnaId ||
+          e.id === cleanTargetId ||
+          (isNum && (e.id === cleanTargetId.padStart(4, "0") || parseInt(e.id, 10).toString() === cleanTargetId))
+      );
       if (itemIndex !== -1) {
         const targetPage = Math.floor(itemIndex / ITEMS_PER_PAGE) + 1;
-        if (targetPage !== currentPage) {
-          setCurrentPage(targetPage);
-        }
         setTimeout(() => {
-          const el = document.getElementById(`qna-${targetQnaId}`);
+          setCurrentPage((prev) => (prev !== targetPage ? targetPage : prev));
+          const el =
+            document.getElementById(`qna-${targetQnaId}`) ||
+            document.getElementById(`qna-${cleanTargetId}`) ||
+            (isNum ? document.getElementById(`qna-${cleanTargetId.padStart(4, "0")}`) : null);
           if (el) {
             el.scrollIntoView({ behavior: "smooth", block: "center" });
           }
-        }, 150);
+        }, 50);
       }
     }
   }, [sortedEntries, searchParams]);
@@ -369,7 +387,7 @@ export function BrowseClient({
                 setSearchFilter(e.target.value);
                 setCurrentPage(1);
               }}
-              placeholder="Filter current view..."
+              placeholder="Filter by keyword or #ID..."
               className="w-full px-3 py-2 text-xs sm:text-sm rounded-lg border border-[var(--border-subtle)] bg-[var(--bg-surface)] text-[var(--text-main)] placeholder-[var(--text-muted)] focus:outline-none focus:border-[var(--accent)]"
             />
           </div>
