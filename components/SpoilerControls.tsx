@@ -59,12 +59,12 @@ export function SpoilerControls({
           </div>
         </div>
 
-        <div className="p-3 sm:p-3.5 rounded-lg border border-[var(--border-subtle)] bg-[var(--bg-elevated)]">
+        <div className="p-3 sm:p-3.5 rounded-lg border border-[var(--border-subtle)] bg-[var(--bg-elevated)] min-w-0 break-words">
           <p className="text-[11px] sm:text-xs text-[var(--text-muted)] font-mono font-bold uppercase tracking-wider">Current Allowed Arc</p>
-          <p className="font-sans font-semibold text-sm sm:text-base text-[var(--text-main)] mt-0.5">
+          <p className="font-sans font-semibold text-sm sm:text-base text-[var(--text-main)] mt-0.5 break-words">
             {currentArc.name}
           </p>
-          <p className="text-xs sm:text-sm text-[var(--text-muted)] mt-1 leading-relaxed">
+          <p className="text-xs sm:text-sm text-[var(--text-muted)] mt-1 leading-relaxed break-words">
             {currentArc.order === 10
               ? "All canon story Q&As are visible without spoiler barriers."
               : `Answers with information beyond Arc ${currentArc.order} are collapsed behind spoiler gates.`}
@@ -158,19 +158,19 @@ export function SpoilerControls({
       </div>
 
       {/* IF Routes Toggle Section */}
-      <div className="pt-4 border-t border-[var(--border-subtle)] space-y-3">
+      <div className="pt-4 border-t border-[var(--border-subtle)] space-y-3 min-w-0">
         {/* Header with Title, Badge & Bulk Actions */}
-        <div className="flex items-center justify-between gap-2 flex-wrap">
-          <div className="flex items-center gap-2">
-            <span className="text-sm font-semibold text-[var(--text-main)]">
-              IF &amp; Alternate Timelines
+        <div className="flex items-center justify-between gap-2 flex-wrap min-w-0">
+          <div className="flex items-center gap-2 min-w-0">
+            <span className="text-sm font-semibold text-[var(--text-main)] truncate">
+              IF Routes &amp; Alternate Stories
             </span>
-            <span className="text-xs font-mono font-bold px-2 py-0.5 rounded bg-[var(--accent-bg)] text-[var(--accent-text)] border border-[var(--accent-border)]">
+            <span className="text-xs font-mono font-bold px-2 py-0.5 rounded bg-[var(--accent-bg)] text-[var(--accent-text)] border border-[var(--accent-border)] shrink-0">
               {allowedIfRoutes.length} of {IF_ROUTES.length} allowed
             </span>
           </div>
 
-          <div className="flex items-center gap-1.5">
+          <div className="flex items-center gap-1.5 shrink-0">
             <button
               type="button"
               onClick={() => setAllIfRoutes(true)}
@@ -196,7 +196,7 @@ export function SpoilerControls({
           </div>
         </div>
 
-        <p className="text-xs text-[var(--text-muted)] leading-relaxed">
+        <p className="text-xs text-[var(--text-muted)] leading-relaxed break-words">
           Author-penned alternate timeline &amp; what-if stories. Toggle individual routes below to permit specific timelines without spoiling others.
         </p>
 
@@ -205,13 +205,13 @@ export function SpoilerControls({
           <button
             type="button"
             onClick={() => setIsIndividualExpanded(!isIndividualExpanded)}
-            className="w-full flex items-center justify-between px-3 py-2 text-xs font-semibold rounded-lg border border-[var(--border-subtle)] bg-[var(--bg-elevated)] text-[var(--text-main)] hover:border-[var(--border-strong)] transition-colors cursor-pointer"
+            className="w-full flex items-center justify-between px-3 py-2 text-xs font-semibold rounded-lg border border-[var(--border-subtle)] bg-[var(--bg-elevated)] text-[var(--text-main)] hover:border-[var(--border-strong)] transition-colors cursor-pointer min-w-0"
           >
-            <span>
+            <span className="truncate mr-2">
               {isIndividualExpanded ? "Hide" : "Customize"} Individual Routes ({allowedIfRoutes.length}/{IF_ROUTES.length})
             </span>
             <svg
-              className={`w-3.5 h-3.5 text-[var(--text-muted)] transition-transform duration-200 ${
+              className={`w-3.5 h-3.5 text-[var(--text-muted)] transition-transform duration-200 shrink-0 ${
                 isIndividualExpanded ? "rotate-180" : ""
               }`}
               fill="none"
@@ -225,22 +225,28 @@ export function SpoilerControls({
 
         {/* List of Individual IF Routes */}
         {(!compact || isIndividualExpanded) && (
-          <div className={compact ? "space-y-1.5 pt-1" : "grid grid-cols-1 sm:grid-cols-2 gap-2 pt-1"}>
+          <div className={compact ? "space-y-1.5 pt-1 min-w-0" : "grid grid-cols-1 md:grid-cols-2 gap-2 pt-1 min-w-0"}>
             {IF_ROUTES.map((route) => {
               const isAllowed = isIfRouteAllowed(route.slug);
               const checkboxId = `${idPrefix}-if-${route.slug}`;
+              const badgeText =
+                route.type === "side-story"
+                  ? (route.timeline || "Canon Side Story")
+                  : route.divergesFrom
+                  ? route.divergesFrom.replace("arc-", "Arc ")
+                  : "What-If";
 
               return (
                 <label
                   key={route.slug}
                   htmlFor={checkboxId}
-                  className={`flex items-center justify-between p-2.5 rounded-lg border transition-all cursor-pointer select-none text-xs sm:text-sm ${
+                  className={`flex items-center justify-between gap-2 p-2.5 rounded-lg border transition-all cursor-pointer select-none text-xs sm:text-sm min-w-0 ${
                     isAllowed
                       ? "border-[var(--accent-border)] bg-[var(--accent-bg)]/35 text-[var(--text-main)] shadow-2xs"
                       : "border-[var(--border-subtle)] bg-[var(--bg-surface)] text-[var(--text-muted)] hover:border-[var(--border-strong)] hover:bg-[var(--bg-elevated)]"
                   }`}
                 >
-                  <div className="flex items-center gap-2.5 min-w-0 pr-2">
+                  <div className="flex items-center gap-2 min-w-0 flex-1">
                     <input
                       id={checkboxId}
                       type="checkbox"
@@ -254,10 +260,11 @@ export function SpoilerControls({
                     </span>
                   </div>
 
-                  <span className="font-mono text-[10px] sm:text-xs shrink-0 px-2 py-0.5 rounded bg-[var(--bg-elevated)] text-[var(--text-muted)] border border-[var(--border-subtle)]">
-                    {route.divergesFrom
-                      ? route.divergesFrom.replace("arc-", "Arc ")
-                      : "What-If"}
+                  <span
+                    title={badgeText}
+                    className="font-mono text-[10px] sm:text-xs px-2 py-0.5 rounded bg-[var(--bg-elevated)] text-[var(--text-muted)] border border-[var(--border-subtle)] max-w-[130px] sm:max-w-[180px] truncate text-right shrink-0"
+                  >
+                    {badgeText}
                   </span>
                 </label>
               );

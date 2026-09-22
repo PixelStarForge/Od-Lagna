@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { usePreferences } from "../lib/preferences";
@@ -7,6 +8,14 @@ import { usePreferences } from "../lib/preferences";
 export function Header() {
   const pathname = usePathname();
   const { theme, setTheme, setIsSettingsOpen, setIsSearchOpen } = usePreferences();
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [prevPathname, setPrevPathname] = useState(pathname);
+
+  // Close mobile menu on route change during render
+  if (prevPathname !== pathname) {
+    setPrevPathname(pathname);
+    setIsMobileMenuOpen(false);
+  }
 
   const toggleTheme = () => {
     if (theme === "light") {
@@ -37,8 +46,8 @@ export function Header() {
             </div>
           </Link>
 
-          {/* Navigation */}
-          <nav className="flex items-center gap-0.5 sm:gap-1">
+          {/* Desktop Navigation */}
+          <nav className="hidden sm:flex items-center gap-0.5 sm:gap-1">
             <Link
               href="/"
               className={`px-2 py-1 sm:px-3 sm:py-1.5 rounded-md text-xs sm:text-sm font-medium transition-colors ${
@@ -60,8 +69,28 @@ export function Header() {
               Browse
             </Link>
             <Link
+              href="/ifs"
+              className={`px-2 py-1 sm:px-3 sm:py-1.5 rounded-md text-xs sm:text-sm font-medium transition-colors ${
+                pathname?.startsWith("/ifs")
+                  ? "bg-[var(--bg-elevated)] text-[var(--text-main)] font-semibold"
+                  : "text-[var(--text-muted)] hover:text-[var(--text-main)] hover:bg-[var(--bg-elevated)]"
+              }`}
+            >
+              IF Routes
+            </Link>
+            <Link
+              href="/side-stories"
+              className={`px-2 py-1 sm:px-3 sm:py-1.5 rounded-md text-xs sm:text-sm font-medium transition-colors ${
+                pathname?.startsWith("/side-stories")
+                  ? "bg-[var(--bg-elevated)] text-[var(--text-main)] font-semibold"
+                  : "text-[var(--text-muted)] hover:text-[var(--text-main)] hover:bg-[var(--bg-elevated)]"
+              }`}
+            >
+              Side Stories
+            </Link>
+            <Link
               href="/about"
-              className={`px-2 py-1 sm:px-3 sm:py-1.5 rounded-md text-xs sm:text-sm font-medium transition-colors hidden sm:inline-block ${
+              className={`px-2 py-1 sm:px-3 sm:py-1.5 rounded-md text-xs sm:text-sm font-medium transition-colors hidden md:inline-block ${
                 pathname === "/about"
                   ? "bg-[var(--bg-elevated)] text-[var(--text-main)] font-semibold"
                   : "text-[var(--text-muted)] hover:text-[var(--text-main)] hover:bg-[var(--bg-elevated)]"
@@ -71,7 +100,7 @@ export function Header() {
             </Link>
             <Link
               href="/contribute"
-              className={`px-2 py-1 sm:px-3 sm:py-1.5 rounded-md text-xs sm:text-sm font-medium transition-colors hidden md:inline-block ${
+              className={`px-2 py-1 sm:px-3 sm:py-1.5 rounded-md text-xs sm:text-sm font-medium transition-colors hidden lg:inline-block ${
                 pathname === "/contribute"
                   ? "bg-[var(--bg-elevated)] text-[var(--text-main)] font-semibold"
                   : "text-[var(--text-muted)] hover:text-[var(--text-main)] hover:bg-[var(--bg-elevated)]"
@@ -177,8 +206,103 @@ export function Header() {
               />
             </svg>
           </button>
+
+          {/* Mobile Menu Toggle Button */}
+          <button
+            type="button"
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            aria-label={isMobileMenuOpen ? "Close menu" : "Open navigation menu"}
+            aria-expanded={isMobileMenuOpen}
+            className="sm:hidden p-2 rounded-lg border border-[var(--border-subtle)] bg-[var(--bg-surface)] hover:bg-[var(--bg-elevated)] text-[var(--text-muted)] hover:text-[var(--text-main)] transition-colors cursor-pointer"
+          >
+            {isMobileMenuOpen ? (
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            ) : (
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
+            )}
+          </button>
         </div>
       </div>
+
+      {/* Mobile Navigation Dropdown Menu */}
+      {isMobileMenuOpen && (
+        <div className="sm:hidden border-t border-[var(--border-subtle)] bg-[var(--bg-surface)] px-4 py-3 space-y-1 shadow-lg animate-in slide-in-from-top-2 duration-150">
+          <Link
+            href="/"
+            onClick={() => setIsMobileMenuOpen(false)}
+            className={`flex items-center justify-between px-3 py-2.5 rounded-lg text-sm font-medium transition-colors ${
+              pathname === "/"
+                ? "bg-[var(--bg-elevated)] text-[var(--accent)] font-semibold"
+                : "text-[var(--text-muted)] hover:text-[var(--text-main)] hover:bg-[var(--bg-elevated)]"
+            }`}
+          >
+            <span>Home</span>
+            <span className="text-xs font-mono text-[var(--text-muted)]">Index</span>
+          </Link>
+          <Link
+            href="/browse"
+            onClick={() => setIsMobileMenuOpen(false)}
+            className={`flex items-center justify-between px-3 py-2.5 rounded-lg text-sm font-medium transition-colors ${
+              pathname === "/browse"
+                ? "bg-[var(--bg-elevated)] text-[var(--accent)] font-semibold"
+                : "text-[var(--text-muted)] hover:text-[var(--text-main)] hover:bg-[var(--bg-elevated)]"
+            }`}
+          >
+            <span>Browse Q&amp;A</span>
+            <span className="text-xs font-mono text-[var(--text-muted)]">Archive</span>
+          </Link>
+          <Link
+            href="/ifs"
+            onClick={() => setIsMobileMenuOpen(false)}
+            className={`flex items-center justify-between px-3 py-2.5 rounded-lg text-sm font-medium transition-colors ${
+              pathname?.startsWith("/ifs")
+                ? "bg-[var(--bg-elevated)] text-[var(--accent)] font-semibold"
+                : "text-[var(--text-muted)] hover:text-[var(--text-main)] hover:bg-[var(--bg-elevated)]"
+            }`}
+          >
+            <span>IF Routes</span>
+            <span className="text-xs font-mono text-[var(--text-muted)]">What-If</span>
+          </Link>
+          <Link
+            href="/side-stories"
+            onClick={() => setIsMobileMenuOpen(false)}
+            className={`flex items-center justify-between px-3 py-2.5 rounded-lg text-sm font-medium transition-colors ${
+              pathname?.startsWith("/side-stories")
+                ? "bg-[var(--bg-elevated)] text-[var(--accent)] font-semibold"
+                : "text-[var(--text-muted)] hover:text-[var(--text-main)] hover:bg-[var(--bg-elevated)]"
+            }`}
+          >
+            <span>Side Stories</span>
+            <span className="text-xs font-mono text-[var(--text-muted)]">Canon</span>
+          </Link>
+          <Link
+            href="/about"
+            onClick={() => setIsMobileMenuOpen(false)}
+            className={`flex items-center justify-between px-3 py-2.5 rounded-lg text-sm font-medium transition-colors ${
+              pathname === "/about"
+                ? "bg-[var(--bg-elevated)] text-[var(--accent)] font-semibold"
+                : "text-[var(--text-muted)] hover:text-[var(--text-main)] hover:bg-[var(--bg-elevated)]"
+            }`}
+          >
+            <span>About</span>
+          </Link>
+          <Link
+            href="/contribute"
+            onClick={() => setIsMobileMenuOpen(false)}
+            className={`flex items-center justify-between px-3 py-2.5 rounded-lg text-sm font-medium transition-colors ${
+              pathname === "/contribute"
+                ? "bg-[var(--bg-elevated)] text-[var(--accent)] font-semibold"
+                : "text-[var(--text-muted)] hover:text-[var(--text-main)] hover:bg-[var(--bg-elevated)]"
+            }`}
+          >
+            <span>Contribute</span>
+          </Link>
+        </div>
+      )}
     </header>
   );
 }

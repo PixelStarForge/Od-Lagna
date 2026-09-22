@@ -18,7 +18,7 @@ export const qnaEntrySchema = z.object({
   answer: z.string().min(1, "Answer is required"),
   characters: z.array(z.string()).default([]),
   topics: z.array(z.string()).default([]),
-  // arc is validated dynamically against arcs.json, if-routes.json, and "general" in validator
+  // arc is validated dynamically against arcs.json, stories.json, and "general" in validator
   arc: z.string().min(1, "Arc is required"),
   source: qnaSourceSchema,
   verified: z.boolean(),
@@ -38,5 +38,21 @@ export interface ArcConfig {
 export interface IfRouteConfig {
   slug: string;
   name: string;
-  divergesFrom: string | null;
+  divergesFrom?: string | null;
+  timeline?: string | null;
+  type?: "if" | "side-story";
+  description?: string;
+  datePublished?: string;
+}
+
+export interface SupplementEntry {
+  id: string;
+  title: string;
+  content: string;
+  source: { type: "url" | "text"; value?: string };
+  date?: string;
+}
+
+export interface StoryDetail extends IfRouteConfig {
+  supplements: SupplementEntry[];
 }

@@ -1,13 +1,14 @@
 import arcsData from "../content/config/arcs.json";
-import ifRoutesData from "../content/config/if-routes.json";
+import ifRoutesData from "../content/config/stories.json";
 import { ArcConfig, IfRouteConfig } from "./schema";
 
 export interface ArcMetadata {
   slug: string;
   name: string;
-  type: "canon" | "if" | "general";
+  type: "canon" | "if" | "side-story" | "general";
   order?: number;
   divergesFrom?: string | null;
+  timeline?: string | null;
 }
 
 export const CANON_ARCS: ArcConfig[] = arcsData as ArcConfig[];
@@ -37,8 +38,9 @@ export function getArcMetadata(slug: string): ArcMetadata {
     return {
       slug: ifRoute.slug,
       name: ifRoute.name,
-      type: "if",
+      type: ifRoute.type === "side-story" ? "side-story" : "if",
       divergesFrom: ifRoute.divergesFrom,
+      timeline: ifRoute.timeline,
     };
   }
 
@@ -59,7 +61,7 @@ export function isArcSpoiler(
   if (meta.type === "canon" && meta.order !== undefined) {
     return meta.order > spoilerArc;
   }
-  if (meta.type === "if") {
+  if (meta.type === "if" || meta.type === "side-story") {
     if (Array.isArray(allowedIf)) {
       return !allowedIf.includes(arcSlug);
     }

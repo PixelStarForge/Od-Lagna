@@ -27,7 +27,28 @@
       --primary-hover: #2563eb;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: var(--bg); color: var(--text); display: flex; height: 100vh; overflow: hidden; }
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: var(--bg); color: var(--text); display: flex; flex-direction: column; height: 100vh; overflow: hidden; }
+
+    /* Top Navigation */
+    #top-nav { height: 48px; background: #090d16; border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; padding: 0 1.25rem; z-index: 20; flex-shrink: 0; }
+    .nav-brand { font-size: 0.95rem; font-weight: 700; display: flex; align-items: center; gap: 0.5rem; }
+    .nav-tabs { display: flex; gap: 0.4rem; height: 100%; align-items: center; }
+    .nav-tab { background: transparent; border: 1px solid transparent; color: var(--text-muted); font-size: 0.8rem; font-weight: 600; padding: 0.4rem 0.85rem; border-radius: 6px; cursor: pointer; transition: all 0.15s; }
+    .nav-tab:hover { color: var(--text); background: rgba(255, 255, 255, 0.05); }
+    .nav-tab.active { color: #f8fafc; background: rgba(239, 68, 68, 0.18); border-color: rgba(239, 68, 68, 0.4); }
+    .view-container { display: flex; flex: 1; height: calc(100vh - 48px); overflow: hidden; }
+    .sub-sidebar { width: 360px; background: var(--card); border-right: 1px solid var(--border); display: flex; flex-direction: column; }
+    .sub-main { flex: 1; display: flex; flex-direction: column; overflow-y: auto; padding: 2rem; position: relative; }
+    #stories-list { flex: 1; overflow-y: auto; list-style: none; }
+    #stories-list li { padding: 0.85rem 1rem; border-bottom: 1px solid var(--border); cursor: pointer; transition: background 0.15s; }
+    #stories-list li:hover { background: rgba(255, 255, 255, 0.05); }
+    #stories-list li.active { background: rgba(239, 68, 68, 0.15); border-left: 3px solid var(--accent); }
+    .supp-item { background: var(--card-alt); border: 1px solid var(--border); border-radius: 8px; padding: 1rem; margin-bottom: 0.75rem; }
+    .supp-item-header { display: flex; justify-content: space-between; align-items: flex-start; gap: 0.5rem; margin-bottom: 0.5rem; }
+    .supp-item-title { font-size: 0.95rem; font-weight: 600; color: var(--text); }
+    .supp-item-actions { display: flex; gap: 0.35rem; shrink: 0; }
+    .btn-sm-edit { background: rgba(59, 130, 246, 0.15); border: 1px solid #3b82f6; color: #93c5fd; border-radius: 4px; padding: 0.2rem 0.5rem; font-size: 0.75rem; cursor: pointer; }
+    .btn-sm-delete { background: rgba(239, 68, 68, 0.15); border: 1px solid #ef4444; color: #fca5a5; border-radius: 4px; padding: 0.2rem 0.5rem; font-size: 0.75rem; cursor: pointer; }
     
     /* Layout */
     #sidebar { width: 360px; background: var(--card); border-right: 1px solid var(--border); display: flex; flex-direction: column; }
@@ -154,6 +175,23 @@
   </style>
 </head>
 <body>
+  <div id="top-nav">
+    <div class="nav-brand">
+      <span style="color: var(--accent); font-weight: 800; font-size: 1.1rem;">◆</span>
+      <strong>Od-Lagna</strong>
+      <span style="font-size: 0.72rem; color: var(--text-muted); font-family: monospace; border: 1px solid var(--border); padding: 0.1rem 0.4rem; border-radius: 4px; margin-left: 0.25rem;">ADMIN</span>
+    </div>
+    <div class="nav-tabs">
+      <button type="button" class="nav-tab active" id="tab-btn-qna" onclick="switchMainTab('qna')">
+        📚 Q&amp;A Archive (<span id="nav-qna-count">...</span>)
+      </button>
+      <button type="button" class="nav-tab" id="tab-btn-stories" onclick="switchMainTab('stories')">
+        📖 Stories &amp; Supplements (<span id="nav-stories-count">...</span>)
+      </button>
+    </div>
+  </div>
+
+  <div id="qna-view" class="view-container">
   <div id="sidebar">
     <div class="side-header">
       <h2>Od-Lagna <span id="total-count" class="badge-count">...</span></h2>
@@ -372,6 +410,119 @@
       </form>
     </div>
   </div>
+  </div>
+
+  <!-- Stories & Supplements View -->
+  <div id="stories-view" class="view-container" style="display: none;">
+    <!-- Stories Sidebar -->
+    <div id="stories-sidebar" class="sub-sidebar">
+      <div class="side-header">
+        <h2>Stories <span id="stories-count" class="badge-count">...</span></h2>
+        <div class="side-actions">
+          <button type="button" class="btn-new" onclick="createNewStory()">+ New Story</button>
+        </div>
+      </div>
+      <div class="filter-section">
+        <input type="text" id="stories-filter-input" class="search-input" placeholder="Search stories..." oninput="renderStoriesList()">
+        <select id="stories-filter-type" class="filter-arc-select" onchange="renderStoriesList()">
+          <option value="">All Categories</option>
+          <option value="if">IF Routes</option>
+          <option value="side-story">Side Stories</option>
+        </select>
+      </div>
+      <ul id="stories-list"></ul>
+    </div>
+
+    <!-- Stories Main Panel -->
+    <div id="stories-main" class="sub-main">
+      <div class="form-container">
+        <div class="form-header">
+          <div>
+            <h2 id="story-form-title">Edit Story</h2>
+          </div>
+          <div class="form-header-actions">
+            <span id="story-badge" class="badge-id">Slug: -</span>
+          </div>
+        </div>
+
+        <div id="story-status-msg" style="display: none; margin-bottom: 1rem; padding: 0.75rem 1rem; border-radius: 6px; font-size: 0.85rem;"></div>
+
+        <form id="story-form" onsubmit="handleStorySave(event)">
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+            <div class="form-group">
+              <label for="story-slug">Story Slug (Unique ID)</label>
+              <input type="text" id="story-slug" required placeholder="e.g. if-pride" pattern="[a-z0-9_-]+" title="Lowercase letters, numbers, hyphens and underscores">
+              <span class="hint">Path: /ifs/[slug] or /side-stories/[slug]. Readonly once saved.</span>
+            </div>
+
+            <div class="form-group">
+              <label for="story-name">Story Name</label>
+              <input type="text" id="story-name" required placeholder="e.g. Pride IF">
+            </div>
+          </div>
+
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+            <div class="form-group">
+              <label for="story-type">Category</label>
+              <select id="story-type" required onchange="handleStoryTypeChange()">
+                <option value="if">IF Route (What-If Timeline)</option>
+                <option value="side-story">Side Story (Canon)</option>
+              </select>
+            </div>
+
+            <div class="form-group" id="group-divergence">
+              <label for="story-diverges-from">Divergence Point (Optional)</label>
+              <select id="story-diverges-from">
+                <option value="">None (Independent divergence)</option>
+              </select>
+            </div>
+
+            <div class="form-group" id="group-timeline" style="display: none;">
+              <label for="story-timeline">Chronological Timeline Placement (Canon)</label>
+              <input type="text" id="story-timeline" placeholder="e.g. During Arc 6, Between Arc 1 and 2, Before main story">
+              <span class="hint">Side stories are canon — describe when this takes place chronologically.</span>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="story-date-published">Date of Publication (Optional)</label>
+            <input type="text" id="story-date-published" placeholder="e.g. 2017-04-01 or April 1, 2017">
+          </div>
+
+          <div class="form-group">
+            <label for="story-description">Description / Premise (Optional)</label>
+            <textarea id="story-description" placeholder="A brief premise or overview of this timeline or story..."></textarea>
+          </div>
+
+          <div class="actions">
+            <button type="button" id="btn-delete-story" class="btn-delete" style="display: none;" onclick="handleStoryDelete()">Delete Story</button>
+            <button type="button" class="btn-clear" onclick="resetStoryForm()">Reset</button>
+            <div style="flex: 1;"></div>
+            <button type="submit" class="btn-save">
+              <span>💾 Save Story</span>
+            </button>
+          </div>
+        </form>
+
+        <!-- Supplements Section for Selected Story -->
+        <div id="supplements-section" style="margin-top: 2.5rem; padding-top: 1.5rem; border-top: 1px solid var(--border);">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.25rem;">
+            <div>
+              <h3 style="font-size: 1.1rem; font-weight: 700;">
+                Supplements for <span id="supp-story-name" style="color: var(--accent);">-</span>
+              </h3>
+              <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 0.25rem;">
+                Author comments and supplementary lore attached to this story.
+              </p>
+            </div>
+            <button type="button" class="btn-new" onclick="openSupplementModal()">+ Add Supplement</button>
+          </div>
+
+          <div id="supplements-list-container"></div>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <!-- Quick Paste Modal -->
   <div id="quick-paste-modal" class="modal-overlay" onclick="handleModalBackdrop(event)">
@@ -393,6 +544,55 @@
           <button type="button" class="btn-new" style="padding: 0.55rem 1.25rem;" onclick="applyQuickPaste()">Auto-Fill Form</button>
         </div>
       </div>
+    </div>
+  </div>
+
+  <!-- Supplement Modal -->
+  <div id="supplement-modal" class="modal-overlay" onclick="handleSupplementModalBackdrop(event)">
+    <div class="modal-card">
+      <div class="modal-head">
+        <h3 id="supp-modal-title">Add Supplement</h3>
+        <button type="button" class="btn-modal-close" onclick="closeSupplementModal()">&times;</button>
+      </div>
+      <form id="supplement-form" onsubmit="handleSupplementSave(event)">
+        <div class="modal-body">
+          <input type="hidden" id="supp-id">
+
+          <div class="form-group">
+            <label for="supp-title">Supplement Title</label>
+            <input type="text" id="supp-title" required placeholder="e.g. Author comment on Subaru's clothes in Pride IF">
+          </div>
+
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+            <div class="form-group">
+              <label for="supp-date">Date (Optional)</label>
+              <input type="text" id="supp-date" placeholder="e.g. 2017-04-01 or April 2017">
+            </div>
+
+            <div class="form-group">
+              <label for="supp-source-type">Source Type</label>
+              <select id="supp-source-type">
+                <option value="url">URL (Link)</option>
+                <option value="text">Text Citation</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="supp-source-val">Source Value (Optional)</label>
+            <input type="text" id="supp-source-val" placeholder="https://twitter.com/... or Volume 15 Author Afterword">
+          </div>
+
+          <div class="form-group">
+            <label for="supp-content">Content / Author Comment</label>
+            <textarea id="supp-content" required style="min-height: 140px;" placeholder="The author's comment or supplementary lore text..."></textarea>
+          </div>
+        </div>
+        <div class="modal-foot">
+          <button type="button" class="btn-clear" onclick="closeSupplementModal()">Cancel</button>
+          <button type="submit" class="btn-save">💾 Save Supplement</button>
+        </div>
+      </form>
     </div>
   </div>
 
@@ -431,6 +631,8 @@
       config = cfgRes;
       entries = listRes;
       document.getElementById('total-count').textContent = entries.length.toLocaleString() + ' Q&As';
+      const navQna = document.getElementById('nav-qna-count');
+      if (navQna) navQna.textContent = entries.length.toLocaleString();
       renderTagClouds();
     }
 
@@ -1427,6 +1629,404 @@
       document.getElementById('date-year').value = '';
       document.getElementById('date-time-val').value = '';
       updateDatePreview();
+    }
+
+    /* --- Stories & Supplements Management Controller --- */
+    let allStories = [];
+    let selectedStorySlug = null;
+    let currentStoryData = null;
+
+    function switchMainTab(tab) {
+      const qnaView = document.getElementById('qna-view');
+      const storiesView = document.getElementById('stories-view');
+      const qnaBtn = document.getElementById('tab-btn-qna');
+      const storiesBtn = document.getElementById('tab-btn-stories');
+
+      if (tab === 'stories') {
+        qnaView.style.display = 'none';
+        storiesView.style.display = 'flex';
+        qnaBtn.classList.remove('active');
+        storiesBtn.classList.add('active');
+        loadStories();
+      } else {
+        storiesView.style.display = 'none';
+        qnaView.style.display = 'flex';
+        storiesBtn.classList.remove('active');
+        qnaBtn.classList.add('active');
+      }
+    }
+
+    async function loadStories() {
+      try {
+        const res = await fetch('/api/stories');
+        if (!res.ok) throw new Error('Failed to load stories');
+        allStories = await res.json();
+        document.getElementById('stories-count').textContent = allStories.length;
+        const navStories = document.getElementById('nav-stories-count');
+        if (navStories) navStories.textContent = allStories.length;
+        renderStoriesList();
+        populateStoryDivergenceOptions();
+
+        if (selectedStorySlug) {
+          selectStory(selectedStorySlug);
+        } else if (allStories.length > 0) {
+          selectStory(allStories[0].slug);
+        }
+      } catch (err) {
+        console.error('Error loading stories:', err);
+      }
+    }
+
+    function populateStoryDivergenceOptions() {
+      const sel = document.getElementById('story-diverges-from');
+      if (!sel) return;
+      const currentVal = sel.value;
+      sel.innerHTML = '<option value="">None (Independent divergence)</option>';
+      if (config && config.arcs) {
+        config.arcs.forEach(a => {
+          const opt = document.createElement('option');
+          opt.value = a.slug;
+          opt.textContent = 'Arc ' + a.order + ': ' + a.name;
+          sel.appendChild(opt);
+        });
+      }
+      sel.value = currentVal;
+    }
+
+    function renderStoriesList() {
+      const filterText = document.getElementById('stories-filter-input').value.toLowerCase().trim();
+      const filterType = document.getElementById('stories-filter-type').value;
+      const listEl = document.getElementById('stories-list');
+      listEl.innerHTML = '';
+
+      const filtered = allStories.filter(s => {
+        const matchText = !filterText || s.name.toLowerCase().includes(filterText) || s.slug.toLowerCase().includes(filterText);
+        const matchType = !filterType || (s.type || 'if') === filterType;
+        return matchText && matchType;
+      });
+
+      if (filtered.length === 0) {
+        listEl.innerHTML = '<li style="color: var(--text-muted); text-align: center; padding: 2rem;">No matching stories found.</li>';
+        return;
+      }
+
+      filtered.forEach(s => {
+        const li = document.createElement('li');
+        if (s.slug === selectedStorySlug) li.classList.add('active');
+        const isSide = s.type === 'side-story';
+        const tagBg = isSide ? 'rgba(147, 51, 234, 0.2)' : 'rgba(239, 68, 68, 0.2)';
+        const tagColor = isSide ? '#d8b4fe' : '#fca5a5';
+        const tagBorder = isSide ? '#9333ea' : '#ef4444';
+        const suppCount = s.supplementCount || 0;
+
+        li.innerHTML = 
+          '<div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.25rem;">' +
+            '<span style="font-size: 0.7rem; font-family: monospace; padding: 0.1rem 0.4rem; border-radius: 4px; background: ' + tagBg + '; color: ' + tagColor + '; border: 1px solid ' + tagBorder + '; font-weight: 600;">' +
+              (isSide ? 'Side Story' : 'IF Route') +
+            '</span>' +
+            '<span style="font-size: 0.72rem; color: var(--text-muted); font-family: monospace;">' +
+              suppCount + ' supp' + (suppCount !== 1 ? 's' : '') +
+            '</span>' +
+          '</div>' +
+          '<div style="font-size: 0.9rem; font-weight: 600; color: var(--text);">' + escapeHtml(s.name) + '</div>' +
+          '<div style="font-size: 0.75rem; color: var(--text-muted); font-family: monospace; margin-top: 0.2rem;">' +
+            escapeHtml(s.slug) + (isSide ? (s.timeline ? ' · ' + escapeHtml(s.timeline) : '') : (s.divergesFrom ? ' · ' + escapeHtml(s.divergesFrom) : '')) +
+          '</div>';
+
+        li.onclick = () => selectStory(s.slug);
+        listEl.appendChild(li);
+      });
+    }
+
+    function handleStoryTypeChange() {
+      const type = document.getElementById('story-type').value;
+      const isSide = type === 'side-story';
+      document.getElementById('group-divergence').style.display = isSide ? 'none' : 'block';
+      document.getElementById('group-timeline').style.display = isSide ? 'block' : 'none';
+    }
+
+    async function selectStory(slug) {
+      selectedStorySlug = slug;
+      renderStoriesList();
+      try {
+        const res = await fetch('/api/stories/' + encodeURIComponent(slug));
+        if (!res.ok) throw new Error('Failed to load story');
+        currentStoryData = await res.json();
+
+        document.getElementById('story-form-title').textContent = 'Edit Story: ' + currentStoryData.name;
+        document.getElementById('story-badge').textContent = 'Slug: ' + currentStoryData.slug;
+        const slugInput = document.getElementById('story-slug');
+        slugInput.value = currentStoryData.slug;
+        slugInput.readOnly = true;
+        document.getElementById('story-name').value = currentStoryData.name || '';
+        document.getElementById('story-type').value = currentStoryData.type || 'if';
+        document.getElementById('story-diverges-from').value = currentStoryData.divergesFrom || '';
+        document.getElementById('story-timeline').value = currentStoryData.timeline || '';
+        handleStoryTypeChange();
+        document.getElementById('story-date-published').value = currentStoryData.datePublished || '';
+        document.getElementById('story-description').value = currentStoryData.description || '';
+        document.getElementById('btn-delete-story').style.display = 'inline-block';
+
+        document.getElementById('supplements-section').style.display = 'block';
+        document.getElementById('supp-story-name').textContent = currentStoryData.name;
+        renderSupplementsList(currentStoryData.supplements || []);
+      } catch (err) {
+        console.error('Error selecting story:', err);
+      }
+    }
+
+    function createNewStory() {
+      selectedStorySlug = null;
+      currentStoryData = null;
+      renderStoriesList();
+
+      document.getElementById('story-form-title').textContent = 'Create New Story';
+      document.getElementById('story-badge').textContent = 'Slug: New';
+      const slugInput = document.getElementById('story-slug');
+      slugInput.value = '';
+      slugInput.readOnly = false;
+      document.getElementById('story-name').value = '';
+      document.getElementById('story-type').value = 'if';
+      document.getElementById('story-diverges-from').value = '';
+      document.getElementById('story-timeline').value = '';
+      handleStoryTypeChange();
+      document.getElementById('story-date-published').value = '';
+      document.getElementById('story-description').value = '';
+      document.getElementById('btn-delete-story').style.display = 'none';
+
+      document.getElementById('supplements-section').style.display = 'none';
+      slugInput.focus();
+    }
+
+    function resetStoryForm() {
+      if (selectedStorySlug) {
+        selectStory(selectedStorySlug);
+      } else {
+        createNewStory();
+      }
+    }
+
+    function showStoryStatus(msg, type) {
+      const box = document.getElementById('story-status-msg');
+      box.textContent = msg;
+      box.className = type === 'error' ? 'error' : 'success';
+      box.style.display = 'block';
+      box.style.background = type === 'error' ? '#7f1d1d' : '#064e3b';
+      box.style.color = type === 'error' ? '#fecaca' : '#a7f3d0';
+      setTimeout(() => {
+        box.style.display = 'none';
+      }, 4000);
+    }
+
+    async function handleStorySave(e) {
+      e.preventDefault();
+      const slug = document.getElementById('story-slug').value.trim();
+      const name = document.getElementById('story-name').value.trim();
+      const type = document.getElementById('story-type').value;
+      const divergesFrom = type === 'if' ? (document.getElementById('story-diverges-from').value || null) : null;
+      const timeline = type === 'side-story' ? (document.getElementById('story-timeline').value.trim() || null) : null;
+      const datePublished = document.getElementById('story-date-published').value.trim();
+      const description = document.getElementById('story-description').value.trim();
+
+      if (!slug || !name) {
+        showStoryStatus('Slug and Name are required.', 'error');
+        return;
+      }
+
+      const isNew = !selectedStorySlug;
+      const url = isNew ? '/api/stories' : '/api/stories/' + encodeURIComponent(selectedStorySlug);
+      const method = isNew ? 'POST' : 'PUT';
+
+      try {
+        const res = await fetch(url, {
+          method,
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ slug, name, type, divergesFrom, timeline, datePublished, description })
+        });
+        const result = await res.json();
+        if (!res.ok) {
+          throw new Error(result.error || 'Failed to save story');
+        }
+        showStoryStatus('Story "' + name + '" saved successfully!', 'success');
+        selectedStorySlug = slug;
+        await loadStories();
+      } catch (err) {
+        showStoryStatus(err.message, 'error');
+      }
+    }
+
+    async function handleStoryDelete() {
+      if (!selectedStorySlug) return;
+      if (!confirm('Are you sure you want to delete story "' + selectedStorySlug + '" and any associated supplements?')) {
+        return;
+      }
+
+      try {
+        const res = await fetch('/api/stories/' + encodeURIComponent(selectedStorySlug), {
+          method: 'DELETE'
+        });
+        const result = await res.json();
+        if (!res.ok) throw new Error(result.error || 'Failed to delete story');
+        selectedStorySlug = null;
+        await loadStories();
+        showStoryStatus('Story deleted successfully.', 'success');
+      } catch (err) {
+        showStoryStatus(err.message, 'error');
+      }
+    }
+
+    function renderSupplementsList(supplements) {
+      const container = document.getElementById('supplements-list-container');
+      container.innerHTML = '';
+
+      if (!supplements || supplements.length === 0) {
+        container.innerHTML = 
+          '<div style="padding: 1.5rem; text-align: center; color: var(--text-muted); font-size: 0.85rem; border: 1px dashed var(--border); border-radius: 8px;">' +
+            'No supplements registered for this story yet. Click <strong>+ Add Supplement</strong> to create one.' +
+          '</div>';
+        return;
+      }
+
+      supplements.forEach(s => {
+        const item = document.createElement('div');
+        item.className = 'supp-item';
+        const sourceHtml = s.source && s.source.value ? (
+          '<div style="font-size: 0.75rem; color: var(--text-muted); border-top: 1px solid rgba(255,255,255,0.06); padding-top: 0.4rem; margin-top: 0.4rem;">' +
+            'Source (' + escapeHtml(s.source.type) + '): ' +
+            (s.source.type === 'url'
+              ? '<a href="' + escapeHtml(s.source.value) + '" target="_blank" style="color: #38bdf8;">' + escapeHtml(s.source.value) + '</a>'
+              : escapeHtml(s.source.value)) +
+          '</div>'
+        ) : '';
+
+        item.innerHTML = 
+          '<div class="supp-item-header">' +
+            '<div>' +
+              '<div class="supp-item-title">' + escapeHtml(s.title) + '</div>' +
+              '<div style="font-size: 0.75rem; color: var(--text-muted); font-family: monospace; margin-top: 0.2rem;">' +
+                'ID: ' + escapeHtml(s.id) + (s.date ? ' · Date: ' + escapeHtml(s.date) : '') +
+              '</div>' +
+            '</div>' +
+            '<div class="supp-item-actions">' +
+              '<button type="button" class="btn-sm-edit" onclick="openSupplementModal(\'' + escapeHtml(s.id) + '\')">Edit</button>' +
+              '<button type="button" class="btn-sm-delete" onclick="handleSupplementDelete(\'' + escapeHtml(s.id) + '\')">Delete</button>' +
+            '</div>' +
+          '</div>' +
+          '<div style="font-size: 0.85rem; color: #cbd5e1; line-height: 1.5; white-space: pre-line; margin: 0.5rem 0;">' +
+            escapeHtml(s.content) +
+          '</div>' +
+          sourceHtml;
+
+        container.appendChild(item);
+      });
+    }
+
+    function openSupplementModal(suppId) {
+      const modal = document.getElementById('supplement-modal');
+      const modalTitle = document.getElementById('supp-modal-title');
+      const idInput = document.getElementById('supp-id');
+      const titleInput = document.getElementById('supp-title');
+      const dateInput = document.getElementById('supp-date');
+      const typeInput = document.getElementById('supp-source-type');
+      const valInput = document.getElementById('supp-source-val');
+      const contentInput = document.getElementById('supp-content');
+
+      if (suppId && currentStoryData && currentStoryData.supplements) {
+        const supp = currentStoryData.supplements.find(s => s.id === suppId);
+        if (supp) {
+          modalTitle.textContent = 'Edit Supplement #' + supp.id;
+          idInput.value = supp.id;
+          titleInput.value = supp.title || '';
+          dateInput.value = supp.date || '';
+          typeInput.value = (supp.source && supp.source.type) ? supp.source.type : 'url';
+          valInput.value = (supp.source && supp.source.value) ? supp.source.value : '';
+          contentInput.value = supp.content || '';
+        }
+      } else {
+        modalTitle.textContent = 'Add Supplement';
+        idInput.value = '';
+        titleInput.value = '';
+        dateInput.value = '';
+        typeInput.value = 'url';
+        valInput.value = '';
+        contentInput.value = '';
+      }
+
+      modal.classList.add('open');
+      titleInput.focus();
+    }
+
+    function closeSupplementModal() {
+      document.getElementById('supplement-modal').classList.remove('open');
+    }
+
+    function handleSupplementModalBackdrop(event) {
+      if (event.target.id === 'supplement-modal') {
+        closeSupplementModal();
+      }
+    }
+
+    async function handleSupplementSave(e) {
+      e.preventDefault();
+      if (!selectedStorySlug) return;
+
+      const id = document.getElementById('supp-id').value;
+      const title = document.getElementById('supp-title').value.trim();
+      const date = document.getElementById('supp-date').value.trim();
+      const sourceType = document.getElementById('supp-source-type').value;
+      const sourceValue = document.getElementById('supp-source-val').value.trim();
+      const content = document.getElementById('supp-content').value.trim();
+
+      if (!title || !content) {
+        alert('Title and Content are required.');
+        return;
+      }
+
+      const payload = {
+        title,
+        content,
+        date: date || undefined,
+        source: {
+          type: sourceType,
+          value: sourceValue || undefined
+        }
+      };
+
+      const isEdit = Boolean(id);
+      const url = isEdit
+        ? '/api/stories/' + encodeURIComponent(selectedStorySlug) + '/supplements/' + encodeURIComponent(id)
+        : '/api/stories/' + encodeURIComponent(selectedStorySlug) + '/supplements';
+      const method = isEdit ? 'PUT' : 'POST';
+
+      try {
+        const res = await fetch(url, {
+          method,
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        });
+        const result = await res.json();
+        if (!res.ok) throw new Error(result.error || 'Failed to save supplement');
+        closeSupplementModal();
+        await selectStory(selectedStorySlug);
+        await loadStories();
+      } catch (err) {
+        alert('Error saving supplement: ' + err.message);
+      }
+    }
+
+    async function handleSupplementDelete(suppId) {
+      if (!confirm('Are you sure you want to delete supplement #' + suppId + '?')) return;
+      try {
+        const res = await fetch('/api/stories/' + encodeURIComponent(selectedStorySlug) + '/supplements/' + encodeURIComponent(suppId), {
+          method: 'DELETE'
+        });
+        const result = await res.json();
+        if (!res.ok) throw new Error(result.error || 'Failed to delete supplement');
+        await selectStory(selectedStorySlug);
+        await loadStories();
+      } catch (err) {
+        alert('Error deleting supplement: ' + err.message);
+      }
     }
 
     init();

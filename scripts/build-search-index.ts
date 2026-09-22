@@ -38,7 +38,7 @@ function getArcNameMap(): Map<string, string> {
     }
   }
 
-  const ifRoutesFile = path.join(CONTENT_CONFIG_DIR, "if-routes.json");
+  const ifRoutesFile = path.join(CONTENT_CONFIG_DIR, "stories.json");
   if (fs.existsSync(ifRoutesFile)) {
     const ifRoutes: IfRouteConfig[] = JSON.parse(fs.readFileSync(ifRoutesFile, "utf-8"));
     for (const r of ifRoutes) {

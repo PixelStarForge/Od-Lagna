@@ -37,7 +37,7 @@ export function SettingsModal() {
     >
       <div
         ref={modalRef}
-        className="w-full sm:max-w-lg bg-[var(--bg-surface)] border border-[var(--border-subtle)] rounded-t-2xl sm:rounded-2xl shadow-2xl p-6 space-y-6 max-h-[90vh] overflow-y-auto animate-in fade-in zoom-in-95 sm:zoom-in-95"
+        className="w-full sm:max-w-2xl md:max-w-3xl lg:max-w-4xl bg-[var(--bg-surface)] border border-[var(--border-subtle)] rounded-t-2xl sm:rounded-2xl shadow-2xl p-5 sm:p-7 md:p-8 space-y-6 max-h-[90vh] overflow-y-auto animate-in fade-in zoom-in-95 sm:zoom-in-95 min-w-0"
       >
         {/* Header */}
         <div className="flex items-center justify-between pb-4 border-b border-[var(--border-subtle)]">

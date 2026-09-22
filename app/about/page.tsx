@@ -82,7 +82,7 @@ export default function AboutPage() {
             <div className="text-2xl sm:text-3xl font-bold font-mono text-[var(--accent)]">
               {ifRoutes.length}
             </div>
-            <div className="text-xs sm:text-sm font-medium text-[var(--text-muted)]">IF Routes Supported</div>
+            <div className="text-xs sm:text-sm font-medium text-[var(--text-muted)]">IF Routes & Side Stories</div>
           </div>
           <div className="p-4 rounded-xl bg-[var(--bg-elevated)] border border-[var(--border-subtle)] space-y-1">
             <div className="text-2xl sm:text-3xl font-bold font-mono text-[var(--accent)]">

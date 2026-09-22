@@ -1,12 +1,52 @@
 [
-  { "slug": "arc-1", "order": 1, "name": "The Tumultuous First Day" },
-  { "slug": "arc-2", "order": 2, "name": "The Turbulent Week" },
-  { "slug": "arc-3", "order": 3, "name": "Return to the Royal Capital" },
-  { "slug": "arc-4", "order": 4, "name": "The Everlasting Contract" },
-  { "slug": "arc-5", "order": 5, "name": "The Stars That Engrave History" },
-  { "slug": "arc-6", "order": 6, "name": "The Corridor of Memories" },
-  { "slug": "arc-7", "order": 7, "name": "The Land of Wolves" },
-  { "slug": "arc-8", "order": 8, "name": "Vincent Vollachia" },
-  { "slug": "arc-9", "order": 9, "name": "Light of the Nameless Star" },
-  { "slug": "arc-10", "order": 10, "name": "The Land of the Lion Kings" }
+  {
+    "slug": "arc-1",
+    "order": 1,
+    "name": "The Tumultuous First Day"
+  },
+  {
+    "slug": "arc-2",
+    "order": 2,
+    "name": "The Turbulent Week"
+  },
+  {
+    "slug": "arc-3",
+    "order": 3,
+    "name": "Return to the Royal Capital"
+  },
+  {
+    "slug": "arc-4",
+    "order": 4,
+    "name": "The Everlasting Contract"
+  },
+  {
+    "slug": "arc-5",
+    "order": 5,
+    "name": "The Stars That Engrave History"
+  },
+  {
+    "slug": "arc-6",
+    "order": 6,
+    "name": "The Corridor of Memories"
+  },
+  {
+    "slug": "arc-7",
+    "order": 7,
+    "name": "The Land of Wolves"
+  },
+  {
+    "slug": "arc-8",
+    "order": 8,
+    "name": "Vincent Vollachia"
+  },
+  {
+    "slug": "arc-9",
+    "order": 9,
+    "name": "Light of the Nameless Star"
+  },
+  {
+    "slug": "arc-10",
+    "order": 10,
+    "name": "The Land of the Lion Kings"
+  }
 ]

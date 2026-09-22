@@ -1,13 +1,14 @@
 import http from "node:http";
 import fs from "node:fs";
 import path from "node:path";
-import { qnaEntrySchema, ArcConfig, IfRouteConfig, QnaEntry } from "../../lib/schema";
+import { qnaEntrySchema, ArcConfig, IfRouteConfig, SupplementEntry, QnaEntry } from "../../lib/schema";
 import { findDuplicates, suggestTags, parseQuickPaste } from "./utils";
 
 const PORT = process.env.PORT ? parseInt(process.env.PORT, 10) : 4321;
 const ROOT_DIR = path.resolve(__dirname, "../..");
 const CONTENT_CONFIG_DIR = path.join(ROOT_DIR, "content", "config");
 const CONTENT_QNA_DIR = path.join(ROOT_DIR, "content", "qna");
+const CONTENT_SUPPLEMENTS_DIR = path.join(ROOT_DIR, "content", "supplements");
 
 function getNextSequentialId(): string {
   if (!fs.existsSync(CONTENT_QNA_DIR)) {
@@ -38,7 +39,7 @@ function getNextSequentialId(): string {
 
 function getConfigs() {
   const arcsFile = path.join(CONTENT_CONFIG_DIR, "arcs.json");
-  const ifRoutesFile = path.join(CONTENT_CONFIG_DIR, "if-routes.json");
+  const ifRoutesFile = path.join(CONTENT_CONFIG_DIR, "stories.json");
   const charsFile = path.join(CONTENT_CONFIG_DIR, "characters.json");
   const topicsFile = path.join(CONTENT_CONFIG_DIR, "topics.json");
 
@@ -48,6 +49,35 @@ function getConfigs() {
   const topics: string[] = fs.existsSync(topicsFile) ? JSON.parse(fs.readFileSync(topicsFile, "utf-8")) : [];
 
   return { arcs, ifRoutes, characters, topics };
+}
+
+function getStoriesConfig(): IfRouteConfig[] {
+  const file = path.join(CONTENT_CONFIG_DIR, "stories.json");
+  if (!fs.existsSync(file)) return [];
+  return JSON.parse(fs.readFileSync(file, "utf-8"));
+}
+
+function saveStoriesConfig(stories: IfRouteConfig[]) {
+  const file = path.join(CONTENT_CONFIG_DIR, "stories.json");
+  fs.writeFileSync(file, JSON.stringify(stories, null, 2), "utf-8");
+}
+
+function getStorySupplements(slug: string): SupplementEntry[] {
+  const file = path.join(CONTENT_SUPPLEMENTS_DIR, `${slug}.json`);
+  if (!fs.existsSync(file)) return [];
+  try {
+    return JSON.parse(fs.readFileSync(file, "utf-8"));
+  } catch {
+    return [];
+  }
+}
+
+function saveStorySupplements(slug: string, supplements: SupplementEntry[]) {
+  if (!fs.existsSync(CONTENT_SUPPLEMENTS_DIR)) {
+    fs.mkdirSync(CONTENT_SUPPLEMENTS_DIR, { recursive: true });
+  }
+  const file = path.join(CONTENT_SUPPLEMENTS_DIR, `${slug}.json`);
+  fs.writeFileSync(file, JSON.stringify(supplements, null, 2), "utf-8");
 }
 
 function updateTagRegistries(newCharacters: string[], newTopics: string[]) {
@@ -332,6 +362,241 @@ const server = http.createServer((req, res) => {
       res.end(JSON.stringify({ error: "Entry file not found" }));
     }
     return;
+  }
+
+  // --- Stories & Supplements APIs ---
+
+  // List all stories or create a new story
+  if (pathname === "/api/stories") {
+    if (req.method === "GET") {
+      const stories = getStoriesConfig();
+      const result = stories.map((s) => ({
+        ...s,
+        supplementCount: getStorySupplements(s.slug).length,
+      }));
+      res.writeHead(200, { "Content-Type": "application/json" });
+      res.end(JSON.stringify(result));
+      return;
+    }
+
+    if (req.method === "POST") {
+      let body = "";
+      req.on("data", (chunk) => (body += chunk));
+      req.on("end", () => {
+        try {
+          const parsed = JSON.parse(body || "{}");
+          if (!parsed.slug || !parsed.name) {
+            res.writeHead(400, { "Content-Type": "application/json" });
+            res.end(JSON.stringify({ error: "Slug and name are required" }));
+            return;
+          }
+          const slug = parsed.slug.trim().toLowerCase().replace(/[^a-z0-9_-]/g, "-");
+          const stories = getStoriesConfig();
+          if (stories.some((s) => s.slug === slug)) {
+            res.writeHead(409, { "Content-Type": "application/json" });
+            res.end(JSON.stringify({ error: `Story slug "${slug}" already exists` }));
+            return;
+          }
+          const storyType = parsed.type === "side-story" ? "side-story" : "if";
+          const newStory: IfRouteConfig = {
+            slug,
+            name: parsed.name.trim(),
+            divergesFrom: storyType === "if" ? (parsed.divergesFrom || null) : undefined,
+            timeline: storyType === "side-story" ? (parsed.timeline || null) : undefined,
+            type: storyType,
+            description: parsed.description || "",
+            datePublished: parsed.datePublished || "",
+          };
+          stories.push(newStory);
+          saveStoriesConfig(stories);
+          res.writeHead(201, { "Content-Type": "application/json" });
+          res.end(JSON.stringify({ success: true, story: newStory }));
+        } catch (err: unknown) {
+          res.writeHead(400, { "Content-Type": "application/json" });
+          res.end(JSON.stringify({ error: String(err) }));
+        }
+      });
+      return;
+    }
+  }
+
+  // Story & Supplement detail routes
+  const storyMatch = pathname.match(/^\/api\/stories\/([a-zA-Z0-9_-]+)(?:\/supplements(?:\/([a-zA-Z0-9_-]+))?)?$/);
+  if (storyMatch) {
+    const storySlug = storyMatch[1];
+    const isSupplements = pathname.includes("/supplements");
+    const supplementId = storyMatch[2];
+
+    // Story operations: /api/stories/:slug
+    if (!isSupplements) {
+      if (req.method === "GET") {
+        const stories = getStoriesConfig();
+        const story = stories.find((s) => s.slug === storySlug);
+        if (!story) {
+          res.writeHead(404, { "Content-Type": "application/json" });
+          res.end(JSON.stringify({ error: "Story not found" }));
+          return;
+        }
+        const supplements = getStorySupplements(storySlug);
+        res.writeHead(200, { "Content-Type": "application/json" });
+        res.end(JSON.stringify({ ...story, supplements }));
+        return;
+      }
+
+      if (req.method === "PUT") {
+        let body = "";
+        req.on("data", (chunk) => (body += chunk));
+        req.on("end", () => {
+          try {
+            const parsed = JSON.parse(body || "{}");
+            const stories = getStoriesConfig();
+            const idx = stories.findIndex((s) => s.slug === storySlug);
+            if (idx === -1) {
+              res.writeHead(404, { "Content-Type": "application/json" });
+              res.end(JSON.stringify({ error: "Story not found" }));
+              return;
+            }
+            const storyType = parsed.type !== undefined ? (parsed.type === "side-story" ? "side-story" : "if") : (stories[idx].type || "if");
+            stories[idx] = {
+              ...stories[idx],
+              name: parsed.name !== undefined ? parsed.name.trim() : stories[idx].name,
+              divergesFrom: storyType === "if" ? (parsed.divergesFrom !== undefined ? (parsed.divergesFrom || null) : (stories[idx].divergesFrom || null)) : undefined,
+              timeline: storyType === "side-story" ? (parsed.timeline !== undefined ? (parsed.timeline || null) : (stories[idx].timeline || null)) : undefined,
+              type: storyType,
+              description: parsed.description !== undefined ? parsed.description : (stories[idx].description || ""),
+              datePublished: parsed.datePublished !== undefined ? parsed.datePublished : (stories[idx].datePublished || ""),
+            };
+            saveStoriesConfig(stories);
+            res.writeHead(200, { "Content-Type": "application/json" });
+            res.end(JSON.stringify({ success: true, story: stories[idx] }));
+          } catch (err: unknown) {
+            res.writeHead(400, { "Content-Type": "application/json" });
+            res.end(JSON.stringify({ error: String(err) }));
+          }
+        });
+        return;
+      }
+
+      if (req.method === "DELETE") {
+        const stories = getStoriesConfig();
+        const filtered = stories.filter((s) => s.slug !== storySlug);
+        if (filtered.length === stories.length) {
+          res.writeHead(404, { "Content-Type": "application/json" });
+          res.end(JSON.stringify({ error: "Story not found" }));
+          return;
+        }
+        saveStoriesConfig(filtered);
+        const suppFile = path.join(CONTENT_SUPPLEMENTS_DIR, `${storySlug}.json`);
+        if (fs.existsSync(suppFile)) {
+          fs.unlinkSync(suppFile);
+        }
+        res.writeHead(200, { "Content-Type": "application/json" });
+        res.end(JSON.stringify({ success: true, message: `Deleted story ${storySlug}` }));
+        return;
+      }
+    }
+
+    // Supplement collection operations: /api/stories/:slug/supplements
+    if (isSupplements && !supplementId) {
+      if (req.method === "GET") {
+        const supplements = getStorySupplements(storySlug);
+        res.writeHead(200, { "Content-Type": "application/json" });
+        res.end(JSON.stringify(supplements));
+        return;
+      }
+
+      if (req.method === "POST") {
+        let body = "";
+        req.on("data", (chunk) => (body += chunk));
+        req.on("end", () => {
+          try {
+            const parsed = JSON.parse(body || "{}");
+            if (!parsed.title || !parsed.content) {
+              res.writeHead(400, { "Content-Type": "application/json" });
+              res.end(JSON.stringify({ error: "Title and content are required" }));
+              return;
+            }
+            const supplements = getStorySupplements(storySlug);
+            let maxNum = 0;
+            for (const item of supplements) {
+              const m = item.id.match(/^s?(\d+)$/);
+              if (m) {
+                const n = parseInt(m[1], 10);
+                if (n > maxNum) maxNum = n;
+              }
+            }
+            const newId = parsed.id && parsed.id.trim()
+              ? parsed.id.trim()
+              : `s${String(maxNum + 1).padStart(3, "0")}`;
+
+            const newSupplement: SupplementEntry = {
+              id: newId,
+              title: parsed.title.trim(),
+              content: parsed.content.trim(),
+              source: parsed.source && parsed.source.type ? parsed.source : { type: "text", value: "" },
+              date: parsed.date ? parsed.date.trim() : undefined,
+            };
+
+            supplements.push(newSupplement);
+            saveStorySupplements(storySlug, supplements);
+            res.writeHead(201, { "Content-Type": "application/json" });
+            res.end(JSON.stringify({ success: true, supplement: newSupplement }));
+          } catch (err: unknown) {
+            res.writeHead(400, { "Content-Type": "application/json" });
+            res.end(JSON.stringify({ error: String(err) }));
+          }
+        });
+        return;
+      }
+    }
+
+    // Single supplement operations: /api/stories/:slug/supplements/:id
+    if (isSupplements && supplementId) {
+      if (req.method === "PUT") {
+        let body = "";
+        req.on("data", (chunk) => (body += chunk));
+        req.on("end", () => {
+          try {
+            const parsed = JSON.parse(body || "{}");
+            const supplements = getStorySupplements(storySlug);
+            const idx = supplements.findIndex((s) => s.id === supplementId);
+            if (idx === -1) {
+              res.writeHead(404, { "Content-Type": "application/json" });
+              res.end(JSON.stringify({ error: "Supplement not found" }));
+              return;
+            }
+            supplements[idx] = {
+              ...supplements[idx],
+              title: parsed.title !== undefined ? parsed.title.trim() : supplements[idx].title,
+              content: parsed.content !== undefined ? parsed.content.trim() : supplements[idx].content,
+              source: parsed.source !== undefined ? parsed.source : supplements[idx].source,
+              date: parsed.date !== undefined ? parsed.date.trim() : supplements[idx].date,
+            };
+            saveStorySupplements(storySlug, supplements);
+            res.writeHead(200, { "Content-Type": "application/json" });
+            res.end(JSON.stringify({ success: true, supplement: supplements[idx] }));
+          } catch (err: unknown) {
+            res.writeHead(400, { "Content-Type": "application/json" });
+            res.end(JSON.stringify({ error: String(err) }));
+          }
+        });
+        return;
+      }
+
+      if (req.method === "DELETE") {
+        const supplements = getStorySupplements(storySlug);
+        const filtered = supplements.filter((s) => s.id !== supplementId);
+        if (filtered.length === supplements.length) {
+          res.writeHead(404, { "Content-Type": "application/json" });
+          res.end(JSON.stringify({ error: "Supplement not found" }));
+          return;
+        }
+        saveStorySupplements(storySlug, filtered);
+        res.writeHead(200, { "Content-Type": "application/json" });
+        res.end(JSON.stringify({ success: true, message: `Deleted supplement ${supplementId}` }));
+        return;
+      }
+    }
   }
 
   // Serve Single-Page Admin HTML GUI

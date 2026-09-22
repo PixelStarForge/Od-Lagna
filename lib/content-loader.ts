@@ -1,6 +1,6 @@
 import fs from "node:fs";
 import path from "node:path";
-import { QnaEntry, ArcConfig, IfRouteConfig, qnaEntrySchema } from "./schema";
+import { QnaEntry, ArcConfig, IfRouteConfig, SupplementEntry, StoryDetail, qnaEntrySchema } from "./schema";
 
 const CONTENT_DIR = path.join(process.cwd(), "content");
 const CONFIG_DIR = path.join(CONTENT_DIR, "config");
@@ -9,9 +9,10 @@ const QNA_DIR = path.join(CONTENT_DIR, "qna");
 export interface ArcMetadata {
   slug: string;
   name: string;
-  type: "canon" | "if" | "general";
+  type: "canon" | "if" | "side-story" | "general";
   order?: number;
   divergesFrom?: string | null;
+  timeline?: string | null;
 }
 
 export interface ContentStats {
@@ -31,7 +32,7 @@ export function getAllArcs(): ArcConfig[] {
 }
 
 export function getAllIfRoutes(): IfRouteConfig[] {
-  const file = path.join(CONFIG_DIR, "if-routes.json");
+  const file = path.join(CONFIG_DIR, "stories.json");
   if (!fs.existsSync(file)) return [];
   try {
     return JSON.parse(fs.readFileSync(file, "utf-8")) as IfRouteConfig[];
@@ -66,8 +67,9 @@ export function getArcMetadata(slug: string): ArcMetadata {
     return {
       slug: ifRoute.slug,
       name: ifRoute.name,
-      type: "if",
+      type: ifRoute.type === "side-story" ? "side-story" : "if",
       divergesFrom: ifRoute.divergesFrom,
+      timeline: ifRoute.timeline,
     };
   }
 
@@ -141,4 +143,32 @@ export function getContentStats(): ContentStats {
     verifiedCount,
     arcCounts,
   };
+}
+
+export function getIfStories(): IfRouteConfig[] {
+  return getAllIfRoutes().filter((r) => (r.type ?? "if") === "if");
+}
+
+export function getSideStories(): IfRouteConfig[] {
+  return getAllIfRoutes().filter((r) => r.type === "side-story");
+}
+
+export function getStory(slug: string): IfRouteConfig | null {
+  return getAllIfRoutes().find((r) => r.slug === slug) ?? null;
+}
+
+export function getSupplements(slug: string): SupplementEntry[] {
+  const file = path.join(CONTENT_DIR, "supplements", `${slug}.json`);
+  if (!fs.existsSync(file)) return [];
+  try {
+    return JSON.parse(fs.readFileSync(file, "utf-8")) as SupplementEntry[];
+  } catch {
+    return [];
+  }
+}
+
+export function getStoryDetail(slug: string): StoryDetail | null {
+  const story = getStory(slug);
+  if (!story) return null;
+  return { ...story, supplements: getSupplements(slug) };
 }

@@ -8,7 +8,7 @@ const CONTENT_QNA_DIR = path.join(ROOT_DIR, "content", "qna");
 
 function getValidArcSlugs(): Set<string> {
   const arcsFile = path.join(CONTENT_CONFIG_DIR, "arcs.json");
-  const ifRoutesFile = path.join(CONTENT_CONFIG_DIR, "if-routes.json");
+  const ifRoutesFile = path.join(CONTENT_CONFIG_DIR, "stories.json");
 
   const slugs = new Set<string>(["general"]);
 

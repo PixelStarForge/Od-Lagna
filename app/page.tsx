@@ -1,11 +1,13 @@
 import Link from "next/link";
-import { getContentStats, getAllArcs, getAllIfRoutes } from "../lib/content-loader";
+import { getContentStats, getAllArcs, getAllIfRoutes, getIfStories, getSideStories } from "../lib/content-loader";
 import { SearchHeroButton } from "../components/SearchHeroButton";
 
 export default function HomePage() {
   const stats = getContentStats();
   const arcs = getAllArcs();
   const ifRoutes = getAllIfRoutes();
+  const ifStories = getIfStories();
+  const sideStories = getSideStories();
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-16 space-y-16">
@@ -71,11 +73,11 @@ export default function HomePage() {
           </div>
 
           <div className="p-5 rounded-xl border border-[var(--border-subtle)] bg-[var(--bg-surface)]">
-            <p className="text-xs font-mono font-semibold text-[var(--text-muted)] uppercase">IF Timelines</p>
+            <p className="text-xs font-mono font-semibold text-[var(--text-muted)] uppercase">Alternate Stories</p>
             <p className="text-3xl font-extrabold text-[var(--text-main)] mt-1 font-mono">
               {ifRoutes.length}
             </p>
-            <p className="text-sm text-[var(--text-muted)] mt-1 font-medium">Alternate What-If routes</p>
+            <p className="text-sm text-[var(--text-muted)] mt-1 font-medium">IF Routes &amp; Side Stories</p>
           </div>
         </div>
       </section>
@@ -156,24 +158,29 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Alternate Timelines (IF Routes) */}
+      {/* IF Routes */}
       <section className="space-y-4">
-        <div>
-          <h2 className="text-lg font-bold text-[var(--text-main)]">
-            Alternate &ldquo;What-If&rdquo; Timelines
-          </h2>
-          <p className="text-sm text-[var(--text-muted)]">
-            Parallel divergence routes exploring divergent choices made by Subaru Natsuki.
-          </p>
+        <div className="flex items-center justify-between">
+          <div>
+            <h2 className="text-lg font-bold text-[var(--text-main)]">
+              IF Routes
+            </h2>
+            <p className="text-sm text-[var(--text-muted)]">
+              Alternate divergence routes exploring alternate choices made by Subaru Natsuki.
+            </p>
+          </div>
+          <Link href="/ifs" className="text-sm font-semibold text-[var(--accent)] hover:underline">
+            View All IF Routes →
+          </Link>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-          {ifRoutes.map((route) => {
+          {ifStories.map((route) => {
             const count = stats.arcCounts[route.slug] || 0;
             return (
               <Link
                 key={route.slug}
-                href={`/browse?ifRoute=${route.slug}`}
+                href={`/ifs/${route.slug}`}
                 className="group p-4 rounded-xl border border-[var(--border-subtle)] bg-[var(--bg-surface)] hover:border-[var(--accent-border)] hover:bg-[var(--bg-elevated)] transition-all flex flex-col justify-between space-y-2"
               >
                 <div className="space-y-1">
@@ -196,6 +203,52 @@ export default function HomePage() {
           })}
         </div>
       </section>
+
+      {/* Side Stories */}
+      {sideStories.length > 0 && (
+        <section className="space-y-4">
+          <div className="flex items-center justify-between">
+            <div>
+              <h2 className="text-lg font-bold text-[var(--text-main)]">
+                Side Stories
+              </h2>
+              <p className="text-sm text-[var(--text-muted)]">
+                Canonical standalone tales expanding the world beyond the main progression spine.
+              </p>
+            </div>
+            <Link href="/side-stories" className="text-sm font-semibold text-[var(--accent)] hover:underline">
+              View All Side Stories →
+            </Link>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+            {sideStories.map((route) => {
+              const count = stats.arcCounts[route.slug] || 0;
+              return (
+                <Link
+                  key={route.slug}
+                  href={`/side-stories/${route.slug}`}
+                  className="group p-4 rounded-xl border border-[var(--border-subtle)] bg-[var(--bg-surface)] hover:border-[var(--accent-border)] hover:bg-[var(--bg-elevated)] transition-all flex flex-col justify-between space-y-2"
+                >
+                  <div className="space-y-1">
+                    <div className="flex items-center justify-between">
+                      <span className="text-sm font-semibold text-[var(--accent)]">
+                        {route.name}
+                      </span>
+                      <span className="text-xs font-mono font-medium text-[var(--text-muted)]">
+                        {count} Q&amp;A
+                      </span>
+                    </div>
+                    <p className="text-sm text-[var(--text-muted)]">
+                      Timeline: {route.timeline || "Canonical standalone"}
+                    </p>
+                  </div>
+                </Link>
+              );
+            })}
+          </div>
+        </section>
+      )}
     </div>
   );
 }

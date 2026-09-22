@@ -27,7 +27,7 @@ export function BrowseClient({
   topics: initialTopics,
 }: BrowseClientProps) {
   const searchParams = useSearchParams();
-  const { spoilerArc, allowedIfRoutes } = usePreferences();
+  const { spoilerArc, allowedIfRoutes, toggleIfRoute } = usePreferences();
 
   // Filter state initialized from URL query params
   const [selectedArc, setSelectedArc] = useState<string>(() => {
@@ -80,7 +80,7 @@ export function BrowseClient({
       ...ifRoutes.map((r) => ({
         value: r.slug,
         label: r.name,
-        group: "IF / What-If Timelines",
+        group: r.type === "side-story" ? "Side Stories" : "IF Routes",
       })),
     ],
     [arcs, ifRoutes]
@@ -262,6 +262,15 @@ export function BrowseClient({
   const totalPages = Math.max(1, Math.ceil(sortedEntries.length / ITEMS_PER_PAGE));
   const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
   const currentEntries = sortedEntries.slice(startIndex, startIndex + ITEMS_PER_PAGE);
+
+  const selectedIfRoute = useMemo(() => {
+    return ifRoutes.find((r) => r.slug === selectedArc);
+  }, [ifRoutes, selectedArc]);
+
+  const isSelectedIfRouteGated = useMemo(() => {
+    if (!selectedIfRoute) return false;
+    return !allowedIfRoutes.includes(selectedIfRoute.slug);
+  }, [selectedIfRoute, allowedIfRoutes]);
 
   // Handle deep-link scrolling to ?id=0001 or #qna-0001 (auto switches to correct page)
   useEffect(() => {
@@ -630,6 +639,22 @@ export function BrowseClient({
                 className="text-xs sm:text-sm font-semibold text-[var(--accent)] hover:underline ml-2 cursor-pointer"
               >
                 Clear all
+              </button>
+            </div>
+          )}
+
+          {/* IF Route Spoiler Notice */}
+          {isSelectedIfRouteGated && selectedIfRoute && (
+            <div className="p-4 rounded-xl border border-[var(--warning-border)] bg-[var(--warning-bg)] flex flex-wrap items-center justify-between gap-3">
+              <div className="flex items-center gap-2 text-xs sm:text-sm text-[var(--warning-text)]">
+                <span>⚠️ Spoilers for <strong>{selectedIfRoute.name}</strong> are currently hidden by your spoiler filter. Individual cards below are masked.</span>
+              </div>
+              <button
+                type="button"
+                onClick={() => toggleIfRoute(selectedIfRoute.slug)}
+                className="px-3 py-1.5 rounded-lg bg-[var(--accent)] text-white text-xs font-semibold hover:bg-[var(--accent-hover)] transition-colors whitespace-nowrap cursor-pointer"
+              >
+                Reveal &amp; Allow {selectedIfRoute.name}
               </button>
             </div>
           )}

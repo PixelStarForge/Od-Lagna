@@ -1,0 +1,96 @@
+[
+  {
+    "slug": "if-pride",
+    "name": "Pride IF",
+    "divergesFrom": "arc-1",
+    "type": "if",
+    "description": "",
+    "datePublished": "2017-04-01"
+  },
+  {
+    "slug": "if-wrath",
+    "name": "Wrath IF",
+    "divergesFrom": "arc-2",
+    "type": "if",
+    "description": "",
+    "datePublished": "2018-04-01"
+  },
+  {
+    "slug": "if-sloth",
+    "name": "Sloth IF",
+    "divergesFrom": "arc-3",
+    "type": "if",
+    "description": "",
+    "datePublished": "2014-04-01"
+  },
+  {
+    "slug": "if-greed",
+    "name": "Greed IF",
+    "divergesFrom": "arc-4",
+    "type": "if",
+    "description": "",
+    "datePublished": "2016-04-01"
+  },
+  {
+    "slug": "if-gluttony",
+    "name": "Gluttony IF",
+    "divergesFrom": "arc-6",
+    "type": "if",
+    "description": "",
+    "datePublished": "2019-04-01"
+  },
+  {
+    "slug": "if-lust",
+    "name": "Lust IF",
+    "divergesFrom": null,
+    "type": "if",
+    "description": "",
+    "datePublished": ""
+  },
+  {
+    "slug": "if-genderbend",
+    "name": "GenderBend IF",
+    "divergesFrom": null,
+    "type": "if",
+    "description": "",
+    "datePublished": "2022-04-01"
+  },
+  {
+    "slug": "if-azamuku",
+    "name": "Azamuku IF",
+    "divergesFrom": "arc-7",
+    "type": "if",
+    "description": "Natsuki Subaru, who had unexpectedly been sent to the Sacred Vollachian Empire, and 'Vincent Vollachia', the pinnacle of the Land of the Sword Wolves — it was the meeting of the two whose destinies should never have crossed paths in the first place, comrades who would deceive fate.",
+    "datePublished": "2025-04-01"
+  },
+  {
+    "slug": "if-sasageru",
+    "name": "Sasageru IF",
+    "divergesFrom": "arc-9",
+    "type": "if",
+    "description": "",
+    "datePublished": "2026-04-03"
+  },{
+    "slug": "if-school",
+    "name": "School IF",
+    "divergesFrom": null,
+    "type": "if",
+    "description": "",
+    "datePublished": ""
+  },
+  {
+    "slug": "scorpion-tales",
+    "name": "Scorpion Tales",
+    "timeline": "Around Twenty Years Before Arc 1",
+    "type": "side-story",
+    "description": "",
+    "datePublished": ""
+  },{
+    "slug": "iris-and-the-king-of-thorns",
+    "name": "Iris and the King of Thorns",
+    "timeline": "About 300 Years Before Arc 1",
+    "type": "side-story",
+    "description": "",
+    "datePublished": "2024-04-14"
+  }
+]

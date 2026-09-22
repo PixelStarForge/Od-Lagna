@@ -39,7 +39,7 @@ export function QnaCard({ entry, onTagClick }: QnaCardProps) {
       isGated = false;
     } else if (arcMeta.type === "canon" && arcMeta.order !== undefined) {
       isGated = arcMeta.order > spoilerArc;
-    } else if (arcMeta.type === "if") {
+    } else if (arcMeta.type === "if" || arcMeta.type === "side-story") {
       isGated = !isIfRouteAllowed(entry.arc);
     }
   }
@@ -78,6 +78,13 @@ export function QnaCard({ entry, onTagClick }: QnaCardProps) {
             <span className="font-mono font-medium px-2.5 py-0.5 rounded bg-[var(--accent-bg)] border border-[var(--accent-border)] text-[var(--accent-text)]">
               {arcMeta.name}
               {arcMeta.divergesFrom && ` (Diverges ${arcMeta.divergesFrom.toUpperCase()})`}
+            </span>
+          )}
+
+          {arcMeta.type === "side-story" && (
+            <span className="font-mono font-medium px-2.5 py-0.5 rounded bg-[var(--bg-elevated)] border border-[var(--border-subtle)] text-[var(--text-main)]">
+              {arcMeta.name}
+              {arcMeta.timeline && ` · ${arcMeta.timeline}`}
             </span>
           )}
 

@@ -1,4 +1,5 @@
 import path from "node:path";
+import { IfRouteConfig } from "../../lib/schema";
 
 console.log("Running tools/admin/server.test.ts...\n");
 
@@ -131,11 +132,80 @@ async function runTests() {
     if (
       !htmlText.includes("⚡ Paste") ||
       !htmlText.includes("Clone as Template") ||
-      !htmlText.includes("duplicate-warning")
+      !htmlText.includes("duplicate-warning") ||
+      !htmlText.includes("Stories & Supplements")
     ) {
       throw new Error("HTML missing required UI elements");
     }
-    console.log("✓ GET / returned HTML containing all convenience and duplicate UI elements");
+    console.log("✓ GET / returned HTML containing all convenience, duplicate, and stories UI elements");
+
+    // 9. Test GET /api/stories
+    const storiesRes = await fetch("http://127.0.0.1:4329/api/stories");
+    if (!storiesRes.ok) throw new Error(`GET /api/stories failed: ${storiesRes.status}`);
+    const stories = (await storiesRes.json()) as IfRouteConfig[];
+    if (!Array.isArray(stories) || stories.length === 0) {
+      throw new Error("Expected non-empty stories array");
+    }
+    const pride = stories.find((s) => s.slug === "if-pride");
+    const scorpion = stories.find((s) => s.slug === "scorpion-tales");
+    if (!pride || pride.type !== "if") {
+      throw new Error(`Pride IF missing or invalid type: ${JSON.stringify(pride)}`);
+    }
+    if (!scorpion || scorpion.type !== "side-story") {
+      throw new Error(`Scorpion Tales missing or invalid type: ${JSON.stringify(scorpion)}`);
+    }
+    console.log(`✓ GET /api/stories passed (${stories.length} stories loaded, types validated)`);
+
+    // 10. Test GET /api/stories/if-pride
+    const prideRes = await fetch("http://127.0.0.1:4329/api/stories/if-pride");
+    if (!prideRes.ok) throw new Error(`GET /api/stories/if-pride failed: ${prideRes.status}`);
+    const prideDetail = await prideRes.json();
+    if (prideDetail.slug !== "if-pride" || !Array.isArray(prideDetail.supplements)) {
+      throw new Error("Invalid story detail structure");
+    }
+    console.log("✓ GET /api/stories/if-pride passed with valid structure");
+
+    // 11. Test POST /api/stories/if-pride/supplements
+    const createSuppRes = await fetch("http://127.0.0.1:4329/api/stories/if-pride/supplements", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        title: "Test Integration Supplement",
+        content: "Temporary supplement for integration testing.",
+        source: { type: "text", value: "Test Source" },
+        date: "2026-09-23",
+      }),
+    });
+    if (!createSuppRes.ok) throw new Error(`POST supplement failed: ${createSuppRes.status}`);
+    const createdSupp = await createSuppRes.json();
+    if (!createdSupp.success || !createdSupp.supplement?.id) {
+      throw new Error("Failed to create supplement");
+    }
+    const testSuppId = createdSupp.supplement.id;
+    console.log(`✓ POST /api/stories/if-pride/supplements created supplement #${testSuppId}`);
+
+    // 12. Test PUT /api/stories/if-pride/supplements/:id
+    const updateSuppRes = await fetch(`http://127.0.0.1:4329/api/stories/if-pride/supplements/${testSuppId}`, {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        title: "Updated Integration Supplement",
+        content: "Updated content for testing.",
+      }),
+    });
+    if (!updateSuppRes.ok) throw new Error(`PUT supplement failed: ${updateSuppRes.status}`);
+    const updatedSupp = await updateSuppRes.json();
+    if (updatedSupp.supplement?.title !== "Updated Integration Supplement") {
+      throw new Error("Failed to update supplement title");
+    }
+    console.log(`✓ PUT /api/stories/if-pride/supplements/${testSuppId} updated supplement`);
+
+    // 13. Test DELETE /api/stories/if-pride/supplements/:id
+    const deleteSuppRes = await fetch(`http://127.0.0.1:4329/api/stories/if-pride/supplements/${testSuppId}`, {
+      method: "DELETE",
+    });
+    if (!deleteSuppRes.ok) throw new Error(`DELETE supplement failed: ${deleteSuppRes.status}`);
+    console.log(`✓ DELETE /api/stories/if-pride/supplements/${testSuppId} cleanly removed test supplement`);
 
     console.log("\n🎉 ALL ADMIN SERVER INTEGRATION TESTS PASSED!");
   } finally {
