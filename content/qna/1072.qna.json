@@ -1,6 +1,6 @@
 {
   "id": "1072",
-  "question": "There’s something about the sound of the name Julius Eulclius that I like, but does Mr. Cat have a name that he thinks was the best?",
+  "question": "There’s something about the sound of the name Julius Juukulius that I like, but does Mr. Cat have a name that he thinks was the best?",
   "answer": "It’s Petelgeuse Romanee-Conti, you see. But, he’s in danger of being renamed. What do you think; would it be better to change Romanee-Conti? Does it make you laugh?",
   "characters": [
     "Julius Juukulius",
@@ -11,8 +11,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/496928921821388800"
   },
-  "verified": false
+  "verified": true,
+  "date": "August 06, 2014",
+  "dateTime": "2014-08-06"
 }

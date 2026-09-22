@@ -5,7 +5,8 @@
   "characters": [
     "Natsuki Subaru",
     "Rem",
-    "Satella"
+    "Satella",
+    "Witch of Envy"
   ],
   "topics": [
     "Character Relationships",
@@ -13,8 +14,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/502820752497061888"
   },
-  "verified": false
+  "verified": true,
+  "date": "August 22, 2014",
+  "dateTime": "2014-08-22"
 }

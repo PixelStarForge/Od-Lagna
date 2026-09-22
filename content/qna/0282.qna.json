@@ -2,14 +2,18 @@
   "id": "0282",
   "question": "It seems to me that Liliana would be very take with subcultures of Earth if you showed them to her, but how much would she really get into them?",
   "answer": "It would certainly lead to the birth of a lost girl!",
-  "characters": [],
+  "characters": [
+    "Liliana Masquerade"
+  ],
   "topics": [
     "General"
   ],
   "arc": "arc-5",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/557427399584137216"
   },
-  "verified": false
+  "verified": true,
+  "date": "January 20, 2015",
+  "dateTime": "2015-01-20"
 }

@@ -3,6 +3,7 @@
   "question": "If Otto and Rigel stood side by side, who would the damage focus on?",
   "answer": "Are you a genius? It truly is a battle between the strongest spear and the strongest shield...",
   "characters": [
+    "Natsuki Rigel",
     "Otto Suwen"
   ],
   "topics": [
@@ -12,8 +13,10 @@
   ],
   "arc": "if-sloth",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/575320450244419585"
   },
-  "verified": false
+  "verified": true,
+  "date": "March 10, 2015",
+  "dateTime": "2015-03-10"
 }

@@ -1,6 +1,6 @@
 {
   "id": "0423",
-  "question": "When will there be an event where Reinard, or maybe I should say my Reinhard-loving self, be saved?",
+  "question": "When will there be an event where Reinhard, or maybe I should say my Reinhard-loving self, be saved?",
   "answer": "I think that all the characters need a chance to shine, and to be saved. That’s my answer.",
   "characters": [
     "Reinhard van Astrea"
@@ -10,8 +10,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/493311226941042688"
   },
-  "verified": false
+  "verified": true,
+  "date": "July 27, 2014",
+  "dateTime": "2014-07-27"
 }

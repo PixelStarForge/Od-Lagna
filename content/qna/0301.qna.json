@@ -1,6 +1,6 @@
 {
   "id": "0301",
-  "question": "Will any unexpected characters from Re: Zero have a Q&A turn?",
+  "question": "Will any unexpected characters from Re: Zero have a named Chapter?",
   "answer": "Ton, Chin, and Kan will have a turn.",
   "characters": [],
   "topics": [
@@ -8,8 +8,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/503547887675277312"
   },
-  "verified": false
+  "verified": true,
+  "date": "August 24, 2014",
+  "dateTime": "2014-08-24"
 }

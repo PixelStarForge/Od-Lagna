@@ -1,7 +1,7 @@
 {
   "id": "0280",
   "question": "Is Kadomon’s store doing enough business for him to cover his living expenses? I hope he’s not making his wife cover the costs.",
-  "answer": "Kadomon’s wife’s family are decent merchants, and they handle transactions with the larger stores for him, so he’s making just barely enough to get by. If he only had the profits from his own store, his family would have fallen apart by now. Given that Kadmon’s past is the way it is, it’s no surprise that he’s not a good salesman.",
+  "answer": "Kadomon’s wife’s family are decent merchants, and they handle transactions with the larger stores for him, so he’s making just barely enough to get by. If he only had the profits from his own store, his family would have fallen apart by now. Given that Kadomon’s past is the way it is, it’s no surprise that he’s not a good salesman.",
   "characters": [
     "Kadomon Risch"
   ],
@@ -10,8 +10,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/496651350462439424"
   },
-  "verified": false
+  "verified": true,
+  "date": "August 05, 2014",
+  "dateTime": "2014-08-05"
 }

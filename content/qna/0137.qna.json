@@ -1,6 +1,6 @@
 {
   "id": "0137",
-  "question": "Subaru, Otto, Garfiel, Julius, Reinhard, Wilhelm, and Ferris have a round-robin arm-wrestling tournament; who can give Reinhard a good challenge?? Probably Garfiel or Wilhelm??",
+  "question": "Subaru, Otto, Garfiel, Julius, Reinhard, Wilhelm, and Ferris have a push-ups tournament; who can give Reinhard a good challenge?? Probably Garfiel or Wilhelm??",
   "answer": "I doubt you could push Reinhard to his limits, but if I put them in order, it might be Reinhard, Garf, Wilhelm, Julius, Subaru, Otto, Ferris. It’s a mystery if they could give him a good challenge, though, even if they did their best.",
   "characters": [
     "Felix Argyle (Ferris)",
@@ -16,8 +16,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/569503999491239937"
   },
-  "verified": false
+  "verified": true,
+  "date": "February 22, 2015",
+  "dateTime": "2015-02-22"
 }

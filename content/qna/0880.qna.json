@@ -3,7 +3,8 @@
   "question": "The Evil Sealing Stone Shrine where the Jealous Witch is sleeping appears to be filled with a miasma that drives people insane by pulling mana from their gates; could Subaru just walk in, since his gate is crushed?",
   "answer": "It’s impossible. He’d die. Think of it as being as difficult as entering poison gas by holding your breath.",
   "characters": [
-    "Natsuki Subaru"
+    "Natsuki Subaru",
+    "Witch of Envy"
   ],
   "topics": [
     "Mana & Magic",
@@ -11,8 +12,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/494729625797660672"
   },
-  "verified": false
+  "verified": true,
+  "date": "July 31, 2014",
+  "dateTime": "2014-07-31"
 }

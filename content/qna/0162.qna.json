@@ -13,8 +13,10 @@
   ],
   "arc": "if-sloth",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/499066684444262400"
   },
-  "verified": false
+  "verified": true,
+  "date": "August 12, 2014",
+  "dateTime": "2014-08-12"
 }

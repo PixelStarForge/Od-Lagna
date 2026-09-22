@@ -1,17 +1,20 @@
 {
   "id": "1491",
   "question": "How are Beako’s drills styled?",
-  "answer": "She’s a spirit that Echinda designed to turn out that way, so that hairstyle is her default.",
+  "answer": "She’s a spirit that Echidna designed to turn out that way, so that hairstyle is her default.",
   "characters": [
-    "Beatrice"
+    "Beatrice",
+    "Echidna"
   ],
   "topics": [
     "General"
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/493312413773885440"
   },
-  "verified": false
+  "verified": true,
+  "date": "July 27, 2014",
+  "dateTime": "2014-07-27"
 }

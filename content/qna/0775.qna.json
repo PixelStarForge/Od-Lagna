@@ -2,15 +2,19 @@
   "id": "0775",
   "question": "The Jealous Witch is said to be a silver-haired half-elf, but are the other witches all human?",
   "answer": "Not all of them.",
-  "characters": [],
+  "characters": [
+    "Witch of Envy"
+  ],
   "topics": [
     "Sin Archbishops",
     "Witches of Sin"
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/494725626646249472"
   },
-  "verified": false
+  "verified": true,
+  "date": "July 31, 2014",
+  "dateTime": "2014-07-31"
 }

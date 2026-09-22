@@ -1,6 +1,6 @@
 {
   "id": "0393",
-  "question": "Out of the characters that have appeared so far, who would explore the most dangerous territory if they completely lost it?",
+  "question": "Among the characters introduced so far, who seems most likely to reach the most dangerous state of mind if they finally snapped?",
   "answer": "Reinhard.",
   "characters": [
     "Reinhard van Astrea"
@@ -10,8 +10,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/476329064303984640"
   },
-  "verified": false
+  "verified": true,
+  "date": "June 10, 2014",
+  "dateTime": "2014-06-10"
 }

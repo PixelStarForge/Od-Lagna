@@ -4,7 +4,8 @@
   "answer": "It’s mostly had no effect. They’re compatible, after all.",
   "characters": [
     "Echidna",
-    "Satella"
+    "Satella",
+    "Witch of Envy"
   ],
   "topics": [
     "Sin Archbishops",
@@ -13,8 +14,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/495524067819388929"
   },
-  "verified": false
+  "verified": true,
+  "date": "August 02, 2014",
+  "dateTime": "2014-08-02"
 }

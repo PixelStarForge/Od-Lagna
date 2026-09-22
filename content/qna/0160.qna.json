@@ -3,6 +3,7 @@
   "question": "I’m wondering if Rigel and Spica really do have oni power, considering they are half-oni.",
   "answer": "Forgetting about Spica, Rigel can bring out his horn, so he does have it. If he were to use it in a fight against children, he’d receive a blow from Rem’s fist.",
   "characters": [
+    "Natsuki Rigel",
     "Rem",
     "Spica"
   ],
@@ -12,8 +13,10 @@
   ],
   "arc": "if-sloth",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/499067611846836226"
   },
-  "verified": false
+  "verified": true,
+  "date": "August 12, 2014",
+  "dateTime": "2014-08-12"
 }

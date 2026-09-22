@@ -4,6 +4,8 @@
   "answer": "You have to believe in the name you’ve thought up. We’ll use it even if the sound is nearly the same. With Kiritaka and Liliana, even when the sound is completely identical. Even if Emilia and Priscilla have more or less the same sound.",
   "characters": [
     "Emilia",
+    "Kiritaka Muse",
+    "Liliana Masquerade",
     "Priscilla Barielle"
   ],
   "topics": [
@@ -11,8 +13,10 @@
   ],
   "arc": "arc-5",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/495513893159305216"
   },
-  "verified": false
+  "verified": true,
+  "date": "August 02, 2014",
+  "dateTime": "2014-08-02"
 }

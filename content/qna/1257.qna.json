@@ -2,14 +2,18 @@
   "id": "1257",
   "question": "Liliana streaming live performances after she realizes “Oh, if I use a conversation mirror, I can give a remote live concert without leaving my house, right?”",
   "answer": "Liliana is the type who prefers to give live performances, maybe. Also, she’s not really a shut-in.",
-  "characters": [],
+  "characters": [
+    "Liliana Masquerade"
+  ],
   "topics": [
     "General"
   ],
   "arc": "arc-5",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/565502489123110914"
   },
-  "verified": false
+  "verified": true,
+  "date": "February 11, 2015",
+  "dateTime": "2015-02-11"
 }
