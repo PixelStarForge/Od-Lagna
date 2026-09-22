@@ -1,0 +1,31 @@
+{
+  "id": "4045",
+  "question": "Aside from Chisha and Cecilus, Groovy was supposedly the first person Vincent specifically selected as a Divine General. Were there any other Divine Generals whom Vincent personally chose by name?\n\nAlso, could you tell us the Nine Divine Generals in order of longest service?",
+  "answer": "There are exceptions, such as Madelyn, who was recommended by Berstetz, and Kafma, who was recommended by Goz, but I think Vincent himself generally selects the Divine Generals.\n\nIn order of longest service:\n\n1. Chisha\n\n2. Cecilus\n\n3. Arakiya\n\n4. Groovy\n\n5. Goz\n\n6. Moguro\n\n7. Balleroy\n\n8. Olbart\n\n9. Yorna\n\nWhen Olbart and Yorna were brought in, people apparently asked, “Are you sane?” and they only joined after quite a bit of arguing.",
+  "characters": [
+    "Arakiya",
+    "Balleroy Temeglyph",
+    "Berstetz Fondalfon",
+    "Cecilus Segmunt",
+    "Chisha Gold",
+    "Kafma Irulux",
+    "Madelyn Eschart",
+    "Moguro Hagane",
+    "Olbart Dunkelkenn",
+    "Vincent Vollachia",
+    "Yorna Mishigure",
+    "Goz Ralfon"
+  ],
+  "topics": [
+    "General",
+    "Vollachia Empire",
+    "Ranking"
+  ],
+  "arc": "general",
+  "source": {
+    "type": "url",
+    "value": "https://re-zero.com/news/2159/"
+  },
+  "verified": true,
+  "dateTime": "2023-04-02"
+}
