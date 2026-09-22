@@ -1,7 +1,7 @@
 {
   "id": "1399",
-  "question": "You’ve said that Subaru was great at wearing women’s clothing, but do you mean his appearance? His gestures? With that face and that look, I don’t think his appearance could be perfect, so I think it must have been his gestures.",
-  "answer": "His gestures and imitation of the “perfect Japanese woman” were a chinese peony when standing, a moutan peony when sitting, and a lily when walking, as long as you didn’t look at his face! I’d like to see it!",
+  "question": "You\u2019ve said that Subaru was great at wearing women\u2019s clothing, but do you mean his appearance? His gestures? With that face and that look, I don\u2019t think his appearance could be perfect, so I think it must have been his gestures.",
+  "answer": "His gestures and imitation of the \u201cperfect Japanese woman\u201d were a chinese peony when standing, a moutan peony when sitting, and a lily when walking, as long as you didn\u2019t look at his face! I\u2019d like to see it!",
   "characters": [
     "Natsuki Subaru"
   ],
@@ -10,8 +10,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/495524241006411776"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-08-02",
+  "date": "August 02, 2014"
 }

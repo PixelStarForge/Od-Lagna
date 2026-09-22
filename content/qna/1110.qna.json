@@ -1,7 +1,7 @@
 {
   "id": "1110",
-  "question": "Speaking of Re: Zero, is the world Subaru has arrived at an official history? (note: the term translated as official history seems to be mostly used to refer to the government-produced historical records about a country. Perhaps the question is asking if the Re: Zero world is all part of Subaru’s imagination or not.)",
-  "answer": "I feel like it’s a story that you don’t really need to think about whether it’s an official history or not.",
+  "question": "Speaking of Re: Zero, is the world Subaru has arrived at an official history? (note: the term translated as official history seems to be mostly used to refer to the government-produced historical records about a country. Perhaps the question is asking if the Re: Zero world is all part of Subaru\u2019s imagination or not.)",
+  "answer": "I feel like it\u2019s a story that you don\u2019t really need to think about whether it\u2019s an official history or not.",
   "characters": [
     "Natsuki Subaru"
   ],
@@ -10,8 +10,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/497390664125255681"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-08-07",
+  "date": "August 07, 2014"
 }

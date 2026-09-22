@@ -1,15 +1,17 @@
 {
   "id": "0853",
-  "question": "Aren’t there any legends older than the witch?",
-  "answer": "There were several, but they were driven out by the witch. You could think of it as the witch’s rampage as having completely changed the world.",
+  "question": "Aren\u2019t there any legends older than the witch?",
+  "answer": "There were several, but they were driven out by the witch. You could think of it as the witch\u2019s rampage as having completely changed the world.",
   "characters": [],
   "topics": [
     "Worldbuilding"
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/475608051693932544"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-06-08",
+  "date": "June 08, 2014"
 }

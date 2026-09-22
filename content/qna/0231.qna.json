@@ -1,7 +1,7 @@
 {
   "id": "0231",
-  "question": "It looks to me like Ana-san’s fighting strength is a bit lacking, but is that right?",
-  "answer": "Her personal fighting strength might look that way, but when you look at the number of people who can fight for her, she’s got a mercenary company, so if she throws them at the enemy first, they can cause a lot of trouble.",
+  "question": "It looks to me like Ana-san\u2019s fighting strength is a bit lacking, but is that right?",
+  "answer": "Her personal fighting strength might look that way, but when you look at the number of people who can fight for her, she\u2019s got a mercenary company, so if she throws them at the enemy first, they can cause a lot of trouble.",
   "characters": [
     "Anastasia Hoshin"
   ],
@@ -10,8 +10,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/497260493678346240"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-08-07",
+  "date": "August 07, 2014"
 }

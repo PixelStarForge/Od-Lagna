@@ -1,7 +1,7 @@
 {
   "id": "1419",
-  "question": "If Subaru was naming his and Emilia-tan’s child, what would he pick? If you say Rigel or Spica, I’ll knock you for a loop.",
-  "answer": "Well, he’d probably pick something from the stars’ names, I’d guess.",
+  "question": "If Subaru was naming his and Emilia-tan\u2019s child, what would he pick? If you say Rigel or Spica, I\u2019ll knock you for a loop.",
+  "answer": "Well, he\u2019d probably pick something from the stars\u2019 names, I\u2019d guess.",
   "characters": [
     "Emilia",
     "Natsuki Subaru",
@@ -14,8 +14,10 @@
   ],
   "arc": "if-sloth",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/497312315633827840"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-08-07",
+  "date": "August 07, 2014"
 }

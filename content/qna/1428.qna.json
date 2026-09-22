@@ -1,7 +1,7 @@
 {
   "id": "1428",
-  "question": "It was said that if Puck is ten meters away from Emilia, he can’t utilize his normal power, but can he change to his true form?",
-  "answer": "If he’s too far away, the surroundings will freeze, but it’s not something he can’t do.",
+  "question": "It was said that if Puck is ten meters away from Emilia, he can\u2019t utilize his normal power, but can he change to his true form?",
+  "answer": "If he\u2019s too far away, the surroundings will freeze, but it\u2019s not something he can\u2019t do.",
   "characters": [
     "Emilia",
     "Puck"
@@ -11,8 +11,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/502825950435102720"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-08-22",
+  "date": "August 22, 2014"
 }

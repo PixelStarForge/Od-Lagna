@@ -1,7 +1,7 @@
 {
   "id": "0290",
-  "question": "Please tell me what color Kadomon’s underwear is.",
-  "answer": "It’s probably grey or something, isn’t it? (while picking my nose)",
+  "question": "Please tell me what color Kadomon\u2019s underwear is.",
+  "answer": "It\u2019s probably grey or something, isn\u2019t it? (while picking my nose)",
   "characters": [
     "Kadomon Risch"
   ],
@@ -10,8 +10,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/571219995755208705"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2015-02-27",
+  "date": "February 27, 2015"
 }

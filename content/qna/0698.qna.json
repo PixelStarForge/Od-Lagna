@@ -1,7 +1,7 @@
 {
   "id": "0698",
   "question": "Daphne said that the Great Rabbit was food, but if you offered it at a restaurant, how much would it go for?",
-  "answer": "It’s flavor is something you could only eat thinking “If I don’t eat this, I’ll die…”. Mabeasts are pretty much all that way.",
+  "answer": "It\u2019s flavor is something you could only eat thinking \u201cIf I don\u2019t eat this, I\u2019ll die\u2026\u201d. Mabeasts are pretty much all that way.",
   "characters": [
     "Daphne"
   ],
@@ -10,8 +10,10 @@
   ],
   "arc": "arc-4",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/574628011477176321"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2015-03-08",
+  "date": "March 08, 2015"
 }

@@ -1,7 +1,7 @@
 {
   "id": "0190",
   "question": "Can Feris cure cancer?",
-  "answer": "That’s difficult question. It’s already been revealed in the story that there are illnesses he can’t cure, so he might not be able to cure it. Returning someone to a state of health, and wiping out the cause of a sickness are different things, it seems to me.",
+  "answer": "That\u2019s difficult question. It\u2019s already been revealed in the story that there are illnesses he can\u2019t cure, so he might not be able to cure it. Returning someone to a state of health, and wiping out the cause of a sickness are different things, it seems to me.",
   "characters": [
     "Felix Argyle (Ferris)"
   ],
@@ -10,8 +10,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/565474698184884224"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2015-02-11",
+  "date": "February 11, 2015"
 }

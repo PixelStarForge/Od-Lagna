@@ -1,15 +1,17 @@
 {
   "id": "0125",
   "question": "Please tell me the cup sizes of all the currently released female characters.",
-  "answer": "It’s too much trouble. You don’t need to break it down more than big, normal, small, right?",
+  "answer": "It\u2019s too much trouble. You don\u2019t need to break it down more than big, normal, small, right?",
   "characters": [],
   "topics": [
     "Combat & Tiering"
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/478327308928159744"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-06-16",
+  "date": "June 16, 2014"
 }

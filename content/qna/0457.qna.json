@@ -1,7 +1,7 @@
 {
   "id": "0457",
-  "question": "That sword of Reinhard’s, if he pulled with all his might could he still not draw it?",
-  "answer": "In the legend of King Arthur, suppose the condition for being able to draw the sword of selection was that the guy was “stupidly strong”. Think carefully about whether you could accept that new version, and if you can’t figure it out, ask the same question again.",
+  "question": "That sword of Reinhard\u2019s, if he pulled with all his might could he still not draw it?",
+  "answer": "In the legend of King Arthur, suppose the condition for being able to draw the sword of selection was that the guy was \u201cstupidly strong\u201d. Think carefully about whether you could accept that new version, and if you can\u2019t figure it out, ask the same question again.",
   "characters": [
     "Reinhard van Astrea"
   ],
@@ -10,8 +10,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/498539826753589248"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-08-10",
+  "date": "August 10, 2014"
 }

@@ -1,7 +1,7 @@
 {
   "id": "1185",
   "question": "A story of Anastasia meeting with the Iron Fang.",
-  "answer": "I’ll do that soon enough.",
+  "answer": "I\u2019ll do that soon enough.",
   "characters": [
     "Anastasia Hoshin"
   ],
@@ -10,8 +10,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/517824571748409344"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-10-02",
+  "date": "October 02, 2014"
 }

@@ -1,7 +1,7 @@
 {
   "id": "0712",
-  "question": "Out of fried White Whale, sautéd Great Rabbit, and charred Black Snake, which would taste the best?",
-  "answer": "Out of those, probably the sautéd Great Rabbit, but be careful you don’t get turned into food yourself before you sauté it.",
+  "question": "Out of fried White Whale, saut\u00e9d Great Rabbit, and charred Black Snake, which would taste the best?",
+  "answer": "Out of those, probably the saut\u00e9d Great Rabbit, but be careful you don\u2019t get turned into food yourself before you saut\u00e9 it.",
   "characters": [
     "White Whale"
   ],
@@ -10,8 +10,10 @@
   ],
   "arc": "arc-4",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/478184759865012224"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-06-15",
+  "date": "June 15, 2014"
 }

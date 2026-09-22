@@ -1,10 +1,10 @@
 {
   "id": "3754",
-  "question": "Since Subaru was able to crush the Lion’s Heart, in a situation where Petelgeuse knew the details of that ability, would he be able to easily defeat Regulus? Or is it simply that his ability is well-suited to it?",
-  "answer": "If you know the details of the ability, it’s simply a matter of killing all the brides, so even if you’re not Mr. Pete, you can win. How you arrive at that point is the problem.",
+  "question": "Since Subaru was able to crush the Lion\u2019s Heart, in a situation where Petelgeuse knew the details of that ability, would he be able to easily defeat Regulus? Or is it simply that his ability is well-suited to it?",
+  "answer": "If you know the details of the ability, it\u2019s simply a matter of killing all the brides, so even if you\u2019re not Mr. Pete, you can win. How you arrive at that point is the problem.",
   "characters": [
     "Natsuki Subaru",
-    "Petelgeuse Romanée-Conti",
+    "Petelgeuse Roman\u00e9e-Conti",
     "Regulus Corneas"
   ],
   "topics": [
@@ -13,8 +13,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/593367908266463232"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2015-04-29",
+  "date": "April 29, 2015"
 }

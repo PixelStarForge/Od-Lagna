@@ -1,7 +1,7 @@
 {
   "id": "0975",
   "question": "Is there teleportation magic? (Excluding the mysterious powers of the apostles of the Deadly Sins)",
-  "answer": "Beako or Enkidna are both able to with conditions attached. Normally it’s impossible though, even for Roswaal.",
+  "answer": "Beako or Enkidna are both able to with conditions attached. Normally it\u2019s impossible though, even for Roswaal.",
   "characters": [
     "Beatrice",
     "Roswaal L. Mathers"
@@ -11,8 +11,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/473451786393907200"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-06-02",
+  "date": "June 02, 2014"
 }

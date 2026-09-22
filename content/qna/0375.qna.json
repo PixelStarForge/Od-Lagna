@@ -1,6 +1,6 @@
 {
   "id": "0375",
-  "question": "Investigate the line where Reinhard becomes angry!! 1) Step on the heel of his shoe 2) Swap his sword with an onion 3) Dye his hair blue while he’s sleeping 4) Have an evil organization turn his arm into a broom.",
+  "question": "Investigate the line where Reinhard becomes angry!! 1) Step on the heel of his shoe 2) Swap his sword with an onion 3) Dye his hair blue while he\u2019s sleeping 4) Have an evil organization turn his arm into a broom.",
   "answer": "All of those are physically impossible!",
   "characters": [
     "Reinhard van Astrea"
@@ -10,8 +10,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/498110979532943360"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-08-09",
+  "date": "August 09, 2014"
 }

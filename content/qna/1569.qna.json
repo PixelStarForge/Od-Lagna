@@ -1,7 +1,7 @@
 {
   "id": "1569",
-  "question": "Will there be ‘Peerless Petra’?",
-  "answer": "Not in the sense of combat ability, and if it’s in the heroine sense, it depends on my mood, but it’s not currently planned.",
+  "question": "Will there be \u2018Peerless Petra\u2019?",
+  "answer": "Not in the sense of combat ability, and if it\u2019s in the heroine sense, it depends on my mood, but it\u2019s not currently planned.",
   "characters": [
     "Petra Leyte"
   ],
@@ -10,8 +10,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/473767703883558912"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-06-03",
+  "date": "June 03, 2014"
 }

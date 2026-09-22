@@ -1,7 +1,7 @@
 {
   "id": "1508",
-  "question": "I’m confident that Ros-chi can use Finger Flare Bombs and Betan, but can he use Medoroah? (note: spells from the Dragon Quest series)",
-  "answer": "If he’s in the Heaven-Earth Magic War stance, it’ll work, yeah. (note: also a Dragon Quest reference)",
+  "question": "I\u2019m confident that Ros-chi can use Finger Flare Bombs and Betan, but can he use Medoroah? (note: spells from the Dragon Quest series)",
+  "answer": "If he\u2019s in the Heaven-Earth Magic War stance, it\u2019ll work, yeah. (note: also a Dragon Quest reference)",
   "characters": [
     "Roswaal L. Mathers"
   ],
@@ -10,8 +10,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/478433183072272384"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-06-16",
+  "date": "June 16, 2014"
 }

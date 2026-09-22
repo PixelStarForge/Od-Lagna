@@ -1,7 +1,7 @@
 {
   "id": "0598",
   "question": "Is Dona tea yellow?",
-  "answer": "It’s a little yellow…… what are you trying to make me say, it’s not yellow. This isn’t Aba tea. It’s body fluid! (Note: Aba tea is a Jojo’s Bizarre Adventure reference)",
+  "answer": "It\u2019s a little yellow\u2026\u2026 what are you trying to make me say, it\u2019s not yellow. This isn\u2019t Aba tea. It\u2019s body fluid! (Note: Aba tea is a Jojo\u2019s Bizarre Adventure reference)",
   "characters": [
     "Echidna"
   ],
@@ -10,8 +10,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/478121967577739264"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-06-15",
+  "date": "June 15, 2014"
 }

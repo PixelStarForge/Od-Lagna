@@ -1,7 +1,7 @@
 {
   "id": "1427",
   "question": "It was Anne that taught Emilia-tan about kisses, but had someone taught her about children before that?",
-  "answer": "To a seven year old child? There’s probably about a fifty-fifty chance that I’d asked an adult “Where do babies come from?” when I was seven years old. Emilia-tan didn’t.",
+  "answer": "To a seven year old child? There\u2019s probably about a fifty-fifty chance that I\u2019d asked an adult \u201cWhere do babies come from?\u201d when I was seven years old. Emilia-tan didn\u2019t.",
   "characters": [
     "Annerose Miload",
     "Emilia"
@@ -11,8 +11,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/497308807861899264"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-08-07",
+  "date": "August 07, 2014"
 }

@@ -1,7 +1,7 @@
 {
   "id": "0532",
-  "question": "If Reinhard had thrown Regulus full-force into the ground and buried him, or thrown him full-force towards the sky into space, wouldn’t he have won easily?",
-  "answer": "He’s invincible, so he’ll just come right back.",
+  "question": "If Reinhard had thrown Regulus full-force into the ground and buried him, or thrown him full-force towards the sky into space, wouldn\u2019t he have won easily?",
+  "answer": "He\u2019s invincible, so he\u2019ll just come right back.",
   "characters": [
     "Regulus Corneas",
     "Reinhard van Astrea"
@@ -11,8 +11,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/592382078894927872"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2015-04-26",
+  "date": "April 26, 2015"
 }

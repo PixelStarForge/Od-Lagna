@@ -1,7 +1,7 @@
 {
   "id": "3696",
-  "question": "In illustrations of Otto, his eyes are a deep blue. In the text, I think they were noted as being green several times. Which is it? I’m thinking of drawing an illustration, so I’m wondering.",
-  "answer": "Otsuka-sensei is correct, so it’s blue. He’s probably shorter than he was in the web version, as well. At the point I was coming up with those details, I didn’t think that Otto would hang around, so my apologies.",
+  "question": "In illustrations of Otto, his eyes are a deep blue. In the text, I think they were noted as being green several times. Which is it? I\u2019m thinking of drawing an illustration, so I\u2019m wondering.",
+  "answer": "Otsuka-sensei is correct, so it\u2019s blue. He\u2019s probably shorter than he was in the web version, as well. At the point I was coming up with those details, I didn\u2019t think that Otto would hang around, so my apologies.",
   "characters": [
     "Otto Suwen"
   ],
@@ -10,8 +10,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/517825554826158080"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-10-02",
+  "date": "October 02, 2014"
 }

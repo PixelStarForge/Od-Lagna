@@ -1,6 +1,6 @@
 {
   "id": "1375",
-  "question": "Subaru’s birthplace: was it the country? Or the city?",
+  "question": "Subaru\u2019s birthplace: was it the country? Or the city?",
   "answer": "Sort of like the last stop of a train line in Saitama prefecture. (note: From a Tokyo perspective, this is probably way out in the country.)",
   "characters": [
     "Natsuki Subaru"
@@ -10,8 +10,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/475336073749749760"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-06-07",
+  "date": "June 07, 2014"
 }

@@ -1,7 +1,7 @@
 {
   "id": "0079",
-  "question": "When will it be Elsa’s next turn?",
-  "answer": "Since Garfiel is taken care of, it’ll be soon.",
+  "question": "When will it be Elsa\u2019s next turn?",
+  "answer": "Since Garfiel is taken care of, it\u2019ll be soon.",
   "characters": [
     "Elsa Granhiert",
     "Garfiel Tinsel"
@@ -11,8 +11,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/473742047493754880"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-06-03",
+  "date": "June 03, 2014"
 }

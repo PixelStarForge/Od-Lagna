@@ -1,7 +1,7 @@
 {
   "id": "0734",
-  "question": "Is it sort of like Kenichi is more appropriate for a main character, and Subaru is more appropriate for a side character, but he’s working hard to become a main character? And it seems like the Kenichi content has been increasing lately.",
-  "answer": "I don’t think it’s been increasing that much. The Reinhard content has been much more insistent.",
+  "question": "Is it sort of like Kenichi is more appropriate for a main character, and Subaru is more appropriate for a side character, but he\u2019s working hard to become a main character? And it seems like the Kenichi content has been increasing lately.",
+  "answer": "I don\u2019t think it\u2019s been increasing that much. The Reinhard content has been much more insistent.",
   "characters": [
     "Natsuki Subaru",
     "Reinhard van Astrea"
@@ -11,8 +11,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/494740832793395200"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-07-31",
+  "date": "July 31, 2014"
 }

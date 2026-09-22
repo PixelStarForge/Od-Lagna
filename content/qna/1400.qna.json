@@ -1,7 +1,7 @@
 {
   "id": "1400",
-  "question": "You’ve said that children like Subaru-kun, but if he was compared with Kenichi, which of them would be liked more?",
-  "answer": "Possibly that’s the one spot where there’s a small chance that Subaru might win.",
+  "question": "You\u2019ve said that children like Subaru-kun, but if he was compared with Kenichi, which of them would be liked more?",
+  "answer": "Possibly that\u2019s the one spot where there\u2019s a small chance that Subaru might win.",
   "characters": [
     "Natsuki Subaru"
   ],
@@ -10,8 +10,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/495542481472466945"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-08-02",
+  "date": "August 02, 2014"
 }

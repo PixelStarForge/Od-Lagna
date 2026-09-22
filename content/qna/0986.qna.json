@@ -1,7 +1,7 @@
 {
   "id": "0986",
-  "question": "The mabeast puppy was activating magic without chanting, but does that mean there’s a way to activate magic without saying it’s name? Or are there mabeast-style names for magic?",
-  "answer": "Just like the question right before this, the incantation is basically the key used to cause the incanter’s mental image to take form, so even the barks of a puppy can activate it.",
+  "question": "The mabeast puppy was activating magic without chanting, but does that mean there\u2019s a way to activate magic without saying it\u2019s name? Or are there mabeast-style names for magic?",
+  "answer": "Just like the question right before this, the incantation is basically the key used to cause the incanter\u2019s mental image to take form, so even the barks of a puppy can activate it.",
   "characters": [],
   "topics": [
     "Great Mabeasts",
@@ -9,8 +9,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/498540358339665920"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-08-10",
+  "date": "August 10, 2014"
 }

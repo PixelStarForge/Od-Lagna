@@ -1,15 +1,17 @@
 {
   "id": "1192",
   "question": "A story of going off to exterminate an arsonist (mabeast) that is causing a disturbance in the domain. Arson is absolutely unforgivable, you know!",
-  "answer": "Yeah, it’s unforgivable. Once, all the shrines in the neighborhood where I live were set on fire in the same night. This is what it means when they say someone doesn’t fear even the gods.",
+  "answer": "Yeah, it\u2019s unforgivable. Once, all the shrines in the neighborhood where I live were set on fire in the same night. This is what it means when they say someone doesn\u2019t fear even the gods.",
   "characters": [],
   "topics": [
     "Great Mabeasts"
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/538160181100945409"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-11-28",
+  "date": "November 28, 2014"
 }

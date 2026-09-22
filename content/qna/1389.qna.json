@@ -1,7 +1,7 @@
 {
   "id": "1389",
-  "question": "Why is Subaru letting Rem sleep at Roswaal’s mansion? He can’t be trusted.",
-  "answer": "At the point he was letting her sleep there, he hadn’t yet developed his hostility towards Roswaal, is all.",
+  "question": "Why is Subaru letting Rem sleep at Roswaal\u2019s mansion? He can\u2019t be trusted.",
+  "answer": "At the point he was letting her sleep there, he hadn\u2019t yet developed his hostility towards Roswaal, is all.",
   "characters": [
     "Natsuki Subaru",
     "Rem",
@@ -12,8 +12,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/493304440355831808"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-07-27",
+  "date": "July 27, 2014"
 }

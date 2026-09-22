@@ -1,7 +1,7 @@
 {
   "id": "0331",
   "question": "If all the royal candidates played the king game, what sort of commands would they give?",
-  "answer": "Emilia-tan: “like a child” Felt: “like a mean child” Anastasia: “The type where you put your life on the line” Crusch: “She’d go with the flow and give reasonable commands” Priscilla: “Gleefully gives unreasonable commands”",
+  "answer": "Emilia-tan: \u201clike a child\u201d Felt: \u201clike a mean child\u201d Anastasia: \u201cThe type where you put your life on the line\u201d Crusch: \u201cShe\u2019d go with the flow and give reasonable commands\u201d Priscilla: \u201cGleefully gives unreasonable commands\u201d",
   "characters": [
     "Anastasia Hoshin",
     "Crusch Karsten",
@@ -14,8 +14,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/497756168690094080"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-08-08",
+  "date": "August 08, 2014"
 }

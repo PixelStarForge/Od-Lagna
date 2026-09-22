@@ -1,7 +1,7 @@
 {
   "id": "0404",
-  "question": "Reinhard was, of course, a character created to be “The Strongest in Re: Zero”, but is there a character you aimed to make “Not too strong, not too weak, just about the right strength”?",
-  "answer": "Characters don’t get made with that line of thinking very often, do they!? If I had to say it, if there’s a character near the position of strength you’re describing, it probably applies to Rem.",
+  "question": "Reinhard was, of course, a character created to be \u201cThe Strongest in Re: Zero\u201d, but is there a character you aimed to make \u201cNot too strong, not too weak, just about the right strength\u201d?",
+  "answer": "Characters don\u2019t get made with that line of thinking very often, do they!? If I had to say it, if there\u2019s a character near the position of strength you\u2019re describing, it probably applies to Rem.",
   "characters": [
     "Reinhard van Astrea",
     "Rem"
@@ -11,8 +11,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/503076258474131456"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-08-23",
+  "date": "August 23, 2014"
 }

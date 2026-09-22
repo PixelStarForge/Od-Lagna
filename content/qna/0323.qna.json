@@ -1,7 +1,7 @@
 {
   "id": "0323",
   "question": "Aldebaran was previously a mercenary; how is his loyalty?",
-  "answer": "It’s unusually high. Giving the friendship between the royal candidates and their attendants, in rough order: Crusch - Ferris > Priscilla - Al > Anastasia - Julius > Emilia - Subaru > Felt - Reinhard. Emilia - Subaru might be a little higher at the end of Arc 4.",
+  "answer": "It\u2019s unusually high. Giving the friendship between the royal candidates and their attendants, in rough order: Crusch - Ferris > Priscilla - Al > Anastasia - Julius > Emilia - Subaru > Felt - Reinhard. Emilia - Subaru might be a little higher at the end of Arc 4.",
   "characters": [
     "Al (Aldebaran)",
     "Anastasia Hoshin",
@@ -19,8 +19,10 @@
   ],
   "arc": "arc-4",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/492171866753466368"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-07-24",
+  "date": "July 24, 2014"
 }

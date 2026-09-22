@@ -1,15 +1,17 @@
 {
   "id": "1086",
   "question": "Does Arc 3 have a theme?",
-  "answer": "Arc 1 is “Beginning”, Arc 2 is “Trust”, Arc 3 is “Self-Awareness”, Arc 4 is “Self-Reliance” (note: idk about arc 5 theme but IIRC Tappei stated on his twitter that Arc 6 theme is \"Despair\"",
+  "answer": "Arc 1 is \u201cBeginning\u201d, Arc 2 is \u201cTrust\u201d, Arc 3 is \u201cSelf-Awareness\u201d, Arc 4 is \u201cSelf-Reliance\u201d (note: idk about arc 5 theme but IIRC Tappei stated on his twitter that Arc 6 theme is \"Despair\"",
   "characters": [],
   "topics": [
     "General"
   ],
   "arc": "arc-3",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/496650916087750656"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-08-05",
+  "date": "August 05, 2014"
 }

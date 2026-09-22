@@ -1,7 +1,7 @@
 {
   "id": "0440",
   "question": "If Wilhelm at his strongest point, and the current Reinhard were to fight, what would happen?",
-  "answer": "Under the condition that they’re honestly trying to kill each other, Wilhelm would be instantly killed.",
+  "answer": "Under the condition that they\u2019re honestly trying to kill each other, Wilhelm would be instantly killed.",
   "characters": [
     "Reinhard van Astrea",
     "Wilhelm van Astrea"
@@ -11,8 +11,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/493298400612593665"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-07-27",
+  "date": "July 27, 2014"
 }

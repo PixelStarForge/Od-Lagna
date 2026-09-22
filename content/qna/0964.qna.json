@@ -1,15 +1,17 @@
 {
   "id": "0964",
   "question": "If you thoroughly researched magic to manipulate time and control space, what level could you use it at?",
-  "answer": "“Come back the day before yesterday” -> “I’m here” would be possible.",
+  "answer": "\u201cCome back the day before yesterday\u201d -> \u201cI\u2019m here\u201d would be possible.",
   "characters": [],
   "topics": [
     "Mana & Magic"
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/474139505742450688"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-06-04",
+  "date": "June 04, 2014"
 }

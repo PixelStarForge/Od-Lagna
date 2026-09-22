@@ -1,7 +1,7 @@
 {
   "id": "0186",
   "question": "Who has the most attractive collarbones out of the Re: Zero cast?",
-  "answer": "Due do her clothing, you can pretty much always see Priscilla’s collarbones. I’m not ashamed of my body!’ is what she thinks.",
+  "answer": "Due do her clothing, you can pretty much always see Priscilla\u2019s collarbones. I\u2019m not ashamed of my body!\u2019 is what she thinks.",
   "characters": [
     "Priscilla Barielle"
   ],
@@ -10,8 +10,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/493281866393587712"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-07-27",
+  "date": "July 27, 2014"
 }

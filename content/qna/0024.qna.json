@@ -1,15 +1,17 @@
 {
   "id": "0024",
-  "question": "For Greycat-san who’s a master of family restaurants, what kind of place is a family restaurant?",
-  "answer": "It’s a place where you can comfortably pass the time sitting on a chair that doesn’t make your body sore for a bit longer yeahhh*sparkle sparkle*",
+  "question": "For Greycat-san who\u2019s a master of family restaurants, what kind of place is a family restaurant?",
+  "answer": "It\u2019s a place where you can comfortably pass the time sitting on a chair that doesn\u2019t make your body sore for a bit longer yeahhh*sparkle sparkle*",
   "characters": [],
   "topics": [
     "General"
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/470900072830738432"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-05-26",
+  "date": "May 26, 2014"
 }

@@ -1,7 +1,7 @@
 {
   "id": "0101",
-  "question": "Arc 1 had Ton, Chin, and Kan, arc 2 had the young men in the village, arc 3 had Julius and Wilhelm, and arc 4 had Otto and Garfiel…… It’s an all-you-can-eat buffet, isn’t it.",
-  "answer": "Picking Ton, Chin, and Kan over Reinhard… you’re scary!!",
+  "question": "Arc 1 had Ton, Chin, and Kan, arc 2 had the young men in the village, arc 3 had Julius and Wilhelm, and arc 4 had Otto and Garfiel\u2026\u2026 It\u2019s an all-you-can-eat buffet, isn\u2019t it.",
+  "answer": "Picking Ton, Chin, and Kan over Reinhard\u2026 you\u2019re scary!!",
   "characters": [
     "Garfiel Tinsel",
     "Julius Juukulius",
@@ -14,8 +14,10 @@
   ],
   "arc": "arc-1",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/477440049781682176"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-06-13",
+  "date": "June 13, 2014"
 }

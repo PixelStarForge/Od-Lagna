@@ -1,7 +1,7 @@
 {
   "id": "0646",
-  "question": "If Sekhmet didn’t have the Authority of Sloth, would she mess herself constantly?",
-  "answer": "That’s right. But, if she didn’t have the Authority of Sloth, I don’t think she’d have become so lazy. Sloth’s Authority is a little too convenient for Sekhmet.",
+  "question": "If Sekhmet didn\u2019t have the Authority of Sloth, would she mess herself constantly?",
+  "answer": "That\u2019s right. But, if she didn\u2019t have the Authority of Sloth, I don\u2019t think she\u2019d have become so lazy. Sloth\u2019s Authority is a little too convenient for Sekhmet.",
   "characters": [
     "Sekhmet"
   ],
@@ -11,8 +11,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/493632924609445888"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-07-28",
+  "date": "July 28, 2014"
 }

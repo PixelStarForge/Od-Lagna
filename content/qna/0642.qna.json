@@ -1,7 +1,7 @@
 {
   "id": "0642",
   "question": "Father-in-law! Please let Sekhmet be my bride!",
-  "answer": "Her breathing is troublesome, and she has dependent children, but if, despite that, you intend to take care of her all her life, she’d be an unusually good wife.",
+  "answer": "Her breathing is troublesome, and she has dependent children, but if, despite that, you intend to take care of her all her life, she\u2019d be an unusually good wife.",
   "characters": [
     "Sekhmet"
   ],
@@ -10,8 +10,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/474164126710005760"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-06-04",
+  "date": "June 04, 2014"
 }

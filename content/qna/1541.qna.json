@@ -1,7 +1,7 @@
 {
   "id": "1541",
-  "question": "I get the impression that if you showed Garfiel anime, he’d come to adore it bit by bit, but is that just my imagination?",
-  "answer": "It’s not your imagination. From arc five onwards, please look forward to his growth as his time together with Subaru grows longer.",
+  "question": "I get the impression that if you showed Garfiel anime, he\u2019d come to adore it bit by bit, but is that just my imagination?",
+  "answer": "It\u2019s not your imagination. From arc five onwards, please look forward to his growth as his time together with Subaru grows longer.",
   "characters": [
     "Garfiel Tinsel",
     "Natsuki Subaru"
@@ -11,8 +11,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/497756292816318464"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-08-08",
+  "date": "August 08, 2014"
 }

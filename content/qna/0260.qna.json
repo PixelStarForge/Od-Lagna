@@ -1,7 +1,7 @@
 {
   "id": "0260",
-  "question": "Reinhard seems like, even if he gets old, he’d have a Divine Protection of Bushiness that keeps him from going bald, but will Julius go bald in the future?",
-  "answer": "Handsome guys basically don’t go bald even when they get older. Bald handsome guys were born that way. Subaru’s not a handsome guy, so I don’t know his potential for going bald. However, never forgets to massage his scalp when he bathes.",
+  "question": "Reinhard seems like, even if he gets old, he\u2019d have a Divine Protection of Bushiness that keeps him from going bald, but will Julius go bald in the future?",
+  "answer": "Handsome guys basically don\u2019t go bald even when they get older. Bald handsome guys were born that way. Subaru\u2019s not a handsome guy, so I don\u2019t know his potential for going bald. However, never forgets to massage his scalp when he bathes.",
   "characters": [
     "Julius Juukulius",
     "Natsuki Subaru",
@@ -12,8 +12,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/497761545691353088"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-08-08",
+  "date": "August 08, 2014"
 }

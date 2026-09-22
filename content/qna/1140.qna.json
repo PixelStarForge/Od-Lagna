@@ -1,7 +1,7 @@
 {
   "id": "1140",
   "question": "If the wife was a witch (Re: Zero-style), what kind of newlywed life would a husband have with each of the seven types of wife?",
-  "answer": "Typhon: Over here, officer. Sekhmet: Come now, I’ve said it’s time to eat, haven’t I!? When are you coming down!? Ooh, you’re such a loafer! Daphne: The cooking and food and flavor are all perfect, but our Engel’s Coefficient is frightful. (note: seems to refer to percentage of household income spent on food) Carmilla: The neighbors hate us, but all the housework is done perfectly. Minerva: Adores her husband Echidna: Grandma, you know everything.",
+  "answer": "Typhon: Over here, officer. Sekhmet: Come now, I\u2019ve said it\u2019s time to eat, haven\u2019t I!? When are you coming down!? Ooh, you\u2019re such a loafer! Daphne: The cooking and food and flavor are all perfect, but our Engel\u2019s Coefficient is frightful. (note: seems to refer to percentage of household income spent on food) Carmilla: The neighbors hate us, but all the housework is done perfectly. Minerva: Adores her husband Echidna: Grandma, you know everything.",
   "characters": [
     "Carmilla",
     "Daphne",
@@ -15,8 +15,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/530633351745777664"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-11-07",
+  "date": "November 07, 2014"
 }

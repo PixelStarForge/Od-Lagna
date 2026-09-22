@@ -1,7 +1,7 @@
 {
   "id": "0823",
-  "question": "From what Crusch-sama says, Lugunica depends too much on the dragon. What do the other countries think of Lugunica? It seems like they might curse them for borrowing the dragon’s threat.",
-  "answer": "I haven’t depicted the other countries, but they’re mostly the same so they don’t think much of it. Gusteko depends on the Holy King, Vollachia depends on the Emperor, Kararagi wouldn’t be able to do anything without Hoshin’s inheritance, that sort of thing.",
+  "question": "From what Crusch-sama says, Lugunica depends too much on the dragon. What do the other countries think of Lugunica? It seems like they might curse them for borrowing the dragon\u2019s threat.",
+  "answer": "I haven\u2019t depicted the other countries, but they\u2019re mostly the same so they don\u2019t think much of it. Gusteko depends on the Holy King, Vollachia depends on the Emperor, Kararagi wouldn\u2019t be able to do anything without Hoshin\u2019s inheritance, that sort of thing.",
   "characters": [
     "Anastasia Hoshin",
     "Crusch Karsten"
@@ -16,8 +16,10 @@
   ],
   "arc": "arc-7",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/533468351025385472"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-11-15",
+  "date": "November 15, 2014"
 }

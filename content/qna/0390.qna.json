@@ -1,7 +1,7 @@
 {
   "id": "0390",
-  "question": "I’ve heard that you can’t use magic around Reinhard, but the lesser spirits healed his injuries, so does that mean he can use spirit arts?",
-  "answer": "Rather the opposite, the lesser spirits get so worked up over him they won’t listen to what he says. With Reinhard draining off all the mana, they can’t use magic properly either. Limited spirits that won’t be unfaithful, like Beako, are his only allies. Beako is great justice, after all!!",
+  "question": "I\u2019ve heard that you can\u2019t use magic around Reinhard, but the lesser spirits healed his injuries, so does that mean he can use spirit arts?",
+  "answer": "Rather the opposite, the lesser spirits get so worked up over him they won\u2019t listen to what he says. With Reinhard draining off all the mana, they can\u2019t use magic properly either. Limited spirits that won\u2019t be unfaithful, like Beako, are his only allies. Beako is great justice, after all!!",
   "characters": [
     "Beatrice",
     "Reinhard van Astrea"
@@ -12,8 +12,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/576732021042626560"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2015-03-14",
+  "date": "March 14, 2015"
 }

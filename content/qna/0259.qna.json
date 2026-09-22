@@ -1,7 +1,7 @@
 {
   "id": "0259",
   "question": "Please give us a Julius route.",
-  "answer": "Quit it with all your “Julius, Julius” whining! Capture him yourself!!",
+  "answer": "Quit it with all your \u201cJulius, Julius\u201d whining! Capture him yourself!!",
   "characters": [
     "Julius Juukulius"
   ],
@@ -10,8 +10,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/475585825921843200"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-06-08",
+  "date": "June 08, 2014"
 }

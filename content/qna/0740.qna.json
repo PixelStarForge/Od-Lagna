@@ -1,7 +1,7 @@
 {
   "id": "0740",
-  "question": "Now that their eldest son Subaru has been summoned to another world, what’s the situation in the Natsuki household? They seem like a couple that it wouldn’t be too surprising if they chased after him to the other world.",
-  "answer": "They’re enduring the disappearance of their eldest son somehow or other. The police investigation has no leads, and Kenichi is trying to comfort Naoko but it’s not that effective. They’re passing each day tearfully.",
+  "question": "Now that their eldest son Subaru has been summoned to another world, what\u2019s the situation in the Natsuki household? They seem like a couple that it wouldn\u2019t be too surprising if they chased after him to the other world.",
+  "answer": "They\u2019re enduring the disappearance of their eldest son somehow or other. The police investigation has no leads, and Kenichi is trying to comfort Naoko but it\u2019s not that effective. They\u2019re passing each day tearfully.",
   "characters": [
     "Natsuki Subaru"
   ],
@@ -10,8 +10,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/494727313708572672"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-07-31",
+  "date": "July 31, 2014"
 }

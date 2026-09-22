@@ -1,7 +1,7 @@
 {
   "id": "3629",
   "question": "Between Ferris and Crusch-sama, which of them gives the other lap pillows?",
-  "answer": "Either of them can give the other a lap pillow. But basically, it’s Ferris that does it.",
+  "answer": "Either of them can give the other a lap pillow. But basically, it\u2019s Ferris that does it.",
   "characters": [
     "Crusch Karsten",
     "Felix Argyle (Ferris)"
@@ -11,8 +11,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/494726437287755776"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-07-31",
+  "date": "July 31, 2014"
 }

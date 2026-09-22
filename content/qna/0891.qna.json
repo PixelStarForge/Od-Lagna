@@ -1,7 +1,7 @@
 {
   "id": "0891",
   "question": "After mayonnaise, what would Subaru be likely to make?",
-  "answer": "I think he’ll stop after developing tartar sauce or something.",
+  "answer": "I think he\u2019ll stop after developing tartar sauce or something.",
   "characters": [
     "Natsuki Subaru"
   ],
@@ -10,8 +10,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/494430005305552898"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-07-30",
+  "date": "July 30, 2014"
 }

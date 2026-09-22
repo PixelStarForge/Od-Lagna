@@ -1,7 +1,7 @@
 {
   "id": "0541",
-  "question": "Regulus said that the face makes the woman; is he the sort of person that doesn’t care at all about the inside, as long as the face is good? Or does he think “Hmm, nope” and turn his back on them if their personality is horrible?",
-  "answer": "Girls he doesn’t get along with get turned into mincemeat, so the brides are all obedient.",
+  "question": "Regulus said that the face makes the woman; is he the sort of person that doesn\u2019t care at all about the inside, as long as the face is good? Or does he think \u201cHmm, nope\u201d and turn his back on them if their personality is horrible?",
+  "answer": "Girls he doesn\u2019t get along with get turned into mincemeat, so the brides are all obedient.",
   "characters": [
     "Regulus Corneas"
   ],
@@ -10,8 +10,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/557431736670638082"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2015-01-20",
+  "date": "January 20, 2015"
 }

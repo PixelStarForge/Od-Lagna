@@ -1,7 +1,7 @@
 {
   "id": "0600",
-  "question": "It looks like Echidna didn’t recognize Reinhard, but was she just pretending, or did she really not know him?",
-  "answer": "She seems like she really wouldn’t want to know about him that much. Of course, she’s a monster of curiosity so she would want to know. After she’d learned, she’d probably dislike him and say “My, my. Thirst for knowledge really is a sin.”, dripping in sentimentality.",
+  "question": "It looks like Echidna didn\u2019t recognize Reinhard, but was she just pretending, or did she really not know him?",
+  "answer": "She seems like she really wouldn\u2019t want to know about him that much. Of course, she\u2019s a monster of curiosity so she would want to know. After she\u2019d learned, she\u2019d probably dislike him and say \u201cMy, my. Thirst for knowledge really is a sin.\u201d, dripping in sentimentality.",
   "characters": [
     "Echidna",
     "Reinhard van Astrea"
@@ -11,8 +11,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/495516941315219456"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-08-02",
+  "date": "August 02, 2014"
 }

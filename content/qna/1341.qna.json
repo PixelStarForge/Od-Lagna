@@ -1,7 +1,7 @@
 {
   "id": "1341",
-  "question": "It seems Subaru’s heart has broken, but is he aware of that himself?",
-  "answer": "Breaking and standing up again was the arc three story, and after that standing up again after seeming that he was going to head in a strange direction was the arc four story, but are you yourself aware what question you’re asking?",
+  "question": "It seems Subaru\u2019s heart has broken, but is he aware of that himself?",
+  "answer": "Breaking and standing up again was the arc three story, and after that standing up again after seeming that he was going to head in a strange direction was the arc four story, but are you yourself aware what question you\u2019re asking?",
   "characters": [
     "Natsuki Subaru"
   ],
@@ -10,8 +10,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/500353106635653120"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-08-15",
+  "date": "August 15, 2014"
 }

@@ -1,7 +1,7 @@
 {
   "id": "0673",
   "question": "Father-in-law! Please give me Daphne-chan to wife! (said while stuffing a folding chair into my mouth)",
-  "answer": "Daphne’s parents are in Daphne’s belly, so head there to ask for permission.",
+  "answer": "Daphne\u2019s parents are in Daphne\u2019s belly, so head there to ask for permission.",
   "characters": [
     "Daphne"
   ],
@@ -10,8 +10,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/493378705138659328"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-07-27",
+  "date": "July 27, 2014"
 }

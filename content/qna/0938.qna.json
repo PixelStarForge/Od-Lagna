@@ -1,7 +1,7 @@
 {
   "id": "0938",
-  "question": "There’s probably not any easily-recognized evil people in the knights, right?",
-  "answer": "They’re knights, after all. They’re quite proud, but good people.",
+  "question": "There\u2019s probably not any easily-recognized evil people in the knights, right?",
+  "answer": "They\u2019re knights, after all. They\u2019re quite proud, but good people.",
   "characters": [],
   "topics": [
     "Royal Knights",
@@ -9,8 +9,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/494728948526612480"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-07-31",
+  "date": "July 31, 2014"
 }

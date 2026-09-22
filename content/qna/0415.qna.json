@@ -1,7 +1,7 @@
 {
   "id": "0415",
   "question": "What does Reinhard do for entertainment?",
-  "answer": "Those with power have a responsibility to use it correctly. He doesn’t have time to set aside the world to look for entertainment.",
+  "answer": "Those with power have a responsibility to use it correctly. He doesn\u2019t have time to set aside the world to look for entertainment.",
   "characters": [
     "Reinhard van Astrea"
   ],
@@ -10,8 +10,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/476329713095704576"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-06-10",
+  "date": "June 10, 2014"
 }

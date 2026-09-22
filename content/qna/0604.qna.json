@@ -1,6 +1,6 @@
 {
   "id": "0604",
-  "question": "What would happen if you gave Echidna internet access? I get the feeling she’d become a shut-in NEET.",
+  "question": "What would happen if you gave Echidna internet access? I get the feeling she\u2019d become a shut-in NEET.",
   "answer": "I can see her now, basking in the pleasure of holding a 2chan thread in the palm of her hand.",
   "characters": [
     "Echidna"
@@ -10,8 +10,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/493297450602741761"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-07-27",
+  "date": "July 27, 2014"
 }

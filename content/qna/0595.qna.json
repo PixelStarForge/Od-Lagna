@@ -1,7 +1,7 @@
 {
   "id": "0595",
   "question": "If I was forever doing unexpected things, could I get Echidna-chan to look my way?",
-  "answer": "It’s possible. If your face looked like modern art, if you were bald, if you had short legs, if you had athlete’s foot, if you had body odor so bad it was almost biologically impossible, even if you’re a NEET with no income, she would look at you for that. I don’t know if she’d love you.",
+  "answer": "It\u2019s possible. If your face looked like modern art, if you were bald, if you had short legs, if you had athlete\u2019s foot, if you had body odor so bad it was almost biologically impossible, even if you\u2019re a NEET with no income, she would look at you for that. I don\u2019t know if she\u2019d love you.",
   "characters": [
     "Echidna"
   ],
@@ -10,8 +10,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/580962092599115776"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2015-03-26",
+  "date": "March 26, 2015"
 }

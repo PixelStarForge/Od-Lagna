@@ -1,7 +1,7 @@
 {
   "id": "0451",
   "question": "Old Man Wil sensed there was something strange about Subaru when they first met, but did any of the knights notice anything?",
-  "answer": "Subaru’s bad side was so outstanding at that point, it wasn’t a situation where they could notice.",
+  "answer": "Subaru\u2019s bad side was so outstanding at that point, it wasn\u2019t a situation where they could notice.",
   "characters": [
     "Natsuki Subaru",
     "Wilhelm van Astrea"
@@ -11,8 +11,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/494734800125984768"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-07-31",
+  "date": "July 31, 2014"
 }

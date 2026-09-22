@@ -1,7 +1,7 @@
 {
   "id": "0913",
-  "question": "Does the guard station have a reception desk? I mean after you’ve gone through the gate.",
-  "answer": "They accept lost items, so… there is!",
+  "question": "Does the guard station have a reception desk? I mean after you\u2019ve gone through the gate.",
+  "answer": "They accept lost items, so\u2026 there is!",
   "characters": [],
   "topics": [
     "Mana & Magic",
@@ -9,8 +9,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/477371711596535808"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-06-13",
+  "date": "June 13, 2014"
 }

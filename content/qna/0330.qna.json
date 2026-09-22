@@ -1,7 +1,7 @@
 {
   "id": "0330",
-  "question": "If a “Moshimo Box” appeared in front of the royal candidates, what would each of them say?",
-  "answer": "None of them would use it, y’see… Even though Subaru would jump in without hesitation. (Note: “Moshimo Box” is from the Doraemon comics. It looks like a phone booth, and lets you experiment with making a single change to the world.)",
+  "question": "If a \u201cMoshimo Box\u201d appeared in front of the royal candidates, what would each of them say?",
+  "answer": "None of them would use it, y\u2019see\u2026 Even though Subaru would jump in without hesitation. (Note: \u201cMoshimo Box\u201d is from the Doraemon comics. It looks like a phone booth, and lets you experiment with making a single change to the world.)",
   "characters": [
     "Natsuki Subaru"
   ],
@@ -10,8 +10,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/530689386250510336"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-11-07",
+  "date": "November 07, 2014"
 }

@@ -1,7 +1,7 @@
 {
   "id": "1459",
-  "question": "Is Ram aware that Rem’s chest is larger than her own? Also, does she feel that she’d like to become large-chested?",
-  "answer": "It’s obvious that she knows, but Ram is satisfied with herself, so she doesn’t particularly want to become large-chested.",
+  "question": "Is Ram aware that Rem\u2019s chest is larger than her own? Also, does she feel that she\u2019d like to become large-chested?",
+  "answer": "It\u2019s obvious that she knows, but Ram is satisfied with herself, so she doesn\u2019t particularly want to become large-chested.",
   "characters": [
     "Ram",
     "Rem"
@@ -11,8 +11,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/477843463342673920"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-06-14",
+  "date": "June 14, 2014"
 }

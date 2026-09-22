@@ -1,7 +1,7 @@
 {
   "id": "1320",
   "question": "If Subaru was naming his child in modern Japan, what name would he choose?",
-  "answer": "There would be a brief skirmish at the town hall when Subaru picks a glittery name as a joke, and his dad doesn’t stop him from choosing it, but it would be settled without hard feelings.",
+  "answer": "There would be a brief skirmish at the town hall when Subaru picks a glittery name as a joke, and his dad doesn\u2019t stop him from choosing it, but it would be settled without hard feelings.",
   "characters": [
     "Natsuki Subaru"
   ],
@@ -10,8 +10,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/477388044774158336"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-06-13",
+  "date": "June 13, 2014"
 }

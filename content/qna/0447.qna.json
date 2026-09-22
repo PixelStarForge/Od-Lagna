@@ -1,7 +1,7 @@
 {
   "id": "0447",
   "question": "Is the affinity bad between the Sword Saint and the White Whale?",
-  "answer": "Not particularly, there isn’t such a thing as an opponent that the Sword Saint has a bad affinity with. You will understand what happened to Theresia-san before long.",
+  "answer": "Not particularly, there isn\u2019t such a thing as an opponent that the Sword Saint has a bad affinity with. You will understand what happened to Theresia-san before long.",
   "characters": [
     "Theresia van Astrea",
     "White Whale"
@@ -11,8 +11,10 @@
   ],
   "arc": "arc-3",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/473078257022427136"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-06-01",
+  "date": "June 01, 2014"
 }

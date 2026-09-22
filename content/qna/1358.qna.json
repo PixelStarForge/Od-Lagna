@@ -1,7 +1,7 @@
 {
   "id": "1358",
-  "question": "Please tell me Subaru’s special skills.",
-  "answer": "Cat’s cradle, bamboo dragonfly, spinning tops, musical accompaniment, sculpture, bed making, ironing, sewing, others, etc.",
+  "question": "Please tell me Subaru\u2019s special skills.",
+  "answer": "Cat\u2019s cradle, bamboo dragonfly, spinning tops, musical accompaniment, sculpture, bed making, ironing, sewing, others, etc.",
   "characters": [
     "Natsuki Subaru"
   ],
@@ -10,8 +10,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/476010985447501824"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-06-09",
+  "date": "June 09, 2014"
 }

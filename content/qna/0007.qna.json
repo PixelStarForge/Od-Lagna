@@ -1,15 +1,17 @@
 {
   "id": "0007",
   "question": "Are you practicing your autograph?",
-  "answer": "The practice is already over, it’s time to put it into practice",
+  "answer": "The practice is already over, it\u2019s time to put it into practice",
   "characters": [],
   "topics": [
     "General"
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/473719457349910528"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-06-03",
+  "date": "June 03, 2014"
 }

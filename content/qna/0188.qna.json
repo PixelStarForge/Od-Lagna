@@ -1,7 +1,7 @@
 {
   "id": "0188",
-  "question": "At the time of the Arc 3 interlude, did he reattach Crusch-san’s left arm?",
-  "answer": "Ferris put his heart and soul into reattaching her arm. There’s not even a scar left.",
+  "question": "At the time of the Arc 3 interlude, did he reattach Crusch-san\u2019s left arm?",
+  "answer": "Ferris put his heart and soul into reattaching her arm. There\u2019s not even a scar left.",
   "characters": [
     "Crusch Karsten",
     "Felix Argyle (Ferris)"
@@ -11,8 +11,10 @@
   ],
   "arc": "arc-3",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/517823813753765889"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-10-02",
+  "date": "October 02, 2014"
 }

@@ -1,7 +1,7 @@
 {
   "id": "1309",
   "question": "Has Subaru ever been questioned by the police?",
-  "answer": "He’s managed to cleanly avoid it every time it might have happened.",
+  "answer": "He\u2019s managed to cleanly avoid it every time it might have happened.",
   "characters": [
     "Natsuki Subaru"
   ],
@@ -10,8 +10,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/495525435707756545"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-08-02",
+  "date": "August 02, 2014"
 }

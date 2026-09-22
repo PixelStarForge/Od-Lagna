@@ -1,15 +1,17 @@
 {
   "id": "0281",
   "question": "Is Kiritaka a lolicon?",
-  "answer": "He’s a severe lolicon.",
+  "answer": "He\u2019s a severe lolicon.",
   "characters": [],
   "topics": [
     "General"
   ],
   "arc": "arc-5",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/499066291513458688"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-08-12",
+  "date": "August 12, 2014"
 }

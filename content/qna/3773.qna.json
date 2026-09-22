@@ -1,7 +1,7 @@
 {
   "id": "3773",
-  "question": "What does Julius’ quasi-spirit of shadow think when it sees Beatrice?",
-  "answer": "It thinks “I wanna be like that…! For master!”",
+  "question": "What does Julius\u2019 quasi-spirit of shadow think when it sees Beatrice?",
+  "answer": "It thinks \u201cI wanna be like that\u2026! For master!\u201d",
   "characters": [
     "Beatrice",
     "Julius Juukulius"
@@ -11,8 +11,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/533649674344103936"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-11-15",
+  "date": "November 15, 2014"
 }

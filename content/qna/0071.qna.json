@@ -1,6 +1,6 @@
 {
   "id": "0071",
-  "question": "What do you think of this situation where Rem’s popularity has ended up becoming higher than Emilia’s?",
+  "question": "What do you think of this situation where Rem\u2019s popularity has ended up becoming higher than Emilia\u2019s?",
   "answer": "After this there are six arcs remaining where Emilia-tan will continue to be the heroine but, is there a problem somehow?",
   "characters": [
     "Emilia",
@@ -11,8 +11,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/473452224962904064"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-06-02",
+  "date": "June 02, 2014"
 }

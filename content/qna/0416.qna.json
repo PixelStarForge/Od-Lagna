@@ -1,7 +1,7 @@
 {
   "id": "0416",
   "question": "What does Reinhard think about Subaru?",
-  "answer": "Reinhard respects him as someone who has something that Reinhard lacks, and thinks he’s an amazing guy who puts all his effort into what he wants to do.",
+  "answer": "Reinhard respects him as someone who has something that Reinhard lacks, and thinks he\u2019s an amazing guy who puts all his effort into what he wants to do.",
   "characters": [
     "Natsuki Subaru",
     "Reinhard van Astrea"
@@ -11,8 +11,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/495527273031032833"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-08-02",
+  "date": "August 02, 2014"
 }

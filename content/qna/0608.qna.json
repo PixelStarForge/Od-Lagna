@@ -1,7 +1,7 @@
 {
   "id": "0608",
   "question": "Can Minerva-tan kill a person (living thing)?",
-  "answer": "Just like it says, she can’t even hurt a fly. It’s at the level where a bug she stepped on would say “Thank you very much!”.",
+  "answer": "Just like it says, she can\u2019t even hurt a fly. It\u2019s at the level where a bug she stepped on would say \u201cThank you very much!\u201d.",
   "characters": [
     "Minerva"
   ],
@@ -10,8 +10,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/493932341304516608"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-07-29",
+  "date": "July 29, 2014"
 }

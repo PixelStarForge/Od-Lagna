@@ -1,7 +1,7 @@
 {
   "id": "3676",
   "question": "If Otto was thrown in front of a starving lion, what action would he take?",
-  "answer": "He’d promote his ability by saying ‘If you eat me, you can get rid of your current hunger, but that’s only temporary; if you cooperate with me, you can have a chance to get a different kind of meal.’, and become the first human Director of Animal Kingdom’s Lugunica Branch.",
+  "answer": "He\u2019d promote his ability by saying \u2018If you eat me, you can get rid of your current hunger, but that\u2019s only temporary; if you cooperate with me, you can have a chance to get a different kind of meal.\u2019, and become the first human Director of Animal Kingdom\u2019s Lugunica Branch.",
   "characters": [
     "Otto Suwen"
   ],
@@ -10,8 +10,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/576730225352040448"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2015-03-14",
+  "date": "March 14, 2015"
 }

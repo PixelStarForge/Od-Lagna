@@ -1,7 +1,7 @@
 {
   "id": "0825",
   "question": "How frequently do people die in the capital?",
-  "answer": "I’m not quite sure how to answer this question, but in the back alleys, life is fairly cheap.",
+  "answer": "I\u2019m not quite sure how to answer this question, but in the back alleys, life is fairly cheap.",
   "characters": [],
   "topics": [
     "Dragon Kingdom Lugnica",
@@ -9,8 +9,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/476741817250381824"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-06-11",
+  "date": "June 11, 2014"
 }

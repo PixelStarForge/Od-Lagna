@@ -1,7 +1,7 @@
 {
   "id": "1007",
   "question": "I think that fire magic stones manipulate temperature, water magic stones produce water, wind magic stones produce wind, but what sort of effect do earth magic stones have? Also, are there light and shadow magic stones? If there are, what kind of effect do they have?",
-  "answer": "Earth magic stones improve the strength of objects, act as fertilizer for crops when buried, and other things. Light and shadow magic stones do exist, but those are largely used in ‘metia’ magic items. They’re battery substitutes.",
+  "answer": "Earth magic stones improve the strength of objects, act as fertilizer for crops when buried, and other things. Light and shadow magic stones do exist, but those are largely used in \u2018metia\u2019 magic items. They\u2019re battery substitutes.",
   "characters": [],
   "topics": [
     "Contracts & Spirits",
@@ -10,8 +10,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/494426613631963136"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-07-30",
+  "date": "July 30, 2014"
 }

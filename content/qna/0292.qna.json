@@ -1,6 +1,6 @@
 {
   "id": "0292",
-  "question": "The person who can be heard the furthest away without using magic is… swoosh!",
+  "question": "The person who can be heard the furthest away without using magic is\u2026 swoosh!",
   "answer": "Miklotov",
   "characters": [
     "Miklotov McMahon"
@@ -10,8 +10,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/476327436888854530"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-06-10",
+  "date": "June 10, 2014"
 }

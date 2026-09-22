@@ -1,7 +1,7 @@
 {
   "id": "0835",
-  "question": "Just how wide is Lugunica? I was thinking it was around Australia’s size, but there is the waterfall, so maybe it’s more like Canada?",
-  "answer": "I haven’t thought about it. It’s called a waterfall, but it’s a diorama world, so the four edges of the world are cliffs. Water goes roaring off there, and that’s called the Great Waterfall. No one knows how far down it falls.",
+  "question": "Just how wide is Lugunica? I was thinking it was around Australia\u2019s size, but there is the waterfall, so maybe it\u2019s more like Canada?",
+  "answer": "I haven\u2019t thought about it. It\u2019s called a waterfall, but it\u2019s a diorama world, so the four edges of the world are cliffs. Water goes roaring off there, and that\u2019s called the Great Waterfall. No one knows how far down it falls.",
   "characters": [],
   "topics": [
     "Dragon Kingdom Lugnica",
@@ -9,8 +9,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/493283189646168064"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-07-27",
+  "date": "July 27, 2014"
 }

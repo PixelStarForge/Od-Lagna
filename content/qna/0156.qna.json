@@ -1,6 +1,6 @@
 {
   "id": "0156",
-  "question": "If Rem didn’t get so popular, would the stream have been considerably different?",
+  "question": "If Rem didn\u2019t get so popular, would the stream have been considerably different?",
   "answer": "The stream would continue its course, but the height of its waves would be different.",
   "characters": [
     "Rem"
@@ -10,8 +10,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/477743056591286272"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-06-14",
+  "date": "June 14, 2014"
 }

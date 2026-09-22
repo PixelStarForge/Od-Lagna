@@ -1,7 +1,7 @@
 {
   "id": "0628",
-  "question": "What would Minerva-tan do if she found someone who was about to starve to death? Would punching them only cure the malnutrition? Or would she say “Eat the flesh of my arm” and turn into a gory Anpanman? (Note: Anpanman is a children’s cartoon character. His head is bean jam bun for a head that he lets hungry people eat.)",
-  "answer": "Minerva-tan would probably immediately turn away from someone she couldn’t help. She doesn’t have time to waste, after all.",
+  "question": "What would Minerva-tan do if she found someone who was about to starve to death? Would punching them only cure the malnutrition? Or would she say \u201cEat the flesh of my arm\u201d and turn into a gory Anpanman? (Note: Anpanman is a children\u2019s cartoon character. His head is bean jam bun for a head that he lets hungry people eat.)",
+  "answer": "Minerva-tan would probably immediately turn away from someone she couldn\u2019t help. She doesn\u2019t have time to waste, after all.",
   "characters": [
     "Minerva"
   ],
@@ -10,8 +10,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/494739850181214209"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-07-31",
+  "date": "July 31, 2014"
 }

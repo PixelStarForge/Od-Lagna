@@ -1,7 +1,7 @@
 {
   "id": "0630",
-  "question": "What’s Witch Time!?",
-  "answer": "Being Pakkuncho’ed by the Witch of Envy. (Note: Not sure what pakkuncho is, aside from a cookie brand. Possibly relevant video here.",
+  "question": "What\u2019s Witch Time!?",
+  "answer": "Being Pakkuncho\u2019ed by the Witch of Envy. (Note: Not sure what pakkuncho is, aside from a cookie brand. Possibly relevant video here.",
   "characters": [
     "Satella"
   ],
@@ -10,8 +10,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/477400168619573248"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-06-13",
+  "date": "June 13, 2014"
 }

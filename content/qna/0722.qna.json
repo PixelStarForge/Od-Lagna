@@ -1,15 +1,17 @@
 {
   "id": "0722",
   "question": "What was the witch who created the whale, rabbit, and snake thinking?",
-  "answer": "I’m hungry.",
+  "answer": "I\u2019m hungry.",
   "characters": [],
   "topics": [
     "Great Mabeasts"
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/478441600298020864"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-06-16",
+  "date": "June 16, 2014"
 }

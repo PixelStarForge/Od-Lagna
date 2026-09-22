@@ -1,7 +1,7 @@
 {
   "id": "1014",
   "question": "Is it alright to recognize blessings as having two types, those that reside in the blood (like Reinhard) and those that reside in mutations (like Otto-kun)? Honestly, does it just depend on the mood of the one bestowing the blessing?",
-  "answer": "It’s like that.",
+  "answer": "It\u2019s like that.",
   "characters": [
     "Otto Suwen",
     "Reinhard van Astrea"
@@ -12,8 +12,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/495542347934203904"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-08-02",
+  "date": "August 02, 2014"
 }

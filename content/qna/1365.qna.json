@@ -1,7 +1,7 @@
 {
   "id": "1365",
-  "question": "So Subaru-kun has become a knight, but is he no longer working as a servant? Is the mansion’s care being handled by just the lady maids?",
-  "answer": "He was quite full of himself the day he got back, but he quickly got restless, and so when he has free time he acts as a servant. He’s gotten better at cooking.",
+  "question": "So Subaru-kun has become a knight, but is he no longer working as a servant? Is the mansion\u2019s care being handled by just the lady maids?",
+  "answer": "He was quite full of himself the day he got back, but he quickly got restless, and so when he has free time he acts as a servant. He\u2019s gotten better at cooking.",
   "characters": [
     "Natsuki Subaru"
   ],
@@ -10,8 +10,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/532467187043545088"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-11-12",
+  "date": "November 12, 2014"
 }

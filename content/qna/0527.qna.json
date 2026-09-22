@@ -1,7 +1,7 @@
 {
   "id": "0527",
-  "question": "I like Regulus and Batenkaitos, but are they friends with each other? Doesn’t Regulus get unreasonably angry and they try to kill each other?",
-  "answer": "They do fight, but Regulus’ anger doesn’t last, so it ends with Batenkaitos running away. If there was nowhere to run to, it wouldn’t even be a fight.",
+  "question": "I like Regulus and Batenkaitos, but are they friends with each other? Doesn\u2019t Regulus get unreasonably angry and they try to kill each other?",
+  "answer": "They do fight, but Regulus\u2019 anger doesn\u2019t last, so it ends with Batenkaitos running away. If there was nowhere to run to, it wouldn\u2019t even be a fight.",
   "characters": [
     "Ley Batenkaitos",
     "Regulus Corneas"
@@ -11,8 +11,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/500280221170667520"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-08-15",
+  "date": "August 15, 2014"
 }

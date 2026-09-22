@@ -1,6 +1,6 @@
 {
   "id": "0695",
-  "question": "Are all the Great Rabbit’s horns broken?",
+  "question": "Are all the Great Rabbit\u2019s horns broken?",
   "answer": "If you break the horns on the first few, all of them that appear afterwards are hornless.",
   "characters": [],
   "topics": [
@@ -8,8 +8,10 @@
   ],
   "arc": "arc-4",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/494741137476050944"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-07-31",
+  "date": "July 31, 2014"
 }

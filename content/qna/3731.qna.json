@@ -1,7 +1,7 @@
 {
   "id": "3731",
-  "question": "Otto has enough ability to be called the Shrewd Minister of the Interior, so why didn’t he succeed as a merchant? I think that his only problems are a lack of popularity and luck.",
-  "answer": "Those were most likely the problem, indeed. Having no luck, in particular, is an ability that really doesn’t help out.",
+  "question": "Otto has enough ability to be called the Shrewd Minister of the Interior, so why didn\u2019t he succeed as a merchant? I think that his only problems are a lack of popularity and luck.",
+  "answer": "Those were most likely the problem, indeed. Having no luck, in particular, is an ability that really doesn\u2019t help out.",
   "characters": [
     "Otto Suwen"
   ],
@@ -10,8 +10,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/515482881389776896"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-09-26",
+  "date": "September 26, 2014"
 }

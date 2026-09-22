@@ -1,7 +1,7 @@
 {
   "id": "1233",
   "question": "An episode about the period where the three knights Julius, Ferris, and Reinhard first met.",
-  "answer": "They’ll get together in arc 5, so the story might touch on that time. Please look forward to it.",
+  "answer": "They\u2019ll get together in arc 5, so the story might touch on that time. Please look forward to it.",
   "characters": [
     "Felix Argyle (Ferris)",
     "Julius Juukulius",
@@ -12,8 +12,10 @@
   ],
   "arc": "arc-5",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/520082158896283648"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-10-09",
+  "date": "October 09, 2014"
 }

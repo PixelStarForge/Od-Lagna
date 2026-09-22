@@ -1,7 +1,7 @@
 {
   "id": "1531",
   "question": "Does Garfiel sharpen his claws and such?",
-  "answer": "He’s sharpening them all the time. I’m sure that in Otto’s Garfiel fight, the reason the woods lent a hand to Otto was that Garfiel had ruined countless trees with his claw sharpening.",
+  "answer": "He\u2019s sharpening them all the time. I\u2019m sure that in Otto\u2019s Garfiel fight, the reason the woods lent a hand to Otto was that Garfiel had ruined countless trees with his claw sharpening.",
   "characters": [
     "Garfiel Tinsel",
     "Otto Suwen"
@@ -11,8 +11,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/493930178905911296"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-07-29",
+  "date": "July 29, 2014"
 }

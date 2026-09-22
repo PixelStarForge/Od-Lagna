@@ -1,7 +1,7 @@
 {
   "id": "0769",
   "question": "Out of the archbishops, which one is the most difficult to communicate with?",
-  "answer": "That’s like being thrown into the middle of a pride of lions, who know the taste of blood and are hungry, and saying ‘Well! Which one looks like they’ll want to talk!?’.",
+  "answer": "That\u2019s like being thrown into the middle of a pride of lions, who know the taste of blood and are hungry, and saying \u2018Well! Which one looks like they\u2019ll want to talk!?\u2019.",
   "characters": [],
   "topics": [
     "Sin Archbishops",
@@ -9,8 +9,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/496882041703907330"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-08-06",
+  "date": "August 06, 2014"
 }

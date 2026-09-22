@@ -1,15 +1,17 @@
 {
   "id": "1053",
   "question": "If something was to happen to Mr. Cat, would your friend finish everything up?",
-  "answer": "Nah, I don’t think he has any writing ability. Just the story details will be revealed.",
+  "answer": "Nah, I don\u2019t think he has any writing ability. Just the story details will be revealed.",
   "characters": [],
   "topics": [
     "General"
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/478441292922638336"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-06-16",
+  "date": "June 16, 2014"
 }

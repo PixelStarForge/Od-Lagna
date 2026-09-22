@@ -1,7 +1,7 @@
 {
   "id": "3616",
-  "question": "Are Otto’s non-human friends limited to Verhoe only? It seems like it would be handy to have some birds and rodents that he could trust.",
-  "answer": "Verhoe is completely loyal to Otto since he can converse, and gives him food, but he doesn’t really think of Otto as a friend.",
+  "question": "Are Otto\u2019s non-human friends limited to Verhoe only? It seems like it would be handy to have some birds and rodents that he could trust.",
+  "answer": "Verhoe is completely loyal to Otto since he can converse, and gives him food, but he doesn\u2019t really think of Otto as a friend.",
   "characters": [
     "Otto Suwen"
   ],
@@ -10,8 +10,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/502818602534592512"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-08-22",
+  "date": "August 22, 2014"
 }

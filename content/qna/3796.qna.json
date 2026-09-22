@@ -1,7 +1,7 @@
 {
   "id": "3796",
-  "question": "What’s the number one animal sound that Otto heard that he wishes he hadn’t?",
-  "answer": "Well you know, livestock… nah, let’s not go there.",
+  "question": "What\u2019s the number one animal sound that Otto heard that he wishes he hadn\u2019t?",
+  "answer": "Well you know, livestock\u2026 nah, let\u2019s not go there.",
   "characters": [
     "Otto Suwen"
   ],
@@ -10,8 +10,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/569377772734451712"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2015-02-22",
+  "date": "February 22, 2015"
 }

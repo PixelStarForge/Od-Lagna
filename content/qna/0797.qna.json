@@ -1,7 +1,7 @@
 {
   "id": "0797",
-  "question": "Does Subaru use Invisible Providence to flip up Beako’s skirt and things like that?",
-  "answer": "Betting everything on one instant, even while feeling like your soul is being scraped away, is manly, but I get the feeling that it’s only manly..",
+  "question": "Does Subaru use Invisible Providence to flip up Beako\u2019s skirt and things like that?",
+  "answer": "Betting everything on one instant, even while feeling like your soul is being scraped away, is manly, but I get the feeling that it\u2019s only manly..",
   "characters": [
     "Beatrice",
     "Natsuki Subaru"
@@ -11,8 +11,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/515427290826948608"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-09-26",
+  "date": "September 26, 2014"
 }

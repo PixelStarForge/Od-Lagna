@@ -1,7 +1,7 @@
 {
   "id": "0843",
-  "question": "What country does Re: Zero’s setting resemble?",
-  "answer": "If I had to say, Lugunica feels like Australia, or someplace similar that’s easy to travel through. Gusteko in the north resembles northern Europe, where blowing snow is always falling. Kararagi in the west is like the rainy country around Osaka. Vollachia in the south is maybe similar to Spain.",
+  "question": "What country does Re: Zero\u2019s setting resemble?",
+  "answer": "If I had to say, Lugunica feels like Australia, or someplace similar that\u2019s easy to travel through. Gusteko in the north resembles northern Europe, where blowing snow is always falling. Kararagi in the west is like the rainy country around Osaka. Vollachia in the south is maybe similar to Spain.",
   "characters": [],
   "topics": [
     "Dragon Kingdom Lugnica",
@@ -12,8 +12,10 @@
   ],
   "arc": "arc-7",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/474507713289129984"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-06-05",
+  "date": "June 05, 2014"
 }

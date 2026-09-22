@@ -1,7 +1,7 @@
 {
   "id": "0113",
   "question": "If Otto and Ton, Chin, and Kan fought, who is the strongest?",
-  "answer": "Around the time of arc 4, it’s probably Otto.",
+  "answer": "Around the time of arc 4, it\u2019s probably Otto.",
   "characters": [
     "Otto Suwen"
   ],
@@ -10,8 +10,10 @@
   ],
   "arc": "arc-4",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/474503583044759552"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-06-05",
+  "date": "June 05, 2014"
 }

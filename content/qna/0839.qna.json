@@ -1,7 +1,7 @@
 {
   "id": "0839",
-  "question": "The White Whale is recognized as a whale-shaped mabeast; what part of that world do whales inhabit? It was said that the vicinity of the Great Waterfall isn’t wide enough for anything to live there, so are they living in a lake somewhere?",
-  "answer": "I don’t think there are any whales or lions, but I don’t think it’s good to look too deeply into the meaning of an expression, so I think it’s best not to worry about it.",
+  "question": "The White Whale is recognized as a whale-shaped mabeast; what part of that world do whales inhabit? It was said that the vicinity of the Great Waterfall isn\u2019t wide enough for anything to live there, so are they living in a lake somewhere?",
+  "answer": "I don\u2019t think there are any whales or lions, but I don\u2019t think it\u2019s good to look too deeply into the meaning of an expression, so I think it\u2019s best not to worry about it.",
   "characters": [
     "White Whale"
   ],
@@ -12,8 +12,10 @@
   ],
   "arc": "arc-3",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/522630607332204544"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-10-16",
+  "date": "October 16, 2014"
 }

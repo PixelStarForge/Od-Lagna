@@ -1,7 +1,7 @@
 {
   "id": "0661",
-  "question": "You’ve said that the witches are walking disasters; what kind of disaster was Sekhmet? It doesn’t seem like she’d do anything by herself.",
-  "answer": "She’d go to stop Typhon’s rampage, and cause the damage to spread.",
+  "question": "You\u2019ve said that the witches are walking disasters; what kind of disaster was Sekhmet? It doesn\u2019t seem like she\u2019d do anything by herself.",
+  "answer": "She\u2019d go to stop Typhon\u2019s rampage, and cause the damage to spread.",
   "characters": [
     "Sekhmet",
     "Typhon"
@@ -11,8 +11,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/492572391818944512"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-07-25",
+  "date": "July 25, 2014"
 }

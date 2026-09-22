@@ -1,15 +1,17 @@
 {
   "id": "0084",
   "question": "Who is your best friend?",
-  "answer": "I don’t have any more than four people for friends so I want to think of those guys who haven’t abandoned me as best friends.",
+  "answer": "I don\u2019t have any more than four people for friends so I want to think of those guys who haven\u2019t abandoned me as best friends.",
   "characters": [],
   "topics": [
     "General"
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/471201964907577344"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-05-27",
+  "date": "May 27, 2014"
 }

@@ -1,7 +1,7 @@
 {
   "id": "1294",
-  "question": "An excessive love letter… in kindergarten, what kind of content did he write?",
-  "answer": "It was probably something like Echidna’s confession, wasn’t it? A little more cheerful, though.",
+  "question": "An excessive love letter\u2026 in kindergarten, what kind of content did he write?",
+  "answer": "It was probably something like Echidna\u2019s confession, wasn\u2019t it? A little more cheerful, though.",
   "characters": [
     "Echidna"
   ],
@@ -10,8 +10,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/497313045778280448"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-08-07",
+  "date": "August 07, 2014"
 }

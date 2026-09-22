@@ -1,6 +1,6 @@
 {
   "id": "0694",
-  "question": "You’ve said that Daphne give birth to mabeasts from her third mouth, but does that mean she has a second mouth as well? Also, does Daphne have different colors in her left and right eyes?",
+  "question": "You\u2019ve said that Daphne give birth to mabeasts from her third mouth, but does that mean she has a second mouth as well? Also, does Daphne have different colors in her left and right eyes?",
   "answer": "Well yeah, she has a third, so as a matter of ordering, she has a second. Her eyes are the same color.",
   "characters": [
     "Daphne"
@@ -10,8 +10,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/530690212373229568"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-11-07",
+  "date": "November 07, 2014"
 }

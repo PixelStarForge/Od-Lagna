@@ -1,7 +1,7 @@
 {
   "id": "1487",
   "question": "Has Roswaal sort of figured out where Subaru came from?",
-  "answer": "No one would normally believe that other worlds exist, so that sort of idea isn’t going to occur often. It doesn’t really work like ‘Someone you’ve never seen before washes up on the beach; they’re from another world!’. So, even Roswaal isn’t close to knowing about Subaru’s identity and birthplace.",
+  "answer": "No one would normally believe that other worlds exist, so that sort of idea isn\u2019t going to occur often. It doesn\u2019t really work like \u2018Someone you\u2019ve never seen before washes up on the beach; they\u2019re from another world!\u2019. So, even Roswaal isn\u2019t close to knowing about Subaru\u2019s identity and birthplace.",
   "characters": [
     "Natsuki Subaru",
     "Roswaal L. Mathers"
@@ -11,8 +11,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/529878570081189889"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-11-05",
+  "date": "November 05, 2014"
 }

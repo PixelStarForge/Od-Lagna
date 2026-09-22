@@ -1,7 +1,7 @@
 {
   "id": "0657",
   "question": "Typhon seems to think that Subaru thinks of himself as a sinner; why is that?",
-  "answer": "She was told that even though he’s not needed, and no one is all that worried about him, he can’t make up his mind, and thinks “It’s my fault. If I don’t do my best, it’ll be terrible for everyone.”, to put it politely.",
+  "answer": "She was told that even though he\u2019s not needed, and no one is all that worried about him, he can\u2019t make up his mind, and thinks \u201cIt\u2019s my fault. If I don\u2019t do my best, it\u2019ll be terrible for everyone.\u201d, to put it politely.",
   "characters": [
     "Natsuki Subaru",
     "Typhon"
@@ -11,8 +11,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/495527164662800384"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-08-02",
+  "date": "August 02, 2014"
 }

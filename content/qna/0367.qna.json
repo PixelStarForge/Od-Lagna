@@ -1,7 +1,7 @@
 {
   "id": "0367",
   "question": "If Subaru tried to tell Reinhard about Return by Death, regardless of the consequences, what would happen?",
-  "answer": "Subaru’s heart would pop.",
+  "answer": "Subaru\u2019s heart would pop.",
   "characters": [
     "Natsuki Subaru",
     "Reinhard van Astrea"
@@ -11,8 +11,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/475335923073552385"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-06-07",
+  "date": "June 07, 2014"
 }

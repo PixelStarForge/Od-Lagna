@@ -1,7 +1,7 @@
 {
   "id": "0772",
   "question": "Sensei, out of the witches, which is your favorite? Mine is Sekhmet.",
-  "answer": "Recently, I’ve thought that Daphne and Typhon are cute. (June 11, 2014 arc4)",
+  "answer": "Recently, I\u2019ve thought that Daphne and Typhon are cute. (June 11, 2014 arc4)",
   "characters": [
     "Daphne",
     "Sekhmet",
@@ -13,9 +13,10 @@
   ],
   "arc": "arc-4",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/476585821660004352"
   },
-  "verified": false,
-  "date": "June 11, 2014"
+  "verified": true,
+  "date": "June 11, 2014",
+  "dateTime": "2014-06-11"
 }

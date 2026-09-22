@@ -1,7 +1,7 @@
 {
   "id": "1322",
   "question": "If Subaru-kun had taken the third trial, what kind of result would have occurred?",
-  "answer": "He’d have seen the death scenes from arc five and arc six and such, and when dying in arc five and so on, he’d have said “Ah! This is what happened in the third ‘Trial’!” and died, I think.",
+  "answer": "He\u2019d have seen the death scenes from arc five and arc six and such, and when dying in arc five and so on, he\u2019d have said \u201cAh! This is what happened in the third \u2018Trial\u2019!\u201d and died, I think.",
   "characters": [
     "Natsuki Subaru"
   ],
@@ -10,8 +10,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/493930450738757632"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-07-29",
+  "date": "July 29, 2014"
 }

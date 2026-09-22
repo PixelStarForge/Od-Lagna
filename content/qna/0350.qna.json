@@ -1,7 +1,7 @@
 {
   "id": "0350",
-  "question": "Around how many friends does Reinhard have? Is he the kind of guy that thinks of people as friends, but they don’t think of him as a friend?",
-  "answer": "He’s sociable and humorous, and aside from being a bit stiff, he’s a handsome guy without any issues, so he’s got lots of friends.",
+  "question": "Around how many friends does Reinhard have? Is he the kind of guy that thinks of people as friends, but they don\u2019t think of him as a friend?",
+  "answer": "He\u2019s sociable and humorous, and aside from being a bit stiff, he\u2019s a handsome guy without any issues, so he\u2019s got lots of friends.",
   "characters": [
     "Reinhard van Astrea"
   ],
@@ -10,8 +10,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/494726032365469696"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-07-31",
+  "date": "July 31, 2014"
 }

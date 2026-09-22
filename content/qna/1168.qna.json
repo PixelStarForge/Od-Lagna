@@ -1,6 +1,6 @@
 {
   "id": "1168",
-  "question": "What would you do if you heard “Package for you!” and Puck arrived at your house? I’d cuddle him carefully for the rest of my life!!",
+  "question": "What would you do if you heard \u201cPackage for you!\u201d and Puck arrived at your house? I\u2019d cuddle him carefully for the rest of my life!!",
   "answer": "Since Emilia-tan would probably be upset, Puck and I would go on a journey to find Emilia-tan.",
   "characters": [
     "Emilia",
@@ -11,8 +11,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/492308865334378496"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-07-24",
+  "date": "July 24, 2014"
 }

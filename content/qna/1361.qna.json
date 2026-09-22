@@ -1,7 +1,7 @@
 {
   "id": "1361",
-  "question": "Reading from the arc one until the latest chapter, I’ve always been thinking this, but Subaru’s a pretty good kid, isn’t he?",
-  "answer": "I think he’s is a pretty good kid. He’s a side character with good main character potential. His parents probably raised him well.",
+  "question": "Reading from the arc one until the latest chapter, I\u2019ve always been thinking this, but Subaru\u2019s a pretty good kid, isn\u2019t he?",
+  "answer": "I think he\u2019s is a pretty good kid. He\u2019s a side character with good main character potential. His parents probably raised him well.",
   "characters": [
     "Natsuki Subaru"
   ],
@@ -10,8 +10,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/583234471102648320"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2015-04-01",
+  "date": "April 01, 2015"
 }

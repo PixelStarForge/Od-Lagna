@@ -1,7 +1,7 @@
 {
   "id": "1211",
   "question": "A story where Subaru gives second names (soul names) to Garfiel and everyone in the Emilia faction.",
-  "answer": "I’ll keep that one in stock. Thanks.",
+  "answer": "I\u2019ll keep that one in stock. Thanks.",
   "characters": [
     "Emilia",
     "Garfiel Tinsel",
@@ -12,8 +12,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/531269237416148992"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-11-09",
+  "date": "November 09, 2014"
 }

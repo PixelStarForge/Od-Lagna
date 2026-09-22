@@ -1,17 +1,19 @@
 {
   "id": "0495",
-  "question": "In the end, will Bishop Petelgeuse Romanee-Conti’s name carry on? I’m like him quite a bit.",
-  "answer": "Depending on everyone’s opinions, I’ll decide if I fight or not. Incidentally, I like him too.",
+  "question": "In the end, will Bishop Petelgeuse Romanee-Conti\u2019s name carry on? I\u2019m like him quite a bit.",
+  "answer": "Depending on everyone\u2019s opinions, I\u2019ll decide if I fight or not. Incidentally, I like him too.",
   "characters": [
-    "Petelgeuse Romanée-Conti"
+    "Petelgeuse Roman\u00e9e-Conti"
   ],
   "topics": [
     "General"
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/500277267202048000"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-08-15",
+  "date": "August 15, 2014"
 }

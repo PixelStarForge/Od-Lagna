@@ -1,7 +1,7 @@
 {
   "id": "1050",
   "question": "If Subaru died of old age, would he do something like looping eternally on the day of his death? Or would he be able to see Kadomon again, after a long absence?",
-  "answer": "If he’s not able to fulfill the goal of the person making him ‘Return by Death’ before he dies of old age, he’ll probably return.",
+  "answer": "If he\u2019s not able to fulfill the goal of the person making him \u2018Return by Death\u2019 before he dies of old age, he\u2019ll probably return.",
   "characters": [
     "Kadomon Risch",
     "Natsuki Subaru"
@@ -11,8 +11,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/494421771161182208"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-07-30",
+  "date": "July 30, 2014"
 }

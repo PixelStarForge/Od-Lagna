@@ -1,7 +1,7 @@
 {
   "id": "1274",
   "question": "Subaru-kun changes into a girl! With Capella around, it should be possible!",
-  "answer": "It’s possible, but there’s no point!",
+  "answer": "It\u2019s possible, but there\u2019s no point!",
   "characters": [
     "Capella Emerada Lugnica",
     "Natsuki Subaru"
@@ -11,8 +11,10 @@
   ],
   "arc": "arc-5",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/538162007896502272"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-11-28",
+  "date": "November 28, 2014"
 }

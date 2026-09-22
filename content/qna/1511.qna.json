@@ -1,7 +1,7 @@
 {
   "id": "1511",
   "question": "Puck becomes larger when he loses it, but does Beako still have a transformation remaining?",
-  "answer": "She’ll stay that way,",
+  "answer": "She\u2019ll stay that way,",
   "characters": [
     "Beatrice",
     "Puck"
@@ -11,8 +11,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/495542370566688768"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-08-02",
+  "date": "August 02, 2014"
 }

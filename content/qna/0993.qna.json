@@ -1,7 +1,7 @@
 {
   "id": "0993",
-  "question": "Will ‘Al’-grade magic appear for all magic affinities? Also, are there other affinities where not the scale, but the effect changes dramatically, like Al Shamac?",
-  "answer": "I do basically intend to produce all of them. As for affinities where the effect changes dramatically, light magic fits there, but I haven’t yet decided the name, let alone the effect...",
+  "question": "Will \u2018Al\u2019-grade magic appear for all magic affinities? Also, are there other affinities where not the scale, but the effect changes dramatically, like Al Shamac?",
+  "answer": "I do basically intend to produce all of them. As for affinities where the effect changes dramatically, light magic fits there, but I haven\u2019t yet decided the name, let alone the effect...",
   "characters": [
     "Al (Aldebaran)"
   ],
@@ -10,8 +10,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/502817044925251584"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-08-22",
+  "date": "August 22, 2014"
 }

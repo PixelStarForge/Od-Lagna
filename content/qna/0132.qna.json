@@ -1,6 +1,6 @@
 {
   "id": "0132",
-  "question": "Re: Zero’s flat-as-a-board ranking!",
+  "question": "Re: Zero\u2019s flat-as-a-board ranking!",
   "answer": "Beako, Petra, Ram",
   "characters": [
     "Beatrice",
@@ -13,8 +13,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/477795949247729664"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-06-14",
+  "date": "June 14, 2014"
 }

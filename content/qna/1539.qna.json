@@ -1,7 +1,7 @@
 {
   "id": "1539",
-  "question": "How do you come up with Garfiel’s proverbs? Do you alter proverbs from a proverb dictionary or something? Or are you completely just making them up?",
-  "answer": "I’m completely just making them up.",
+  "question": "How do you come up with Garfiel\u2019s proverbs? Do you alter proverbs from a proverb dictionary or something? Or are you completely just making them up?",
+  "answer": "I\u2019m completely just making them up.",
   "characters": [
     "Garfiel Tinsel"
   ],
@@ -10,8 +10,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/493282458243448833"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-07-27",
+  "date": "July 27, 2014"
 }

@@ -1,7 +1,7 @@
 {
   "id": "1269",
   "question": "Subaru doing whip training with Beatrice. And then the townspeople see them. Officer! Over here!",
-  "answer": "At the beginning he’d miss all over the place, and often hit his own arms and back, so it would be more like Beatrice would look suspicious.",
+  "answer": "At the beginning he\u2019d miss all over the place, and often hit his own arms and back, so it would be more like Beatrice would look suspicious.",
   "characters": [
     "Beatrice",
     "Natsuki Subaru"
@@ -11,8 +11,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/529886307959709696"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-11-05",
+  "date": "November 05, 2014"
 }

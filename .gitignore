@@ -44,3 +44,6 @@ tools/admin/node_modules/
 
 tools/__pycache__
 tools/*.py
+
+
+reports/

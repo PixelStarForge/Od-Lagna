@@ -1,7 +1,7 @@
 {
   "id": "0852",
-  "question": "Aren’t there any events like the Gion Festival in the Re: Zero world? If there are, I’d love to see events lead to Subaru taking Emilia to one on a date.",
-  "answer": "There may be minor events similar to memorial days. Even if there wasn’t, it’s possible Subaru might go ahead and start one in the Roswaal domain.",
+  "question": "Aren\u2019t there any events like the Gion Festival in the Re: Zero world? If there are, I\u2019d love to see events lead to Subaru taking Emilia to one on a date.",
+  "answer": "There may be minor events similar to memorial days. Even if there wasn\u2019t, it\u2019s possible Subaru might go ahead and start one in the Roswaal domain.",
   "characters": [
     "Emilia",
     "Natsuki Subaru",
@@ -12,8 +12,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/515431101398286336"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-09-26",
+  "date": "September 26, 2014"
 }

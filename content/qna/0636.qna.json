@@ -1,7 +1,7 @@
 {
   "id": "0636",
   "question": "Carmilla is a popular girl (rolls eyes) who hates being too popular, and hates being disliked, but what kind of person is her type?",
-  "answer": "Someone like Daphne who doesn’t care at all about other people is really her type. If only Daphne was a guy.",
+  "answer": "Someone like Daphne who doesn\u2019t care at all about other people is really her type. If only Daphne was a guy.",
   "characters": [
     "Carmilla",
     "Daphne"
@@ -11,8 +11,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/497757080615682048"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-08-08",
+  "date": "August 08, 2014"
 }

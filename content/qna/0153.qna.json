@@ -1,7 +1,7 @@
 {
   "id": "0153",
-  "question": "Do you ever make a typo in Rem and Ram’s names?",
-  "answer": "It’s probably happened many times.",
+  "question": "Do you ever make a typo in Rem and Ram\u2019s names?",
+  "answer": "It\u2019s probably happened many times.",
   "characters": [
     "Ram",
     "Rem"
@@ -11,8 +11,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/492494305228247040"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-07-25",
+  "date": "July 25, 2014"
 }

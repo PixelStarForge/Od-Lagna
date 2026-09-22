@@ -1,7 +1,7 @@
 {
   "id": "0528",
   "question": "I thought Regulus was able to hold things normally, but he can pass through them or destroy them; how does he turn that on and off?",
-  "answer": "He simply uses ‘Time Stop’ on anything he wants to grab, and doesn’t stop the time of what he destroys.",
+  "answer": "He simply uses \u2018Time Stop\u2019 on anything he wants to grab, and doesn\u2019t stop the time of what he destroys.",
   "characters": [
     "Regulus Corneas"
   ],
@@ -10,8 +10,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/592775328843636737"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2015-04-27",
+  "date": "April 27, 2015"
 }

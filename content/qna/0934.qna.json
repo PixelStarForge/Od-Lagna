@@ -1,7 +1,7 @@
 {
   "id": "0934",
-  "question": "The Roswaal mansion burned to the ground, but does that mean that the Emilia camp is now broke, and if they’re not careful, repairs on the mansion will put them in debt? If so, Otto will be working for free, won’t he.",
-  "answer": "The mansion that burned was a separate residence of the Roswaal family, so there’s a different main mansion.",
+  "question": "The Roswaal mansion burned to the ground, but does that mean that the Emilia camp is now broke, and if they\u2019re not careful, repairs on the mansion will put them in debt? If so, Otto will be working for free, won\u2019t he.",
+  "answer": "The mansion that burned was a separate residence of the Roswaal family, so there\u2019s a different main mansion.",
   "characters": [
     "Emilia",
     "Otto Suwen",
@@ -12,8 +12,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/494428148227141632"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-07-30",
+  "date": "July 30, 2014"
 }

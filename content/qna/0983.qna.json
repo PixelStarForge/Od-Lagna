@@ -1,7 +1,7 @@
 {
   "id": "0983",
   "question": "The Master Swordsman is the person with the strongest sword, right? Does the person with the strongest magic have a title of some kind?",
-  "answer": "A color appropriate to the affinity is bestowed as a title on those who reach the pinnacle of a particular affinity. In Lugunica, “Blue” is Ferris, “Red” and “Green” and “Yellow” are all held together by Roswaal. “Black” and “White” are absent. There’s currently no title for the strongest magic user, but it would be “Great Sorcerer”.",
+  "answer": "A color appropriate to the affinity is bestowed as a title on those who reach the pinnacle of a particular affinity. In Lugunica, \u201cBlue\u201d is Ferris, \u201cRed\u201d and \u201cGreen\u201d and \u201cYellow\u201d are all held together by Roswaal. \u201cBlack\u201d and \u201cWhite\u201d are absent. There\u2019s currently no title for the strongest magic user, but it would be \u201cGreat Sorcerer\u201d.",
   "characters": [
     "Felix Argyle (Ferris)",
     "Roswaal L. Mathers"
@@ -12,8 +12,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/493353649679376384"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-07-27",
+  "date": "July 27, 2014"
 }

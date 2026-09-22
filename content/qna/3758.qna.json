@@ -1,6 +1,6 @@
 {
   "id": "3758",
-  "question": "Speaking of Otto-kun, even if there were people who spoke in something other than a common language, he’d be able to communicate with them at a glance, so could he function as a ‘super-bilingual’?",
+  "question": "Speaking of Otto-kun, even if there were people who spoke in something other than a common language, he\u2019d be able to communicate with them at a glance, so could he function as a \u2018super-bilingual\u2019?",
   "answer": "He could only respond to one at a time, but that could work.",
   "characters": [
     "Otto Suwen"
@@ -10,8 +10,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/478056237020749824"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-06-15",
+  "date": "June 15, 2014"
 }

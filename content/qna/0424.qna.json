@@ -1,7 +1,7 @@
 {
   "id": "0424",
   "question": "Which generation of Master Swordsman is Reinhard?",
-  "answer": "The first one was 400 years ago, and if they’re around 50 years each, he’s the seventh or eighth, perhaps.",
+  "answer": "The first one was 400 years ago, and if they\u2019re around 50 years each, he\u2019s the seventh or eighth, perhaps.",
   "characters": [
     "Reinhard van Astrea"
   ],
@@ -10,8 +10,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/475966472939143168"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-06-09",
+  "date": "June 09, 2014"
 }

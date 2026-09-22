@@ -1,7 +1,7 @@
 {
   "id": "3800",
   "question": "When Priscilla barged into the daisukiyaki party, how did Al feel looking at the daisukiyaki?  Was he looking around for that white something?",
-  "answer": "He’s eaten daisukiyaki before, most likely. It’s really not the first time he’d seen it.",
+  "answer": "He\u2019s eaten daisukiyaki before, most likely. It\u2019s really not the first time he\u2019d seen it.",
   "characters": [
     "Al (Aldebaran)",
     "Priscilla Barielle"
@@ -11,8 +11,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/533963126639972352"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-11-16",
+  "date": "November 16, 2014"
 }

@@ -1,7 +1,7 @@
 {
   "id": "1479",
   "question": "After she contracted, how much did Beatrice tell Subaru about the witch cult?",
-  "answer": "Even Beako doesn’t really know that much about the witch cult, so she hasn’t told him anything significant.",
+  "answer": "Even Beako doesn\u2019t really know that much about the witch cult, so she hasn\u2019t told him anything significant.",
   "characters": [
     "Beatrice",
     "Natsuki Subaru"
@@ -11,8 +11,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/533468982280736768"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-11-15",
+  "date": "November 15, 2014"
 }

@@ -1,6 +1,6 @@
 {
   "id": "1444",
-  "question": "Will there be a sequel where Emilia-tan learns the truth about the stork…? (tears of blood)",
+  "question": "Will there be a sequel where Emilia-tan learns the truth about the stork\u2026? (tears of blood)",
   "answer": "There will. (Youji Tanaka style) Subaru will be able to avoid that for a while.",
   "characters": [
     "Emilia",
@@ -11,8 +11,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/494728450851487745"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-07-31",
+  "date": "July 31, 2014"
 }

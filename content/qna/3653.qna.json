@@ -1,7 +1,7 @@
 {
   "id": "3653",
   "question": "Having the ability to always know when people are lying seems like it would be painful to bear, but does Crusch-sama not have that problem?",
-  "answer": "“Crusch-sama” is gifted with great mental strength and belief in herself, so she’s just fine.",
+  "answer": "\u201cCrusch-sama\u201d is gifted with great mental strength and belief in herself, so she\u2019s just fine.",
   "characters": [
     "Crusch Karsten"
   ],
@@ -10,8 +10,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/498056011690024960"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-08-09",
+  "date": "August 09, 2014"
 }

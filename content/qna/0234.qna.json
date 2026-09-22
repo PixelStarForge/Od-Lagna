@@ -1,7 +1,7 @@
 {
   "id": "0234",
-  "question": "Setting aside Julius himself, how has it been for Julius’ family to support a foreigner like Anastasia? Haven’t there been any repercussions?",
-  "answer": "Oh, there were. Look forward to when it’s Julius’ turn.",
+  "question": "Setting aside Julius himself, how has it been for Julius\u2019 family to support a foreigner like Anastasia? Haven\u2019t there been any repercussions?",
+  "answer": "Oh, there were. Look forward to when it\u2019s Julius\u2019 turn.",
   "characters": [
     "Anastasia Hoshin",
     "Julius Juukulius"
@@ -11,8 +11,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/533953117512290304"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-11-16",
+  "date": "November 16, 2014"
 }

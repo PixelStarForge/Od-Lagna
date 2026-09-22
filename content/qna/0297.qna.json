@@ -1,7 +1,7 @@
 {
   "id": "0297",
-  "question": "Which is Mr. Cat’s favorite heroine?",
-  "answer": "Looking at the visuals for volume 4, I really couldn’t choose one with those visuals. Incidentally, as she reappears, Felt is so good it’s dangerous.",
+  "question": "Which is Mr. Cat\u2019s favorite heroine?",
+  "answer": "Looking at the visuals for volume 4, I really couldn\u2019t choose one with those visuals. Incidentally, as she reappears, Felt is so good it\u2019s dangerous.",
   "characters": [
     "Felt"
   ],
@@ -10,8 +10,10 @@
   ],
   "arc": "arc-4",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/474573037564878848"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-06-05",
+  "date": "June 05, 2014"
 }

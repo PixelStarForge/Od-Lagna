@@ -1,15 +1,17 @@
 {
   "id": "0902",
   "question": "Do cameras exist in Lugunica?",
-  "answer": "They have a magic device that’s similar.",
+  "answer": "They have a magic device that\u2019s similar.",
   "characters": [],
   "topics": [
     "Worldbuilding"
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/476330420792201216"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-06-10",
+  "date": "June 10, 2014"
 }

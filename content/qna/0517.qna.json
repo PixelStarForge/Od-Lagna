@@ -1,7 +1,7 @@
 {
   "id": "0517",
-  "question": "Are Archbishop “Greed”’s wives witch cultists?",
-  "answer": "Some are cultists, some aren’t, there’s all types.",
+  "question": "Are Archbishop \u201cGreed\u201d\u2019s wives witch cultists?",
+  "answer": "Some are cultists, some aren\u2019t, there\u2019s all types.",
   "characters": [
     "Regulus Corneas"
   ],
@@ -10,8 +10,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/492547304189349888"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-07-25",
+  "date": "July 25, 2014"
 }

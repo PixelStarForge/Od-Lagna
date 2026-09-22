@@ -1,15 +1,17 @@
 {
   "id": "0085",
   "question": "Who is your favorite anime character(s)?",
-  "answer": "If it’s 2D characters then a bunch easily pops up, but if it’s anime characters then I wonder……perhaps Tom and Jerry",
+  "answer": "If it\u2019s 2D characters then a bunch easily pops up, but if it\u2019s anime characters then I wonder\u2026\u2026perhaps Tom and Jerry",
   "characters": [],
   "topics": [
     "General"
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/470902546857754624"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-05-26",
+  "date": "May 26, 2014"
 }

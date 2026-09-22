@@ -1,7 +1,7 @@
 {
   "id": "0544",
-  "question": "Regulus=Star of the Leo, also in the myth of the Leo constellation there is a [Nemean Lion], however does that have any relation to Regulus’ Authority?",
-  "answer": "There’s not much relation with the myth but since I took from the constellations, those with imagination will imagine things",
+  "question": "Regulus=Star of the Leo, also in the myth of the Leo constellation there is a [Nemean Lion], however does that have any relation to Regulus\u2019 Authority?",
+  "answer": "There\u2019s not much relation with the myth but since I took from the constellations, those with imagination will imagine things",
   "characters": [
     "Regulus Corneas"
   ],
@@ -10,8 +10,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/493393746785226752"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-07-27",
+  "date": "July 27, 2014"
 }

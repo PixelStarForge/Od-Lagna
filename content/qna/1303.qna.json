@@ -1,7 +1,7 @@
 {
   "id": "1303",
   "question": "Cool Subaru-kun, scummy Subaru-kun, and dying Subaru-kun. Which one is fun to write?",
-  "answer": "They’re all pretty fun, but when he’s dying, my fingers move without hesitation.",
+  "answer": "They\u2019re all pretty fun, but when he\u2019s dying, my fingers move without hesitation.",
   "characters": [
     "Natsuki Subaru"
   ],
@@ -10,8 +10,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/494733216360968192"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-07-31",
+  "date": "July 31, 2014"
 }

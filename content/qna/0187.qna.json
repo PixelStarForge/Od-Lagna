@@ -1,7 +1,7 @@
 {
   "id": "0187",
-  "question": "With Priscilla-san’s personality, it seems like she’d leave a lot of dead bodies in her wake just being herself; about how many people does she get killed in a month?",
-  "answer": "Priscilla-sama is basically well-liked and regarded as a good master by the people in her domain, and keeps people around her who know their place, so she doesn’t get into swordfights that often. She does roast maybe one or two people… about that much?",
+  "question": "With Priscilla-san\u2019s personality, it seems like she\u2019d leave a lot of dead bodies in her wake just being herself; about how many people does she get killed in a month?",
+  "answer": "Priscilla-sama is basically well-liked and regarded as a good master by the people in her domain, and keeps people around her who know their place, so she doesn\u2019t get into swordfights that often. She does roast maybe one or two people\u2026 about that much?",
   "characters": [
     "Priscilla Barielle"
   ],
@@ -10,8 +10,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/596318892303187968"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2015-05-07",
+  "date": "May 07, 2015"
 }

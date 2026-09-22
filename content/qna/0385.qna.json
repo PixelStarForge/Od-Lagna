@@ -1,7 +1,7 @@
 {
   "id": "0385",
   "question": "Is there a field of skill in which Reinhard is behind someone else?",
-  "answer": "There’s lots.",
+  "answer": "There\u2019s lots.",
   "characters": [
     "Reinhard van Astrea"
   ],
@@ -10,8 +10,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/478105333945364480"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-06-15",
+  "date": "June 15, 2014"
 }

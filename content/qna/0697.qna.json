@@ -1,7 +1,7 @@
 {
   "id": "0697",
-  "question": "Daphne had the self-control to not eat all of the rabbits and whale. I’m shocked.",
-  "answer": "They’re her children, you see. What kind of parent would swallow their children whole? While she was in the process of properly eating just a bit at a time, the mabeasts managed to run away.",
+  "question": "Daphne had the self-control to not eat all of the rabbits and whale. I\u2019m shocked.",
+  "answer": "They\u2019re her children, you see. What kind of parent would swallow their children whole? While she was in the process of properly eating just a bit at a time, the mabeasts managed to run away.",
   "characters": [
     "Daphne"
   ],
@@ -10,8 +10,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/492296539143163904"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-07-24",
+  "date": "July 24, 2014"
 }

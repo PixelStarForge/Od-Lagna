@@ -1,7 +1,7 @@
 {
   "id": "1099",
-  "question": "It was said that you’ll put together a proper plot for arc 5, but what will it look like? Are you writing something like a flowchart?",
-  "answer": "Subaru sneaks into the castle -> Emilia-tan gets upset with him -> Royal Selection explanation -> Felt’s chaotic entrance -> speeches by the royal candidates -> Subaru’s disgrace. I’ve got that sort of plot written up.",
+  "question": "It was said that you\u2019ll put together a proper plot for arc 5, but what will it look like? Are you writing something like a flowchart?",
+  "answer": "Subaru sneaks into the castle -> Emilia-tan gets upset with him -> Royal Selection explanation -> Felt\u2019s chaotic entrance -> speeches by the royal candidates -> Subaru\u2019s disgrace. I\u2019ve got that sort of plot written up.",
   "characters": [
     "Emilia",
     "Felt",
@@ -12,8 +12,10 @@
   ],
   "arc": "arc-5",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/496982816077643777"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-08-06",
+  "date": "August 06, 2014"
 }

@@ -1,6 +1,6 @@
 {
   "id": "3613",
-  "question": "Anastasia-san has a reputation for never missing the scent of profit, but in her eyes, how good is Otto’s power as a merchant?",
+  "question": "Anastasia-san has a reputation for never missing the scent of profit, but in her eyes, how good is Otto\u2019s power as a merchant?",
   "answer": "I think that would be about like Freeza-sama looking at Kyui.",
   "characters": [
     "Anastasia Hoshin",
@@ -11,8 +11,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/517824415384743936"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-10-02",
+  "date": "October 02, 2014"
 }

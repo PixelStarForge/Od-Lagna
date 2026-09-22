@@ -1,15 +1,17 @@
 {
   "id": "0008",
   "question": "As Re: Zero gets an anime, is there a cast you are hoping or not hoping for?",
-  "answer": "Since there are no images for the characters’ faces, of course the image of their voices is also incomplete.",
+  "answer": "Since there are no images for the characters\u2019 faces, of course the image of their voices is also incomplete.",
   "characters": [],
   "topics": [
     "General"
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/470901730616807424"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-05-26",
+  "date": "May 26, 2014"
 }

@@ -1,7 +1,7 @@
 {
   "id": "0217",
   "question": "Did Priscilla-san train the boy butler at her house?",
-  "answer": "She didn’t train him, but she did teach him to be obedient.",
+  "answer": "She didn\u2019t train him, but she did teach him to be obedient.",
   "characters": [
     "Priscilla Barielle"
   ],
@@ -10,8 +10,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/497259810254225408"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-08-07",
+  "date": "August 07, 2014"
 }

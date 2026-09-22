@@ -1,6 +1,6 @@
 {
   "id": "0396",
-  "question": "Reinhard can’t be defeated.",
+  "question": "Reinhard can\u2019t be defeated.",
   "answer": "No on can defeat him.",
   "characters": [
     "Reinhard van Astrea"
@@ -10,8 +10,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/475117246533345280"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-06-07",
+  "date": "June 07, 2014"
 }

@@ -1,6 +1,6 @@
 {
   "id": "1461",
-  "question": "Is there a reason that Ram’s chest is thin?",
+  "question": "Is there a reason that Ram\u2019s chest is thin?",
   "answer": "Apologize to all the heroines who mourn for their tiny breasts!! Right now, do it now!!",
   "characters": [
     "Ram"
@@ -10,8 +10,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/478469850856448000"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-06-16",
+  "date": "June 16, 2014"
 }

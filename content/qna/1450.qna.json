@@ -1,7 +1,7 @@
 {
   "id": "1450",
-  "question": "I don’t know if their calendar is the same as our worlds, but if you convert Rem and Ram’s birthday to our world’s date, what day did you decide on?",
-  "answer": "I think I said that Rem and Ram’s birthday is February 2nd… or maybe I didn’t...",
+  "question": "I don\u2019t know if their calendar is the same as our worlds, but if you convert Rem and Ram\u2019s birthday to our world\u2019s date, what day did you decide on?",
+  "answer": "I think I said that Rem and Ram\u2019s birthday is February 2nd\u2026 or maybe I didn\u2019t...",
   "characters": [
     "Ram",
     "Rem"
@@ -12,8 +12,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/494423250190229504"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-07-30",
+  "date": "July 30, 2014"
 }

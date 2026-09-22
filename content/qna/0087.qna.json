@@ -1,15 +1,17 @@
 {
   "id": "0087",
   "question": "Why did you post it at 1 am?",
-  "answer": "I won’t finish writing it until one minute before that time and it’s harassment towards everyone that’s just barely awake.",
+  "answer": "I won\u2019t finish writing it until one minute before that time and it\u2019s harassment towards everyone that\u2019s just barely awake.",
   "characters": [],
   "topics": [
     "General"
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/473452716707311616"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-06-02",
+  "date": "June 02, 2014"
 }

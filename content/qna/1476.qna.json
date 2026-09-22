@@ -1,6 +1,6 @@
 {
   "id": "1476",
-  "question": "When Subaru made a mess of things at the Royal Selection, what did Rem honestly think about what he’d done?",
+  "question": "When Subaru made a mess of things at the Royal Selection, what did Rem honestly think about what he\u2019d done?",
   "answer": "She likely thought several different things, but you know the result of what she thought.",
   "characters": [
     "Natsuki Subaru",
@@ -11,8 +11,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/497758338533584896"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-08-08",
+  "date": "August 08, 2014"
 }

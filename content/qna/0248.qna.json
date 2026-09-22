@@ -1,7 +1,7 @@
 {
   "id": "0248",
   "question": "How would one get on the yandere route for Julius?",
-  "answer": "He’s the leading rational character in the story, so that route isn’t implemented.",
+  "answer": "He\u2019s the leading rational character in the story, so that route isn\u2019t implemented.",
   "characters": [
     "Julius Juukulius"
   ],
@@ -10,8 +10,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/475585033458450432"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-06-08",
+  "date": "June 08, 2014"
 }

@@ -1,7 +1,7 @@
 {
   "id": "1306",
   "question": "Did Subaru and his dad both just barely miss being in the mini 4 wheel drive generation?",
-  "answer": "They did miss it. I’m in it. Beak Spider is my favorite machine.",
+  "answer": "They did miss it. I\u2019m in it. Beak Spider is my favorite machine.",
   "characters": [
     "Natsuki Subaru"
   ],
@@ -10,8 +10,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/477387638522257408"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-06-13",
+  "date": "June 13, 2014"
 }

@@ -1,6 +1,6 @@
 {
   "id": "0664",
-  "question": "Aren’t there any mabeasts that can become human?",
+  "question": "Aren\u2019t there any mabeasts that can become human?",
   "answer": "There are, but...",
   "characters": [],
   "topics": [
@@ -8,8 +8,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/529885325997662208"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-11-05",
+  "date": "November 05, 2014"
 }

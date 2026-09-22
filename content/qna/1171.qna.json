@@ -1,7 +1,7 @@
 {
   "id": "1171",
   "question": "When was the cell phone given to Russell?",
-  "answer": "After the results of arc 3, it was handed over under Crusch’s supervision. A law forbidding speaking of the White Whale was enacted, but in certain circles there have been rumors for a long while.",
+  "answer": "After the results of arc 3, it was handed over under Crusch\u2019s supervision. A law forbidding speaking of the White Whale was enacted, but in certain circles there have been rumors for a long while.",
   "characters": [
     "Crusch Karsten",
     "White Whale"
@@ -11,8 +11,10 @@
   ],
   "arc": "arc-3",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/494735864703225856"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-07-31",
+  "date": "July 31, 2014"
 }

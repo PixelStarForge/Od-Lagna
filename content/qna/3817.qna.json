@@ -1,7 +1,7 @@
 {
   "id": "3817",
   "question": "Will the day come that Otto is rewarded?",
-  "answer": "It’ll come, and I’d say the signs are already fairly clear.",
+  "answer": "It\u2019ll come, and I\u2019d say the signs are already fairly clear.",
   "characters": [
     "Otto Suwen"
   ],
@@ -10,8 +10,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/493303592045248512"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-07-27",
+  "date": "July 27, 2014"
 }

@@ -1,7 +1,7 @@
 {
   "id": "3751",
-  "question": "Regulus’ words are starting to seem like sound arguments to me; am I abnormal?",
-  "answer": "The archbishops’ words are all opinions in the form of ‘extreme thinking’. It’s the sort of discussion where you might think ‘Ultimately, you can’t say that no one could possibly think that’, so let’s just let it pass and say ‘You should be more worried about your bad breath.’.",
+  "question": "Regulus\u2019 words are starting to seem like sound arguments to me; am I abnormal?",
+  "answer": "The archbishops\u2019 words are all opinions in the form of \u2018extreme thinking\u2019. It\u2019s the sort of discussion where you might think \u2018Ultimately, you can\u2019t say that no one could possibly think that\u2019, so let\u2019s just let it pass and say \u2018You should be more worried about your bad breath.\u2019.",
   "characters": [
     "Regulus Corneas"
   ],
@@ -10,8 +10,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/565471512334180352"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2015-02-11",
+  "date": "February 11, 2015"
 }

@@ -1,7 +1,7 @@
 {
   "id": "0844",
   "question": "Where does this world harvest salt from?",
-  "answer": "It’s scraped from rocks, and there are also things like salt lakes.",
+  "answer": "It\u2019s scraped from rocks, and there are also things like salt lakes.",
   "characters": [],
   "topics": [
     "Dragon Kingdom Lugnica",
@@ -9,8 +9,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/522629243990466560"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-10-16",
+  "date": "October 16, 2014"
 }

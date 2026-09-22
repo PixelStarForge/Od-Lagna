@@ -1,7 +1,7 @@
 {
   "id": "0659",
   "question": "Who are the five most well-known people in the Kingdom of Lugunica? Satella is already in the Hall of Fame.",
-  "answer": "It’s probably the five royal candidates. Reinhard would probably place well, too.",
+  "answer": "It\u2019s probably the five royal candidates. Reinhard would probably place well, too.",
   "characters": [
     "Reinhard van Astrea",
     "Satella"
@@ -12,8 +12,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/569377194725781504"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2015-02-22",
+  "date": "February 22, 2015"
 }

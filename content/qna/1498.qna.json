@@ -1,7 +1,7 @@
 {
   "id": "1498",
   "question": "Is the current Roswaal a vir___?",
-  "answer": "You don’t really need to blank out virgin, just say it. If you were trying to be considerate because I don’t like crude content, there’s no way to be considerate about a question like this, so just boldly say it right up front, virgin! The answer to the question is that he’s not really a virgin, wouldn’t you say?",
+  "answer": "You don\u2019t really need to blank out virgin, just say it. If you were trying to be considerate because I don\u2019t like crude content, there\u2019s no way to be considerate about a question like this, so just boldly say it right up front, virgin! The answer to the question is that he\u2019s not really a virgin, wouldn\u2019t you say?",
   "characters": [
     "Roswaal A. Mathers",
     "Roswaal L. Mathers"
@@ -11,8 +11,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/559168849858543616"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2015-01-25",
+  "date": "January 25, 2015"
 }

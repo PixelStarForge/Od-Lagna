@@ -1,7 +1,7 @@
 {
   "id": "0724",
-  "question": "Aldebaran hates mayonnaise, does he… Well, is there any food from his original world that he’d really like to eat?",
-  "answer": "He’s completely forgotten.",
+  "question": "Aldebaran hates mayonnaise, does he\u2026 Well, is there any food from his original world that he\u2019d really like to eat?",
+  "answer": "He\u2019s completely forgotten.",
   "characters": [
     "Al (Aldebaran)"
   ],
@@ -10,8 +10,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/492494411755192320"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-07-25",
+  "date": "July 25, 2014"
 }

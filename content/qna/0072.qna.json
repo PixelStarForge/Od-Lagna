@@ -1,15 +1,17 @@
 {
   "id": "0072",
-  "question": "What is the farthest place you’ve been to until now?",
-  "answer": "The Sanzu River. It’s closer than you think.",
+  "question": "What is the farthest place you\u2019ve been to until now?",
+  "answer": "The Sanzu River. It\u2019s closer than you think.",
   "characters": [],
   "topics": [
     "General"
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/473626300369100800"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-06-03",
+  "date": "June 03, 2014"
 }

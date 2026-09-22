@@ -1,7 +1,7 @@
 {
   "id": "3712",
   "question": "Is there any context or game where Subaru could beat Julius?",
-  "answer": "If we’re talking about games, they would be well-matched playing chaturanga. Othello would be an overwhelming victory. Subaru’s luck at card games is unusually bad, so that wouldn’t work…",
+  "answer": "If we\u2019re talking about games, they would be well-matched playing chaturanga. Othello would be an overwhelming victory. Subaru\u2019s luck at card games is unusually bad, so that wouldn\u2019t work\u2026",
   "characters": [
     "Julius Juukulius",
     "Natsuki Subaru"
@@ -11,8 +11,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/532466856041660416"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-11-12",
+  "date": "November 12, 2014"
 }

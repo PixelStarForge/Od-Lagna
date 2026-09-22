@@ -1,7 +1,7 @@
 {
   "id": "0376",
   "question": "Is Reinhard aware that he has the Blessing of Understanding Salt?",
-  "answer": "In a situation where he actually was mixing up salt and sugar, he suddenly realized “Ah, this isn’t salt, it’s sugar, isn’t it. Oops, oops”, so he’s aware.",
+  "answer": "In a situation where he actually was mixing up salt and sugar, he suddenly realized \u201cAh, this isn\u2019t salt, it\u2019s sugar, isn\u2019t it. Oops, oops\u201d, so he\u2019s aware.",
   "characters": [
     "Reinhard van Astrea"
   ],
@@ -10,8 +10,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/478185133485621248"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-06-15",
+  "date": "June 15, 2014"
 }

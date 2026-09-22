@@ -1,7 +1,7 @@
 {
   "id": "0382",
   "question": "Is the perfectly superhuman Reinhard perfect at cooking as well?",
-  "answer": "He’s not perfect. He’s greater than perfect.",
+  "answer": "He\u2019s not perfect. He\u2019s greater than perfect.",
   "characters": [
     "Reinhard van Astrea"
   ],
@@ -10,8 +10,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/494427674115588096"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-07-30",
+  "date": "July 30, 2014"
 }

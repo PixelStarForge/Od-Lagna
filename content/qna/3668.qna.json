@@ -1,7 +1,7 @@
 {
   "id": "3668",
   "question": "How would it turn out if the members of the royal selection gave their knights chocolate?",
-  "answer": "Emilia - “They didn’t turn out right.”, Felt - “There’s none left for you.”m Anastasia - “I bought you some good, expensive chocolate.”, Crusch - “We’ll take turns eating the ones Ferris made.”, Priscilla - “I’ll toss these over there for you to pick up.”",
+  "answer": "Emilia - \u201cThey didn\u2019t turn out right.\u201d, Felt - \u201cThere\u2019s none left for you.\u201dm Anastasia - \u201cI bought you some good, expensive chocolate.\u201d, Crusch - \u201cWe\u2019ll take turns eating the ones Ferris made.\u201d, Priscilla - \u201cI\u2019ll toss these over there for you to pick up.\u201d",
   "characters": [
     "Anastasia Hoshin",
     "Crusch Karsten",
@@ -16,8 +16,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/565867762862813184"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2015-02-12",
+  "date": "February 12, 2015"
 }

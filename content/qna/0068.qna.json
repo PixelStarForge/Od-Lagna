@@ -1,15 +1,17 @@
 {
   "id": "0068",
   "question": "What do you think in regards to vegetarians?",
-  "answer": "Since I’m also drinking nothing but vegetable juice recently, perhaps there’s a certain meaning to vegetarians……probably, I think I’m called as ‘veggie’ at my favorite family restaurant",
+  "answer": "Since I\u2019m also drinking nothing but vegetable juice recently, perhaps there\u2019s a certain meaning to vegetarians\u2026\u2026probably, I think I\u2019m called as \u2018veggie\u2019 at my favorite family restaurant",
   "characters": [],
   "topics": [
     "General"
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/470899078818459648"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-05-26",
+  "date": "May 26, 2014"
 }

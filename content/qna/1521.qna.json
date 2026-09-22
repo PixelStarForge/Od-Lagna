@@ -1,7 +1,7 @@
 {
   "id": "1521",
-  "question": "There’s been all kinds of blood and corpses, hasn’t there… Regardless of that, is there a plan for Beako to become a heroine to compare to Emilia and Rem?",
-  "answer": "If you’re reading, you’ll understand, I think, but Beako is in a different position than Emilia and Rem in regards to Subaru.",
+  "question": "There\u2019s been all kinds of blood and corpses, hasn\u2019t there\u2026 Regardless of that, is there a plan for Beako to become a heroine to compare to Emilia and Rem?",
+  "answer": "If you\u2019re reading, you\u2019ll understand, I think, but Beako is in a different position than Emilia and Rem in regards to Subaru.",
   "characters": [
     "Beatrice",
     "Emilia",
@@ -13,8 +13,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/493629791422398464"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-07-28",
+  "date": "July 28, 2014"
 }

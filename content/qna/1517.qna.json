@@ -1,7 +1,7 @@
 {
   "id": "1517",
-  "question": "Subaru said that tea just tastes like leaves, but can Beatrice-chan tell the difference between teas? She has an image of being someone who would like black tea and such, but it seems like her tastes would resemble Subarus, so I’m not really sure.",
-  "answer": "Beako can tell the taste of tell just fine. But, she’s the type that likes to add lots of sugar and milk. When there are people around she hides that, says ‘Ababa, you know.’ behind their backs, and sticks out her tongue.",
+  "question": "Subaru said that tea just tastes like leaves, but can Beatrice-chan tell the difference between teas? She has an image of being someone who would like black tea and such, but it seems like her tastes would resemble Subarus, so I\u2019m not really sure.",
+  "answer": "Beako can tell the taste of tell just fine. But, she\u2019s the type that likes to add lots of sugar and milk. When there are people around she hides that, says \u2018Ababa, you know.\u2019 behind their backs, and sticks out her tongue.",
   "characters": [
     "Beatrice",
     "Natsuki Subaru"
@@ -11,8 +11,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/535094833116086272"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-11-19",
+  "date": "November 19, 2014"
 }

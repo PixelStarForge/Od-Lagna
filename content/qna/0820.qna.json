@@ -1,7 +1,7 @@
 {
   "id": "0820",
   "question": "Do the villages and settlements have names?",
-  "answer": "As long as it isn’t a hidden village, you need to be able to give it’s name, so they should have names. Taking Alam village as an example, it’s the name of the traditional village chief’s family. The village chief there is Milde Alam. That’s the young-again grandma who smacked Subaru’s butt. Muraosa is the young-again grandma’s younger brother.",
+  "answer": "As long as it isn\u2019t a hidden village, you need to be able to give it\u2019s name, so they should have names. Taking Alam village as an example, it\u2019s the name of the traditional village chief\u2019s family. The village chief there is Milde Alam. That\u2019s the young-again grandma who smacked Subaru\u2019s butt. Muraosa is the young-again grandma\u2019s younger brother.",
   "characters": [
     "Natsuki Subaru"
   ],
@@ -11,8 +11,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/496649452997054464"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-08-05",
+  "date": "August 05, 2014"
 }

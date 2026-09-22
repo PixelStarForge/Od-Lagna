@@ -1,7 +1,7 @@
 {
   "id": "1298",
   "question": "Around what point did Subaru realize that Roswaal has been repeatedly reincarnating himself?",
-  "answer": "I don’t think Subaru is aware of that. (July 30, 2014 arc4)",
+  "answer": "I don\u2019t think Subaru is aware of that. (July 30, 2014 arc4)",
   "characters": [
     "Natsuki Subaru",
     "Roswaal L. Mathers"
@@ -11,9 +11,10 @@
   ],
   "arc": "arc-4",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/494427479105622016"
   },
-  "verified": false,
-  "date": "July 30, 2014"
+  "verified": true,
+  "date": "July 30, 2014",
+  "dateTime": "2014-07-30"
 }

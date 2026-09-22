@@ -1,7 +1,7 @@
 {
   "id": "1222",
-  "question": "A story where due to some sort of chance occurrence, Subaru and Al’s minds temporarily swap, and they panic.",
-  "answer": "There’s a chance that could cause a serious threat to either of their lives.",
+  "question": "A story where due to some sort of chance occurrence, Subaru and Al\u2019s minds temporarily swap, and they panic.",
+  "answer": "There\u2019s a chance that could cause a serious threat to either of their lives.",
   "characters": [
     "Al (Aldebaran)",
     "Natsuki Subaru"
@@ -11,8 +11,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/529875627642732544"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-11-05",
+  "date": "November 05, 2014"
 }

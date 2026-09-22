@@ -1,7 +1,7 @@
 {
   "id": "1177",
   "question": "A decoy plan where Otto is used as bait to draw out a criminal. I think he could probably catch a lot.",
-  "answer": "I can’t think of a concrete example; what do you mean? If you mean he’s likely to get mugged in town, Subaru’s no slouch there either.",
+  "answer": "I can\u2019t think of a concrete example; what do you mean? If you mean he\u2019s likely to get mugged in town, Subaru\u2019s no slouch there either.",
   "characters": [
     "Natsuki Subaru",
     "Otto Suwen"
@@ -11,8 +11,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/530689821283725312"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-11-07",
+  "date": "November 07, 2014"
 }

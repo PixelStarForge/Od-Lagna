@@ -1,18 +1,20 @@
 {
   "id": "0813",
-  "question": "When Subaru went crazy (?) in Arc 3, could he see Petelgeuse’s Unseen Hands?",
-  "answer": "He couldn’t see them.",
+  "question": "When Subaru went crazy (?) in Arc 3, could he see Petelgeuse\u2019s Unseen Hands?",
+  "answer": "He couldn\u2019t see them.",
   "characters": [
     "Natsuki Subaru",
-    "Petelgeuse Romanée-Conti"
+    "Petelgeuse Roman\u00e9e-Conti"
   ],
   "topics": [
     "General"
   ],
   "arc": "arc-3",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/478434671844667392"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-06-16",
+  "date": "June 16, 2014"
 }

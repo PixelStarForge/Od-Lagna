@@ -1,7 +1,7 @@
 {
   "id": "0670",
   "question": "Daphne-tan ate up the table right along with the candy, but frankly, could she survive by eating rocks or dirt? Or do living things need to eat living things, after all?",
-  "answer": "If she doesn’t get a good balance of the six major nutrients, of course even Daphne-chan’s chest won’t get bigger.",
+  "answer": "If she doesn\u2019t get a good balance of the six major nutrients, of course even Daphne-chan\u2019s chest won\u2019t get bigger.",
   "characters": [
     "Daphne"
   ],
@@ -10,8 +10,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/494424515469123585"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-07-30",
+  "date": "July 30, 2014"
 }

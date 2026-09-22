@@ -1,15 +1,17 @@
 {
   "id": "0849",
   "question": "Are there cannibals in Re: Zero?",
-  "answer": "They’re gross, so no.",
+  "answer": "They\u2019re gross, so no.",
   "characters": [],
   "topics": [
     "Worldbuilding"
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/497311730855608320"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-08-07",
+  "date": "August 07, 2014"
 }

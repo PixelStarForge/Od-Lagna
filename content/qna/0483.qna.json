@@ -1,17 +1,19 @@
 {
   "id": "0483",
-  "question": "Does Petelgeuse’s possession have something like a limited range?",
-  "answer": "It does, but he had lots of spare bodies prepared as fingers to prevent that from being a problem. They’re all over the land, in large numbers. Now that the main body has been lost, I think those have likely joined up with the rest of the witch cult.",
+  "question": "Does Petelgeuse\u2019s possession have something like a limited range?",
+  "answer": "It does, but he had lots of spare bodies prepared as fingers to prevent that from being a problem. They\u2019re all over the land, in large numbers. Now that the main body has been lost, I think those have likely joined up with the rest of the witch cult.",
   "characters": [
-    "Petelgeuse Romanée-Conti"
+    "Petelgeuse Roman\u00e9e-Conti"
   ],
   "topics": [
     "Sin Archbishops"
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/515431325998673921"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-09-26",
+  "date": "September 26, 2014"
 }

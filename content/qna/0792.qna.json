@@ -1,7 +1,7 @@
 {
   "id": "0792",
-  "question": "Can Ferris’ water magic bring my lost hair roots back to life? In other words, can he cure baldness?",
-  "answer": "He can cure injuries and sickness, but baldness is fated, so he can’t fix it. You’d need to bend the laws of nature.",
+  "question": "Can Ferris\u2019 water magic bring my lost hair roots back to life? In other words, can he cure baldness?",
+  "answer": "He can cure injuries and sickness, but baldness is fated, so he can\u2019t fix it. You\u2019d need to bend the laws of nature.",
   "characters": [
     "Felix Argyle (Ferris)"
   ],
@@ -10,8 +10,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/522631203929997312"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-10-16",
+  "date": "October 16, 2014"
 }

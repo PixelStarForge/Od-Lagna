@@ -1,7 +1,7 @@
 {
   "id": "1353",
-  "question": "Patrasche, I’m all tired out.",
-  "answer": "“We’ve still got a long way to go,” Patrasche wants to say back.",
+  "question": "Patrasche, I\u2019m all tired out.",
+  "answer": "\u201cWe\u2019ve still got a long way to go,\u201d Patrasche wants to say back.",
   "characters": [
     "Natsuki Subaru"
   ],
@@ -10,8 +10,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/475335262911098881"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-06-07",
+  "date": "June 07, 2014"
 }

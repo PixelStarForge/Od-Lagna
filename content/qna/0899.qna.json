@@ -1,7 +1,7 @@
 {
   "id": "0899",
   "question": "Can women become knights?",
-  "answer": "They can, but there aren’t very many.",
+  "answer": "They can, but there aren\u2019t very many.",
   "characters": [],
   "topics": [
     "Royal Knights",
@@ -9,8 +9,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/475173247844372480"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-06-07",
+  "date": "June 07, 2014"
 }

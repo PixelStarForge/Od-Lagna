@@ -1,7 +1,7 @@
 {
   "id": "0561",
   "question": "For example, if Capella met a couple who loved each other, no matter what form they changed into, what would she do?",
-  "answer": "She’d separate them, meet the woman in the man’s form, and the man in the woman’s form. She’d play it by ear from there. “See, you aren’t seeing what’s inside, you know?”, she’d say.",
+  "answer": "She\u2019d separate them, meet the woman in the man\u2019s form, and the man in the woman\u2019s form. She\u2019d play it by ear from there. \u201cSee, you aren\u2019t seeing what\u2019s inside, you know?\u201d, she\u2019d say.",
   "characters": [
     "Capella Emerada Lugnica"
   ],
@@ -10,8 +10,10 @@
   ],
   "arc": "arc-5",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/538164421634588672"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-11-28",
+  "date": "November 28, 2014"
 }

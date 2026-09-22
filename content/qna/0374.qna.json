@@ -1,6 +1,6 @@
 {
   "id": "0374",
-  "question": "In other words, a character that’s stronger than Reinhard will make an appearance later?",
+  "question": "In other words, a character that\u2019s stronger than Reinhard will make an appearance later?",
   "answer": "No.",
   "characters": [
     "Reinhard van Astrea"
@@ -10,8 +10,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/475637611785355264"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-06-08",
+  "date": "June 08, 2014"
 }

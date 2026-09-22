@@ -1,7 +1,7 @@
 {
   "id": "1372",
-  "question": "Subaru seems like he’d be good at tongue-twisters.",
-  "answer": "He’s probably has a pointlessly good speaking voice.",
+  "question": "Subaru seems like he\u2019d be good at tongue-twisters.",
+  "answer": "He\u2019s probably has a pointlessly good speaking voice.",
   "characters": [
     "Natsuki Subaru"
   ],
@@ -10,8 +10,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/496990767932776448"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-08-06",
+  "date": "August 06, 2014"
 }

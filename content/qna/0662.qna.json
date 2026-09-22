@@ -1,7 +1,7 @@
 {
   "id": "0662",
-  "question": "About the Witch of Gluttony, you’ve said that the White Whale and Great Rabbit were Daphne’s foul legacy, but does she have a good legacy?",
-  "answer": "She doesn’t. Daphne died kicking sand at the world with her hind legs. (note: a Japanese saying about someone who not only doesn’t show gratitude, but brings harm to those who have helped them.)",
+  "question": "About the Witch of Gluttony, you\u2019ve said that the White Whale and Great Rabbit were Daphne\u2019s foul legacy, but does she have a good legacy?",
+  "answer": "She doesn\u2019t. Daphne died kicking sand at the world with her hind legs. (note: a Japanese saying about someone who not only doesn\u2019t show gratitude, but brings harm to those who have helped them.)",
   "characters": [
     "Daphne",
     "White Whale"
@@ -12,8 +12,10 @@
   ],
   "arc": "arc-4",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/532912257563652097"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-11-13",
+  "date": "November 13, 2014"
 }

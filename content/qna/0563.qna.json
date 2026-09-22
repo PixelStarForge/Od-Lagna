@@ -1,7 +1,7 @@
 {
   "id": "0563",
   "question": "How did Batenkaitos make the white whale into a pet? Did he not make the rabbit into a pet?",
-  "answer": "The white whale follows Daphne’s witch gene. The rabbit too, to a certain extent, might follow.",
+  "answer": "The white whale follows Daphne\u2019s witch gene. The rabbit too, to a certain extent, might follow.",
   "characters": [
     "Daphne",
     "Ley Batenkaitos",
@@ -14,8 +14,10 @@
   ],
   "arc": "arc-3",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/494741464396886016"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-07-31",
+  "date": "July 31, 2014"
 }

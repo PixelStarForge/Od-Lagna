@@ -1,7 +1,7 @@
 {
   "id": "0665",
   "question": "At the times when Daphne-chan is producing mabeasts, how does she create them? Do they appear from nothing, detach themselves from her body, does she give birth, or something else?",
-  "answer": "They emerge from her “third mouth”.",
+  "answer": "They emerge from her \u201cthird mouth\u201d.",
   "characters": [
     "Daphne"
   ],
@@ -10,8 +10,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/503077496003497984"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-08-23",
+  "date": "August 23, 2014"
 }

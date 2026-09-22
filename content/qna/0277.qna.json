@@ -1,7 +1,7 @@
 {
   "id": "0277",
   "question": "If Old Man Rom had no prior knowledge of Emilia, what would he call her?",
-  "answer": "He’d call her ‘half-devil’.",
+  "answer": "He\u2019d call her \u2018half-devil\u2019.",
   "characters": [
     "Emilia",
     "Old Man Rom"
@@ -11,8 +11,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/502819163162030083"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-08-22",
+  "date": "August 22, 2014"
 }

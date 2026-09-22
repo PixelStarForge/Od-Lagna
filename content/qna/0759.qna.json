@@ -1,6 +1,6 @@
 {
   "id": "0759",
-  "question": "If the graveyard’s trials had a karaoke then how would Ekidna abuse Emilia?",
+  "question": "If the graveyard\u2019s trials had a karaoke then how would Ekidna abuse Emilia?",
   "answer": "But Ekidna is also tone-deaf",
   "characters": [
     "Echidna",
@@ -12,8 +12,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/543983672043782144"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-12-14",
+  "date": "December 14, 2014"
 }

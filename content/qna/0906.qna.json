@@ -1,15 +1,17 @@
 {
   "id": "0906",
   "question": "Do the guards have a uniform or something?",
-  "answer": "I kind of think they do. Some sort of armor, wouldn’t you think? Like a Tolmekian soldier (note: Nausicaa reference).",
+  "answer": "I kind of think they do. Some sort of armor, wouldn\u2019t you think? Like a Tolmekian soldier (note: Nausicaa reference).",
   "characters": [],
   "topics": [
     "Worldbuilding"
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/476962107641327616"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-06-12",
+  "date": "June 12, 2014"
 }

@@ -1,15 +1,17 @@
 {
   "id": "0082",
   "question": "Which meat part do you recommend?",
-  "answer": "In this world the number one most delicious thing is the bone ribs of a pork. It’s delicious but bad for the body and that’s fine. (I want to vomit)",
+  "answer": "In this world the number one most delicious thing is the bone ribs of a pork. It\u2019s delicious but bad for the body and that\u2019s fine. (I want to vomit)",
   "characters": [],
   "topics": [
     "General"
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/470902876253216768"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-05-26",
+  "date": "May 26, 2014"
 }

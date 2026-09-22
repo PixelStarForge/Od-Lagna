@@ -1,7 +1,7 @@
 {
   "id": "1258",
-  "question": "Liliana’s reaction to seeing Subaru-kun playing the guitar with his teeth.",
-  "answer": "It’s easy to imagine Liliana trying to imitate the tooth guitar and ending up covered in blood…...She’s really an unfortunate child.",
+  "question": "Liliana\u2019s reaction to seeing Subaru-kun playing the guitar with his teeth.",
+  "answer": "It\u2019s easy to imagine Liliana trying to imitate the tooth guitar and ending up covered in blood\u2026...She\u2019s really an unfortunate child.",
   "characters": [
     "Natsuki Subaru"
   ],
@@ -10,8 +10,10 @@
   ],
   "arc": "arc-5",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/520082277376999424"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-10-09",
+  "date": "October 09, 2014"
 }

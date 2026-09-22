@@ -1,7 +1,7 @@
 {
   "id": "0118",
   "question": "Is Ferris a virgin? Or is he a virgin? (note: Japanese has separate words for male and female virgins; both were used here)",
-  "answer": "Don’t be mislead by words like “What if”, “If I could”, or “If only”. The one thing you believe in, is the truth you believe!",
+  "answer": "Don\u2019t be mislead by words like \u201cWhat if\u201d, \u201cIf I could\u201d, or \u201cIf only\u201d. The one thing you believe in, is the truth you believe!",
   "characters": [
     "Felix Argyle (Ferris)"
   ],
@@ -11,8 +11,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/478105462014222337"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-06-15",
+  "date": "June 15, 2014"
 }

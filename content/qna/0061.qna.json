@@ -1,15 +1,17 @@
 {
   "id": "0061",
   "question": "This is a very rude question but how much possibility is there of you disappearing?",
-  "answer": "Isn’t it on average? Although I don’t know what’s the average potential for people to go missing",
+  "answer": "Isn\u2019t it on average? Although I don\u2019t know what\u2019s the average potential for people to go missing",
   "characters": [],
   "topics": [
     "General"
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/470904868023328768"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-05-26",
+  "date": "May 26, 2014"
 }

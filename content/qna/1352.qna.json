@@ -1,7 +1,7 @@
 {
   "id": "1352",
   "question": "Out of the people and animals that have appeared so far, who has the best compatibility with Subaru?",
-  "answer": "It’s Beako.",
+  "answer": "It\u2019s Beako.",
   "characters": [
     "Beatrice",
     "Natsuki Subaru"
@@ -11,8 +11,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/494423616399097857"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-07-30",
+  "date": "July 30, 2014"
 }

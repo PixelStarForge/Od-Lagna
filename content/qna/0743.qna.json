@@ -1,7 +1,7 @@
 {
   "id": "0743",
-  "question": "Subaru’s parents are quite exciting, but did his grandparents also have exciting personalities?",
-  "answer": "They’re the parents of that father, and the parents of that mother. They were strict, old-fashioned, traditional Japanese families.",
+  "question": "Subaru\u2019s parents are quite exciting, but did his grandparents also have exciting personalities?",
+  "answer": "They\u2019re the parents of that father, and the parents of that mother. They were strict, old-fashioned, traditional Japanese families.",
   "characters": [
     "Natsuki Subaru"
   ],
@@ -10,8 +10,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/500277587172925440"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-08-15",
+  "date": "August 15, 2014"
 }

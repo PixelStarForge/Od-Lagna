@@ -1,6 +1,6 @@
 {
   "id": "1519",
-  "question": "The little crown that rides on Beako’s head: how is that attached?",
+  "question": "The little crown that rides on Beako\u2019s head: how is that attached?",
   "answer": "Maybe it grew there? (Just guessing)",
   "characters": [
     "Beatrice"
@@ -10,8 +10,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/475836419177713664"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-06-09",
+  "date": "June 09, 2014"
 }

@@ -1,6 +1,6 @@
 {
   "id": "0550",
-  "question": "The sand or water dragon’s blood or whatever it is that Regulus unleashes: how many meters underground would it penetrate?",
+  "question": "The sand or water dragon\u2019s blood or whatever it is that Regulus unleashes: how many meters underground would it penetrate?",
   "answer": "It will keep flying endlessly until the effect ends.",
   "characters": [
     "Regulus Corneas"
@@ -10,8 +10,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/592213639072997376"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2015-04-26",
+  "date": "April 26, 2015"
 }

@@ -1,7 +1,7 @@
 {
   "id": "0147",
   "question": "Why was Reinhard versus Regulus an even fight?",
-  "answer": "It’s even if you can’t negate his trick. Neither of them can land a decisive blow.",
+  "answer": "It\u2019s even if you can\u2019t negate his trick. Neither of them can land a decisive blow.",
   "characters": [
     "Regulus Corneas",
     "Reinhard van Astrea"
@@ -11,8 +11,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/569503010864402433"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2015-02-22",
+  "date": "February 22, 2015"
 }

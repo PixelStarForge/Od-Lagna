@@ -1,7 +1,7 @@
 {
   "id": "0145",
-  "question": "Who’s strongest when they completely lose it? (excluding Reinhard)",
-  "answer": "Even with that weird condition, it’s one of the top four besides Reinhard.",
+  "question": "Who\u2019s strongest when they completely lose it? (excluding Reinhard)",
+  "answer": "Even with that weird condition, it\u2019s one of the top four besides Reinhard.",
   "characters": [
     "Reinhard van Astrea"
   ],
@@ -10,8 +10,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/476327588110295041"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-06-10",
+  "date": "June 10, 2014"
 }

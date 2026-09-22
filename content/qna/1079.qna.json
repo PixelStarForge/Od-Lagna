@@ -1,15 +1,17 @@
 {
   "id": "1079",
-  "question": "Why are all the main characters’ names associated with stars do you think?",
-  "answer": "Cause it’s wonderful",
+  "question": "Why are all the main characters\u2019 names associated with stars do you think?",
+  "answer": "Cause it\u2019s wonderful",
   "characters": [],
   "topics": [
     "General"
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/473463926358044672"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-06-02",
+  "date": "June 02, 2014"
 }

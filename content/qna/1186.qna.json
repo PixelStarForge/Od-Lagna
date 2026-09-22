@@ -1,7 +1,7 @@
 {
   "id": "1186",
-  "question": "A story of Daphne in the world of Subaru-kun’s memories, secretly dining on modern foods.",
-  "answer": "Subaru isn’t there, so that memory world crumbled away and disappeared.",
+  "question": "A story of Daphne in the world of Subaru-kun\u2019s memories, secretly dining on modern foods.",
+  "answer": "Subaru isn\u2019t there, so that memory world crumbled away and disappeared.",
   "characters": [
     "Daphne",
     "Natsuki Subaru"
@@ -11,8 +11,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/517824764178878464"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-10-02",
+  "date": "October 02, 2014"
 }

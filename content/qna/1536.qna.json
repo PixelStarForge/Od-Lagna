@@ -1,7 +1,7 @@
 {
   "id": "1536",
-  "question": "Garfiel is now getting along well with Subaru’s group, but back in the Sanctuary period, we never saw him hanging out with anyone. There should be others his age in Sanctuary, right? Can I suspect that Garfiel doesn’t have any friends?",
-  "answer": "There’s no one his age. It’s all grandpas and grannies..",
+  "question": "Garfiel is now getting along well with Subaru\u2019s group, but back in the Sanctuary period, we never saw him hanging out with anyone. There should be others his age in Sanctuary, right? Can I suspect that Garfiel doesn\u2019t have any friends?",
+  "answer": "There\u2019s no one his age. It\u2019s all grandpas and grannies..",
   "characters": [
     "Garfiel Tinsel",
     "Natsuki Subaru"
@@ -11,8 +11,10 @@
   ],
   "arc": "arc-4",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/533649353429512192"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-11-15",
+  "date": "November 15, 2014"
 }

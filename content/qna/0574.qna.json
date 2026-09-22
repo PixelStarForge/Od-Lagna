@@ -1,7 +1,7 @@
 {
   "id": "0574",
   "question": "Is there a Capella a cappella?!!!",
-  "answer": "There’s no Capella a cappella!!",
+  "answer": "There\u2019s no Capella a cappella!!",
   "characters": [
     "Capella Emerada Lugnica"
   ],
@@ -10,8 +10,10 @@
   ],
   "arc": "arc-5",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/531075283563343872"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-11-08",
+  "date": "November 08, 2014"
 }

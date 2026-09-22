@@ -1,7 +1,7 @@
 {
   "id": "0684",
-  "question": "Is there anything that tastes so bad that even Daphne wouldn’t eat it?",
-  "answer": "Boiled or fried, she couldn’t eat Zaboela (note: may be a reference to a Dragon Quest character.)",
+  "question": "Is there anything that tastes so bad that even Daphne wouldn\u2019t eat it?",
+  "answer": "Boiled or fried, she couldn\u2019t eat Zaboela (note: may be a reference to a Dragon Quest character.)",
   "characters": [
     "Daphne"
   ],
@@ -10,8 +10,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/493300012424888320"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-07-27",
+  "date": "July 27, 2014"
 }

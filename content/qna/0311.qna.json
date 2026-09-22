@@ -1,6 +1,6 @@
 {
   "id": "0311",
-  "question": "Has Elsa’s birthplace been decided?",
+  "question": "Has Elsa\u2019s birthplace been decided?",
   "answer": "Gusteko of the North",
   "characters": [
     "Elsa Granhiert"
@@ -10,8 +10,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/473719902378164224"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-06-03",
+  "date": "June 03, 2014"
 }

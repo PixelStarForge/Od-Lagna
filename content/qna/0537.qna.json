@@ -1,7 +1,7 @@
 {
   "id": "0537",
-  "question": "Isn’t Regulus too strong?",
-  "answer": "He’s ridiculously strong.",
+  "question": "Isn\u2019t Regulus too strong?",
+  "answer": "He\u2019s ridiculously strong.",
   "characters": [
     "Regulus Corneas"
   ],
@@ -10,8 +10,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/498111059551846400"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-08-09",
+  "date": "August 09, 2014"
 }

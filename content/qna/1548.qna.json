@@ -1,7 +1,7 @@
 {
   "id": "1548",
   "question": "Is it possible that beastform Garfiel is even dumber than the mabeast leader that appeared in the village?",
-  "answer": "He’s about the same level of dumb.",
+  "answer": "He\u2019s about the same level of dumb.",
   "characters": [
     "Garfiel Tinsel"
   ],
@@ -10,8 +10,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/496683249507528706"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-08-05",
+  "date": "August 05, 2014"
 }

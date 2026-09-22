@@ -1,7 +1,7 @@
 {
   "id": "0314",
   "question": "It seems mabeasts whose horns are broken get lynched, but how did Meili manage to gather that many of them?",
-  "answer": "Meili is a bit of a special case, as she herself fills the role of ‘horn’ for the mabeasts that follow her.",
+  "answer": "Meili is a bit of a special case, as she herself fills the role of \u2018horn\u2019 for the mabeasts that follow her.",
   "characters": [
     "Meili Portroute"
   ],
@@ -10,8 +10,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/497309267297599488"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-08-07",
+  "date": "August 07, 2014"
 }

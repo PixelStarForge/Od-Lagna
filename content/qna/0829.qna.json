@@ -1,6 +1,6 @@
 {
   "id": "0829",
-  "question": "In the Re: Zero world, is there knowledge or culture that originated on Earth that Subaru isn’t aware of?",
+  "question": "In the Re: Zero world, is there knowledge or culture that originated on Earth that Subaru isn\u2019t aware of?",
   "answer": "Spoiler.",
   "characters": [
     "Natsuki Subaru"
@@ -11,8 +11,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/532910501253365760"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-11-13",
+  "date": "November 13, 2014"
 }

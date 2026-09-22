@@ -1,7 +1,7 @@
 {
   "id": "0251",
   "question": "Is there a Julius-tan route?",
-  "answer": "I don’t understand what you’re talking about.",
+  "answer": "I don\u2019t understand what you\u2019re talking about.",
   "characters": [
     "Julius Juukulius"
   ],
@@ -10,8 +10,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/475583331166593024"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-06-08",
+  "date": "June 08, 2014"
 }

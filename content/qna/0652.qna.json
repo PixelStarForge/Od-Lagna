@@ -1,7 +1,7 @@
 {
   "id": "0652",
-  "question": "It’s said that your heart stops if you meet Carmilla; is her personal guard made up of tough men whose hearts didn’t stop?",
-  "answer": "That’s right. The guard is entirely made up of tough guys whose hearts didn’t stop.",
+  "question": "It\u2019s said that your heart stops if you meet Carmilla; is her personal guard made up of tough men whose hearts didn\u2019t stop?",
+  "answer": "That\u2019s right. The guard is entirely made up of tough guys whose hearts didn\u2019t stop.",
   "characters": [
     "Carmilla"
   ],
@@ -10,8 +10,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/533954227593564160"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-11-16",
+  "date": "November 16, 2014"
 }

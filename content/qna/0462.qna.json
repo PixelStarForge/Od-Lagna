@@ -1,7 +1,7 @@
 {
   "id": "0462",
-  "question": "What do Reinhard and Reinhard’s father think of Wilhelm?",
-  "answer": "The super-troublesome Astrea family’s problems will appear in Arc 5.",
+  "question": "What do Reinhard and Reinhard\u2019s father think of Wilhelm?",
+  "answer": "The super-troublesome Astrea family\u2019s problems will appear in Arc 5.",
   "characters": [
     "Reinhard van Astrea",
     "Wilhelm van Astrea"
@@ -11,8 +11,10 @@
   ],
   "arc": "arc-5",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/478318256965840897"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-06-15",
+  "date": "June 15, 2014"
 }

@@ -1,7 +1,7 @@
 {
   "id": "1439",
-  "question": "What are Subaru and Emilia’s mottos?",
-  "answer": "Subaru’s is “If you’re not sure if you should or shouldn’t, don’t.”, and Emilia’s is “With all your might.”.",
+  "question": "What are Subaru and Emilia\u2019s mottos?",
+  "answer": "Subaru\u2019s is \u201cIf you\u2019re not sure if you should or shouldn\u2019t, don\u2019t.\u201d, and Emilia\u2019s is \u201cWith all your might.\u201d.",
   "characters": [
     "Emilia",
     "Natsuki Subaru"
@@ -11,8 +11,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/495517552123314176"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-08-02",
+  "date": "August 02, 2014"
 }

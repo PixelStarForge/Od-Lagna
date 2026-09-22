@@ -1,7 +1,7 @@
 {
   "id": "1465",
   "question": "Ram and Rem wear maid uniforms, but are their casual clothes Japanese style, or western style? Also, Kararagi has the Kansai accent, but are the buildings and clothes there Japanese style, perhaps?",
-  "answer": "They don’t have casual clothes! They only have the maid uniforms they normally wear, maid uniforms for going out, and a negligee! Kararagi does have the Kansai accent, but the buildings and clothing aren’t that different from other countries. Maybe Gusteko is northern country style, Vollachia is southern country style, Lugunica is western clothing style, and Kararagi is asian style. Anastasia wears whatever clothing suits her fancy.",
+  "answer": "They don\u2019t have casual clothes! They only have the maid uniforms they normally wear, maid uniforms for going out, and a negligee! Kararagi does have the Kansai accent, but the buildings and clothing aren\u2019t that different from other countries. Maybe Gusteko is northern country style, Vollachia is southern country style, Lugunica is western clothing style, and Kararagi is asian style. Anastasia wears whatever clothing suits her fancy.",
   "characters": [
     "Anastasia Hoshin",
     "Ram",
@@ -14,8 +14,10 @@
   ],
   "arc": "arc-7",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/503085978744279040"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-08-23",
+  "date": "August 23, 2014"
 }

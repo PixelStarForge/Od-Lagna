@@ -1,7 +1,7 @@
 {
   "id": "1373",
-  "question": "Subaru-kun seems a lot like Nobita from Doraemon, doesn’t he. He’s good at cat’s cradle, and is he perhaps also skilled in target shooting?",
-  "answer": "He’s probably not the best in the universe, but he’s probably very good at cutting out shapes.",
+  "question": "Subaru-kun seems a lot like Nobita from Doraemon, doesn\u2019t he. He\u2019s good at cat\u2019s cradle, and is he perhaps also skilled in target shooting?",
+  "answer": "He\u2019s probably not the best in the universe, but he\u2019s probably very good at cutting out shapes.",
   "characters": [
     "Natsuki Subaru"
   ],
@@ -10,8 +10,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/476979533401583616"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-06-12",
+  "date": "June 12, 2014"
 }

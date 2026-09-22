@@ -1,7 +1,7 @@
 {
   "id": "1367",
   "question": "Speaking hypothetically, if Subaru had contracted with Echidna, how would things have turned out after that?",
-  "answer": "He’d confirm all possible outcomes by Return by Death, choose the best possible path, and it would be the birth of a hero who saves everything and has lost his heart. Re: Zero ends!!",
+  "answer": "He\u2019d confirm all possible outcomes by Return by Death, choose the best possible path, and it would be the birth of a hero who saves everything and has lost his heart. Re: Zero ends!!",
   "characters": [
     "Echidna",
     "Natsuki Subaru"
@@ -11,8 +11,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/497259664346976257"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-08-07",
+  "date": "August 07, 2014"
 }

@@ -1,7 +1,7 @@
 {
   "id": "3799",
-  "question": "When Otto learned that Subaru was a major contributor to the White Whale’s subjugation, how surprised was he?",
-  "answer": "He only half-believed it at first, and Subaru was unconscious so it wasn’t being depicted, but when he saw the headless White Whale’s corpse at Flugel’s Tree, he pissed himself a little.",
+  "question": "When Otto learned that Subaru was a major contributor to the White Whale\u2019s subjugation, how surprised was he?",
+  "answer": "He only half-believed it at first, and Subaru was unconscious so it wasn\u2019t being depicted, but when he saw the headless White Whale\u2019s corpse at Flugel\u2019s Tree, he pissed himself a little.",
   "characters": [
     "Flugel",
     "Natsuki Subaru",
@@ -13,8 +13,10 @@
   ],
   "arc": "arc-3",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/532466352574189568"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-11-12",
+  "date": "November 12, 2014"
 }

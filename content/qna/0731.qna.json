@@ -1,7 +1,7 @@
 {
   "id": "0731",
   "question": "If Ram put her best effort into making mayonnaise, would blood spray from her forehead? That would be a surreal scene.",
-  "answer": "Well, that’s about right!",
+  "answer": "Well, that\u2019s about right!",
   "characters": [
     "Ram"
   ],
@@ -10,8 +10,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/492173183186137088"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-07-24",
+  "date": "July 24, 2014"
 }

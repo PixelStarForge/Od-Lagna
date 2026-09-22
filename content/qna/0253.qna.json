@@ -1,7 +1,7 @@
 {
   "id": "0253",
   "question": "It seems that according to Puck, Julius talks about himself too much, but it Julius aware of this?",
-  "answer": "That was mostly because Emilia-tan isn’t great at making conversation, so Julius was just trying to help out.",
+  "answer": "That was mostly because Emilia-tan isn\u2019t great at making conversation, so Julius was just trying to help out.",
   "characters": [
     "Emilia",
     "Julius Juukulius",
@@ -12,8 +12,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/495526430697340928"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-08-02",
+  "date": "August 02, 2014"
 }

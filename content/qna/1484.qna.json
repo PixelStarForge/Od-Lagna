@@ -1,7 +1,7 @@
 {
   "id": "1484",
-  "question": "Could Reinhard have become ‘that person’?",
-  "answer": "‘That person’ wasn’t clearly defined, so anyone could have become that person, and depending on Beatrice, perhaps no one could have become that person. Having said that, probably no one could have become that person.",
+  "question": "Could Reinhard have become \u2018that person\u2019?",
+  "answer": "\u2018That person\u2019 wasn\u2019t clearly defined, so anyone could have become that person, and depending on Beatrice, perhaps no one could have become that person. Having said that, probably no one could have become that person.",
   "characters": [
     "Beatrice",
     "Reinhard van Astrea"
@@ -11,8 +11,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/499577781479817216"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-08-13",
+  "date": "August 13, 2014"
 }

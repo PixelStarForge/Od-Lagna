@@ -1,7 +1,7 @@
 {
   "id": "0816",
   "question": "Are there whales?",
-  "answer": "There aren’t any since there are no oceans, but if I say that, then why do they talk about lions when there aren’t any lions, and there’s no end to it, so I think it’s best not to worry about it too much.",
+  "answer": "There aren\u2019t any since there are no oceans, but if I say that, then why do they talk about lions when there aren\u2019t any lions, and there\u2019s no end to it, so I think it\u2019s best not to worry about it too much.",
   "characters": [],
   "topics": [
     "Dragon Kingdom Lugnica",
@@ -9,8 +9,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/522628689167941632"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-10-16",
+  "date": "October 16, 2014"
 }

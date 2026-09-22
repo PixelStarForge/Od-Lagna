@@ -1,15 +1,17 @@
 {
   "id": "0313",
   "question": "In other words, Else = Heroine!",
-  "answer": "I don’t know what equation led you to that answer. It looks like it’s become a fill-in-the-blank question, so let’s look for a solution.",
+  "answer": "I don\u2019t know what equation led you to that answer. It looks like it\u2019s become a fill-in-the-blank question, so let\u2019s look for a solution.",
   "characters": [],
   "topics": [
     "General"
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/478042131442192384"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-06-15",
+  "date": "June 15, 2014"
 }

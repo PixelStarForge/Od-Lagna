@@ -1,7 +1,7 @@
 {
   "id": "0571",
   "question": "If you showed Capella a shojo manga or romance novel, how would she react?",
-  "answer": "“See, it’s all about the face!!”, she’d say.",
+  "answer": "\u201cSee, it\u2019s all about the face!!\u201d, she\u2019d say.",
   "characters": [
     "Capella Emerada Lugnica"
   ],
@@ -10,8 +10,10 @@
   ],
   "arc": "arc-5",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/545065860021633024"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-12-17",
+  "date": "December 17, 2014"
 }

@@ -1,7 +1,7 @@
 {
   "id": "0371",
-  "question": "If you tell Reinhard “Exterminate the witch cult”, it seems like it would solve half the current problems, but apparently he’s not good at searching for enemies.",
-  "answer": "Maybe it’s a problem of who would tell him that.",
+  "question": "If you tell Reinhard \u201cExterminate the witch cult\u201d, it seems like it would solve half the current problems, but apparently he\u2019s not good at searching for enemies.",
+  "answer": "Maybe it\u2019s a problem of who would tell him that.",
   "characters": [
     "Reinhard van Astrea"
   ],
@@ -10,8 +10,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/475333690864992256"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-06-07",
+  "date": "June 07, 2014"
 }

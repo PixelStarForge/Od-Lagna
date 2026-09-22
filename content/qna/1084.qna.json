@@ -1,7 +1,7 @@
 {
   "id": "1084",
   "question": "Currently, Petra and Beatrice possess the little girl attribute; will this number increase in the future?",
-  "answer": "I don’t think the number of little girls will increase. Even Petra won’t be a little girl in three years.",
+  "answer": "I don\u2019t think the number of little girls will increase. Even Petra won\u2019t be a little girl in three years.",
   "characters": [
     "Beatrice",
     "Petra Leyte"
@@ -11,8 +11,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/496654022238306305"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-08-05",
+  "date": "August 05, 2014"
 }

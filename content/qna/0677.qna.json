@@ -1,7 +1,7 @@
 {
   "id": "0677",
   "question": "I think the youth of today would rather ride in a Guiltylowe carriage, rather than a dragon carriage.",
-  "answer": "Guiltylowe’s pride is exceptionally high, so he wouldn’t let a person ride him, let alone pull a carriage. However, he was looking with fluttering eyes at the rock pig that Meili was riding.",
+  "answer": "Guiltylowe\u2019s pride is exceptionally high, so he wouldn\u2019t let a person ride him, let alone pull a carriage. However, he was looking with fluttering eyes at the rock pig that Meili was riding.",
   "characters": [
     "Meili Portroute"
   ],
@@ -11,8 +11,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/492309301319720960"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-07-24",
+  "date": "July 24, 2014"
 }

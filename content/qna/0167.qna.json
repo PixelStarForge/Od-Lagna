@@ -1,7 +1,7 @@
 {
   "id": "0167",
-  "question": "Could Priscilla possibly be killed as a side-effect of Subaru’s actions or something like that?",
-  "answer": "If it’s a question of if it’s possible or not, it is possible.",
+  "question": "Could Priscilla possibly be killed as a side-effect of Subaru\u2019s actions or something like that?",
+  "answer": "If it\u2019s a question of if it\u2019s possible or not, it is possible.",
   "characters": [
     "Natsuki Subaru",
     "Priscilla Barielle"
@@ -11,8 +11,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/496655560771899392"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-08-05",
+  "date": "August 05, 2014"
 }

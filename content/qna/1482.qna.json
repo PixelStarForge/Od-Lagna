@@ -1,7 +1,7 @@
 {
   "id": "1482",
-  "question": "Can spirits absorb mana even if the other person’s gate is broken?",
-  "answer": "They can. It’s more like, if Beako wasn’t absorbing his mana, Subaru would die of mana overflow.",
+  "question": "Can spirits absorb mana even if the other person\u2019s gate is broken?",
+  "answer": "They can. It\u2019s more like, if Beako wasn\u2019t absorbing his mana, Subaru would die of mana overflow.",
   "characters": [
     "Beatrice",
     "Natsuki Subaru"
@@ -11,8 +11,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/496649919512735744"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-08-05",
+  "date": "August 05, 2014"
 }

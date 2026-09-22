@@ -1,15 +1,17 @@
 {
   "id": "0013",
   "question": "Did you know about [Narou] from before you began writing Re: Zero? Were you a reader?",
-  "answer": "I knew of [Narou] but I wasn’t a reader, even now I’m not reading it to the extent to be called a ‘reader’. My image for it is that of a huge posting site.",
+  "answer": "I knew of [Narou] but I wasn\u2019t a reader, even now I\u2019m not reading it to the extent to be called a \u2018reader\u2019. My image for it is that of a huge posting site.",
   "characters": [],
   "topics": [
     "General"
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/470902781399015424"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-05-26",
+  "date": "May 26, 2014"
 }

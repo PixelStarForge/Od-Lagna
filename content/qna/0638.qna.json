@@ -1,7 +1,7 @@
 {
   "id": "0638",
   "question": "Does Carmilla-tan have any fighting ability?",
-  "answer": "Carmilla-tan doesn’t have any. Her personal guards do.",
+  "answer": "Carmilla-tan doesn\u2019t have any. Her personal guards do.",
   "characters": [
     "Carmilla"
   ],
@@ -10,8 +10,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/533146468220432385"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-11-14",
+  "date": "November 14, 2014"
 }

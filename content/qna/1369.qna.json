@@ -1,6 +1,6 @@
 {
   "id": "1369",
-  "question": "Subaru is doing well to not have his heart broken after dying that often. That scene of him sinking into the blast furnace giving a thumbs-up, I couldn’t read without crying.",
+  "question": "Subaru is doing well to not have his heart broken after dying that often. That scene of him sinking into the blast furnace giving a thumbs-up, I couldn\u2019t read without crying.",
   "answer": "It was broken, you know.",
   "characters": [
     "Natsuki Subaru"
@@ -10,8 +10,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/499581945651953665"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-08-13",
+  "date": "August 13, 2014"
 }

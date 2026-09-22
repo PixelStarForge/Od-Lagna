@@ -1,7 +1,7 @@
 {
   "id": "0620",
   "question": "Is Minerva-tan pulling mana from Od Laguna and playing Bokosuka? (Note: Bokosuka seems to be a reference to the video game Bokosuka Wars.)",
-  "answer": "That’s right. Even Od Laguna can only make a puzzled face over this.",
+  "answer": "That\u2019s right. Even Od Laguna can only make a puzzled face over this.",
   "characters": [
     "Minerva"
   ],
@@ -10,8 +10,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/496689017329844224"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-08-05",
+  "date": "August 05, 2014"
 }

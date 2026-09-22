@@ -1,7 +1,7 @@
 {
   "id": "0741",
   "question": "Out of those at the Roswaal estate, which one likes mayonnaise the most? Besides Subaru-kun and Rem.",
-  "answer": "Liking Mayonnaise Ranking: “Subaru > Beatrice > Emilia > (likes it) > Otto > Roswaal > Frederica > (doesn’t like it) > Ram > Rem >>>>>> Petra. Because Subaru loves mayonnaise, Petra goes along with it, teary-eyed. She’s brave.",
+  "answer": "Liking Mayonnaise Ranking: \u201cSubaru > Beatrice > Emilia > (likes it) > Otto > Roswaal > Frederica > (doesn\u2019t like it) > Ram > Rem >>>>>> Petra. Because Subaru loves mayonnaise, Petra goes along with it, teary-eyed. She\u2019s brave.",
   "characters": [
     "Beatrice",
     "Emilia",
@@ -18,8 +18,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/473773379447963648"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-06-03",
+  "date": "June 03, 2014"
 }

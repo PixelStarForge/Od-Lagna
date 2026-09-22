@@ -1,7 +1,7 @@
 {
   "id": "0808",
   "question": "Please tell me the difference in healing ability between Minerva-chan, Ferris, Emilia-tan and the rest, using Godzilla in the example.",
-  "answer": "Minerva is Godzilla. Ferris is Mothra. Emilia-tan and Rem are around Yagogeruge’s level. Beako is about the same as a Hippolit alien. (note: Yagogeruge is from the Barom-1 series, and Hippolit aliens are from the Ultraman series.)",
+  "answer": "Minerva is Godzilla. Ferris is Mothra. Emilia-tan and Rem are around Yagogeruge\u2019s level. Beako is about the same as a Hippolit alien. (note: Yagogeruge is from the Barom-1 series, and Hippolit aliens are from the Ultraman series.)",
   "characters": [
     "Beatrice",
     "Emilia",
@@ -14,8 +14,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/476963172797394944"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-06-12",
+  "date": "June 12, 2014"
 }

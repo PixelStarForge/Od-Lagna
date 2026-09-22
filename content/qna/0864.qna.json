@@ -1,7 +1,7 @@
 {
   "id": "0864",
   "question": "How are half-elves born?",
-  "answer": "They’re born normally, when an elf mother kisses a human father. Or they’re born when a human mother kisses an elf father.(note: the kiss part is a joke, in the story Emilia thought she’s pregnant because Subaru kissed her)",
+  "answer": "They\u2019re born normally, when an elf mother kisses a human father. Or they\u2019re born when a human mother kisses an elf father.(note: the kiss part is a joke, in the story Emilia thought she\u2019s pregnant because Subaru kissed her)",
   "characters": [
     "Emilia",
     "Natsuki Subaru"
@@ -11,8 +11,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/478183778582798336"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-06-15",
+  "date": "June 15, 2014"
 }

@@ -1,7 +1,7 @@
 {
   "id": "0826",
   "question": "How long until we have a shootout in Vollachia or Osaka?",
-  "answer": "We won’t. There’s no reason to head to other countries.",
+  "answer": "We won\u2019t. There\u2019s no reason to head to other countries.",
   "characters": [],
   "topics": [
     "Dragon Kingdom Lugnica",
@@ -10,8 +10,10 @@
   ],
   "arc": "arc-7",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/493932627569958913"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-07-29",
+  "date": "July 29, 2014"
 }

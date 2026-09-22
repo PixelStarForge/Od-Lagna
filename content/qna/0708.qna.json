@@ -1,6 +1,6 @@
 {
   "id": "0708",
-  "question": "It’s been said that mabeasts will follow the creature that breaks their horns, but would the White Whale and Great Rabbit (did they have horns?) follow the creature that breaks their horns?",
+  "question": "It\u2019s been said that mabeasts will follow the creature that breaks their horns, but would the White Whale and Great Rabbit (did they have horns?) follow the creature that breaks their horns?",
   "answer": "The White Whale, Great Rabbit, and Black Snake, too, have already had their horns and hearts broken by Daphne.",
   "characters": [
     "Daphne",
@@ -11,8 +11,10 @@
   ],
   "arc": "arc-4",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/494737818993041408"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-07-31",
+  "date": "July 31, 2014"
 }

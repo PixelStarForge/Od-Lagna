@@ -1,7 +1,7 @@
 {
   "id": "0468",
-  "question": "When Wilhelm went to subdue the evil dragon, Reinhard wasn’t there??",
-  "answer": "He wasn’t born yet, you see.",
+  "question": "When Wilhelm went to subdue the evil dragon, Reinhard wasn\u2019t there??",
+  "answer": "He wasn\u2019t born yet, you see.",
   "characters": [
     "Reinhard van Astrea",
     "Wilhelm van Astrea"
@@ -11,8 +11,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/566520092553650176"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2015-02-14",
+  "date": "February 14, 2015"
 }

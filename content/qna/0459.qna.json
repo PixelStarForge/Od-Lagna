@@ -1,7 +1,7 @@
 {
   "id": "0459",
   "question": "The Master Swordsmen are supposedly the strongest, so why were they unable to defeat the Witch of Jealousy, Satella?",
-  "answer": "The Master Swordsmen aren’t the strongest, Reinhard is the strongest. Also, though it wasn’t a one-on-one fight, the witch was defeated by the first Master Swordsman.",
+  "answer": "The Master Swordsmen aren\u2019t the strongest, Reinhard is the strongest. Also, though it wasn\u2019t a one-on-one fight, the witch was defeated by the first Master Swordsman.",
   "characters": [
     "Reinhard van Astrea",
     "Satella"
@@ -11,8 +11,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/494736611452944384"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-07-31",
+  "date": "July 31, 2014"
 }

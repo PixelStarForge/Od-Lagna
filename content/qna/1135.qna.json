@@ -1,7 +1,7 @@
 {
   "id": "1135",
   "question": "If Subaru had received a cheat bonus, how would it have turned out?",
-  "answer": "Reinhard’s arrival would have been too late, and he’d have been slashed by Elsa, wouldn’t you think?",
+  "answer": "Reinhard\u2019s arrival would have been too late, and he\u2019d have been slashed by Elsa, wouldn\u2019t you think?",
   "characters": [
     "Elsa Granhiert",
     "Natsuki Subaru",
@@ -12,8 +12,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/604544841054351360"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2015-05-30",
+  "date": "May 30, 2015"
 }

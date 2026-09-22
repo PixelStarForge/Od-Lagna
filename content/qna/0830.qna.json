@@ -1,7 +1,7 @@
 {
   "id": "0830",
-  "question": "In the capital Lugunica, how are the royal castle, the guard station, the shopping street, the slums, Kadomon’s store, the capital’s front gate, and Crusch’s estate located relative to each other?",
-  "answer": "Someone who’s good with maps can go ahead and decide on a reasonable shape.",
+  "question": "In the capital Lugunica, how are the royal castle, the guard station, the shopping street, the slums, Kadomon\u2019s store, the capital\u2019s front gate, and Crusch\u2019s estate located relative to each other?",
+  "answer": "Someone who\u2019s good with maps can go ahead and decide on a reasonable shape.",
   "characters": [
     "Crusch Karsten",
     "Kadomon Risch"
@@ -13,8 +13,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/477041372869177344"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-06-12",
+  "date": "June 12, 2014"
 }

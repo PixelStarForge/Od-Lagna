@@ -1,7 +1,7 @@
 {
   "id": "0732",
-  "question": "If the royal candidates were to meet Subaru’s father, who can quickly become friends with girls, how might they react?",
-  "answer": "Kenichi is so good at interpersonal relations that you could say he has the ‘Blessing of Fame’, so he can deal perfectly with anyone. He’s Subaru’s superior in all ways when it comes to dealing with people.",
+  "question": "If the royal candidates were to meet Subaru\u2019s father, who can quickly become friends with girls, how might they react?",
+  "answer": "Kenichi is so good at interpersonal relations that you could say he has the \u2018Blessing of Fame\u2019, so he can deal perfectly with anyone. He\u2019s Subaru\u2019s superior in all ways when it comes to dealing with people.",
   "characters": [
     "Natsuki Subaru"
   ],
@@ -11,8 +11,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/493576244068638720"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-07-28",
+  "date": "July 28, 2014"
 }

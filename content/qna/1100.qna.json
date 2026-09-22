@@ -1,6 +1,6 @@
 {
   "id": "1100",
-  "question": "I’d like to see a male rival-ish character for Subaru, different from Otto or Garf. Not along Julius’ lines, more of a muddy sort.",
+  "question": "I\u2019d like to see a male rival-ish character for Subaru, different from Otto or Garf. Not along Julius\u2019 lines, more of a muddy sort.",
   "answer": "There is one.",
   "characters": [
     "Garfiel Tinsel",
@@ -13,8 +13,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/502828713814528000"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-08-22",
+  "date": "August 22, 2014"
 }

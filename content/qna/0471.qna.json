@@ -1,7 +1,7 @@
 {
   "id": "0471",
   "question": "Why does Old Man Wil use those strange shouts?",
-  "answer": "If you do kendo, you’ll understand.",
+  "answer": "If you do kendo, you\u2019ll understand.",
   "characters": [
     "Wilhelm van Astrea"
   ],
@@ -10,8 +10,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/538165283022970881"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-11-28",
+  "date": "November 28, 2014"
 }

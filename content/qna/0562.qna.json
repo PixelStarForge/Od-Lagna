@@ -1,7 +1,7 @@
 {
   "id": "0562",
-  "question": "For some reason, I can’t help but think that Capella-chan is cute! For some reason, her words and actions are attractive! And so, what can I do to become just another person to her?",
-  "answer": "Share her sense of values, love her, wipe away the great trauma she bears. Then she’ll be yours...",
+  "question": "For some reason, I can\u2019t help but think that Capella-chan is cute! For some reason, her words and actions are attractive! And so, what can I do to become just another person to her?",
+  "answer": "Share her sense of values, love her, wipe away the great trauma she bears. Then she\u2019ll be yours...",
   "characters": [
     "Capella Emerada Lugnica"
   ],
@@ -10,8 +10,10 @@
   ],
   "arc": "arc-5",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/593691990266683392"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2015-04-30",
+  "date": "April 30, 2015"
 }

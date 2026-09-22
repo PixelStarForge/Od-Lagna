@@ -1,7 +1,7 @@
 {
   "id": "0235",
   "question": "The Kansai accent that Ana-san uses, is that Osaka, Kyoto, or Kobe?",
-  "answer": "It’s a fake Kansai accent. That’s a spoiler, too.",
+  "answer": "It\u2019s a fake Kansai accent. That\u2019s a spoiler, too.",
   "characters": [
     "Anastasia Hoshin"
   ],
@@ -10,8 +10,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/496926747359985665"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-08-06",
+  "date": "August 06, 2014"
 }

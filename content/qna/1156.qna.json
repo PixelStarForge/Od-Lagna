@@ -1,7 +1,7 @@
 {
   "id": "1156",
   "question": "Powerful people like Reinhard, Elsa, Garfiel, and Julius introduce themselves when fighting a strong opponent; are greetings very important in this world? If you fail to introduce yourself, will you become an outcast?",
-  "answer": "In single combat, introductions are natural as an exciting moment, and I think they’re a point that ought to be ensured. When you write a novel, you should try it too!",
+  "answer": "In single combat, introductions are natural as an exciting moment, and I think they\u2019re a point that ought to be ensured. When you write a novel, you should try it too!",
   "characters": [
     "Elsa Granhiert",
     "Garfiel Tinsel",
@@ -13,8 +13,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/496648677751279616"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-08-05",
+  "date": "August 05, 2014"
 }

@@ -1,7 +1,7 @@
 {
   "id": "0347",
   "question": "What would the five royal candidates do if Subaru suddenly proposed to them?",
-  "answer": "They’d cut him off. Figuratively or literally, depending on the candidate.",
+  "answer": "They\u2019d cut him off. Figuratively or literally, depending on the candidate.",
   "characters": [
     "Natsuki Subaru"
   ],
@@ -10,8 +10,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/493935186267361280"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-07-29",
+  "date": "July 29, 2014"
 }

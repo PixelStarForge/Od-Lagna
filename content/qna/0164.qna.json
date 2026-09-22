@@ -1,7 +1,7 @@
 {
   "id": "0164",
   "question": "Where does Emilia keep her luggage in her clothes? Does she have a pocket or something?",
-  "answer": "If you say that, then where the hell does Rem keep her iron flail? In her skirt? I know it’s a romance, but don’t investigate it!",
+  "answer": "If you say that, then where the hell does Rem keep her iron flail? In her skirt? I know it\u2019s a romance, but don\u2019t investigate it!",
   "characters": [
     "Emilia",
     "Rem"
@@ -11,8 +11,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/478459719162789888"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-06-16",
+  "date": "June 16, 2014"
 }

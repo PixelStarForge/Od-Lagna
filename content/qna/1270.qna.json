@@ -1,7 +1,7 @@
 {
   "id": "1270",
   "question": "Subaru interacts with a lady (little girl), behaving like a knight from a story.",
-  "answer": "Look forward to the side story “The World that Petra Saw”, that will come out someday.",
+  "answer": "Look forward to the side story \u201cThe World that Petra Saw\u201d, that will come out someday.",
   "characters": [
     "Natsuki Subaru",
     "Petra Leyte"
@@ -11,8 +11,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/538163995749142528"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-11-28",
+  "date": "November 28, 2014"
 }

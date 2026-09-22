@@ -1,7 +1,7 @@
 {
   "id": "0907",
   "question": "Do the guards have multiple guard stations? Is there anything like differences in standing between guards?",
-  "answer": "Even within the capital there are multiple guard stations, but basically, when people say ‘guard station’, they mean the one on the edge of the nobles’ section of town, where Julius dropped by. There’s the same sort of differences as between a police officer and a police chief, but it’s fine to basically think of them all as below the knights.",
+  "answer": "Even within the capital there are multiple guard stations, but basically, when people say \u2018guard station\u2019, they mean the one on the edge of the nobles\u2019 section of town, where Julius dropped by. There\u2019s the same sort of differences as between a police officer and a police chief, but it\u2019s fine to basically think of them all as below the knights.",
   "characters": [
     "Julius Juukulius"
   ],
@@ -11,8 +11,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/477006021295349760"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-06-12",
+  "date": "June 12, 2014"
 }

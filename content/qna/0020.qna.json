@@ -1,15 +1,17 @@
 {
   "id": "0020",
-  "question": "Do you think it’s necessary to study for middle school?",
-  "answer": "Regardless of middle school, “Living is learning, in other words, studying is human life” is exactly what backscratcher-sensei said awhile back. (Probably talking about the author of Mushoku Tensei)",
+  "question": "Do you think it\u2019s necessary to study for middle school?",
+  "answer": "Regardless of middle school, \u201cLiving is learning, in other words, studying is human life\u201d is exactly what backscratcher-sensei said awhile back. (Probably talking about the author of Mushoku Tensei)",
   "characters": [],
   "topics": [
     "General"
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/473107960223522817"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-06-01",
+  "date": "June 01, 2014"
 }

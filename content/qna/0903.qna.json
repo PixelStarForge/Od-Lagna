@@ -1,7 +1,7 @@
 {
   "id": "0903",
   "question": "Do glasses exist in the world of Re: Zero? Or are they unneeded since they handle it with magic?",
-  "answer": "They exist. They’re fairly expensive. Of the characters in the story, Tivey of the beastmen sibling trio wears a monocle. The character design is super-cute.",
+  "answer": "They exist. They\u2019re fairly expensive. Of the characters in the story, Tivey of the beastmen sibling trio wears a monocle. The character design is super-cute.",
   "characters": [
     "Tivey Pearlbaton"
   ],
@@ -10,8 +10,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/496874234598400000"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-08-06",
+  "date": "August 06, 2014"
 }

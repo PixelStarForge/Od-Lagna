@@ -1,7 +1,7 @@
 {
   "id": "0336",
   "question": "If you compared the royal candidates and their knights to the cast of a school, what sort of positions would they end up in?",
-  "answer": "Crusch - student council president. Ferris - vice president. Priscilla - daughter of the chairman of the board. Al - Priscilla’s chauffeur. Anastasia - student council treasurer. Julius - student council secretary. Reinhard - prince of the school. Felt - main character of a girl’s dating sim. Subaru - side character. Rem - Subaru’s childhood friend. Emilia - transfer student. Beako - Subaru’s little sister. With these selections, you have Re: Zero School!! How’s that?",
+  "answer": "Crusch - student council president. Ferris - vice president. Priscilla - daughter of the chairman of the board. Al - Priscilla\u2019s chauffeur. Anastasia - student council treasurer. Julius - student council secretary. Reinhard - prince of the school. Felt - main character of a girl\u2019s dating sim. Subaru - side character. Rem - Subaru\u2019s childhood friend. Emilia - transfer student. Beako - Subaru\u2019s little sister. With these selections, you have Re: Zero School!! How\u2019s that?",
   "characters": [
     "Al (Aldebaran)",
     "Anastasia Hoshin",
@@ -22,8 +22,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/571219858744070144"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2015-02-27",
+  "date": "February 27, 2015"
 }

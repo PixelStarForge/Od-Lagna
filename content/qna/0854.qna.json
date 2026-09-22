@@ -1,7 +1,7 @@
 {
   "id": "0854",
   "question": "Around how old are the oldest documents that exist in Lugunica? It seems all the records from before the witch have vanished, but is it actually determined how long ago this world started?",
-  "answer": "The oldest documents are around 400 years old, but when it started isn’t really determined. It’s not that important.",
+  "answer": "The oldest documents are around 400 years old, but when it started isn\u2019t really determined. It\u2019s not that important.",
   "characters": [],
   "topics": [
     "Timeline & Ages",
@@ -9,8 +9,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/529882508708839424"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-11-05",
+  "date": "November 05, 2014"
 }

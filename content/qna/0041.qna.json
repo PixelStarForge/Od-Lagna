@@ -1,15 +1,17 @@
 {
   "id": "0041",
   "question": "Is it fine for me to anticipate the heroines falling to evil?",
-  "answer": "It’s always fine for you to anticipate everything. The possibilities for the yet to be written story is endless.",
+  "answer": "It\u2019s always fine for you to anticipate everything. The possibilities for the yet to be written story is endless.",
   "characters": [],
   "topics": [
     "General"
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/471202205044047872"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-05-27",
+  "date": "May 27, 2014"
 }

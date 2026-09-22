@@ -1,7 +1,7 @@
 {
   "id": "1532",
-  "question": "Even though Garfiel has chuunibyou, his nickname is ‘Shield of Sanctuary’, so isn’t he not actually that much of a chuunibyou?",
-  "answer": "The teaching materials to extend Garfiel’s chuunibyou sense didn’t exist inside ‘Sanctuary’. His growth begins here, now that he’s learned of the outside world.",
+  "question": "Even though Garfiel has chuunibyou, his nickname is \u2018Shield of Sanctuary\u2019, so isn\u2019t he not actually that much of a chuunibyou?",
+  "answer": "The teaching materials to extend Garfiel\u2019s chuunibyou sense didn\u2019t exist inside \u2018Sanctuary\u2019. His growth begins here, now that he\u2019s learned of the outside world.",
   "characters": [
     "Garfiel Tinsel"
   ],
@@ -10,8 +10,10 @@
   ],
   "arc": "arc-4",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/495523572874747904"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-08-02",
+  "date": "August 02, 2014"
 }

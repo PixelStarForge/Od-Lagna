@@ -1,7 +1,7 @@
 {
   "id": "1409",
-  "question": "Couldn’t confessing about Return by Death be used as an instant kill?",
-  "answer": "At this point, it’s only been confirmed to work on Emilia, so if Subaru feels that he wants to kill Emilia, he might use it.",
+  "question": "Couldn\u2019t confessing about Return by Death be used as an instant kill?",
+  "answer": "At this point, it\u2019s only been confirmed to work on Emilia, so if Subaru feels that he wants to kill Emilia, he might use it.",
   "characters": [
     "Emilia",
     "Natsuki Subaru"
@@ -11,8 +11,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/522628816930631680"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-10-16",
+  "date": "October 16, 2014"
 }

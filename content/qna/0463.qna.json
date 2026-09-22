@@ -1,15 +1,17 @@
 {
   "id": "0463",
   "question": "What kind of person is the honorary vice-commander of the knights?",
-  "answer": "Arc 5. For the moment, he’s a disliked individual.",
+  "answer": "Arc 5. For the moment, he\u2019s a disliked individual.",
   "characters": [],
   "topics": [
     "Royal Knights"
   ],
   "arc": "arc-5",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/494427741908127744"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-07-30",
+  "date": "July 30, 2014"
 }

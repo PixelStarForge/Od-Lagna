@@ -1,15 +1,17 @@
 {
   "id": "0709",
-  "question": "I’ve heard that poisonous habu snakes are delicious when made into alcohol, but would the Black Snake make good alcohol as well?",
-  "answer": "If you drank that, you’d die for sure.",
+  "question": "I\u2019ve heard that poisonous habu snakes are delicious when made into alcohol, but would the Black Snake make good alcohol as well?",
+  "answer": "If you drank that, you\u2019d die for sure.",
   "characters": [],
   "topics": [
     "Great Mabeasts"
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/496874863488151554"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-08-06",
+  "date": "August 06, 2014"
 }

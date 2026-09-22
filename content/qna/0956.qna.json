@@ -1,7 +1,7 @@
 {
   "id": "0956",
-  "question": "Can Beatrice’s Door Crossing be used on any object that can be opened and closed? Or is it only doors? Is it alright to say that the size of the door is no problem?",
-  "answer": "Basically, it’s only doors. If it’s a door, the size is more or less irrelevant. Windows would be tough, though. It might be difficult if you could see the other side. So the bathing room door would be difficult, too.",
+  "question": "Can Beatrice\u2019s Door Crossing be used on any object that can be opened and closed? Or is it only doors? Is it alright to say that the size of the door is no problem?",
+  "answer": "Basically, it\u2019s only doors. If it\u2019s a door, the size is more or less irrelevant. Windows would be tough, though. It might be difficult if you could see the other side. So the bathing room door would be difficult, too.",
   "characters": [
     "Beatrice"
   ],
@@ -10,8 +10,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/493629670211219456"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-07-28",
+  "date": "July 28, 2014"
 }

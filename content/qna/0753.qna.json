@@ -1,7 +1,7 @@
 {
   "id": "0753",
   "question": "Even if the opponent was an archbishop, would someone be looked down on by everyone for attacking while they were introducing themselves?",
-  "answer": "The one who was attacked would likely be upset, but I don’t think anyone else would mention it. They’re not all so inflexible that they feel that a knight’s courtesy has to be extended that far.",
+  "answer": "The one who was attacked would likely be upset, but I don\u2019t think anyone else would mention it. They\u2019re not all so inflexible that they feel that a knight\u2019s courtesy has to be extended that far.",
   "characters": [],
   "topics": [
     "Royal Knights",
@@ -10,8 +10,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/535096961062670337"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-11-19",
+  "date": "November 19, 2014"
 }

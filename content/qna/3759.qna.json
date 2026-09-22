@@ -1,7 +1,7 @@
 {
   "id": "3759",
-  "question": "Speaking of Otto’s Blessing of the Soul of Language, could it understand the meaning even of words that only exist in Subaru’s original world?",
-  "answer": "Only the nuance would be conveyed. For example, if Subaru said “The price of gasoline is getting outrageous lately. The price of regular might get up to the 190 yen range sometime this year.”, then Otto would hear it sort of like “The price of a special oil that burns well is soaring recently, and the people that purchase it are extremely frustrated. Sometime this year, the price of standard well-burning oil might become very high, and people are afraid.”.",
+  "question": "Speaking of Otto\u2019s Blessing of the Soul of Language, could it understand the meaning even of words that only exist in Subaru\u2019s original world?",
+  "answer": "Only the nuance would be conveyed. For example, if Subaru said \u201cThe price of gasoline is getting outrageous lately. The price of regular might get up to the 190 yen range sometime this year.\u201d, then Otto would hear it sort of like \u201cThe price of a special oil that burns well is soaring recently, and the people that purchase it are extremely frustrated. Sometime this year, the price of standard well-burning oil might become very high, and people are afraid.\u201d.",
   "characters": [
     "Natsuki Subaru",
     "Otto Suwen"
@@ -12,8 +12,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/478185652547514369"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-06-15",
+  "date": "June 15, 2014"
 }

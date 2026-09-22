@@ -1,7 +1,7 @@
 {
   "id": "1142",
   "question": "If you took modern weaponry like tanks and machine guns into the Re: Zero world, how long could you fight?",
-  "answer": "It would work fairly well. You’d be countered by someone of Wilhelm’s caliber, but you could fight up to that point, I think.",
+  "answer": "It would work fairly well. You\u2019d be countered by someone of Wilhelm\u2019s caliber, but you could fight up to that point, I think.",
   "characters": [
     "Wilhelm van Astrea"
   ],
@@ -10,8 +10,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/475640192137953280"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-06-08",
+  "date": "June 08, 2014"
 }

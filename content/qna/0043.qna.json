@@ -1,15 +1,17 @@
 {
   "id": "0043",
   "question": "Is there a (certain) drink you want at the family restaurant?",
-  "answer": "Right now I’m satisfied with vegetable juice. Just a bit more and it would be even better if I wasn’t biased for nutrition and it was incredible vegetable juice.",
+  "answer": "Right now I\u2019m satisfied with vegetable juice. Just a bit more and it would be even better if I wasn\u2019t biased for nutrition and it was incredible vegetable juice.",
   "characters": [],
   "topics": [
     "General"
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/470900547491749888"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-05-26",
+  "date": "May 26, 2014"
 }

@@ -1,7 +1,7 @@
 {
   "id": "0522",
-  "question": "Doesn’t Regulus want to make Pandora a bride?",
-  "answer": "He probably doesn’t like her face, wouldn’t you think?",
+  "question": "Doesn\u2019t Regulus want to make Pandora a bride?",
+  "answer": "He probably doesn\u2019t like her face, wouldn\u2019t you think?",
   "characters": [
     "Pandora",
     "Regulus Corneas"
@@ -11,8 +11,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/565801580075954176"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2015-02-12",
+  "date": "February 12, 2015"
 }

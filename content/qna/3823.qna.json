@@ -1,6 +1,6 @@
 {
   "id": "3823",
-  "question": "You said that you like Crusch-san, but did you like Crusch-san more when she first appeared, or after she lost her memory? I’m captivated by Crusch-san in the time when she was a beauty wearing men’s clothing.",
+  "question": "You said that you like Crusch-san, but did you like Crusch-san more when she first appeared, or after she lost her memory? I\u2019m captivated by Crusch-san in the time when she was a beauty wearing men\u2019s clothing.",
   "answer": "I think the hybrid Crusch-sama from the later half of Re: Zero is lovely.",
   "characters": [
     "Crusch Karsten"
@@ -10,8 +10,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/493281674676174849"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-07-27",
+  "date": "July 27, 2014"
 }

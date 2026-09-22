@@ -1,7 +1,7 @@
 {
   "id": "0821",
   "question": "Does the other world have rain? Drinking water?",
-  "answer": "It falls normally. There are springs, just like you’d expect.",
+  "answer": "It falls normally. There are springs, just like you\u2019d expect.",
   "characters": [],
   "topics": [
     "Dragon Kingdom Lugnica",
@@ -9,8 +9,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/535095642784559104"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-11-19",
+  "date": "November 19, 2014"
 }

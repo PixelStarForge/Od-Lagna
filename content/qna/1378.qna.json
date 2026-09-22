@@ -1,7 +1,7 @@
 {
   "id": "1378",
-  "question": "Subaru’s not thinking about his original world, is he.",
-  "answer": "I’m not sure how far you’ve read before you say something like that, so I can only say that it’s not like he’s not thinking about it.",
+  "question": "Subaru\u2019s not thinking about his original world, is he.",
+  "answer": "I\u2019m not sure how far you\u2019ve read before you say something like that, so I can only say that it\u2019s not like he\u2019s not thinking about it.",
   "characters": [
     "Natsuki Subaru"
   ],
@@ -10,8 +10,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/496871344328675329"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-08-06",
+  "date": "August 06, 2014"
 }

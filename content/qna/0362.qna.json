@@ -1,7 +1,7 @@
 {
   "id": "0362",
-  "question": "I hate studying!!! By the way, is Reinhard’s intelligence maxed as well?",
-  "answer": "His intelligence is normal, but his intuition is incredible, so even when taking a test, he’ll get full marks from giving answering normally. Even if it’s not multiple choice.",
+  "question": "I hate studying!!! By the way, is Reinhard\u2019s intelligence maxed as well?",
+  "answer": "His intelligence is normal, but his intuition is incredible, so even when taking a test, he\u2019ll get full marks from giving answering normally. Even if it\u2019s not multiple choice.",
   "characters": [
     "Reinhard van Astrea"
   ],
@@ -10,8 +10,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/587862723641401344"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2015-04-14",
+  "date": "April 14, 2015"
 }

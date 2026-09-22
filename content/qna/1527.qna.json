@@ -1,6 +1,6 @@
 {
   "id": "1527",
-  "question": "Around how much is the difference in Mimi and Garf’s height?",
+  "question": "Around how much is the difference in Mimi and Garf\u2019s height?",
   "answer": "Garfiel is around 160 cm, and from the novel illustrations Mimi is under 120 cm.",
   "characters": [
     "Garfiel Tinsel",
@@ -11,8 +11,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/532910669986013184"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-11-13",
+  "date": "November 13, 2014"
 }

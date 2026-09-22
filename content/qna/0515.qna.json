@@ -1,17 +1,19 @@
 {
   "id": "0515",
-  "question": "When you say Pete has joined up with the rest of the witch cult, does that mean he’s alive?",
-  "answer": "The subordinates that Petelgeuse called his ‘fingers’ were scattered all over the land, and those have joined up with other members of the witch cult. Petelgeuse died.",
+  "question": "When you say Pete has joined up with the rest of the witch cult, does that mean he\u2019s alive?",
+  "answer": "The subordinates that Petelgeuse called his \u2018fingers\u2019 were scattered all over the land, and those have joined up with other members of the witch cult. Petelgeuse died.",
   "characters": [
-    "Petelgeuse Romanée-Conti"
+    "Petelgeuse Roman\u00e9e-Conti"
   ],
   "topics": [
     "Sin Archbishops"
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/516709815855616003"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-09-29",
+  "date": "September 29, 2014"
 }

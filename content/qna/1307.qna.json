@@ -1,7 +1,7 @@
 {
   "id": "1307",
   "question": "Did Subaru have any friends?",
-  "answer": "When he was in high school, he ate lunch in front of the rabbit hutch. (note: rabbit hutch also seems to be used to refer to Japan’s dense housing, but I’m not sure that’s what he meant here.)",
+  "answer": "When he was in high school, he ate lunch in front of the rabbit hutch. (note: rabbit hutch also seems to be used to refer to Japan\u2019s dense housing, but I\u2019m not sure that\u2019s what he meant here.)",
   "characters": [
     "Natsuki Subaru"
   ],
@@ -10,8 +10,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/476328105674821633"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-06-10",
+  "date": "June 10, 2014"
 }

@@ -1,7 +1,7 @@
 {
   "id": "0370",
   "question": "If you hit Reinhard with a tactical nuke, how would he deal with it?",
-  "answer": "It wouldn’t go off.",
+  "answer": "It wouldn\u2019t go off.",
   "characters": [
     "Reinhard van Astrea"
   ],
@@ -10,8 +10,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/475640521596366849"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-06-08",
+  "date": "June 08, 2014"
 }

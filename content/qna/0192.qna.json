@@ -1,7 +1,7 @@
 {
   "id": "0192",
   "question": "Does Bea-ko wear pajamas or things like that? Also, who has the best fashion sense?",
-  "answer": "That’s probably Feris.",
+  "answer": "That\u2019s probably Feris.",
   "characters": [
     "Beatrice",
     "Felix Argyle (Ferris)"
@@ -11,8 +11,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/474155359058534400"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-06-04",
+  "date": "June 04, 2014"
 }

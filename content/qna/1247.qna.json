@@ -1,7 +1,7 @@
 {
   "id": "1247",
-  "question": "I’d like to read a story of Roswaal and Beako remembering and reminiscing about the days back when Echidna was alive.",
-  "answer": "Thank you. Roswaal would deny it, so look forward to that story on the “Roswaal L. Mathers” round.",
+  "question": "I\u2019d like to read a story of Roswaal and Beako remembering and reminiscing about the days back when Echidna was alive.",
+  "answer": "Thank you. Roswaal would deny it, so look forward to that story on the \u201cRoswaal L. Mathers\u201d round.",
   "characters": [
     "Beatrice",
     "Echidna",
@@ -12,8 +12,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/503078345123594241"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-08-23",
+  "date": "August 23, 2014"
 }

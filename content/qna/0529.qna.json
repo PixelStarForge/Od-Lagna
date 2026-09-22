@@ -1,7 +1,7 @@
 {
   "id": "0529",
-  "question": "If Capella were to take on Regulus’ favorite type of face, how would Regulus react?",
-  "answer": "“Eww, smushing your face around like that is so gross. I wish she’d die.”",
+  "question": "If Capella were to take on Regulus\u2019 favorite type of face, how would Regulus react?",
+  "answer": "\u201cEww, smushing your face around like that is so gross. I wish she\u2019d die.\u201d",
   "characters": [
     "Capella Emerada Lugnica",
     "Regulus Corneas"
@@ -11,8 +11,10 @@
   ],
   "arc": "arc-5",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/565502552897519617"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2015-02-11",
+  "date": "February 11, 2015"
 }

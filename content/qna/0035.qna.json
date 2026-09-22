@@ -1,15 +1,17 @@
 {
   "id": "0035",
   "question": "If you were trilingual then what language would the words you speak be in?",
-  "answer": "I don’t understand a single bit of what you are saying.",
+  "answer": "I don\u2019t understand a single bit of what you are saying.",
   "characters": [],
   "topics": [
     "Worldbuilding"
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/471204407879946241"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-05-27",
+  "date": "May 27, 2014"
 }

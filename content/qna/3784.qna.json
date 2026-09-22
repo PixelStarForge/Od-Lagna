@@ -1,7 +1,7 @@
 {
   "id": "3784",
-  "question": "What ratio of talent and effort make up the basis of Reinhard’s strength?",
-  "answer": "It’s 100% talent. However, it’s certainly not true that he doesn’t make an effort. It’s the kind of issue where continuing Krillin’s training method can’t take you to the level Goku was at when he fought Buu.",
+  "question": "What ratio of talent and effort make up the basis of Reinhard\u2019s strength?",
+  "answer": "It\u2019s 100% talent. However, it\u2019s certainly not true that he doesn\u2019t make an effort. It\u2019s the kind of issue where continuing Krillin\u2019s training method can\u2019t take you to the level Goku was at when he fought Buu.",
   "characters": [
     "Reinhard van Astrea"
   ],
@@ -10,8 +10,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/538163524401651712"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-11-28",
+  "date": "November 28, 2014"
 }

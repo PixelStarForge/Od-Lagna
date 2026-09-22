@@ -1,7 +1,7 @@
 {
   "id": "0450",
-  "question": "It’s possible I’ve just completely forgotten, my apologies, but could you tell me what kind of standing the character Heinkel Astrea has? (If it’s a spoiler, please ignore the question)",
-  "answer": "He’s Reinhard’s father, and Wilhelm’s biological son. A man who was unable to become a Master Swordsman.",
+  "question": "It\u2019s possible I\u2019ve just completely forgotten, my apologies, but could you tell me what kind of standing the character Heinkel Astrea has? (If it\u2019s a spoiler, please ignore the question)",
+  "answer": "He\u2019s Reinhard\u2019s father, and Wilhelm\u2019s biological son. A man who was unable to become a Master Swordsman.",
   "characters": [
     "Heinkel Astrea",
     "Reinhard van Astrea",
@@ -12,8 +12,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/493311841314283520"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-07-27",
+  "date": "July 27, 2014"
 }

@@ -1,7 +1,7 @@
 {
   "id": "3609",
-  "question": "About the assassin who was asked to handle Otto’s assassination, what is he doing now?",
-  "answer": "As long as Otto doesn’t return to his hometown, he won’t do anything. He’s a work-from-home type of killer, so he’s at home.",
+  "question": "About the assassin who was asked to handle Otto\u2019s assassination, what is he doing now?",
+  "answer": "As long as Otto doesn\u2019t return to his hometown, he won\u2019t do anything. He\u2019s a work-from-home type of killer, so he\u2019s at home.",
   "characters": [
     "Otto Suwen"
   ],
@@ -10,8 +10,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/576730470769098752"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2015-03-14",
+  "date": "March 14, 2015"
 }

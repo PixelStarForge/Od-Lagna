@@ -1,7 +1,7 @@
 {
   "id": "1337",
-  "question": "Is Subaru weak because he’s from Earth? Or is it because he doesn’t have any blessings?",
-  "answer": "A person who didn’t have a good reason to train to become stronger is basically not strong, and when they get thrown into the world next door with situations where not being strong is deadly in, well, it turns out like that.",
+  "question": "Is Subaru weak because he\u2019s from Earth? Or is it because he doesn\u2019t have any blessings?",
+  "answer": "A person who didn\u2019t have a good reason to train to become stronger is basically not strong, and when they get thrown into the world next door with situations where not being strong is deadly in, well, it turns out like that.",
   "characters": [
     "Natsuki Subaru"
   ],
@@ -10,8 +10,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/473767340027686912"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-06-03",
+  "date": "June 03, 2014"
 }

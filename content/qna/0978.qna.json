@@ -1,7 +1,7 @@
 {
   "id": "0978",
-  "question": "Please tell me the definition of magic, even if it’s just your own personal interpretation.",
-  "answer": "You mean the definition of magic in Re: Zero, I guess? Magic is a paranormal power that alters mana passing through a gate into a form that has an effect on reality, I think. Also, power that exceeds your limits for the one you’ve fallen in love with is “The Magic of Love”, I think. Sorry for suddenly turning romantic.",
+  "question": "Please tell me the definition of magic, even if it\u2019s just your own personal interpretation.",
+  "answer": "You mean the definition of magic in Re: Zero, I guess? Magic is a paranormal power that alters mana passing through a gate into a form that has an effect on reality, I think. Also, power that exceeds your limits for the one you\u2019ve fallen in love with is \u201cThe Magic of Love\u201d, I think. Sorry for suddenly turning romantic.",
   "characters": [],
   "topics": [
     "Character Relationships",
@@ -9,8 +9,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/502822981585088512"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-08-22",
+  "date": "August 22, 2014"
 }

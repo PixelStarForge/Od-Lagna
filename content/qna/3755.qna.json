@@ -1,7 +1,7 @@
 {
   "id": "3755",
-  "question": "So in the end, Arc 3’s mad Subaru had regressed to infancy?",
-  "answer": "I’m not really sure. If you ever have the same things happen to you, let me know how it turns out.",
+  "question": "So in the end, Arc 3\u2019s mad Subaru had regressed to infancy?",
+  "answer": "I\u2019m not really sure. If you ever have the same things happen to you, let me know how it turns out.",
   "characters": [
     "Natsuki Subaru"
   ],
@@ -10,8 +10,10 @@
   ],
   "arc": "arc-3",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/532912804916133888"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-11-13",
+  "date": "November 13, 2014"
 }

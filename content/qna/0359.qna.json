@@ -1,7 +1,7 @@
 {
   "id": "0359",
   "question": "How about Od Laguna versus Reinhard?",
-  "answer": "Od Laguna isn’t really a lifeform with a will, so it isn’t generally hostile towards anyone. It’s similar to the sun. Reinhard would win if they fought, though.",
+  "answer": "Od Laguna isn\u2019t really a lifeform with a will, so it isn\u2019t generally hostile towards anyone. It\u2019s similar to the sun. Reinhard would win if they fought, though.",
   "characters": [
     "Reinhard van Astrea"
   ],
@@ -10,8 +10,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/500282813988749313"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-08-15",
+  "date": "August 15, 2014"
 }

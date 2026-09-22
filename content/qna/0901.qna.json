@@ -1,7 +1,7 @@
 {
   "id": "0901",
   "question": "Did the world of four hundred years ago have prisons or courthouses? If they were building them like normal, it seems that Typhon would coming rushing in.",
-  "answer": "Setting aside courthouses, they most likely did have places for punishing crime. But, Typhon’s standards are a child’s own standards, so anyone who tried to stop her would have their legs pulled off as well.",
+  "answer": "Setting aside courthouses, they most likely did have places for punishing crime. But, Typhon\u2019s standards are a child\u2019s own standards, so anyone who tried to stop her would have their legs pulled off as well.",
   "characters": [
     "Typhon"
   ],
@@ -11,8 +11,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/495520139086139394"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-08-02",
+  "date": "August 02, 2014"
 }

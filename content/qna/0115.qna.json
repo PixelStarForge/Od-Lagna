@@ -1,7 +1,7 @@
 {
   "id": "0115",
   "question": "If Subaru and Al fought to the death who would win?",
-  "answer": "Eh……normally wouldn’t it be Al?",
+  "answer": "Eh\u2026\u2026normally wouldn\u2019t it be Al?",
   "characters": [
     "Al (Aldebaran)",
     "Natsuki Subaru"
@@ -11,8 +11,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/595208784982716417"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2015-05-04",
+  "date": "May 04, 2015"
 }

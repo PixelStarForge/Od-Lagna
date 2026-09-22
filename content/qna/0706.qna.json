@@ -1,7 +1,7 @@
 {
   "id": "0706",
   "question": "If the White Whale, Great Rabbit, and Black Snake were to fight, what order would they die in?",
-  "answer": "When it’s these three, it’s difficult to say; honestly, a lot depends on timing when saying which one lives and which one dies. Comparing just their fighting strength is pointless. The White Whale has the most fighting strength, the Great Rabbit is hardest to kill, and the Black Snake is the most troubling.",
+  "answer": "When it\u2019s these three, it\u2019s difficult to say; honestly, a lot depends on timing when saying which one lives and which one dies. Comparing just their fighting strength is pointless. The White Whale has the most fighting strength, the Great Rabbit is hardest to kill, and the Black Snake is the most troubling.",
   "characters": [
     "White Whale"
   ],
@@ -11,8 +11,10 @@
   ],
   "arc": "arc-4",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/499067452828172289"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-08-12",
+  "date": "August 12, 2014"
 }

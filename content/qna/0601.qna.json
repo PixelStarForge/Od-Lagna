@@ -1,7 +1,7 @@
 {
   "id": "0601",
   "question": "It seems that Echidna would be able to make something like a zombie virus and turn all the world into a zombie panic, but could she do that?",
-  "answer": "She’s not really a researcher, and so in a world without Umbrella Corporation, it’s probably impossible.",
+  "answer": "She\u2019s not really a researcher, and so in a world without Umbrella Corporation, it\u2019s probably impossible.",
   "characters": [
     "Echidna"
   ],
@@ -10,8 +10,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/494428540914630657"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-07-30",
+  "date": "July 30, 2014"
 }

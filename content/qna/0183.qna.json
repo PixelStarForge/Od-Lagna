@@ -1,7 +1,7 @@
 {
   "id": "0183",
-  "question": "What would become of Priscilla-san if she lost the ability that makes everything in the world work in her favor? She seems like she’s smart and capable, so I think she’d do pretty well.",
-  "answer": "That’s not really an ability.",
+  "question": "What would become of Priscilla-san if she lost the ability that makes everything in the world work in her favor? She seems like she\u2019s smart and capable, so I think she\u2019d do pretty well.",
+  "answer": "That\u2019s not really an ability.",
   "characters": [
     "Priscilla Barielle"
   ],
@@ -10,8 +10,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/492639001191653376"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-07-25",
+  "date": "July 25, 2014"
 }

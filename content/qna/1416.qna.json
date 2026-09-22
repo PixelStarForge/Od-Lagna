@@ -1,6 +1,6 @@
 {
   "id": "1416",
-  "question": "I think Emilia-chan is even cuter when she’s depressed! Cat-sama!",
+  "question": "I think Emilia-chan is even cuter when she\u2019s depressed! Cat-sama!",
   "answer": "I sort of think that, too.",
   "characters": [
     "Emilia"
@@ -10,8 +10,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/475442747001036801"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-06-08",
+  "date": "June 08, 2014"
 }

@@ -1,7 +1,7 @@
 {
   "id": "3649",
   "question": "Ferri-chan dislikes Subaru, but perhaps he dislikes more people than he likes? Or is there something about Subaru that he dislikes?",
-  "answer": "I’m not sure if you meant to ask about someone in particular, but Subaru is basically disliked by everyone when he first meets them. Ferris dislikes Subaru because he’s ‘weak’.. (July 27, 2014 arc4)",
+  "answer": "I\u2019m not sure if you meant to ask about someone in particular, but Subaru is basically disliked by everyone when he first meets them. Ferris dislikes Subaru because he\u2019s \u2018weak\u2019.. (July 27, 2014 arc4)",
   "characters": [
     "Felix Argyle (Ferris)",
     "Natsuki Subaru"
@@ -11,9 +11,10 @@
   ],
   "arc": "arc-4",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/493577225636438017"
   },
-  "verified": false,
-  "date": "July 27, 2014"
+  "verified": true,
+  "date": "July 28, 2014",
+  "dateTime": "2014-07-28"
 }

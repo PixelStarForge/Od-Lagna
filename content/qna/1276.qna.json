@@ -1,6 +1,6 @@
 {
   "id": "1276",
-  "question": "Subaru-kun teaches Liliana an idol’s song from his original world, including the choreography.",
+  "question": "Subaru-kun teaches Liliana an idol\u2019s song from his original world, including the choreography.",
   "answer": "Liliana is the sort of idol that gives musical performances, so even if she was taught, it would become Tokio Style (note: possibly a reference to the rock band Tokio).",
   "characters": [
     "Natsuki Subaru"
@@ -10,8 +10,10 @@
   ],
   "arc": "arc-5",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/517826216188211200"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-10-02",
+  "date": "October 02, 2014"
 }

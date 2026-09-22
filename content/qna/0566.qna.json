@@ -1,7 +1,7 @@
 {
   "id": "0566",
-  "question": "If Capella met someone who loves dolls, what would she do? Assuming you’re going to say she’s just become a doll, what would she do if she met someone who loves a 2D character?",
-  "answer": "She’d become a 2D character.",
+  "question": "If Capella met someone who loves dolls, what would she do? Assuming you\u2019re going to say she\u2019s just become a doll, what would she do if she met someone who loves a 2D character?",
+  "answer": "She\u2019d become a 2D character.",
   "characters": [
     "Capella Emerada Lugnica"
   ],
@@ -10,8 +10,10 @@
   ],
   "arc": "arc-5",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/557431288114995200"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2015-01-20",
+  "date": "January 20, 2015"
 }

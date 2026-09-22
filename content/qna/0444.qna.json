@@ -1,7 +1,7 @@
 {
   "id": "0444",
   "question": "In Re: Zero, who is the most human person?",
-  "answer": "Outside the superhumans and madmen, I try to write most of them with human qualities. If you’re looking for weakness, please note Subaru and Heinkel (who will appear later).",
+  "answer": "Outside the superhumans and madmen, I try to write most of them with human qualities. If you\u2019re looking for weakness, please note Subaru and Heinkel (who will appear later).",
   "characters": [
     "Heinkel Astrea",
     "Natsuki Subaru"
@@ -11,8 +11,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/499068429379575808"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-08-12",
+  "date": "August 12, 2014"
 }

@@ -1,15 +1,17 @@
 {
   "id": "1095",
   "question": "Is there a character with seriously reduced vision?",
-  "answer": "You mean someone with bad eyes, maybe? There isn’t anyone in particular. There isn’t a single character with glasses, for that matter.",
+  "answer": "You mean someone with bad eyes, maybe? There isn\u2019t anyone in particular. There isn\u2019t a single character with glasses, for that matter.",
   "characters": [],
   "topics": [
     "General"
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/530689469452910593"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-11-07",
+  "date": "November 07, 2014"
 }

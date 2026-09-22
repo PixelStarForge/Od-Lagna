@@ -1,7 +1,7 @@
 {
   "id": "1423",
-  "question": "Is Fortuna’s affinity fire? Water?",
-  "answer": "Fortuna’s family lineage is fire.",
+  "question": "Is Fortuna\u2019s affinity fire? Water?",
+  "answer": "Fortuna\u2019s family lineage is fire.",
   "characters": [
     "Fortuna"
   ],
@@ -10,8 +10,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/517825290337546240"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-10-02",
+  "date": "October 02, 2014"
 }

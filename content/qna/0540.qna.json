@@ -1,7 +1,7 @@
 {
   "id": "0540",
-  "question": "Regulus is always bringing his brides with him, but how far can the Lion’s Heart and Regulus’ own body be separated?",
-  "answer": "Close enough that he can feel love close by, I’d say.",
+  "question": "Regulus is always bringing his brides with him, but how far can the Lion\u2019s Heart and Regulus\u2019 own body be separated?",
+  "answer": "Close enough that he can feel love close by, I\u2019d say.",
   "characters": [
     "Regulus Corneas"
   ],
@@ -10,8 +10,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/597355107169230849"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2015-05-10",
+  "date": "May 10, 2015"
 }

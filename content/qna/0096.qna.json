@@ -1,7 +1,7 @@
 {
   "id": "0096",
   "question": "About how big is the difference between Reinhard and the next strongest character? Um, Yuichiro Takemiya.",
-  "answer": "It’s the difference between Godzilla and the Turtle Bazooka. (note: Kamen Rider reference)",
+  "answer": "It\u2019s the difference between Godzilla and the Turtle Bazooka. (note: Kamen Rider reference)",
   "characters": [
     "Reinhard van Astrea"
   ],
@@ -10,8 +10,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/476741602069995520"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-06-11",
+  "date": "June 11, 2014"
 }

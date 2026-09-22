@@ -1,7 +1,7 @@
 {
   "id": "1236",
-  "question": "Capella + Sirius. I don’t know the details of their abilities, but I’m sure it would be awful.",
-  "answer": "There’s no way they’d be on good terms, but they could form the worst possible combo, indeed.",
+  "question": "Capella + Sirius. I don\u2019t know the details of their abilities, but I\u2019m sure it would be awful.",
+  "answer": "There\u2019s no way they\u2019d be on good terms, but they could form the worst possible combo, indeed.",
   "characters": [
     "Capella Emerada Lugnica",
     "Sirius Romanee-Conti"
@@ -11,8 +11,10 @@
   ],
   "arc": "arc-5",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/535096461667885056"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-11-19",
+  "date": "November 19, 2014"
 }

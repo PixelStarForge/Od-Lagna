@@ -1,7 +1,7 @@
 {
   "id": "0944",
-  "question": "Will a female knight make an appearance in Re: Zero? I thought Ferris was one in the first half of arc 3, but it turns out that he’s a guy, so...",
-  "answer": "They are around, but there’s no particular need for one to be portrayed, so I don’t think one will appear as a character.",
+  "question": "Will a female knight make an appearance in Re: Zero? I thought Ferris was one in the first half of arc 3, but it turns out that he\u2019s a guy, so...",
+  "answer": "They are around, but there\u2019s no particular need for one to be portrayed, so I don\u2019t think one will appear as a character.",
   "characters": [
     "Felix Argyle (Ferris)"
   ],
@@ -11,8 +11,10 @@
   ],
   "arc": "arc-3",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/496982361079558146"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-08-06",
+  "date": "August 06, 2014"
 }

@@ -1,6 +1,6 @@
 {
   "id": "1206",
-  "question": "A story where Garfiel, in order to utilize his Blessing of the Earth Spirit, often travels suspended beneath a dragon carriage, and this leads to strange urban legends spreading through Roswaal’s domain. A vengeful ghost that hates dragon carriages, or a monster that chases down dragon carriages, and so on.",
+  "question": "A story where Garfiel, in order to utilize his Blessing of the Earth Spirit, often travels suspended beneath a dragon carriage, and this leads to strange urban legends spreading through Roswaal\u2019s domain. A vengeful ghost that hates dragon carriages, or a monster that chases down dragon carriages, and so on.",
   "answer": "Interesting, stocked.",
   "characters": [
     "Garfiel Tinsel",
@@ -12,8 +12,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/538162311979352064"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-11-28",
+  "date": "November 28, 2014"
 }

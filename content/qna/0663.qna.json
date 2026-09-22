@@ -1,6 +1,6 @@
 {
   "id": "0663",
-  "question": "Are all mabeasts Daphne-tan’s creations? Or those of the Witches of Gluttony through the ages?",
+  "question": "Are all mabeasts Daphne-tan\u2019s creations? Or those of the Witches of Gluttony through the ages?",
   "answer": "Pretty much all Daphne.",
   "characters": [
     "Daphne"
@@ -10,8 +10,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/587862124933808129"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2015-04-14",
+  "date": "April 14, 2015"
 }

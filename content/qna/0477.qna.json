@@ -1,7 +1,7 @@
 {
   "id": "0477",
-  "question": "You’ve said that Old Man Wil has lived his life simply swinging his sword, but where did he learn how to work as a butler?",
-  "answer": "Well now, it’s not like he spent 60 years doing nothing but swinging a sword, and he probably had a butler when growing up, and after he got married. He’s still more or less a noble, after all.",
+  "question": "You\u2019ve said that Old Man Wil has lived his life simply swinging his sword, but where did he learn how to work as a butler?",
+  "answer": "Well now, it\u2019s not like he spent 60 years doing nothing but swinging a sword, and he probably had a butler when growing up, and after he got married. He\u2019s still more or less a noble, after all.",
   "characters": [
     "Wilhelm van Astrea"
   ],
@@ -10,8 +10,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/499066251743084544"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-08-12",
+  "date": "August 12, 2014"
 }

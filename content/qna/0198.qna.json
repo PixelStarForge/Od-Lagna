@@ -1,7 +1,7 @@
 {
   "id": "0198",
   "question": "I completely forgot that Ferris has demihuman blood, but do any demihumans besides him hold important positions?",
-  "answer": "Feris isn’t a pure-blooded demihuman. He just strongly resembles a demihuman ancestor from several generations back. Both his parents are normal human, so he was confined in his childhood due to doubts about whether he was actually their child, thanks to his demihuman ears. There are no demihumans in important positions.",
+  "answer": "Feris isn\u2019t a pure-blooded demihuman. He just strongly resembles a demihuman ancestor from several generations back. Both his parents are normal human, so he was confined in his childhood due to doubts about whether he was actually their child, thanks to his demihuman ears. There are no demihumans in important positions.",
   "characters": [
     "Felix Argyle (Ferris)"
   ],
@@ -10,8 +10,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/496928285633552384"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-08-06",
+  "date": "August 06, 2014"
 }

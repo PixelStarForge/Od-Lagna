@@ -1,7 +1,7 @@
 {
   "id": "0805",
-  "question": "Is the witch gene of “Sloth” related to the visibility of the “Unseen Hand”?",
-  "answer": "It’s not.",
+  "question": "Is the witch gene of \u201cSloth\u201d related to the visibility of the \u201cUnseen Hand\u201d?",
+  "answer": "It\u2019s not.",
   "characters": [],
   "topics": [
     "Authorities",
@@ -9,8 +9,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/478434586641580032"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-06-16",
+  "date": "June 16, 2014"
 }

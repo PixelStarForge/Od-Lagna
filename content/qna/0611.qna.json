@@ -1,7 +1,7 @@
 {
   "id": "0611",
-  "question": "Daphne-chan seems to be anorexic, but couldn’t Minerva alleviate it’s symptoms? Or are mental problems impossible for her?",
-  "answer": "It’s impossible. Personality and disposition are outside Minerva’s juristiction.",
+  "question": "Daphne-chan seems to be anorexic, but couldn\u2019t Minerva alleviate it\u2019s symptoms? Or are mental problems impossible for her?",
+  "answer": "It\u2019s impossible. Personality and disposition are outside Minerva\u2019s juristiction.",
   "characters": [
     "Daphne",
     "Minerva"
@@ -11,8 +11,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/498056938857705472"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-08-09",
+  "date": "August 09, 2014"
 }

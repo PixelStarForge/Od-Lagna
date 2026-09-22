@@ -1,7 +1,7 @@
 {
   "id": "1134",
   "question": "If Subaru had received a cheat bonus capable of single-handedly defeating the White Whale or Great Rabbit, how would it have turned out?",
-  "answer": "He’d become arrogant and use it improperly, and end up getting slashed by Reinhard, wouldn’t you think?",
+  "answer": "He\u2019d become arrogant and use it improperly, and end up getting slashed by Reinhard, wouldn\u2019t you think?",
   "characters": [
     "Natsuki Subaru",
     "Reinhard van Astrea",
@@ -12,8 +12,10 @@
   ],
   "arc": "arc-4",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/604544937443643392"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2015-05-30",
+  "date": "May 30, 2015"
 }

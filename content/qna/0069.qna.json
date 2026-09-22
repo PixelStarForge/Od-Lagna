@@ -1,15 +1,17 @@
 {
   "id": "0069",
   "question": "What do you think of Teren-san?",
-  "answer": "I don’t think anything",
+  "answer": "I don\u2019t think anything",
   "characters": [],
   "topics": [
     "General"
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/470900127860019200"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-05-26",
+  "date": "May 26, 2014"
 }

@@ -1,7 +1,7 @@
 {
   "id": "0455",
-  "question": "Reinhard’s sword doesn’t have a NEET or a shut-in dwelling inside it, does it? Why is it that beings with enormous power, like Puck, don’t have jobs?",
-  "answer": "I can’t say for sure that there isn’t something dwelling in it.",
+  "question": "Reinhard\u2019s sword doesn\u2019t have a NEET or a shut-in dwelling inside it, does it? Why is it that beings with enormous power, like Puck, don\u2019t have jobs?",
+  "answer": "I can\u2019t say for sure that there isn\u2019t something dwelling in it.",
   "characters": [
     "Puck",
     "Reinhard van Astrea"
@@ -11,8 +11,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/566167649357664256"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2015-02-13",
+  "date": "February 13, 2015"
 }

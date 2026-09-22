@@ -1,7 +1,7 @@
 {
   "id": "0232",
   "question": "It seems likely that Julius will get cancer in the future from eating all that burnt food; will his health be alright?",
-  "answer": "It’s not like he’s eating food Anastasia made every meal, so he’ll be fine.",
+  "answer": "It\u2019s not like he\u2019s eating food Anastasia made every meal, so he\u2019ll be fine.",
   "characters": [
     "Anastasia Hoshin",
     "Julius Juukulius"
@@ -11,8 +11,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/534229584641032192"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-11-17",
+  "date": "November 17, 2014"
 }

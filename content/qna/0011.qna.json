@@ -1,7 +1,7 @@
 {
   "id": "0011",
-  "question": "Come to think of it, it seems that due to the readers’ voices Wilhelm-san was changed into a semi-regular character, but when you first began writing chapter one of this story just how much conclusion did you reach for the characters and the world view?",
-  "answer": "To be honest, I didn’t completely reach a conclusion.",
+  "question": "Come to think of it, it seems that due to the readers\u2019 voices Wilhelm-san was changed into a semi-regular character, but when you first began writing chapter one of this story just how much conclusion did you reach for the characters and the world view?",
+  "answer": "To be honest, I didn\u2019t completely reach a conclusion.",
   "characters": [
     "Wilhelm van Astrea"
   ],
@@ -10,9 +10,10 @@
   ],
   "arc": "arc-4",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/470902628961226752"
   },
-  "verified": false,
-  "date": "May 26, 2014"
+  "verified": true,
+  "date": "May 26, 2014",
+  "dateTime": "2014-05-26"
 }

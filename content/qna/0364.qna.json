@@ -1,7 +1,7 @@
 {
   "id": "0364",
   "question": "If Reinhard was hurt, would the lesser spirits panic?",
-  "answer": "If a performer you were a big fan of was injured in front of you, you’d panic, right? It’s the same thing.",
+  "answer": "If a performer you were a big fan of was injured in front of you, you\u2019d panic, right? It\u2019s the same thing.",
   "characters": [
     "Reinhard van Astrea"
   ],
@@ -10,8 +10,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/576306704561893376"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2015-03-13",
+  "date": "March 13, 2015"
 }

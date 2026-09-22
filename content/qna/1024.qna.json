@@ -1,7 +1,7 @@
 {
   "id": "1024",
-  "question": "The spirit Puck’s activity is limited to the daytime, but is there a limit to the activity of Julius’ quasi-spirits or normal spirits?",
-  "answer": "There is, but in their case, there’s usually no reason to keep them in a physical form to their limit, so when there’s no need for them, they’re in hiding. Puck’s poor fuel economy is a problem, too, but part of that was keeping Emilia from being aware of how far above average her mana capacity is.",
+  "question": "The spirit Puck\u2019s activity is limited to the daytime, but is there a limit to the activity of Julius\u2019 quasi-spirits or normal spirits?",
+  "answer": "There is, but in their case, there\u2019s usually no reason to keep them in a physical form to their limit, so when there\u2019s no need for them, they\u2019re in hiding. Puck\u2019s poor fuel economy is a problem, too, but part of that was keeping Emilia from being aware of how far above average her mana capacity is.",
   "characters": [
     "Emilia",
     "Julius Juukulius",
@@ -13,8 +13,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/596318346972389378"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2015-05-07",
+  "date": "May 07, 2015"
 }

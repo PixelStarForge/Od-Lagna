@@ -1,6 +1,6 @@
 {
   "id": "0653",
-  "question": "Out of all the witches, only Satella has a name that I don’t understand the meaning of; what’s the origin of her name?",
+  "question": "Out of all the witches, only Satella has a name that I don\u2019t understand the meaning of; what\u2019s the origin of her name?",
   "answer": "Final arc.",
   "characters": [
     "Satella"
@@ -10,8 +10,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/476712575561125888"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-06-11",
+  "date": "June 11, 2014"
 }

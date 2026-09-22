@@ -1,7 +1,7 @@
 {
   "id": "3742",
   "question": "Out of the things that Otto had spoken with using the Soul of Language, before he met Subaru, what was the rarest non-human thing he spoke to?",
-  "answer": "He unknowingly spoke with The Phantom Insect, a ladybug-like insect called “Nanahoshi”. It seems it was saying “Once again, only I survived…..” or something like that.",
+  "answer": "He unknowingly spoke with The Phantom Insect, a ladybug-like insect called \u201cNanahoshi\u201d. It seems it was saying \u201cOnce again, only I survived\u2026..\u201d or something like that.",
   "characters": [
     "Natsuki Subaru",
     "Otto Suwen"
@@ -11,8 +11,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/502817604508332032"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-08-22",
+  "date": "August 22, 2014"
 }

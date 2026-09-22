@@ -1,9 +1,9 @@
 {
   "id": "0497",
   "question": "Is Petelgeuse unable to possess someone with a blessing?",
-  "answer": "That’s not the case, however at the moment he possessed them, the effect of the blessing would be removed by the witch gene.",
+  "answer": "That\u2019s not the case, however at the moment he possessed them, the effect of the blessing would be removed by the witch gene.",
   "characters": [
-    "Petelgeuse Romanée-Conti"
+    "Petelgeuse Roman\u00e9e-Conti"
   ],
   "topics": [
     "Divine Protections",
@@ -11,8 +11,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/529878959308439553"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-11-05",
+  "date": "November 05, 2014"
 }

@@ -1,7 +1,7 @@
 {
   "id": "0401",
-  "question": "Reinhard is the strongest in the world, and he can cook, but on the other hand, is there anything that he can’t do?",
-  "answer": "He can’t cure baldness in others. Also, he can’t use magic.",
+  "question": "Reinhard is the strongest in the world, and he can cook, but on the other hand, is there anything that he can\u2019t do?",
+  "answer": "He can\u2019t cure baldness in others. Also, he can\u2019t use magic.",
   "characters": [
     "Reinhard van Astrea"
   ],
@@ -10,8 +10,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/543976285887004672"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-12-14",
+  "date": "December 14, 2014"
 }

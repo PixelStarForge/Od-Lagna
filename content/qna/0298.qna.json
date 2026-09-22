@@ -1,7 +1,7 @@
 {
   "id": "0298",
-  "question": "Why doesn’t Kadmon hire someone? Rem proved that his appearance is affecting his sales, so hiring an employee ought to be a positive improvement that he should consider.",
-  "answer": "He doesn’t want to admit that. It’s one of the mistakes of his youth.",
+  "question": "Why doesn\u2019t Kadmon hire someone? Rem proved that his appearance is affecting his sales, so hiring an employee ought to be a positive improvement that he should consider.",
+  "answer": "He doesn\u2019t want to admit that. It\u2019s one of the mistakes of his youth.",
   "characters": [
     "Rem"
   ],
@@ -10,8 +10,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/534275526656278528"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-11-17",
+  "date": "November 17, 2014"
 }

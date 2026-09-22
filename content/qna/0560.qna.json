@@ -1,7 +1,7 @@
 {
   "id": "0560",
   "question": "Clothing that covers her face, modest greetings, chains wrapped around both arms. Is Sirius Romanee-Conti a ninja?",
-  "answer": "She’s a yandere.",
+  "answer": "She\u2019s a yandere.",
   "characters": [
     "Sirius Romanee-Conti"
   ],
@@ -10,8 +10,10 @@
   ],
   "arc": "arc-5",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/529883729620393984"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-11-05",
+  "date": "November 05, 2014"
 }

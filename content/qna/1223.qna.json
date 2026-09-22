@@ -11,8 +11,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/535096526553767936"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-11-19",
+  "date": "November 19, 2014"
 }

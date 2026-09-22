@@ -1,7 +1,7 @@
 {
   "id": "1026",
-  "question": "What does a spirit like Puck think about a person’s ‘death’?",
-  "answer": "Most spirits don’t think anything about it, and Puck doesn’t think anything about the death of a person with no ties to him. If it’s someone he’s connected with, he’ll think ‘Ah, that’s sad.’.",
+  "question": "What does a spirit like Puck think about a person\u2019s \u2018death\u2019?",
+  "answer": "Most spirits don\u2019t think anything about it, and Puck doesn\u2019t think anything about the death of a person with no ties to him. If it\u2019s someone he\u2019s connected with, he\u2019ll think \u2018Ah, that\u2019s sad.\u2019.",
   "characters": [
     "Puck"
   ],
@@ -10,8 +10,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/474139186208198657"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-06-04",
+  "date": "June 04, 2014"
 }

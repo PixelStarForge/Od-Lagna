@@ -1,7 +1,7 @@
 {
   "id": "1253",
-  "question": "I’d like to read arc 1’s successful route from Reinhard’s perspective.",
-  "answer": "My apologies. Due to matters in the story, I’m doing my best to avoiding depicting Reinhard’s point of view of the story.",
+  "question": "I\u2019d like to read arc 1\u2019s successful route from Reinhard\u2019s perspective.",
+  "answer": "My apologies. Due to matters in the story, I\u2019m doing my best to avoiding depicting Reinhard\u2019s point of view of the story.",
   "characters": [
     "Reinhard van Astrea"
   ],
@@ -10,8 +10,10 @@
   ],
   "arc": "arc-1",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/517825746916888576"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-10-02",
+  "date": "October 02, 2014"
 }

@@ -1,7 +1,7 @@
 {
   "id": "0276",
   "question": "If Mimi was pregnant or giving birth, how would the Divine Protection of One-Third handle that? It seems giving birth is painful, so if that was divided up, then her brothers might tread the new frontier of experiencing giving birth despite being male.",
-  "answer": "If Mimi was to think “Ah, I’ve had enough, Hetaro and Tivey will have to help out!”, those two would also feel the pain of an organ they don’t have.",
+  "answer": "If Mimi was to think \u201cAh, I\u2019ve had enough, Hetaro and Tivey will have to help out!\u201d, those two would also feel the pain of an organ they don\u2019t have.",
   "characters": [
     "Hetaro Pearlbaton",
     "Mimi Pearlbaton",
@@ -12,8 +12,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/532466084767875072"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-11-12",
+  "date": "November 12, 2014"
 }

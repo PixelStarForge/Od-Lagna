@@ -1,7 +1,7 @@
 {
   "id": "0776",
-  "question": "The Witch of Greed was said to be the one who made contracts most often; did the other witches also make contracts? I can’t imagine what kind of contracts the Witches of Gluttony and Pride would make.",
-  "answer": "Yes, they did that sort of thing. Carmilla has an intense hatred of people, so it was difficult, but the other witches aren’t so bad that they can’t communicate.",
+  "question": "The Witch of Greed was said to be the one who made contracts most often; did the other witches also make contracts? I can\u2019t imagine what kind of contracts the Witches of Gluttony and Pride would make.",
+  "answer": "Yes, they did that sort of thing. Carmilla has an intense hatred of people, so it was difficult, but the other witches aren\u2019t so bad that they can\u2019t communicate.",
   "characters": [
     "Carmilla",
     "Echidna"
@@ -12,8 +12,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/532467047817814016"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-11-12",
+  "date": "November 12, 2014"
 }

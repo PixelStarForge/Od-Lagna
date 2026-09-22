@@ -1,7 +1,7 @@
 {
   "id": "0623",
-  "question": "I’ve fallen into the sickness of love with Minerva-chan. If she hits me, will this too be cured?",
-  "answer": "If being hit hard enough to change the terrain doesn’t change that feeling, she’ll run away, red-faced.",
+  "question": "I\u2019ve fallen into the sickness of love with Minerva-chan. If she hits me, will this too be cured?",
+  "answer": "If being hit hard enough to change the terrain doesn\u2019t change that feeling, she\u2019ll run away, red-faced.",
   "characters": [
     "Minerva"
   ],
@@ -10,8 +10,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/476585360433377283"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-06-11",
+  "date": "June 11, 2014"
 }

@@ -1,7 +1,7 @@
 {
   "id": "0982",
   "question": "The Al-class, Ul-class, and El-class of magic power have shown up, so is there also Il-class and Ol-class magic?",
-  "answer": "No, those don’t exist. Magic grows stronger in the ‘Fuula’, ‘El Fuula’, ‘Ul Fuula’, ‘Al Fuula’ order, and it ends with those four levels. If there was something stronger than Al, someone would give it a name like Kaiser Phoenix. Eternal Force Blizzard! You die! (note: Kaiser Phoenix is a Dragon Quest reference. Eternal Force Blizzard is sort of a pop culture reference.)",
+  "answer": "No, those don\u2019t exist. Magic grows stronger in the \u2018Fuula\u2019, \u2018El Fuula\u2019, \u2018Ul Fuula\u2019, \u2018Al Fuula\u2019 order, and it ends with those four levels. If there was something stronger than Al, someone would give it a name like Kaiser Phoenix. Eternal Force Blizzard! You die! (note: Kaiser Phoenix is a Dragon Quest reference. Eternal Force Blizzard is sort of a pop culture reference.)",
   "characters": [
     "Al (Aldebaran)"
   ],
@@ -11,8 +11,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/478322063971991552"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-06-15",
+  "date": "June 15, 2014"
 }

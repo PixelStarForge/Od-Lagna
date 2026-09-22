@@ -1,7 +1,7 @@
 {
   "id": "0597",
-  "question": "If you were to boil Echidna’s hair or something from the body resting in the tomb, would that be Dona tea?",
-  "answer": "What do you think you’re doing to a dead body? Stop it at once.",
+  "question": "If you were to boil Echidna\u2019s hair or something from the body resting in the tomb, would that be Dona tea?",
+  "answer": "What do you think you\u2019re doing to a dead body? Stop it at once.",
   "characters": [
     "Echidna"
   ],
@@ -10,8 +10,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/502817693767323648"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-08-22",
+  "date": "August 22, 2014"
 }

@@ -1,7 +1,7 @@
 {
   "id": "1506",
-  "question": "It’s been noted that Beako can only absorb magic power from inside Subaru, but can she not absorb the Jealous Witch’s sort of energy? Or do Return by Death and the Unseen Hand not run on magic energy, or are they using magic energy from someplace other than inside Subaru?",
-  "answer": "The Jealous Witch’s magic energy belongs to the Jealous Witch, so obviously, Beako can’t use it.",
+  "question": "It\u2019s been noted that Beako can only absorb magic power from inside Subaru, but can she not absorb the Jealous Witch\u2019s sort of energy? Or do Return by Death and the Unseen Hand not run on magic energy, or are they using magic energy from someplace other than inside Subaru?",
+  "answer": "The Jealous Witch\u2019s magic energy belongs to the Jealous Witch, so obviously, Beako can\u2019t use it.",
   "characters": [
     "Beatrice",
     "Natsuki Subaru"
@@ -12,8 +12,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/580964460057223168"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2015-03-26",
+  "date": "March 26, 2015"
 }

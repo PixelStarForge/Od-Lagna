@@ -1,7 +1,7 @@
 {
   "id": "0824",
   "question": "How does the world in Re: Zero rotate or revolve?",
-  "answer": "It’s the same thing in Ptolemaic theory. (note: literally ‘heaven motion theory’; I think he’s implying the sun and moon move around the world in Re: Zero.)",
+  "answer": "It\u2019s the same thing in Ptolemaic theory. (note: literally \u2018heaven motion theory\u2019; I think he\u2019s implying the sun and moon move around the world in Re: Zero.)",
   "characters": [],
   "topics": [
     "Dragon Kingdom Lugnica",
@@ -9,8 +9,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/543983519459213312"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-12-14",
+  "date": "December 14, 2014"
 }

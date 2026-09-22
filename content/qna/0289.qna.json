@@ -1,6 +1,6 @@
 {
   "id": "0289",
-  "question": "Please teach me how Kurgan-style’s sure-fire win technique for rock-paper-scissors.",
+  "question": "Please teach me how Kurgan-style\u2019s sure-fire win technique for rock-paper-scissors.",
   "answer": "Use eight rocks that are stronger than paper.",
   "characters": [
     "Kurgan"
@@ -10,8 +10,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/581293170094415872"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2015-03-27",
+  "date": "March 27, 2015"
 }

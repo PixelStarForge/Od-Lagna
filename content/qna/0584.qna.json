@@ -1,7 +1,7 @@
 {
   "id": "0584",
-  "question": "Does Echidna-tan have a boyfriend!?!? Echidna-tan doesn’t have a husband, right!?! I’d like to drink Dona tea and make my body hers!?!?",
-  "answer": "Don’t be mislead by words like “if” or “maybe” or “might be”. The one thing you believed is the truth you believe. Hey, these words are pretty convenient.",
+  "question": "Does Echidna-tan have a boyfriend!?!? Echidna-tan doesn\u2019t have a husband, right!?! I\u2019d like to drink Dona tea and make my body hers!?!?",
+  "answer": "Don\u2019t be mislead by words like \u201cif\u201d or \u201cmaybe\u201d or \u201cmight be\u201d. The one thing you believed is the truth you believe. Hey, these words are pretty convenient.",
   "characters": [
     "Echidna"
   ],
@@ -10,8 +10,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/478106728866000896"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-06-15",
+  "date": "June 15, 2014"
 }

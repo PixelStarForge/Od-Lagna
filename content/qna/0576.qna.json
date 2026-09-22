@@ -1,6 +1,6 @@
 {
   "id": "0576",
-  "question": "I’d like Capella-chan to change me into a fly. What should I do?",
+  "question": "I\u2019d like Capella-chan to change me into a fly. What should I do?",
   "answer": "Rethink that!!",
   "characters": [
     "Capella Emerada Lugnica"
@@ -10,8 +10,10 @@
   ],
   "arc": "arc-5",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/535394163198803968"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-11-20",
+  "date": "November 20, 2014"
 }

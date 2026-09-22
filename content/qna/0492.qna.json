@@ -1,18 +1,20 @@
 {
   "id": "0492",
-  "question": "In arc 3, Mr. Pete noticed Subaru’s scent, and treated him a little bit politely; is that related to the fingers bowing to him before he met Mr. Pete? Do the fingers also have the ability to smell that scent?",
-  "answer": "“Do that!” was written in their gospels.",
+  "question": "In arc 3, Mr. Pete noticed Subaru\u2019s scent, and treated him a little bit politely; is that related to the fingers bowing to him before he met Mr. Pete? Do the fingers also have the ability to smell that scent?",
+  "answer": "\u201cDo that!\u201d was written in their gospels.",
   "characters": [
     "Natsuki Subaru",
-    "Petelgeuse Romanée-Conti"
+    "Petelgeuse Roman\u00e9e-Conti"
   ],
   "topics": [
     "Sin Archbishops"
   ],
   "arc": "arc-3",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/533648788771323904"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-11-15",
+  "date": "November 15, 2014"
 }

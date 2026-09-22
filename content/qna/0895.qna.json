@@ -1,15 +1,17 @@
 {
   "id": "0895",
   "question": "Are there any flute players?",
-  "answer": "I’m not really sure what you mean, but there’s none.",
+  "answer": "I\u2019m not really sure what you mean, but there\u2019s none.",
   "characters": [],
   "topics": [
     "Worldbuilding"
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/476328773991014400"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-06-10",
+  "date": "June 10, 2014"
 }

@@ -1,7 +1,7 @@
 {
   "id": "1332",
-  "question": "In the Re: Zero world, they put names in first name - family name order, right? Doesn’t every feel that the order ‘Natsuki Subaru’ is a bit strange?",
-  "answer": "Not particularly. There are commoners who are mistakenly given surnames as well, so this isn’t really viewed as a problem, you see.",
+  "question": "In the Re: Zero world, they put names in first name - family name order, right? Doesn\u2019t every feel that the order \u2018Natsuki Subaru\u2019 is a bit strange?",
+  "answer": "Not particularly. There are commoners who are mistakenly given surnames as well, so this isn\u2019t really viewed as a problem, you see.",
   "characters": [
     "Natsuki Subaru"
   ],
@@ -10,8 +10,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/500349721450672128"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-08-15",
+  "date": "August 15, 2014"
 }

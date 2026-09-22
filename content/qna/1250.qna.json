@@ -1,7 +1,7 @@
 {
   "id": "1250",
-  "question": "I’d like to read a story where Subaru finds Garfiel as he’s trying to make a grave for Elsa, the first person he’s ever killed, and as a result, Garfiel looks back again at the series of events in arc 4.",
-  "answer": "Thank you. Please look forward to the “Garfiel Tinsel” round.",
+  "question": "I\u2019d like to read a story where Subaru finds Garfiel as he\u2019s trying to make a grave for Elsa, the first person he\u2019s ever killed, and as a result, Garfiel looks back again at the series of events in arc 4.",
+  "answer": "Thank you. Please look forward to the \u201cGarfiel Tinsel\u201d round.",
   "characters": [
     "Elsa Granhiert",
     "Garfiel Tinsel",
@@ -12,8 +12,10 @@
   ],
   "arc": "arc-4",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/503078156153020417"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-08-23",
+  "date": "August 23, 2014"
 }

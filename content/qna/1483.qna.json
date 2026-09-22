@@ -1,7 +1,7 @@
 {
   "id": "1483",
-  "question": "Cli~mbing the stairs of an adult. ↑ In that sense, which side is Beako?",
-  "answer": "She’s a child.",
+  "question": "Cli~mbing the stairs of an adult. \u2191 In that sense, which side is Beako?",
+  "answer": "She\u2019s a child.",
   "characters": [
     "Beatrice"
   ],
@@ -10,8 +10,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/475333171677245440"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-06-07",
+  "date": "June 07, 2014"
 }

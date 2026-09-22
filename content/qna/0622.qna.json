@@ -1,7 +1,7 @@
 {
   "id": "0622",
-  "question": "I’m always watching over Minerva-tan from the shadows, but I’m worried that she’s so kind that she’s always been deceived by bad men, and being trapped by weird guys. How can I get rid of this worry?",
-  "answer": "Please be at ease. It’s far too late for you to worry. She’s pretty much always being deceived.",
+  "question": "I\u2019m always watching over Minerva-tan from the shadows, but I\u2019m worried that she\u2019s so kind that she\u2019s always been deceived by bad men, and being trapped by weird guys. How can I get rid of this worry?",
+  "answer": "Please be at ease. It\u2019s far too late for you to worry. She\u2019s pretty much always being deceived.",
   "characters": [
     "Minerva"
   ],
@@ -10,8 +10,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/493932132147138560"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-07-29",
+  "date": "July 29, 2014"
 }

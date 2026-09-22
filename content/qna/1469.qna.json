@@ -1,7 +1,7 @@
 {
   "id": "1469",
-  "question": "Rem’s iron flail is in her cleavage.",
-  "answer": "Now I see, that’s why Ram’s weapon is a wand… someone, hold all of this child’s seating cushions...(note:joke)",
+  "question": "Rem\u2019s iron flail is in her cleavage.",
+  "answer": "Now I see, that\u2019s why Ram\u2019s weapon is a wand\u2026 someone, hold all of this child\u2019s seating cushions...(note:joke)",
   "characters": [
     "Ram",
     "Rem"
@@ -11,8 +11,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/478468194169278465"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-06-16",
+  "date": "June 16, 2014"
 }

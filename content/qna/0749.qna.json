@@ -1,7 +1,7 @@
 {
   "id": "0749",
   "question": "Can witches bear children? Do they have any descendants?",
-  "answer": "They can have children normally. It’s not that they don’t exist, but there were ‘witches’ before those seven.",
+  "answer": "They can have children normally. It\u2019s not that they don\u2019t exist, but there were \u2018witches\u2019 before those seven.",
   "characters": [],
   "topics": [
     "Sin Archbishops",
@@ -9,8 +9,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/503079902019858432"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-08-23",
+  "date": "August 23, 2014"
 }

@@ -1,7 +1,7 @@
 {
   "id": "3753",
-  "question": "Sensei, are you a backer of the Anastasia-tan in Anastasia-tan? I’m a backer of Anastasia-tan.",
-  "answer": "This is getting bothersome, I’m going to block the next.",
+  "question": "Sensei, are you a backer of the Anastasia-tan in Anastasia-tan? I\u2019m a backer of Anastasia-tan.",
+  "answer": "This is getting bothersome, I\u2019m going to block the next.",
   "characters": [
     "Anastasia Hoshin"
   ],
@@ -10,8 +10,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/476683702895120384"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-06-11",
+  "date": "June 11, 2014"
 }

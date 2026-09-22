@@ -1,7 +1,7 @@
 {
   "id": "0556",
-  "question": "Are Lusbel-kun and Tina-chan still Sirius’ hostages? Don’t tell me Lusbel-kun was left behind in that half-destroyed tower...",
-  "answer": "Lusbel-kun was recovered, but Tina-chan’s hostage status is ongoing. (Note: literally ‘belly hostage’, not sure what it means.)",
+  "question": "Are Lusbel-kun and Tina-chan still Sirius\u2019 hostages? Don\u2019t tell me Lusbel-kun was left behind in that half-destroyed tower...",
+  "answer": "Lusbel-kun was recovered, but Tina-chan\u2019s hostage status is ongoing. (Note: literally \u2018belly hostage\u2019, not sure what it means.)",
   "characters": [
     "Sirius Romanee-Conti"
   ],
@@ -10,8 +10,10 @@
   ],
   "arc": "arc-5",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/532469860417429504"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-11-12",
+  "date": "November 12, 2014"
 }

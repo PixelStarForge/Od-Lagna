@@ -1,7 +1,7 @@
 {
   "id": "1495",
   "question": "I think Roswaal needs to find a bride in order to have descendants, but to him, would that seem like being unfaithful?",
-  "answer": "To Roswaal, ‘Love’ does not mean anything like physical contact. To reach the one he loves, it’s about the same feeling as opening a door.",
+  "answer": "To Roswaal, \u2018Love\u2019 does not mean anything like physical contact. To reach the one he loves, it\u2019s about the same feeling as opening a door.",
   "characters": [
     "Roswaal L. Mathers"
   ],
@@ -10,8 +10,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/497756495594143744"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-08-08",
+  "date": "August 08, 2014"
 }

@@ -1,7 +1,7 @@
 {
   "id": "1424",
   "question": "Is there a hairstyle that Emilia-tan wanted to try once, but Puck stopped her?",
-  "answer": "Emilia-tan has never even thought about trying to alter her appearance on her own. That’s because she’s decided by herself that she’s the ugliest. She’s a bit disagreeable that way.",
+  "answer": "Emilia-tan has never even thought about trying to alter her appearance on her own. That\u2019s because she\u2019s decided by herself that she\u2019s the ugliest. She\u2019s a bit disagreeable that way.",
   "characters": [
     "Emilia",
     "Puck"
@@ -11,8 +11,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/495524545613549568"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-08-02",
+  "date": "August 02, 2014"
 }

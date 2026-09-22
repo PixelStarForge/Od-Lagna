@@ -1,6 +1,6 @@
 {
   "id": "1107",
-  "question": "Out of the extra chapters that you’ve written up to this point, are there any characters that will appear in the main story?",
+  "question": "Out of the extra chapters that you\u2019ve written up to this point, are there any characters that will appear in the main story?",
   "answer": "Pretty much all of them will appear.",
   "characters": [],
   "topics": [
@@ -8,8 +8,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/499580550056017920"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-08-13",
+  "date": "August 13, 2014"
 }

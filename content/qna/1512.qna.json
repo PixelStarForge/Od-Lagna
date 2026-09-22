@@ -1,7 +1,7 @@
 {
   "id": "1512",
   "question": "Roswaal holds the title of Court Magician, but in concrete terms, how important does that make him?",
-  "answer": "He’s not a magician in the court, but a magician recognized by the court, so it’s about like being a professional magician. He’s recognized by the kingdom, so he’s a major-league pro magician. On top of that, he’s the top of the list, so he’s like the top batter in the majors. He’s respected, but he doesn’t really hold any authority.",
+  "answer": "He\u2019s not a magician in the court, but a magician recognized by the court, so it\u2019s about like being a professional magician. He\u2019s recognized by the kingdom, so he\u2019s a major-league pro magician. On top of that, he\u2019s the top of the list, so he\u2019s like the top batter in the majors. He\u2019s respected, but he doesn\u2019t really hold any authority.",
   "characters": [
     "Roswaal L. Mathers"
   ],
@@ -10,8 +10,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/499579239356960770"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-08-13",
+  "date": "August 13, 2014"
 }

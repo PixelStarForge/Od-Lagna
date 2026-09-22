@@ -1,7 +1,7 @@
 {
   "id": "0678",
   "question": "If Daphne was eating taiyaki, what part would she eat first? Also, if she was eating Subaru-kun, what part would she eat first?",
-  "answer": "Arms and legs first, either way. Or maybe she’d start with the tail on the taiyaki.",
+  "answer": "Arms and legs first, either way. Or maybe she\u2019d start with the tail on the taiyaki.",
   "characters": [
     "Daphne",
     "Natsuki Subaru"
@@ -11,8 +11,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/497391722759208960"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-08-07",
+  "date": "August 07, 2014"
 }

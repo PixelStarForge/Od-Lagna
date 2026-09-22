@@ -1,7 +1,7 @@
 {
   "id": "0605",
   "question": "When Echidna-tan was wearing a school uniform, what color were her panties?",
-  "answer": "White, unfortunately. She reflects Subaru’s preferences, so Subaru’s preferences were reflected.",
+  "answer": "White, unfortunately. She reflects Subaru\u2019s preferences, so Subaru\u2019s preferences were reflected.",
   "characters": [
     "Echidna",
     "Natsuki Subaru"
@@ -11,8 +11,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/478109777298743296"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-06-15",
+  "date": "June 15, 2014"
 }

@@ -1,7 +1,7 @@
 {
   "id": "1458",
-  "question": "In arc two, Ram and Rem hit Subaru with wind magic and an iron ball, but if observing Subaru through clairvoyance was Roswaal’s order, then was killing him their own independent action?",
-  "answer": "After Ram used clairvoyance to confirm Rem’s independent action, as a result of concluding “Ah, there’s no way to settle this with talking”, she took care of it herself to prevent her little sister from dirtying her hands. So, it was independent action, but the sisters weren’t working together.",
+  "question": "In arc two, Ram and Rem hit Subaru with wind magic and an iron ball, but if observing Subaru through clairvoyance was Roswaal\u2019s order, then was killing him their own independent action?",
+  "answer": "After Ram used clairvoyance to confirm Rem\u2019s independent action, as a result of concluding \u201cAh, there\u2019s no way to settle this with talking\u201d, she took care of it herself to prevent her little sister from dirtying her hands. So, it was independent action, but the sisters weren\u2019t working together.",
   "characters": [
     "Natsuki Subaru",
     "Ram",
@@ -13,8 +13,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/494425620093620224"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-07-30",
+  "date": "July 30, 2014"
 }

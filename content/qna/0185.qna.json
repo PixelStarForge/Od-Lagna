@@ -1,6 +1,6 @@
 {
   "id": "0185",
-  "question": "What’s Priscilla-san’s real name?",
+  "question": "What\u2019s Priscilla-san\u2019s real name?",
   "answer": "Spoiler",
   "characters": [
     "Priscilla Barielle"
@@ -10,8 +10,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/496926656817561600"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-08-06",
+  "date": "August 06, 2014"
 }

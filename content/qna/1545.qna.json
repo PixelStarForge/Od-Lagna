@@ -1,7 +1,7 @@
 {
   "id": "1545",
-  "question": "In Clind-san’s view, are Typhon and Daphne in his strike zone?",
-  "answer": "Daphne is more mature than you might think, so she’s iffy, but Typhon is completely inside it.",
+  "question": "In Clind-san\u2019s view, are Typhon and Daphne in his strike zone?",
+  "answer": "Daphne is more mature than you might think, so she\u2019s iffy, but Typhon is completely inside it.",
   "characters": [
     "Clind",
     "Daphne",
@@ -12,8 +12,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/535094319599058945"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-11-19",
+  "date": "November 19, 2014"
 }

@@ -1,15 +1,17 @@
 {
   "id": "0874",
-  "question": "In this world, what sort of people don’t have last names?",
-  "answer": "People with a social status that doesn’t require last names.",
+  "question": "In this world, what sort of people don\u2019t have last names?",
+  "answer": "People with a social status that doesn\u2019t require last names.",
   "characters": [],
   "topics": [
     "Worldbuilding"
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/495522638836801536"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-08-02",
+  "date": "August 02, 2014"
 }

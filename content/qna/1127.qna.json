@@ -1,15 +1,17 @@
 {
   "id": "1127",
   "question": "Do you have plans to do King Crimson?",
-  "answer": "Well, I won’t be able to do that for three years. ‘One hundred years later…’ I’ll do it like that. (author’s note: 3 years is referring to the period of the royal selection)",
+  "answer": "Well, I won\u2019t be able to do that for three years. \u2018One hundred years later\u2026\u2019 I\u2019ll do it like that. (author\u2019s note: 3 years is referring to the period of the royal selection)",
   "characters": [],
   "topics": [
     "Royal Selection"
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/497310121207541761"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-08-07",
+  "date": "August 07, 2014"
 }

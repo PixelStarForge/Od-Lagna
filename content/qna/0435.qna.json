@@ -1,7 +1,7 @@
 {
   "id": "0435",
   "question": "How powerful is Reinhard among the previous Sword Saints?",
-  "answer": "He’s the strongest successor and the world strongest",
+  "answer": "He\u2019s the strongest successor and the world strongest",
   "characters": [
     "Reinhard van Astrea"
   ],
@@ -10,8 +10,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/535394358565298176"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-11-20",
+  "date": "November 20, 2014"
 }

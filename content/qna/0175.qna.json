@@ -1,7 +1,7 @@
 {
   "id": "0175",
-  "question": "I’d like to make Priscilla-san say “K...kill me!”, how can I get her to say that?",
-  "answer": "That’s probably something she’d absolutely never say.",
+  "question": "I\u2019d like to make Priscilla-san say \u201cK...kill me!\u201d, how can I get her to say that?",
+  "answer": "That\u2019s probably something she\u2019d absolutely never say.",
   "characters": [
     "Priscilla Barielle"
   ],
@@ -10,8 +10,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/595513396734328833"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2015-05-05",
+  "date": "May 05, 2015"
 }

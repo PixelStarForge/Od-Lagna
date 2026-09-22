@@ -1,7 +1,7 @@
 {
   "id": "3606",
   "question": "A What-If story where Otto is summoned to modern Japan.",
-  "answer": "There’s a fairly high demand for a What-If story where everyone comes to modern Japan, so I might do one sometime, and I might not.",
+  "answer": "There\u2019s a fairly high demand for a What-If story where everyone comes to modern Japan, so I might do one sometime, and I might not.",
   "characters": [
     "Otto Suwen"
   ],
@@ -10,8 +10,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/535456804906749952"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-11-20",
+  "date": "November 20, 2014"
 }

@@ -1,7 +1,7 @@
 {
   "id": "0760",
   "question": "If the witches did karaoke, what would their ranking order be? Echidna would probably be last place?",
-  "answer": "Something like Daphne > Sekhmet > Carmilla > Typhon > Echidna > Minerva. Minerva-tan seems like she’s not very skilled at a lot of things. Unexpectedly, Daphne has a beautiful voice. If she was a normal girl, she’d probably like karaoke.",
+  "answer": "Something like Daphne > Sekhmet > Carmilla > Typhon > Echidna > Minerva. Minerva-tan seems like she\u2019s not very skilled at a lot of things. Unexpectedly, Daphne has a beautiful voice. If she was a normal girl, she\u2019d probably like karaoke.",
   "characters": [
     "Carmilla",
     "Daphne",
@@ -17,8 +17,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/565476414095638530"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2015-02-11",
+  "date": "February 11, 2015"
 }

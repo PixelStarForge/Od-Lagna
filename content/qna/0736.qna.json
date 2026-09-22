@@ -1,6 +1,6 @@
 {
   "id": "0736",
-  "question": "Is there a chance that Aldebaran will eat mayonnaise… what’s his reaction when he eats it...",
+  "question": "Is there a chance that Aldebaran will eat mayonnaise\u2026 what\u2019s his reaction when he eats it...",
   "answer": "His body rejects it, and he barfs it back up.",
   "characters": [
     "Al (Aldebaran)"
@@ -10,8 +10,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/492288916738043906"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-07-24",
+  "date": "July 24, 2014"
 }

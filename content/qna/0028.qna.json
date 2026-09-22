@@ -1,15 +1,17 @@
 {
   "id": "0028",
   "question": "How long does love last for?",
-  "answer": "Why is it, that love diminishes? (Final Boss’ words)",
+  "answer": "Why is it, that love diminishes? (Final Boss\u2019 words)",
   "characters": [],
   "topics": [
     "General"
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/473616955694673920"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-06-03",
+  "date": "June 03, 2014"
 }

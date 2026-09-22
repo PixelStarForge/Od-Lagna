@@ -1,7 +1,7 @@
 {
   "id": "0518",
-  "question": "Around the middle of today’s update, Regulus used the line “I’m aware myself.”, but isn’t that sort of like saying “My headache hurts”?",
-  "answer": "It is, but it doesn’t really sound odd, does it? “I was thrown from my horse and fell” doesn’t really sound odd to me either, but I try to be careful. Try speaking the line aloud as you read it. “I’m aware myself” is the more provoking of the two.",
+  "question": "Around the middle of today\u2019s update, Regulus used the line \u201cI\u2019m aware myself.\u201d, but isn\u2019t that sort of like saying \u201cMy headache hurts\u201d?",
+  "answer": "It is, but it doesn\u2019t really sound odd, does it? \u201cI was thrown from my horse and fell\u201d doesn\u2019t really sound odd to me either, but I try to be careful. Try speaking the line aloud as you read it. \u201cI\u2019m aware myself\u201d is the more provoking of the two.",
   "characters": [
     "Regulus Corneas"
   ],
@@ -10,8 +10,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/568738092368195584"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2015-02-20",
+  "date": "February 20, 2015"
 }

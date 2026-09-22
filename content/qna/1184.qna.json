@@ -1,7 +1,7 @@
 {
   "id": "1184",
   "question": "A story of Aldebaran searching for himself (after fleeing from Vollachia, before meeting Priscilla).",
-  "answer": "Honestly, I can’t do anything related to Aldebaran until the arc where he takes the spotlight.",
+  "answer": "Honestly, I can\u2019t do anything related to Aldebaran until the arc where he takes the spotlight.",
   "characters": [
     "Al (Aldebaran)",
     "Priscilla Barielle"
@@ -11,8 +11,10 @@
   ],
   "arc": "arc-7",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/522629349619814400"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-10-16",
+  "date": "October 16, 2014"
 }

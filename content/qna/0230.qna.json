@@ -1,7 +1,7 @@
 {
   "id": "0230",
-  "question": "Is it true that, in the book, Aldebaran went by Al and didn’t give his real name at first to cut down on the number of letters?",
-  "answer": "Actually, Al has never introduced himself with his full name. I won’t deny that it did cut down on the number of letters, though.",
+  "question": "Is it true that, in the book, Aldebaran went by Al and didn\u2019t give his real name at first to cut down on the number of letters?",
+  "answer": "Actually, Al has never introduced himself with his full name. I won\u2019t deny that it did cut down on the number of letters, though.",
   "characters": [
     "Al (Aldebaran)"
   ],
@@ -10,8 +10,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/494731525595090944"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-07-31",
+  "date": "July 31, 2014"
 }

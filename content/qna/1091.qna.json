@@ -1,7 +1,7 @@
 {
   "id": "1091",
   "question": "If Mr. Cat could become just the insides (just the mind) of a Re: Zero character, who would be good?",
-  "answer": "I’d become Puck, dive into Emilia-tan’s silver hair, breathe deeply until I was satisfied, and come back.",
+  "answer": "I\u2019d become Puck, dive into Emilia-tan\u2019s silver hair, breathe deeply until I was satisfied, and come back.",
   "characters": [
     "Emilia",
     "Puck"
@@ -11,8 +11,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/475625139259080705"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-06-08",
+  "date": "June 08, 2014"
 }

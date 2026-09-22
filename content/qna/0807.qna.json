@@ -1,7 +1,7 @@
 {
   "id": "0807",
   "question": "Out of the characters that have appeared up to now, who are the top ten in amount of mana they can hold?",
-  "answer": "Emilia, Roswaal, Echidna, Typhon, Carmilla, Daphne, Ferris, Priscilla, and there are lots around Mimi’s level. It gets scary if we put them in order, so let’s not go there. (August 13, 2014 arc4)",
+  "answer": "Emilia, Roswaal, Echidna, Typhon, Carmilla, Daphne, Ferris, Priscilla, and there are lots around Mimi\u2019s level. It gets scary if we put them in order, so let\u2019s not go there. (August 13, 2014 arc4)",
   "characters": [
     "Carmilla",
     "Daphne",
@@ -18,9 +18,10 @@
   ],
   "arc": "arc-4",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/499581653728378880"
   },
-  "verified": false,
-  "date": "August 13, 2014"
+  "verified": true,
+  "date": "August 13, 2014",
+  "dateTime": "2014-08-13"
 }

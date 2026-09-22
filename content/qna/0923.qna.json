@@ -1,6 +1,6 @@
 {
   "id": "0923",
-  "question": "If Subaru heard the word ‘orc’, what kind of image would his otherworldly knowledge produce?",
+  "question": "If Subaru heard the word \u2018orc\u2019, what kind of image would his otherworldly knowledge produce?",
   "answer": "Well, it would probably be the sort of evil orc that appears in an ordinary fantasy. Recently, it seems like female knights have been meeting unfortunate circumstances one after another, so on the other hand, perhaps the number of gentlemanly orcs is on the rise as well.",
   "characters": [
     "Natsuki Subaru"
@@ -11,8 +11,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/580961142996123648"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2015-03-26",
+  "date": "March 26, 2015"
 }

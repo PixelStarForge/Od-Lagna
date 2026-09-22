@@ -1,7 +1,7 @@
 {
   "id": "0128",
   "question": "Please tell me your top five favorite male characters, in order.",
-  "answer": "I don’t think putting characters you created yourself in order is done very often, you know? They’re not in order, but Subaru, Otto, Wilhelm, Garf, and Julius are easy to write.",
+  "answer": "I don\u2019t think putting characters you created yourself in order is done very often, you know? They\u2019re not in order, but Subaru, Otto, Wilhelm, Garf, and Julius are easy to write.",
   "characters": [
     "Garfiel Tinsel",
     "Julius Juukulius",
@@ -14,8 +14,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/493301066646433792"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-07-27",
+  "date": "July 27, 2014"
 }

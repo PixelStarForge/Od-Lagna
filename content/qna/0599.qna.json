@@ -1,6 +1,6 @@
 {
   "id": "0599",
-  "question": "Is Echidna really Subaru’s type to that extent?",
+  "question": "Is Echidna really Subaru\u2019s type to that extent?",
   "answer": "No, since she dislikes Emilia.",
   "characters": [
     "Echidna",
@@ -12,8 +12,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/545066005543026689"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-12-17",
+  "date": "December 17, 2014"
 }

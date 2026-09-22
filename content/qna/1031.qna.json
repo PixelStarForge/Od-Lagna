@@ -1,7 +1,7 @@
 {
   "id": "1031",
   "question": "According to the plot, around how many more times will Subaru die? In the actual writing, how many more times do you think Subaru will die?",
-  "answer": "The number of deaths can increase as I go with the flow, so the number of times he dies isn’t determined by the plot. I don’t want to do digest-like deaths (note: I think he may mean something like a death montage here), so even if there’s a lot, there probably won’t be fifty more times. (May 26, 2014 arc4)",
+  "answer": "The number of deaths can increase as I go with the flow, so the number of times he dies isn\u2019t determined by the plot. I don\u2019t want to do digest-like deaths (note: I think he may mean something like a death montage here), so even if there\u2019s a lot, there probably won\u2019t be fifty more times. (May 26, 2014 arc4)",
   "characters": [
     "Natsuki Subaru"
   ],
@@ -10,9 +10,10 @@
   ],
   "arc": "arc-4",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/470899963854348288"
   },
-  "verified": false,
-  "date": "May 26, 2014"
+  "verified": true,
+  "date": "May 26, 2014",
+  "dateTime": "2014-05-26"
 }

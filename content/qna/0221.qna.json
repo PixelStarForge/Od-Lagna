@@ -1,7 +1,7 @@
 {
   "id": "0221",
-  "question": "Does Volume 4 have an illustration with Al’s real face?",
-  "answer": "Of course it doesn’t, silly!",
+  "question": "Does Volume 4 have an illustration with Al\u2019s real face?",
+  "answer": "Of course it doesn\u2019t, silly!",
   "characters": [
     "Al (Aldebaran)"
   ],
@@ -10,8 +10,10 @@
   ],
   "arc": "arc-4",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/477082148042997760"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-06-12",
+  "date": "June 12, 2014"
 }

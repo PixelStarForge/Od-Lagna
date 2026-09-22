@@ -1,7 +1,7 @@
 {
   "id": "1485",
   "question": "Does Beako sleep?",
-  "answer": "She super-sleeps. But she doesn’t grow. She just sleeps.",
+  "answer": "She super-sleeps. But she doesn\u2019t grow. She just sleeps.",
   "characters": [
     "Beatrice"
   ],
@@ -10,8 +10,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/535095135261188096"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-11-19",
+  "date": "November 19, 2014"
 }

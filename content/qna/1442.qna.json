@@ -1,7 +1,7 @@
 {
   "id": "1442",
-  "question": "When drinking alcohol, who’s gets drunk in the worst way, or I mean, who’s the worst when they’re drunk? (leaving out underage characters and Subaru)",
-  "answer": "It’s Emilia-tan, isn’t it.",
+  "question": "When drinking alcohol, who\u2019s gets drunk in the worst way, or I mean, who\u2019s the worst when they\u2019re drunk? (leaving out underage characters and Subaru)",
+  "answer": "It\u2019s Emilia-tan, isn\u2019t it.",
   "characters": [
     "Emilia",
     "Natsuki Subaru"
@@ -11,8 +11,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/493284188465152000"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-07-27",
+  "date": "July 27, 2014"
 }

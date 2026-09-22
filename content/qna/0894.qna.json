@@ -1,15 +1,17 @@
 {
   "id": "0894",
   "question": "Are there any eunuchs? Not criminals, but those with an official position.",
-  "answer": "There wouldn’t really be any meaning, so there aren’t.",
+  "answer": "There wouldn\u2019t really be any meaning, so there aren\u2019t.",
   "characters": [],
   "topics": [
     "Worldbuilding"
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/478041644332498944"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-06-15",
+  "date": "June 15, 2014"
 }

@@ -1,7 +1,7 @@
 {
   "id": "1057",
   "question": "Including the arcs that come after this, which arc will Subaru die the most in?",
-  "answer": "Probably, they’ll all be about even. (May 27, 2014 arc4)",
+  "answer": "Probably, they\u2019ll all be about even. (May 27, 2014 arc4)",
   "characters": [
     "Natsuki Subaru"
   ],
@@ -10,9 +10,10 @@
   ],
   "arc": "arc-4",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/471201498442235904"
   },
-  "verified": false,
-  "date": "May 27, 2014"
+  "verified": true,
+  "date": "May 27, 2014",
+  "dateTime": "2014-05-27"
 }

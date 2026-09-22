@@ -1,6 +1,6 @@
 {
   "id": "0466",
-  "question": "What’s the van in Whilhelm van Astrea?",
+  "question": "What\u2019s the van in Whilhelm van Astrea?",
   "answer": "van is related to the Astrea family, and is like an honor bestowed on one who has demonstrated a certain level of accomplishment and skill with the sword. Wilhelm van Astrea. Theresia van Astrea. Reinhard van Astrea. Heinkel Astrea. That sort of thing.",
   "characters": [
     "Heinkel Astrea",
@@ -13,8 +13,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/502818213017968640"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-08-22",
+  "date": "August 22, 2014"
 }

@@ -1,7 +1,7 @@
 {
   "id": "0406",
-  "question": "Reinhard, who has his own form of justice, seems like he’ll eventually clash with Subaru. Perhaps there’s a chance he’ll be the last boss!?",
-  "answer": "I’ll give you a prophecy then, there’s absolutely no way to win!",
+  "question": "Reinhard, who has his own form of justice, seems like he\u2019ll eventually clash with Subaru. Perhaps there\u2019s a chance he\u2019ll be the last boss!?",
+  "answer": "I\u2019ll give you a prophecy then, there\u2019s absolutely no way to win!",
   "characters": [
     "Natsuki Subaru",
     "Reinhard van Astrea"
@@ -11,8 +11,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/592220728751185920"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2015-04-26",
+  "date": "April 26, 2015"
 }

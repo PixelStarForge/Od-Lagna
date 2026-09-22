@@ -1,15 +1,17 @@
 {
   "id": "1046",
   "question": "I have a question!! Has Mr. Cat already decided inside himself how the last round will end?",
-  "answer": "It’s been decided. Really, only the ending has been firmly decided.",
+  "answer": "It\u2019s been decided. Really, only the ending has been firmly decided.",
   "characters": [],
   "topics": [
     "General"
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/502835876029026304"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-08-22",
+  "date": "August 22, 2014"
 }

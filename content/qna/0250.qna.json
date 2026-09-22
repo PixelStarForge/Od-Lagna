@@ -1,7 +1,7 @@
 {
   "id": "0250",
-  "question": "Is Joshua’s monocle not meant to help his vision?",
-  "answer": "He’s imitating Tivey’s cool look.",
+  "question": "Is Joshua\u2019s monocle not meant to help his vision?",
+  "answer": "He\u2019s imitating Tivey\u2019s cool look.",
   "characters": [
     "Joshua Juukulius",
     "Tivey Pearlbaton"
@@ -11,8 +11,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/530698274509160448"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-11-07",
+  "date": "November 07, 2014"
 }

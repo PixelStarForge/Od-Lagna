@@ -1,7 +1,7 @@
 {
   "id": "0799",
-  "question": "If Puck and Beako had a serious fight, which is stronger? I’m bettting four appas on Puck!!",
-  "answer": "Depending on the conditions, Beako has a chance to win, but basically Puck wins, so I’m taking your appas. They’re my appas now...",
+  "question": "If Puck and Beako had a serious fight, which is stronger? I\u2019m bettting four appas on Puck!!",
+  "answer": "Depending on the conditions, Beako has a chance to win, but basically Puck wins, so I\u2019m taking your appas. They\u2019re my appas now...",
   "characters": [
     "Beatrice",
     "Puck"
@@ -11,8 +11,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/478318613154516992"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-06-15",
+  "date": "June 15, 2014"
 }

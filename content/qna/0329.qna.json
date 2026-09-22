@@ -1,7 +1,7 @@
 {
   "id": "0329",
-  "question": "I don’t have enough money to buy novels, so I’d like one of the Re: Zero characters to help out. Who should I ask…?",
-  "answer": "Your best bet is Priscilla. However, she won’t listen to your request. Anastasia is a good bet. However, she’ll take a profit margin. If you ask Crusch-san, she’ll pay you a wage in exchange for labor. In Felt’s case, she’ll make you help out with a robbery. If you ask Emilia-tan, after she gets frustrated and upset, she’ll give you her pocket money.",
+  "question": "I don\u2019t have enough money to buy novels, so I\u2019d like one of the Re: Zero characters to help out. Who should I ask\u2026?",
+  "answer": "Your best bet is Priscilla. However, she won\u2019t listen to your request. Anastasia is a good bet. However, she\u2019ll take a profit margin. If you ask Crusch-san, she\u2019ll pay you a wage in exchange for labor. In Felt\u2019s case, she\u2019ll make you help out with a robbery. If you ask Emilia-tan, after she gets frustrated and upset, she\u2019ll give you her pocket money.",
   "characters": [
     "Anastasia Hoshin",
     "Crusch Karsten",
@@ -14,8 +14,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/476011418169651201"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-06-09",
+  "date": "June 09, 2014"
 }

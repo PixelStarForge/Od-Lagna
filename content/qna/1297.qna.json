@@ -1,7 +1,7 @@
 {
   "id": "1297",
-  "question": "Are there any other special skills that Subaru isn’t able to use?",
-  "answer": "There’s all kinds of them, but if there’s any useless skills that you think ‘Seems like something Subaru could do’, I think he’s likely acquired it.",
+  "question": "Are there any other special skills that Subaru isn\u2019t able to use?",
+  "answer": "There\u2019s all kinds of them, but if there\u2019s any useless skills that you think \u2018Seems like something Subaru could do\u2019, I think he\u2019s likely acquired it.",
   "characters": [
     "Natsuki Subaru"
   ],
@@ -10,8 +10,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/496653135096872960"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-08-05",
+  "date": "August 05, 2014"
 }

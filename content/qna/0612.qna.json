@@ -1,7 +1,7 @@
 {
   "id": "0612",
-  "question": "Does Minerva-tan’s healing work on Capella’s transformations? They’re not injuries, so maybe not. If it’s a spoiler, please don’t answer.",
-  "answer": "It wouldn’t work, and I don’t think Minerva-tan would be trying to heal them.",
+  "question": "Does Minerva-tan\u2019s healing work on Capella\u2019s transformations? They\u2019re not injuries, so maybe not. If it\u2019s a spoiler, please don\u2019t answer.",
+  "answer": "It wouldn\u2019t work, and I don\u2019t think Minerva-tan would be trying to heal them.",
   "characters": [
     "Capella Emerada Lugnica",
     "Minerva"
@@ -11,8 +11,10 @@
   ],
   "arc": "arc-5",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/535328019108622337"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-11-20",
+  "date": "November 20, 2014"
 }

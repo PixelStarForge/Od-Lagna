@@ -1,7 +1,7 @@
 {
   "id": "0411",
-  "question": "So, for the moment, it would be ok to understand that it’s impossible to defeat Reinhard?",
-  "answer": "For the moment, it’s impossible.",
+  "question": "So, for the moment, it would be ok to understand that it\u2019s impossible to defeat Reinhard?",
+  "answer": "For the moment, it\u2019s impossible.",
   "characters": [
     "Reinhard van Astrea"
   ],
@@ -10,8 +10,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/475629222925725697"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-06-08",
+  "date": "June 08, 2014"
 }

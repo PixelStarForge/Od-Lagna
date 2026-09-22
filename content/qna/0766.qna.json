@@ -1,7 +1,7 @@
 {
   "id": "0766",
   "question": "Is Donadona the most talkative of the witches?",
-  "answer": "The rest of the witches aren’t the type who like to chat, so inevitably, that means that Echidna seems to just keep on talking.",
+  "answer": "The rest of the witches aren\u2019t the type who like to chat, so inevitably, that means that Echidna seems to just keep on talking.",
   "characters": [
     "Echidna"
   ],
@@ -11,8 +11,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/495526344047202304"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-08-02",
+  "date": "August 02, 2014"
 }

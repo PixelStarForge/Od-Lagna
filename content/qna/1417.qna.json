@@ -1,7 +1,7 @@
 {
   "id": "1417",
   "question": "If Emilia-tan came to Japan, what would she be interested in? Either things or concepts are fine.",
-  "answer": "She’d be interested in sweets and girl comics.",
+  "answer": "She\u2019d be interested in sweets and girl comics.",
   "characters": [
     "Emilia"
   ],
@@ -10,8 +10,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/494427611494612992"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-07-30",
+  "date": "July 30, 2014"
 }

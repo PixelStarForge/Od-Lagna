@@ -1,7 +1,7 @@
 {
   "id": "0381",
-  "question": "Is that lace attached to Reinhard’s collar??? Black lace…?!?! Oh, I love that Reinhard.",
-  "answer": "It’s lace!! An ambiguous answer isn’t manly, so it’s lace!!",
+  "question": "Is that lace attached to Reinhard\u2019s collar??? Black lace\u2026?!?! Oh, I love that Reinhard.",
+  "answer": "It\u2019s lace!! An ambiguous answer isn\u2019t manly, so it\u2019s lace!!",
   "characters": [
     "Reinhard van Astrea"
   ],
@@ -10,8 +10,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/478432842792570880"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-06-16",
+  "date": "June 16, 2014"
 }

@@ -1,7 +1,7 @@
 {
   "id": "1066",
-  "question": "On the off chance that Emilia wound up with a boyfriend that wasn’t Subaru, what action would Subaru take when he saw that??",
-  "answer": "He’d ‘Return by Death’. Just kidding. Just kidding, but... not really, but... how would that turn out? I guess he really would ‘Return by Death’.",
+  "question": "On the off chance that Emilia wound up with a boyfriend that wasn\u2019t Subaru, what action would Subaru take when he saw that??",
+  "answer": "He\u2019d \u2018Return by Death\u2019. Just kidding. Just kidding, but... not really, but... how would that turn out? I guess he really would \u2018Return by Death\u2019.",
   "characters": [
     "Emilia",
     "Natsuki Subaru"
@@ -11,8 +11,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/497390201288015872"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-08-07",
+  "date": "August 07, 2014"
 }

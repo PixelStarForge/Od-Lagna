@@ -1,7 +1,7 @@
 {
   "id": "0322",
-  "question": "A question for the royal candidates: “What does it mean to live?”",
-  "answer": "Emilia: “W...working hard” Felt: “Making sure you can eat all you want” Anastasia: “Never stop walking” Crusch: “Never bring shame on yourself” Priscilla: “Be happy under my rulership”",
+  "question": "A question for the royal candidates: \u201cWhat does it mean to live?\u201d",
+  "answer": "Emilia: \u201cW...working hard\u201d Felt: \u201cMaking sure you can eat all you want\u201d Anastasia: \u201cNever stop walking\u201d Crusch: \u201cNever bring shame on yourself\u201d Priscilla: \u201cBe happy under my rulership\u201d",
   "characters": [
     "Anastasia Hoshin",
     "Crusch Karsten",
@@ -14,8 +14,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/565475099638509568"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2015-02-11",
+  "date": "February 11, 2015"
 }

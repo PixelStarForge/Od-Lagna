@@ -1,7 +1,7 @@
 {
   "id": "0969",
   "question": "In the Re: Zero world, are all the spells that currently exist ones that have been passed down from ancient times? Are any new spells being developed?",
-  "answer": "Nothing’s being developed, you see. They’re satisfied with what they have. Normally the people who’ve reached the pinnacles of magic would be developing more, but in Lugunica, Ferris and Roswaal haven’t got any interest in that at all.",
+  "answer": "Nothing\u2019s being developed, you see. They\u2019re satisfied with what they have. Normally the people who\u2019ve reached the pinnacles of magic would be developing more, but in Lugunica, Ferris and Roswaal haven\u2019t got any interest in that at all.",
   "characters": [
     "Felix Argyle (Ferris)",
     "Roswaal L. Mathers"
@@ -11,8 +11,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/494737283808256000"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-07-31",
+  "date": "July 31, 2014"
 }

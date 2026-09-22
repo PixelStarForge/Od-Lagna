@@ -1,7 +1,7 @@
 {
   "id": "0223",
   "question": "How much would it cost to get Anastasia-san to go on a date with me?",
-  "answer": "She might charge by the hour… at the going market rate, no less.",
+  "answer": "She might charge by the hour\u2026 at the going market rate, no less.",
   "characters": [
     "Anastasia Hoshin"
   ],
@@ -10,8 +10,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/533953226593533952"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-11-16",
+  "date": "November 16, 2014"
 }

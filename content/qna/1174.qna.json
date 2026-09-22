@@ -1,15 +1,17 @@
 {
   "id": "1174",
-  "question": "Will there be a development when someone will get Mami’ed?",
-  "answer": "I think things like ‘Instant Death!’ are wasteful, so I don’t like to do them.",
+  "question": "Will there be a development when someone will get Mami\u2019ed?",
+  "answer": "I think things like \u2018Instant Death!\u2019 are wasteful, so I don\u2019t like to do them.",
   "characters": [],
   "topics": [
     "General"
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/476331848898207744"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-06-10",
+  "date": "June 10, 2014"
 }

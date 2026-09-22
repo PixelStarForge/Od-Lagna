@@ -1,7 +1,7 @@
 {
   "id": "0199",
-  "question": "Is Crusch-sama the type that could get married as part of her job? If it looked like that was going to happen, would Feri-chan be opposed to it? Or would he agree to it if it’s what Crusch-sama decided to do?",
-  "answer": "She could do that. If Crusch-sama was doing it her way, Feri-chan wouldn’t oppose it.",
+  "question": "Is Crusch-sama the type that could get married as part of her job? If it looked like that was going to happen, would Feri-chan be opposed to it? Or would he agree to it if it\u2019s what Crusch-sama decided to do?",
+  "answer": "She could do that. If Crusch-sama was doing it her way, Feri-chan wouldn\u2019t oppose it.",
   "characters": [
     "Crusch Karsten",
     "Felix Argyle (Ferris)"
@@ -11,8 +11,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/535097091572658177"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-11-19",
+  "date": "November 19, 2014"
 }

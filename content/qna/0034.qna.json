@@ -1,6 +1,6 @@
 {
   "id": "0034",
-  "question": "If you were in charge of the final performance in the project King of Wrath (it’s a web novel), what kind of final conclusion would you have made it or would you not want to?",
+  "question": "If you were in charge of the final performance in the project King of Wrath (it\u2019s a web novel), what kind of final conclusion would you have made it or would you not want to?",
   "answer": "Without a doubt, the remaining heroine(s) would not survive.",
   "characters": [],
   "topics": [
@@ -8,8 +8,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/470903384971960320"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-05-26",
+  "date": "May 26, 2014"
 }

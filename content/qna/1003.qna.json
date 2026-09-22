@@ -1,15 +1,17 @@
 {
   "id": "1003",
   "question": "Can spirits have children?",
-  "answer": "They can’t.",
+  "answer": "They can\u2019t.",
   "characters": [],
   "topics": [
     "Contracts & Spirits"
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/495524631156391936"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-08-02",
+  "date": "August 02, 2014"
 }

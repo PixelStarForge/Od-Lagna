@@ -1,7 +1,7 @@
 {
   "id": "0738",
-  "question": "I’d like to become friends with Beatrice, what would be the best way to do that? If I made her a meal with mayonnaise, would her approval rating go up?",
-  "answer": "She’s starved for friends of her own age, so if you change into a ten-year old or so girl, getting along well should be easy.",
+  "question": "I\u2019d like to become friends with Beatrice, what would be the best way to do that? If I made her a meal with mayonnaise, would her approval rating go up?",
+  "answer": "She\u2019s starved for friends of her own age, so if you change into a ten-year old or so girl, getting along well should be easy.",
   "characters": [
     "Beatrice"
   ],
@@ -10,8 +10,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/492640377573482496"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-07-25",
+  "date": "July 25, 2014"
 }

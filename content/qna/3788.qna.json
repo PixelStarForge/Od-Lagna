@@ -1,7 +1,7 @@
 {
   "id": "3788",
-  "question": "What would happen if the boy butler at Priscilla’s estate grew up a little?",
-  "answer": "Schult-kun appears in Arc 5, so let’s wait until then for the details.",
+  "question": "What would happen if the boy butler at Priscilla\u2019s estate grew up a little?",
+  "answer": "Schult-kun appears in Arc 5, so let\u2019s wait until then for the details.",
   "characters": [
     "Priscilla Barielle",
     "Schult"
@@ -11,8 +11,10 @@
   ],
   "arc": "arc-5",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/497760446972428290"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-08-08",
+  "date": "August 08, 2014"
 }

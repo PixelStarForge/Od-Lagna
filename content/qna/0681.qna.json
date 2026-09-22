@@ -1,7 +1,7 @@
 {
   "id": "0681",
-  "question": "If mabeasts will follow a person who breaks their horn, then exactly what Roswaal was saying earlier, repeatedly having a broken-horned mabeast break the horn of another mabeast, wouldn’t it be fairly easy to wipe out the mabeasts? Did this method not catch on?",
-  "answer": "Mabeasts with broken horns are rapidly lynched by mabeasts with horns. “Hey, isn’t that one different from us? Should we get him?”, then they get surrounded and beat.",
+  "question": "If mabeasts will follow a person who breaks their horn, then exactly what Roswaal was saying earlier, repeatedly having a broken-horned mabeast break the horn of another mabeast, wouldn\u2019t it be fairly easy to wipe out the mabeasts? Did this method not catch on?",
+  "answer": "Mabeasts with broken horns are rapidly lynched by mabeasts with horns. \u201cHey, isn\u2019t that one different from us? Should we get him?\u201d, then they get surrounded and beat.",
   "characters": [
     "Roswaal L. Mathers"
   ],
@@ -10,8 +10,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/495523807130812417"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-08-02",
+  "date": "August 02, 2014"
 }

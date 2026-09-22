@@ -1,7 +1,7 @@
 {
   "id": "1310",
   "question": "His nickname is Barusu, and the magic he can use blinds his opponents; were you aiming for this?",
-  "answer": "By the time I’d realized it, it had already turned out this way.",
+  "answer": "By the time I\u2019d realized it, it had already turned out this way.",
   "characters": [
     "Natsuki Subaru"
   ],
@@ -10,8 +10,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/500280073552146432"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-08-15",
+  "date": "August 15, 2014"
 }

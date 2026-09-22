@@ -1,7 +1,7 @@
 {
   "id": "1403",
   "question": "About how far away from Emilia can Puck be and still utilize his normal power?",
-  "answer": "According to the conditions of the contract, if he’s ten meters away, it’s already too far.",
+  "answer": "According to the conditions of the contract, if he\u2019s ten meters away, it\u2019s already too far.",
   "characters": [
     "Emilia",
     "Puck"
@@ -11,8 +11,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/502819832786874369"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-08-22",
+  "date": "August 22, 2014"
 }

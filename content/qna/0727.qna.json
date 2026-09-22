@@ -1,7 +1,7 @@
 {
   "id": "0727",
   "question": "If Al and Petra saw the mayonnaise tub that Rem made, what kind of scream would follow?",
-  "answer": "They’d probably both vomit.",
+  "answer": "They\u2019d probably both vomit.",
   "characters": [
     "Al (Aldebaran)",
     "Petra Leyte",
@@ -12,8 +12,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/499578791954767873"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-08-13",
+  "date": "August 13, 2014"
 }

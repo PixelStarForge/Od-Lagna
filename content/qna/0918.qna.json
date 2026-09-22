@@ -1,7 +1,7 @@
 {
   "id": "0918",
   "question": "How about using modern knowledge to create sweets?",
-  "answer": "For example, the ingredients for cake, the ingredients for cookies, the ingredients for chocolate. I don’t know any of them. I don’t know how to make them. So probably, Subaru doesn’t know either. That’s about the extent of modern knowledge.",
+  "answer": "For example, the ingredients for cake, the ingredients for cookies, the ingredients for chocolate. I don\u2019t know any of them. I don\u2019t know how to make them. So probably, Subaru doesn\u2019t know either. That\u2019s about the extent of modern knowledge.",
   "characters": [
     "Natsuki Subaru"
   ],
@@ -10,8 +10,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/496984092853149696"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-08-06",
+  "date": "August 06, 2014"
 }

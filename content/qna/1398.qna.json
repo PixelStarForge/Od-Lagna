@@ -1,7 +1,7 @@
 {
   "id": "1398",
-  "question": "You’ve said that Subaru has a talent for being disliked by people, but how much was he disliked by his classmates in elementary, middle, and high school?",
-  "answer": "It wasn’t much from the people in his class in elementary. In middle school, he was abnormally disliked by the girls, and somewhat distant from the boys. He messed up his debut in high school, and both boys and girls largely ignored him.",
+  "question": "You\u2019ve said that Subaru has a talent for being disliked by people, but how much was he disliked by his classmates in elementary, middle, and high school?",
+  "answer": "It wasn\u2019t much from the people in his class in elementary. In middle school, he was abnormally disliked by the girls, and somewhat distant from the boys. He messed up his debut in high school, and both boys and girls largely ignored him.",
   "characters": [
     "Natsuki Subaru"
   ],
@@ -10,8 +10,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/493934290229805056"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-07-29",
+  "date": "July 29, 2014"
 }

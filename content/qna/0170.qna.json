@@ -1,7 +1,7 @@
 {
   "id": "0170",
   "question": "If Subaru handed Priscilla eel jelly, what would have happened?",
-  "answer": "Zunbarari (Note: might be a sound effect? Can’t find it in a dictionary)",
+  "answer": "Zunbarari (Note: might be a sound effect? Can\u2019t find it in a dictionary)",
   "characters": [
     "Natsuki Subaru",
     "Priscilla Barielle"
@@ -11,8 +11,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/595513159462555648"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2015-05-05",
+  "date": "May 05, 2015"
 }

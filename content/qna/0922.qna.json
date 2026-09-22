@@ -1,7 +1,7 @@
 {
   "id": "0922",
   "question": "If Emilia-tan wore glasses, Mr. Cat would start to like them too!",
-  "answer": "The next time I see the work ‘glasses’, I’m blocking it.",
+  "answer": "The next time I see the work \u2018glasses\u2019, I\u2019m blocking it.",
   "characters": [
     "Emilia"
   ],
@@ -10,8 +10,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/498539238884143104"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-08-10",
+  "date": "August 10, 2014"
 }

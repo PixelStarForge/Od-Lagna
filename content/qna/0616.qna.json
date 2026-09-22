@@ -1,7 +1,7 @@
 {
   "id": "0616",
   "question": "If Minerva-chan encountered someone who immediately killed themselves whenever she healed them, what would she do?",
-  "answer": "She’d tied them up and gag them so they couldn’t kill themselves, and then head on to the next one.",
+  "answer": "She\u2019d tied them up and gag them so they couldn\u2019t kill themselves, and then head on to the next one.",
   "characters": [
     "Minerva"
   ],
@@ -10,8 +10,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/494727557758349312"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-07-31",
+  "date": "July 31, 2014"
 }

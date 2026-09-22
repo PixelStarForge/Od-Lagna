@@ -1,7 +1,7 @@
 {
   "id": "0256",
   "question": "Julius is able to work with all types of spirits, but does that mean that he has all the magic affinities then? Will we see this in Arc 5?",
-  "answer": "Rather than saying he has all the magic affinities, it’s more like the quasi-spirits that travel with him are able to use those magics for him. Julius’ own affinities are mostly wind and water, you see.",
+  "answer": "Rather than saying he has all the magic affinities, it\u2019s more like the quasi-spirits that travel with him are able to use those magics for him. Julius\u2019 own affinities are mostly wind and water, you see.",
   "characters": [
     "Julius Juukulius"
   ],
@@ -10,8 +10,10 @@
   ],
   "arc": "arc-5",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/497309102062964736"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-08-07",
+  "date": "August 07, 2014"
 }

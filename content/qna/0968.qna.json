@@ -1,7 +1,7 @@
 {
   "id": "0968",
-  "question": "In ice magic, there’s both use of fire mana like Puck, and use of water mana like Rem, but are there differences according to the affinity?",
-  "answer": "Rem’s water mana is able to create ice pillars and attack with them, but it can’t freeze an opponent or object like Puck’s fire mana. On the other hand, fire mana can’t heal, or create large amounts of water like water mana can, you see. The part where they create ice pillars and attack with them is the same.",
+  "question": "In ice magic, there\u2019s both use of fire mana like Puck, and use of water mana like Rem, but are there differences according to the affinity?",
+  "answer": "Rem\u2019s water mana is able to create ice pillars and attack with them, but it can\u2019t freeze an opponent or object like Puck\u2019s fire mana. On the other hand, fire mana can\u2019t heal, or create large amounts of water like water mana can, you see. The part where they create ice pillars and attack with them is the same.",
   "characters": [
     "Puck",
     "Rem"
@@ -11,8 +11,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/500279294888009729"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-08-15",
+  "date": "August 15, 2014"
 }

@@ -1,7 +1,7 @@
 {
   "id": "0618",
-  "question": "If Minerva-tan was transported to a world where beasts like the Great Rabbit didn’t exist, what might she do?",
-  "answer": "She’d be sad, and cry.",
+  "question": "If Minerva-tan was transported to a world where beasts like the Great Rabbit didn\u2019t exist, what might she do?",
+  "answer": "She\u2019d be sad, and cry.",
   "characters": [
     "Minerva"
   ],
@@ -10,8 +10,10 @@
   ],
   "arc": "arc-4",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/496872699927724032"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-08-06",
+  "date": "August 06, 2014"
 }

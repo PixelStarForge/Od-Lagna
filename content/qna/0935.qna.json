@@ -1,15 +1,17 @@
 {
   "id": "0935",
   "question": "The guard station has six floors, but are there different departments on each floor?",
-  "answer": "The first floor is lost items. Second floor is a missing child center. Third floor is found items. Fourth floor has bad premonitions, so it’s left empty, the fifth floor is the violent crimes unit, and the sixth floor is a pivoine. (note: french restaurant). That’s a lie!! I haven’t thought about it!!",
+  "answer": "The first floor is lost items. Second floor is a missing child center. Third floor is found items. Fourth floor has bad premonitions, so it\u2019s left empty, the fifth floor is the violent crimes unit, and the sixth floor is a pivoine. (note: french restaurant). That\u2019s a lie!! I haven\u2019t thought about it!!",
   "characters": [],
   "topics": [
     "Worldbuilding"
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/477012594218512384"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-06-12",
+  "date": "June 12, 2014"
 }

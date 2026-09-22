@@ -1,7 +1,7 @@
 {
   "id": "0410",
-  "question": "Since mana and the lesser spirits are Reinhard’s allies, even though Reinhard can’t use magic himself, couldn’t he serve as a pseudo-spirit-arts-user?",
-  "answer": "Reinhard has lost the ability to make the lesser spirits work for him, so right from the start, he has no way to communicate with them. When the lesser spirits try to cooperate with his gestures, all of the different types of spirits say “The one he’s thanking is me!” at once, and they negate each other and start to fight. Then, as they’re weakened, they get absorbed. Their relationship is like the lesser spirits are moths, and Reinhard is a flame.",
+  "question": "Since mana and the lesser spirits are Reinhard\u2019s allies, even though Reinhard can\u2019t use magic himself, couldn\u2019t he serve as a pseudo-spirit-arts-user?",
+  "answer": "Reinhard has lost the ability to make the lesser spirits work for him, so right from the start, he has no way to communicate with them. When the lesser spirits try to cooperate with his gestures, all of the different types of spirits say \u201cThe one he\u2019s thanking is me!\u201d at once, and they negate each other and start to fight. Then, as they\u2019re weakened, they get absorbed. Their relationship is like the lesser spirits are moths, and Reinhard is a flame.",
   "characters": [
     "Reinhard van Astrea"
   ],
@@ -11,8 +11,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/580963232971665408"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2015-03-26",
+  "date": "March 26, 2015"
 }

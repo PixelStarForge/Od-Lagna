@@ -1,7 +1,7 @@
 {
   "id": "1523",
-  "question": "What are Roswaal’s parents doing now? Are they alive?",
-  "answer": "They’re dead.",
+  "question": "What are Roswaal\u2019s parents doing now? Are they alive?",
+  "answer": "They\u2019re dead.",
   "characters": [
     "Roswaal L. Mathers"
   ],
@@ -10,8 +10,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/531077048585191426"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-11-08",
+  "date": "November 08, 2014"
 }

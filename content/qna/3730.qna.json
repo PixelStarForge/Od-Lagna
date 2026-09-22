@@ -1,7 +1,7 @@
 {
   "id": "3730",
-  "question": "Now that you mention it, why was it that the people in Sanctuary couldn’t lie?",
-  "answer": "They were raised well. That’s a lie. It’s related to the barrier around “Sanctuary”, a contract that Echidna formed without the residents’ permission. Incidentally, Emilia has a similar contract with Puck, where Emilia agreed to “Never lie about her identity to others”. That’s why, even though she knows she’ll be given a poor reception, she always reveals that she’s a half-elf.",
+  "question": "Now that you mention it, why was it that the people in Sanctuary couldn\u2019t lie?",
+  "answer": "They were raised well. That\u2019s a lie. It\u2019s related to the barrier around \u201cSanctuary\u201d, a contract that Echidna formed without the residents\u2019 permission. Incidentally, Emilia has a similar contract with Puck, where Emilia agreed to \u201cNever lie about her identity to others\u201d. That\u2019s why, even though she knows she\u2019ll be given a poor reception, she always reveals that she\u2019s a half-elf.",
   "characters": [
     "Echidna",
     "Emilia",
@@ -12,8 +12,10 @@
   ],
   "arc": "arc-4",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/500280589963243520"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-08-15",
+  "date": "August 15, 2014"
 }

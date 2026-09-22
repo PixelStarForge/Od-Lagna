@@ -1,7 +1,7 @@
 {
   "id": "0284",
-  "question": "Liliana’s concert and Wilhelm’s fighting demonstration! If you could only see one of them, which would you choose?",
-  "answer": "Wilhelm couldn’t do something as fashionable as a fighting demonstration. His sword is not for display, it’s for cutting down his enemies. That’s why he’s Wilhelm, you see. Liliana’s annoying, after all. (Note: The last sentence doesn’t seem to connect to the rest of the answer, but as far as I can tell, that’s what he wrote.)",
+  "question": "Liliana\u2019s concert and Wilhelm\u2019s fighting demonstration! If you could only see one of them, which would you choose?",
+  "answer": "Wilhelm couldn\u2019t do something as fashionable as a fighting demonstration. His sword is not for display, it\u2019s for cutting down his enemies. That\u2019s why he\u2019s Wilhelm, you see. Liliana\u2019s annoying, after all. (Note: The last sentence doesn\u2019t seem to connect to the rest of the answer, but as far as I can tell, that\u2019s what he wrote.)",
   "characters": [
     "Wilhelm van Astrea"
   ],
@@ -10,8 +10,10 @@
   ],
   "arc": "arc-5",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/595513581581504512"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2015-05-05",
+  "date": "May 05, 2015"
 }

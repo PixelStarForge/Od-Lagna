@@ -1,7 +1,7 @@
 {
   "id": "0241",
-  "question": "Will Al’s real face be revealed at some point in the future?",
-  "answer": "I don’t want to say it, but when a masked character doesn’t remove their mask, it means something, right?",
+  "question": "Will Al\u2019s real face be revealed at some point in the future?",
+  "answer": "I don\u2019t want to say it, but when a masked character doesn\u2019t remove their mask, it means something, right?",
   "characters": [
     "Al (Aldebaran)"
   ],
@@ -10,8 +10,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/477317441388048384"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-06-13",
+  "date": "June 13, 2014"
 }

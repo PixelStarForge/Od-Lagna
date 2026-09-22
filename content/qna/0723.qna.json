@@ -1,7 +1,7 @@
 {
   "id": "0723",
-  "question": "Why didn’t Daphne eat the rabbit or whale?",
-  "answer": "She just didn’t eat all of them.",
+  "question": "Why didn\u2019t Daphne eat the rabbit or whale?",
+  "answer": "She just didn\u2019t eat all of them.",
   "characters": [
     "Daphne"
   ],
@@ -10,8 +10,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/492289315264032768"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-07-24",
+  "date": "July 24, 2014"
 }

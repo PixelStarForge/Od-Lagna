@@ -1,6 +1,6 @@
 {
   "id": "1555",
-  "question": "Please teach me the origin and meaning of Garfiel’s proverb",
+  "question": "Please teach me the origin and meaning of Garfiel\u2019s proverb",
   "answer": "Gar-boy just tried to say something suitable due to the mood at that time while wanting to be clever and appeal to Ram",
   "characters": [
     "Garfiel Tinsel",
@@ -11,8 +11,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/473078615492800512"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-06-01",
+  "date": "June 01, 2014"
 }

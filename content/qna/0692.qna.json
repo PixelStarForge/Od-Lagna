@@ -1,6 +1,6 @@
 {
   "id": "0692",
-  "question": "What’s Daphne’s favorite food out of everything that she’s eaten?",
+  "question": "What\u2019s Daphne\u2019s favorite food out of everything that she\u2019s eaten?",
   "answer": "Parents (not what you think it means).",
   "characters": [
     "Daphne"
@@ -10,8 +10,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/492298479809888256"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-07-24",
+  "date": "July 24, 2014"
 }

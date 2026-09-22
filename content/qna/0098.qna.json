@@ -1,7 +1,7 @@
 {
   "id": "0098",
   "question": "About how strong is Al?",
-  "answer": "He’s not really strong, around the upper middle. He’s not that different from Mimi, etc.",
+  "answer": "He\u2019s not really strong, around the upper middle. He\u2019s not that different from Mimi, etc.",
   "characters": [
     "Al (Aldebaran)",
     "Mimi Pearlbaton"
@@ -11,8 +11,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/473464146328322048"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-06-02",
+  "date": "June 02, 2014"
 }

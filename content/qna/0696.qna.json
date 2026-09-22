@@ -1,7 +1,7 @@
 {
   "id": "0696",
   "question": "Could a normal person eat the White Whale, Great Rabbit, or Black Snake and feel they were delicious?",
-  "answer": "There’s no way they’re delicious. They’re creatures made from a “If you can eat it, great” mentality, you know.",
+  "answer": "There\u2019s no way they\u2019re delicious. They\u2019re creatures made from a \u201cIf you can eat it, great\u201d mentality, you know.",
   "characters": [
     "White Whale"
   ],
@@ -10,8 +10,10 @@
   ],
   "arc": "arc-4",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/478186085454217218"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-06-15",
+  "date": "June 15, 2014"
 }

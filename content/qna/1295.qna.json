@@ -1,7 +1,7 @@
 {
   "id": "1295",
-  "question": "And now, Subaru-kun is getting married to someone. Who are the first five people he would write invitations to? (Setting aside whether they’d come or not)",
-  "answer": "Father, Mother. I can’t think of the rest.",
+  "question": "And now, Subaru-kun is getting married to someone. Who are the first five people he would write invitations to? (Setting aside whether they\u2019d come or not)",
+  "answer": "Father, Mother. I can\u2019t think of the rest.",
   "characters": [
     "Natsuki Subaru"
   ],
@@ -10,8 +10,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/493303709406068736"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-07-27",
+  "date": "July 27, 2014"
 }

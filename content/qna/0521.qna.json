@@ -1,7 +1,7 @@
 {
   "id": "0521",
   "question": "Being together with Regulus, most people would go crazy and be killed in a few minutes; is there anyone that could get along with him?",
-  "answer": "I don’t think anyone wants to be friends with scum.",
+  "answer": "I don\u2019t think anyone wants to be friends with scum.",
   "characters": [
     "Regulus Corneas"
   ],
@@ -10,8 +10,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/530714052717473793"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-11-07",
+  "date": "November 07, 2014"
 }

@@ -1,7 +1,7 @@
 {
   "id": "1209",
-  "question": "A story where Roswaal sees Subaru doing parkour, thinks it’s interesting, and tries it himself. Ram, and Frederica, and even Emilia race for the best time. Who will come in last, indeed?",
-  "answer": "It’s Subaru.",
+  "question": "A story where Roswaal sees Subaru doing parkour, thinks it\u2019s interesting, and tries it himself. Ram, and Frederica, and even Emilia race for the best time. Who will come in last, indeed?",
+  "answer": "It\u2019s Subaru.",
   "characters": [
     "Emilia",
     "Frederica Baumann",
@@ -14,8 +14,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/538159710126743552"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-11-28",
+  "date": "November 28, 2014"
 }

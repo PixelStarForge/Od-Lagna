@@ -1,7 +1,7 @@
 {
   "id": "1533",
   "question": "Frankly speaking, how old is Frederica?",
-  "answer": "22 or 23. Garfiel’s ties with his sister meant that even being beaten up by her when she’s nine years older didn’t make him dislike her. He’s too brave.",
+  "answer": "22 or 23. Garfiel\u2019s ties with his sister meant that even being beaten up by her when she\u2019s nine years older didn\u2019t make him dislike her. He\u2019s too brave.",
   "characters": [
     "Frederica Baumann",
     "Garfiel Tinsel"
@@ -11,8 +11,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/477317953114107904"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-06-13",
+  "date": "June 13, 2014"
 }

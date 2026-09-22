@@ -1,7 +1,7 @@
 {
   "id": "1336",
-  "question": "Is Subaru perhaps quite good at Cat’s Cradle and target shooting?",
-  "answer": "He’s skilled at Cat’s Cradle, at least.",
+  "question": "Is Subaru perhaps quite good at Cat\u2019s Cradle and target shooting?",
+  "answer": "He\u2019s skilled at Cat\u2019s Cradle, at least.",
   "characters": [
     "Natsuki Subaru"
   ],
@@ -10,8 +10,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/497309969189179392"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-08-07",
+  "date": "August 07, 2014"
 }

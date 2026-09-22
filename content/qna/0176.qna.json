@@ -1,7 +1,7 @@
 {
   "id": "0176",
   "question": "Priscilla has the same blonde hair and red eyes as Felt, right? Does that mean Priscilla is related to the royal family?",
-  "answer": "If you google the cover of volume 4 you’ll understand, but anyways, Priscilla has never been depicted as being blond.",
+  "answer": "If you google the cover of volume 4 you\u2019ll understand, but anyways, Priscilla has never been depicted as being blond.",
   "characters": [
     "Felt",
     "Priscilla Barielle"
@@ -11,8 +11,10 @@
   ],
   "arc": "arc-4",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/493334100565311488"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-07-27",
+  "date": "July 27, 2014"
 }

@@ -1,9 +1,9 @@
 {
   "id": "0502",
-  "question": "It seems that spirits have affinities, so since Mr. Pete was using earth magic, is it safe to say that he’s an earth spirit?",
-  "answer": "Yes, that’s right. He was originally a lesser spirit of earth.",
+  "question": "It seems that spirits have affinities, so since Mr. Pete was using earth magic, is it safe to say that he\u2019s an earth spirit?",
+  "answer": "Yes, that\u2019s right. He was originally a lesser spirit of earth.",
   "characters": [
-    "Petelgeuse Romanée-Conti"
+    "Petelgeuse Roman\u00e9e-Conti"
   ],
   "topics": [
     "Contracts & Spirits",
@@ -11,8 +11,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/532466181106851840"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-11-12",
+  "date": "November 12, 2014"
 }

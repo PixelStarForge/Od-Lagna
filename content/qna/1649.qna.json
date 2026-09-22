@@ -1,7 +1,7 @@
 {
   "id": "1649",
   "question": "Is Julius one of your favorite characters?",
-  "answer": "Basically, since I think you usually don’t add a character you don’t like to your own story, of course I like Julius, too. The author loves all the characters. Even Regulus.",
+  "answer": "Basically, since I think you usually don\u2019t add a character you don\u2019t like to your own story, of course I like Julius, too. The author loves all the characters. Even Regulus.",
   "characters": [
     "Julius Juukulius",
     "Regulus Corneas"
@@ -11,8 +11,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/493301066646433792"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-07-27",
+  "date": "July 27, 2014"
 }

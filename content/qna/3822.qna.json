@@ -1,7 +1,7 @@
 {
   "id": "3822",
-  "question": "Would it be correct to say “Eight Arms” Kurgan is a spider-type demihuman? Or did Vollachia’s technology or magic give him eight arms?",
-  "answer": "He was born in a rare tribe of multi-armed people. Their characteristic is having more arms than normal, but even in their tribe, eight arms is top-level. Learning to use all of them well takes about twice as much effort as Tenshinhan’s arm-increasing technique.",
+  "question": "Would it be correct to say \u201cEight Arms\u201d Kurgan is a spider-type demihuman? Or did Vollachia\u2019s technology or magic give him eight arms?",
+  "answer": "He was born in a rare tribe of multi-armed people. Their characteristic is having more arms than normal, but even in their tribe, eight arms is top-level. Learning to use all of them well takes about twice as much effort as Tenshinhan\u2019s arm-increasing technique.",
   "characters": [
     "Kurgan"
   ],
@@ -10,8 +10,10 @@
   ],
   "arc": "arc-7",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/574176789964136449"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2015-03-07",
+  "date": "March 07, 2015"
 }

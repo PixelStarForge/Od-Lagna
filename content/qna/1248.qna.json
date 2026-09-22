@@ -1,7 +1,7 @@
 {
   "id": "1248",
-  "question": "I’d like to read a story where Emilia-tan deepens her interaction with the villagers, and, a little bit at a time, learns the things she needs to know to be the queen.",
-  "answer": "Thank you very much. From arc 5 onwards, I think we’ll have that here and there.",
+  "question": "I\u2019d like to read a story where Emilia-tan deepens her interaction with the villagers, and, a little bit at a time, learns the things she needs to know to be the queen.",
+  "answer": "Thank you very much. From arc 5 onwards, I think we\u2019ll have that here and there.",
   "characters": [
     "Emilia"
   ],
@@ -10,8 +10,10 @@
   ],
   "arc": "arc-5",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/503078457367334912"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-08-23",
+  "date": "August 23, 2014"
 }

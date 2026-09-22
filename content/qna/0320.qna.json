@@ -1,6 +1,6 @@
 {
   "id": "0320",
-  "question": "Was Elsa’s last resort, the black and white knife, made from special materials or by special methods?",
+  "question": "Was Elsa\u2019s last resort, the black and white knife, made from special materials or by special methods?",
   "answer": "Uh, not really.",
   "characters": [
     "Elsa Granhiert"
@@ -10,8 +10,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/492495455352528896"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-07-25",
+  "date": "July 25, 2014"
 }

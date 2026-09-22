@@ -1,6 +1,6 @@
 {
   "id": "0211",
-  "question": "Anastasia-san ate that charred black food like it was delicious, but does everyone from Kararagi enjoy that flavor? Also, what do Julius and Joshua think of that black daisukiyaki’s flavor?",
+  "question": "Anastasia-san ate that charred black food like it was delicious, but does everyone from Kararagi enjoy that flavor? Also, what do Julius and Joshua think of that black daisukiyaki\u2019s flavor?",
   "answer": "Anastasia-san is really bad at cooking.",
   "characters": [
     "Anastasia Hoshin",
@@ -12,8 +12,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/533146390571286528"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-11-14",
+  "date": "November 14, 2014"
 }

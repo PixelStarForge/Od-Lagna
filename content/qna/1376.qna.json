@@ -1,7 +1,7 @@
 {
   "id": "1376",
-  "question": "Subaru’s body’s durability doesn’t improve through looping, but isn’t he slowly getting more resistant to pain?",
-  "answer": "It’s probably about the difference between a child who has never fallen down, and an adult who has fallen down. If he gets burned, even Subaru will shriek like a kid as he’s being burned to death.",
+  "question": "Subaru\u2019s body\u2019s durability doesn\u2019t improve through looping, but isn\u2019t he slowly getting more resistant to pain?",
+  "answer": "It\u2019s probably about the difference between a child who has never fallen down, and an adult who has fallen down. If he gets burned, even Subaru will shriek like a kid as he\u2019s being burned to death.",
   "characters": [
     "Natsuki Subaru"
   ],
@@ -10,8 +10,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/497391646334783489"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-08-07",
+  "date": "August 07, 2014"
 }

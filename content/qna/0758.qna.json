@@ -1,7 +1,7 @@
 {
   "id": "0758",
   "question": "If the archbishops came to modern Japan without their authorities, what kind of criminals would they become?",
-  "answer": "Sloth: a stalker. Wrath: stalker of a stalker. Greed: problem child. Lust: would make someone angry and get stabbed. Gluttony: shoplifter. They can do what they like because of their abilities; without those, they’re just scum.",
+  "answer": "Sloth: a stalker. Wrath: stalker of a stalker. Greed: problem child. Lust: would make someone angry and get stabbed. Gluttony: shoplifter. They can do what they like because of their abilities; without those, they\u2019re just scum.",
   "characters": [],
   "topics": [
     "Authorities",
@@ -10,8 +10,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/576005619490164736"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2015-03-12",
+  "date": "March 12, 2015"
 }

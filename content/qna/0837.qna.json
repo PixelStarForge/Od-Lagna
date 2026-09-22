@@ -1,7 +1,7 @@
 {
   "id": "0837",
   "question": "Roughly what size of city is the capital Lugunica?",
-  "answer": "I’ve decided the population is around 300,000.",
+  "answer": "I\u2019ve decided the population is around 300,000.",
   "characters": [],
   "topics": [
     "Dragon Kingdom Lugnica",
@@ -9,8 +9,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/474139398314139648"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-06-04",
+  "date": "June 04, 2014"
 }

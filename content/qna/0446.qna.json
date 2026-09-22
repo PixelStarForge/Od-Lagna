@@ -1,7 +1,7 @@
 {
   "id": "0446",
-  "question": "Is Heinkel Astrea Reinhard’s father?",
-  "answer": "That’s right.",
+  "question": "Is Heinkel Astrea Reinhard\u2019s father?",
+  "answer": "That\u2019s right.",
   "characters": [
     "Heinkel Astrea",
     "Reinhard van Astrea"
@@ -11,8 +11,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/493311974361800704"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-07-27",
+  "date": "July 27, 2014"
 }

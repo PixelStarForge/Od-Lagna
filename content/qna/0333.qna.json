@@ -1,15 +1,17 @@
 {
   "id": "0333",
   "question": "If the royal candidates formed a singing group, what reason would they break up for?",
-  "answer": "They’d break up due to intense fighting over the lead spot.",
+  "answer": "They\u2019d break up due to intense fighting over the lead spot.",
   "characters": [],
   "topics": [
     "Royal Selection"
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/494727870670184448"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-07-31",
+  "date": "July 31, 2014"
 }

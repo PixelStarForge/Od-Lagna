@@ -1,11 +1,11 @@
 {
   "id": "0245",
   "question": "Beatrice is a special exception, Puck has an unemployed magic rock, and Pete-san had human bodies, so they all have vessels of some sort; does Julius have vessels for his quasi-spirits as well?",
-  "answer": "He has appropriate crystals for each of his quasi-spirits. But really, unemployed magic rock? That’s just mean.",
+  "answer": "He has appropriate crystals for each of his quasi-spirits. But really, unemployed magic rock? That\u2019s just mean.",
   "characters": [
     "Beatrice",
     "Julius Juukulius",
-    "Petelgeuse Romanée-Conti",
+    "Petelgeuse Roman\u00e9e-Conti",
     "Puck"
   ],
   "topics": [
@@ -13,8 +13,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/533468152081186816"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-11-15",
+  "date": "November 15, 2014"
 }

@@ -1,7 +1,7 @@
 {
   "id": "0609",
   "question": "Could Minerva-tan kill a person if she used a weapon?",
-  "answer": "If it’s an attack launched by Minerva-tan’s body, it’s impossible. You’d recover even if she shot you with a gun, and a bow and arrow or thrown weapon would be the same. However, something like falling into a pit that she dug and dying would be possible. She wouldn’t dig one, though.",
+  "answer": "If it\u2019s an attack launched by Minerva-tan\u2019s body, it\u2019s impossible. You\u2019d recover even if she shot you with a gun, and a bow and arrow or thrown weapon would be the same. However, something like falling into a pit that she dug and dying would be possible. She wouldn\u2019t dig one, though.",
   "characters": [
     "Minerva"
   ],
@@ -10,8 +10,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/583230084900876288"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2015-04-01",
+  "date": "April 01, 2015"
 }

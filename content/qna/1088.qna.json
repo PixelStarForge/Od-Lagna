@@ -1,15 +1,17 @@
 {
   "id": "1088",
-  "question": "How much do the characters move on their own? Also, is there a character that you think ‘This one moves on their own the most’?",
-  "answer": "They pretty much all move on their own, so there’s not one in particular. Every last one of them speaks on their own. In theory, I put them in the storyline and move them, but none of them listen to what I say.",
+  "question": "How much do the characters move on their own? Also, is there a character that you think \u2018This one moves on their own the most\u2019?",
+  "answer": "They pretty much all move on their own, so there\u2019s not one in particular. Every last one of them speaks on their own. In theory, I put them in the storyline and move them, but none of them listen to what I say.",
   "characters": [],
   "topics": [
     "General"
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/500277177318146048"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-08-15",
+  "date": "August 15, 2014"
 }

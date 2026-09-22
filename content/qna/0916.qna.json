@@ -1,7 +1,7 @@
 {
   "id": "0916",
-  "question": "Hasn’t the story reached a point where a female knight is attacked by an orc and says “K… kill me!”?",
-  "answer": "There aren’t any orcs, so...",
+  "question": "Hasn\u2019t the story reached a point where a female knight is attacked by an orc and says \u201cK\u2026 kill me!\u201d?",
+  "answer": "There aren\u2019t any orcs, so...",
   "characters": [],
   "topics": [
     "Royal Knights",
@@ -9,8 +9,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/475336340037701633"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-06-07",
+  "date": "June 07, 2014"
 }

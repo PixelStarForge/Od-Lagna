@@ -1,7 +1,7 @@
 {
   "id": "0553",
-  "question": "Was Regulus’ Lion’s Heart being small a Wizard of Oz reference?",
-  "answer": "No, it’s because Regulus is a tiny guy.",
+  "question": "Was Regulus\u2019 Lion\u2019s Heart being small a Wizard of Oz reference?",
+  "answer": "No, it\u2019s because Regulus is a tiny guy.",
   "characters": [
     "Regulus Corneas"
   ],
@@ -10,8 +10,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/597355238648057856"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2015-05-10",
+  "date": "May 10, 2015"
 }

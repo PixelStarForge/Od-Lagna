@@ -1,7 +1,7 @@
 {
   "id": "0728",
   "question": "If Kenichi was there when Subaru was being beat down by Julius, how might he have acted?",
-  "answer": "I think he’d have watched over it. Only someone who couldn’t read the situation would have jumped into it.",
+  "answer": "I think he\u2019d have watched over it. Only someone who couldn\u2019t read the situation would have jumped into it.",
   "characters": [
     "Julius Juukulius",
     "Natsuki Subaru"
@@ -11,8 +11,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/494736276441292800"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-07-31",
+  "date": "July 31, 2014"
 }
