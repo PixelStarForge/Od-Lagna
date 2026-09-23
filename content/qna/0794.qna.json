@@ -1,9 +1,8 @@
 {
   "id": "0794",
   "question": "Comparing those who, unlike Roswaal’s multiple elements, have only a single affinity, who would be the most threatening magic user?",
-  "answer": "It touches on spoilers, so I can’t answer. (note: spoiler was probably Hector)(June 02, 2014 arc4)",
+  "answer": "It touches on spoilers, so I can’t answer.",
   "characters": [
-    "Hector",
     "Roswaal L. Mathers"
   ],
   "topics": [
@@ -11,9 +10,9 @@
   ],
   "arc": "arc-4",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/473451441248825344"
   },
-  "verified": false,
-  "date": "June 02, 2014"
+  "verified": true,
+  "dateTime": "2014-06-02"
 }
