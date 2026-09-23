@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import { useRouter, usePathname, useSearchParams } from "next/navigation";
-import { QnaEntry } from "../lib/schema";
+import { QnaEntry, getEntrySources } from "../lib/schema";
 import { ArcMetadata, getArcMetadata } from "../lib/arc-utils";
 import { usePreferences } from "../lib/preferences";
 import { formatQnaDate, getEntryDate } from "../lib/date-utils";
@@ -245,24 +245,44 @@ export function QnaCard({ entry, onTagClick }: QnaCardProps) {
           )}
 
           {/* Source Citation */}
-          {entry.source && entry.source.value && (
-            <div className="pt-2 text-xs sm:text-sm text-[var(--text-muted)] flex items-center gap-1.5 border-t border-[var(--border-subtle)]">
-              <span className="font-mono font-semibold">Source:</span>
-              {entry.source.type === "url" ? (
-                <a
-                  href={entry.source.value}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-[var(--accent)] hover:underline truncate max-w-md inline-flex items-center gap-0.5 font-medium"
-                >
-                  <span>{entry.source.value}</span>
-                  <span>↗</span>
-                </a>
-              ) : (
-                <span className="italic truncate">{entry.source.value}</span>
-              )}
-            </div>
-          )}
+          {(() => {
+            const validSources = getEntrySources(entry).filter(
+              (s) => s.value && s.value.trim().length > 0
+            );
+            if (validSources.length === 0) return null;
+
+            return (
+              <div className="pt-2 text-xs sm:text-sm text-[var(--text-muted)] flex flex-wrap items-center gap-1.5 border-t border-[var(--border-subtle)]">
+                <span className="font-mono font-semibold">
+                  {validSources.length > 1 ? "Sources:" : "Source:"}
+                </span>
+                {validSources.map((source, index) => (
+                  <span key={index} className="inline-flex items-center gap-1.5">
+                    {index > 0 && (
+                      <span className="text-[var(--border-subtle)] select-none">
+                        •
+                      </span>
+                    )}
+                    {source.type === "url" ? (
+                      <a
+                        href={source.value}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-[var(--accent)] hover:underline truncate max-w-xs sm:max-w-md inline-flex items-center gap-0.5 font-medium"
+                      >
+                        <span>{source.value}</span>
+                        <span>↗</span>
+                      </a>
+                    ) : (
+                      <span className="italic truncate max-w-xs sm:max-w-md">
+                        {source.value}
+                      </span>
+                    )}
+                  </span>
+                ))}
+              </div>
+            );
+          })()}
 
           {/* If entry was manually revealed while gated, offer to re-hide */}
           {isGated && isManuallyRevealed && (

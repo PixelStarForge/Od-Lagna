@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import Link from "next/link";
 import { useSearchParams, usePathname } from "next/navigation";
 import { QnaCard } from "../../components/QnaCard";
@@ -55,10 +55,40 @@ export function QnaDetailClient({ allQnas }: QnaDetailClientProps) {
   const searchParams = useSearchParams();
   const pathname = usePathname();
 
-  // Extract ID from either ?id=0001 or pathname /qna/0001
-  const pathParts = pathname.split("/").filter(Boolean);
-  const idFromPath = pathParts.length > 1 && pathParts[0] === "qna" ? pathParts[1] : null;
-  const id = searchParams.get("id") || idFromPath || "";
+  const getIdFromUrl = useCallback(() => {
+    if (typeof window !== "undefined") {
+      const sp = new URLSearchParams(window.location.search);
+      const pathParts = window.location.pathname.split("/").filter(Boolean);
+      const fromPath = pathParts.length > 1 && pathParts[0] === "qna" ? pathParts[1] : null;
+      return sp.get("id") || fromPath || "";
+    }
+    const pathParts = pathname.split("/").filter(Boolean);
+    const idFromPath = pathParts.length > 1 && pathParts[0] === "qna" ? pathParts[1] : null;
+    return searchParams.get("id") || idFromPath || "";
+  }, [pathname, searchParams]);
+
+  const [id, setId] = useState<string>(() => getIdFromUrl());
+
+  useEffect(() => {
+    const handleUrlChange = () => {
+      React.startTransition(() => {
+        setId(getIdFromUrl());
+      });
+    };
+    window.addEventListener("popstate", handleUrlChange);
+    window.addEventListener("od-lagna-urlchange", handleUrlChange);
+    return () => {
+      window.removeEventListener("popstate", handleUrlChange);
+      window.removeEventListener("od-lagna-urlchange", handleUrlChange);
+    };
+  }, [getIdFromUrl]);
+
+  useEffect(() => {
+    React.startTransition(() => {
+      setId(getIdFromUrl());
+    });
+  }, [searchParams, getIdFromUrl]);
+
   const cleanId = id.replace(/^#/, "").replace(/^qna[\s#-]+/i, "").trim();
   const isNum = /^\d+$/.test(cleanId);
 

@@ -133,11 +133,13 @@ async function runTests() {
       !htmlText.includes("⚡ Paste") ||
       !htmlText.includes("Clone as Template") ||
       !htmlText.includes("duplicate-warning") ||
-      !htmlText.includes("Stories & Supplements")
+      !htmlText.includes("Stories & Supplements") ||
+      !htmlText.includes("+ Add Source") ||
+      !htmlText.includes("sources-list")
     ) {
       throw new Error("HTML missing required UI elements");
     }
-    console.log("✓ GET / returned HTML containing all convenience, duplicate, and stories UI elements");
+    console.log("✓ GET / returned HTML containing all convenience, duplicate, multi-source, and stories UI elements");
 
     // 9. Test GET /api/stories
     const storiesRes = await fetch("http://127.0.0.1:4329/api/stories");

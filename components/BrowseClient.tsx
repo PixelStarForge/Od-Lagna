@@ -1,13 +1,14 @@
 "use client";
 
-import React, { useState, useMemo, useEffect } from "react";
-import { useSearchParams } from "next/navigation";
+import React, { useState, useMemo, useEffect, useCallback } from "react";
+import { useSearchParams, useRouter } from "next/navigation";
 import { QnaEntry, ArcConfig, IfRouteConfig } from "../lib/schema";
 import { QnaCard } from "./QnaCard";
 import { SpoilerControls } from "./SpoilerControls";
 import { usePreferences } from "../lib/preferences";
 import { CustomSelect, SelectOption } from "./CustomSelect";
 import { getEntryDate, getYearFromDate } from "../lib/date-utils";
+import { dispatchUrlChange } from "../lib/navigation-events";
 
 interface BrowseClientProps {
   allQnas: QnaEntry[];
@@ -27,6 +28,7 @@ export function BrowseClient({
   topics: initialTopics,
 }: BrowseClientProps) {
   const searchParams = useSearchParams();
+  const router = useRouter();
   const { spoilerArc, allowedIfRoutes, toggleIfRoute } = usePreferences();
 
   // Filter state initialized from URL query params
@@ -45,10 +47,63 @@ export function BrowseClient({
   const [verifiedOnly, setVerifiedOnly] = useState<boolean>(() => {
     return searchParams.get("verified") === "true";
   });
-  const [searchFilter, setSearchFilter] = useState<string>("");
+  const [searchFilter, setSearchFilter] = useState<string>(() => {
+    return searchParams.get("search") || searchParams.get("q") || "";
+  });
   const [sortBy, setSortBy] = useState<"canon" | "recent" | "oldest" | "date-desc" | "date-asc">("canon");
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [isFilterDrawerOpen, setIsFilterDrawerOpen] = useState<boolean>(false);
+
+  const syncFiltersFromUrl = useCallback(
+    (urlOrParams?: string | URLSearchParams) => {
+      let sp: URLSearchParams;
+      if (urlOrParams instanceof URLSearchParams) {
+        sp = urlOrParams;
+      } else if (typeof urlOrParams === "string") {
+        try {
+          sp = new URL(urlOrParams, window.location.origin).searchParams;
+        } catch {
+          sp = new URLSearchParams(urlOrParams.startsWith("?") ? urlOrParams : `?${urlOrParams}`);
+        }
+      } else if (typeof window !== "undefined") {
+        sp = new URLSearchParams(window.location.search);
+      } else {
+        sp = searchParams;
+      }
+
+      React.startTransition(() => {
+        setSelectedArc(sp.get("arc") || sp.get("ifRoute") || "all");
+        setSelectedCharacter(sp.get("character") || "all");
+        setSelectedTopic(sp.get("topic") || "all");
+        setSelectedYear(sp.get("year") || "all");
+        setVerifiedOnly(sp.get("verified") === "true");
+        setSearchFilter(sp.get("search") || sp.get("q") || "");
+        setCurrentPage(1);
+      });
+    },
+    [searchParams]
+  );
+
+  useEffect(() => {
+    const handleUrlChange = (e?: Event) => {
+      const customEvent = e as CustomEvent<string> | undefined;
+      const detail = customEvent?.detail;
+      syncFiltersFromUrl(detail);
+    };
+
+    window.addEventListener("popstate", handleUrlChange);
+    window.addEventListener("od-lagna-urlchange", handleUrlChange);
+
+    return () => {
+      window.removeEventListener("popstate", handleUrlChange);
+      window.removeEventListener("od-lagna-urlchange", handleUrlChange);
+    };
+  }, [syncFiltersFromUrl]);
+
+  // Sync when Next.js useSearchParams updates
+  useEffect(() => {
+    syncFiltersFromUrl(searchParams);
+  }, [searchParams, syncFiltersFromUrl]);
 
   // Derive all unique characters and topics from entries as well as config registries
   const allCharacters = useMemo(() => {
@@ -144,12 +199,9 @@ export function BrowseClient({
 
   // Tag click helper
   const handleTagClick = (type: "character" | "topic", tag: string) => {
-    if (type === "character") {
-      setSelectedCharacter(tag);
-    } else {
-      setSelectedTopic(tag);
-    }
-    setCurrentPage(1);
+    const url = `/browse?${type}=${encodeURIComponent(tag)}`;
+    router.push(url);
+    dispatchUrlChange(url);
   };
 
   // Filter and sort items
@@ -321,6 +373,10 @@ export function BrowseClient({
     setVerifiedOnly(false);
     setSearchFilter("");
     setCurrentPage(1);
+    if (typeof window !== "undefined" && window.location.search) {
+      router.push("/browse");
+      dispatchUrlChange("/browse");
+    }
   };
 
   return (

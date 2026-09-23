@@ -7,6 +7,7 @@ import { Footer } from "./Footer";
 import { SettingsModal } from "./SettingsModal";
 import { OnboardingModal } from "./OnboardingModal";
 import { SearchModal } from "./SearchModal";
+import "../lib/navigation-events";
 
 export function AppShell({ children }: { children: React.ReactNode }) {
   return (

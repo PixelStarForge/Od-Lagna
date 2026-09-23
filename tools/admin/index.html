@@ -49,6 +49,9 @@
     .supp-item-actions { display: flex; gap: 0.35rem; shrink: 0; }
     .btn-sm-edit { background: rgba(59, 130, 246, 0.15); border: 1px solid #3b82f6; color: #93c5fd; border-radius: 4px; padding: 0.2rem 0.5rem; font-size: 0.75rem; cursor: pointer; }
     .btn-sm-delete { background: rgba(239, 68, 68, 0.15); border: 1px solid #ef4444; color: #fca5a5; border-radius: 4px; padding: 0.2rem 0.5rem; font-size: 0.75rem; cursor: pointer; }
+    .source-row { display: grid; grid-template-columns: 140px 1fr auto; gap: 0.6rem; align-items: center; }
+    .btn-remove-source { background: rgba(239, 68, 68, 0.15); border: 1px solid #ef4444; color: #fca5a5; border-radius: 6px; width: 38px; height: 38px; display: flex; align-items: center; justify-content: center; font-size: 0.85rem; cursor: pointer; transition: all 0.15s; }
+    .btn-remove-source:hover { background: rgba(239, 68, 68, 0.3); color: #fecaca; }
     
     /* Layout */
     #sidebar { width: 360px; background: var(--card); border-right: 1px solid var(--border); display: flex; flex-direction: column; }
@@ -383,19 +386,15 @@
           <p class="hint">Tags mentioned in your Q&amp;A are automatically suggested above. New tags are registered on save.</p>
         </div>
 
-        <div style="display: grid; grid-template-columns: 140px 1fr; gap: 1rem;">
-          <div class="form-group">
-            <label for="source-type">Source Type</label>
-            <select id="source-type" onchange="markFormDirty()">
-              <option value="url">URL Link</option>
-              <option value="text">Free Text</option>
-            </select>
+        <div class="form-group" style="margin-bottom: 1.25rem;">
+          <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.4rem;">
+            <label style="margin: 0;">Sources / Citations</label>
+            <button type="button" class="btn-date-action" onclick="addSourceRowUI()" style="display: inline-flex; align-items: center; gap: 0.25rem;">
+              <span>+ Add Source</span>
+            </button>
           </div>
-
-          <div class="form-group">
-            <label for="source-value">Source Citation / URL</label>
-            <input type="text" id="source-value" placeholder="https://x.com/... or 2018 Birthday Q&A" oninput="markFormDirty()">
-          </div>
+          <div id="sources-list" style="display: flex; flex-direction: column; gap: 0.6rem;"></div>
+          <p class="hint">Add one or more primary source URLs or text citations. If left blank, it defaults to unverified empty citation.</p>
         </div>
 
         <div class="actions">
@@ -1078,6 +1077,116 @@
       }
     }
 
+    /* Sources UI Management */
+    function createSourceRowElement(type = 'url', value = '') {
+      const row = document.createElement('div');
+      row.className = 'source-row';
+
+      const select = document.createElement('select');
+      select.className = 'source-type-select';
+      select.onchange = markFormDirty;
+
+      const optUrl = document.createElement('option');
+      optUrl.value = 'url';
+      optUrl.textContent = 'URL Link';
+      if (type === 'url') optUrl.selected = true;
+
+      const optText = document.createElement('option');
+      optText.value = 'text';
+      optText.textContent = 'Free Text';
+      if (type === 'text') optText.selected = true;
+
+      select.appendChild(optUrl);
+      select.appendChild(optText);
+
+      const input = document.createElement('input');
+      input.type = 'text';
+      input.className = 'source-value-input';
+      input.placeholder = 'https://x.com/... or 2018 Birthday Q&A';
+      input.value = value || '';
+      input.oninput = markFormDirty;
+
+      const btnRemove = document.createElement('button');
+      btnRemove.type = 'button';
+      btnRemove.className = 'btn-remove-source';
+      btnRemove.title = 'Remove source';
+      btnRemove.textContent = '✕';
+      btnRemove.onclick = () => removeSourceRow(row);
+
+      row.appendChild(select);
+      row.appendChild(input);
+      row.appendChild(btnRemove);
+
+      return row;
+    }
+
+    function addSourceRowUI(type = 'url', value = '') {
+      const container = document.getElementById('sources-list');
+      const row = createSourceRowElement(type, value);
+      container.appendChild(row);
+      updateSourceRemoveButtons();
+      markFormDirty();
+      const input = row.querySelector('.source-value-input');
+      if (input) input.focus();
+    }
+
+    function removeSourceRow(row) {
+      const container = document.getElementById('sources-list');
+      const rows = container.querySelectorAll('.source-row');
+      if (rows.length > 1) {
+        row.remove();
+        updateSourceRemoveButtons();
+        markFormDirty();
+      } else {
+        const input = row.querySelector('.source-value-input');
+        if (input) input.value = '';
+        const select = row.querySelector('.source-type-select');
+        if (select) select.value = 'url';
+        markFormDirty();
+      }
+    }
+
+    function updateSourceRemoveButtons() {
+      const container = document.getElementById('sources-list');
+      const rows = container ? container.querySelectorAll('.source-row') : [];
+      rows.forEach(r => {
+        const btn = r.querySelector('.btn-remove-source');
+        if (btn) {
+          btn.style.opacity = rows.length === 1 ? '0.35' : '1';
+          btn.title = rows.length === 1 ? 'Clear source' : 'Remove source';
+        }
+      });
+    }
+
+    function setSourcesInUI(sourcesList) {
+      const container = document.getElementById('sources-list');
+      if (!container) return;
+      container.innerHTML = '';
+      const list = (Array.isArray(sourcesList) && sourcesList.length > 0)
+        ? sourcesList
+        : [{ type: 'url', value: '' }];
+
+      list.forEach(src => {
+        const row = createSourceRowElement(src.type || 'url', src.value || '');
+        container.appendChild(row);
+      });
+      updateSourceRemoveButtons();
+    }
+
+    function getSourcesFromUI() {
+      const container = document.getElementById('sources-list');
+      const rows = container ? container.querySelectorAll('.source-row') : [];
+      const result = [];
+      rows.forEach(r => {
+        const type = r.querySelector('.source-type-select').value;
+        const value = r.querySelector('.source-value-input').value.trim();
+        if (value) {
+          result.push({ type, value });
+        }
+      });
+      return result;
+    }
+
     async function createNew() {
       currentId = null;
       document.getElementById('form-title').textContent = 'Create New Q&A';
@@ -1089,6 +1198,7 @@
       document.getElementById('q-len').textContent = '0 chars';
       document.getElementById('a-len').textContent = '0 chars';
       clearDateFields();
+      setSourcesInUI([]);
       hideStatus();
       hideTagSuggestions();
       document.getElementById('duplicate-warning').className = 'dup-alert';
@@ -1156,8 +1266,12 @@
       setDateFromValue(data.dateTime || data.date || '');
       document.getElementById('characters').value = (data.characters || []).join(', ');
       document.getElementById('topics').value = (data.topics || []).join(', ');
-      document.getElementById('source-type').value = data.source ? data.source.type : 'url';
-      document.getElementById('source-value').value = data.source ? (data.source.value || '') : '';
+      const rawSources = Array.isArray(data.sources) && data.sources.length > 0
+        ? data.sources
+        : Array.isArray(data.source)
+        ? data.source
+        : data.source ? [data.source] : [];
+      setSourcesInUI(rawSources);
       
       document.getElementById('q-len').textContent = (data.question || '').length + ' chars';
       document.getElementById('a-len').textContent = (data.answer || '').length + ' chars';
@@ -1200,6 +1314,11 @@
       }
 
       const dateTimeVal = getCombinedDateTime();
+      const sources = getSourcesFromUI();
+      const sourcePayload = sources.length > 1
+        ? { sources: sources }
+        : { source: sources[0] || { type: 'text', value: '' } };
+
       const payload = {
         question: document.getElementById('question').value.trim(),
         answer: document.getElementById('answer').value.trim(),
@@ -1208,10 +1327,7 @@
         ...(dateTimeVal ? { dateTime: dateTimeVal } : {}),
         characters: chars,
         topics: topics,
-        source: {
-          type: document.getElementById('source-type').value,
-          value: document.getElementById('source-value').value.trim()
-        }
+        ...sourcePayload
       };
 
       const isEdit = !!currentId;
@@ -1313,8 +1429,7 @@
         if (parsed.dateTime) setDateFromValue(parsed.dateTime);
         if (parsed.verified !== undefined) document.getElementById('verified').checked = !!parsed.verified;
         if (parsed.source) {
-          document.getElementById('source-type').value = parsed.source.type || 'url';
-          document.getElementById('source-value').value = parsed.source.value || '';
+          setSourcesInUI([parsed.source]);
         }
         if (parsed.characters && parsed.characters.length > 0) {
           document.getElementById('characters').value = parsed.characters.join(', ') + ', ';
@@ -1352,8 +1467,7 @@
             verified: document.getElementById('verified').checked,
             characters: document.getElementById('characters').value,
             topics: document.getElementById('topics').value,
-            sourceType: document.getElementById('source-type').value,
-            sourceValue: document.getElementById('source-value').value,
+            sources: getSourcesFromUI(),
             day: document.getElementById('date-day').value,
             month: document.getElementById('date-month').value,
             year: document.getElementById('date-year').value,
@@ -1382,8 +1496,11 @@
           if (draft.verified) document.getElementById('verified').checked = draft.verified;
           if (draft.characters) document.getElementById('characters').value = draft.characters;
           if (draft.topics) document.getElementById('topics').value = draft.topics;
-          if (draft.sourceType) document.getElementById('source-type').value = draft.sourceType;
-          if (draft.sourceValue) document.getElementById('source-value').value = draft.sourceValue;
+          if (draft.sources) {
+            setSourcesInUI(draft.sources);
+          } else if (draft.sourceValue || draft.sourceType) {
+            setSourcesInUI([{ type: draft.sourceType || 'url', value: draft.sourceValue || '' }]);
+          }
           if (draft.year) {
             ensureYearInSelect(draft.year);
             document.getElementById('date-year').value = draft.year;

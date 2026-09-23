@@ -7,6 +7,7 @@ import { usePreferences } from "../lib/preferences";
 import { SearchIndexRecord, SearchIndexPayload } from "../lib/search-index";
 import { CANON_ARCS, IF_ROUTES, isArcSpoiler } from "../lib/arc-utils";
 import { formatQnaDate } from "../lib/date-utils";
+import { dispatchUrlChange } from "../lib/navigation-events";
 
 type SearchResultItem =
   | { type: "qna"; data: SearchIndexRecord }
@@ -64,7 +65,6 @@ export function SearchModal() {
       .catch((err) => {
         if (!ignore) {
           console.error("Error loading search index:", err);
-          setHasLoaded(true);
         }
       });
 
@@ -231,10 +231,27 @@ export function SearchModal() {
     return { qnas, characters: matchedChars, topics: matchedTopics, arcs: matchedArcs, flatList };
   }, [query, fuse, allowedRecords, indexCharacters, indexTopics, spoilerArc, allowedIfRoutes]);
 
+  const navigateTo = (url: string) => {
+    setIsSearchOpen(false);
+    router.push(url);
+    dispatchUrlChange(url);
+  };
+
   // Keyboard navigation
   const handleKeyDown = (e: React.KeyboardEvent) => {
     if (e.key === "Escape") {
       setIsSearchOpen(false);
+      return;
+    }
+
+    if (e.key === "Enter") {
+      e.preventDefault();
+      const selected = groupedResults.flatList[selectedIndex];
+      if (selected) {
+        handleSelectItem(selected);
+      } else if (query.trim()) {
+        navigateTo(`/browse?search=${encodeURIComponent(query.trim())}`);
+      }
       return;
     }
 
@@ -247,25 +264,18 @@ export function SearchModal() {
     } else if (e.key === "ArrowUp") {
       e.preventDefault();
       setSelectedIndex((prev) => (prev > 0 ? prev - 1 : maxIndex));
-    } else if (e.key === "Enter") {
-      e.preventDefault();
-      const selected = groupedResults.flatList[selectedIndex];
-      if (selected) {
-        handleSelectItem(selected);
-      }
     }
   };
 
   const handleSelectItem = (item: SearchResultItem) => {
-    setIsSearchOpen(false);
     if (item.type === "qna") {
-      router.push(`/qna?id=${item.data.id}`);
+      navigateTo(`/qna?id=${item.data.id}`);
     } else if (item.type === "character") {
-      router.push(`/browse?character=${encodeURIComponent(item.name)}`);
+      navigateTo(`/browse?character=${encodeURIComponent(item.name)}`);
     } else if (item.type === "topic") {
-      router.push(`/browse?topic=${encodeURIComponent(item.name)}`);
+      navigateTo(`/browse?topic=${encodeURIComponent(item.name)}`);
     } else if (item.type === "arc") {
-      router.push(`/browse?arc=${encodeURIComponent(item.slug)}`);
+      navigateTo(`/browse?arc=${encodeURIComponent(item.slug)}`);
     }
   };
 
@@ -356,9 +366,23 @@ export function SearchModal() {
           )}
 
           {!isLoading && query.trim() !== "" && groupedResults.flatList.length === 0 && (
-            <div className="p-8 text-center text-sm text-[var(--text-muted)] space-y-1">
-              <p className="font-semibold text-[var(--text-main)]">No matches found for &ldquo;{query}&rdquo;</p>
-              <p>Check spelling or try searching for a broader term.</p>
+            <div className="p-8 text-center text-sm text-[var(--text-muted)] space-y-3">
+              <div>
+                <p className="font-semibold text-[var(--text-main)]">No direct matches found for &ldquo;{query}&rdquo;</p>
+                <p className="text-xs text-[var(--text-muted)] mt-1">Press Enter or click below to search across all indexed statements.</p>
+              </div>
+              <div>
+                <button
+                  type="button"
+                  onClick={() => {
+                    navigateTo(`/browse?search=${encodeURIComponent(query.trim())}`);
+                  }}
+                  className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-[var(--border-subtle)] bg-[var(--bg-elevated)] hover:border-[var(--accent)] text-xs font-medium text-[var(--accent)] cursor-pointer transition-colors"
+                >
+                  <span>Search archive for &ldquo;{query}&rdquo; in Browse</span>
+                  <span>↗</span>
+                </button>
+              </div>
             </div>
           )}
 
