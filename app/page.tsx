@@ -112,16 +112,27 @@ export default function HomePage() {
 
       {/* Canon Arcs Progression Spine */}
       <section className="space-y-4">
-        <div className="flex items-center justify-between">
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-1.5 sm:gap-4">
           <div>
-            <h2 className="text-lg font-bold text-[var(--text-main)]">
-              Canonical Story Progression
-            </h2>
-            <p className="text-sm text-[var(--text-muted)]">
+            <div className="flex items-center justify-between sm:block">
+              <h2 className="text-lg sm:text-xl font-bold text-[var(--text-main)] tracking-tight">
+                Canonical Story Progression
+              </h2>
+              <Link
+                href="/browse"
+                className="sm:hidden text-xs font-semibold text-[var(--accent)] hover:underline whitespace-nowrap shrink-0 ml-2"
+              >
+                Browse →
+              </Link>
+            </div>
+            <p className="text-xs sm:text-sm text-[var(--text-muted)] mt-0.5">
               The linear story spine mapped to the spoiler-cutoff slider.
             </p>
           </div>
-          <Link href="/browse" className="text-sm font-semibold text-[var(--accent)] hover:underline">
+          <Link
+            href="/browse"
+            className="hidden sm:inline-flex items-center gap-1 text-sm font-semibold text-[var(--accent)] hover:underline whitespace-nowrap shrink-0"
+          >
             View in Browse →
           </Link>
         </div>
@@ -160,16 +171,27 @@ export default function HomePage() {
 
       {/* IF Routes */}
       <section className="space-y-4">
-        <div className="flex items-center justify-between">
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-1.5 sm:gap-4">
           <div>
-            <h2 className="text-lg font-bold text-[var(--text-main)]">
-              IF Routes
-            </h2>
-            <p className="text-sm text-[var(--text-muted)]">
+            <div className="flex items-center justify-between sm:block">
+              <h2 className="text-lg sm:text-xl font-bold text-[var(--text-main)] tracking-tight">
+                IF Routes
+              </h2>
+              <Link
+                href="/ifs"
+                className="sm:hidden text-xs font-semibold text-[var(--accent)] hover:underline whitespace-nowrap shrink-0 ml-2"
+              >
+                View All →
+              </Link>
+            </div>
+            <p className="text-xs sm:text-sm text-[var(--text-muted)] mt-0.5">
               Alternate divergence routes exploring alternate choices made by Subaru Natsuki.
             </p>
           </div>
-          <Link href="/ifs" className="text-sm font-semibold text-[var(--accent)] hover:underline">
+          <Link
+            href="/ifs"
+            className="hidden sm:inline-flex items-center gap-1 text-sm font-semibold text-[var(--accent)] hover:underline whitespace-nowrap shrink-0"
+          >
             View All IF Routes →
           </Link>
         </div>
@@ -207,16 +229,27 @@ export default function HomePage() {
       {/* Side Stories */}
       {sideStories.length > 0 && (
         <section className="space-y-4">
-          <div className="flex items-center justify-between">
+          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-1.5 sm:gap-4">
             <div>
-              <h2 className="text-lg font-bold text-[var(--text-main)]">
-                Side Stories
-              </h2>
-              <p className="text-sm text-[var(--text-muted)]">
+              <div className="flex items-center justify-between sm:block">
+                <h2 className="text-lg sm:text-xl font-bold text-[var(--text-main)] tracking-tight">
+                  Side Stories
+                </h2>
+                <Link
+                  href="/side-stories"
+                  className="sm:hidden text-xs font-semibold text-[var(--accent)] hover:underline whitespace-nowrap shrink-0 ml-2"
+                >
+                  View All →
+                </Link>
+              </div>
+              <p className="text-xs sm:text-sm text-[var(--text-muted)] mt-0.5">
                 Canonical standalone tales expanding the world beyond the main progression spine.
               </p>
             </div>
-            <Link href="/side-stories" className="text-sm font-semibold text-[var(--accent)] hover:underline">
+            <Link
+              href="/side-stories"
+              className="hidden sm:inline-flex items-center gap-1 text-sm font-semibold text-[var(--accent)] hover:underline whitespace-nowrap shrink-0"
+            >
               View All Side Stories →
             </Link>
           </div>
