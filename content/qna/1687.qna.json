@@ -3,9 +3,7 @@
   "question": "Something caused trauma for Liliana-san, but was it related to the song?",
   "answer": "No, not particularly. It was simply that when she heard the song, a memory returned of the time when she was an unpopular minstrel, and she couldn’t help but sigh. If you take everything that girl says at face value, there’s no end to it.",
   "characters": [],
-  "topics": [
-    "Twitter Q&A"
-  ],
+  "topics": ["General"],
   "arc": "arc-5",
   "source": {
     "type": "text",

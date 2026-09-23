@@ -3,9 +3,7 @@
   "question": "Why did it turn out like this?",
   "answer": "You might say that it was made to have to turn out this way.",
   "characters": [],
-  "topics": [
-    "Twitter Q&A"
-  ],
+  "topics": ["General"],
   "arc": "arc-5",
   "source": {
     "type": "text",
