@@ -1,6 +1,6 @@
 import fs from "node:fs";
 import path from "node:path";
-import { QnaEntry, ArcConfig, IfRouteConfig, SupplementEntry, StoryDetail, qnaEntrySchema } from "./schema";
+import { QnaEntry, ArcConfig, IfRouteConfig, SupplementEntry, StoryDetail, qnaEntrySchema, Contributor, contributorSchema } from "./schema";
 
 const CONTENT_DIR = path.join(process.cwd(), "content");
 const CONFIG_DIR = path.join(CONTENT_DIR, "config");
@@ -95,6 +95,21 @@ export function getAllTopics(): string[] {
   if (!fs.existsSync(file)) return [];
   try {
     return JSON.parse(fs.readFileSync(file, "utf-8")) as string[];
+  } catch {
+    return [];
+  }
+}
+
+export function getAllContributors(): Contributor[] {
+  const file = path.join(CONFIG_DIR, "contributors.json");
+  if (!fs.existsSync(file)) return [];
+  try {
+    const raw = JSON.parse(fs.readFileSync(file, "utf-8")) as unknown[];
+    if (!Array.isArray(raw)) return [];
+    return raw
+      .map((item) => contributorSchema.safeParse(item))
+      .filter((res): res is { success: true; data: Contributor } => res.success)
+      .map((res) => res.data);
   } catch {
     return [];
   }

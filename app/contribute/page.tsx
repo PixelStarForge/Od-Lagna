@@ -1,6 +1,7 @@
 import { Metadata } from "next";
 import Link from "next/link";
 import { ContributionTemplates } from "../../components/ContributionTemplates";
+import { getAllContributors } from "../../lib/content-loader";
 
 export const metadata: Metadata = {
   title: "Contribute — Od-Lagna Re:Zero Q&A Archive",
@@ -8,7 +9,18 @@ export const metadata: Metadata = {
     "Suggest new author Q&A entries, submit translation corrections, provide primary sources, or ask questions via GitHub Issues.",
 };
 
+function getInitials(name: string): string {
+  const cleaned = name.replace(/^(u\/|@|r\/)/i, "").trim();
+  const parts = cleaned.split(/[\s_\-]+/).filter(Boolean);
+  if (parts.length >= 2) {
+    return (parts[0][0] + parts[1][0]).toUpperCase();
+  }
+  return cleaned.slice(0, 2).toUpperCase() || "??";
+}
+
 export default function ContributePage() {
+  const contributors = getAllContributors();
+
   return (
     <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-16 space-y-12 sm:space-y-16">
       {/* Hero Section */}
@@ -126,44 +138,75 @@ export default function ContributePage() {
         </div>
       </section>
 
-      {/* Contributors & Hall of Fame Section */}
+      {/* Contributors Section */}
       <section className="space-y-6" aria-labelledby="contributors-heading">
         <div className="space-y-1">
           <h2 id="contributors-heading" className="text-2xl font-bold tracking-tight text-[var(--text-main)]">
-            Archive Contributors
+            Contributors
           </h2>
           <p className="text-xs sm:text-sm text-[var(--text-muted)] font-mono tracking-wider">
             People who contributed data to Od-Lagna
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <div className="p-6 rounded-2xl border border-[var(--border-subtle)] bg-[var(--bg-surface)] hover:border-[var(--accent-border)] transition-all space-y-3 relative group shadow-2xs">
-            <div className="flex items-center justify-between gap-2">
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-[var(--accent-bg)] border border-[var(--accent-border)] text-[var(--accent-text)] font-mono font-bold text-sm flex items-center justify-center shrink-0">
-                  AR
+        <div className="space-y-3">
+          {contributors.map((c, index) => {
+            const initials = getInitials(c.username);
+            return (
+              <div
+                key={`${c.username}-${index}`}
+                className="p-4 rounded-xl border border-[var(--border-subtle)] bg-[var(--bg-surface)] hover:border-[var(--accent-border)] transition-all flex flex-col md:flex-row md:items-center justify-between gap-4 shadow-2xs group"
+              >
+                {/* Left: Avatar + Username + Platform */}
+                <div className="flex items-center gap-3 shrink-0 md:w-56 lg:w-64">
+                  <div className="w-8 h-8 rounded-full bg-[var(--accent-bg)] border border-[var(--accent-border)] text-[var(--accent-text)] font-mono font-bold text-xs flex items-center justify-center shrink-0">
+                    {initials}
+                  </div>
+                  <div className="min-w-0">
+                    <div className="flex items-center gap-1.5 min-w-0">
+                      {c.url ? (
+                        <a
+                          href={c.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-sm font-bold text-[var(--text-main)] font-mono hover:text-[var(--accent)] hover:underline inline-flex items-center gap-1 group/link truncate"
+                        >
+                          <span className="truncate">{c.username}</span>
+                          <span className="text-[10px] text-[var(--text-muted)] group-hover/link:text-[var(--accent)] font-sans shrink-0">
+                            ↗
+                          </span>
+                        </a>
+                      ) : (
+                        <h3 className="text-sm font-bold text-[var(--text-main)] font-mono truncate">
+                          {c.username}
+                        </h3>
+                      )}
+                    </div>
+                    <span className="inline-block mt-0.5 px-1.5 py-0.5 rounded text-[10px] font-mono font-medium bg-[var(--bg-elevated)] border border-[var(--border-subtle)] text-[var(--text-muted)]">
+                      {c.platform}
+                    </span>
+                  </div>
                 </div>
-                <div>
-                  <h3 className="text-base font-bold text-[var(--text-main)] font-mono">
-                    u/Affectionate_Run6250
-                  </h3>
-                  <span className="text-xs text-[var(--text-muted)] font-sans">
-                    Reddit Community Contributor
-                  </span>
-                </div>
+
+                {/* Middle: Short Description */}
+                <p className="text-xs sm:text-[13px] text-[var(--text-muted)] font-serif leading-relaxed flex-1">
+                  {c.description}
+                </p>
+
+                {/* Right: Contribution (optional) */}
+                {c.contribution ? (
+                  <div className="pt-2 md:pt-0 border-t md:border-t-0 md:border-l border-[var(--border-subtle)] md:pl-4 shrink-0 md:w-48 lg:w-56 text-xs flex md:flex-col justify-between md:justify-center items-center md:items-start gap-1">
+                    <span className="font-mono text-[10px] uppercase tracking-wider text-[var(--text-muted)] shrink-0">
+                      Contribution:
+                    </span>
+                    <span className="font-mono text-xs font-semibold text-[var(--text-main)] leading-tight text-right md:text-left">
+                      {c.contribution}
+                    </span>
+                  </div>
+                ) : null}
               </div>
-            </div>
-
-            <p className="text-sm text-[var(--text-muted)] font-serif leading-relaxed">
-              Curated and provided the master compilation document containing over 5,500+ translated author Q&amp;As, Twitter spaces, Ask.fm logs, and volume extras.
-            </p>
-
-            <div className="pt-2 text-xs font-mono text-[var(--text-muted)] border-t border-[var(--border-subtle)] flex items-center justify-between gap-2">
-              <span>Contribution:</span>
-              <span className="font-semibold text-[var(--text-main)] text-right">Master Q&amp;A Compilation Document </span>
-            </div>
-          </div>
+            );
+          })}
         </div>
       </section>
 

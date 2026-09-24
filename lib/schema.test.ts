@@ -1,4 +1,5 @@
-import { qnaEntrySchema, getEntrySources } from "./schema";
+import { qnaEntrySchema, getEntrySources, contributorSchema } from "./schema";
+import { getAllContributors } from "./content-loader";
 
 function assert(condition: boolean, message: string) {
   if (!condition) {
@@ -129,5 +130,76 @@ const invalidTypeEntry = {
 const invalidTypeResult = qnaEntrySchema.safeParse(invalidTypeEntry);
 assert(!invalidTypeResult.success, "Schema should fail when source type is invalid");
 console.log("✓ Invalid source type validation failure passed");
+
+// 7. Testing contributor schema with all fields
+console.log("\n7. Testing contributor schema with all fields...");
+const validContributorFull = {
+  username: "u/Affectionate_Run6250",
+  platform: "Reddit",
+  url: "https://www.reddit.com/user/Affectionate_Run6250",
+  description: "Curated and provided the master compilation document.",
+  contribution: "Master Q&A Compilation Document",
+};
+const parsedContributorFull = contributorSchema.parse(validContributorFull);
+assert(parsedContributorFull.username === "u/Affectionate_Run6250", "Username mismatch");
+assert(parsedContributorFull.platform === "Reddit", "Platform mismatch");
+assert(parsedContributorFull.url === "https://www.reddit.com/user/Affectionate_Run6250", "URL mismatch");
+assert(parsedContributorFull.description === "Curated and provided the master compilation document.", "Description mismatch");
+assert(parsedContributorFull.contribution === "Master Q&A Compilation Document", "Contribution mismatch");
+console.log("✓ Full contributor passed");
+
+// 8. Testing contributor schema with optional url omitted
+console.log("\n8. Testing contributor schema with optional url omitted...");
+const validContributorNoUrl = {
+  username: "AnonymousHelper",
+  platform: "Discord",
+  description: "Helped fix several translation typos in Arc 4.",
+  contribution: "Arc 4 Typo Fixes",
+};
+const parsedContributorNoUrl = contributorSchema.parse(validContributorNoUrl);
+assert(parsedContributorNoUrl.username === "AnonymousHelper", "Username mismatch");
+assert(parsedContributorNoUrl.url === undefined, "URL should be undefined");
+console.log("✓ Contributor without optional url passed");
+
+// 9. Testing contributor schema validation failures for missing required fields
+console.log("\n9. Testing contributor schema failure on missing required fields...");
+const missingUsernameResult = contributorSchema.safeParse({
+  platform: "Twitter",
+  description: "Desc",
+  contribution: "Contribution",
+});
+assert(!missingUsernameResult.success, "Should fail when username is missing");
+
+const missingPlatformResult = contributorSchema.safeParse({
+  username: "test",
+  description: "Desc",
+  contribution: "Contribution",
+});
+assert(!missingPlatformResult.success, "Should fail when platform is missing");
+
+const missingDescResult = contributorSchema.safeParse({
+  username: "test",
+  platform: "Twitter",
+  contribution: "Contribution",
+});
+assert(!missingDescResult.success, "Should fail when description is missing");
+
+const optionalContributionResult = contributorSchema.safeParse({
+  username: "test",
+  platform: "Twitter",
+  description: "Desc",
+});
+assert(optionalContributionResult.success, "Should succeed when optional contribution is omitted");
+console.log("✓ Contributor validation tests passed");
+
+// 10. Testing getAllContributors from content-loader
+console.log("\n10. Testing getAllContributors() loader...");
+const contributors = getAllContributors();
+assert(Array.isArray(contributors), "Expected contributors to be an array");
+assert(contributors.length === 3, `Expected 3 contributors, got ${contributors.length}`);
+assert(contributors[0].username === "Mildly_Confused_NPC", "Expected first contributor to match");
+assert(contributors[1].username === "u/Affectionate_Run6250", "Expected second contributor to match");
+assert(contributors[2].username === "Historical-Weird7591", "Expected third contributor to match");
+console.log("✓ getAllContributors() loader passed");
 
 console.log("\n🎉 ALL SCHEMA TESTS PASSED!");

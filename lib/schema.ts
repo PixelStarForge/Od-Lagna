@@ -86,3 +86,15 @@ export interface SupplementEntry {
 export interface StoryDetail extends IfRouteConfig {
   supplements: SupplementEntry[];
 }
+
+export const contributorSchema = z.object({
+  username: z.string().min(1, "Username is required"),
+  platform: z.string().min(1, "Platform is required"),
+  url: z.string().optional(),
+  description: z.string().min(1, "Description is required"),
+  contribution: z.string().optional(),
+  avatar: z.string().optional(),
+});
+
+export type Contributor = z.infer<typeof contributorSchema>;
+

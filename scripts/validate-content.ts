@@ -1,6 +1,6 @@
 import fs from "node:fs";
 import path from "node:path";
-import { qnaEntrySchema, ArcConfig, IfRouteConfig } from "../lib/schema";
+import { qnaEntrySchema, ArcConfig, IfRouteConfig, contributorSchema } from "../lib/schema";
 
 const ROOT_DIR = path.resolve(__dirname, "..");
 const CONTENT_CONFIG_DIR = path.join(ROOT_DIR, "content", "config");
@@ -91,13 +91,52 @@ export function validateQnaDirectory(dirPath = CONTENT_QNA_DIR): { valid: boolea
   return { valid: errors.length === 0, errors };
 }
 
+export function validateContributors(): { valid: boolean; errors: string[] } {
+  const errors: string[] = [];
+  const file = path.join(CONTENT_CONFIG_DIR, "contributors.json");
+  if (!fs.existsSync(file)) {
+    return { valid: true, errors: [] };
+  }
+
+  let parsed: unknown;
+  try {
+    parsed = JSON.parse(fs.readFileSync(file, "utf-8"));
+  } catch (err: unknown) {
+    const msg = err instanceof Error ? err.message : String(err);
+    errors.push(`[contributors.json] Invalid JSON format: ${msg}`);
+    return { valid: false, errors };
+  }
+
+  if (!Array.isArray(parsed)) {
+    errors.push(`[contributors.json] File content must be a JSON array`);
+    return { valid: false, errors };
+  }
+
+  parsed.forEach((item, index) => {
+    const result = contributorSchema.safeParse(item);
+    if (!result.success) {
+      const issues = result.error.issues
+        .map((i) => `${i.path.join(".") || "root"}: ${i.message}`)
+        .join("; ");
+      errors.push(`[contributors.json #${index + 1}] Schema validation failed: ${issues}`);
+    }
+  });
+
+  return { valid: errors.length === 0, errors };
+}
+
 function run() {
   console.log("Validating Q&A content in content/qna/...");
-  const { valid, errors } = validateQnaDirectory();
+  const qnaResult = validateQnaDirectory();
 
-  if (!valid) {
-    console.error(`\n❌ Content validation failed with ${errors.length} error(s):`);
-    for (const err of errors) {
+  console.log("Validating contributors in content/config/contributors.json...");
+  const contributorsResult = validateContributors();
+
+  const allErrors = [...qnaResult.errors, ...contributorsResult.errors];
+
+  if (allErrors.length > 0) {
+    console.error(`\n❌ Content validation failed with ${allErrors.length} error(s):`);
+    for (const err of allErrors) {
       console.error(`  - ${err}`);
     }
     process.exit(1);
@@ -109,3 +148,4 @@ function run() {
 if (require.main === module) {
   run();
 }
+
