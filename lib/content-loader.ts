@@ -1,10 +1,23 @@
 import fs from "node:fs";
 import path from "node:path";
-import { QnaEntry, ArcConfig, IfRouteConfig, SupplementEntry, StoryDetail, qnaEntrySchema, Contributor, contributorSchema } from "./schema";
+import {
+  QnaEntry,
+  ArcConfig,
+  IfRouteConfig,
+  SupplementEntry,
+  StoryDetail,
+  qnaEntrySchema,
+  Contributor,
+  contributorSchema,
+  TriviaEntry,
+  triviaEntrySchema,
+  ArchiveEntry,
+} from "./schema";
 
 const CONTENT_DIR = path.join(process.cwd(), "content");
 const CONFIG_DIR = path.join(CONTENT_DIR, "config");
 const QNA_DIR = path.join(CONTENT_DIR, "qna");
+const CONTENT_TRIVIA_DIR = path.join(CONTENT_DIR, "trivia");
 
 export interface ArcMetadata {
   slug: string;
@@ -144,7 +157,7 @@ export function getAllQnas(): QnaEntry[] {
 }
 
 export function getContentStats(): ContentStats {
-  const entries = getAllQnas();
+  const entries = getAllArchiveEntries();
   const totalCount = entries.length;
   const verifiedCount = entries.filter((e) => e.verified).length;
   const arcCounts: Record<string, number> = {};
@@ -187,3 +200,70 @@ export function getStoryDetail(slug: string): StoryDetail | null {
   if (!story) return null;
   return { ...story, supplements: getSupplements(slug) };
 }
+
+export function getAllTrivia(): TriviaEntry[] {
+  if (!fs.existsSync(CONTENT_TRIVIA_DIR)) {
+    return [];
+  }
+
+  const files = fs.readdirSync(CONTENT_TRIVIA_DIR);
+  const triviaEntries: TriviaEntry[] = [];
+
+  const validFiles = files.filter(
+    (file) => file.endsWith(".json") && !file.startsWith("_")
+  );
+
+  for (const file of validFiles) {
+    const fullPath = path.join(CONTENT_TRIVIA_DIR, file);
+    try {
+      const raw = fs.readFileSync(fullPath, "utf-8");
+      const parsed = JSON.parse(raw);
+      const validated = triviaEntrySchema.parse(parsed);
+      triviaEntries.push(validated);
+    } catch (e) {
+      console.warn(`[content-loader] Skipping invalid trivia file ${file}:`, e);
+    }
+  }
+
+  // Sort by ID ascending (e.g. TR-0001, TR-0002)
+  triviaEntries.sort((a, b) => a.id.localeCompare(b.id));
+
+  return triviaEntries;
+}
+
+export function getTriviaById(id: string): TriviaEntry | null {
+  if (!fs.existsSync(CONTENT_TRIVIA_DIR)) {
+    return null;
+  }
+  const file = path.join(CONTENT_TRIVIA_DIR, `${id}.trivia.json`);
+  if (!fs.existsSync(file)) {
+    const directFile = path.join(CONTENT_TRIVIA_DIR, `${id}.json`);
+    if (!fs.existsSync(directFile)) return null;
+    try {
+      const raw = fs.readFileSync(directFile, "utf-8");
+      return triviaEntrySchema.parse(JSON.parse(raw));
+    } catch {
+      return null;
+    }
+  }
+  try {
+    const raw = fs.readFileSync(file, "utf-8");
+    return triviaEntrySchema.parse(JSON.parse(raw));
+  } catch {
+    return null;
+  }
+}
+
+export function getAllArchiveEntries(): ArchiveEntry[] {
+  const qnas: ArchiveEntry[] = getAllQnas().map((q) => ({
+    entryType: "qna" as const,
+    ...q,
+  }));
+  const trivias: ArchiveEntry[] = getAllTrivia().map((t) => ({
+    entryType: "trivia" as const,
+    ...t,
+  }));
+
+  return [...qnas, ...trivias];
+}
+

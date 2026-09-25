@@ -1,18 +1,20 @@
 {
   "id": "2835",
-  "question": "I don't know if you'd call it their relationship, but I'd like to know the beginning of his getting to know Clind.",
-  "answer": "Clind-san has been there for over four hundred years, so it's from back then.",
+  "question": "I don't know if you'd call it their relationship, but I'd like to know the beginning of Roswaal getting to know Clind.",
+  "answer": "Clind-san has been there since four hundred years ago, so he's been there since that time.",
   "characters": [
     "Clind",
     "Roswaal L. Mathers"
   ],
   "topics": [
-    "General"
+    "General",
+    "Character Relationships"
   ],
-  "arc": "general",
+  "arc": "arc-9",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/1041277877034004480"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2018-09-16"
 }

@@ -419,3 +419,284 @@ export function parseQuickPaste(
     verified,
   };
 }
+
+export interface ParsedTriviaQuickPaste {
+  title?: string;
+  text: string;
+  dateTime?: string;
+  arc?: string;
+  source?: { type: "url" | "text"; value: string };
+  characters: string[];
+  topics: string[];
+  verified?: boolean;
+}
+
+/**
+ * Evaluates candidate trivia statement against all existing trivia entries.
+ */
+export function findTriviaDuplicates(
+  candidateText: string,
+  entries: Array<{ id: string; text: string }>,
+  currentId?: string | null
+): DuplicateCheckResult {
+  const normCandidate = normalizeQuestion(candidateText);
+  if (!normCandidate) {
+    return { isExactDuplicate: false, similarMatches: [] };
+  }
+
+  let exactMatch: { id: string; question: string } | undefined;
+  const similarMatches: Array<{ id: string; question: string; similarity: number }> = [];
+
+  for (const entry of entries) {
+    if (currentId && entry.id === currentId) {
+      continue;
+    }
+
+    const normEntry = normalizeQuestion(entry.text);
+    if (normCandidate === normEntry) {
+      exactMatch = { id: entry.id, question: entry.text };
+      break;
+    }
+
+    const similarity = calculateSimilarity(candidateText, entry.text);
+    if (similarity >= 0.55) {
+      similarMatches.push({
+        id: entry.id,
+        question: entry.text,
+        similarity,
+      });
+    }
+  }
+
+  if (exactMatch) {
+    return {
+      isExactDuplicate: true,
+      exactMatch,
+      similarMatches: [],
+    };
+  }
+
+  similarMatches.sort((a, b) => b.similarity - a.similarity);
+
+  return {
+    isExactDuplicate: false,
+    similarMatches: similarMatches.slice(0, 5),
+  };
+}
+
+/**
+ * Parses raw pasted text into structured TriviaEntry fields.
+ */
+export function parseTriviaQuickPaste(
+  rawText: string,
+  config?: {
+    arcs?: ArcConfig[];
+    ifRoutes?: IfRouteConfig[];
+    characters?: string[];
+    topics?: string[];
+  }
+): ParsedTriviaQuickPaste {
+  const lines = rawText.split(/\r?\n/);
+  let title = "";
+  let text = "";
+  let dateTime = "";
+  let arc = "";
+  let sourceValue = "";
+  let sourceType: "url" | "text" = "url";
+  let explicitChars: string[] = [];
+  let explicitTopics: string[] = [];
+  let verified: boolean | undefined = undefined;
+
+  let currentMode: "title" | "text" | null = null;
+  const textLines: string[] = [];
+
+  for (const line of lines) {
+    const trimmed = line.trim();
+    if (!trimmed) {
+      if (currentMode === "text") textLines.push("");
+      continue;
+    }
+
+    // Title prefix match
+    const titleMatch = trimmed.match(/^(?:Title|Headline|Topic)[\s.:：-]\s*(.*)$/i);
+    if (titleMatch) {
+      title = titleMatch[1].trim();
+      currentMode = null;
+      continue;
+    }
+
+    // Statement / Trivia / Text prefix match
+    const stmtMatch = trimmed.match(/^(?:Statement|Trivia|Text|Quote|Comment|Author)[\s.:：-]\s*(.*)$/i);
+    if (stmtMatch) {
+      currentMode = "text";
+      if (stmtMatch[1]) textLines.push(stmtMatch[1]);
+      continue;
+    }
+
+    // Date prefix match
+    const dateMatch = trimmed.match(/^(?:Date|Time|Timestamp)[\s.:：-]\s*(.*)$/i);
+    if (dateMatch) {
+      dateTime = dateMatch[1].trim();
+      currentMode = null;
+      continue;
+    }
+
+    // Arc prefix match
+    const arcMatch = trimmed.match(/^(?:Arc|Route|Timeline)[\s.:：-]\s*(.*)$/i);
+    if (arcMatch) {
+      arc = arcMatch[1].trim();
+      currentMode = null;
+      continue;
+    }
+
+    // Source prefix match
+    const srcMatch = trimmed.match(/^(?:Source|Link|URL|Ref)[\s.:：-]\s*(.*)$/i);
+    if (srcMatch) {
+      sourceValue = srcMatch[1].trim();
+      currentMode = null;
+      continue;
+    }
+
+    // Characters prefix match
+    const charMatch = trimmed.match(/^(?:Characters?|Chars?)[\s.:：-]\s*(.*)$/i);
+    if (charMatch) {
+      explicitChars = charMatch[1]
+        .split(",")
+        .map((s) => s.trim())
+        .filter(Boolean);
+      currentMode = null;
+      continue;
+    }
+
+    // Topics prefix match
+    const topicMatch = trimmed.match(/^(?:Topics?|Tags?)[\s.:：-]\s*(.*)$/i);
+    if (topicMatch) {
+      explicitTopics = topicMatch[1]
+        .split(",")
+        .map((s) => s.trim())
+        .filter(Boolean);
+      currentMode = null;
+      continue;
+    }
+
+    // Verified prefix match
+    const verMatch = trimmed.match(/^Verified[\s.:：-]\s*(yes|true|no|false)/i);
+    if (verMatch) {
+      verified = verMatch[1].toLowerCase() === "yes" || verMatch[1].toLowerCase() === "true";
+      currentMode = null;
+      continue;
+    }
+
+    // Accumulate lines
+    if (currentMode === "text") {
+      textLines.push(trimmed);
+    } else {
+      if (trimmed.startsWith("http://") || trimmed.startsWith("https://")) {
+        sourceValue = trimmed;
+      } else {
+        // Fallback: assume first non-metadata lines are text
+        textLines.push(trimmed);
+        currentMode = "text";
+      }
+    }
+  }
+
+  text = textLines.join("\n").trim();
+
+  // Detect URL from text if sourceValue empty
+  if (!sourceValue) {
+    const urlMatch = rawText.match(/https?:\/\/[^\s)]+/i);
+    if (urlMatch) {
+      sourceValue = urlMatch[0];
+      sourceType = "url";
+    }
+  } else {
+    sourceType = sourceValue.startsWith("http") ? "url" : "text";
+  }
+
+  // Detect Date if not explicitly found
+  if (!dateTime) {
+    const isoMatch = rawText.match(/\b(\d{4})[-/](\d{2})[-/](\d{2})\b/);
+    if (isoMatch) {
+      dateTime = `${isoMatch[1]}-${isoMatch[2]}-${isoMatch[3]}`;
+    } else {
+      const yearOnlyMatch = rawText.match(/\b(20\d{2})\b/);
+      if (yearOnlyMatch) {
+        dateTime = yearOnlyMatch[1];
+      }
+    }
+  }
+
+  // Resolve Arc
+  const fullText = `${title} ${text} ${arc}`.toLowerCase();
+  let resolvedArc = arc || "general";
+
+  if (config?.arcs || config?.ifRoutes) {
+    const allArcOptions = [
+      ...(config.arcs || []).map((a) => ({ slug: a.slug, name: a.name })),
+      ...(config.ifRoutes || []).map((r) => ({ slug: r.slug, name: r.name })),
+    ];
+
+    const directSlug = allArcOptions.find((a) => a.slug.toLowerCase() === arc.toLowerCase());
+    if (directSlug) {
+      resolvedArc = directSlug.slug;
+    } else {
+      for (let i = 9; i >= 1; i--) {
+        if (new RegExp(`\\barc\\s*[-_ ]?${i}\\b`, "i").test(fullText)) {
+          resolvedArc = `arc-${i}`;
+          break;
+        }
+      }
+
+      if (resolvedArc === "general" || !resolvedArc) {
+        const ifKeywords: Record<string, string> = {
+          "greed if": "greed-if",
+          "sloth if": "sloth-if",
+          "rem if": "sloth-if",
+          "wrath if": "wrath-if",
+          "pride if": "pride-if",
+          "gluttony if": "gluttony-if",
+          "lust if": "lust-if",
+          "vainglory if": "vainglory-if",
+          "school if": "school-if",
+        };
+
+        for (const [kw, slug] of Object.entries(ifKeywords)) {
+          if (fullText.includes(kw)) {
+            resolvedArc = slug;
+            break;
+          }
+        }
+      }
+    }
+  }
+
+  // Suggest characters
+  const characters = [...explicitChars];
+  if (config?.characters) {
+    const detectedChars = suggestTags(`${title} ${text}`, config.characters);
+    for (const c of detectedChars) {
+      if (!characters.includes(c)) characters.push(c);
+    }
+  }
+
+  // Suggest topics
+  const topics = [...explicitTopics];
+  if (config?.topics) {
+    const detectedTopics = suggestTags(`${title} ${text}`, config.topics);
+    for (const t of detectedTopics) {
+      if (!topics.includes(t)) topics.push(t);
+    }
+  }
+
+  return {
+    title: title || undefined,
+    text,
+    dateTime: dateTime || undefined,
+    arc: resolvedArc,
+    source: sourceValue ? { type: sourceType, value: sourceValue } : undefined,
+    characters,
+    topics,
+    verified,
+  };
+}

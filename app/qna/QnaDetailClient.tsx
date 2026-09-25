@@ -1,17 +1,19 @@
 "use client";
 
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect, useCallback, useMemo } from "react";
 import Link from "next/link";
 import { useSearchParams, usePathname } from "next/navigation";
 import { QnaCard } from "../../components/QnaCard";
-import { QnaEntry } from "../../lib/schema";
+import { TriviaCard } from "../../components/TriviaCard";
+import { QnaEntry, TriviaEntry, ArchiveEntry } from "../../lib/schema";
 import { formatQnaDate, getEntryDate } from "../../lib/date-utils";
 
 interface QnaDetailClientProps {
   allQnas: QnaEntry[];
+  allTrivia?: TriviaEntry[];
 }
 
-function computeRecommendations(current: QnaEntry, all: QnaEntry[], limit = 3) {
+function computeRecommendations(current: ArchiveEntry, all: ArchiveEntry[], limit = 3) {
   const others = all.filter((item) => item.id !== current.id);
   if (others.length === 0) return [];
 
@@ -51,9 +53,15 @@ function computeRecommendations(current: QnaEntry, all: QnaEntry[], limit = 3) {
   return scored.slice(0, limit);
 }
 
-export function QnaDetailClient({ allQnas }: QnaDetailClientProps) {
+export function QnaDetailClient({ allQnas, allTrivia = [] }: QnaDetailClientProps) {
   const searchParams = useSearchParams();
   const pathname = usePathname();
+
+  const allEntries = useMemo<ArchiveEntry[]>(() => {
+    const qnas: ArchiveEntry[] = allQnas.map((q) => ({ entryType: "qna" as const, ...q }));
+    const trivias: ArchiveEntry[] = allTrivia.map((t) => ({ entryType: "trivia" as const, ...t }));
+    return [...qnas, ...trivias];
+  }, [allQnas, allTrivia]);
 
   const getIdFromUrl = useCallback(() => {
     if (typeof window !== "undefined") {
@@ -89,25 +97,59 @@ export function QnaDetailClient({ allQnas }: QnaDetailClientProps) {
     });
   }, [searchParams, getIdFromUrl]);
 
-  const cleanId = id.replace(/^#/, "").replace(/^qna[\s#-]+/i, "").trim();
-  const isNum = /^\d+$/.test(cleanId);
+  // Determine if requested ID is trivia or Q&A
+  const isTriviaId = /^tr[-_\s]?\d+/i.test(id);
 
-  const entry = allQnas.find(
-    (q) =>
-      q.id === id ||
-      q.id === cleanId ||
-      (isNum && (q.id === cleanId.padStart(4, "0") || parseInt(q.id, 10).toString() === cleanId))
-  );
+  const entry = useMemo<ArchiveEntry | null>(() => {
+    if (!id) return null;
+
+    if (isTriviaId) {
+      const normalizedId = id.toUpperCase().replace(/\s+/g, "-");
+      const numPart = id.replace(/^tr[-_\s]*/i, "");
+      const paddedId = `TR-${numPart.padStart(4, "0")}`;
+
+      const tMatch = allTrivia.find(
+        (t) =>
+          t.id.toUpperCase() === normalizedId ||
+          t.id === paddedId ||
+          t.id.toLowerCase() === id.toLowerCase()
+      );
+      if (tMatch) {
+        return { entryType: "trivia" as const, ...tMatch };
+      }
+    }
+
+    const cleanId = id.replace(/^#/, "").replace(/^qna[\s#-]+/i, "").trim();
+    const isNum = /^\d+$/.test(cleanId);
+
+    const qMatch = allQnas.find(
+      (q) =>
+        q.id === id ||
+        q.id === cleanId ||
+        (isNum && (q.id === cleanId.padStart(4, "0") || parseInt(q.id, 10).toString() === cleanId))
+    );
+
+    if (qMatch) {
+      return { entryType: "qna" as const, ...qMatch };
+    }
+
+    return null;
+  }, [id, isTriviaId, allTrivia, allQnas]);
 
   // Dynamically update document title on client
   useEffect(() => {
     if (entry) {
       const rawDate = getEntryDate(entry);
       const dateFormatted = formatQnaDate(rawDate);
-      const snippet = entry.question.length > 60 ? `${entry.question.slice(0, 57)}...` : entry.question;
-      document.title = `Q&A #${entry.id}${dateFormatted ? ` (${dateFormatted})` : ""}: "${snippet}" — Od-Lagna`;
+      if (entry.entryType === "qna") {
+        const snippet = entry.question.length > 60 ? `${entry.question.slice(0, 57)}...` : entry.question;
+        document.title = `Q&A #${entry.id}${dateFormatted ? ` (${dateFormatted})` : ""}: "${snippet}" — Od-Lagna`;
+      } else {
+        const titleSnippet = entry.title || (entry.text.length > 60 ? `${entry.text.slice(0, 57)}...` : entry.text);
+        document.title = `Trivia #${entry.id}${dateFormatted ? ` (${dateFormatted})` : ""}: "${titleSnippet}" — Od-Lagna`;
+      }
     } else {
-      document.title = "Q&A Not Found — Od-Lagna";
+      document.title = "Entry Not Found — Od-Lagna";
     }
   }, [entry]);
 
@@ -122,7 +164,7 @@ export function QnaDetailClient({ allQnas }: QnaDetailClientProps) {
           </div>
           <div className="space-y-2">
             <h1 className="text-2xl sm:text-3xl font-bold tracking-tight text-[var(--text-main)]">
-              {id ? `Q&A #${id} not found` : "No Q&A specified"}
+              {id ? `Entry #${id} not found` : "No entry specified"}
             </h1>
             <p className="text-sm text-[var(--text-muted)] max-w-md mx-auto leading-relaxed">
               The archive has not indexed a statement matching this ID. It may have been moved or you may browse the complete archive.
@@ -147,7 +189,7 @@ export function QnaDetailClient({ allQnas }: QnaDetailClientProps) {
     );
   }
 
-  const recommendations = computeRecommendations(entry, allQnas, 3);
+  const recommendations = computeRecommendations(entry, allEntries, 3);
 
   return (
     <main className="min-h-screen bg-[var(--bg-canvas)] text-[var(--text-main)] py-8 sm:py-12">
@@ -163,7 +205,9 @@ export function QnaDetailClient({ allQnas }: QnaDetailClientProps) {
               Archive
             </Link>
             <span>/</span>
-            <span className="text-[var(--text-main)] font-semibold">Q&amp;A #{entry.id}</span>
+            <span className="text-[var(--text-main)] font-semibold">
+              {entry.entryType === "trivia" ? "Trivia" : "Q&A"} #{entry.id}
+            </span>
           </nav>
 
           <Link
@@ -175,31 +219,35 @@ export function QnaDetailClient({ allQnas }: QnaDetailClientProps) {
           </Link>
         </div>
 
-        {/* Primary Q&A Showcase Card */}
+        {/* Primary Entry Showcase Card */}
         <section aria-labelledby="detail-heading">
           <h1 id="detail-heading" className="sr-only">
-            Q&amp;A Entry #{entry.id}
+            {entry.entryType === "trivia" ? "Trivia" : "Q&A"} Entry #{entry.id}
           </h1>
-          <QnaCard entry={entry} />
+          {entry.entryType === "trivia" ? (
+            <TriviaCard entry={entry} />
+          ) : (
+            <QnaCard entry={entry} />
+          )}
         </section>
 
-        {/* Recommended / Similar Q&As Section */}
+        {/* Recommended / Similar Entries Section */}
         {recommendations.length > 0 && (
           <section className="pt-8 border-t border-[var(--border-subtle)] space-y-6" aria-labelledby="recommended-heading">
             <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1">
               <div>
                 <h2 id="recommended-heading" className="text-xl font-sans font-bold text-[var(--text-main)] tracking-tight">
-                  Related Q&amp;As
+                  Related Archive Entries
                 </h2>
                 <p className="text-xs sm:text-sm text-[var(--text-muted)] mt-0.5">
-                  Curated Re:Zero author Q&amp;As sharing characters, topics, or storyline arcs.
+                  Curated Re:Zero author statements sharing characters, topics, or storyline arcs.
                 </p>
               </div>
               <Link
                 href="/browse"
                 className="text-xs sm:text-sm text-[var(--accent)] hover:underline font-medium self-start sm:self-auto"
               >
-                Browse all {allQnas.length} entries →
+                Browse all {allEntries.length} entries →
               </Link>
             </div>
 
@@ -212,7 +260,11 @@ export function QnaDetailClient({ allQnas }: QnaDetailClientProps) {
                       <span>Connected by: {reasonText}</span>
                     </div>
                   )}
-                  <QnaCard entry={recEntry} />
+                  {recEntry.entryType === "trivia" ? (
+                    <TriviaCard entry={recEntry} />
+                  ) : (
+                    <QnaCard entry={recEntry} />
+                  )}
                 </div>
               ))}
             </div>

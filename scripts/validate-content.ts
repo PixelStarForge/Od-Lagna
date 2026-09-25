@@ -1,10 +1,11 @@
 import fs from "node:fs";
 import path from "node:path";
-import { qnaEntrySchema, ArcConfig, IfRouteConfig, contributorSchema } from "../lib/schema";
+import { qnaEntrySchema, ArcConfig, IfRouteConfig, contributorSchema, triviaEntrySchema } from "../lib/schema";
 
 const ROOT_DIR = path.resolve(__dirname, "..");
 const CONTENT_CONFIG_DIR = path.join(ROOT_DIR, "content", "config");
 const CONTENT_QNA_DIR = path.join(ROOT_DIR, "content", "qna");
+const CONTENT_TRIVIA_DIR = path.join(ROOT_DIR, "content", "trivia");
 
 function getValidArcSlugs(): Set<string> {
   const arcsFile = path.join(CONTENT_CONFIG_DIR, "arcs.json");
@@ -125,14 +126,71 @@ export function validateContributors(): { valid: boolean; errors: string[] } {
   return { valid: errors.length === 0, errors };
 }
 
+export function validateTriviaDirectory(dirPath = CONTENT_TRIVIA_DIR): { valid: boolean; errors: string[] } {
+  const errors: string[] = [];
+  const validArcSlugs = getValidArcSlugs();
+  const seenIds = new Map<string, string>();
+
+  if (!fs.existsSync(dirPath)) {
+    return { valid: true, errors: [] };
+  }
+
+  const entries = fs.readdirSync(dirPath);
+  const jsonFiles = entries.filter((file) => file.endsWith(".json") && !file.startsWith("_"));
+
+  for (const filename of jsonFiles) {
+    const fullPath = path.join(dirPath, filename);
+    let parsed: unknown;
+
+    try {
+      const rawContent = fs.readFileSync(fullPath, "utf-8");
+      parsed = JSON.parse(rawContent);
+    } catch (err: unknown) {
+      const msg = err instanceof Error ? err.message : String(err);
+      errors.push(`[${filename}] Invalid JSON format: ${msg}`);
+      continue;
+    }
+
+    const result = triviaEntrySchema.safeParse(parsed);
+    if (!result.success) {
+      const issues = result.error.issues
+        .map((i) => `${i.path.join(".") || "root"}: ${i.message}`)
+        .join("; ");
+      errors.push(`[${filename}] Schema validation failed: ${issues}`);
+      continue;
+    }
+
+    const data = result.data;
+    const expectedId = filename.replace(/\.trivia\.json$/, "").replace(/\.json$/, "");
+    if (data.id !== expectedId) {
+      errors.push(`[${filename}] ID mismatch: JSON contains id "${data.id}", expected "${expectedId}"`);
+    }
+
+    if (seenIds.has(data.id)) {
+      errors.push(`[${filename}] Duplicate trivia ID "${data.id}" already defined in "${seenIds.get(data.id)}"`);
+    } else {
+      seenIds.set(data.id, filename);
+    }
+
+    if (!validArcSlugs.has(data.arc)) {
+      errors.push(`[${filename}] Unknown arc slug: "${data.arc}". Valid arc slugs are: ${Array.from(validArcSlugs).sort().join(", ")}`);
+    }
+  }
+
+  return { valid: errors.length === 0, errors };
+}
+
 function run() {
   console.log("Validating Q&A content in content/qna/...");
   const qnaResult = validateQnaDirectory();
 
+  console.log("Validating trivia content in content/trivia/...");
+  const triviaResult = validateTriviaDirectory();
+
   console.log("Validating contributors in content/config/contributors.json...");
   const contributorsResult = validateContributors();
 
-  const allErrors = [...qnaResult.errors, ...contributorsResult.errors];
+  const allErrors = [...qnaResult.errors, ...triviaResult.errors, ...contributorsResult.errors];
 
   if (allErrors.length > 0) {
     console.error(`\n❌ Content validation failed with ${allErrors.length} error(s):`);

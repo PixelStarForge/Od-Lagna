@@ -3,17 +3,17 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import { useRouter, usePathname, useSearchParams } from "next/navigation";
-import { QnaEntry, getEntrySources } from "../lib/schema";
+import { TriviaEntry, getEntrySources } from "../lib/schema";
 import { ArcMetadata, getArcMetadata } from "../lib/arc-utils";
 import { usePreferences } from "../lib/preferences";
 import { formatQnaDate, getEntryDate } from "../lib/date-utils";
 
-interface QnaCardProps {
-  entry: QnaEntry;
+interface TriviaCardProps {
+  entry: TriviaEntry;
   onTagClick?: (type: "character" | "topic", tag: string) => void;
 }
 
-export function QnaCard({ entry, onTagClick }: QnaCardProps) {
+export function TriviaCard({ entry, onTagClick }: TriviaCardProps) {
   const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();
@@ -61,15 +61,15 @@ export function QnaCard({ entry, onTagClick }: QnaCardProps) {
 
   return (
     <article
-      id={`qna-${entry.id}`}
+      id={`trivia-${entry.id}`}
       className="group relative rounded-xl border border-[var(--border-subtle)] bg-[var(--bg-surface)] p-5 sm:p-6 transition-all hover:border-[var(--border-strong)] shadow-xs space-y-4"
     >
       {/* Top Meta Bar */}
       <div className="flex flex-wrap items-center justify-between gap-2 text-xs sm:text-sm">
         <div className="flex flex-wrap items-center gap-2">
-          {/* Q&A Type Badge */}
+          {/* Trivia Type Badge */}
           <span className="font-mono text-[12px] font-bold px-2.5 py-0.5 rounded border border-[var(--accent-border)] text-[var(--accent)] tracking-wider">
-            Q&amp;A
+            TRIVIA
           </span>
 
           {/* Arc / Route Badge */}
@@ -139,7 +139,7 @@ export function QnaCard({ entry, onTagClick }: QnaCardProps) {
           {!isDetailPage && (
             <Link
               href={`/qna?id=${entry.id}`}
-              title="Open dedicated page for this Q&A"
+              title="Open dedicated page for this trivia entry"
               className="text-xs font-semibold px-2 py-0.5 rounded border border-transparent hover:border-[var(--border-subtle)] bg-transparent hover:bg-[var(--bg-elevated)] text-[var(--accent)] hover:text-[var(--accent-hover)] transition-all inline-flex items-center gap-1"
             >
               <span>Full View</span>
@@ -149,7 +149,7 @@ export function QnaCard({ entry, onTagClick }: QnaCardProps) {
           <button
             type="button"
             onClick={handleCopyLink}
-            title="Copy direct permalink to this Q&A"
+            title="Copy direct permalink to this trivia"
             aria-label="Copy permalink"
             className="font-mono text-xs sm:text-sm text-[var(--text-muted)] hover:text-[var(--text-main)] px-2 py-0.5 rounded hover:bg-[var(--bg-elevated)] transition-colors inline-flex items-center gap-1 cursor-pointer font-medium"
           >
@@ -165,7 +165,7 @@ export function QnaCard({ entry, onTagClick }: QnaCardProps) {
         </div>
       </div>
 
-      {/* Content Area — Either Gated Barrier OR Visible Question + Answer */}
+      {/* Content Area — Either Gated Barrier OR Visible Trivia Statement */}
       {isHidden ? (
         <div className="p-4 sm:p-5 rounded-lg border border-[var(--accent-border)] bg-[var(--accent-bg)] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 animate-in fade-in">
           <div className="space-y-1">
@@ -181,7 +181,7 @@ export function QnaCard({ entry, onTagClick }: QnaCardProps) {
               </span>
             </p>
             <p className="text-sm text-[var(--text-muted)] leading-relaxed">
-              The question, author answer, and tags contain narrative revelations beyond your current story cutoff.
+              The author statement and tags contain narrative revelations beyond your current story cutoff.
             </p>
           </div>
           <button
@@ -194,23 +194,22 @@ export function QnaCard({ entry, onTagClick }: QnaCardProps) {
         </div>
       ) : (
         <div className="space-y-4 animate-in fade-in">
-          {/* Question */}
-          <div className="space-y-1.5">
-            <h3 className="text-sm sm:text-base font-mono font-bold uppercase tracking-wider text-[var(--accent)]">
-              Question
-            </h3>
-            <p className="font-sans font-semibold text-base sm:text-lg text-[var(--text-main)] leading-relaxed tracking-tight">
-              {entry.question}
-            </p>
-          </div>
+          {/* Optional Title */}
+          {entry.title && (
+            <div className="space-y-1">
+              <h3 className="font-sans font-bold text-base sm:text-lg text-[var(--text-main)] leading-snug">
+                {entry.title}
+              </h3>
+            </div>
+          )}
 
-          {/* Answer */}
-          <div className="space-y-1.5 pt-2">
+          {/* Author Statement */}
+          <div className="space-y-1.5">
             <h4 className="text-sm sm:text-base font-mono font-bold uppercase tracking-wider text-[var(--accent)]">
-              Answer
+              Trivia
             </h4>
             <div className="font-sans text-base text-[var(--text-main)] leading-relaxed whitespace-pre-line">
-              {entry.answer}
+              {entry.text}
             </div>
           </div>
 
@@ -297,7 +296,7 @@ export function QnaCard({ entry, onTagClick }: QnaCardProps) {
                 onClick={() => setIsManuallyRevealed(false)}
                 className="text-xs font-medium text-[var(--text-muted)] hover:text-[var(--text-main)] underline cursor-pointer"
               >
-                Hide question &amp; spoiler again
+                Hide statement &amp; spoiler again
               </button>
             </div>
           )}

@@ -1,9 +1,10 @@
 "use client";
 
-import React, { useState, useMemo, useEffect, useCallback } from "react";
+import React, { useState, useMemo, useEffect, useCallback, useDeferredValue } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
-import { QnaEntry, ArcConfig, IfRouteConfig } from "../lib/schema";
+import { QnaEntry, TriviaEntry, ArchiveEntry, ArcConfig, IfRouteConfig } from "../lib/schema";
 import { QnaCard } from "./QnaCard";
+import { TriviaCard } from "./TriviaCard";
 import { SpoilerControls } from "./SpoilerControls";
 import { usePreferences } from "../lib/preferences";
 import { CustomSelect, SelectOption } from "./CustomSelect";
@@ -12,6 +13,7 @@ import { dispatchUrlChange } from "../lib/navigation-events";
 
 interface BrowseClientProps {
   allQnas: QnaEntry[];
+  allTrivia?: TriviaEntry[];
   arcs: ArcConfig[];
   ifRoutes: IfRouteConfig[];
   characters: string[];
@@ -22,6 +24,7 @@ const ITEMS_PER_PAGE = 30;
 
 export function BrowseClient({
   allQnas,
+  allTrivia = [],
   arcs,
   ifRoutes,
   characters: initialCharacters,
@@ -47,12 +50,26 @@ export function BrowseClient({
   const [verifiedOnly, setVerifiedOnly] = useState<boolean>(() => {
     return searchParams.get("verified") === "true";
   });
+  const [entryTypeFilter, setEntryTypeFilter] = useState<"all" | "qna" | "trivia">(() => {
+    const t = searchParams.get("type");
+    if (t === "qna" || t === "trivia") return t;
+    return "all";
+  });
   const [searchFilter, setSearchFilter] = useState<string>(() => {
     return searchParams.get("search") || searchParams.get("q") || "";
   });
+  const deferredSearchFilter = useDeferredValue(searchFilter);
+
   const [sortBy, setSortBy] = useState<"canon" | "recent" | "oldest" | "date-desc" | "date-asc">("canon");
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [isFilterDrawerOpen, setIsFilterDrawerOpen] = useState<boolean>(false);
+
+  // Combine Q&A and Trivia into a unified archive list
+  const combinedEntries = useMemo<ArchiveEntry[]>(() => {
+    const qnas: ArchiveEntry[] = allQnas.map((q) => ({ entryType: "qna" as const, ...q }));
+    const trivias: ArchiveEntry[] = allTrivia.map((t) => ({ entryType: "trivia" as const, ...t }));
+    return [...qnas, ...trivias];
+  }, [allQnas, allTrivia]);
 
   const syncFiltersFromUrl = useCallback(
     (urlOrParams?: string | URLSearchParams) => {
@@ -77,6 +94,8 @@ export function BrowseClient({
         setSelectedTopic(sp.get("topic") || "all");
         setSelectedYear(sp.get("year") || "all");
         setVerifiedOnly(sp.get("verified") === "true");
+        const typeParam = sp.get("type");
+        setEntryTypeFilter(typeParam === "qna" || typeParam === "trivia" ? typeParam : "all");
         setSearchFilter(sp.get("search") || sp.get("q") || "");
         setCurrentPage(1);
       });
@@ -105,22 +124,22 @@ export function BrowseClient({
     syncFiltersFromUrl(searchParams);
   }, [searchParams, syncFiltersFromUrl]);
 
-  // Derive all unique characters and topics from entries as well as config registries
+  // Derive all unique characters and topics from combined entries and initial registries
   const allCharacters = useMemo(() => {
     const set = new Set(initialCharacters);
-    for (const q of allQnas) {
-      for (const c of q.characters) set.add(c);
+    for (const entry of combinedEntries) {
+      for (const c of entry.characters) set.add(c);
     }
     return Array.from(set).sort();
-  }, [initialCharacters, allQnas]);
+  }, [initialCharacters, combinedEntries]);
 
   const allTopics = useMemo(() => {
     const set = new Set(initialTopics);
-    for (const q of allQnas) {
-      for (const t of q.topics) set.add(t);
+    for (const entry of combinedEntries) {
+      for (const t of entry.topics) set.add(t);
     }
     return Array.from(set).sort();
-  }, [initialTopics, allQnas]);
+  }, [initialTopics, combinedEntries]);
 
   // Arc options for CustomSelect
   const arcOptions = useMemo<SelectOption[]>(
@@ -168,12 +187,12 @@ export function BrowseClient({
   // Year options derived from entries with valid dates
   const availableYears = useMemo(() => {
     const set = new Set<string>();
-    for (const q of allQnas) {
-      const y = getYearFromDate(getEntryDate(q));
+    for (const entry of combinedEntries) {
+      const y = getYearFromDate(getEntryDate(entry));
       if (y) set.add(y);
     }
     return Array.from(set).sort((a, b) => b.localeCompare(a));
-  }, [allQnas]);
+  }, [combinedEntries]);
 
   const yearOptions = useMemo<SelectOption[]>(
     () => [
@@ -195,8 +214,6 @@ export function BrowseClient({
     { value: "date-asc", label: "Date: Oldest First" },
   ];
 
-
-
   // Tag click helper
   const handleTagClick = (type: "character" | "topic", tag: string) => {
     const url = `/browse?${type}=${encodeURIComponent(tag)}`;
@@ -204,22 +221,30 @@ export function BrowseClient({
     dispatchUrlChange(url);
   };
 
-  // Filter and sort items
+  // Filter items
   const filteredEntries = useMemo(() => {
-    return allQnas.filter((entry) => {
+    const trimmedQuery = deferredSearchFilter.trim().toLowerCase();
+    const queryTokens = trimmedQuery ? trimmedQuery.split(/\s+/).filter(Boolean) : [];
+
+    return combinedEntries.filter((entry) => {
+      // Entry Type filter
+      if (entryTypeFilter !== "all" && entry.entryType !== entryTypeFilter) {
+        return false;
+      }
+
       // Arc filter
-      if (selectedArc !== "all") {
-        if (entry.arc !== selectedArc) return false;
+      if (selectedArc !== "all" && entry.arc !== selectedArc) {
+        return false;
       }
 
       // Character filter
-      if (selectedCharacter !== "all") {
-        if (!entry.characters.includes(selectedCharacter)) return false;
+      if (selectedCharacter !== "all" && !entry.characters.includes(selectedCharacter)) {
+        return false;
       }
 
       // Topic filter
-      if (selectedTopic !== "all") {
-        if (!entry.topics.includes(selectedTopic)) return false;
+      if (selectedTopic !== "all" && !entry.topics.includes(selectedTopic)) {
+        return false;
       }
 
       // Year filter
@@ -233,29 +258,67 @@ export function BrowseClient({
         return false;
       }
 
-      // Text search filter
-      if (searchFilter.trim()) {
-        const rawQ = searchFilter.trim();
-        const query = rawQ.toLowerCase();
-        const idQuery = rawQ.replace(/^#/, "").replace(/^qna[\s#-]+/i, "").trim();
-        const isNumeric = /^\d+$/.test(idQuery);
+      // Text search filter (token-based AND matching across question, answer/text, title, tags, ID)
+      if (queryTokens.length > 0) {
+        const entryIdLower = entry.id.toLowerCase();
+        const charsLower = entry.characters.map((c) => c.toLowerCase());
+        const topicsLower = entry.topics.map((t) => t.toLowerCase());
 
-        const matchesId =
-          entry.id.toLowerCase().includes(query) ||
-          entry.id.includes(idQuery) ||
+        let qText = "";
+        let aText = "";
+        let tTitle = "";
+
+        if (entry.entryType === "qna") {
+          qText = entry.question.toLowerCase();
+          aText = entry.answer.toLowerCase();
+        } else {
+          aText = entry.text.toLowerCase();
+          tTitle = (entry.title || "").toLowerCase();
+        }
+
+        // Handle exact/normalized ID match check
+        const rawTrimmed = trimmedQuery.replace(/^#/, "");
+        const isTriviaSearch = /^tr[-_\s]?\d+/i.test(rawTrimmed);
+        const numericIdQuery = rawTrimmed.replace(/^(qna|tr)[\s#-]+/i, "").trim();
+        const isNumeric = /^\d+$/.test(numericIdQuery);
+
+        const exactIdMatch =
+          entryIdLower === rawTrimmed ||
+          (isTriviaSearch && entryIdLower === rawTrimmed.replace(/\s+/g, "-")) ||
           (isNumeric &&
-            (entry.id === idQuery.padStart(4, "0") ||
-              parseInt(entry.id, 10).toString() === idQuery));
-        const matchesQ = entry.question.toLowerCase().includes(query);
-        const matchesA = entry.answer.toLowerCase().includes(query);
-        const matchesC = entry.characters.some((c) => c.toLowerCase().includes(query));
-        const matchesT = entry.topics.some((t) => t.toLowerCase().includes(query));
-        if (!matchesId && !matchesQ && !matchesA && !matchesC && !matchesT) return false;
+            (entryIdLower === numericIdQuery.padStart(4, "0") ||
+              parseInt(entryIdLower.replace(/^tr-/, ""), 10).toString() === numericIdQuery));
+
+        if (exactIdMatch) {
+          return true;
+        }
+
+        // Each token must match at least one field
+        for (const token of queryTokens) {
+          const matches =
+            entryIdLower.includes(token) ||
+            qText.includes(token) ||
+            aText.includes(token) ||
+            tTitle.includes(token) ||
+            charsLower.some((c) => c.includes(token)) ||
+            topicsLower.some((t) => t.includes(token));
+
+          if (!matches) return false;
+        }
       }
 
       return true;
     });
-  }, [allQnas, selectedArc, selectedCharacter, selectedTopic, selectedYear, verifiedOnly, searchFilter]);
+  }, [
+    combinedEntries,
+    entryTypeFilter,
+    selectedArc,
+    selectedCharacter,
+    selectedTopic,
+    selectedYear,
+    verifiedOnly,
+    deferredSearchFilter,
+  ]);
 
   // Sorting
   const sortedEntries = useMemo(() => {
@@ -263,9 +326,7 @@ export function BrowseClient({
 
     const arcOrderMap = new Map<string, number>();
     arcs.forEach((a) => arcOrderMap.set(a.slug, a.order));
-    // IF routes after canon arcs (order 100+)
     ifRoutes.forEach((r, idx) => arcOrderMap.set(r.slug, 100 + idx));
-    // General at the end
     arcOrderMap.set("general", 999);
 
     if (sortBy === "canon") {
@@ -324,29 +385,39 @@ export function BrowseClient({
     return !allowedIfRoutes.includes(selectedIfRoute.slug);
   }, [selectedIfRoute, allowedIfRoutes]);
 
-  // Handle deep-link scrolling to ?id=0001 or #qna-0001 (auto switches to correct page)
+  // Handle deep-link scrolling to ?id=0001 or ?id=TR-0001 (auto switches to correct page)
   useEffect(() => {
     if (typeof window === "undefined") return;
     const searchId = searchParams.get("id") || searchParams.get("qna");
-    const hashId = window.location.hash ? window.location.hash.slice(1).replace(/^qna-/, "") : null;
-    const targetQnaId = searchId || hashId;
+    const hashId = window.location.hash
+      ? window.location.hash.slice(1).replace(/^(qna|trivia)-/, "")
+      : null;
+    const targetId = searchId || hashId;
 
-    if (targetQnaId) {
-      const cleanTargetId = targetQnaId.replace(/^#/, "").replace(/^qna[\s#-]+/i, "").trim();
-      const isNum = /^\d+$/.test(cleanTargetId);
-      const itemIndex = sortedEntries.findIndex(
-        (e) =>
-          e.id === targetQnaId ||
-          e.id === cleanTargetId ||
-          (isNum && (e.id === cleanTargetId.padStart(4, "0") || parseInt(e.id, 10).toString() === cleanTargetId))
-      );
+    if (targetId) {
+      const isTrivia = /^tr[-_\s]?\d+/i.test(targetId);
+      const cleanTargetId = isTrivia
+        ? targetId.toUpperCase().replace(/\s+/g, "-")
+        : targetId.replace(/^#/, "").replace(/^qna[\s#-]+/i, "").trim();
+      const isNum = !isTrivia && /^\d+$/.test(cleanTargetId);
+
+      const itemIndex = sortedEntries.findIndex((e) => {
+        if (e.id === targetId || e.id === cleanTargetId) return true;
+        if (isTrivia) {
+          return e.id.toLowerCase() === targetId.toLowerCase();
+        }
+        return isNum && (e.id === cleanTargetId.padStart(4, "0") || parseInt(e.id, 10).toString() === cleanTargetId);
+      });
+
       if (itemIndex !== -1) {
         const targetPage = Math.floor(itemIndex / ITEMS_PER_PAGE) + 1;
         setTimeout(() => {
           setCurrentPage((prev) => (prev !== targetPage ? targetPage : prev));
           const el =
-            document.getElementById(`qna-${targetQnaId}`) ||
+            document.getElementById(`qna-${targetId}`) ||
+            document.getElementById(`trivia-${targetId}`) ||
             document.getElementById(`qna-${cleanTargetId}`) ||
+            document.getElementById(`trivia-${cleanTargetId}`) ||
             (isNum ? document.getElementById(`qna-${cleanTargetId.padStart(4, "0")}`) : null);
           if (el) {
             el.scrollIntoView({ behavior: "smooth", block: "center" });
@@ -358,6 +429,7 @@ export function BrowseClient({
 
   // Active filters count
   const hasActiveFilters =
+    entryTypeFilter !== "all" ||
     selectedArc !== "all" ||
     selectedCharacter !== "all" ||
     selectedTopic !== "all" ||
@@ -366,6 +438,7 @@ export function BrowseClient({
     searchFilter.trim() !== "";
 
   const clearAllFilters = () => {
+    setEntryTypeFilter("all");
     setSelectedArc("all");
     setSelectedCharacter("all");
     setSelectedTopic("all");
@@ -385,10 +458,10 @@ export function BrowseClient({
       <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 pb-6 border-b border-[var(--border-subtle)]">
         <div>
           <h1 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-[var(--text-main)]">
-            Browse Q&amp;A Archive
+            Browse Archive
           </h1>
           <p className="text-sm text-[var(--text-muted)] mt-1">
-            Explore {allQnas.length} indexed author statements across canon arcs and IF timelines.
+            Explore {allQnas.length} author Q&amp;As and {allTrivia.length} trivia statements across canon arcs and IF timelines.
           </p>
         </div>
 
@@ -439,6 +512,57 @@ export function BrowseClient({
             isFilterDrawerOpen ? "block" : "hidden"
           } p-5 lg:p-0 rounded-xl border lg:border-none border-[var(--border-subtle)] bg-[var(--bg-surface)] lg:bg-transparent`}
         >
+          {/* Entry Type Filter Toggle */}
+          <div className="space-y-1.5">
+            <label className="text-xs font-mono font-bold uppercase tracking-wider text-[var(--text-muted)]">
+              Entry Type
+            </label>
+            <div className="grid grid-cols-3 gap-1 p-1 rounded-lg border border-[var(--border-subtle)] bg-[var(--bg-surface)] text-xs font-medium">
+              <button
+                type="button"
+                onClick={() => {
+                  setEntryTypeFilter("all");
+                  setCurrentPage(1);
+                }}
+                className={`py-1.5 px-2 rounded-md text-center transition-colors cursor-pointer ${
+                  entryTypeFilter === "all"
+                    ? "bg-[var(--accent)] text-white font-bold"
+                    : "text-[var(--text-muted)] hover:text-[var(--text-main)] hover:bg-[var(--bg-elevated)]"
+                }`}
+              >
+                All ({combinedEntries.length})
+              </button>
+              <button
+                type="button"
+                onClick={() => {
+                  setEntryTypeFilter("qna");
+                  setCurrentPage(1);
+                }}
+                className={`py-1.5 px-2 rounded-md text-center transition-colors cursor-pointer ${
+                  entryTypeFilter === "qna"
+                    ? "bg-[var(--accent)] text-white font-bold"
+                    : "text-[var(--text-muted)] hover:text-[var(--text-main)] hover:bg-[var(--bg-elevated)]"
+                }`}
+              >
+                Q&amp;A ({allQnas.length})
+              </button>
+              <button
+                type="button"
+                onClick={() => {
+                  setEntryTypeFilter("trivia");
+                  setCurrentPage(1);
+                }}
+                className={`py-1.5 px-2 rounded-md text-center transition-colors cursor-pointer ${
+                  entryTypeFilter === "trivia"
+                    ? "bg-[var(--accent)] text-white font-bold"
+                    : "text-[var(--text-muted)] hover:text-[var(--text-main)] hover:bg-[var(--bg-elevated)]"
+                }`}
+              >
+                Trivia ({allTrivia.length})
+              </button>
+            </div>
+          </div>
+
           {/* Quick Search */}
           <div className="space-y-1.5">
             <label htmlFor="filter-search" className="text-xs font-mono font-bold uppercase tracking-wider text-[var(--text-muted)]">
@@ -580,7 +704,12 @@ export function BrowseClient({
                   ? 0
                   : `${startIndex + 1}–${Math.min(startIndex + ITEMS_PER_PAGE, sortedEntries.length)}`}
               </strong>{" "}
-              of <strong className="text-[var(--text-main)]">{sortedEntries.length}</strong> matching Q&amp;As
+              of <strong className="text-[var(--text-main)]">{sortedEntries.length}</strong> matching{" "}
+              {entryTypeFilter === "qna"
+                ? "Q&As"
+                : entryTypeFilter === "trivia"
+                ? "trivia entries"
+                : "entries"}
             </div>
 
             {/* Sort Control */}
@@ -592,7 +721,7 @@ export function BrowseClient({
                 <CustomSelect
                   id="sort-select"
                   value={sortBy}
-                  onChange={(val) => setSortBy(val as "canon" | "recent" | "oldest")}
+                  onChange={(val) => setSortBy(val as "canon" | "recent" | "oldest" | "date-desc" | "date-asc")}
                   options={sortOptions}
                   compact={true}
                 />
@@ -604,6 +733,20 @@ export function BrowseClient({
           {hasActiveFilters && (
             <div className="flex flex-wrap items-center gap-1.5">
               <span className="text-xs font-mono font-medium text-[var(--text-muted)] mr-1">Active:</span>
+
+              {entryTypeFilter !== "all" && (
+                <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs sm:text-sm font-medium bg-[var(--bg-elevated)] border border-[var(--border-subtle)] text-[var(--accent)] font-mono">
+                  Type: {entryTypeFilter.toUpperCase()}
+                  <button
+                    type="button"
+                    onClick={() => setEntryTypeFilter("all")}
+                    aria-label="Remove entry type filter"
+                    className="hover:text-[var(--accent)] ml-1 font-bold cursor-pointer font-sans"
+                  >
+                    ×
+                  </button>
+                </span>
+              )}
 
               {selectedArc !== "all" && (
                 <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs sm:text-sm font-medium bg-[var(--bg-elevated)] border border-[var(--border-subtle)] text-[var(--text-main)]">
@@ -718,13 +861,21 @@ export function BrowseClient({
           {/* Cards List */}
           {currentEntries.length > 0 ? (
             <div className="space-y-4">
-              {currentEntries.map((entry) => (
-                <QnaCard
-                  key={entry.id}
-                  entry={entry}
-                  onTagClick={handleTagClick}
-                />
-              ))}
+              {currentEntries.map((entry) =>
+                entry.entryType === "trivia" ? (
+                  <TriviaCard
+                    key={`trivia-${entry.id}`}
+                    entry={entry}
+                    onTagClick={handleTagClick}
+                  />
+                ) : (
+                  <QnaCard
+                    key={`qna-${entry.id}`}
+                    entry={entry}
+                    onTagClick={handleTagClick}
+                  />
+                )
+              )}
             </div>
           ) : (
             <div className="p-12 rounded-xl border border-[var(--border-subtle)] bg-[var(--bg-surface)] text-center space-y-3">
@@ -734,11 +885,11 @@ export function BrowseClient({
                 </svg>
               </div>
               <h3 className="text-base font-bold text-[var(--text-main)]">
-                No Q&amp;As match current criteria
+                No entries match current criteria
               </h3>
               <p className="text-sm text-[var(--text-muted)] max-w-sm mx-auto">
-                {allQnas.length === 0
-                  ? "The archive is currently empty. Entries added to content/qna/ will populate here."
+                {combinedEntries.length === 0
+                  ? "The archive is currently empty."
                   : "Try resetting filters or loosening your search query."}
               </p>
               {hasActiveFilters && (

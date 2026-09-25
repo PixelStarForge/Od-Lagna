@@ -144,15 +144,22 @@
     .btn-clear { background: transparent; color: var(--text-muted); border: 1px solid var(--border); border-radius: 6px; padding: 0.6rem 1rem; font-size: 0.85rem; cursor: pointer; }
     .btn-clear:hover { background: rgba(255,255,255,0.05); color: var(--text); }
     
-    #status-msg { margin-bottom: 1rem; padding: 0.75rem 1rem; border-radius: 6px; display: none; font-size: 0.85rem; }
-    #status-msg.success { background: #064e3b; color: #a7f3d0; display: block; }
-    #status-msg.error { background: #7f1d1d; color: #fecaca; display: block; }
+    #status-msg, .status-msg { margin-bottom: 1rem; padding: 0.75rem 1rem; border-radius: 6px; display: none; font-size: 0.85rem; font-weight: 500; }
+    #status-msg.success, .status-msg.success { background: #064e3b; color: #a7f3d0; border: 1px solid #059669; display: block; }
+    #status-msg.error, .status-msg.error { background: #7f1d1d; color: #fecaca; border: 1px solid #dc2626; display: block; }
 
     /* Draft Banner */
-    #draft-banner { margin-bottom: 1rem; padding: 0.6rem 1rem; background: rgba(59, 130, 246, 0.15); border: 1px solid rgba(59, 130, 246, 0.4); border-radius: 6px; display: none; font-size: 0.8rem; align-items: center; justify-content: space-between; }
-    #draft-banner.visible { display: flex; }
+    .draft-banner, #draft-banner { margin-bottom: 1rem; padding: 0.6rem 1rem; background: rgba(59, 130, 246, 0.15); border: 1px solid rgba(59, 130, 246, 0.4); border-radius: 6px; display: none; font-size: 0.8rem; align-items: center; justify-content: space-between; }
+    .draft-banner.visible, #draft-banner.visible { display: flex !important; }
     .draft-actions { display: flex; gap: 0.5rem; }
-    .btn-draft-action { background: transparent; border: 1px solid currentColor; padding: 0.2rem 0.5rem; border-radius: 4px; font-size: 0.72rem; cursor: pointer; }
+    .btn-draft-action { background: transparent; border: 1px solid currentColor; padding: 0.2rem 0.5rem; border-radius: 4px; font-size: 0.72rem; cursor: pointer; transition: all 0.15s; }
+    .btn-draft-action:hover { background: rgba(248, 113, 113, 0.15); }
+
+    /* Modern sleek scrollbars */
+    ::-webkit-scrollbar { width: 6px; height: 6px; }
+    ::-webkit-scrollbar-track { background: transparent; }
+    ::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.14); border-radius: 9999px; }
+    ::-webkit-scrollbar-thumb:hover { background: rgba(255, 255, 255, 0.28); }
 
     /* Date selector components */
     .sub-label { font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-muted); margin-bottom: 0.25rem; display: block; }
@@ -187,6 +194,9 @@
     <div class="nav-tabs">
       <button type="button" class="nav-tab active" id="tab-btn-qna" onclick="switchMainTab('qna')">
         📚 Q&amp;A Archive (<span id="nav-qna-count">...</span>)
+      </button>
+      <button type="button" class="nav-tab" id="tab-btn-trivia" onclick="switchMainTab('trivia')">
+        💬 Trivia / Statements (<span id="nav-trivia-count">...</span>)
       </button>
       <button type="button" class="nav-tab" id="tab-btn-stories" onclick="switchMainTab('stories')">
         📖 Stories &amp; Supplements (<span id="nav-stories-count">...</span>)
@@ -523,6 +533,253 @@
     </div>
   </div>
 
+  <!-- Trivia View -->
+  <div id="trivia-view" class="view-container" style="display: none;">
+    <!-- Trivia Sidebar -->
+    <div id="trivia-sidebar" class="sub-sidebar">
+      <div class="side-header">
+        <h2>Trivia <span id="trivia-count" class="badge-count">...</span></h2>
+        <div class="side-actions">
+          <button type="button" class="btn-quick-paste" onclick="openTriviaQuickPasteModal()" title="Paste raw author statement or tweet to auto-fill">⚡ Paste</button>
+          <button type="button" class="btn-new" onclick="createNewTrivia()">+ New</button>
+        </div>
+      </div>
+      <div class="filter-section">
+        <input type="text" id="trivia-filter-input" class="search-input" placeholder="Search ID, Statement, Title..." oninput="renderTriviaList()">
+        <select id="trivia-filter-arc" class="filter-arc-select" onchange="renderTriviaList()">
+          <option value="">All Arcs &amp; IF Routes</option>
+        </select>
+        <div class="filter-summary">
+          <span id="trivia-filtered-count">Loading...</span>
+          <span>Keyboard: Ctrl+Enter (Save)</span>
+        </div>
+      </div>
+      <ul id="trivia-list" style="flex: 1; overflow-y: auto; list-style: none;"></ul>
+    </div>
+
+    <!-- Trivia Main Panel -->
+    <div id="trivia-main" class="sub-main">
+      <div class="form-container">
+        <div class="form-header">
+          <div>
+            <h2 id="trivia-form-title">Create New Trivia</h2>
+          </div>
+          <div class="form-header-actions">
+            <button type="button" id="btn-trivia-clone" class="btn-clone" style="display: none;" onclick="cloneTriviaAsTemplate()" title="Create a new entry copying Source, Arc, Date, and Tags from this one">
+              📋 Clone as Template
+            </button>
+            <span id="trivia-badge-id" class="badge-id">ID: Auto-assigned</span>
+          </div>
+        </div>
+
+        <!-- Trivia Draft Notification Banner -->
+        <div id="trivia-draft-banner" class="draft-banner" style="margin-bottom: 1rem; padding: 0.6rem 1rem; background: rgba(59, 130, 246, 0.15); border: 1px solid rgba(59, 130, 246, 0.4); border-radius: 6px; display: none; font-size: 0.8rem; align-items: center; justify-content: space-between;">
+          <span>📝 <strong>Unsaved trivia draft restored</strong> from your local session.</span>
+          <div class="draft-actions">
+            <button type="button" class="btn-draft-action" onclick="discardTriviaDraft()" style="color: #f87171; background: transparent; border: 1px solid currentColor; padding: 0.2rem 0.5rem; border-radius: 4px; font-size: 0.72rem; cursor: pointer;">Discard Draft</button>
+          </div>
+        </div>
+
+        <div id="trivia-status-msg" style="display: none; margin-bottom: 1rem; padding: 0.75rem 1rem; border-radius: 6px; font-size: 0.85rem;"></div>
+
+        <form id="trivia-form" onsubmit="handleTriviaSave(event)">
+          <input type="hidden" id="trivia-entry-id">
+
+          <!-- Headline / Title (Optional) with live char counter -->
+          <div class="form-group">
+            <div class="label-row">
+              <label for="trivia-title" style="margin-bottom: 0;">Headline / Title (Optional)</label>
+              <span id="trivia-title-len" class="label-meta">0 chars</span>
+            </div>
+            <input type="text" id="trivia-title" placeholder="e.g. Subaru's tracksuit origin or Emilia's physical strength" oninput="handleTriviaTitleInput()">
+            <span class="hint">Optional concise title summarizing this trivia statement</span>
+          </div>
+
+          <!-- Statement / Trivia Text with live duplicate detection and char counter -->
+          <div class="form-group">
+            <div class="label-row">
+              <label for="trivia-text" style="margin-bottom: 0;">Author Statement / Trivia *</label>
+              <span id="trivia-text-len" class="label-meta">0 chars</span>
+            </div>
+            <textarea id="trivia-text" required placeholder="Tappei Nagatsuki's direct statement, trivia fact, or commentary..." style="min-height: 150px;" oninput="handleTriviaTextInput()"></textarea>
+
+            <!-- Live Duplicate Alert Container for Trivia -->
+            <div id="trivia-duplicate-warning" class="dup-alert"></div>
+          </div>
+
+          <!-- Arc & Verification Row -->
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+            <div class="form-group">
+              <label for="trivia-arc">Story Arc / IF Route *</label>
+              <select id="trivia-arc" required onchange="markTriviaFormDirty()"></select>
+            </div>
+
+            <div class="form-group">
+              <label for="trivia-verified">Verification Status</label>
+              <label style="display: flex; align-items: center; gap: 0.5rem; text-transform: none; color: var(--text); font-weight: normal; margin-top: 0.5rem; cursor: pointer;">
+                <input type="checkbox" id="trivia-verified" onchange="markTriviaFormDirty()" style="width: 1.1rem; height: 1.1rem; accent-color: var(--accent);">
+                <span>Verified Primary Source (Official Tweet / Event)</span>
+              </label>
+            </div>
+          </div>
+
+          <!-- Date & Time Selector Separated by Day -> Month -> Year -->
+          <div class="form-group date-panel">
+            <div class="date-panel-head">
+              <label style="margin-bottom: 0;">Statement Date &amp; Time (Optional)</label>
+              <div style="display: flex; gap: 0.4rem;">
+                <button type="button" class="btn-date-action" onclick="setTriviaTodayDate()">Today</button>
+                <button type="button" class="btn-date-action" onclick="clearTriviaDateFields()">Clear</button>
+              </div>
+            </div>
+
+            <div class="date-grid">
+              <div>
+                <label for="trivia-date-day" class="sub-label">Day</label>
+                <select id="trivia-date-day" onchange="updateTriviaDatePreview()"></select>
+              </div>
+
+              <div>
+                <label for="trivia-date-month" class="sub-label">Month</label>
+                <select id="trivia-date-month" onchange="updateTriviaDatePreview()">
+                  <option value="">Month</option>
+                  <option value="01">01 - Jan</option>
+                  <option value="02">02 - Feb</option>
+                  <option value="03">03 - Mar</option>
+                  <option value="04">04 - Apr</option>
+                  <option value="05">05 - May</option>
+                  <option value="06">06 - Jun</option>
+                  <option value="07">07 - Jul</option>
+                  <option value="08">08 - Aug</option>
+                  <option value="09">09 - Sep</option>
+                  <option value="10">10 - Oct</option>
+                  <option value="11">11 - Nov</option>
+                  <option value="12">12 - Dec</option>
+                </select>
+              </div>
+
+              <div>
+                <label for="trivia-date-year" class="sub-label">Year</label>
+                <select id="trivia-date-year" onchange="handleTriviaYearChange()"></select>
+              </div>
+
+              <div>
+                <label for="trivia-date-time-val" class="sub-label">Time (Optional)</label>
+                <input type="time" id="trivia-date-time-val" onchange="updateTriviaDatePreview()">
+              </div>
+            </div>
+
+            <div id="trivia-date-preview-box" class="date-preview-box">
+              <span>Stored ISO:</span>
+              <span id="trivia-date-preview-text" class="date-preview-val">None</span>
+              <span id="trivia-date-preview-human" style="color: var(--text-muted); font-family: sans-serif; font-size: 0.72rem;"></span>
+            </div>
+          </div>
+
+          <!-- Characters with Smart Suggestions, Autocomplete, and Tag Cloud -->
+          <div class="form-group">
+            <label for="trivia-characters">Characters (Comma-separated)</label>
+
+            <!-- Smart Suggestions Shelf -->
+            <div id="trivia-char-suggestions" class="suggestions-shelf">
+              <div class="suggestions-head">
+                <span>✨ Detected in Text:</span>
+                <button type="button" class="btn-add-all" onclick="addAllTriviaSuggestions('trivia-characters', 'trivia-char-suggestions-cloud')">+ Add All</button>
+              </div>
+              <div id="trivia-char-suggestions-cloud" class="suggestions-cloud"></div>
+            </div>
+
+            <div class="autocomplete-wrap">
+              <input type="text" id="trivia-characters" placeholder="e.g. Natsuki Subaru, Emilia, Beatrice" autocomplete="off" oninput="markTriviaFormDirty()">
+              <div id="trivia-char-autocomplete" class="autocomplete-list"></div>
+            </div>
+            <div class="tag-box">
+              <div class="tag-box-head">
+                <span>Known Characters (click to toggle):</span>
+                <input type="text" id="trivia-char-filter" class="tag-box-filter" placeholder="Filter..." oninput="renderTriviaTagClouds()">
+              </div>
+              <div id="trivia-character-chips" class="tag-cloud"></div>
+            </div>
+            <p class="hint">Tags mentioned in your statement are automatically suggested above. New tags are registered on save.</p>
+          </div>
+
+          <!-- Topics with Smart Suggestions, Autocomplete, and Tag Cloud -->
+          <div class="form-group">
+            <label for="trivia-topics">Topics (Comma-separated)</label>
+
+            <!-- Smart Suggestions Shelf -->
+            <div id="trivia-topic-suggestions" class="suggestions-shelf">
+              <div class="suggestions-head">
+                <span>✨ Detected in Text:</span>
+                <button type="button" class="btn-add-all" onclick="addAllTriviaSuggestions('trivia-topics', 'trivia-topic-suggestions-cloud')">+ Add All</button>
+              </div>
+              <div id="trivia-topic-suggestions-cloud" class="suggestions-cloud"></div>
+            </div>
+
+            <div class="autocomplete-wrap">
+              <input type="text" id="trivia-topics" placeholder="e.g. Lore, Magic, Authorities, Witch Cult" autocomplete="off" oninput="markTriviaFormDirty()">
+              <div id="trivia-topic-autocomplete" class="autocomplete-list"></div>
+            </div>
+            <div class="tag-box">
+              <div class="tag-box-head">
+                <span>Known Topics (click to toggle):</span>
+                <input type="text" id="trivia-topic-filter" class="tag-box-filter" placeholder="Filter..." oninput="renderTriviaTagClouds()">
+              </div>
+              <div id="trivia-topic-chips" class="tag-cloud"></div>
+            </div>
+            <p class="hint">Tags mentioned in your statement are automatically suggested above. New tags are registered on save.</p>
+          </div>
+
+          <!-- Sources -->
+          <div class="form-group" style="margin-bottom: 1.25rem;">
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.4rem;">
+              <label style="margin: 0;">Sources / Citations</label>
+              <button type="button" class="btn-date-action" onclick="addTriviaSourceRowUI()" style="display: inline-flex; align-items: center; gap: 0.25rem;">
+                <span>+ Add Source</span>
+              </button>
+            </div>
+            <div id="trivia-sources-container" style="display: flex; flex-direction: column; gap: 0.6rem;"></div>
+            <p class="hint">Add one or more primary source URLs or text citations (e.g. Twitter tweet link, fanbook note).</p>
+          </div>
+
+          <!-- Actions -->
+          <div class="actions">
+            <button type="button" id="btn-trivia-delete" class="btn-delete" style="display: none;" onclick="handleTriviaDelete()">Delete Trivia</button>
+            <button type="button" class="btn-clear" onclick="confirmTriviaReset()">Clear Form</button>
+            <div style="flex: 1;"></div>
+            <button type="submit" id="btn-trivia-save" class="btn-save">
+              <span>Save Trivia Entry</span>
+              <kbd style="font-size: 0.7rem; opacity: 0.8; background: rgba(0,0,0,0.3); padding: 0.15rem 0.35rem; border-radius: 3px;">Ctrl+Enter</kbd>
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Trivia Quick Paste Modal -->
+  <div id="trivia-quick-paste-modal" class="modal-overlay" onclick="handleTriviaModalBackdrop(event)">
+    <div class="modal-card">
+      <div class="modal-head">
+        <h3>⚡ Quick Paste Trivia &amp; Auto-Fill</h3>
+        <button type="button" class="btn-modal-close" onclick="closeTriviaQuickPasteModal()">&times;</button>
+      </div>
+      <div class="modal-body">
+        <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.45;">
+          Paste a raw tweet, author comment, interview note, or trivia statement. The parser will extract the title, author statement text, date, arc, source, and match characters/topics automatically!
+        </p>
+        <textarea id="trivia-quick-paste-text" style="min-height: 220px; font-size: 0.85rem;" placeholder="Title: Emilia's physical strength&#10;Statement: Emilia's physical strength is very high among the royal candidates, second only to Felt in raw agility and Priscilla in balanced power.&#10;Date: 2019-09-23&#10;Arc: general&#10;Source: https://twitter.com/nezumiironyanko/status/..."></textarea>
+      </div>
+      <div class="modal-foot">
+        <button type="button" class="btn-clear" onclick="insertTriviaQuickPasteSample()">Insert Sample</button>
+        <div style="display: flex; gap: 0.5rem;">
+          <button type="button" class="btn-clear" onclick="closeTriviaQuickPasteModal()">Cancel</button>
+          <button type="button" class="btn-new" style="padding: 0.55rem 1.25rem;" onclick="applyTriviaQuickPaste()">Auto-Fill Form</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- Quick Paste Modal -->
   <div id="quick-paste-modal" class="modal-overlay" onclick="handleModalBackdrop(event)">
     <div class="modal-card">
@@ -610,8 +867,12 @@
       populateArcSelects();
       populateDaySelect();
       populateYearSelect();
+      populateTriviaDaySelect();
+      populateTriviaYearSelect();
       setupAutocomplete('characters', 'char-autocomplete', 'characters');
       setupAutocomplete('topics', 'topic-autocomplete', 'topics');
+      setupAutocomplete('trivia-characters', 'trivia-char-autocomplete', 'characters');
+      setupAutocomplete('trivia-topics', 'trivia-topic-autocomplete', 'topics');
       setupKeyboardShortcuts();
       
       // Check if draft exists
@@ -620,19 +881,30 @@
       } else {
         createNew();
       }
+
+      if (!selectedTriviaId && hasStoredTriviaDraft()) {
+        showTriviaDraftBanner();
+      }
     }
 
     async function reloadConfigAndEntries() {
-      const [cfgRes, listRes] = await Promise.all([
+      const [cfgRes, listRes, triviaRes, storiesRes] = await Promise.all([
         fetch('/api/config').then(r => r.json()),
-        fetch('/api/entries').then(r => r.json())
+        fetch('/api/entries').then(r => r.json()),
+        fetch('/api/trivia').then(r => r.json()).catch(() => []),
+        fetch('/api/stories').then(r => r.json()).catch(() => [])
       ]);
       config = cfgRes;
       entries = listRes;
       document.getElementById('total-count').textContent = entries.length.toLocaleString() + ' Q&As';
       const navQna = document.getElementById('nav-qna-count');
       if (navQna) navQna.textContent = entries.length.toLocaleString();
+      const navTrivia = document.getElementById('nav-trivia-count');
+      if (navTrivia && Array.isArray(triviaRes)) navTrivia.textContent = triviaRes.length;
+      const navStories = document.getElementById('nav-stories-count');
+      if (navStories && Array.isArray(storiesRes)) navStories.textContent = storiesRes.length;
       renderTagClouds();
+      renderTriviaTagClouds();
     }
 
     function populateArcSelects() {
@@ -1531,29 +1803,47 @@
     /* Keyboard shortcuts */
     function setupKeyboardShortcuts() {
       document.addEventListener('keydown', (e) => {
+        const isTriviaActive = document.getElementById('tab-btn-trivia')?.classList.contains('active');
+        const isQnaActive = document.getElementById('tab-btn-qna')?.classList.contains('active');
+
         // Ctrl+Enter or Cmd+Enter to save
         if ((e.ctrlKey || e.metaKey) && e.key === 'Enter') {
           e.preventDefault();
-          const saveBtn = document.getElementById('btn-save');
-          if (!saveBtn.disabled) {
-            document.getElementById('qna-form').requestSubmit();
+          if (isTriviaActive) {
+            const saveBtn = document.getElementById('btn-trivia-save');
+            if (saveBtn && !saveBtn.disabled) {
+              document.getElementById('trivia-form').requestSubmit();
+            }
+          } else if (isQnaActive) {
+            const saveBtn = document.getElementById('btn-save');
+            if (saveBtn && !saveBtn.disabled) {
+              document.getElementById('qna-form').requestSubmit();
+            }
           }
         }
         // Alt+N for new entry
         if (e.altKey && (e.key === 'n' || e.key === 'N')) {
           e.preventDefault();
-          if (!isDirty || confirm('Discard unsaved edits and create new?')) {
-            createNew();
+          if (isTriviaActive) {
+            if (!isTriviaDirty || confirm('Discard unsaved trivia edits and create new?')) {
+              createNewTrivia();
+            }
+          } else if (isQnaActive) {
+            if (!isDirty || confirm('Discard unsaved edits and create new?')) {
+              createNew();
+            }
           }
         }
-        // Escape closes modal
+        // Escape closes any open modal
         if (e.key === 'Escape') {
           closeQuickPasteModal();
+          closeTriviaQuickPasteModal();
+          closeSupplementModal();
         }
       });
 
       window.addEventListener('beforeunload', (e) => {
-        if (isDirty) {
+        if (isDirty || isTriviaDirty) {
           e.preventDefault();
           e.returnValue = '';
         }
@@ -1748,6 +2038,192 @@
       updateDatePreview();
     }
 
+    /* Trivia Date & Time helper routines */
+    function populateTriviaDaySelect() {
+      const sel = document.getElementById('trivia-date-day');
+      if (!sel) return;
+      sel.innerHTML = '<option value="">Day</option>';
+      for (let d = 1; d <= 31; d++) {
+        const opt = document.createElement('option');
+        const val = String(d).padStart(2, '0');
+        opt.value = val;
+        opt.textContent = val;
+        sel.appendChild(opt);
+      }
+    }
+
+    function populateTriviaYearSelect() {
+      const sel = document.getElementById('trivia-date-year');
+      if (!sel) return;
+      sel.innerHTML = '<option value="">Year</option>';
+      const currentYear = new Date().getFullYear();
+      for (let y = currentYear + 1; y >= 2011; y--) {
+        const opt = document.createElement('option');
+        opt.value = String(y);
+        opt.textContent = String(y);
+        sel.appendChild(opt);
+      }
+      const optOther = document.createElement('option');
+      optOther.value = 'other';
+      optOther.textContent = 'Other Year...';
+      sel.appendChild(optOther);
+    }
+
+    function ensureTriviaYearInSelect(y) {
+      if (!y) return;
+      const sel = document.getElementById('trivia-date-year');
+      if (!sel) return;
+      for (let i = 0; i < sel.options.length; i++) {
+        if (sel.options[i].value === y) return;
+      }
+      const opt = document.createElement('option');
+      opt.value = y;
+      opt.textContent = y;
+      sel.insertBefore(opt, sel.lastElementChild);
+    }
+
+    function handleTriviaYearChange() {
+      const sel = document.getElementById('trivia-date-year');
+      if (!sel) return;
+      if (sel.value === 'other') {
+        const custom = prompt('Enter 4-digit Year (e.g. 2008):');
+        if (custom && /^\d{4}$/.test(custom.trim())) {
+          const cleanYear = custom.trim();
+          ensureTriviaYearInSelect(cleanYear);
+          sel.value = cleanYear;
+        } else {
+          sel.value = '';
+        }
+      }
+      updateTriviaDatePreview();
+      markTriviaFormDirty();
+    }
+
+    function getTriviaCombinedDateTime() {
+      const day = document.getElementById('trivia-date-day')?.value;
+      const month = document.getElementById('trivia-date-month')?.value;
+      const year = document.getElementById('trivia-date-year')?.value;
+      const time = document.getElementById('trivia-date-time-val')?.value;
+
+      if (!year) return '';
+
+      if (month && day) {
+        let res = year + '-' + month + '-' + day;
+        if (time) {
+          res += 'T' + (time.length === 5 ? time + ':00' : time);
+        }
+        return res;
+      }
+
+      if (month) {
+        return year + '-' + month;
+      }
+
+      return year;
+    }
+
+    function updateTriviaDatePreview() {
+      const day = document.getElementById('trivia-date-day')?.value;
+      const month = document.getElementById('trivia-date-month')?.value;
+      const year = document.getElementById('trivia-date-year')?.value;
+      const time = document.getElementById('trivia-date-time-val')?.value;
+      const isoText = document.getElementById('trivia-date-preview-text');
+      const humanText = document.getElementById('trivia-date-preview-human');
+      if (!isoText || !humanText) return;
+
+      const iso = getTriviaCombinedDateTime();
+      if (!iso) {
+        if (day || month) {
+          isoText.textContent = 'Incomplete (Select Year)';
+          isoText.style.color = '#f87171';
+          humanText.textContent = '';
+        } else {
+          isoText.textContent = 'None';
+          isoText.style.color = 'var(--text-muted)';
+          humanText.textContent = '';
+        }
+        return;
+      }
+
+      isoText.textContent = iso;
+      isoText.style.color = '#38bdf8';
+
+      if (year && month && day) {
+        const mIdx = parseInt(month, 10);
+        const mName = MONTH_NAMES[mIdx] || month;
+        const dNum = parseInt(day, 10);
+        let human = '(' + mName + ' ' + dNum + ', ' + year;
+        if (time) human += ' at ' + time;
+        human += ')';
+        humanText.textContent = human;
+      } else if (year && month) {
+        const mIdx = parseInt(month, 10);
+        humanText.textContent = '(' + (MONTH_NAMES[mIdx] || month) + ' ' + year + ')';
+      } else if (year) {
+        humanText.textContent = '(' + year + ')';
+      }
+      markTriviaFormDirty();
+    }
+
+    function setTriviaDateFromValue(val) {
+      clearTriviaDateFields();
+      if (!val || typeof val !== 'string') return;
+      const trimmed = val.trim();
+      if (!trimmed) return;
+
+      const match = trimmed.match(/^(\d{4})(?:-(\d{2}))?(?:-(\d{2}))?(?:[T\s](\d{2}:\d{2}))?/);
+      if (match) {
+        const y = match[1];
+        const m = match[2] || '';
+        const d = match[3] || '';
+        const t = match[4] || '';
+
+        ensureTriviaYearInSelect(y);
+        const yEl = document.getElementById('trivia-date-year');
+        const mEl = document.getElementById('trivia-date-month');
+        const dEl = document.getElementById('trivia-date-day');
+        const tEl = document.getElementById('trivia-date-time-val');
+        if (yEl) yEl.value = y;
+        if (mEl) mEl.value = m;
+        if (dEl) dEl.value = d;
+        if (tEl) tEl.value = t;
+      }
+      updateTriviaDatePreview();
+    }
+
+    function setTriviaTodayDate() {
+      const now = new Date();
+      const d = String(now.getDate()).padStart(2, '0');
+      const m = String(now.getMonth() + 1).padStart(2, '0');
+      const y = String(now.getFullYear());
+      const hh = String(now.getHours()).padStart(2, '0');
+      const mm = String(now.getMinutes()).padStart(2, '0');
+
+      ensureTriviaYearInSelect(y);
+      const yEl = document.getElementById('trivia-date-year');
+      const mEl = document.getElementById('trivia-date-month');
+      const dEl = document.getElementById('trivia-date-day');
+      const tEl = document.getElementById('trivia-date-time-val');
+      if (yEl) yEl.value = y;
+      if (mEl) mEl.value = m;
+      if (dEl) dEl.value = d;
+      if (tEl) tEl.value = hh + ':' + mm;
+      updateTriviaDatePreview();
+      markTriviaFormDirty();
+    }
+
+    function clearTriviaDateFields() {
+      const yEl = document.getElementById('trivia-date-year');
+      const mEl = document.getElementById('trivia-date-month');
+      const dEl = document.getElementById('trivia-date-day');
+      const tEl = document.getElementById('trivia-date-time-val');
+      if (dEl) dEl.value = '';
+      if (mEl) mEl.value = '';
+      if (yEl) yEl.value = '';
+      if (tEl) tEl.value = '';
+      updateTriviaDatePreview();
+    }
+
     /* --- Stories & Supplements Management Controller --- */
     let allStories = [];
     let selectedStorySlug = null;
@@ -1756,19 +2232,28 @@
     function switchMainTab(tab) {
       const qnaView = document.getElementById('qna-view');
       const storiesView = document.getElementById('stories-view');
+      const triviaView = document.getElementById('trivia-view');
       const qnaBtn = document.getElementById('tab-btn-qna');
       const storiesBtn = document.getElementById('tab-btn-stories');
+      const triviaBtn = document.getElementById('tab-btn-trivia');
+
+      qnaView.style.display = 'none';
+      storiesView.style.display = 'none';
+      triviaView.style.display = 'none';
+      qnaBtn.classList.remove('active');
+      storiesBtn.classList.remove('active');
+      triviaBtn.classList.remove('active');
 
       if (tab === 'stories') {
-        qnaView.style.display = 'none';
         storiesView.style.display = 'flex';
-        qnaBtn.classList.remove('active');
         storiesBtn.classList.add('active');
         loadStories();
+      } else if (tab === 'trivia') {
+        triviaView.style.display = 'flex';
+        triviaBtn.classList.add('active');
+        loadTrivia();
       } else {
-        storiesView.style.display = 'none';
         qnaView.style.display = 'flex';
-        storiesBtn.classList.remove('active');
         qnaBtn.classList.add('active');
       }
     }
@@ -2143,6 +2628,896 @@
         await loadStories();
       } catch (err) {
         alert('Error deleting supplement: ' + err.message);
+      }
+    }
+
+    /* --- Trivia Management Controller --- */
+    let allTrivia = [];
+    let selectedTriviaId = null;
+
+    async function loadTrivia() {
+      try {
+        const res = await fetch('/api/trivia');
+        if (!res.ok) throw new Error('Failed to load trivia');
+        allTrivia = await res.json();
+        const triviaCountEl = document.getElementById('trivia-count');
+        if (triviaCountEl) triviaCountEl.textContent = allTrivia.length;
+        const navTrivia = document.getElementById('nav-trivia-count');
+        if (navTrivia) navTrivia.textContent = allTrivia.length;
+        renderTriviaList();
+        populateTriviaArcSelect();
+
+        if (selectedTriviaId) {
+          selectTrivia(selectedTriviaId);
+        } else if (hasStoredTriviaDraft()) {
+          showTriviaDraftBanner();
+        } else if (allTrivia.length > 0) {
+          selectTrivia(allTrivia[0].id);
+        } else {
+          createNewTrivia();
+        }
+      } catch (err) {
+        console.error('Error loading trivia:', err);
+      }
+    }
+
+    function populateTriviaArcSelect() {
+      const sel = document.getElementById('trivia-arc');
+      if (!sel) return;
+      const currentVal = sel.value;
+      sel.innerHTML = '<option value="general">General / No Story Spoilers</option>';
+
+      if (config.arcs && config.arcs.length > 0) {
+        const group = document.createElement('optgroup');
+        group.label = 'Canonical Arcs';
+        config.arcs.forEach(a => {
+          const opt = document.createElement('option');
+          opt.value = a.slug;
+          opt.textContent = 'Arc ' + a.order + ': ' + a.name;
+          group.appendChild(opt);
+        });
+        sel.appendChild(group);
+      }
+
+      if (config.ifRoutes && config.ifRoutes.length > 0) {
+        const group = document.createElement('optgroup');
+        group.label = 'IF Routes & Side Stories';
+        config.ifRoutes.forEach(r => {
+          const opt = document.createElement('option');
+          opt.value = r.slug;
+          opt.textContent = r.name;
+          group.appendChild(opt);
+        });
+        sel.appendChild(group);
+      }
+
+      sel.value = currentVal || 'general';
+
+      // Also populate trivia-filter-arc
+      const filterSel = document.getElementById('trivia-filter-arc');
+      if (filterSel && filterSel.options.length <= 1) {
+        config.arcs.forEach(a => {
+          const opt = document.createElement('option');
+          opt.value = a.slug;
+          opt.textContent = 'Arc ' + a.order + ': ' + a.name;
+          filterSel.appendChild(opt);
+        });
+        config.ifRoutes.forEach(r => {
+          const opt = document.createElement('option');
+          opt.value = r.slug;
+          opt.textContent = r.name;
+          filterSel.appendChild(opt);
+        });
+      }
+    }
+
+    function renderTriviaList() {
+      const filterInput = document.getElementById('trivia-filter-input');
+      const filterText = filterInput ? filterInput.value.toLowerCase().trim() : '';
+      const filterArcEl = document.getElementById('trivia-filter-arc');
+      const filterArc = filterArcEl ? filterArcEl.value : '';
+      const listEl = document.getElementById('trivia-list');
+      if (!listEl) return;
+      listEl.innerHTML = '';
+
+      const filtered = allTrivia.filter(t => {
+        const matchText = !filterText ||
+          t.id.toLowerCase().includes(filterText) ||
+          (t.title && t.title.toLowerCase().includes(filterText)) ||
+          t.text.toLowerCase().includes(filterText);
+        const matchArc = !filterArc || t.arc === filterArc;
+        return matchText && matchArc;
+      });
+
+      const countEl = document.getElementById('trivia-filtered-count');
+      if (countEl) countEl.textContent = 'Showing ' + filtered.length + ' of ' + allTrivia.length;
+
+      if (filtered.length === 0) {
+        listEl.innerHTML = '<li style="color: var(--text-muted); text-align: center; padding: 2rem;">No matching trivia entries found.</li>';
+        return;
+      }
+
+      filtered.forEach(t => {
+        const li = document.createElement('li');
+        if (t.id === selectedTriviaId) li.className = 'active';
+        li.onclick = () => {
+          selectTrivia(t.id);
+        };
+        const dateTag = t.dateTime ? ' • ' + (t.dateTime.length > 10 ? t.dateTime.slice(0, 10) : t.dateTime) : '';
+        const titleOrSnippet = t.title ? '<strong>' + escapeHtml(t.title) + '</strong>: ' + escapeHtml(t.text) : escapeHtml(t.text);
+        li.innerHTML =
+          '<div class="entry-meta"><span>#' + t.id + '</span><span>' + t.arc + dateTag + '</span></div>' +
+          '<div class="entry-q">' + titleOrSnippet + '</div>';
+        listEl.appendChild(li);
+      });
+    }
+
+    /* --- Trivia Form, Input & Duplicate Detection Handlers --- */
+    let isExactTriviaDuplicate = false;
+    let triviaDupDebounceTimer = null;
+    let triviaTagDebounceTimer = null;
+    const TRIVIA_DRAFT_KEY = 'od_lagna_admin_trivia_draft';
+    let isTriviaDirty = false;
+    let triviaDraftSaveTimer = null;
+
+    function handleTriviaTitleInput() {
+      markTriviaFormDirty();
+      const title = document.getElementById('trivia-title').value;
+      const lenEl = document.getElementById('trivia-title-len');
+      if (lenEl) lenEl.textContent = title.length + ' chars';
+      triggerTriviaTagSuggestions();
+    }
+
+    function handleTriviaTextInput() {
+      markTriviaFormDirty();
+      const text = document.getElementById('trivia-text').value;
+      const lenEl = document.getElementById('trivia-text-len');
+      if (lenEl) lenEl.textContent = text.length + ' chars';
+
+      clearTimeout(triviaDupDebounceTimer);
+      triviaDupDebounceTimer = setTimeout(() => {
+        checkTriviaDuplicateRealtime(text);
+      }, 200);
+
+      triggerTriviaTagSuggestions();
+    }
+
+    async function checkTriviaDuplicateRealtime(text) {
+      const warnBox = document.getElementById('trivia-duplicate-warning');
+      const saveBtn = document.getElementById('btn-trivia-save');
+      if (!warnBox || !saveBtn) return;
+
+      if (!text || text.trim().length < 5) {
+        warnBox.className = 'dup-alert';
+        warnBox.innerHTML = '';
+        isExactTriviaDuplicate = false;
+        saveBtn.disabled = false;
+        saveBtn.classList.remove('disabled');
+        return;
+      }
+
+      try {
+        const res = await fetch('/api/check-trivia-duplicate', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ text, currentId: selectedTriviaId })
+        });
+        const data = await res.json();
+
+        if (data.isExactDuplicate && data.exactMatch) {
+          isExactTriviaDuplicate = true;
+          saveBtn.disabled = true;
+          saveBtn.classList.add('disabled');
+          warnBox.className = 'dup-alert exact';
+          warnBox.innerHTML = '';
+
+          const head = document.createElement('div');
+          head.className = 'dup-alert-head';
+          const title = document.createElement('span');
+          title.textContent = '🚫 Exact Duplicate Trivia Statement!';
+          const jumpBtn = document.createElement('button');
+          jumpBtn.type = 'button';
+          jumpBtn.className = 'btn-jump-entry';
+          jumpBtn.textContent = 'Open Trivia #' + data.exactMatch.id;
+          jumpBtn.onclick = () => jumpToTrivia(data.exactMatch.id);
+          head.appendChild(title);
+          head.appendChild(jumpBtn);
+
+          const desc = document.createElement('div');
+          desc.innerHTML = 'Statement identical to existing entry <strong>#' + data.exactMatch.id + '</strong>. Duplicates are strictly blocked from being saved.';
+
+          warnBox.appendChild(head);
+          warnBox.appendChild(desc);
+        } else if (data.similarMatches && data.similarMatches.length > 0) {
+          isExactTriviaDuplicate = false;
+          saveBtn.disabled = false;
+          saveBtn.classList.remove('disabled');
+          warnBox.className = 'dup-alert similar';
+          warnBox.innerHTML = '';
+
+          const head = document.createElement('div');
+          head.className = 'dup-alert-head';
+          head.innerHTML = '<span>⚠️ Similar Trivia Statements Found In Database:</span>';
+          warnBox.appendChild(head);
+
+          const ul = document.createElement('ul');
+          ul.className = 'dup-match-list';
+          data.similarMatches.slice(0, 3).forEach(m => {
+            const li = document.createElement('li');
+            li.className = 'dup-match-item';
+
+            const pct = Math.round(m.similarity * 100);
+            const tag = document.createElement('span');
+            tag.className = 'sim-tag';
+            tag.textContent = pct + '% match';
+
+            const previewText = document.createElement('span');
+            previewText.style.cssText = 'flex:1; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;';
+            previewText.textContent = (m.title ? '[' + m.title + '] ' : '') + m.text;
+
+            const btn = document.createElement('button');
+            btn.type = 'button';
+            btn.className = 'btn-jump-entry';
+            btn.textContent = '#' + m.id;
+            btn.onclick = () => jumpToTrivia(m.id);
+
+            li.appendChild(tag);
+            li.appendChild(previewText);
+            li.appendChild(btn);
+            ul.appendChild(li);
+          });
+          warnBox.appendChild(ul);
+        } else {
+          isExactTriviaDuplicate = false;
+          saveBtn.disabled = false;
+          saveBtn.classList.remove('disabled');
+          warnBox.className = 'dup-alert';
+          warnBox.innerHTML = '';
+        }
+      } catch (err) {
+        console.error('Trivia duplicate check error:', err);
+      }
+    }
+
+    function jumpToTrivia(id) {
+      if (isTriviaDirty && !confirm('Switching will discard unsaved edits. Open trivia #' + id + '?')) {
+        return;
+      }
+      selectTrivia(id);
+    }
+
+    /* --- Smart Tag Suggestions & Tag Cloud --- */
+    function triggerTriviaTagSuggestions() {
+      clearTimeout(triviaTagDebounceTimer);
+      triviaTagDebounceTimer = setTimeout(async () => {
+        const fullText = (document.getElementById('trivia-title')?.value || '') + ' ' + (document.getElementById('trivia-text')?.value || '');
+        if (fullText.trim().length < 8) {
+          hideTriviaTagSuggestions();
+          return;
+        }
+
+        try {
+          const res = await fetch('/api/suggest-tags', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ text: fullText })
+          });
+          const data = await res.json();
+          renderTriviaTagSuggestions(data.characters || [], data.topics || []);
+        } catch (err) {
+          console.error('Trivia tag suggestion error:', err);
+        }
+      }, 250);
+    }
+
+    function renderTriviaTagSuggestions(suggestedChars, suggestedTopics) {
+      const activeChars = getSelectedTagsSet('trivia-characters');
+      const activeTopics = getSelectedTagsSet('trivia-topics');
+
+      // Characters
+      const newChars = suggestedChars.filter(c => !activeChars.has(c.toLowerCase()));
+      const charShelf = document.getElementById('trivia-char-suggestions');
+      const charCloud = document.getElementById('trivia-char-suggestions-cloud');
+
+      if (charShelf && charCloud) {
+        if (newChars.length > 0) {
+          charCloud.innerHTML = '';
+          newChars.forEach(c => {
+            const pill = document.createElement('button');
+            pill.type = 'button';
+            pill.className = 'suggestion-pill';
+            pill.textContent = '+ ' + c;
+            pill.onclick = () => {
+              toggleTag('trivia-characters', c);
+              renderTriviaTagClouds();
+              triggerTriviaTagSuggestions();
+            };
+            charCloud.appendChild(pill);
+          });
+          charShelf.classList.add('visible');
+        } else {
+          charShelf.classList.remove('visible');
+        }
+      }
+
+      // Topics
+      const newTopics = suggestedTopics.filter(t => !activeTopics.has(t.toLowerCase()));
+      const topicShelf = document.getElementById('trivia-topic-suggestions');
+      const topicCloud = document.getElementById('trivia-topic-suggestions-cloud');
+
+      if (topicShelf && topicCloud) {
+        if (newTopics.length > 0) {
+          topicCloud.innerHTML = '';
+          newTopics.forEach(t => {
+            const pill = document.createElement('button');
+            pill.type = 'button';
+            pill.className = 'suggestion-pill';
+            pill.textContent = '+ ' + t;
+            pill.onclick = () => {
+              toggleTag('trivia-topics', t);
+              renderTriviaTagClouds();
+              triggerTriviaTagSuggestions();
+            };
+            topicCloud.appendChild(pill);
+          });
+          topicShelf.classList.add('visible');
+        } else {
+          topicShelf.classList.remove('visible');
+        }
+      }
+    }
+
+    function hideTriviaTagSuggestions() {
+      document.getElementById('trivia-char-suggestions')?.classList.remove('visible');
+      document.getElementById('trivia-topic-suggestions')?.classList.remove('visible');
+    }
+
+    function addAllTriviaSuggestions(inputId, cloudId) {
+      const cloud = document.getElementById(cloudId);
+      if (!cloud) return;
+      const buttons = cloud.querySelectorAll('button');
+      buttons.forEach(btn => {
+        const tag = btn.textContent.replace(/^\+\s*/, '').trim();
+        if (tag) {
+          addSingleTag(inputId, tag);
+        }
+      });
+      renderTriviaTagClouds();
+      triggerTriviaTagSuggestions();
+    }
+
+    function renderTriviaTagClouds() {
+      renderCloud('trivia-characters', config.characters || [], 'trivia-character-chips', 'trivia-char-filter');
+      renderCloud('trivia-topics', config.topics || [], 'trivia-topic-chips', 'trivia-topic-filter');
+    }
+
+    /* --- Sources UI Management for Trivia --- */
+    function createTriviaSourceRowElement(type = 'url', value = '') {
+      const row = document.createElement('div');
+      row.className = 'source-row';
+
+      const select = document.createElement('select');
+      select.className = 'source-type-select';
+      select.onchange = markTriviaFormDirty;
+
+      const optUrl = document.createElement('option');
+      optUrl.value = 'url';
+      optUrl.textContent = 'URL Link';
+      if (type === 'url') optUrl.selected = true;
+
+      const optText = document.createElement('option');
+      optText.value = 'text';
+      optText.textContent = 'Free Text';
+      if (type === 'text') optText.selected = true;
+
+      select.appendChild(optUrl);
+      select.appendChild(optText);
+
+      const input = document.createElement('input');
+      input.type = 'text';
+      input.className = 'source-value-input';
+      input.placeholder = 'https://x.com/... or 2018 Birthday Tweet';
+      input.value = value || '';
+      input.oninput = markTriviaFormDirty;
+
+      const btnRemove = document.createElement('button');
+      btnRemove.type = 'button';
+      btnRemove.className = 'btn-remove-source';
+      btnRemove.title = 'Remove source';
+      btnRemove.textContent = '✕';
+      btnRemove.onclick = () => removeTriviaSourceRow(row);
+
+      row.appendChild(select);
+      row.appendChild(input);
+      row.appendChild(btnRemove);
+
+      return row;
+    }
+
+    function addTriviaSourceRowUI(type = 'url', value = '') {
+      const container = document.getElementById('trivia-sources-container');
+      if (!container) return;
+      const row = createTriviaSourceRowElement(type, value);
+      container.appendChild(row);
+      updateTriviaSourceRemoveButtons();
+      markTriviaFormDirty();
+      const input = row.querySelector('.source-value-input');
+      if (input) input.focus();
+    }
+
+    function removeTriviaSourceRow(row) {
+      const container = document.getElementById('trivia-sources-container');
+      if (!container) return;
+      const rows = container.querySelectorAll('.source-row');
+      if (rows.length > 1) {
+        row.remove();
+        updateTriviaSourceRemoveButtons();
+        markTriviaFormDirty();
+      } else {
+        const input = row.querySelector('.source-value-input');
+        if (input) input.value = '';
+        const select = row.querySelector('.source-type-select');
+        if (select) select.value = 'url';
+        markTriviaFormDirty();
+      }
+    }
+
+    function updateTriviaSourceRemoveButtons() {
+      const container = document.getElementById('trivia-sources-container');
+      const rows = container ? container.querySelectorAll('.source-row') : [];
+      rows.forEach(r => {
+        const btn = r.querySelector('.btn-remove-source');
+        if (btn) {
+          btn.style.opacity = rows.length === 1 ? '0.35' : '1';
+          btn.title = rows.length === 1 ? 'Clear source' : 'Remove source';
+        }
+      });
+    }
+
+    function setTriviaSourcesInUI(sourcesList) {
+      const container = document.getElementById('trivia-sources-container');
+      if (!container) return;
+      container.innerHTML = '';
+      const list = (Array.isArray(sourcesList) && sourcesList.length > 0)
+        ? sourcesList
+        : [{ type: 'url', value: '' }];
+
+      list.forEach(src => {
+        const row = createTriviaSourceRowElement(src.type || 'url', src.value || '');
+        container.appendChild(row);
+      });
+      updateTriviaSourceRemoveButtons();
+    }
+
+    function getTriviaSourcesFromUI() {
+      const container = document.getElementById('trivia-sources-container');
+      const rows = container ? container.querySelectorAll('.source-row') : [];
+      const result = [];
+      rows.forEach(r => {
+        const type = r.querySelector('.source-type-select').value;
+        const value = r.querySelector('.source-value-input').value.trim();
+        if (value) {
+          result.push({ type, value });
+        }
+      });
+      return result;
+    }
+
+    /* --- Trivia Draft Autosave & Restore --- */
+    function markTriviaFormDirty() {
+      isTriviaDirty = true;
+      saveTriviaDraftDebounced();
+    }
+
+    function saveTriviaDraftDebounced() {
+      clearTimeout(triviaDraftSaveTimer);
+      triviaDraftSaveTimer = setTimeout(() => {
+        if (!selectedTriviaId) {
+          const draft = {
+            title: document.getElementById('trivia-title').value,
+            text: document.getElementById('trivia-text').value,
+            arc: document.getElementById('trivia-arc').value,
+            verified: document.getElementById('trivia-verified').checked,
+            characters: document.getElementById('trivia-characters').value,
+            topics: document.getElementById('trivia-topics').value,
+            sources: getTriviaSourcesFromUI(),
+            day: document.getElementById('trivia-date-day').value,
+            month: document.getElementById('trivia-date-month').value,
+            year: document.getElementById('trivia-date-year').value,
+            time: document.getElementById('trivia-date-time-val').value,
+            savedAt: new Date().toISOString()
+          };
+          if (draft.text.trim() || draft.title.trim()) {
+            localStorage.setItem(TRIVIA_DRAFT_KEY, JSON.stringify(draft));
+          }
+        }
+      }, 1000);
+    }
+
+    function hasStoredTriviaDraft() {
+      return !!localStorage.getItem(TRIVIA_DRAFT_KEY);
+    }
+
+    function showTriviaDraftBanner() {
+      try {
+        const draft = JSON.parse(localStorage.getItem(TRIVIA_DRAFT_KEY) || '{}');
+        if (draft.text || draft.title) {
+          const banner = document.getElementById('trivia-draft-banner');
+          if (banner) banner.classList.add('visible');
+          if (draft.title) document.getElementById('trivia-title').value = draft.title;
+          if (draft.text) document.getElementById('trivia-text').value = draft.text;
+          if (draft.arc) document.getElementById('trivia-arc').value = draft.arc;
+          if (draft.verified !== undefined) document.getElementById('trivia-verified').checked = !!draft.verified;
+          if (draft.characters) document.getElementById('trivia-characters').value = draft.characters;
+          if (draft.topics) document.getElementById('trivia-topics').value = draft.topics;
+          if (draft.sources) {
+            setTriviaSourcesInUI(draft.sources);
+          }
+          if (draft.year) {
+            ensureTriviaYearInSelect(draft.year);
+            document.getElementById('trivia-date-year').value = draft.year;
+            document.getElementById('trivia-date-month').value = draft.month || '';
+            document.getElementById('trivia-date-day').value = draft.day || '';
+            document.getElementById('trivia-date-time-val').value = draft.time || '';
+            updateTriviaDatePreview();
+          }
+          handleTriviaTitleInput();
+          handleTriviaTextInput();
+          renderTriviaTagClouds();
+        }
+      } catch (e) {
+        clearStoredTriviaDraft();
+      }
+    }
+
+    function discardTriviaDraft() {
+      clearStoredTriviaDraft();
+      createNewTrivia();
+    }
+
+    function clearStoredTriviaDraft() {
+      localStorage.removeItem(TRIVIA_DRAFT_KEY);
+      const banner = document.getElementById('trivia-draft-banner');
+      if (banner) banner.classList.remove('visible');
+    }
+
+    /* --- Trivia Quick Paste Modal --- */
+    function openTriviaQuickPasteModal() {
+      const modal = document.getElementById('trivia-quick-paste-modal');
+      if (modal) modal.classList.add('open');
+      const input = document.getElementById('trivia-quick-paste-text');
+      if (input) input.focus();
+    }
+
+    function closeTriviaQuickPasteModal() {
+      const modal = document.getElementById('trivia-quick-paste-modal');
+      if (modal) modal.classList.remove('open');
+    }
+
+    function handleTriviaModalBackdrop(e) {
+      if (e.target.id === 'trivia-quick-paste-modal') {
+        closeTriviaQuickPasteModal();
+      }
+    }
+
+    function insertTriviaQuickPasteSample() {
+      const input = document.getElementById('trivia-quick-paste-text');
+      if (!input) return;
+      input.value =
+        "Title: Emilia's raw physical strength\n" +
+        "Statement: Emilia's physical strength is very high among the royal candidates, second only to Felt in raw agility and Priscilla in balanced battle power. She can easily punch through ice boulders without magic.\n" +
+        "Date: 2019-09-23\n" +
+        "Arc: general\n" +
+        "Source: https://twitter.com/nezumiironyanko/status/1176145678901234567\n" +
+        "Verified: yes";
+    }
+
+    async function applyTriviaQuickPaste() {
+      const raw = document.getElementById('trivia-quick-paste-text').value;
+      if (!raw.trim()) {
+        alert('Please paste some text first.');
+        return;
+      }
+
+      try {
+        const res = await fetch('/api/parse-trivia-quick-paste', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ rawText: raw })
+        });
+        const { parsed } = await res.json();
+
+        await createNewTrivia();
+        if (parsed.title) document.getElementById('trivia-title').value = parsed.title;
+        if (parsed.text) document.getElementById('trivia-text').value = parsed.text;
+        if (parsed.arc) document.getElementById('trivia-arc').value = parsed.arc;
+        if (parsed.dateTime) setTriviaDateFromValue(parsed.dateTime);
+        if (parsed.verified !== undefined) document.getElementById('trivia-verified').checked = !!parsed.verified;
+        if (parsed.source) {
+          setTriviaSourcesInUI([parsed.source]);
+        }
+        if (parsed.characters && parsed.characters.length > 0) {
+          document.getElementById('trivia-characters').value = parsed.characters.join(', ') + ', ';
+        }
+        if (parsed.topics && parsed.topics.length > 0) {
+          document.getElementById('trivia-topics').value = parsed.topics.join(', ') + ', ';
+        }
+
+        closeTriviaQuickPasteModal();
+        handleTriviaTitleInput();
+        handleTriviaTextInput();
+        renderTriviaTagClouds();
+        markTriviaFormDirty();
+        showTriviaStatus('Quick paste parsed and trivia fields populated successfully!', 'success');
+      } catch (err) {
+        alert('Quick paste failed: ' + err.message);
+      }
+    }
+
+    /* --- Trivia Clone as Template --- */
+    async function cloneTriviaAsTemplate() {
+      selectedTriviaId = null;
+      document.getElementById('trivia-form-title').textContent = 'Create New Trivia (From Template)';
+      document.getElementById('btn-trivia-delete').style.display = 'none';
+      document.getElementById('btn-trivia-clone').style.display = 'none';
+      document.getElementById('trivia-entry-id').value = '';
+      document.getElementById('trivia-title').value = '';
+      document.getElementById('trivia-text').value = '';
+      document.getElementById('trivia-title-len').textContent = '0 chars';
+      document.getElementById('trivia-text-len').textContent = '0 chars';
+      hideTriviaStatus();
+      hideTriviaTagSuggestions();
+
+      const warnBox = document.getElementById('trivia-duplicate-warning');
+      if (warnBox) {
+        warnBox.className = 'dup-alert';
+        warnBox.innerHTML = '';
+      }
+      const saveBtn = document.getElementById('btn-trivia-save');
+      if (saveBtn) {
+        saveBtn.disabled = false;
+        saveBtn.classList.remove('disabled');
+      }
+
+      try {
+        const res = await fetch('/api/trivia/next-id');
+        const data = await res.json();
+        document.getElementById('trivia-badge-id').textContent = 'ID: #' + (data.nextId || 'TR-0001');
+      } catch {
+        document.getElementById('trivia-badge-id').textContent = 'ID: Auto-assigned';
+      }
+
+      showTriviaStatus('Template copied: Date, Arc, Verified, Sources, and Tags retained for rapid authoring!', 'success');
+      markTriviaFormDirty();
+      renderTriviaList();
+      document.getElementById('trivia-text').focus();
+    }
+
+    /* --- Status Helpers --- */
+    function showTriviaStatus(msg, type) {
+      const box = document.getElementById('trivia-status-msg');
+      if (!box) return;
+      box.textContent = msg;
+      box.className = 'status-msg ' + (type === 'error' ? 'error' : 'success');
+      box.style.display = 'block';
+      setTimeout(() => {
+        box.style.display = 'none';
+      }, 4000);
+    }
+
+    function hideTriviaStatus() {
+      const box = document.getElementById('trivia-status-msg');
+      if (box) box.style.display = 'none';
+    }
+
+    /* --- Trivia Selection & CRUD Operations --- */
+    async function selectTrivia(id) {
+      selectedTriviaId = id;
+      hideTriviaStatus();
+      hideTriviaTagSuggestions();
+      renderTriviaList();
+
+      try {
+        const res = await fetch('/api/trivia/' + encodeURIComponent(id));
+        if (!res.ok) {
+          showTriviaStatus('Failed to load trivia #' + id, 'error');
+          return;
+        }
+        const data = await res.json();
+
+        document.getElementById('trivia-form-title').textContent = 'Edit Trivia Entry #' + data.id;
+        document.getElementById('trivia-badge-id').textContent = 'ID: #' + data.id;
+        document.getElementById('btn-trivia-delete').style.display = 'block';
+        document.getElementById('btn-trivia-clone').style.display = 'inline-flex';
+
+        document.getElementById('trivia-entry-id').value = data.id;
+        document.getElementById('trivia-title').value = data.title || '';
+        document.getElementById('trivia-text').value = data.text || '';
+        document.getElementById('trivia-arc').value = data.arc || 'general';
+        document.getElementById('trivia-verified').checked = !!data.verified;
+
+        setTriviaDateFromValue(data.dateTime || data.date || '');
+
+        document.getElementById('trivia-characters').value = (data.characters || []).join(', ');
+        document.getElementById('trivia-topics').value = (data.topics || []).join(', ');
+
+        const rawSources = Array.isArray(data.sources) && data.sources.length > 0
+          ? data.sources
+          : Array.isArray(data.source)
+          ? data.source
+          : data.source ? [data.source] : [];
+        setTriviaSourcesInUI(rawSources);
+
+        document.getElementById('trivia-title-len').textContent = (data.title || '').length + ' chars';
+        document.getElementById('trivia-text-len').textContent = (data.text || '').length + ' chars';
+
+        const warnBox = document.getElementById('trivia-duplicate-warning');
+        if (warnBox) {
+          warnBox.className = 'dup-alert';
+          warnBox.innerHTML = '';
+        }
+        const saveBtn = document.getElementById('btn-trivia-save');
+        if (saveBtn) {
+          saveBtn.disabled = false;
+          saveBtn.classList.remove('disabled');
+        }
+
+        renderTriviaTagClouds();
+        isTriviaDirty = false;
+      } catch (err) {
+        showTriviaStatus('Error loading trivia: ' + err.message, 'error');
+      }
+    }
+
+    async function createNewTrivia() {
+      selectedTriviaId = null;
+      document.getElementById('trivia-form-title').textContent = 'Create New Trivia';
+      document.getElementById('btn-trivia-delete').style.display = 'none';
+      document.getElementById('btn-trivia-clone').style.display = 'none';
+      document.getElementById('trivia-entry-id').value = '';
+      document.getElementById('trivia-form').reset();
+      document.getElementById('trivia-title-len').textContent = '0 chars';
+      document.getElementById('trivia-text-len').textContent = '0 chars';
+      clearTriviaDateFields();
+      setTriviaSourcesInUI([]);
+      hideTriviaStatus();
+      hideTriviaTagSuggestions();
+
+      const warnBox = document.getElementById('trivia-duplicate-warning');
+      if (warnBox) {
+        warnBox.className = 'dup-alert';
+        warnBox.innerHTML = '';
+      }
+      const saveBtn = document.getElementById('btn-trivia-save');
+      if (saveBtn) {
+        saveBtn.disabled = false;
+        saveBtn.classList.remove('disabled');
+      }
+
+      try {
+        const res = await fetch('/api/trivia/next-id');
+        const data = await res.json();
+        document.getElementById('trivia-badge-id').textContent = 'ID: #' + (data.nextId || 'TR-0001');
+      } catch {
+        document.getElementById('trivia-badge-id').textContent = 'ID: Auto-assigned';
+      }
+
+      renderTriviaList();
+      renderTriviaTagClouds();
+      isTriviaDirty = false;
+    }
+
+    function confirmTriviaReset() {
+      if (confirm('Clear trivia form fields and start fresh?')) {
+        clearStoredTriviaDraft();
+        createNewTrivia();
+      }
+    }
+
+    async function handleTriviaSave(e) {
+      e.preventDefault();
+      hideTriviaStatus();
+
+      if (isExactTriviaDuplicate) {
+        showTriviaStatus('Cannot save: statement is identical to an existing trivia entry!', 'error');
+        return;
+      }
+
+      const chars = document.getElementById('trivia-characters').value
+        .split(',')
+        .map(s => s.trim())
+        .filter(Boolean);
+
+      const topics = document.getElementById('trivia-topics').value
+        .split(',')
+        .map(s => s.trim())
+        .filter(Boolean);
+
+      const dayVal = document.getElementById('trivia-date-day').value;
+      const monthVal = document.getElementById('trivia-date-month').value;
+      const yearVal = document.getElementById('trivia-date-year').value;
+
+      if ((dayVal || monthVal) && !yearVal) {
+        showTriviaStatus('Please select a Year to complete the date.', 'error');
+        return;
+      }
+
+      const dateTimeVal = getTriviaCombinedDateTime();
+      const sources = getTriviaSourcesFromUI();
+      const sourcePayload = sources.length > 1
+        ? { sources: sources }
+        : { source: sources[0] || { type: 'text', value: 'Author Statement' } };
+
+      const titleVal = document.getElementById('trivia-title').value.trim();
+      const textVal = document.getElementById('trivia-text').value.trim();
+
+      if (!textVal) {
+        showTriviaStatus('Author statement / trivia text is required.', 'error');
+        return;
+      }
+
+      const payload = {
+        title: titleVal || undefined,
+        text: textVal,
+        arc: document.getElementById('trivia-arc').value,
+        verified: document.getElementById('trivia-verified').checked,
+        ...(dateTimeVal ? { dateTime: dateTimeVal } : {}),
+        characters: chars,
+        topics: topics,
+        ...sourcePayload
+      };
+
+      const isEdit = !!selectedTriviaId;
+      const url = isEdit ? '/api/trivia/' + encodeURIComponent(selectedTriviaId) : '/api/trivia';
+      const method = isEdit ? 'PUT' : 'POST';
+
+      try {
+        const res = await fetch(url, {
+          method,
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        });
+
+        const data = await res.json();
+        if (!res.ok) {
+          showTriviaStatus(data.error || 'Validation or write failed', 'error');
+          return;
+        }
+
+        clearStoredTriviaDraft();
+        isTriviaDirty = false;
+        showTriviaStatus('Trivia entry #' + data.entry.id + ' saved successfully!', 'success');
+
+        await loadTrivia();
+        await reloadConfigAndEntries();
+        await selectTrivia(data.entry.id);
+      } catch (err) {
+        showTriviaStatus(err.message, 'error');
+      }
+    }
+
+    async function handleTriviaDelete() {
+      if (!selectedTriviaId) return;
+      const confirmed = confirm('Are you sure you want to permanently delete Trivia entry #' + selectedTriviaId + '?');
+      if (!confirmed) return;
+
+      try {
+        const res = await fetch('/api/trivia/' + encodeURIComponent(selectedTriviaId), { method: 'DELETE' });
+        if (!res.ok) {
+          const data = await res.json();
+          showTriviaStatus(data.error || 'Failed to delete trivia entry', 'error');
+          return;
+        }
+
+        showTriviaStatus('Trivia entry #' + selectedTriviaId + ' deleted successfully.', 'success');
+        clearStoredTriviaDraft();
+        isTriviaDirty = false;
+        selectedTriviaId = null;
+        await loadTrivia();
+        await reloadConfigAndEntries();
+        createNewTrivia();
+      } catch (err) {
+        showTriviaStatus(err.message, 'error');
       }
     }
 

@@ -1,6 +1,7 @@
 import { Suspense } from "react";
 import {
   getAllQnas,
+  getAllTrivia,
   getAllArcs,
   getAllIfRoutes,
   getAllCharacters,
@@ -11,11 +12,12 @@ import { BrowseClient } from "../../components/BrowseClient";
 export const metadata = {
   title: "Browse Archive — Od-Lagna",
   description:
-    "Filter and search every Re:Zero author Q&A by arc, IF route, character, and topic with spoiler protection.",
+    "Filter and search every Re:Zero author Q&A and trivia entry by arc, IF route, character, and topic with spoiler protection.",
 };
 
 export default function BrowsePage() {
   const allQnas = getAllQnas();
+  const allTrivia = getAllTrivia();
   const arcs = getAllArcs();
   const ifRoutes = getAllIfRoutes();
   const characters = getAllCharacters();
@@ -31,6 +33,7 @@ export default function BrowsePage() {
     >
       <BrowseClient
         allQnas={allQnas}
+        allTrivia={allTrivia}
         arcs={arcs}
         ifRoutes={ifRoutes}
         characters={characters}

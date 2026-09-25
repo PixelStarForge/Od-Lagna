@@ -32,7 +32,7 @@ export default function HomePage() {
             href="/browse"
             className="px-6 py-3 rounded-lg text-sm font-semibold bg-[var(--accent)] text-white hover:bg-[var(--accent-hover)] transition-colors shadow-xs"
           >
-            Browse Q&amp;A Index
+            Browse Archive Index
           </Link>
           <SearchHeroButton />
         </div>
@@ -53,7 +53,7 @@ export default function HomePage() {
             <p className="text-3xl font-extrabold text-[var(--text-main)] mt-1 font-mono">
               {stats.totalCount}
             </p>
-            <p className="text-sm text-[var(--text-muted)] mt-1 font-medium">Author Q&amp;A records</p>
+            <p className="text-sm text-[var(--text-muted)] mt-1 font-medium">Author Q&amp;A and Trivia</p>
           </div>
 
           <div className="p-5 rounded-xl border border-[var(--border-subtle)] bg-[var(--bg-surface)]">

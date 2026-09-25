@@ -45,7 +45,9 @@ export type QnaSource = z.infer<typeof qnaSourceSchema>;
  * supporting single object 'source', array 'source', or array 'sources'.
  */
 export function getEntrySources(
-  entry: Pick<QnaEntry, "source" | "sources">
+  entry:
+    | Pick<QnaEntry, "source" | "sources">
+    | Pick<TriviaEntry, "source" | "sources">
 ): QnaSource[] {
   if (Array.isArray(entry.sources) && entry.sources.length > 0) {
     return entry.sources;
@@ -97,4 +99,35 @@ export const contributorSchema = z.object({
 });
 
 export type Contributor = z.infer<typeof contributorSchema>;
+
+export const triviaEntrySchema = z
+  .object({
+    id: z.string().regex(/^TR-\d{4,}$/, "ID must follow TR-XXXX format (e.g. TR-0001)"),
+    title: z.string().optional(),
+    text: z.string().min(1, "Trivia/Comment text is required"),
+    arc: z.string().min(1, "Arc is required"),
+    characters: z.array(z.string()).default([]),
+    topics: z.array(z.string()).default([]),
+    source: z.union([qnaSourceSchema, z.array(qnaSourceSchema)]).optional(),
+    sources: z.array(qnaSourceSchema).optional(),
+    verified: z.boolean(),
+    dateTime: z.string().optional(),
+    date: z.string().optional(),
+  })
+  .refine(
+    (data) =>
+      data.source !== undefined ||
+      (Array.isArray(data.sources) && data.sources.length > 0),
+    {
+      message: "Either 'source' or 'sources' is required",
+      path: ["source"],
+    }
+  );
+
+export type TriviaEntry = z.infer<typeof triviaEntrySchema>;
+
+export type ArchiveEntry =
+  | ({ entryType: "qna" } & QnaEntry)
+  | ({ entryType: "trivia" } & TriviaEntry);
+
 

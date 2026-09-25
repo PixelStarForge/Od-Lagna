@@ -1,14 +1,17 @@
 import fs from "node:fs";
 import path from "node:path";
-import { qnaEntrySchema, ArcConfig, IfRouteConfig } from "../lib/schema";
+import { qnaEntrySchema, triviaEntrySchema, ArcConfig, IfRouteConfig } from "../lib/schema";
 
 const ROOT_DIR = path.resolve(__dirname, "..");
 const CONTENT_CONFIG_DIR = path.join(ROOT_DIR, "content", "config");
 const CONTENT_QNA_DIR = path.join(ROOT_DIR, "content", "qna");
+const CONTENT_TRIVIA_DIR = path.join(ROOT_DIR, "content", "trivia");
 const PUBLIC_DIR = path.join(ROOT_DIR, "public");
 
 export interface SearchIndexRecord {
   id: string;
+  entryType?: "qna" | "trivia";
+  title?: string;
   question: string;
   answerSnippet: string;
   answerSearchText: string;
@@ -91,6 +94,7 @@ export function buildSearchIndex(): SearchIndexPayload {
 
         records.push({
           id: entry.id,
+          entryType: "qna",
           question: entry.question,
           answerSnippet: snippet,
           answerSearchText: cleanAnswer,
@@ -103,6 +107,49 @@ export function buildSearchIndex(): SearchIndexPayload {
         });
       } catch (err) {
         console.error(`Error indexing file ${file}:`, err);
+      }
+    }
+  }
+
+  // Index Trivia & Author Comments
+  if (fs.existsSync(CONTENT_TRIVIA_DIR)) {
+    const files = fs.readdirSync(CONTENT_TRIVIA_DIR);
+    const validFiles = files.filter(
+      (file) => file.endsWith(".json") && !file.startsWith("_")
+    );
+
+    for (const file of validFiles) {
+      const fullPath = path.join(CONTENT_TRIVIA_DIR, file);
+      try {
+        const raw = fs.readFileSync(fullPath, "utf-8");
+        const parsed = JSON.parse(raw);
+        const entry = triviaEntrySchema.parse(parsed);
+
+        const cleanText = entry.text.replace(/\s+/g, " ").trim();
+        const snippet =
+          cleanText.length > 200
+            ? cleanText.slice(0, 197) + "..."
+            : cleanText;
+
+        entry.characters.forEach((c) => characterSet.add(c));
+        entry.topics.forEach((t) => topicSet.add(t));
+
+        records.push({
+          id: entry.id,
+          entryType: "trivia",
+          title: entry.title,
+          question: entry.title || snippet,
+          answerSnippet: snippet,
+          answerSearchText: cleanText,
+          characters: entry.characters,
+          topics: entry.topics,
+          arc: entry.arc,
+          arcName: arcMap.get(entry.arc) || entry.arc,
+          verified: entry.verified,
+          dateTime: entry.dateTime || entry.date || undefined,
+        });
+      } catch (err) {
+        console.error(`Error indexing trivia file ${file}:`, err);
       }
     }
   }

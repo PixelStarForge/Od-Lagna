@@ -1,5 +1,7 @@
 export interface SearchIndexRecord {
   id: string;
+  entryType?: "qna" | "trivia";
+  title?: string;
   question: string;
   answerSnippet: string;
   answerSearchText: string;
