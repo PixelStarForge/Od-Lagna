@@ -49,7 +49,7 @@ console.log("\n3. Testing findDuplicates...");
 const entries = [
   { id: "0001", question: "Aah……you are Sloth right?" },
   { id: "0002", question: "What is Reinhard's divine protection?" },
-  { id: "0003", question: "How strong is Reid van Astrea?" },
+  { id: "0003", question: "How strong is Reid Astrea?" },
 ];
 
 const exactResult = findDuplicates("aah, you are sloth right?", entries);
@@ -61,7 +61,7 @@ const selfEditResult = findDuplicates("aah, you are sloth right?", entries, "000
 assert(selfEditResult.isExactDuplicate === false, "Should not flag itself as duplicate");
 
 // Similar match detection
-const similarResult = findDuplicates("Approximately how strong is Reid van Astrea?", entries);
+const similarResult = findDuplicates("Approximately how strong is Reid Astrea?", entries);
 assert(similarResult.isExactDuplicate === false, "Should not be exact duplicate");
 assert(similarResult.similarMatches.length > 0, "Should find similar match");
 assert(similarResult.similarMatches[0].id === "0003", "Top similar match should be 0003");
