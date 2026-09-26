@@ -28,7 +28,7 @@ export default function SideStoriesPage() {
       {/* Hero Header */}
       <div className="space-y-2">
         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono font-semibold border border-[var(--border-subtle)] bg-[var(--bg-elevated)] text-[var(--text-main)]">
-          {sideStories.length} Story{sideStories.length !== 1 ? "ies" : ""}
+          {sideStories.length} Stor{sideStories.length !== 1 ? "ies" : "y"}
         </div>
         <h1 className="text-2xl sm:text-4xl font-extrabold tracking-tight text-[var(--text-main)]">
           Side Stories

@@ -12,8 +12,9 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/rezero_ice/status/2081271007663272404"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2026-07-26"
 }

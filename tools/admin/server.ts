@@ -2,7 +2,7 @@ import http from "node:http";
 import fs from "node:fs";
 import path from "node:path";
 import { qnaEntrySchema, triviaEntrySchema, ArcConfig, IfRouteConfig, SupplementEntry, QnaEntry, TriviaEntry } from "../../lib/schema";
-import { findDuplicates, findTriviaDuplicates, suggestTags, parseQuickPaste, parseTriviaQuickPaste } from "./utils";
+import { findDuplicates, findTriviaDuplicates, normalizeTriviaId, suggestTags, parseQuickPaste, parseTriviaQuickPaste } from "./utils";
 
 const PORT = process.env.PORT ? parseInt(process.env.PORT, 10) : 4321;
 const ROOT_DIR = path.resolve(__dirname, "../..");
@@ -143,6 +143,8 @@ function getAllEntriesSummary() {
         arc: data.arc,
         verified: data.verified,
         dateTime: data.dateTime || data.date,
+        characters: data.characters || [],
+        topics: data.topics || [],
         filename: file,
       });
     } catch {
@@ -165,7 +167,7 @@ function getAllTriviaSummary() {
       const fullPath = path.join(CONTENT_TRIVIA_DIR, file);
       const data: TriviaEntry = JSON.parse(fs.readFileSync(fullPath, "utf-8"));
       list.push({
-        id: data.id,
+        id: normalizeTriviaId(data.id),
         title: data.title || "",
         text: data.text,
         arc: data.arc,
@@ -474,7 +476,10 @@ const server = http.createServer((req, res) => {
   if (pathname.startsWith("/api/trivia/") && req.method === "GET") {
     const rawId = pathname.replace("/api/trivia/", "");
     const id = rawId.toUpperCase();
+    const normalizedId = normalizeTriviaId(rawId);
     const candidateFiles = [
+      path.join(CONTENT_TRIVIA_DIR, `${normalizedId}.trivia.json`),
+      path.join(CONTENT_TRIVIA_DIR, `${normalizedId}.json`),
       path.join(CONTENT_TRIVIA_DIR, `${id}.trivia.json`),
       path.join(CONTENT_TRIVIA_DIR, `${id}.json`),
       path.join(CONTENT_TRIVIA_DIR, `${rawId}.trivia.json`),
@@ -501,7 +506,7 @@ const server = http.createServer((req, res) => {
         if (!parsed.id) {
           parsed.id = getNextTriviaId();
         } else {
-          parsed.id = parsed.id.toUpperCase().trim();
+          parsed.id = normalizeTriviaId(parsed.id);
         }
 
         const validated = triviaEntrySchema.parse(parsed);
@@ -519,9 +524,9 @@ const server = http.createServer((req, res) => {
           return;
         }
 
-        // Duplicate statement check (Normalized match)
+        // Duplicate statement check (Normalized match, excluding candidate's own assigned ID)
         const allTrivia = getAllTriviaSummary();
-        const dupCheck = findTriviaDuplicates(validated.text, allTrivia);
+        const dupCheck = findTriviaDuplicates(validated.text, allTrivia, validated.id);
         if (dupCheck.isExactDuplicate && dupCheck.exactMatch) {
           res.writeHead(409, { "Content-Type": "application/json" });
           res.end(
@@ -555,7 +560,7 @@ const server = http.createServer((req, res) => {
 
   if (pathname.startsWith("/api/trivia/") && req.method === "PUT") {
     const rawId = pathname.replace("/api/trivia/", "");
-    const id = rawId.toUpperCase();
+    const id = normalizeTriviaId(rawId);
     let body = "";
     req.on("data", (chunk) => (body += chunk));
     req.on("end", () => {
@@ -614,7 +619,7 @@ const server = http.createServer((req, res) => {
 
   if (pathname.startsWith("/api/trivia/") && req.method === "DELETE") {
     const rawId = pathname.replace("/api/trivia/", "");
-    const id = rawId.toUpperCase();
+    const id = normalizeTriviaId(rawId);
     const candidateFiles = [
       path.join(CONTENT_TRIVIA_DIR, `${id}.trivia.json`),
       path.join(CONTENT_TRIVIA_DIR, `${id}.json`),
@@ -869,23 +874,29 @@ const server = http.createServer((req, res) => {
     }
   }
 
-  // Serve Single-Page Admin HTML GUI
-  if (pathname === "/" && (req.method === "GET" || req.method === "HEAD")) {
-    const htmlPath = path.join(__dirname, "index.html");
-    if (!fs.existsSync(htmlPath)) {
-      res.writeHead(500, { "Content-Type": "text/plain" });
-      res.end("index.html not found");
+  // Serve Admin GUI static assets (HTML, CSS, JS)
+  if ((req.method === "GET" || req.method === "HEAD") && (pathname === "/" || pathname === "/admin.css" || pathname === "/admin.js")) {
+    const filename = pathname === "/" ? "index.html" : pathname.slice(1);
+    const filePath = path.join(__dirname, filename);
+    if (!fs.existsSync(filePath)) {
+      res.writeHead(404, { "Content-Type": "text/plain" });
+      res.end(`${filename} not found`);
       return;
     }
-    const html = fs.readFileSync(htmlPath, "utf-8");
+    const contentType =
+      filename.endsWith(".html") ? "text/html; charset=utf-8" :
+      filename.endsWith(".css") ? "text/css; charset=utf-8" :
+      filename.endsWith(".js") ? "application/javascript; charset=utf-8" :
+      "text/plain";
+    const fileContent = fs.readFileSync(filePath, "utf-8");
     res.writeHead(200, {
-      "Content-Type": "text/html; charset=utf-8",
-      "Content-Length": Buffer.byteLength(html, "utf-8"),
+      "Content-Type": contentType,
+      "Content-Length": Buffer.byteLength(fileContent, "utf-8"),
     });
     if (req.method === "HEAD") {
       res.end();
     } else {
-      res.end(html);
+      res.end(fileContent);
     }
     return;
   }

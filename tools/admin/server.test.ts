@@ -209,6 +209,102 @@ async function runTests() {
     if (!deleteSuppRes.ok) throw new Error(`DELETE supplement failed: ${deleteSuppRes.status}`);
     console.log(`✓ DELETE /api/stories/if-pride/supplements/${testSuppId} cleanly removed test supplement`);
 
+    // 14. Test GET /api/trivia/15 and /api/trivia/TR-0016
+    const triv15Res = await fetch("http://127.0.0.1:4329/api/trivia/15");
+    if (!triv15Res.ok) throw new Error(`GET /api/trivia/15 failed: ${triv15Res.status}`);
+    const triv15 = await triv15Res.json();
+    if (triv15.id !== "TR-0015") throw new Error(`Expected TR-0015, got ${triv15.id}`);
+    console.log("✓ GET /api/trivia/15 normalized ID and retrieved TR-0015");
+
+    const triv16Res = await fetch("http://127.0.0.1:4329/api/trivia/TR-0016");
+    if (!triv16Res.ok) throw new Error(`GET /api/trivia/TR-0016 failed: ${triv16Res.status}`);
+    const triv16 = await triv16Res.json();
+    if (triv16.id !== "TR-0016") throw new Error(`Expected TR-0016, got ${triv16.id}`);
+    console.log("✓ GET /api/trivia/TR-0016 retrieved TR-0016");
+
+    // 15. Test POST /api/check-trivia-duplicate
+    const checkTriv15Res = await fetch("http://127.0.0.1:4329/api/check-trivia-duplicate", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        text: triv15.text,
+        currentId: "15",
+      }),
+    });
+    const checkTriv15 = await checkTriv15Res.json();
+    if (checkTriv15.isExactDuplicate) {
+      throw new Error("Self-edit check for trivia 15 should not be marked as duplicate");
+    }
+    console.log("✓ POST /api/check-trivia-duplicate excluded self with currentId='15'");
+
+    const checkTriv16Res = await fetch("http://127.0.0.1:4329/api/check-trivia-duplicate", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        text: triv16.text,
+        currentId: "TR-0016",
+      }),
+    });
+    const checkTriv16 = await checkTriv16Res.json();
+    if (checkTriv16.isExactDuplicate) {
+      throw new Error("Self-edit check for trivia 16 should not be marked as duplicate");
+    }
+    console.log("✓ POST /api/check-trivia-duplicate excluded self with currentId='TR-0016'");
+
+    // 16. Test PUT /api/trivia/15 and PUT /api/trivia/TR-0016
+    const putTriv15Res = await fetch("http://127.0.0.1:4329/api/trivia/15", {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(triv15),
+    });
+    if (!putTriv15Res.ok) {
+      const err = await putTriv15Res.json();
+      throw new Error(`PUT /api/trivia/15 failed: ${JSON.stringify(err)}`);
+    }
+    console.log("✓ PUT /api/trivia/15 succeeded without duplicate conflict");
+
+    const putTriv16Res = await fetch("http://127.0.0.1:4329/api/trivia/TR-0016", {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(triv16),
+    });
+    if (!putTriv16Res.ok) {
+      const err = await putTriv16Res.json();
+      throw new Error(`PUT /api/trivia/TR-0016 failed: ${JSON.stringify(err)}`);
+    }
+    // 17. Test GET /, /admin.css, and /admin.js static asset serving
+    const staticHtmlRes = await fetch("http://127.0.0.1:4329/");
+    if (!staticHtmlRes.ok) throw new Error(`GET / failed: ${staticHtmlRes.status}`);
+    const htmlContent = await staticHtmlRes.text();
+    if (!htmlContent.includes("/admin.css") || !htmlContent.includes("/admin.js")) {
+      throw new Error("index.html does not link to /admin.css or /admin.js");
+    }
+    console.log("✓ GET / returned index.html linking to /admin.css and /admin.js");
+
+    const cssRes = await fetch("http://127.0.0.1:4329/admin.css");
+    if (!cssRes.ok) throw new Error(`GET /admin.css failed: ${cssRes.status}`);
+    const cssContentType = cssRes.headers.get("content-type");
+    if (!cssContentType?.includes("text/css")) {
+      throw new Error(`Expected text/css Content-Type, got ${cssContentType}`);
+    }
+    const cssText = await cssRes.text();
+    if (!cssText.includes(":root")) {
+      throw new Error("admin.css content does not look like CSS");
+    }
+    console.log(`✓ GET /admin.css returned valid stylesheet (${cssText.length} bytes)`);
+
+    const jsRes = await fetch("http://127.0.0.1:4329/admin.js");
+    if (!jsRes.ok) throw new Error(`GET /admin.js failed: ${jsRes.status}`);
+    const jsContentType = jsRes.headers.get("content-type");
+    if (!jsContentType?.includes("application/javascript")) {
+      throw new Error(`Expected application/javascript Content-Type, got ${jsContentType}`);
+    }
+    const jsText = await jsRes.text();
+    if (!jsText.includes("function init") && !jsText.includes("init()")) {
+      throw new Error("admin.js content does not look like JS");
+    }
+    console.log(`✓ GET /admin.js returned valid JavaScript bundle (${jsText.length} bytes)`);
+
     console.log("\n🎉 ALL ADMIN SERVER INTEGRATION TESTS PASSED!");
   } finally {
     serverProcess.kill("SIGTERM");

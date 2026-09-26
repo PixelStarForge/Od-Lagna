@@ -68,8 +68,22 @@ export function calculateSimilarity(str1: string, str2: string): number {
 
 export interface DuplicateCheckResult {
   isExactDuplicate: boolean;
-  exactMatch?: { id: string; question: string };
-  similarMatches: Array<{ id: string; question: string; similarity: number }>;
+  exactMatch?: { id: string; question: string; text?: string };
+  similarMatches: Array<{ id: string; question: string; text?: string; similarity: number }>;
+}
+
+/**
+ * Normalizes a trivia ID into canonical TR-XXXX format.
+ * Examples: "15" -> "TR-0015", "0015" -> "TR-0015", "tr-15" -> "TR-0015", "TR-0015" -> "TR-0015"
+ */
+export function normalizeTriviaId(id?: string | null): string {
+  if (!id) return "";
+  const cleaned = id.trim().toUpperCase();
+  const match = cleaned.match(/^(?:TR-)?(\d+)$/);
+  if (match) {
+    return `TR-${match[1].padStart(4, "0")}`;
+  }
+  return cleaned;
 }
 
 /**
@@ -444,17 +458,18 @@ export function findTriviaDuplicates(
     return { isExactDuplicate: false, similarMatches: [] };
   }
 
-  let exactMatch: { id: string; question: string } | undefined;
-  const similarMatches: Array<{ id: string; question: string; similarity: number }> = [];
+  const normCurrentId = normalizeTriviaId(currentId);
+  let exactMatch: { id: string; question: string; text: string } | undefined;
+  const similarMatches: Array<{ id: string; question: string; text: string; similarity: number }> = [];
 
   for (const entry of entries) {
-    if (currentId && entry.id === currentId) {
+    if (normCurrentId && normalizeTriviaId(entry.id) === normCurrentId) {
       continue;
     }
 
     const normEntry = normalizeQuestion(entry.text);
     if (normCandidate === normEntry) {
-      exactMatch = { id: entry.id, question: entry.text };
+      exactMatch = { id: entry.id, question: entry.text, text: entry.text };
       break;
     }
 
@@ -463,6 +478,7 @@ export function findTriviaDuplicates(
       similarMatches.push({
         id: entry.id,
         question: entry.text,
+        text: entry.text,
         similarity,
       });
     }

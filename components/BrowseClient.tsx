@@ -8,6 +8,7 @@ import { TriviaCard } from "./TriviaCard";
 import { SpoilerControls } from "./SpoilerControls";
 import { usePreferences } from "../lib/preferences";
 import { CustomSelect, SelectOption } from "./CustomSelect";
+import { CustomMultiSelect, MultiSelectOption } from "./CustomMultiSelect";
 import { getEntryDate, getYearFromDate } from "../lib/date-utils";
 import { dispatchUrlChange } from "../lib/navigation-events";
 
@@ -22,6 +23,11 @@ interface BrowseClientProps {
 
 const ITEMS_PER_PAGE = 30;
 
+function parseArrayParam(param: string | null): string[] {
+  if (!param || param === "all") return [];
+  return param.split(",").map((s) => s.trim()).filter(Boolean);
+}
+
 export function BrowseClient({
   allQnas,
   allTrivia = [],
@@ -34,18 +40,34 @@ export function BrowseClient({
   const router = useRouter();
   const { spoilerArc, allowedIfRoutes, toggleIfRoute } = usePreferences();
 
-  // Filter state initialized from URL query params
-  const [selectedArc, setSelectedArc] = useState<string>(() => {
-    return searchParams.get("arc") || searchParams.get("ifRoute") || "all";
+  // Multi-Filter states initialized from URL query params
+  const [selectedArcs, setSelectedArcs] = useState<string[]>(() => {
+    return parseArrayParam(
+      searchParams.get("arcs") || searchParams.get("arc") || searchParams.get("ifRoute")
+    );
   });
-  const [selectedCharacter, setSelectedCharacter] = useState<string>(() => {
-    return searchParams.get("character") || "all";
+  const [selectedCharacters, setSelectedCharacters] = useState<string[]>(() => {
+    return parseArrayParam(
+      searchParams.get("characters") || searchParams.get("character")
+    );
   });
-  const [selectedTopic, setSelectedTopic] = useState<string>(() => {
-    return searchParams.get("topic") || "all";
+  const [characterMatchMode, setCharacterMatchMode] = useState<"all" | "any">(() => {
+    const m = searchParams.get("charMatch") || searchParams.get("charMode");
+    return m === "any" ? "any" : "all"; // Default to "all" (e.g. tagged BOTH Emilia and Subaru)
   });
-  const [selectedYear, setSelectedYear] = useState<string>(() => {
-    return searchParams.get("year") || "all";
+  const [selectedTopics, setSelectedTopics] = useState<string[]>(() => {
+    return parseArrayParam(
+      searchParams.get("topics") || searchParams.get("topic")
+    );
+  });
+  const [topicMatchMode, setTopicMatchMode] = useState<"all" | "any">(() => {
+    const m = searchParams.get("topicMatch") || searchParams.get("topicMode");
+    return m === "all" ? "all" : "any";
+  });
+  const [selectedYears, setSelectedYears] = useState<string[]>(() => {
+    return parseArrayParam(
+      searchParams.get("years") || searchParams.get("year")
+    );
   });
   const [verifiedOnly, setVerifiedOnly] = useState<boolean>(() => {
     return searchParams.get("verified") === "true";
@@ -89,10 +111,25 @@ export function BrowseClient({
       }
 
       React.startTransition(() => {
-        setSelectedArc(sp.get("arc") || sp.get("ifRoute") || "all");
-        setSelectedCharacter(sp.get("character") || "all");
-        setSelectedTopic(sp.get("topic") || "all");
-        setSelectedYear(sp.get("year") || "all");
+        setSelectedArcs(
+          parseArrayParam(sp.get("arcs") || sp.get("arc") || sp.get("ifRoute"))
+        );
+        setSelectedCharacters(
+          parseArrayParam(sp.get("characters") || sp.get("character"))
+        );
+        const cMatch = sp.get("charMatch") || sp.get("charMode");
+        setCharacterMatchMode(cMatch === "any" ? "any" : "all");
+
+        setSelectedTopics(
+          parseArrayParam(sp.get("topics") || sp.get("topic"))
+        );
+        const tMatch = sp.get("topicMatch") || sp.get("topicMode");
+        setTopicMatchMode(tMatch === "all" ? "all" : "any");
+
+        setSelectedYears(
+          parseArrayParam(sp.get("years") || sp.get("year"))
+        );
+
         setVerifiedOnly(sp.get("verified") === "true");
         const typeParam = sp.get("type");
         setEntryTypeFilter(typeParam === "qna" || typeParam === "trivia" ? typeParam : "all");
@@ -141,48 +178,62 @@ export function BrowseClient({
     return Array.from(set).sort();
   }, [initialTopics, combinedEntries]);
 
-  // Arc options for CustomSelect
-  const arcOptions = useMemo<SelectOption[]>(
-    () => [
-      { value: "all", label: "All Arcs & Storylines" },
-      { value: "general", label: "General / No Story Spoilers" },
+  // Arc options with counts for CustomMultiSelect
+  const arcOptions = useMemo<MultiSelectOption[]>(() => {
+    const counts = new Map<string, number>();
+    for (const entry of combinedEntries) {
+      counts.set(entry.arc, (counts.get(entry.arc) || 0) + 1);
+    }
+    return [
+      {
+        value: "general",
+        label: "General / No Story Spoilers",
+        count: counts.get("general") || 0,
+      },
       ...arcs.map((a) => ({
         value: a.slug,
         label: `Arc ${a.order}: ${a.name}`,
         group: "Canonical Arcs",
+        count: counts.get(a.slug) || 0,
       })),
       ...ifRoutes.map((r) => ({
         value: r.slug,
         label: r.name,
         group: r.type === "side-story" ? "Side Stories" : "IF Routes",
+        count: counts.get(r.slug) || 0,
       })),
-    ],
-    [arcs, ifRoutes]
-  );
+    ];
+  }, [arcs, ifRoutes, combinedEntries]);
 
-  // Character options for CustomSelect
-  const characterOptions = useMemo<SelectOption[]>(
-    () => [
-      { value: "all", label: "All Characters" },
-      ...allCharacters.map((c) => ({
-        value: c,
-        label: c,
-      })),
-    ],
-    [allCharacters]
-  );
+  // Character options with counts for CustomMultiSelect
+  const characterOptions = useMemo<MultiSelectOption[]>(() => {
+    const counts = new Map<string, number>();
+    for (const entry of combinedEntries) {
+      for (const c of entry.characters) {
+        counts.set(c, (counts.get(c) || 0) + 1);
+      }
+    }
+    return allCharacters.map((c) => ({
+      value: c,
+      label: c,
+      count: counts.get(c) || 0,
+    }));
+  }, [allCharacters, combinedEntries]);
 
-  // Topic options for CustomSelect
-  const topicOptions = useMemo<SelectOption[]>(
-    () => [
-      { value: "all", label: "All Topics" },
-      ...allTopics.map((t) => ({
-        value: t,
-        label: t,
-      })),
-    ],
-    [allTopics]
-  );
+  // Topic options with counts for CustomMultiSelect
+  const topicOptions = useMemo<MultiSelectOption[]>(() => {
+    const counts = new Map<string, number>();
+    for (const entry of combinedEntries) {
+      for (const t of entry.topics) {
+        counts.set(t, (counts.get(t) || 0) + 1);
+      }
+    }
+    return allTopics.map((t) => ({
+      value: t,
+      label: t,
+      count: counts.get(t) || 0,
+    }));
+  }, [allTopics, combinedEntries]);
 
   // Year options derived from entries with valid dates
   const availableYears = useMemo(() => {
@@ -194,16 +245,18 @@ export function BrowseClient({
     return Array.from(set).sort((a, b) => b.localeCompare(a));
   }, [combinedEntries]);
 
-  const yearOptions = useMemo<SelectOption[]>(
-    () => [
-      { value: "all", label: "All Years" },
-      ...availableYears.map((y) => ({
-        value: y,
-        label: y,
-      })),
-    ],
-    [availableYears]
-  );
+  const yearOptions = useMemo<MultiSelectOption[]>(() => {
+    const counts = new Map<string, number>();
+    for (const entry of combinedEntries) {
+      const y = getYearFromDate(getEntryDate(entry));
+      if (y) counts.set(y, (counts.get(y) || 0) + 1);
+    }
+    return availableYears.map((y) => ({
+      value: y,
+      label: y,
+      count: counts.get(y) || 0,
+    }));
+  }, [availableYears, combinedEntries]);
 
   // Sort options for CustomSelect
   const sortOptions: SelectOption[] = [
@@ -214,11 +267,23 @@ export function BrowseClient({
     { value: "date-asc", label: "Date: Oldest First" },
   ];
 
-  // Tag click helper
+  // Tag click helper: toggle character or topic in active multi-select
   const handleTagClick = (type: "character" | "topic", tag: string) => {
-    const url = `/browse?${type}=${encodeURIComponent(tag)}`;
-    router.push(url);
-    dispatchUrlChange(url);
+    if (type === "character") {
+      const exists = selectedCharacters.some((c) => c.toLowerCase() === tag.toLowerCase());
+      const next = exists
+        ? selectedCharacters.filter((c) => c.toLowerCase() !== tag.toLowerCase())
+        : [...selectedCharacters, tag];
+      setSelectedCharacters(next);
+      setCurrentPage(1);
+    } else {
+      const exists = selectedTopics.some((t) => t.toLowerCase() === tag.toLowerCase());
+      const next = exists
+        ? selectedTopics.filter((t) => t.toLowerCase() !== tag.toLowerCase())
+        : [...selectedTopics, tag];
+      setSelectedTopics(next);
+      setCurrentPage(1);
+    }
   };
 
   // Filter items
@@ -232,25 +297,47 @@ export function BrowseClient({
         return false;
       }
 
-      // Arc filter
-      if (selectedArc !== "all" && entry.arc !== selectedArc) {
+      // Arcs multi-filter
+      if (selectedArcs.length > 0 && !selectedArcs.includes(entry.arc)) {
         return false;
       }
 
-      // Character filter
-      if (selectedCharacter !== "all" && !entry.characters.includes(selectedCharacter)) {
-        return false;
+      // Character multi-filter (supports "all" and "any" match mode)
+      if (selectedCharacters.length > 0) {
+        const entryCharsLower = entry.characters.map((c) => c.toLowerCase());
+        if (characterMatchMode === "all") {
+          const hasAll = selectedCharacters.every((sc) =>
+            entryCharsLower.includes(sc.toLowerCase())
+          );
+          if (!hasAll) return false;
+        } else {
+          const hasAny = selectedCharacters.some((sc) =>
+            entryCharsLower.includes(sc.toLowerCase())
+          );
+          if (!hasAny) return false;
+        }
       }
 
-      // Topic filter
-      if (selectedTopic !== "all" && !entry.topics.includes(selectedTopic)) {
-        return false;
+      // Topic multi-filter
+      if (selectedTopics.length > 0) {
+        const entryTopicsLower = entry.topics.map((t) => t.toLowerCase());
+        if (topicMatchMode === "all") {
+          const hasAll = selectedTopics.every((st) =>
+            entryTopicsLower.includes(st.toLowerCase())
+          );
+          if (!hasAll) return false;
+        } else {
+          const hasAny = selectedTopics.some((st) =>
+            entryTopicsLower.includes(st.toLowerCase())
+          );
+          if (!hasAny) return false;
+        }
       }
 
-      // Year filter
-      if (selectedYear !== "all") {
+      // Year multi-filter
+      if (selectedYears.length > 0) {
         const entryYear = getYearFromDate(getEntryDate(entry));
-        if (entryYear !== selectedYear) return false;
+        if (!entryYear || !selectedYears.includes(entryYear)) return false;
       }
 
       // Verified filter
@@ -312,10 +399,12 @@ export function BrowseClient({
   }, [
     combinedEntries,
     entryTypeFilter,
-    selectedArc,
-    selectedCharacter,
-    selectedTopic,
-    selectedYear,
+    selectedArcs,
+    selectedCharacters,
+    characterMatchMode,
+    selectedTopics,
+    topicMatchMode,
+    selectedYears,
     verifiedOnly,
     deferredSearchFilter,
   ]);
@@ -376,14 +465,48 @@ export function BrowseClient({
   const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
   const currentEntries = sortedEntries.slice(startIndex, startIndex + ITEMS_PER_PAGE);
 
-  const selectedIfRoute = useMemo(() => {
-    return ifRoutes.find((r) => r.slug === selectedArc);
-  }, [ifRoutes, selectedArc]);
+  // IF routes selected that are currently gated by user spoiler settings
+  const gatedSelectedIfRoutes = useMemo(() => {
+    return ifRoutes.filter(
+      (r) => selectedArcs.includes(r.slug) && !allowedIfRoutes.includes(r.slug)
+    );
+  }, [ifRoutes, selectedArcs, allowedIfRoutes]);
 
-  const isSelectedIfRouteGated = useMemo(() => {
-    if (!selectedIfRoute) return false;
-    return !allowedIfRoutes.includes(selectedIfRoute.slug);
-  }, [selectedIfRoute, allowedIfRoutes]);
+  // Sync active filters to URL search parameters for deep-linking and bookmarking
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const params = new URLSearchParams();
+    if (entryTypeFilter !== "all") params.set("type", entryTypeFilter);
+    if (selectedArcs.length > 0) params.set("arcs", selectedArcs.join(","));
+    if (selectedCharacters.length > 0) {
+      params.set("characters", selectedCharacters.join(","));
+      if (characterMatchMode === "any") params.set("charMatch", "any");
+    }
+    if (selectedTopics.length > 0) {
+      params.set("topics", selectedTopics.join(","));
+      if (topicMatchMode === "all") params.set("topicMatch", "all");
+    }
+    if (selectedYears.length > 0) params.set("years", selectedYears.join(","));
+    if (verifiedOnly) params.set("verified", "true");
+    if (searchFilter.trim()) params.set("search", searchFilter.trim());
+
+    const newQuery = params.toString();
+    const currentQuery = window.location.search.replace(/^\?/, "");
+    if (newQuery !== currentQuery) {
+      const newUrl = newQuery ? `/browse?${newQuery}` : "/browse";
+      window.history.replaceState(null, "", newUrl);
+    }
+  }, [
+    entryTypeFilter,
+    selectedArcs,
+    selectedCharacters,
+    characterMatchMode,
+    selectedTopics,
+    topicMatchMode,
+    selectedYears,
+    verifiedOnly,
+    searchFilter,
+  ]);
 
   // Handle deep-link scrolling to ?id=0001 or ?id=TR-0001 (auto switches to correct page)
   useEffect(() => {
@@ -430,19 +553,21 @@ export function BrowseClient({
   // Active filters count
   const hasActiveFilters =
     entryTypeFilter !== "all" ||
-    selectedArc !== "all" ||
-    selectedCharacter !== "all" ||
-    selectedTopic !== "all" ||
-    selectedYear !== "all" ||
+    selectedArcs.length > 0 ||
+    selectedCharacters.length > 0 ||
+    selectedTopics.length > 0 ||
+    selectedYears.length > 0 ||
     verifiedOnly ||
     searchFilter.trim() !== "";
 
   const clearAllFilters = () => {
     setEntryTypeFilter("all");
-    setSelectedArc("all");
-    setSelectedCharacter("all");
-    setSelectedTopic("all");
-    setSelectedYear("all");
+    setSelectedArcs([]);
+    setSelectedCharacters([]);
+    setCharacterMatchMode("all");
+    setSelectedTopics([]);
+    setTopicMatchMode("any");
+    setSelectedYears([]);
     setVerifiedOnly(false);
     setSearchFilter("");
     setCurrentPage(1);
@@ -581,74 +706,90 @@ export function BrowseClient({
             />
           </div>
 
-          {/* Arc / Storyline Selector */}
+          {/* Arc / Storyline Multi-Selector */}
           <div className="space-y-1.5">
             <label htmlFor="arc-select" className="text-xs font-mono font-bold uppercase tracking-wider text-[var(--text-muted)]">
               Arc / Storyline
             </label>
-            <CustomSelect
+            <CustomMultiSelect
               id="arc-select"
-              value={selectedArc}
-              onChange={(val) => {
-                setSelectedArc(val);
+              values={selectedArcs}
+              onChange={(vals) => {
+                setSelectedArcs(vals);
                 setCurrentPage(1);
               }}
               options={arcOptions}
               placeholder="All Arcs & Storylines"
+              showSearch={true}
             />
           </div>
 
-          {/* Character Selector */}
+          {/* Character Multi-Selector with Match Mode */}
           <div className="space-y-1.5">
-            <label htmlFor="char-select" className="text-xs font-mono font-bold uppercase tracking-wider text-[var(--text-muted)]">
-              Character ({allCharacters.length})
-            </label>
-            <CustomSelect
+            <div className="flex items-center justify-between">
+              <label htmlFor="char-select" className="text-xs font-mono font-bold uppercase tracking-wider text-[var(--text-muted)]">
+                Characters ({allCharacters.length})
+              </label>
+            </div>
+            <CustomMultiSelect
               id="char-select"
-              value={selectedCharacter}
-              onChange={(val) => {
-                setSelectedCharacter(val);
+              values={selectedCharacters}
+              onChange={(vals) => {
+                setSelectedCharacters(vals);
                 setCurrentPage(1);
               }}
               options={characterOptions}
               placeholder="All Characters"
               showSearch={true}
+              matchMode={characterMatchMode}
+              onMatchModeChange={(mode) => {
+                setCharacterMatchMode(mode);
+                setCurrentPage(1);
+              }}
             />
           </div>
 
-          {/* Topic Selector */}
+          {/* Topic Multi-Selector with Match Mode */}
           <div className="space-y-1.5">
-            <label htmlFor="topic-select" className="text-xs font-mono font-bold uppercase tracking-wider text-[var(--text-muted)]">
-              Topic ({allTopics.length})
-            </label>
-            <CustomSelect
+            <div className="flex items-center justify-between">
+              <label htmlFor="topic-select" className="text-xs font-mono font-bold uppercase tracking-wider text-[var(--text-muted)]">
+                Topics ({allTopics.length})
+              </label>
+            </div>
+            <CustomMultiSelect
               id="topic-select"
-              value={selectedTopic}
-              onChange={(val) => {
-                setSelectedTopic(val);
+              values={selectedTopics}
+              onChange={(vals) => {
+                setSelectedTopics(vals);
                 setCurrentPage(1);
               }}
               options={topicOptions}
               placeholder="All Topics"
               showSearch={true}
+              matchMode={topicMatchMode}
+              onMatchModeChange={(mode) => {
+                setTopicMatchMode(mode);
+                setCurrentPage(1);
+              }}
             />
           </div>
 
-          {/* Year Selector */}
+          {/* Year Multi-Selector */}
           {availableYears.length > 0 && (
             <div className="space-y-1.5">
               <label htmlFor="year-select" className="text-xs font-mono font-bold uppercase tracking-wider text-[var(--text-muted)]">
                 Year ({availableYears.length})
               </label>
-              <CustomSelect
+              <CustomMultiSelect
                 id="year-select"
-                value={selectedYear}
-                onChange={(val) => {
-                  setSelectedYear(val);
+                values={selectedYears}
+                onChange={(vals) => {
+                  setSelectedYears(vals);
                   setCurrentPage(1);
                 }}
                 options={yearOptions}
                 placeholder="All Years"
+                showSearch={false}
               />
             </div>
           )}
@@ -748,61 +889,104 @@ export function BrowseClient({
                 </span>
               )}
 
-              {selectedArc !== "all" && (
-                <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs sm:text-sm font-medium bg-[var(--bg-elevated)] border border-[var(--border-subtle)] text-[var(--text-main)]">
-                  Arc: {selectedArc}
+              {/* Arc Pills */}
+              {selectedArcs.map((arcSlug) => {
+                const opt = arcOptions.find((o) => o.value === arcSlug);
+                const rawLabel = opt ? opt.label : arcSlug;
+                const displayLabel = rawLabel.startsWith("Arc ")
+                  ? rawLabel
+                  : arcSlug === "general"
+                  ? "General (No Spoilers)"
+                  : `Story: ${rawLabel}`;
+                return (
+                  <span
+                    key={`pill-arc-${arcSlug}`}
+                    className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs sm:text-sm font-medium bg-[var(--bg-elevated)] border border-[var(--border-subtle)] text-[var(--text-main)]"
+                  >
+                    {displayLabel}
+                    <button
+                      type="button"
+                      onClick={() => setSelectedArcs(selectedArcs.filter((a) => a !== arcSlug))}
+                      aria-label={`Remove arc filter for ${rawLabel}`}
+                      className="hover:text-[var(--accent)] ml-1 font-bold cursor-pointer"
+                    >
+                      ×
+                    </button>
+                  </span>
+                );
+              })}
+
+              {/* Character Pills */}
+              {selectedCharacters.map((char) => (
+                <span
+                  key={`pill-char-${char}`}
+                  className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs sm:text-sm font-medium bg-[var(--bg-elevated)] border border-[var(--border-subtle)] text-[var(--text-main)]"
+                >
+                  Character: {char}
                   <button
                     type="button"
-                    onClick={() => setSelectedArc("all")}
-                    aria-label={`Remove arc filter for ${selectedArc}`}
+                    onClick={() => setSelectedCharacters(selectedCharacters.filter((c) => c !== char))}
+                    aria-label={`Remove character filter for ${char}`}
                     className="hover:text-[var(--accent)] ml-1 font-bold cursor-pointer"
                   >
                     ×
                   </button>
+                </span>
+              ))}
+
+              {selectedCharacters.length > 1 && (
+                <span
+                  title={characterMatchMode === "all" ? "Matching all selected characters (AND)" : "Matching any selected character (OR)"}
+                  className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-[var(--accent)]/10 text-[var(--accent)] border border-[var(--accent)]/30 font-semibold"
+                >
+                  Chars: {characterMatchMode.toUpperCase()}
                 </span>
               )}
 
-              {selectedCharacter !== "all" && (
-                <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs sm:text-sm font-medium bg-[var(--bg-elevated)] border border-[var(--border-subtle)] text-[var(--text-main)]">
-                  Character: {selectedCharacter}
+              {/* Topic Pills */}
+              {selectedTopics.map((topic) => (
+                <span
+                  key={`pill-topic-${topic}`}
+                  className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs sm:text-sm font-medium bg-[var(--bg-elevated)] border border-[var(--border-subtle)] text-[var(--text-main)]"
+                >
+                  Topic: {topic}
                   <button
                     type="button"
-                    onClick={() => setSelectedCharacter("all")}
-                    aria-label={`Remove character filter for ${selectedCharacter}`}
+                    onClick={() => setSelectedTopics(selectedTopics.filter((t) => t !== topic))}
+                    aria-label={`Remove topic filter for ${topic}`}
                     className="hover:text-[var(--accent)] ml-1 font-bold cursor-pointer"
                   >
                     ×
                   </button>
+                </span>
+              ))}
+
+              {selectedTopics.length > 1 && (
+                <span
+                  title={topicMatchMode === "all" ? "Matching all selected topics (AND)" : "Matching any selected topic (OR)"}
+                  className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-[var(--accent)]/10 text-[var(--accent)] border border-[var(--accent)]/30 font-semibold"
+                >
+                  Topics: {topicMatchMode.toUpperCase()}
                 </span>
               )}
 
-              {selectedTopic !== "all" && (
-                <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs sm:text-sm font-medium bg-[var(--bg-elevated)] border border-[var(--border-subtle)] text-[var(--text-main)]">
-                  Topic: {selectedTopic}
+              {/* Year Pills */}
+              {selectedYears.map((year) => (
+                <span
+                  key={`pill-year-${year}`}
+                  className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs sm:text-sm font-medium bg-[var(--bg-elevated)] border border-[var(--border-subtle)] text-[var(--text-main)]"
+                >
+                  Year: {year}
                   <button
                     type="button"
-                    onClick={() => setSelectedTopic("all")}
-                    aria-label={`Remove topic filter for ${selectedTopic}`}
+                    onClick={() => setSelectedYears(selectedYears.filter((y) => y !== year))}
+                    aria-label={`Remove year filter for ${year}`}
                     className="hover:text-[var(--accent)] ml-1 font-bold cursor-pointer"
                   >
                     ×
                   </button>
                 </span>
-              )}
-
-              {selectedYear !== "all" && (
-                <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs sm:text-sm font-medium bg-[var(--bg-elevated)] border border-[var(--border-subtle)] text-[var(--text-main)]">
-                  Year: {selectedYear}
-                  <button
-                    type="button"
-                    onClick={() => setSelectedYear("all")}
-                    aria-label={`Remove year filter for ${selectedYear}`}
-                    className="hover:text-[var(--accent)] ml-1 font-bold cursor-pointer"
-                  >
-                    ×
-                  </button>
-                </span>
-              )}
+              ))}
 
               {verifiedOnly && (
                 <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs sm:text-sm font-medium bg-[var(--verified-bg)] border border-[var(--verified-border)] text-[var(--verified-text)]">
@@ -842,19 +1026,28 @@ export function BrowseClient({
             </div>
           )}
 
-          {/* IF Route Spoiler Notice */}
-          {isSelectedIfRouteGated && selectedIfRoute && (
-            <div className="p-4 rounded-xl border border-[var(--warning-border)] bg-[var(--warning-bg)] flex flex-wrap items-center justify-between gap-3">
-              <div className="flex items-center gap-2 text-xs sm:text-sm text-[var(--warning-text)]">
-                <span>⚠️ Spoilers for <strong>{selectedIfRoute.name}</strong> are currently hidden by your spoiler filter. Individual cards below are masked.</span>
-              </div>
-              <button
-                type="button"
-                onClick={() => toggleIfRoute(selectedIfRoute.slug)}
-                className="px-3 py-1.5 rounded-lg bg-[var(--accent)] text-white text-xs font-semibold hover:bg-[var(--accent-hover)] transition-colors whitespace-nowrap cursor-pointer"
-              >
-                Reveal &amp; Allow {selectedIfRoute.name}
-              </button>
+          {/* IF Route Spoiler Notices for any selected IF routes currently gated */}
+          {gatedSelectedIfRoutes.length > 0 && (
+            <div className="space-y-2">
+              {gatedSelectedIfRoutes.map((route) => (
+                <div
+                  key={route.slug}
+                  className="p-4 rounded-xl border border-[var(--warning-border)] bg-[var(--warning-bg)] flex flex-wrap items-center justify-between gap-3"
+                >
+                  <div className="flex items-center gap-2 text-xs sm:text-sm text-[var(--warning-text)]">
+                    <span>
+                      ⚠️ Spoilers for <strong>{route.name}</strong> are currently hidden by your spoiler filter. Individual cards below are masked.
+                    </span>
+                  </div>
+                  <button
+                    type="button"
+                    onClick={() => toggleIfRoute(route.slug)}
+                    className="px-3 py-1.5 rounded-lg bg-[var(--accent)] text-white text-xs font-semibold hover:bg-[var(--accent-hover)] transition-colors whitespace-nowrap cursor-pointer"
+                  >
+                    Reveal &amp; Allow {route.name}
+                  </button>
+                </div>
+              ))}
             </div>
           )}
 

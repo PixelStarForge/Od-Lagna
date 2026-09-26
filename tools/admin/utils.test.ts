@@ -2,6 +2,8 @@ import {
   normalizeQuestion,
   calculateSimilarity,
   findDuplicates,
+  findTriviaDuplicates,
+  normalizeTriviaId,
   suggestTags,
   parseQuickPaste,
 } from "./utils";
@@ -105,5 +107,49 @@ assert(parsed.source?.type === "url", "Source type mismatch");
 assert(parsed.characters.includes("Reinhard van Astrea"), "Should detect Reinhard");
 assert(parsed.characters.includes("Satella"), "Should detect Satella");
 console.log("✓ parseQuickPaste passed");
+
+// 6. normalizeTriviaId
+console.log("\n6. Testing normalizeTriviaId...");
+assert(normalizeTriviaId("15") === "TR-0015", "Should normalize '15' to 'TR-0015'");
+assert(normalizeTriviaId("0015") === "TR-0015", "Should normalize '0015' to 'TR-0015'");
+assert(normalizeTriviaId("TR-15") === "TR-0015", "Should normalize 'TR-15' to 'TR-0015'");
+assert(normalizeTriviaId("TR-0015") === "TR-0015", "Should keep 'TR-0015' canonical");
+assert(normalizeTriviaId("tr-0016") === "TR-0016", "Should normalize lowercase 'tr-0016'");
+assert(normalizeTriviaId("16") === "TR-0016", "Should normalize '16' to 'TR-0016'");
+console.log("✓ normalizeTriviaId passed");
+
+// 7. findTriviaDuplicates
+console.log("\n7. Testing findTriviaDuplicates for TR-0015 and TR-0016...");
+const triviaEntries = [
+  {
+    id: "TR-0015",
+    text: "Tappei had to really insist on keeping on the Anime keeping the scene in where Ram shoves her fingers down Subaru's throat, to help him vomit.",
+  },
+  {
+    id: "TR-0016",
+    text: "Julius, Ferris and Reinhard are \"The Three Knights\", like how Chisha, Cecilus and Vincent are \"The Three Crows\" and Subaru and his gang are \"The Three Idiots\".",
+  },
+];
+
+// Verify 15 and 16 are not duplicates of each other
+const diffCheck = findTriviaDuplicates(triviaEntries[0].text, triviaEntries, "TR-0015");
+assert(diffCheck.isExactDuplicate === false, "TR-0015 should not collide with TR-0016");
+
+const diffCheck2 = findTriviaDuplicates(triviaEntries[1].text, triviaEntries, "TR-0016");
+assert(diffCheck2.isExactDuplicate === false, "TR-0016 should not collide with TR-0015");
+
+// Verify self-edit exclusion works with canonical and un-prefixed IDs
+assert(findTriviaDuplicates(triviaEntries[0].text, triviaEntries, "TR-0015").isExactDuplicate === false, "Should exclude TR-0015 with canonical ID");
+assert(findTriviaDuplicates(triviaEntries[0].text, triviaEntries, "15").isExactDuplicate === false, "Should exclude TR-0015 with un-prefixed '15'");
+assert(findTriviaDuplicates(triviaEntries[0].text, triviaEntries, "0015").isExactDuplicate === false, "Should exclude TR-0015 with padded '0015'");
+assert(findTriviaDuplicates(triviaEntries[1].text, triviaEntries, "TR-0016").isExactDuplicate === false, "Should exclude TR-0016 with canonical ID");
+assert(findTriviaDuplicates(triviaEntries[1].text, triviaEntries, "16").isExactDuplicate === false, "Should exclude TR-0016 with un-prefixed '16'");
+
+// Verify duplicate detection still catches actual duplicate
+const dup15 = findTriviaDuplicates(triviaEntries[0].text, triviaEntries);
+assert(dup15.isExactDuplicate === true && dup15.exactMatch?.id === "TR-0015", "Should detect exact duplicate TR-0015 when not self-editing");
+const dup16 = findTriviaDuplicates(triviaEntries[1].text, triviaEntries);
+assert(dup16.isExactDuplicate === true && dup16.exactMatch?.id === "TR-0016", "Should detect exact duplicate TR-0016 when not self-editing");
+console.log("✓ findTriviaDuplicates passed");
 
 console.log("\n🎉 ALL TESTS PASSED!");
