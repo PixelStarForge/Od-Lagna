@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect, useRef, useMemo } from "react";
+import React, { useState, useEffect, useRef, useMemo, useDeferredValue } from "react";
 import { useRouter } from "next/navigation";
 import Fuse from "fuse.js";
 import { usePreferences } from "../lib/preferences";
@@ -19,7 +19,10 @@ export function SearchModal() {
   const { isSearchOpen, setIsSearchOpen, spoilerArc, allowedIfRoutes } = usePreferences();
   const router = useRouter();
 
-  const [query, setQuery] = useState("");
+  const [inputValue, setInputValue] = useState("");
+  const [debouncedQuery, setDebouncedQuery] = useState("");
+  const deferredQuery = useDeferredValue(debouncedQuery);
+
   const [indexRecords, setIndexRecords] = useState<SearchIndexRecord[]>([]);
   const [indexCharacters, setIndexCharacters] = useState<string[]>([]);
   const [indexTopics, setIndexTopics] = useState<string[]>([]);
@@ -30,6 +33,16 @@ export function SearchModal() {
   const listRef = useRef<HTMLDivElement>(null);
 
   const isLoading = isSearchOpen && !hasLoaded;
+
+  // Debounce search query to prevent lag on multi-word strings while keeping input responsive
+  useEffect(() => {
+    const trimmed = inputValue.trim();
+    const delay = !trimmed || /^#?\d+$/.test(trimmed) || /^TR-?\d*$/i.test(trimmed) ? 0 : 150;
+    const timer = setTimeout(() => {
+      setDebouncedQuery(inputValue);
+    }, delay);
+    return () => clearTimeout(timer);
+  }, [inputValue]);
 
   // Lazy-load the search index only when the modal opens
   useEffect(() => {
@@ -77,7 +90,8 @@ export function SearchModal() {
   useEffect(() => {
     if (isSearchOpen) {
       const timer = setTimeout(() => {
-        setQuery("");
+        setInputValue("");
+        setDebouncedQuery("");
         setSelectedIndex(0);
         if (inputRef.current) {
           inputRef.current.focus();
@@ -95,7 +109,35 @@ export function SearchModal() {
     );
   }, [indexRecords, spoilerArc, allowedIfRoutes]);
 
-  // Create Fuse instance strictly on spoiler-allowed records
+  // Pre-index allowed records to avoid redundant lowercase/string operations during search
+  const indexedRecords = useMemo(() => {
+    return allowedRecords.map((record) => {
+      const idLower = record.id.toLowerCase();
+      const questionLower = (record.question || "").toLowerCase();
+      const answerLower = (record.answerSearchText || "").toLowerCase();
+      const titleLower = (record.title || "").toLowerCase();
+      const charactersLower = record.characters.map((c) => c.toLowerCase());
+      const topicsLower = record.topics.map((t) => t.toLowerCase());
+      const arcNameLower = (record.arcName || "").toLowerCase();
+
+      // Combined search haystack for fast multi-token containment
+      const haystack = `${idLower} ${titleLower} ${questionLower} ${answerLower} ${charactersLower.join(" ")} ${topicsLower.join(" ")} ${arcNameLower}`;
+
+      return {
+        record,
+        idLower,
+        questionLower,
+        answerLower,
+        titleLower,
+        charactersLower,
+        topicsLower,
+        arcNameLower,
+        haystack,
+      };
+    });
+  }, [allowedRecords]);
+
+  // Create Fuse instance strictly on spoiler-allowed records for typo-tolerant fallback
   const fuse = useMemo(() => {
     if (allowedRecords.length === 0) return null;
     return new Fuse(allowedRecords, {
@@ -112,110 +154,195 @@ export function SearchModal() {
     });
   }, [allowedRecords]);
 
-  // Compute grouped search results
+  // Compute grouped search results with tokenized multi-word matching
   const groupedResults = useMemo(() => {
-    const q = query.trim().toLowerCase();
+    const q = deferredQuery.trim().toLowerCase();
     if (!q) {
       return { qnas: [], characters: [], topics: [], arcs: [], flatList: [] };
     }
 
     const cleanQ = q.replace(/^#/, "").replace(/^qna[\s#-]+/i, "").trim();
     const isNumericQuery = /^\d+$/.test(cleanQ);
-
-    // 1. Direct ID matching (exact and partial)
-    const exactIdMatches: SearchIndexRecord[] = [];
-    const partialIdMatches: SearchIndexRecord[] = [];
-
-    if (isNumericQuery) {
-      const targetPadded = cleanQ.padStart(4, "0");
-      for (const record of allowedRecords) {
-        if (record.id === cleanQ || record.id === targetPadded) {
-          exactIdMatches.push(record);
-        } else if (cleanQ.length >= 2 && record.id.includes(cleanQ)) {
-          partialIdMatches.push(record);
-        }
-      }
-    }
-
-    // 2. QnA Matches via Fuse.js (only non-spoiler records)
-    const fuseMatches: SearchIndexRecord[] = fuse
-      ? fuse.search(q, { limit: 8 }).map((res) => res.item)
-      : [];
+    const isTriviaQuery = /^tr[-_\s]?\d+/i.test(cleanQ);
 
     const seenQnaIds = new Set<string>();
     const qnas: SearchIndexRecord[] = [];
 
-    // Exact ID matches have top priority
-    for (const item of exactIdMatches) {
-      if (!seenQnaIds.has(item.id)) {
-        seenQnaIds.add(item.id);
-        qnas.push(item);
+    // 1. Direct ID matching (exact and partial)
+    if (isTriviaQuery) {
+      const numPart = cleanQ.replace(/^tr[-_\s]?/i, "");
+      const formatted = `TR-${numPart.padStart(4, "0")}`.toLowerCase();
+      for (const item of indexedRecords) {
+        if (item.idLower === cleanQ || item.idLower === formatted) {
+          seenQnaIds.add(item.record.id);
+          qnas.push(item.record);
+          break;
+        }
+      }
+    } else if (isNumericQuery) {
+      const targetPadded = cleanQ.padStart(4, "0");
+      for (const item of indexedRecords) {
+        if (item.record.id === cleanQ || item.record.id === targetPadded) {
+          seenQnaIds.add(item.record.id);
+          qnas.push(item.record);
+        } else if (cleanQ.length >= 2 && item.record.id.includes(cleanQ)) {
+          if (!seenQnaIds.has(item.record.id) && qnas.length < 8) {
+            seenQnaIds.add(item.record.id);
+            qnas.push(item.record);
+          }
+        }
       }
     }
 
-    // Partial ID matches (if any, e.g. typing 102...)
-    for (const item of partialIdMatches) {
-      if (qnas.length >= 8) break;
-      if (!seenQnaIds.has(item.id)) {
-        seenQnaIds.add(item.id);
-        qnas.push(item);
-      }
-    }
+    // 2. Multi-word / Keyword matching
+    const tokens = q.split(/\s+/).filter(Boolean);
 
-    // Fuse matches
-    for (const item of fuseMatches) {
-      if (qnas.length >= 8) break;
-      if (!seenQnaIds.has(item.id)) {
-        seenQnaIds.add(item.id);
-        qnas.push(item);
-      }
-    }
+    if (tokens.length >= 2) {
+      // Score-based token intersection
+      const candidates: { record: SearchIndexRecord; score: number }[] = [];
 
-    // Also check direct substring matches if Fuse returns few
-    if (qnas.length < 5) {
-      for (const item of allowedRecords) {
-        if (seenQnaIds.has(item.id)) continue;
-        if (
-          item.id.includes(cleanQ) ||
-          item.id.toLowerCase().includes(q) ||
-          item.question.toLowerCase().includes(q) ||
-          item.answerSearchText.toLowerCase().includes(q) ||
-          item.characters.some((c) => c.toLowerCase().includes(q)) ||
-          item.topics.some((t) => t.toLowerCase().includes(q))
-        ) {
-          qnas.push(item);
-          seenQnaIds.add(item.id);
+      for (const item of indexedRecords) {
+        if (seenQnaIds.has(item.record.id)) continue;
+
+        // All tokens must be present in the pre-computed haystack
+        const allTokensMatch = tokens.every((tok) => item.haystack.includes(tok));
+        if (!allTokensMatch) continue;
+
+        let score = 0;
+
+        // Exact full phrase bonus
+        if (item.questionLower.includes(q)) score += 120;
+        if (item.titleLower.includes(q)) score += 100;
+        if (item.answerLower.includes(q)) score += 60;
+
+        // Token presence in question/tags
+        const allInQuestion = tokens.every((tok) => item.questionLower.includes(tok));
+        if (allInQuestion) score += 50;
+
+        const allInTags = tokens.every(
+          (tok) =>
+            item.charactersLower.some((c) => c.includes(tok)) ||
+            item.topicsLower.some((t) => t.includes(tok))
+        );
+        if (allInTags) score += 40;
+
+        // Individual token hits
+        for (const tok of tokens) {
+          if (item.questionLower.includes(tok)) score += 10;
+          if (item.titleLower.includes(tok)) score += 10;
+          if (item.charactersLower.some((c) => c.includes(tok))) score += 8;
+          if (item.topicsLower.some((t) => t.includes(tok))) score += 5;
+        }
+
+        if (item.record.verified) score += 2;
+
+        candidates.push({ record: item.record, score });
+      }
+
+      candidates.sort((a, b) => b.score - a.score);
+
+      for (const cand of candidates) {
+        if (qnas.length >= 8) break;
+        if (!seenQnaIds.has(cand.record.id)) {
+          seenQnaIds.add(cand.record.id);
+          qnas.push(cand.record);
+        }
+      }
+    } else {
+      // Single token search:
+      // Fast exact substring match across question, title, tags, answer
+      const exactMatches: { record: SearchIndexRecord; score: number }[] = [];
+
+      for (const item of indexedRecords) {
+        if (seenQnaIds.has(item.record.id)) continue;
+
+        let score = 0;
+        if (item.questionLower.includes(q)) score += 50;
+        if (item.titleLower.includes(q)) score += 40;
+        if (item.charactersLower.some((c) => c.includes(q))) score += 30;
+        if (item.topicsLower.some((t) => t.includes(q))) score += 20;
+        if (item.answerLower.includes(q)) score += 10;
+
+        if (score > 0) {
+          if (item.record.verified) score += 2;
+          exactMatches.push({ record: item.record, score });
+        }
+      }
+
+      exactMatches.sort((a, b) => b.score - a.score);
+
+      for (const m of exactMatches) {
+        if (qnas.length >= 8) break;
+        if (!seenQnaIds.has(m.record.id)) {
+          seenQnaIds.add(m.record.id);
+          qnas.push(m.record);
+        }
+      }
+
+      // If exact substring gave < 5 results and query has >= 3 chars, use Fuse for fuzzy typo tolerance
+      if (qnas.length < 5 && cleanQ.length >= 3 && fuse) {
+        const fuzzyResults = fuse.search(q, { limit: 8 });
+        for (const res of fuzzyResults) {
           if (qnas.length >= 8) break;
+          if (!seenQnaIds.has(res.item.id)) {
+            seenQnaIds.add(res.item.id);
+            qnas.push(res.item);
+          }
         }
       }
     }
 
     // 3. Character Matches
     const matchedChars = indexCharacters
-      .filter((c) => c.toLowerCase().includes(q) || (cleanQ && c.toLowerCase().includes(cleanQ)))
+      .filter((c) => {
+        const cLower = c.toLowerCase();
+        if (tokens.length <= 1) {
+          return cLower.includes(q) || (cleanQ && cLower.includes(cleanQ));
+        }
+        return tokens.every((tok) => cLower.includes(tok));
+      })
       .slice(0, 5);
 
     // 4. Topic Matches
     const matchedTopics = indexTopics
-      .filter((t) => t.toLowerCase().includes(q) || (cleanQ && t.toLowerCase().includes(cleanQ)))
+      .filter((t) => {
+        const tLower = t.toLowerCase();
+        if (tokens.length <= 1) {
+          return tLower.includes(q) || (cleanQ && tLower.includes(cleanQ));
+        }
+        return tokens.every((tok) => tLower.includes(tok));
+      })
       .slice(0, 5);
 
-    // 5. Arc / IF Route Matches (filter by spoiler cutoff as well)
+    // 5. Arc / IF Route Matches
     const matchedArcs: { slug: string; name: string }[] = [];
     for (const a of CANON_ARCS) {
       if (a.order > spoilerArc) continue;
-      const arcOrderStr = `arc ${a.order}`;
-      if (
-        a.name.toLowerCase().includes(q) ||
-        arcOrderStr.toLowerCase().includes(q) ||
-        a.slug.toLowerCase().includes(q)
-      ) {
+      const arcOrderStr = `arc ${a.order}`.toLowerCase();
+      const aName = a.name.toLowerCase();
+      const aSlug = a.slug.toLowerCase();
+
+      const matches =
+        tokens.length <= 1
+          ? aName.includes(q) || arcOrderStr.includes(q) || aSlug.includes(q)
+          : tokens.every((tok) => aName.includes(tok) || arcOrderStr.includes(tok) || aSlug.includes(tok));
+
+      if (matches) {
         matchedArcs.push({ slug: a.slug, name: `Arc ${a.order}: ${a.name}` });
       }
     }
+
     for (const r of IF_ROUTES) {
       if (!allowedIfRoutes.includes(r.slug)) continue;
-      if (r.name.toLowerCase().includes(q) || r.slug.toLowerCase().includes(q)) {
+      const rName = r.name.toLowerCase();
+      const rSlug = r.slug.toLowerCase();
+
+      const matches =
+        tokens.length <= 1
+          ? rName.includes(q) || rSlug.includes(q)
+          : tokens.every((tok) => rName.includes(tok) || rSlug.includes(tok));
+
+      if (matches) {
         matchedArcs.push({ slug: r.slug, name: r.name });
       }
     }
@@ -229,7 +356,7 @@ export function SearchModal() {
     ];
 
     return { qnas, characters: matchedChars, topics: matchedTopics, arcs: matchedArcs, flatList };
-  }, [query, fuse, allowedRecords, indexCharacters, indexTopics, spoilerArc, allowedIfRoutes]);
+  }, [deferredQuery, fuse, indexedRecords, indexCharacters, indexTopics, spoilerArc, allowedIfRoutes]);
 
   const navigateTo = (url: string) => {
     setIsSearchOpen(false);
@@ -249,8 +376,8 @@ export function SearchModal() {
       const selected = groupedResults.flatList[selectedIndex];
       if (selected) {
         handleSelectItem(selected);
-      } else if (query.trim()) {
-        navigateTo(`/browse?search=${encodeURIComponent(query.trim())}`);
+      } else if (inputValue.trim()) {
+        navigateTo(`/browse?search=${encodeURIComponent(inputValue.trim())}`);
       }
       return;
     }
@@ -304,9 +431,9 @@ export function SearchModal() {
           <input
             ref={inputRef}
             type="text"
-            value={query}
+            value={inputValue}
             onChange={(e) => {
-              setQuery(e.target.value);
+              setInputValue(e.target.value);
               setSelectedIndex(0);
             }}
             placeholder="Search questions, answers, characters, topics, arcs, #ID..."
@@ -314,11 +441,12 @@ export function SearchModal() {
             autoComplete="off"
             spellCheck="false"
           />
-          {query && (
+          {inputValue && (
             <button
               type="button"
               onClick={() => {
-                setQuery("");
+                setInputValue("");
+                setDebouncedQuery("");
                 setSelectedIndex(0);
                 inputRef.current?.focus();
               }}
@@ -340,7 +468,7 @@ export function SearchModal() {
             </div>
           )}
 
-          {!isLoading && query.trim() === "" && (
+          {!isLoading && inputValue.trim() === "" && (
             <div className="p-6 text-center space-y-3">
               <p className="text-sm text-[var(--text-muted)]">
                 Type any character name, topic, arc, or keyword to search the archive.
@@ -352,7 +480,8 @@ export function SearchModal() {
                     key={sug}
                     type="button"
                     onClick={() => {
-                      setQuery(sug);
+                      setInputValue(sug);
+                      setDebouncedQuery(sug);
                       setSelectedIndex(0);
                       inputRef.current?.focus();
                     }}
@@ -365,21 +494,21 @@ export function SearchModal() {
             </div>
           )}
 
-          {!isLoading && query.trim() !== "" && groupedResults.flatList.length === 0 && (
+          {!isLoading && inputValue.trim() !== "" && groupedResults.flatList.length === 0 && (
             <div className="p-8 text-center text-sm text-[var(--text-muted)] space-y-3">
               <div>
-                <p className="font-semibold text-[var(--text-main)]">No direct matches found for &ldquo;{query}&rdquo;</p>
+                <p className="font-semibold text-[var(--text-main)]">No direct matches found for &ldquo;{inputValue}&rdquo;</p>
                 <p className="text-xs text-[var(--text-muted)] mt-1">Press Enter or click below to search across all indexed statements.</p>
               </div>
               <div>
                 <button
                   type="button"
                   onClick={() => {
-                    navigateTo(`/browse?search=${encodeURIComponent(query.trim())}`);
+                    navigateTo(`/browse?search=${encodeURIComponent(inputValue.trim())}`);
                   }}
                   className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-[var(--border-subtle)] bg-[var(--bg-elevated)] hover:border-[var(--accent)] text-xs font-medium text-[var(--accent)] cursor-pointer transition-colors"
                 >
-                  <span>Search archive for &ldquo;{query}&rdquo; in Browse</span>
+                  <span>Search archive for &ldquo;{inputValue}&rdquo; in Browse</span>
                   <span>↗</span>
                 </button>
               </div>
@@ -522,7 +651,7 @@ export function SearchModal() {
                       )}
                     </div>
                     <p className={`font-semibold line-clamp-1 text-sm ${isSelected ? "text-[var(--accent-text)]" : "text-[var(--text-main)]"}`}>
-                      {qna.question}
+                      {qna.title || qna.question}
                     </p>
                     <p className="text-xs sm:text-sm text-[var(--text-muted)] line-clamp-1">
                       {qna.answerSnippet}
@@ -541,7 +670,7 @@ export function SearchModal() {
             <span>↵ Select</span>
             <span>ESC Close</span>
           </div>
-          <span>Fuse.js Fuzzy Search</span>
+          <span>Multi-Token &amp; Fuzzy Search</span>
         </div>
       </div>
     </div>

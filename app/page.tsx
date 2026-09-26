@@ -185,7 +185,7 @@ export default function HomePage() {
               </Link>
             </div>
             <p className="text-xs sm:text-sm text-[var(--text-muted)] mt-0.5">
-              Alternate divergence routes exploring alternate choices made by Subaru Natsuki.
+              Alternate divergence routes exploring alternate choices made by Natsuki Subaru.
             </p>
           </div>
           <Link

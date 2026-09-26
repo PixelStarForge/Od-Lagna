@@ -1,20 +1,18 @@
 {
   "id": "TR-0001",
-  "title": "Test 1 Trivia",
-  "text": "This is for testing of trivia card and features. It will be removed in future deployments",
-  "arc": "general",
+  "title": "Subaru Hair Style in Sasageru If",
+  "text": "Subaru's hairstyle in Sasageru If is practically the same as he did it in  Sloth If, with it tied up in pony tail behind.",
+  "arc": "if-sasageru",
   "characters": [
-    "Subaru Natsuki"
+    "Natsuki Subaru"
   ],
   "topics": [
-    "General"
+    "Sasageru IF"
   ],
-  "sources": [
-    {
-      "type": "url",
-      "value": "https://od-lagna.pages.dev"
-    }
-  ],
+  "source": {
+    "type": "url",
+    "value": "https://x.com/rezero_ice/status/2040685151517134958"
+  },
   "verified": true,
-  "date": "2020-07-22"
+  "dateTime": "2026-04-05"
 }

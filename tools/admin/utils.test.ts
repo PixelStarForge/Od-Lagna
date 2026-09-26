@@ -67,10 +67,10 @@ console.log("✓ findDuplicates passed");
 
 // 4. suggestTags
 console.log("\n4. Testing suggestTags...");
-const knownChars = ["Subaru Natsuki", "Emilia", "Rem", "Reinhard van Astrea", "Beatrice"];
+const knownChars = ["Natsuki Subaru", "Emilia", "Rem", "Reinhard van Astrea", "Beatrice"];
 const sampleText = "Subaru and Emilia went to the mansion to visit Beatrice.";
 const suggested = suggestTags(sampleText, knownChars);
-assert(suggested.includes("Subaru Natsuki"), "Should suggest Subaru Natsuki from 'Subaru'");
+assert(suggested.includes("Natsuki Subaru"), "Should suggest Natsuki Subaru from 'Subaru'");
 assert(suggested.includes("Emilia"), "Should suggest Emilia");
 assert(suggested.includes("Beatrice"), "Should suggest Beatrice");
 assert(!suggested.includes("Rem"), "Should not suggest Rem");
@@ -87,7 +87,7 @@ Source: https://twitter.com/nezumiironyanko/status/123456789
 `;
 
 const parsed = parseQuickPaste(rawPaste, {
-  characters: ["Reinhard van Astrea", "Satella", "Subaru Natsuki"],
+  characters: ["Reinhard van Astrea", "Satella", "Natsuki Subaru"],
   topics: ["Combat & Tiering"],
   arcs: [{ slug: "arc-4", name: "The Everlasting Contract", order: 4 }],
   ifRoutes: [],

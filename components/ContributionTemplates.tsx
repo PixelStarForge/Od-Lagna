@@ -27,7 +27,7 @@ YYYY-MM-DD (e.g., 2018-04-01 or 2021-09-23T14:30:00Z)
 [e.g., Arc 4, Arc 6, Pride IF, Greed IF, or General]
 
 ### Characters Involved
-[e.g., Subaru Natsuki, Emilia, Beatrice, Roswaal L. Mathers]
+[e.g., Natsuki Subaru, Emilia, Beatrice, Roswaal L. Mathers]
 
 ### Topics
 [e.g., Mana & Magic, Authorities, Powerscaling, Ranking]

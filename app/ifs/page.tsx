@@ -4,7 +4,7 @@ import { getIfStories, getContentStats, getAllArcs } from "../../lib/content-loa
 export const metadata = {
   title: "IF Routes — Od-Lagna",
   description:
-    "Explore alternate 'What-If' divergence routes where Subaru Natsuki made different choices in Re:Zero.",
+    "Explore alternate 'What-If' divergence routes where Natsuki Subaru made different choices in Re:Zero.",
 };
 
 export default function IfStoriesPage() {
@@ -35,7 +35,7 @@ export default function IfStoriesPage() {
           IF Routes
         </h1>
         <p className="text-sm sm:text-base text-[var(--text-muted)] max-w-3xl leading-relaxed">
-          Alternate divergence routes exploring what would happen if Subaru Natsuki surrendered to a deadly sin or made an alternate choice at key turning points in the story.
+          Alternate divergence routes exploring what would happen if Natsuki Subaru surrendered to a deadly sin or made an alternate choice at key turning points in the story.
         </p>
       </div>
 
