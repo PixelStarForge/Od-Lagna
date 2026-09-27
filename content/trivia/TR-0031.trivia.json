@@ -1,0 +1,18 @@
+{
+  "id": "TR-0031",
+  "title": "Tappei on reader's Letter",
+  "text": "I hope the words on the letters from readers can be clearer. Sometimes I can’t read it.",
+  "arc": "general",
+  "characters": [
+    "God (Author)"
+  ],
+  "topics": [
+    "General"
+  ],
+  "source": {
+    "type": "text",
+    "value": "Author Statement"
+  },
+  "verified": false,
+  "dateTime": "2017"
+}

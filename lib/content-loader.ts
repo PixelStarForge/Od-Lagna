@@ -1,5 +1,6 @@
 import fs from "node:fs";
 import path from "node:path";
+import { matchesCharacterTag } from "./character-utils";
 import {
   QnaEntry,
   ArcConfig,
@@ -353,32 +354,22 @@ export function getCharacterProfileById(idOrSlug: string): CharacterDetail | nul
   );
 }
 
+export { matchesCharacterTag };
+
 export function getAllCharacterCatalogItems(): CharacterCatalogItem[] {
   const profiles = getAllCharacterProfiles();
   const allQnas = getAllQnas();
   const allTrivia = getAllTrivia();
 
-  const qnaCounts = new Map<string, number>();
-  const triviaCounts = new Map<string, number>();
-  const norm = (s: string) => s.trim().toLowerCase();
-
-  for (const q of allQnas) {
-    for (const c of q.characters) {
-      const k = norm(c);
-      qnaCounts.set(k, (qnaCounts.get(k) || 0) + 1);
-    }
-  }
-
-  for (const t of allTrivia) {
-    for (const c of t.characters) {
-      const k = norm(c);
-      triviaCounts.set(k, (triviaCounts.get(k) || 0) + 1);
-    }
-  }
-
   return profiles
     .map((profile) => {
-      const k = norm(profile.name);
+      const qnaCount = allQnas.filter((q) =>
+        q.characters.some((c) => matchesCharacterTag(profile, c))
+      ).length;
+      const triviaCount = allTrivia.filter((t) =>
+        t.characters.some((c) => matchesCharacterTag(profile, c))
+      ).length;
+
       return {
         id: profile.id,
         name: profile.name,
@@ -395,8 +386,8 @@ export function getAllCharacterCatalogItems(): CharacterCatalogItem[] {
         divineProtections: profile.divineProtections,
         authorities: profile.authorities,
         hasFullProfile: true,
-        qnaCount: qnaCounts.get(k) || 0,
-        triviaCount: triviaCounts.get(k) || 0,
+        qnaCount,
+        triviaCount,
       };
     })
     .sort((a, b) => a.name.localeCompare(b.name));
@@ -423,12 +414,11 @@ export function getCharacterDetailWithRelated(idOrSlug: string): {
   const allQnas = getAllQnas();
   const allTrivia = getAllTrivia();
 
-  const itemCanonLower = item.name.toLowerCase();
   const relatedQnas = allQnas.filter((q) =>
-    q.characters.some((c) => c.toLowerCase() === itemCanonLower)
+    q.characters.some((c) => matchesCharacterTag(item, c))
   );
   const relatedTrivia = allTrivia.filter((t) =>
-    t.characters.some((c) => c.toLowerCase() === itemCanonLower)
+    t.characters.some((c) => matchesCharacterTag(item, c))
   );
 
   return {

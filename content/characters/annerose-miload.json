@@ -1,0 +1,22 @@
+{
+  "id": "annerose-miload",
+  "name": "Annerose Miload",
+  "arc": "arc-4",
+  "japaneseName": "アンネローゼ・ミロード",
+  "aliases": [
+    {
+      "name": "Anne",
+      "arc": "arc-4"
+    }
+  ],
+  "gender": "Female",
+  "age": "9 (Arc 4) / 10 (Arc 5+)",
+  "race": "Human",
+  "affiliation": [
+    "Kingdom of Lugunica",
+    "House Miload",
+    "Emilia Camp"
+  ],
+  "description": "Annerose Miload is the heir of House Miload, a branch family of House Mathers. Although introduced in Arc 4, she has yet to play a proper role in the main story.",
+  "link": "https://rezero.fandom.com/wiki/Annerose_Miload"
+}

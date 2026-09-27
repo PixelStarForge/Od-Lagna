@@ -56,19 +56,5 @@
     "Pleiades Battalion"
   ],
   "description": "Natsuki Subaru is the main protagonist of Re:Zero kara Hajimeru Isekai Seikatsu. A former hikikomori, he was transported to Lugunica through unknown means, where he was given the Authority which he calls \"Return by Death\" by Satella and became the knight of the Kingdom and the personal knight of the Royal Selection Candidate Emilia.",
-  "link": "https://rezero.fandom.com/wiki/Natsuki_Subaru",
-  "authorities": [
-    {
-      "name": "Return by Death",
-      "arc": "arc-1"
-    },
-    {
-      "name": "Invisible Providence (Authority of Sloth)",
-      "arc": "arc-4"
-    },
-    {
-      "name": "Cor Leonis (Authority of Greed)",
-      "arc": "arc-6"
-    }
-  ]
+  "link": "https://rezero.fandom.com/wiki/Natsuki_Subaru"
 }

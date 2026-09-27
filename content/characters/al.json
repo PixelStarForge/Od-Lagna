@@ -1,0 +1,41 @@
+{
+  "id": "al",
+  "name": "Aldebaran",
+  "arc": "arc-3",
+  "japaneseName": "アルデバラン",
+  "aliases": [
+    {
+      "name": "Al",
+      "arc": "arc-3"
+    },
+    {
+      "name": "Clown",
+      "arc": "arc-3"
+    },
+    {
+      "name": "Helmet Bastard",
+      "arc": "arc-9"
+    },
+    {
+      "name": "Origin",
+      "arc": "arc-9"
+    },
+    {
+      "name": "Natsuki Rigel",
+      "arc": "arc-9"
+    }
+  ],
+  "gender": "Male",
+  "birthday": "January 23",
+  "age": "Estimated around 40",
+  "race": "Human",
+  "affiliation": [
+    "Kingdom of Lugunica",
+    "Priscilla Camp",
+    "Vollachia Empire",
+    "Ginunhive",
+    "Japan"
+  ],
+  "description": "Aldebaran, commonly known as Al, is a former member of the Priscilla Camp who played the role of Priscilla Barielle's knight. Though only having supporting roles in Arc 3 and Arc 5, he is a major character in Arc 7,8 and 9.",
+  "link": "https://rezero.fandom.com/wiki/Al"
+}

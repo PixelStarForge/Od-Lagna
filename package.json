@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "predev": "tsx scripts/build-search-index.ts",
     "dev": "next dev",
     "validate": "tsx scripts/validate-content.ts",
     "build:search": "tsx scripts/build-search-index.ts",

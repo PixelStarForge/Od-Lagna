@@ -1,0 +1,40 @@
+{
+  "id": "anastasia-hoshin",
+  "name": "Anastasia Hoshin",
+  "arc": "arc-3",
+  "japaneseName": "アナスタシア・ホーシン",
+  "aliases": [
+    {
+      "name": "Ana",
+      "arc": "arc-3"
+    },
+    {
+      "name": "Lil' Ana",
+      "arc": "arc-3"
+    },
+    {
+      "name": "Great Businesswoman",
+      "arc": "arc-3"
+    },
+    {
+      "name": "Greedy Princess",
+      "arc": "arc-3"
+    },
+    {
+      "name": "Boss Lady",
+      "arc": "arc-3"
+    }
+  ],
+  "gender": "Female",
+  "birthday": "March 10",
+  "age": "22 (Arc 3-4) / 23 (Arc 5+)",
+  "race": "Human",
+  "affiliation": [
+    "Kararagi",
+    "Iron Fang",
+    "Anastasia Camp",
+    "Hoshin Company"
+  ],
+  "description": "Anastasia Hoshin is the president of the Hoshin Company based in the Kararagi City-States and a candidate to become the 42nd monarch of Lugunica in the Royal Selection. She plays a major role in Arc 5, a supporting role in Arc 3, and a lesser supporting role in Arc 6 and Arc 8.",
+  "link": "https://rezero.fandom.com/wiki/Anastasia_Hoshin"
+}

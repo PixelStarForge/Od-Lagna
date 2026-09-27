@@ -47,3 +47,6 @@ tools/*.py
 
 
 reports/
+
+# generated search index
+**/search-index.json

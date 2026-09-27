@@ -404,15 +404,23 @@ export function BrowseClient({
       // Character multi-filter (supports "all" and "any" match mode)
       if (selectedCharacters.length > 0) {
         const entryCharsLower = entry.characters.map((c) => c.toLowerCase());
-        if (characterMatchMode === "all") {
-          const hasAll = selectedCharacters.every((sc) =>
-            entryCharsLower.includes(sc.toLowerCase())
+        const matchSingleChar = (sc: string) => {
+          const scl = sc.toLowerCase();
+          return entryCharsLower.some(
+            (ec) =>
+              ec === scl ||
+              ec.includes(`(${scl})`) ||
+              ec.startsWith(`${scl} (`) ||
+              scl.includes(`(${ec})`) ||
+              scl.startsWith(`${ec} (`)
           );
+        };
+
+        if (characterMatchMode === "all") {
+          const hasAll = selectedCharacters.every(matchSingleChar);
           if (!hasAll) return false;
         } else {
-          const hasAny = selectedCharacters.some((sc) =>
-            entryCharsLower.includes(sc.toLowerCase())
-          );
+          const hasAny = selectedCharacters.some(matchSingleChar);
           if (!hasAny) return false;
         }
       }

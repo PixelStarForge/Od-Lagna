@@ -1,0 +1,51 @@
+{
+  "id": "emilia",
+  "name": "Emilia",
+  "arc": "arc-1",
+  "japaneseName": "エミリア",
+  "aliases": [
+    {
+      "name": "Satella",
+      "arc": "arc-1"
+    },
+    {
+      "name": "Emilia-tan",
+      "arc": "arc-2"
+    },
+    {
+      "name": "Lia",
+      "arc": "arc-1"
+    },
+    {
+      "name": "Half-Devil",
+      "arc": "arc-3"
+    },
+    {
+      "name": "Witch of Glaciation",
+      "arc": "arc-4"
+    },
+    {
+      "name": "Emily",
+      "arc": "arc-7"
+    },
+    {
+      "name": "Witch's Daughter",
+      "arc": "arc-4"
+    },
+    {
+      "name": "Number 79",
+      "arc": "arc-5"
+    }
+  ],
+  "gender": "Female",
+  "birthday": "September 23",
+  "age": "100+ (physical: late teens, emotional: mid teens)",
+  "race": "Half-Elf",
+  "affiliation": [
+    "Kingdom of Lugunica",
+    "Emilia Camp",
+    "Elior Forest"
+  ],
+  "description": "Emilia is the main heroine and deuteragonist of Re:Zero kara Hajimeru Isekai Seikatsu. She is a half-elf and a candidate to become the 42nd monarch of the Dragon Kingdom of Lugunica in the Royal Selection, who met Natsuki Subaru on the day he was summoned to the world.",
+  "link": "https://rezero.fandom.com/wiki/Emilia"
+}

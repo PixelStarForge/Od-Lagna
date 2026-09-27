@@ -182,7 +182,10 @@ export function buildSearchIndex(): SearchIndexPayload {
           name: parsed.name,
           arc: parsed.arc,
           japaneseName: parsed.japaneseName,
-          aliases: (parsed.aliases || []).map((a: { name: string }) => a.name),
+          aliases: (parsed.aliases || []).map((a: { name: string; arc?: string }) => ({
+            name: a.name,
+            arc: a.arc || parsed.arc,
+          })),
         });
       } catch (err) {
         console.error(`Error indexing character profile ${file}:`, err);

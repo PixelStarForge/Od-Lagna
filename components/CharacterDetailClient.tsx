@@ -261,7 +261,7 @@ export function CharacterDetailClient({
         <div className="pt-4 border-t border-[var(--border-subtle)] space-y-2">
           <div className="flex items-center justify-between gap-2">
             <p className="text-xs font-mono font-bold uppercase tracking-wider text-[var(--text-muted)]">
-              Overview &amp; Background
+              Description
             </p>
             {character.link && (
               <a
@@ -282,89 +282,6 @@ export function CharacterDetailClient({
           </p>
         </div>
 
-        {/* Divine Protections (Mutually exclusive with Authorities) */}
-        {character.divineProtections && character.divineProtections.length > 0 && (
-          <div className="pt-4 border-t border-[var(--border-subtle)] space-y-2">
-            <p className="text-xs font-mono font-bold uppercase tracking-wider text-[var(--text-muted)]">
-              Divine Protections ({character.divineProtections.length})
-            </p>
-            <div className="flex flex-wrap gap-2 pt-1">
-              {character.divineProtections.map((dp) => {
-                const dpArcMeta = getArcMetadata(dp.arc);
-                const isItemSpoiled =
-                  mounted && isArcSpoiler(dp.arc, spoilerArc, allowedIfRoutes);
-                const itemKey = `dp-${dp.name}`;
-                const isRevealed = revealedItems[itemKey];
-
-                if (isItemSpoiled && !isRevealed) {
-                  return (
-                    <button
-                      key={dp.name}
-                      type="button"
-                      onClick={() => toggleItemReveal(itemKey)}
-                      title={`Contains spoiler from ${dpArcMeta.name}. Click to reveal.`}
-                      className="inline-flex items-center gap-1.5 text-xs px-2.5 py-1 rounded-md bg-amber-500/10 border border-amber-500/30 text-amber-500 hover:bg-amber-500/20 transition-colors cursor-pointer"
-                    >
-                      <span>⚠️ Spoiler ({dpArcMeta.name.split(":")[0]})</span>
-                      <span className="text-[10px] font-semibold underline">Reveal</span>
-                    </button>
-                  );
-                }
-
-                return (
-                  <span
-                    key={dp.name}
-                    className="inline-flex items-center text-xs px-2.5 py-1 rounded-md bg-[var(--accent-bg)] border border-[var(--accent-border)] text-[var(--accent-text)] font-medium"
-                  >
-                    {dp.name}
-                  </span>
-                );
-              })}
-            </div>
-          </div>
-        )}
-
-        {/* Authorities (Mutually exclusive with Divine Protections) */}
-        {character.authorities && character.authorities.length > 0 && (
-          <div className="pt-4 border-t border-[var(--border-subtle)] space-y-2">
-            <p className="text-xs font-mono font-bold uppercase tracking-wider text-[var(--text-muted)]">
-              Authorities ({character.authorities.length})
-            </p>
-            <div className="flex flex-wrap gap-2 pt-1">
-              {character.authorities.map((auth) => {
-                const authArcMeta = getArcMetadata(auth.arc);
-                const isItemSpoiled =
-                  mounted && isArcSpoiler(auth.arc, spoilerArc, allowedIfRoutes);
-                const itemKey = `auth-${auth.name}`;
-                const isRevealed = revealedItems[itemKey];
-
-                if (isItemSpoiled && !isRevealed) {
-                  return (
-                    <button
-                      key={auth.name}
-                      type="button"
-                      onClick={() => toggleItemReveal(itemKey)}
-                      title={`Contains spoiler from ${authArcMeta.name}. Click to reveal.`}
-                      className="inline-flex items-center gap-1.5 text-xs px-2.5 py-1 rounded-md bg-amber-500/10 border border-amber-500/30 text-amber-500 hover:bg-amber-500/20 transition-colors cursor-pointer"
-                    >
-                      <span>⚠️ Spoiler ({authArcMeta.name.split(":")[0]})</span>
-                      <span className="text-[10px] font-semibold underline">Reveal</span>
-                    </button>
-                  );
-                }
-
-                return (
-                  <span
-                    key={auth.name}
-                    className="inline-flex items-center text-xs px-2.5 py-1 rounded-md bg-[var(--accent-bg)] border border-[var(--accent-border)] text-[var(--accent-text)] font-medium"
-                  >
-                    {auth.name}
-                  </span>
-                );
-              })}
-            </div>
-          </div>
-        )}
       </section>
 
       {/* Related Trivia Section */}

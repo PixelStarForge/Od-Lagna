@@ -1,0 +1,21 @@
+{
+  "id": "archi",
+  "name": "Archi Elior",
+  "arc": "arc-4",
+  "japaneseName": "アーチ・エリオール",
+  "aliases": [
+    {
+      "name": "Archi",
+      "arc": "arc-4"
+    }
+  ],
+  "gender": "Male",
+  "age": "Unknown",
+  "race": "Elf",
+  "affiliation": [
+    "Kingdom of Lugunica",
+    "Elf Village"
+  ],
+  "description": "Archi Elior was an elf who inhabited the Elf Village and was slated to be the next guardian of Elior Forest. Though a minor character overall, he had some prominence in Emilia's backstory.",
+  "link": "https://rezero.fandom.com/wiki/Archi_Elior"
+}

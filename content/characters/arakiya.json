@@ -1,0 +1,34 @@
+{
+  "id": "arakiya",
+  "name": "Arakiya",
+  "arc": "arc-7",
+  "japaneseName": "アラキア",
+  "aliases": [
+    {
+      "name": "Second",
+      "arc": "arc-7"
+    },
+    {
+      "name": "Spirit Eater",
+      "arc": "arc-7"
+    },
+    {
+      "name": "Anya",
+      "arc": "arc-7"
+    },
+    {
+      "name": "Aaiya",
+      "arc": "arc-8"
+    }
+  ],
+  "gender": "Female",
+  "birthday": "November 11",
+  "age": "Late Teens",
+  "race": "Dog Demi-Human",
+  "affiliation": [
+    "Vollachia Empire",
+    "Nine Divine Generals"
+  ],
+  "description": "Arakiya is the Second ranking Divine General of the Sacred Vollachia Empire. She played a major antagonistic role in Arc 7, and a major supporting role in Arc 8.",
+  "link": "https://rezero.fandom.com/wiki/Arakiya"
+}

@@ -3,7 +3,8 @@
 import React, { useState, useMemo, useDeferredValue } from "react";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
-import { CharacterCatalogItem } from "../lib/content-loader";
+import type { CharacterCatalogItem } from "../lib/content-loader";
+import { matchesCharacterTag } from "../lib/character-utils";
 import { QnaEntry, TriviaEntry, ArcConfig, IfRouteConfig } from "../lib/schema";
 import { CharacterDetailClient } from "./CharacterDetailClient";
 import { CustomSelect, SelectOption } from "./CustomSelect";
@@ -64,15 +65,19 @@ export function CharactersClient({
     const exact = catalog.find(
       (c) =>
         c.id.toLowerCase() === cleanParam ||
-        c.name.toLowerCase() === cleanParam
+        c.name.toLowerCase() === cleanParam ||
+        c.aliases?.some((a) => a.name.toLowerCase() === cleanParam)
     );
     if (exact) return exact;
 
     return (
       catalog.find(
         (c) =>
+          cleanParam.includes(c.id.toLowerCase()) ||
+          cleanParam.includes(c.name.toLowerCase()) ||
           c.id.toLowerCase().includes(cleanParam) ||
-          c.name.toLowerCase().includes(cleanParam)
+          c.name.toLowerCase().includes(cleanParam) ||
+          c.aliases?.some((a) => a.name.toLowerCase().includes(cleanParam))
       ) ?? null
     );
   }, [characterParam, catalog]);
@@ -80,13 +85,12 @@ export function CharactersClient({
   // Compute related Q&As and trivia for the active character
   const characterContent = useMemo(() => {
     if (!activeCharacter) return { qnas: [], trivia: [] };
-    const charNameLower = activeCharacter.name.toLowerCase();
 
     const relatedQnas = allQnas.filter((q) =>
-      q.characters.some((c) => c.toLowerCase() === charNameLower)
+      q.characters.some((c) => matchesCharacterTag(activeCharacter, c))
     );
     const relatedTrivia = allTrivia.filter((t) =>
-      t.characters.some((c) => c.toLowerCase() === charNameLower)
+      t.characters.some((c) => matchesCharacterTag(activeCharacter, c))
     );
 
     return {

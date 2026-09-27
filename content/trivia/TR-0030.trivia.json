@@ -1,0 +1,18 @@
+{
+  "id": "TR-0030",
+  "title": "Author Pen Name",
+  "text": "Nagatsuki is my pen name. My real name is very Japanese.",
+  "arc": "general",
+  "characters": [
+    "God (Author)"
+  ],
+  "topics": [
+    "General"
+  ],
+  "source": {
+    "type": "text",
+    "value": "Author Statement"
+  },
+  "verified": false,
+  "dateTime": "2017"
+}

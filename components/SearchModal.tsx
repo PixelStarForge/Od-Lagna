@@ -117,11 +117,19 @@ export function SearchModal() {
     );
   }, [indexRecords, spoilerArc, allowedIfRoutes]);
 
-  // Filter character profiles strictly according to reader's spoiler cutoff
+  // Filter character profiles strictly according to reader's spoiler cutoff (including per-alias spoilers)
   const allowedCharacterProfiles = useMemo(() => {
-    return indexCharacterProfiles.filter(
-      (profile) => !isArcSpoiler(profile.arc, spoilerArc, allowedIfRoutes)
-    );
+    return indexCharacterProfiles
+      .filter((profile) => !isArcSpoiler(profile.arc, spoilerArc, allowedIfRoutes))
+      .map((profile) => ({
+        ...profile,
+        aliases: (profile.aliases || [])
+          .filter((a) => {
+            const aliasArc = typeof a === "object" ? a.arc || profile.arc : profile.arc;
+            return !isArcSpoiler(aliasArc, spoilerArc, allowedIfRoutes);
+          })
+          .map((a) => (typeof a === "object" ? a.name : a)),
+      }));
   }, [indexCharacterProfiles, spoilerArc, allowedIfRoutes]);
 
   // Pre-index allowed records to avoid redundant lowercase/string operations during search
