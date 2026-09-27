@@ -1,0 +1,18 @@
+{
+  "id": "4223",
+  "question": "I joined the event of Emilia’s birthday. She is so cute!",
+  "answer": "I am going to sign two signatures for you!",
+  "characters": [
+    "Emilia"
+  ],
+  "topics": [
+    "Birthday"
+  ],
+  "arc": "general",
+  "source": {
+    "type": "text",
+    "value": ""
+  },
+  "verified": false,
+  "dateTime": "2017"
+}
