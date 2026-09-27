@@ -4,13 +4,13 @@
 
 ## Archive Structure
 
-- [Home](https://od-lagna.com/): Overview of the archive, metrics, debut arc distributions, and quick navigation.
-- [Browse Archive](https://od-lagna.com/browse): Full searchable database of over 4,200 Q&A and trivia entries. Supports multi-token search, typo tolerance, character filters, topic tags, and arc cutoff controls.
-- [Character Profiles](https://od-lagna.com/characters): Character database detailing canon debut arcs, aliases, Japanese names, affiliations, and verified Q&A statements.
-- [IF Routes Directory](https://od-lagna.com/ifs): Exploration of alternate-reality IF stories (Sloth IF, Greed IF, Pride IF, Wrath IF, Gluttony IF, Lust IF, etc.) and related Q&A supplements.
-- [Side Stories Directory](https://od-lagna.com/side-stories): Index of store bonus booklets, monthly magazine novellas, and canon side stories.
-- [About](https://od-lagna.com/about): Methodology, verification criteria, and project philosophy.
-- [Contribute](https://od-lagna.com/contribute): Contribution guidelines, submission templates, and verification standards.
+- [Home](https://od-lagna.pages.dev/): Overview of the archive, metrics, debut arc distributions, and quick navigation.
+- [Browse Archive](https://od-lagna.pages.dev/browse): Full searchable database of over 4,200 Q&A and trivia entries. Supports multi-token search, typo tolerance, character filters, topic tags, and arc cutoff controls.
+- [Character Profiles](https://od-lagna.pages.dev/characters): Character database detailing canon debut arcs, aliases, Japanese names, affiliations, and verified Q&A statements.
+- [IF Routes Directory](https://od-lagna.pages.dev/ifs): Exploration of alternate-reality IF stories (Sloth IF, Greed IF, Pride IF, Wrath IF, Gluttony IF, Lust IF, etc.) and related Q&A supplements.
+- [Side Stories Directory](https://od-lagna.pages.dev/side-stories): Index of store bonus booklets, monthly magazine novellas, and canon side stories.
+- [About](https://od-lagna.pages.dev/about): Methodology, verification criteria, and project philosophy.
+- [Contribute](https://od-lagna.pages.dev/contribute): Contribution guidelines, submission templates, and verification standards.
 
 ## Key Features for Agents and Readers
 

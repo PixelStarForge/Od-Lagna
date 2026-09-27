@@ -3,7 +3,7 @@ import { getAllIfRoutes, getAllCharacterProfiles } from "../lib/content-loader";
 
 export const dynamic = "force-static";
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://od-lagna.com";
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://od-lagna.pages.dev";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const lastModified = new Date();

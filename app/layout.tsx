@@ -9,7 +9,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://od-lagna.com"),
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://od-lagna.pages.dev"),
   alternates: {
     canonical: "/",
   },
@@ -73,14 +73,14 @@ export default function RootLayout({
               "@type": "WebSite",
               name: "Od-Lagna",
               alternateName: "Re:Zero Tappei Q&A Archive",
-              url: process.env.NEXT_PUBLIC_SITE_URL || "https://od-lagna.com",
+              url: process.env.NEXT_PUBLIC_SITE_URL || "https://od-lagna.pages.dev",
               description:
                 "Comprehensive, searchable index of every Tappei Q&A across events, interviews, and Twitter, featuring granular spoiler protection.",
               potentialAction: {
                 "@type": "SearchAction",
                 target: {
                   "@type": "EntryPoint",
-                  urlTemplate: `${process.env.NEXT_PUBLIC_SITE_URL || "https://od-lagna.com"}/browse?search={search_term_string}`,
+                  urlTemplate: `${process.env.NEXT_PUBLIC_SITE_URL || "https://od-lagna.pages.dev"}/browse?search={search_term_string}`,
                 },
                 "query-input": "required name=search_term_string",
               },
