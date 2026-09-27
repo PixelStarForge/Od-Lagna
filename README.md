@@ -42,7 +42,7 @@ Contributions from the community help keep this archive accurate, properly cited
 ### How to Submit Content
 - **New Q&As**: Open a GitHub Issue containing the question, translated answer, relevant arc or IF route, associated characters/topics, and a primary source link.
 - **Google Doc Submission**: You can also provide Q&A entries directly via this [Google Document](https://docs.google.com/document/d/1-yXkWranORjknet7cxOGEhOuafEilxk6Oaj6-fSMOFw/edit?tab=t.isa9vixpx82s#heading=h.3zujftrfbgoi).
-- **Reddit Contact**: For any queries, feedback, or to share Q&As directly, you can message [u/Mildy_Confused_NPC](https://www.reddit.com/user/Mildy_Confused_NPC) on Reddit.
+- **Reddit Contact**: For any queries, feedback, or to share Q&As directly, you can message [u/Mildly_Confused_NPC](https://www.reddit.com/user/Mildly_Confused_NPC) on Reddit.
 - **Source Verification**: If an existing entry is unverified and you have the original Japanese source (tweet URL, event recording, publication issue), please link it in an issue referencing the entry ID (e.g. `#0042`).
 - **Corrections**: Translation adjustments, typo fixes, or miscategorized tags can be submitted via an issue or pull request.
 
