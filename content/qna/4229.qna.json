@@ -1,0 +1,18 @@
+{
+  "id": "4229",
+  "question": "What is your favourite character?",
+  "answer": "I think being a writer I can’t be biased, (omitted), now is Roswaal.",
+  "characters": [
+    "Roswaal L. Mathers"
+  ],
+  "topics": [
+    "General"
+  ],
+  "arc": "general",
+  "source": {
+    "type": "text",
+    "value": ""
+  },
+  "verified": false,
+  "dateTime": "2017"
+}

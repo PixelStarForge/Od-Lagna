@@ -1,0 +1,18 @@
+{
+  "id": "4225",
+  "question": "What kind of game is Subaru good at?",
+  "answer": "Video games for one player, and Othello.",
+  "characters": [
+    "Natsuki Subaru"
+  ],
+  "topics": [
+    "General"
+  ],
+  "arc": "general",
+  "source": {
+    "type": "text",
+    "value": ""
+  },
+  "verified": false,
+  "dateTime": "2017"
+}

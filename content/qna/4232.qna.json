@@ -1,0 +1,16 @@
+{
+  "id": "4232",
+  "question": "How do you change mood?",
+  "answer": "Sleep.",
+  "characters": [],
+  "topics": [
+    "General"
+  ],
+  "arc": "general",
+  "source": {
+    "type": "text",
+    "value": ""
+  },
+  "verified": false,
+  "dateTime": "2017"
+}
