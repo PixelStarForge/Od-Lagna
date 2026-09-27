@@ -1,137 +1,83 @@
 # Od-Lagna
 
-The static archive of public Q&A sessions, author interviews, convention panels, and Twitter lore statements given by *Re:Zero kara Hajimeru Isekai Seikatsu* author **Tappei Nagatsuki**.
+A searchable, spoiler-safe archive of author Q&As, interviews, and lore statements by *Re:Zero kara Hajimeru Isekai Seikatsu* creator **Tappei Nagatsuki**.
 
+[Website](https://od-lagna.pages.dev) | [Browse Archive](https://od-lagna.pages.dev/browse) | [Character Profiles](https://od-lagna.pages.dev/characters) | [IF Stories](https://od-lagna.pages.dev/ifs)
+
+![Od-Lagna Interface (Light and Dark Theme)](public/screenshots/hero-split.png)
+
+---
+
+## Overview
+
+Over the past decade, *Re:Zero* author Tappei Nagatsuki has answered thousands of fan questions across Twitter sessions, convention appearances, art books, and magazine interviews. These responses provide valuable context on characters, worldbuilding, and alternate storylines, but have been scattered across internet.
+
+Od-Lagna was created to collect, categorize, and cross-reference these statements in a single static archive, equipped with reader-controlled spoiler filters so fans can explore lore safely.
 
 ---
 
-## Core Features
+## Key Features
 
-- **Spoiler Protection**: Filter answers and character revelations behind an arc-level barrier (Arcs 1 through 10, with anime season presets including Arc 6 / Season 4) and an IF timeline gate.
-- **Advanced Search**: Instant fuzzy and substring search powered by Fuse.js across questions, answers, characters, topics, and story arcs, accessible via command palette (`/` or `Cmd/Ctrl + K`).
-- **Dedicated Q&A Pages**: Static permalink view for every entry (`/qna/[id]`) featuring an automated recommendation engine connecting related questions based on shared characters, topics, and narrative arcs.
-- **Clean Interface**: Built from scratch with Tailwind CSS without external UI component libraries
-- **Typography**: Inter for UI controls paired with Newsreader for body text, calibrated for long-form readability and full WCAG AA contrast compliance in both light and dark themes.
-
+- **Spoiler Protection**: Filter statements behind an arc cutoff barrier (Arcs 1 through 9, plus anime season presets) and independent IF route toggles. Content beyond the selected threshold remains masked until manually revealed.
+- **Search**: Search across questions, answers, characters, topics, and entry IDs.
+- **Random Entry**: Quickly load a random statement filtered strictly within the user's active spoiler boundaries.
+- **Characters**: Canonical debut arcs, aliases, affiliations, and associated author statements for major figures.
+- **IF Routes and Side Stories**: Cataloged directory covering alternate what-if routes, side stories and related author commentary.
+- **Verified Citations**: Statements track primary sources (original Japanese tweets, convention panels, published fanbooks) with verification status badges.
 
 ---
+
+## Interface Showcase
+
+| Browse & Filters | IF Routes Directory | Spoiler Protection |
+| :---: | :---: | :---: |
+| ![Browse Archive](public/screenshots/browsing.png) | ![IF Routes Directory](public/screenshots/if-routes.png) | ![Spoiler Protection Settings](public/screenshots/spoiler-protection.png) |
+| Searchable index with character, topic, and arc filters. | Hubs for alternate storylines and author supplements. | Arc-level gating with independent IF route toggles. |
+
 
 ## Contributing
 
-We welcome community contributions to keep this archive comprehensive, accurate, and properly cited.
+Contributions from the community help keep this archive accurate, properly cited, and up to date.
 
-### Raising an Issue on GitHub
+### How to Submit Content
+- **New Q&As**: Open a GitHub Issue containing the question, translated answer, relevant arc or IF route, associated characters/topics, and a primary source link.
+- **Google Doc Submission**: You can also provide Q&A entries directly via this [Google Document](https://docs.google.com/document/d/1-yXkWranORjknet7cxOGEhOuafEilxk6Oaj6-fSMOFw/edit?tab=t.isa9vixpx82s#heading=h.3zujftrfbgoi).
+- **Reddit Contact**: For any queries, feedback, or to share Q&As directly, you can message [u/Mildy_Confused_NPC](https://www.reddit.com/user/Mildy_Confused_NPC) on Reddit.
+- **Source Verification**: If an existing entry is unverified and you have the original Japanese source (tweet URL, event recording, publication issue), please link it in an issue referencing the entry ID (e.g. `#0042`).
+- **Corrections**: Translation adjustments, typo fixes, or miscategorized tags can be submitted via an issue or pull request.
 
-If you would like to submit a new Q&A, provide a primary source, or report an error in an existing entry, please open a GitHub Issue:
+### Local Development
 
-- **Submit a New Q&A**: Include the author's question and answer, the story arc or IF route it pertains to, associated characters and topics, and a link or citation to the primary source (e.g., tweet URL, convention recording, or magazine issue).
-- **Provide or Verify a Source**: If you have a primary citation for an unverified entry, share the entry ID (`#0001`) and the verification link.
-- **Submit a Correction**: For translation discrepancies, typo fixes, or miscategorized spoiler tags, reference the entry ID and detail the proposed modification.
-
-### Contributing via Pull Request
-
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/your-username/od-lagna.git
-   cd od-lagna
-   npm install
-   ```
-
-2. Add or modify entries in `content/qna/`. Each entry is stored in its own JSON file named `{id}.qna.json`:
-   ```json
-   {
-     "id": "0003",
-     "question": "The fan or interviewer question...",
-     "answer": "Tappei Nagatsuki's translated response...",
-     "characters": ["Natsuki Subaru", "Emilia"],
-     "topics": ["Authorities", "Witch Factors"],
-     "arc": "arc-4",
-     "source": {
-       "type": "url",
-       "value": "https://twitter.com/..."
-     },
-     "verified": true
-   }
-   ```
-
-3. Validate your changes against the schema and registries:
-   ```bash
-   npm run validate
-   ```
-
-4. Build the search index and verify static compilation:
-   ```bash
-   npm run build
-   ```
-
-5. Open a Pull Request with a summary of the added or amended entries.
-
----
-
-## Local Development
+Prerequisites: Node.js 18+ and npm.
 
 ```bash
-# Start Next.js development server
+# Clone the repository
+git clone https://github.com/PixelStarForge/Od-Lagna.git
+cd Od-Lagna
+
+# Install dependencies
+npm install
+
+# Start the development server (http://localhost:3000)
 npm run dev
 
-# Run content validator
+# Validate all content files against Zod schemas
 npm run validate
 
-# Build client-side search index
-npm run build:search
+# Run schema and loader test suites
+npx tsx lib/schema.test.ts
 
-# Run local administration GUI (dev-only tool)
-npm run admin
-
-# Run linter
-npm run lint
-
-# Compile static production export
+# Build static production bundle
 npm run build
 ```
 
 ---
 
-## Project Structure
+## Disclaimer and Copyright
 
-```
-od-lagna/
-├── app/                      # Next.js App Router pages
-│   ├── browse/               # Filter and archive view
-│   ├── qna/[id]/             # Dedicated Q&A detail view with recommendations
-│   ├── globals.css           # Global theme variables & styles
-│   ├── layout.tsx            # Root layout with fonts & theme script
-│   └── page.tsx              # Home landing page with metrics & timeline
-├── components/               # Handcrafted UI components
-│   ├── CustomSelect.tsx      # Scratch-built accessible dropdowns
-│   ├── Header.tsx            # Navigation bar & search trigger
-│   ├── OnboardingModal.tsx   # First-visit spoiler configuration
-│   ├── QnaCard.tsx           # Individual Q&A card with spoiler gating
-│   ├── SearchModal.tsx       # Fuzzy search modal
-│   └── SpoilerControls.tsx   # Arc cutoff slider and season presets
-├── content/
-│   ├── config/               # Canonical registries (arcs, if-routes, characters, topics)
-│   └── qna/                  # Individual Q&A entry JSON files
-├── lib/                      # Schemas, loader utilities, and preference stores
-├── public/                   # Static assets and search-index.json
-├── scripts/                  # Build-time validation and index generation
-└── tools/admin/              # Dev-only local administration GUI (port 4321)
-```
+Od-Lagna is an unofficial, non-commercial fan project created for archival, reference, and educational purposes under fair use.
 
----
+*Re:Zero kara Hajimeru Isekai Seikatsu*, its characters, settings, and original Japanese text are the intellectual property of **Tappei Nagatsuki**, **Kadokawa**, and illustrator **Shinichirou Otsuka**.
 
-## Production Deployment
 
-The project is configured for static export (`output: 'export'`) and outputs to the `out/` directory with zero server runtime dependencies.
-
-- **Build Command**: `npm run build`
-- **Output Directory**: `out`
-- **Node.js Runtime**: None required in production. Deployable directly to Cloudflare Pages, GitHub Pages, or any static object storage.
-
-*Note: The `tools/admin/` curation server is strictly a local development tool and is excluded from the production build.*
-
----
-
-## License
-
-This project is open-source under the MIT License. *Re:Zero kara Hajimeru Isekai Seikatsu* and related lore statements belong to Tappei Nagatsuki, Kadokawa, and White Fox.
+Source code is available under the [MIT License](LICENSE).

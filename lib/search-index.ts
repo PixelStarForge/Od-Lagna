@@ -13,8 +13,17 @@ export interface SearchIndexRecord {
   dateTime?: string;
 }
 
+export interface SearchIndexCharacterProfile {
+  id: string;
+  name: string;
+  arc: string;
+  japaneseName?: string;
+  aliases: string[];
+}
+
 export interface SearchIndexPayload {
   records: SearchIndexRecord[];
   characters: string[];
   topics: string[];
+  characterProfiles?: SearchIndexCharacterProfile[];
 }

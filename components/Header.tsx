@@ -2,13 +2,24 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { usePreferences } from "../lib/preferences";
+import { getRandomEntryId } from "../lib/random-entry";
+import { dispatchUrlChange } from "../lib/navigation-events";
 
 export function Header() {
   const pathname = usePathname();
-  const { theme, setTheme, setIsSettingsOpen, setIsSearchOpen } = usePreferences();
+  const router = useRouter();
+  const {
+    theme,
+    setTheme,
+    setIsSettingsOpen,
+    setIsSearchOpen,
+    spoilerArc,
+    allowedIfRoutes,
+  } = usePreferences();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isRolling, setIsRolling] = useState(false);
   const [prevPathname, setPrevPathname] = useState(pathname);
 
   // Close mobile menu on route change during render
@@ -16,6 +27,21 @@ export function Header() {
     setPrevPathname(pathname);
     setIsMobileMenuOpen(false);
   }
+
+  const handleSurpriseMe = async () => {
+    if (isRolling) return;
+    setIsRolling(true);
+    try {
+      const randomId = await getRandomEntryId(spoilerArc, allowedIfRoutes);
+      if (randomId) {
+        const targetUrl = `/qna?id=${randomId}`;
+        router.push(targetUrl);
+        dispatchUrlChange(targetUrl);
+      }
+    } finally {
+      setIsRolling(false);
+    }
+  };
 
   const toggleTheme = () => {
     if (theme === "light") {
@@ -40,14 +66,14 @@ export function Header() {
               <span className="font-bold text-base sm:text-lg tracking-tight text-[var(--text-main)] group-hover:text-[var(--accent)] transition-colors leading-tight">
                 Od-Lagna
               </span>
-              <span className="text-xs uppercase font-mono tracking-wider text-[var(--text-muted)] font-medium hidden sm:inline">
+              <span className="text-xs uppercase font-mono tracking-wider text-[var(--text-muted)] font-medium hidden xl:inline">
                 Re:Zero Q&amp;A Archive
               </span>
             </div>
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden sm:flex items-center gap-0.5 sm:gap-1">
+          <nav className="hidden lg:flex items-center gap-0.5 sm:gap-1">
             <Link
               href="/"
               className={`px-2 py-1 sm:px-3 sm:py-1.5 rounded-md text-xs sm:text-sm font-medium transition-colors ${
@@ -67,6 +93,16 @@ export function Header() {
               }`}
             >
               Browse
+            </Link>
+            <Link
+              href="/characters"
+              className={`px-2 py-1 sm:px-3 sm:py-1.5 rounded-md text-xs sm:text-sm font-medium transition-colors ${
+                pathname?.startsWith("/characters")
+                  ? "bg-[var(--bg-elevated)] text-[var(--text-main)] font-semibold"
+                  : "text-[var(--text-muted)] hover:text-[var(--text-main)] hover:bg-[var(--bg-elevated)]"
+              }`}
+            >
+              Characters
             </Link>
             <Link
               href="/ifs"
@@ -90,7 +126,7 @@ export function Header() {
             </Link>
             <Link
               href="/about"
-              className={`px-2 py-1 sm:px-3 sm:py-1.5 rounded-md text-xs sm:text-sm font-medium transition-colors hidden md:inline-block ${
+              className={`px-2 py-1 sm:px-3 sm:py-1.5 rounded-md text-xs sm:text-sm font-medium transition-colors hidden xl:inline-block ${
                 pathname === "/about"
                   ? "bg-[var(--bg-elevated)] text-[var(--text-main)] font-semibold"
                   : "text-[var(--text-muted)] hover:text-[var(--text-main)] hover:bg-[var(--bg-elevated)]"
@@ -100,7 +136,7 @@ export function Header() {
             </Link>
             <Link
               href="/contribute"
-              className={`px-2 py-1 sm:px-3 sm:py-1.5 rounded-md text-xs sm:text-sm font-medium transition-colors hidden lg:inline-block ${
+              className={`px-2 py-1 sm:px-3 sm:py-1.5 rounded-md text-xs sm:text-sm font-medium transition-colors hidden xl:inline-block ${
                 pathname === "/contribute"
                   ? "bg-[var(--bg-elevated)] text-[var(--text-main)] font-semibold"
                   : "text-[var(--text-muted)] hover:text-[var(--text-main)] hover:bg-[var(--bg-elevated)]"
@@ -117,7 +153,7 @@ export function Header() {
           <button
             type="button"
             onClick={() => setIsSearchOpen(true)}
-            aria-label="Open global search (press / or Cmd+K)"
+            aria-label="Search archive... (press / or Cmd+K)"
             className="flex items-center gap-1.5 p-2 sm:px-3 sm:py-1.5 text-xs sm:text-sm rounded-lg border border-[var(--border-subtle)] bg-[var(--bg-surface)] hover:bg-[var(--bg-elevated)] text-[var(--text-muted)] hover:text-[var(--text-main)] transition-colors cursor-pointer"
           >
             <svg
@@ -137,6 +173,32 @@ export function Header() {
             <kbd className="hidden sm:inline-flex items-center px-1.5 py-0.5 text-xs font-mono border rounded bg-[var(--bg-elevated)] border-[var(--border-subtle)] text-[var(--text-muted)] font-medium">
               /
             </kbd>
+          </button>
+
+          {/* Surprise Me / Random Entry Button */}
+          <button
+            type="button"
+            onClick={handleSurpriseMe}
+            disabled={isRolling}
+            aria-label="Discover a random lore statement"
+            title="Surprise Me — Discover a random spoiler-safe statement"
+            className="p-2 rounded-lg border border-[var(--border-subtle)] bg-[var(--bg-surface)] hover:bg-[var(--bg-elevated)] text-[var(--text-muted)] hover:text-[var(--accent)] transition-colors cursor-pointer group"
+          >
+            <svg
+              className={`w-4 h-4 transition-transform duration-300 ${
+                isRolling ? "animate-spin text-[var(--accent)]" : "group-hover:rotate-45"
+              }`}
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <rect x="3" y="3" width="18" height="18" rx="3" strokeWidth="2" />
+              <circle cx="8" cy="8" r="1.5" fill="currentColor" />
+              <circle cx="16" cy="8" r="1.5" fill="currentColor" />
+              <circle cx="12" cy="12" r="1.5" fill="currentColor" />
+              <circle cx="8" cy="16" r="1.5" fill="currentColor" />
+              <circle cx="16" cy="16" r="1.5" fill="currentColor" />
+            </svg>
           </button>
 
           {/* Quick Theme Toggle Button */}
@@ -213,7 +275,7 @@ export function Header() {
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             aria-label={isMobileMenuOpen ? "Close menu" : "Open navigation menu"}
             aria-expanded={isMobileMenuOpen}
-            className="sm:hidden p-2 rounded-lg border border-[var(--border-subtle)] bg-[var(--bg-surface)] hover:bg-[var(--bg-elevated)] text-[var(--text-muted)] hover:text-[var(--text-main)] transition-colors cursor-pointer"
+            className="lg:hidden p-2 rounded-lg border border-[var(--border-subtle)] bg-[var(--bg-surface)] hover:bg-[var(--bg-elevated)] text-[var(--text-muted)] hover:text-[var(--text-main)] transition-colors cursor-pointer"
           >
             {isMobileMenuOpen ? (
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -230,7 +292,7 @@ export function Header() {
 
       {/* Mobile Navigation Dropdown Menu */}
       {isMobileMenuOpen && (
-        <div className="sm:hidden border-t border-[var(--border-subtle)] bg-[var(--bg-surface)] px-4 py-3 space-y-1 shadow-lg animate-in slide-in-from-top-2 duration-150">
+        <div className="lg:hidden border-t border-[var(--border-subtle)] bg-[var(--bg-surface)] px-4 py-3 space-y-1 shadow-lg animate-in slide-in-from-top-2 duration-150">
           <Link
             href="/"
             onClick={() => setIsMobileMenuOpen(false)}
@@ -254,6 +316,18 @@ export function Header() {
           >
             <span>Browse Q&amp;A</span>
             <span className="text-xs font-mono text-[var(--text-muted)]">Archive</span>
+          </Link>
+          <Link
+            href="/characters"
+            onClick={() => setIsMobileMenuOpen(false)}
+            className={`flex items-center justify-between px-3 py-2.5 rounded-lg text-sm font-medium transition-colors ${
+              pathname?.startsWith("/characters")
+                ? "bg-[var(--bg-elevated)] text-[var(--accent)] font-semibold"
+                : "text-[var(--text-muted)] hover:text-[var(--text-main)] hover:bg-[var(--bg-elevated)]"
+            }`}
+          >
+            <span>Characters</span>
+            <span className="text-xs font-mono text-[var(--text-muted)]">Database</span>
           </Link>
           <Link
             href="/ifs"
@@ -301,6 +375,35 @@ export function Header() {
           >
             <span>Contribute</span>
           </Link>
+          <button
+            type="button"
+            onClick={() => {
+              setIsMobileMenuOpen(false);
+              handleSurpriseMe();
+            }}
+            disabled={isRolling}
+            className="w-full flex items-center justify-between px-3 py-2.5 rounded-lg text-sm font-medium text-[var(--text-muted)] hover:text-[var(--accent)] hover:bg-[var(--bg-elevated)] transition-colors text-left cursor-pointer border-t border-[var(--border-subtle)] mt-1 pt-3 group"
+          >
+            <div className="flex items-center gap-2.5">
+              <svg
+                className={`w-4 h-4 shrink-0 transition-transform duration-300 ${
+                  isRolling ? "animate-spin text-[var(--accent)]" : "group-hover:rotate-45"
+                }`}
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <rect x="3" y="3" width="18" height="18" rx="3" strokeWidth="2" />
+                <circle cx="8" cy="8" r="1.5" fill="currentColor" />
+                <circle cx="16" cy="8" r="1.5" fill="currentColor" />
+                <circle cx="12" cy="12" r="1.5" fill="currentColor" />
+                <circle cx="8" cy="16" r="1.5" fill="currentColor" />
+                <circle cx="16" cy="16" r="1.5" fill="currentColor" />
+              </svg>
+              <span>Surprise Me</span>
+            </div>
+            <span className="text-xs font-mono text-[var(--accent)] font-semibold">Random Lore</span>
+          </button>
         </div>
       )}
     </header>

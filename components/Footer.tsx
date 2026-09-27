@@ -26,6 +26,9 @@ export function Footer() {
             <Link href="/browse" className="hover:text-[var(--text-main)] transition-colors">
               Browse Q&amp;As
             </Link>
+            <Link href="/characters" className="hover:text-[var(--text-main)] transition-colors">
+              Characters
+            </Link>
             <Link href="/about" className="hover:text-[var(--text-main)] transition-colors">
               About
             </Link>

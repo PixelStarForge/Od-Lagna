@@ -1,5 +1,17 @@
-import { qnaEntrySchema, getEntrySources, contributorSchema } from "./schema";
-import { getAllContributors } from "./content-loader";
+import {
+  qnaEntrySchema,
+  getEntrySources,
+  contributorSchema,
+  characterSchema,
+} from "./schema";
+import {
+  getAllContributors,
+  getAllCharacterProfiles,
+  getCharacterProfileById,
+  getAllCharacterCatalogItems,
+  getCharacterDetailWithRelated,
+  slugifyCharacterName,
+} from "./content-loader";
 
 function assert(condition: boolean, message: string) {
   if (!condition) {
@@ -201,5 +213,81 @@ assert(contributors[0].username === "Mildly_Confused_NPC", "Expected first contr
 assert(contributors[1].username === "u/Affectionate_Run6250", "Expected second contributor to match");
 assert(contributors[2].username === "Historical-Weird7591", "Expected third contributor to match");
 console.log("✓ getAllContributors() loader passed");
+
+// 11. Testing characterSchema
+console.log("\n11. Testing characterSchema...");
+const validAuthChar = {
+  id: "test-auth",
+  name: "Auth Character",
+  arc: "arc-1",
+  aliases: [{ name: "Test Alias", arc: "arc-2" }],
+  race: "Human",
+  description: "A test character description",
+  authorities: [{ name: "Authority of Sloth", arc: "arc-4" }],
+};
+const parsedAuthChar = characterSchema.parse(validAuthChar);
+assert(parsedAuthChar.id === "test-auth", "Character ID mismatch");
+assert(parsedAuthChar.race === "Human", "Race mismatch");
+assert(parsedAuthChar.aliases[0].name === "Test Alias", "Alias name mismatch");
+
+const validDpChar = {
+  id: "test-dp",
+  name: "DP Character",
+  arc: "arc-1",
+  description: "A test character description",
+  divineProtections: [{ name: "Sword Saint", arc: "arc-1" }],
+};
+assert(characterSchema.safeParse(validDpChar).success, "Should succeed with divineProtections only");
+
+const bothPowersChar = {
+  id: "test-both",
+  name: "Both Powers Character",
+  arc: "arc-1",
+  description: "A test character description",
+  divineProtections: [{ name: "Sword Saint", arc: "arc-1" }],
+  authorities: [{ name: "Authority of Sloth", arc: "arc-4" }],
+};
+const bothPowersResult = characterSchema.safeParse(bothPowersChar);
+assert(!bothPowersResult.success, "Must reject character having both Divine Protections and Authorities");
+
+const invalidChar = {
+  id: "",
+  name: "",
+};
+const invalidCharResult = characterSchema.safeParse(invalidChar);
+assert(!invalidCharResult.success, "Should fail on missing required fields for character");
+console.log("✓ characterSchema validation tests passed");
+
+// 12. Testing slugifyCharacterName
+console.log("\n12. Testing slugifyCharacterName...");
+assert(slugifyCharacterName("Natsuki Subaru") === "natsuki-subaru", "Subaru slug mismatch");
+assert(slugifyCharacterName("Petelgeuse Romanée-Conti") === "petelgeuse-romanee-conti", "Petelgeuse diacritics slug mismatch");
+assert(slugifyCharacterName("Al (Aldebaran)") === "al-aldebaran", "Aldebaran parenthesis slug mismatch");
+console.log("✓ slugifyCharacterName passed");
+
+// 13. Testing character profile loaders
+console.log("\n13. Testing getAllCharacterProfiles() and getCharacterProfileById()...");
+const profiles = getAllCharacterProfiles();
+assert(profiles.length >= 1, "Expected at least 1 character profile");
+const subaru = getCharacterProfileById("natsuki-subaru");
+assert(subaru !== null, "Expected to find Natsuki Subaru profile");
+assert(subaru?.name === "Natsuki Subaru", "Subaru name mismatch");
+assert(subaru?.arc === "arc-1", "Subaru arc mismatch");
+console.log("✓ character profile loaders passed");
+
+// 14. Testing catalog and detail with related
+console.log("\n14. Testing getAllCharacterCatalogItems() and getCharacterDetailWithRelated()...");
+const catalog = getAllCharacterCatalogItems();
+assert(catalog.length >= 1, "Expected catalog to contain characters with profiles");
+const subaruInCatalog = catalog.find((c) => c.id === "natsuki-subaru");
+assert(subaruInCatalog !== undefined, "Subaru must exist in catalog");
+assert(subaruInCatalog?.hasFullProfile === true, "Subaru should have hasFullProfile = true");
+
+const subaruDetail = getCharacterDetailWithRelated("natsuki-subaru");
+assert(subaruDetail !== null, "Expected subaruDetail to be returned");
+assert(subaruDetail?.character.name === "Natsuki Subaru", "Detail character name mismatch");
+assert(Array.isArray(subaruDetail?.qnas), "Expected related Q&As array");
+assert(Array.isArray(subaruDetail?.trivia), "Expected related trivia array");
+console.log("✓ catalog and detail with related tests passed");
 
 console.log("\n🎉 ALL SCHEMA TESTS PASSED!");

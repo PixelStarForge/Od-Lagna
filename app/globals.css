@@ -17,6 +17,8 @@
   --text-faint: #52525b;
   --accent: #b91c1c;
   --accent-hover: #991b1b;
+  --accent-solid: #b91c1c;
+  --accent-solid-hover: #991b1b;
   --accent-bg: #fef2f2;
   --accent-border: #fecaca;
   --accent-text: #991b1b;
@@ -39,6 +41,8 @@
   --text-faint: #a1a1aa;
   --accent: #ef4444;
   --accent-hover: #f87171;
+  --accent-solid: #dc2626;
+  --accent-solid-hover: #b91c1c;
   --accent-bg: #2a1215;
   --accent-border: #451a1d;
   --accent-text: #fca5a5;

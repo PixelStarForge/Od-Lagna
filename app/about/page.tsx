@@ -119,7 +119,7 @@ export default function AboutPage() {
       <div className="flex flex-wrap items-center gap-4 pt-4 border-t border-[var(--border-subtle)]">
         <Link
           href="/browse"
-          className="px-5 py-2.5 rounded-lg text-sm font-semibold bg-[var(--accent)] text-white hover:bg-[var(--accent-hover)] transition-colors shadow-xs"
+          className="px-5 py-2.5 rounded-lg text-sm font-semibold bg-[var(--accent-solid)] text-white hover:bg-[var(--accent-solid-hover)] transition-colors shadow-xs"
         >
           Browse the Archive →
         </Link>

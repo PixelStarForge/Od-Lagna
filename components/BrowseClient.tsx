@@ -28,6 +28,105 @@ function parseArrayParam(param: string | null): string[] {
   return param.split(",").map((s) => s.trim()).filter(Boolean);
 }
 
+interface PaginationNavProps {
+  currentPage: number;
+  totalPages: number;
+  onPageChange: (page: number) => void;
+  position: "top" | "bottom";
+}
+
+function PaginationNav({
+  currentPage,
+  totalPages,
+  onPageChange,
+  position,
+}: PaginationNavProps) {
+  if (totalPages <= 1) return null;
+
+  const pages: (number | "...")[] = [];
+  if (totalPages <= 7) {
+    for (let i = 1; i <= totalPages; i++) pages.push(i);
+  } else if (currentPage <= 4) {
+    pages.push(1, 2, 3, 4, 5, "...", totalPages);
+  } else if (currentPage >= totalPages - 3) {
+    pages.push(1, "...", totalPages - 4, totalPages - 3, totalPages - 2, totalPages - 1, totalPages);
+  } else {
+    pages.push(1, "...", currentPage - 1, currentPage, currentPage + 1, "...", totalPages);
+  }
+
+  const borderClass =
+    position === "top"
+      ? "pb-3 border-b border-[var(--border-subtle)]"
+      : "pt-6 border-t border-[var(--border-subtle)]";
+
+  return (
+    <nav
+      aria-label={`Pagination Navigation (${position})`}
+      className={`flex flex-col sm:flex-row items-center justify-between gap-3 ${borderClass} text-xs sm:text-sm`}
+    >
+      <div className="flex items-center justify-between w-full sm:w-auto gap-2">
+        <button
+          type="button"
+          disabled={currentPage === 1}
+          onClick={() => onPageChange(Math.max(1, currentPage - 1))}
+          className="px-3.5 py-1.5 rounded-lg border border-[var(--border-subtle)] bg-[var(--bg-surface)] font-medium text-[var(--text-main)] hover:bg-[var(--bg-elevated)] disabled:opacity-40 disabled:cursor-not-allowed cursor-pointer transition-colors shadow-2xs inline-flex items-center gap-1"
+        >
+          <span>←</span>
+          <span>Previous</span>
+        </button>
+
+        {/* Mobile page status */}
+        <span className="sm:hidden font-mono text-xs text-[var(--text-muted)] font-medium">
+          Page {currentPage} of {totalPages}
+        </span>
+
+        <button
+          type="button"
+          disabled={currentPage === totalPages}
+          onClick={() => onPageChange(Math.min(totalPages, currentPage + 1))}
+          className="px-3.5 py-1.5 rounded-lg border border-[var(--border-subtle)] bg-[var(--bg-surface)] font-medium text-[var(--text-main)] hover:bg-[var(--bg-elevated)] disabled:opacity-40 disabled:cursor-not-allowed cursor-pointer transition-colors shadow-2xs inline-flex items-center gap-1"
+        >
+          <span>Next</span>
+          <span>→</span>
+        </button>
+      </div>
+
+      {/* Desktop / Laptop page numbers with ellipsis */}
+      <div className="hidden sm:flex items-center gap-1.5">
+        {pages.map((item, idx) =>
+          item === "..." ? (
+            <span
+              key={`ellipsis-${position}-${idx}`}
+              className="w-8 h-8 flex items-center justify-center font-mono text-xs text-[var(--text-muted)] select-none"
+            >
+              …
+            </span>
+          ) : (
+            <button
+              key={`page-${position}-${item}`}
+              type="button"
+              onClick={() => onPageChange(item)}
+              aria-current={currentPage === item ? "page" : undefined}
+              className={`w-8 h-8 rounded-lg text-xs font-mono font-semibold cursor-pointer transition-all shadow-2xs ${
+                currentPage === item
+                  ? "bg-[var(--accent)] text-white font-bold"
+                  : "border border-[var(--border-subtle)] bg-[var(--bg-surface)] text-[var(--text-muted)] hover:text-[var(--text-main)] hover:bg-[var(--bg-elevated)]"
+              }`}
+            >
+              {item}
+            </button>
+          )
+        )}
+      </div>
+
+      {/* Total Indicator for desktop */}
+      <div className="hidden sm:flex items-center gap-2 text-xs font-mono text-[var(--text-muted)]">
+        <span>Total {totalPages} Pages</span>
+      </div>
+    </nav>
+  );
+}
+
 export function BrowseClient({
   allQnas,
   allTrivia = [],
@@ -464,6 +563,11 @@ export function BrowseClient({
   const totalPages = Math.max(1, Math.ceil(sortedEntries.length / ITEMS_PER_PAGE));
   const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
   const currentEntries = sortedEntries.slice(startIndex, startIndex + ITEMS_PER_PAGE);
+
+  const handlePageChange = useCallback((page: number) => {
+    setCurrentPage(page);
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, []);
 
   // IF routes selected that are currently gated by user spoiler settings
   const gatedSelectedIfRoutes = useMemo(() => {
@@ -1042,13 +1146,23 @@ export function BrowseClient({
                   <button
                     type="button"
                     onClick={() => toggleIfRoute(route.slug)}
-                    className="px-3 py-1.5 rounded-lg bg-[var(--accent)] text-white text-xs font-semibold hover:bg-[var(--accent-hover)] transition-colors whitespace-nowrap cursor-pointer"
+                    className="px-3 py-1.5 rounded-lg bg-[var(--accent-solid)] text-white text-xs font-semibold hover:bg-[var(--accent-solid-hover)] transition-colors whitespace-nowrap cursor-pointer"
                   >
                     Reveal &amp; Allow {route.name}
                   </button>
                 </div>
               ))}
             </div>
+          )}
+
+          {/* Top Pagination Controls */}
+          {totalPages > 1 && (
+            <PaginationNav
+              currentPage={currentPage}
+              totalPages={totalPages}
+              onPageChange={handlePageChange}
+              position="top"
+            />
           )}
 
           {/* Cards List */}
@@ -1099,93 +1213,14 @@ export function BrowseClient({
             </div>
           )}
 
-          {/* Pagination Controls */}
+          {/* Bottom Pagination Controls */}
           {totalPages > 1 && (
-            <nav
-              aria-label="Pagination Navigation"
-              className="flex flex-col sm:flex-row items-center justify-between gap-3 pt-6 border-t border-[var(--border-subtle)] text-xs sm:text-sm"
-            >
-              <div className="flex items-center justify-between w-full sm:w-auto gap-2">
-                <button
-                  type="button"
-                  disabled={currentPage === 1}
-                  onClick={() => {
-                    setCurrentPage((p) => Math.max(1, p - 1));
-                    window.scrollTo({ top: 0, behavior: "smooth" });
-                  }}
-                  className="px-3.5 py-1.5 rounded-lg border border-[var(--border-subtle)] bg-[var(--bg-surface)] font-medium text-[var(--text-main)] hover:bg-[var(--bg-elevated)] disabled:opacity-40 disabled:cursor-not-allowed cursor-pointer transition-colors shadow-2xs inline-flex items-center gap-1"
-                >
-                  <span>←</span>
-                  <span>Previous</span>
-                </button>
-
-                {/* Mobile page status */}
-                <span className="sm:hidden font-mono text-xs text-[var(--text-muted)] font-medium">
-                  Page {currentPage} of {totalPages}
-                </span>
-
-                <button
-                  type="button"
-                  disabled={currentPage === totalPages}
-                  onClick={() => {
-                    setCurrentPage((p) => Math.min(totalPages, p + 1));
-                    window.scrollTo({ top: 0, behavior: "smooth" });
-                  }}
-                  className="px-3.5 py-1.5 rounded-lg border border-[var(--border-subtle)] bg-[var(--bg-surface)] font-medium text-[var(--text-main)] hover:bg-[var(--bg-elevated)] disabled:opacity-40 disabled:cursor-not-allowed cursor-pointer transition-colors shadow-2xs inline-flex items-center gap-1"
-                >
-                  <span>Next</span>
-                  <span>→</span>
-                </button>
-              </div>
-
-              {/* Desktop / Laptop page numbers with ellipsis */}
-              <div className="hidden sm:flex items-center gap-1.5">
-                {(() => {
-                  const pages: (number | "...")[] = [];
-                  if (totalPages <= 7) {
-                    for (let i = 1; i <= totalPages; i++) pages.push(i);
-                  } else if (currentPage <= 4) {
-                    pages.push(1, 2, 3, 4, 5, "...", totalPages);
-                  } else if (currentPage >= totalPages - 3) {
-                    pages.push(1, "...", totalPages - 4, totalPages - 3, totalPages - 2, totalPages - 1, totalPages);
-                  } else {
-                    pages.push(1, "...", currentPage - 1, currentPage, currentPage + 1, "...", totalPages);
-                  }
-                  return pages.map((item, idx) =>
-                    item === "..." ? (
-                      <span
-                        key={`ellipsis-${idx}`}
-                        className="w-8 h-8 flex items-center justify-center font-mono text-xs text-[var(--text-muted)] select-none"
-                      >
-                        …
-                      </span>
-                    ) : (
-                      <button
-                        key={item}
-                        type="button"
-                        onClick={() => {
-                          setCurrentPage(item);
-                          window.scrollTo({ top: 0, behavior: "smooth" });
-                        }}
-                        aria-current={currentPage === item ? "page" : undefined}
-                        className={`w-8 h-8 rounded-lg text-xs font-mono font-semibold cursor-pointer transition-all shadow-2xs ${
-                          currentPage === item
-                            ? "bg-[var(--accent)] text-white font-bold"
-                            : "border border-[var(--border-subtle)] bg-[var(--bg-surface)] text-[var(--text-muted)] hover:text-[var(--text-main)] hover:bg-[var(--bg-elevated)]"
-                        }`}
-                      >
-                        {item}
-                      </button>
-                    )
-                  );
-                })()}
-              </div>
-
-              {/* Total Indicator for desktop */}
-              <div className="hidden sm:flex items-center gap-2 text-xs font-mono text-[var(--text-muted)]">
-                <span>Total {totalPages} Pages</span>
-              </div>
-            </nav>
+            <PaginationNav
+              currentPage={currentPage}
+              totalPages={totalPages}
+              onPageChange={handlePageChange}
+              position="bottom"
+            />
           )}
         </div>
       </div>

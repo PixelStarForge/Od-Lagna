@@ -130,4 +130,40 @@ export type ArchiveEntry =
   | ({ entryType: "qna" } & QnaEntry)
   | ({ entryType: "trivia" } & TriviaEntry);
 
+export const characterLoreItemSchema = z.object({
+  name: z.string().min(1, "Name is required"),
+  arc: z.string().min(1, "Arc is required"),
+});
 
+export type CharacterLoreItem = z.infer<typeof characterLoreItemSchema>;
+
+export const characterSchema = z
+  .object({
+    id: z.string().min(1, "ID is required"),
+    name: z.string().min(1, "Name is required"),
+    arc: z.string().min(1, "Arc is required"),
+    japaneseName: z.string().optional(),
+    aliases: z.array(characterLoreItemSchema).default([]),
+    gender: z.string().optional(),
+    birthday: z.string().optional(),
+    age: z.string().optional(),
+    race: z.string().optional(),
+    affiliation: z.array(z.string()).default([]),
+    description: z.string().min(1, "Description is required"),
+    link: z.string().url("Must be a valid URL").optional(),
+    divineProtections: z.array(characterLoreItemSchema).optional(),
+    authorities: z.array(characterLoreItemSchema).optional(),
+  })
+  .refine(
+    (data) => {
+      const hasDp = Array.isArray(data.divineProtections) && data.divineProtections.length > 0;
+      const hasAuth = Array.isArray(data.authorities) && data.authorities.length > 0;
+      return !(hasDp && hasAuth);
+    },
+    {
+      message: "A character cannot possess both Divine Protections and Authorities at the same time.",
+      path: ["divineProtections"],
+    }
+  );
+
+export type CharacterDetail = z.infer<typeof characterSchema>;

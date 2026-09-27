@@ -1,11 +1,19 @@
 import fs from "node:fs";
 import path from "node:path";
-import { qnaEntrySchema, ArcConfig, IfRouteConfig, contributorSchema, triviaEntrySchema } from "../lib/schema";
+import {
+  qnaEntrySchema,
+  ArcConfig,
+  IfRouteConfig,
+  contributorSchema,
+  triviaEntrySchema,
+  characterSchema,
+} from "../lib/schema";
 
 const ROOT_DIR = path.resolve(__dirname, "..");
 const CONTENT_CONFIG_DIR = path.join(ROOT_DIR, "content", "config");
 const CONTENT_QNA_DIR = path.join(ROOT_DIR, "content", "qna");
 const CONTENT_TRIVIA_DIR = path.join(ROOT_DIR, "content", "trivia");
+const CONTENT_CHARACTERS_DIR = path.join(ROOT_DIR, "content", "characters");
 
 function getValidArcSlugs(): Set<string> {
   const arcsFile = path.join(CONTENT_CONFIG_DIR, "arcs.json");
@@ -180,6 +188,82 @@ export function validateTriviaDirectory(dirPath = CONTENT_TRIVIA_DIR): { valid: 
   return { valid: errors.length === 0, errors };
 }
 
+export function validateCharactersDirectory(dirPath = CONTENT_CHARACTERS_DIR): { valid: boolean; errors: string[] } {
+  const errors: string[] = [];
+  const validArcSlugs = getValidArcSlugs();
+  const seenIds = new Map<string, string>();
+
+  if (!fs.existsSync(dirPath)) {
+    return { valid: true, errors: [] };
+  }
+
+  const entries = fs.readdirSync(dirPath);
+  const jsonFiles = entries.filter((file) => file.endsWith(".json") && !file.startsWith("_"));
+
+  for (const filename of jsonFiles) {
+    const fullPath = path.join(dirPath, filename);
+    let parsed: unknown;
+
+    try {
+      const rawContent = fs.readFileSync(fullPath, "utf-8");
+      parsed = JSON.parse(rawContent);
+    } catch (err: unknown) {
+      const msg = err instanceof Error ? err.message : String(err);
+      errors.push(`[${filename}] Invalid JSON format: ${msg}`);
+      continue;
+    }
+
+    const result = characterSchema.safeParse(parsed);
+    if (!result.success) {
+      const issues = result.error.issues
+        .map((i) => `${i.path.join(".") || "root"}: ${i.message}`)
+        .join("; ");
+      errors.push(`[${filename}] Schema validation failed: ${issues}`);
+      continue;
+    }
+
+    const data = result.data;
+    const expectedId = filename.replace(/\.json$/, "");
+    if (data.id !== expectedId) {
+      errors.push(`[${filename}] ID mismatch: JSON contains id "${data.id}", expected "${expectedId}"`);
+    }
+
+    if (seenIds.has(data.id)) {
+      errors.push(`[${filename}] Duplicate character ID "${data.id}" already defined in "${seenIds.get(data.id)}"`);
+    } else {
+      seenIds.set(data.id, filename);
+    }
+
+    if (!validArcSlugs.has(data.arc)) {
+      errors.push(`[${filename}] Unknown arc slug: "${data.arc}". Valid arc slugs are: ${Array.from(validArcSlugs).sort().join(", ")}`);
+    }
+
+    for (const alias of data.aliases) {
+      if (!validArcSlugs.has(alias.arc)) {
+        errors.push(`[${filename}] Unknown arc slug "${alias.arc}" for alias "${alias.name}". Valid arc slugs are: ${Array.from(validArcSlugs).sort().join(", ")}`);
+      }
+    }
+
+    if (data.divineProtections) {
+      for (const dp of data.divineProtections) {
+        if (!validArcSlugs.has(dp.arc)) {
+          errors.push(`[${filename}] Unknown arc slug "${dp.arc}" for divine protection "${dp.name}". Valid arc slugs are: ${Array.from(validArcSlugs).sort().join(", ")}`);
+        }
+      }
+    }
+
+    if (data.authorities) {
+      for (const auth of data.authorities) {
+        if (!validArcSlugs.has(auth.arc)) {
+          errors.push(`[${filename}] Unknown arc slug "${auth.arc}" for authority "${auth.name}". Valid arc slugs are: ${Array.from(validArcSlugs).sort().join(", ")}`);
+        }
+      }
+    }
+  }
+
+  return { valid: errors.length === 0, errors };
+}
+
 function run() {
   console.log("Validating Q&A content in content/qna/...");
   const qnaResult = validateQnaDirectory();
@@ -187,10 +271,18 @@ function run() {
   console.log("Validating trivia content in content/trivia/...");
   const triviaResult = validateTriviaDirectory();
 
+  console.log("Validating characters in content/characters/...");
+  const charactersResult = validateCharactersDirectory();
+
   console.log("Validating contributors in content/config/contributors.json...");
   const contributorsResult = validateContributors();
 
-  const allErrors = [...qnaResult.errors, ...triviaResult.errors, ...contributorsResult.errors];
+  const allErrors = [
+    ...qnaResult.errors,
+    ...triviaResult.errors,
+    ...charactersResult.errors,
+    ...contributorsResult.errors,
+  ];
 
   if (allErrors.length > 0) {
     console.error(`\n❌ Content validation failed with ${allErrors.length} error(s):`);

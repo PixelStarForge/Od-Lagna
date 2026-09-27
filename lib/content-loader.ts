@@ -12,12 +12,16 @@ import {
   TriviaEntry,
   triviaEntrySchema,
   ArchiveEntry,
+  characterSchema,
+  CharacterDetail,
+  CharacterLoreItem,
 } from "./schema";
 
 const CONTENT_DIR = path.join(process.cwd(), "content");
 const CONFIG_DIR = path.join(CONTENT_DIR, "config");
 const QNA_DIR = path.join(CONTENT_DIR, "qna");
 const CONTENT_TRIVIA_DIR = path.join(CONTENT_DIR, "trivia");
+const CONTENT_CHARACTERS_DIR = path.join(CONTENT_DIR, "characters");
 
 export interface ArcMetadata {
   slug: string;
@@ -265,5 +269,172 @@ export function getAllArchiveEntries(): ArchiveEntry[] {
   }));
 
   return [...qnas, ...trivias];
+}
+
+export interface CharacterCatalogItem {
+  id: string;
+  name: string;
+  japaneseName?: string;
+  arc: string;
+  aliases: CharacterLoreItem[];
+  gender?: string;
+  birthday?: string;
+  age?: string;
+  race?: string;
+  affiliation: string[];
+  description: string;
+  link?: string;
+  divineProtections?: CharacterLoreItem[];
+  authorities?: CharacterLoreItem[];
+  hasFullProfile: boolean;
+  qnaCount: number;
+  triviaCount: number;
+}
+
+export function slugifyCharacterName(name: string): string {
+  return name
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/[^\w\s-]/g, "")
+    .trim()
+    .replace(/\s+/g, "-")
+    .replace(/-+/g, "-");
+}
+
+export function getAllCharacterProfiles(): CharacterDetail[] {
+  if (!fs.existsSync(CONTENT_CHARACTERS_DIR)) {
+    return [];
+  }
+
+  const files = fs.readdirSync(CONTENT_CHARACTERS_DIR);
+  const profiles: CharacterDetail[] = [];
+  const validFiles = files.filter(
+    (file) => file.endsWith(".json") && !file.startsWith("_")
+  );
+
+  for (const file of validFiles) {
+    const fullPath = path.join(CONTENT_CHARACTERS_DIR, file);
+    try {
+      const raw = fs.readFileSync(fullPath, "utf-8");
+      const parsed = JSON.parse(raw);
+      const validated = characterSchema.parse(parsed);
+      profiles.push(validated);
+    } catch (err) {
+      console.warn(`[content-loader] Skipping invalid character file ${file}:`, err);
+    }
+  }
+
+  return profiles;
+}
+
+export function getCharacterProfileById(idOrSlug: string): CharacterDetail | null {
+  if (!idOrSlug) return null;
+  const normalized = idOrSlug.trim().toLowerCase();
+
+  if (fs.existsSync(CONTENT_CHARACTERS_DIR)) {
+    const directFile = path.join(CONTENT_CHARACTERS_DIR, `${normalized}.json`);
+    if (fs.existsSync(directFile)) {
+      try {
+        const raw = fs.readFileSync(directFile, "utf-8");
+        return characterSchema.parse(JSON.parse(raw));
+      } catch {}
+    }
+  }
+
+  const all = getAllCharacterProfiles();
+  return (
+    all.find(
+      (c) =>
+        c.id.toLowerCase() === normalized ||
+        slugifyCharacterName(c.name) === normalized ||
+        c.name.toLowerCase() === normalized
+    ) ?? null
+  );
+}
+
+export function getAllCharacterCatalogItems(): CharacterCatalogItem[] {
+  const profiles = getAllCharacterProfiles();
+  const allQnas = getAllQnas();
+  const allTrivia = getAllTrivia();
+
+  const qnaCounts = new Map<string, number>();
+  const triviaCounts = new Map<string, number>();
+  const norm = (s: string) => s.trim().toLowerCase();
+
+  for (const q of allQnas) {
+    for (const c of q.characters) {
+      const k = norm(c);
+      qnaCounts.set(k, (qnaCounts.get(k) || 0) + 1);
+    }
+  }
+
+  for (const t of allTrivia) {
+    for (const c of t.characters) {
+      const k = norm(c);
+      triviaCounts.set(k, (triviaCounts.get(k) || 0) + 1);
+    }
+  }
+
+  return profiles
+    .map((profile) => {
+      const k = norm(profile.name);
+      return {
+        id: profile.id,
+        name: profile.name,
+        japaneseName: profile.japaneseName,
+        arc: profile.arc,
+        aliases: profile.aliases || [],
+        gender: profile.gender,
+        birthday: profile.birthday,
+        age: profile.age,
+        race: profile.race,
+        affiliation: profile.affiliation || [],
+        description: profile.description,
+        link: profile.link,
+        divineProtections: profile.divineProtections,
+        authorities: profile.authorities,
+        hasFullProfile: true,
+        qnaCount: qnaCounts.get(k) || 0,
+        triviaCount: triviaCounts.get(k) || 0,
+      };
+    })
+    .sort((a, b) => a.name.localeCompare(b.name));
+}
+
+export function getCharacterDetailWithRelated(idOrSlug: string): {
+  character: CharacterCatalogItem;
+  qnas: QnaEntry[];
+  trivia: TriviaEntry[];
+} | null {
+  if (!idOrSlug) return null;
+  const items = getAllCharacterCatalogItems();
+  const normalized = idOrSlug.trim().toLowerCase();
+
+  const item = items.find(
+    (c) =>
+      c.id.toLowerCase() === normalized ||
+      slugifyCharacterName(c.name) === normalized ||
+      c.name.toLowerCase() === normalized
+  );
+
+  if (!item) return null;
+
+  const allQnas = getAllQnas();
+  const allTrivia = getAllTrivia();
+
+  const itemCanonLower = item.name.toLowerCase();
+  const relatedQnas = allQnas.filter((q) =>
+    q.characters.some((c) => c.toLowerCase() === itemCanonLower)
+  );
+  const relatedTrivia = allTrivia.filter((t) =>
+    t.characters.some((c) => c.toLowerCase() === itemCanonLower)
+  );
+
+  return {
+    character: item,
+    qnas: relatedQnas,
+    trivia: relatedTrivia,
+  };
 }
 

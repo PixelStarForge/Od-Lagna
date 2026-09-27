@@ -97,7 +97,7 @@ export function OnboardingModal() {
           <button
             type="button"
             onClick={handleDismiss}
-            className="w-full sm:w-auto px-5 py-2.5 text-sm font-semibold rounded-lg bg-[var(--accent)] text-white hover:bg-[var(--accent-hover)] cursor-pointer transition-colors shadow-sm shrink-0"
+            className="w-full sm:w-auto px-5 py-2.5 text-sm font-semibold rounded-lg bg-[var(--accent-solid)] text-white hover:bg-[var(--accent-solid-hover)] cursor-pointer transition-colors shadow-sm shrink-0"
           >
             Confirm &amp; Enter Archive
           </button>

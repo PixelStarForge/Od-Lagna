@@ -1,0 +1,19 @@
+# Od-Lagna — Re:Zero Tappei Q&A Archive
+
+> Od-Lagna is a comprehensive, searchable archive indexing every public statement, event interview, and Twitter Q&A given by Re:Zero author Tappei Nagatsuki, featuring granular spoiler cutoff controls.
+
+## Archive Structure
+
+- [Home](https://od-lagna.com/): Overview of the archive, metrics, debut arc distributions, and quick navigation.
+- [Browse Archive](https://od-lagna.com/browse): Full searchable database of over 4,200 Q&A and trivia entries. Supports multi-token search, typo tolerance, character filters, topic tags, and arc cutoff controls.
+- [Character Profiles](https://od-lagna.com/characters): Character database detailing canon debut arcs, aliases, Japanese names, affiliations, and verified Q&A statements.
+- [IF Routes Directory](https://od-lagna.com/ifs): Exploration of alternate-reality IF stories (Sloth IF, Greed IF, Pride IF, Wrath IF, Gluttony IF, Lust IF, etc.) and related Q&A supplements.
+- [Side Stories Directory](https://od-lagna.com/side-stories): Index of store bonus booklets, monthly magazine novellas, and canon side stories.
+- [About](https://od-lagna.com/about): Methodology, verification criteria, and project philosophy.
+- [Contribute](https://od-lagna.com/contribute): Contribution guidelines, submission templates, and verification standards.
+
+## Key Features for Agents and Readers
+
+- **Spoiler Protection**: Readers and automated systems can filter statements by story arc (Arc 1 through Arc 9) and independently allow or disallow IF routes to prevent spoilers.
+- **Verification Levels**: Statements are categorized by verification level with primary source citations from author tweets, convention panels, and official fanbooks.
+- **Search Capabilities**: Instant client-side fuzzy search indexing questions, author answers, aliases, and thematic tags.

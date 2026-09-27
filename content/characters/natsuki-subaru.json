@@ -1,0 +1,74 @@
+{
+  "id": "natsuki-subaru",
+  "name": "Natsuki Subaru",
+  "arc": "arc-1",
+  "japaneseName": "ナツキ・スバル",
+  "aliases": [
+    {
+      "name": "Barusu",
+      "arc": "arc-2"
+    },
+    {
+      "name": "Little Girl User",
+      "arc": "arc-5"
+    },
+    {
+      "name": "Bro",
+      "arc": "arc-3"
+    },
+    {
+      "name": "Spirit Knight",
+      "arc": "arc-4"
+    },
+    {
+      "name": "Emilia's Knight",
+      "arc": "arc-4"
+    },
+    {
+      "name": "Captain",
+      "arc": "arc-4"
+    },
+    {
+      "name": "Natsumi Schwartz",
+      "arc": "arc-7"
+    },
+    {
+      "name": "Natsuki Schwartz",
+      "arc": "arc-7"
+    },
+    {
+      "name": "Boss",
+      "arc": "arc-7"
+    },
+    {
+      "name": "Husband-kun",
+      "arc": "arc-7"
+    }
+  ],
+  "gender": "Male",
+  "birthday": "April 1",
+  "age": "17 (Arc 1-4) / 18 (Arc 5+)",
+  "race": "Human",
+  "affiliation": [
+    "Kingdom of Lugunica",
+    "Emilia Camp",
+    "House Mathers",
+    "Pleiades Battalion"
+  ],
+  "description": "Natsuki Subaru is the main protagonist of Re:Zero kara Hajimeru Isekai Seikatsu. A former hikikomori, he was transported to Lugunica through unknown means, where he was given the Authority which he calls \"Return by Death\" by Satella and became the knight of the Kingdom and the personal knight of the Royal Selection Candidate Emilia.",
+  "link": "https://rezero.fandom.com/wiki/Natsuki_Subaru",
+  "authorities": [
+    {
+      "name": "Return by Death",
+      "arc": "arc-1"
+    },
+    {
+      "name": "Invisible Providence (Authority of Sloth)",
+      "arc": "arc-4"
+    },
+    {
+      "name": "Cor Leonis (Authority of Greed)",
+      "arc": "arc-6"
+    }
+  ]
+}

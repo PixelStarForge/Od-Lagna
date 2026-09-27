@@ -68,7 +68,7 @@ export default function ErrorPage({ error, reset }: ErrorProps) {
           <button
             type="button"
             onClick={() => reset()}
-            className="w-full sm:w-auto px-5 py-2.5 text-sm font-semibold rounded-lg bg-[var(--accent)] text-white hover:bg-[var(--accent-hover)] transition-colors cursor-pointer shadow-xs"
+            className="w-full sm:w-auto px-5 py-2.5 text-sm font-semibold rounded-lg bg-[var(--accent-solid)] text-white hover:bg-[var(--accent-solid-hover)] transition-colors cursor-pointer shadow-xs"
           >
             Try Again
           </button>

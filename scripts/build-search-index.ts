@@ -6,6 +6,7 @@ const ROOT_DIR = path.resolve(__dirname, "..");
 const CONTENT_CONFIG_DIR = path.join(ROOT_DIR, "content", "config");
 const CONTENT_QNA_DIR = path.join(ROOT_DIR, "content", "qna");
 const CONTENT_TRIVIA_DIR = path.join(ROOT_DIR, "content", "trivia");
+const CONTENT_CHARACTERS_DIR = path.join(ROOT_DIR, "content", "characters");
 const PUBLIC_DIR = path.join(ROOT_DIR, "public");
 
 export interface SearchIndexRecord {
@@ -23,10 +24,19 @@ export interface SearchIndexRecord {
   dateTime?: string;
 }
 
+export interface SearchIndexCharacterProfile {
+  id: string;
+  name: string;
+  arc: string;
+  japaneseName?: string;
+  aliases: string[];
+}
+
 export interface SearchIndexPayload {
   records: SearchIndexRecord[];
   characters: string[];
   topics: string[];
+  characterProfiles?: SearchIndexCharacterProfile[];
 }
 
 function getArcNameMap(): Map<string, string> {
@@ -154,10 +164,37 @@ export function buildSearchIndex(): SearchIndexPayload {
     }
   }
 
+  // Index Character Profiles
+  const characterProfiles: SearchIndexCharacterProfile[] = [];
+  if (fs.existsSync(CONTENT_CHARACTERS_DIR)) {
+    const files = fs.readdirSync(CONTENT_CHARACTERS_DIR);
+    const validFiles = files.filter(
+      (file) => file.endsWith(".json") && !file.startsWith("_")
+    );
+
+    for (const file of validFiles) {
+      const fullPath = path.join(CONTENT_CHARACTERS_DIR, file);
+      try {
+        const raw = fs.readFileSync(fullPath, "utf-8");
+        const parsed = JSON.parse(raw);
+        characterProfiles.push({
+          id: parsed.id,
+          name: parsed.name,
+          arc: parsed.arc,
+          japaneseName: parsed.japaneseName,
+          aliases: (parsed.aliases || []).map((a: { name: string }) => a.name),
+        });
+      } catch (err) {
+        console.error(`Error indexing character profile ${file}:`, err);
+      }
+    }
+  }
+
   return {
     records,
     characters: Array.from(characterSet).sort(),
     topics: Array.from(topicSet).sort(),
+    characterProfiles,
   };
 }
 

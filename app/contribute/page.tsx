@@ -59,7 +59,7 @@ export default function ContributePage() {
               href="https://github.com/PixelStarForge/Od-Lagna/issues/new"
               target="_blank"
               rel="noopener noreferrer"
-              className="px-5 py-2.5 rounded-lg text-sm font-semibold bg-[var(--accent)] text-white hover:bg-[var(--accent-hover)] transition-colors shadow-xs text-center inline-flex items-center justify-center gap-1.5"
+              className="px-5 py-2.5 rounded-lg text-sm font-semibold bg-[var(--accent-solid)] text-white hover:bg-[var(--accent-solid-hover)] transition-colors shadow-xs text-center inline-flex items-center justify-center gap-1.5"
             >
               <span>Open GitHub Issue</span>
               <span>↗</span>
@@ -260,7 +260,7 @@ export default function ContributePage() {
         </Link>
         <Link
           href="/browse"
-          className="px-5 py-2.5 rounded-lg text-sm font-semibold bg-[var(--accent)] text-white hover:bg-[var(--accent-hover)] transition-colors shadow-xs"
+          className="px-5 py-2.5 rounded-lg text-sm font-semibold bg-[var(--accent-solid)] text-white hover:bg-[var(--accent-solid-hover)] transition-colors shadow-xs"
         >
           Browse the Archive →
         </Link>

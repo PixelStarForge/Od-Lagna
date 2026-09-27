@@ -4,16 +4,21 @@ import React, { useState, useEffect, useRef, useMemo, useDeferredValue } from "r
 import { useRouter } from "next/navigation";
 import Fuse from "fuse.js";
 import { usePreferences } from "../lib/preferences";
-import { SearchIndexRecord, SearchIndexPayload } from "../lib/search-index";
+import {
+  SearchIndexRecord,
+  SearchIndexPayload,
+  SearchIndexCharacterProfile,
+} from "../lib/search-index";
 import { CANON_ARCS, IF_ROUTES, isArcSpoiler } from "../lib/arc-utils";
 import { formatQnaDate } from "../lib/date-utils";
 import { dispatchUrlChange } from "../lib/navigation-events";
 
 type SearchResultItem =
-  | { type: "qna"; data: SearchIndexRecord }
+  | { type: "character-profile"; id: string; name: string; arc: string; japaneseName?: string; aliases?: string[] }
   | { type: "character"; name: string }
   | { type: "topic"; name: string }
-  | { type: "arc"; slug: string; name: string };
+  | { type: "arc"; slug: string; name: string }
+  | { type: "qna"; data: SearchIndexRecord };
 
 export function SearchModal() {
   const { isSearchOpen, setIsSearchOpen, spoilerArc, allowedIfRoutes } = usePreferences();
@@ -26,6 +31,7 @@ export function SearchModal() {
   const [indexRecords, setIndexRecords] = useState<SearchIndexRecord[]>([]);
   const [indexCharacters, setIndexCharacters] = useState<string[]>([]);
   const [indexTopics, setIndexTopics] = useState<string[]>([]);
+  const [indexCharacterProfiles, setIndexCharacterProfiles] = useState<SearchIndexCharacterProfile[]>([]);
   const [hasLoaded, setHasLoaded] = useState(false);
   const [selectedIndex, setSelectedIndex] = useState(0);
 
@@ -67,10 +73,12 @@ export function SearchModal() {
             });
             setIndexCharacters(Array.from(chars).sort());
             setIndexTopics(Array.from(topics).sort());
+            setIndexCharacterProfiles([]);
           } else {
             setIndexRecords(data.records || []);
             setIndexCharacters(data.characters || []);
             setIndexTopics(data.topics || []);
+            setIndexCharacterProfiles(data.characterProfiles || []);
           }
           setHasLoaded(true);
         }
@@ -108,6 +116,13 @@ export function SearchModal() {
       (record) => !isArcSpoiler(record.arc, spoilerArc, allowedIfRoutes)
     );
   }, [indexRecords, spoilerArc, allowedIfRoutes]);
+
+  // Filter character profiles strictly according to reader's spoiler cutoff
+  const allowedCharacterProfiles = useMemo(() => {
+    return indexCharacterProfiles.filter(
+      (profile) => !isArcSpoiler(profile.arc, spoilerArc, allowedIfRoutes)
+    );
+  }, [indexCharacterProfiles, spoilerArc, allowedIfRoutes]);
 
   // Pre-index allowed records to avoid redundant lowercase/string operations during search
   const indexedRecords = useMemo(() => {
@@ -158,12 +173,27 @@ export function SearchModal() {
   const groupedResults = useMemo(() => {
     const q = deferredQuery.trim().toLowerCase();
     if (!q) {
-      return { qnas: [], characters: [], topics: [], arcs: [], flatList: [] };
+      return { profiles: [], qnas: [], characters: [], topics: [], arcs: [], flatList: [] };
     }
 
     const cleanQ = q.replace(/^#/, "").replace(/^qna[\s#-]+/i, "").trim();
+    const tokens = q.split(/\s+/).filter(Boolean);
     const isNumericQuery = /^\d+$/.test(cleanQ);
     const isTriviaQuery = /^tr[-_\s]?\d+/i.test(cleanQ);
+
+    // 0. Character Profile Matches (e.g. Subaru, Natsuki Subaru, ナツキ・スバル, Barusu, Natsumi Schwartz, etc.)
+    const matchedProfiles = allowedCharacterProfiles
+      .filter((prof) => {
+        const nameLower = prof.name.toLowerCase();
+        const jpLower = (prof.japaneseName || "").toLowerCase();
+        const aliasesLower = (prof.aliases || []).map((a) => a.toLowerCase());
+        const hay = `${nameLower} ${jpLower} ${aliasesLower.join(" ")}`;
+        if (tokens.length <= 1) {
+          return hay.includes(q) || (cleanQ && hay.includes(cleanQ));
+        }
+        return tokens.every((tok) => hay.includes(tok));
+      })
+      .slice(0, 4);
 
     const seenQnaIds = new Set<string>();
     const qnas: SearchIndexRecord[] = [];
@@ -195,8 +225,6 @@ export function SearchModal() {
     }
 
     // 2. Multi-word / Keyword matching
-    const tokens = q.split(/\s+/).filter(Boolean);
-
     if (tokens.length >= 2) {
       // Score-based token intersection
       const candidates: { record: SearchIndexRecord; score: number }[] = [];
@@ -349,14 +377,38 @@ export function SearchModal() {
 
     // Flatten for keyboard navigation
     const flatList: SearchResultItem[] = [
+      ...matchedProfiles.map((p) => ({
+        type: "character-profile" as const,
+        id: p.id,
+        name: p.name,
+        arc: p.arc,
+        japaneseName: p.japaneseName,
+        aliases: p.aliases,
+      })),
       ...matchedChars.map((name) => ({ type: "character" as const, name })),
       ...matchedTopics.map((name) => ({ type: "topic" as const, name })),
       ...matchedArcs.map((arc) => ({ type: "arc" as const, slug: arc.slug, name: arc.name })),
       ...qnas.map((data) => ({ type: "qna" as const, data })),
     ];
 
-    return { qnas, characters: matchedChars, topics: matchedTopics, arcs: matchedArcs, flatList };
-  }, [deferredQuery, fuse, indexedRecords, indexCharacters, indexTopics, spoilerArc, allowedIfRoutes]);
+    return {
+      profiles: matchedProfiles,
+      qnas,
+      characters: matchedChars,
+      topics: matchedTopics,
+      arcs: matchedArcs,
+      flatList,
+    };
+  }, [
+    deferredQuery,
+    fuse,
+    indexedRecords,
+    indexCharacters,
+    indexTopics,
+    allowedCharacterProfiles,
+    spoilerArc,
+    allowedIfRoutes,
+  ]);
 
   const navigateTo = (url: string) => {
     setIsSearchOpen(false);
@@ -395,7 +447,9 @@ export function SearchModal() {
   };
 
   const handleSelectItem = (item: SearchResultItem) => {
-    if (item.type === "qna") {
+    if (item.type === "character-profile") {
+      navigateTo(`/characters?id=${encodeURIComponent(item.id)}`);
+    } else if (item.type === "qna") {
       navigateTo(`/qna?id=${item.data.id}`);
     } else if (item.type === "character") {
       navigateTo(`/browse?character=${encodeURIComponent(item.name)}`);
@@ -515,11 +569,78 @@ export function SearchModal() {
             </div>
           )}
 
+          {/* Group 0: Character Profiles */}
+          {groupedResults.profiles && groupedResults.profiles.length > 0 && (
+            <div className="space-y-1">
+              <div className="px-3 py-1 text-xs font-mono font-bold uppercase tracking-wider text-[var(--text-muted)] flex items-center justify-between">
+                <span>Character Profiles</span>
+                <span className="text-[10px] font-normal normal-case text-[var(--text-muted)]">Direct Profile Page</span>
+              </div>
+              {groupedResults.profiles.map((prof) => {
+                const itemIndex = currentItemOffset++;
+                const isSelected = selectedIndex === itemIndex;
+                return (
+                  <div
+                    key={prof.id}
+                    onClick={() =>
+                      handleSelectItem({
+                        type: "character-profile",
+                        id: prof.id,
+                        name: prof.name,
+                        arc: prof.arc,
+                        japaneseName: prof.japaneseName,
+                        aliases: prof.aliases,
+                      })
+                    }
+                    className={`flex items-center justify-between px-3 py-2.5 rounded-lg cursor-pointer text-xs sm:text-sm transition-colors ${
+                      isSelected
+                        ? "bg-[var(--accent-bg)] text-[var(--accent-text)] font-semibold"
+                        : "hover:bg-[var(--bg-elevated)] text-[var(--text-main)]"
+                    }`}
+                  >
+                    <div className="flex items-center gap-2.5 min-w-0">
+                      <div className="w-7 h-7 rounded-full bg-purple-500/15 dark:bg-purple-500/25 text-purple-700 dark:text-purple-300 flex items-center justify-center shrink-0 border border-purple-500/30">
+                        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
+                          />
+                        </svg>
+                      </div>
+                      <div className="min-w-0">
+                        <div className="flex items-center gap-2">
+                          <span className="font-semibold text-sm truncate">{prof.name}</span>
+                          {prof.japaneseName && (
+                            <span className="text-xs text-[var(--text-muted)] font-normal hidden sm:inline truncate">
+                              {prof.japaneseName}
+                            </span>
+                          )}
+                        </div>
+                        {prof.aliases && prof.aliases.length > 0 && (
+                          <div className="text-[11px] text-[var(--text-muted)] font-normal truncate">
+                            Aliases: {prof.aliases.slice(0, 3).join(", ")}
+                          </div>
+                        )}
+                      </div>
+                    </div>
+                    <span className="shrink-0 ml-2 inline-flex items-center gap-1 px-2 py-0.5 rounded text-[11px] font-semibold bg-purple-500/10 text-purple-700 dark:text-purple-300 border border-purple-500/25">
+                      <span>Character Page</span>
+                      <span>↗</span>
+                    </span>
+                  </div>
+                );
+              })}
+            </div>
+          )}
+
           {/* Group 1: Characters */}
           {groupedResults.characters.length > 0 && (
             <div className="space-y-1">
-              <div className="px-3 py-1 text-xs font-mono font-bold uppercase tracking-wider text-[var(--text-muted)]">
-                Characters
+              <div className="px-3 py-1 text-xs font-mono font-bold uppercase tracking-wider text-[var(--text-muted)] flex items-center justify-between">
+                <span>Character Tags</span>
+                <span className="text-[10px] font-normal normal-case text-[var(--text-muted)]">Browse Filter</span>
               </div>
               {groupedResults.characters.map((char) => {
                 const itemIndex = currentItemOffset++;
@@ -534,13 +655,16 @@ export function SearchModal() {
                         : "hover:bg-[var(--bg-elevated)] text-[var(--text-main)]"
                     }`}
                   >
-                    <div className="flex items-center gap-2">
-                      <svg className="w-4 h-4 text-[var(--text-muted)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                    <div className="flex items-center gap-2 min-w-0">
+                      <svg className="w-4 h-4 text-[var(--text-muted)] shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z" />
                       </svg>
-                      <span className="font-medium">#{char}</span>
+                      <span className="font-medium truncate">#{char}</span>
                     </div>
-                    <span className="text-xs text-[var(--text-muted)] font-medium">Filter character →</span>
+                    <span className="shrink-0 ml-2 inline-flex items-center gap-1 px-2 py-0.5 rounded text-[11px] font-medium bg-[var(--bg-elevated)] text-[var(--text-muted)] border border-[var(--border-subtle)]">
+                      <span>Browse Archive</span>
+                      <span>↗</span>
+                    </span>
                   </div>
                 );
               })}
@@ -550,8 +674,9 @@ export function SearchModal() {
           {/* Group 2: Topics */}
           {groupedResults.topics.length > 0 && (
             <div className="space-y-1">
-              <div className="px-3 py-1 text-xs font-mono font-bold uppercase tracking-wider text-[var(--text-muted)]">
-                Topics
+              <div className="px-3 py-1 text-xs font-mono font-bold uppercase tracking-wider text-[var(--text-muted)] flex items-center justify-between">
+                <span>Topics</span>
+                <span className="text-[10px] font-normal normal-case text-[var(--text-muted)]">Browse Filter</span>
               </div>
               {groupedResults.topics.map((topic) => {
                 const itemIndex = currentItemOffset++;
@@ -566,13 +691,16 @@ export function SearchModal() {
                         : "hover:bg-[var(--bg-elevated)] text-[var(--text-main)]"
                     }`}
                   >
-                    <div className="flex items-center gap-2">
-                      <svg className="w-4 h-4 text-[var(--text-muted)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <div className="flex items-center gap-2 min-w-0">
+                      <svg className="w-4 h-4 text-[var(--text-muted)] shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z" />
                       </svg>
-                      <span className="font-medium">{topic}</span>
+                      <span className="font-medium truncate">{topic}</span>
                     </div>
-                    <span className="text-xs text-[var(--text-muted)] font-medium">Filter topic →</span>
+                    <span className="shrink-0 ml-2 inline-flex items-center gap-1 px-2 py-0.5 rounded text-[11px] font-medium bg-[var(--bg-elevated)] text-[var(--text-muted)] border border-[var(--border-subtle)]">
+                      <span>Browse Archive</span>
+                      <span>↗</span>
+                    </span>
                   </div>
                 );
               })}
@@ -582,8 +710,9 @@ export function SearchModal() {
           {/* Group 3: Arcs */}
           {groupedResults.arcs.length > 0 && (
             <div className="space-y-1">
-              <div className="px-3 py-1 text-xs font-mono font-bold uppercase tracking-wider text-[var(--text-muted)]">
-                Story Arcs &amp; Timelines
+              <div className="px-3 py-1 text-xs font-mono font-bold uppercase tracking-wider text-[var(--text-muted)] flex items-center justify-between">
+                <span>Story Arcs &amp; Timelines</span>
+                <span className="text-[10px] font-normal normal-case text-[var(--text-muted)]">Browse Filter</span>
               </div>
               {groupedResults.arcs.map((arc) => {
                 const itemIndex = currentItemOffset++;
@@ -598,13 +727,16 @@ export function SearchModal() {
                         : "hover:bg-[var(--bg-elevated)] text-[var(--text-main)]"
                     }`}
                   >
-                    <div className="flex items-center gap-2">
-                      <svg className="w-4 h-4 text-[var(--text-muted)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <div className="flex items-center gap-2 min-w-0">
+                      <svg className="w-4 h-4 text-[var(--text-muted)] shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
                       </svg>
-                      <span className="font-medium">{arc.name}</span>
+                      <span className="font-medium truncate">{arc.name}</span>
                     </div>
-                    <span className="text-xs text-[var(--text-muted)] font-medium">Filter arc →</span>
+                    <span className="shrink-0 ml-2 inline-flex items-center gap-1 px-2 py-0.5 rounded text-[11px] font-medium bg-[var(--bg-elevated)] text-[var(--text-muted)] border border-[var(--border-subtle)]">
+                      <span>Browse Archive</span>
+                      <span>↗</span>
+                    </span>
                   </div>
                 );
               })}
@@ -614,8 +746,9 @@ export function SearchModal() {
           {/* Group 4: Questions & Answers */}
           {groupedResults.qnas.length > 0 && (
             <div className="space-y-1">
-              <div className="px-3 py-1 text-xs font-mono font-bold uppercase tracking-wider text-[var(--text-muted)]">
-                Questions ({groupedResults.qnas.length})
+              <div className="px-3 py-1 text-xs font-mono font-bold uppercase tracking-wider text-[var(--text-muted)] flex items-center justify-between">
+                <span>Statements &amp; Answers ({groupedResults.qnas.length})</span>
+                <span className="text-[10px] font-normal normal-case text-[var(--text-muted)]">Direct Entry Page</span>
               </div>
               {groupedResults.qnas.map((qna) => {
                 const itemIndex = currentItemOffset++;
@@ -641,14 +774,20 @@ export function SearchModal() {
                           </>
                         )}
                       </div>
-                      {qna.verified && (
-                        <span className="text-xs text-[var(--verified-text)] font-semibold inline-flex items-center gap-0.5 shrink-0">
-                          <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
-                          </svg>
-                          <span>Verified</span>
+                      <div className="flex items-center gap-1.5 shrink-0">
+                        {qna.verified && (
+                          <span className="text-xs text-[var(--verified-text)] font-semibold inline-flex items-center gap-0.5 shrink-0">
+                            <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
+                            </svg>
+                            <span>Verified</span>
+                          </span>
+                        )}
+                        <span className="inline-flex items-center gap-0.5 px-1.5 py-0.5 rounded text-[10px] font-medium bg-[var(--bg-surface)] text-[var(--text-muted)] border border-[var(--border-subtle)]">
+                          <span>Statement</span>
+                          <span>↗</span>
                         </span>
-                      )}
+                      </div>
                     </div>
                     <p className={`font-semibold line-clamp-1 text-sm ${isSelected ? "text-[var(--accent-text)]" : "text-[var(--text-main)]"}`}>
                       {qna.title || qna.question}

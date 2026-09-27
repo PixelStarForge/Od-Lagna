@@ -9,6 +9,10 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://od-lagna.com"),
+  alternates: {
+    canonical: "/",
+  },
   title: "Od-Lagna — Re:Zero Tappei Q&A Archive",
   description:
     "Comprehensive, searchable index of every Tappei Q&A across events, interviews, and Twitter, featuring granular spoiler protection.",
@@ -59,6 +63,30 @@ export default function RootLayout({
       className={`${inter.variable} h-full`}
     >
       <head>
+        <meta httpEquiv="X-Content-Type-Options" content="nosniff" />
+        <meta name="referrer" content="strict-origin-when-cross-origin" />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "WebSite",
+              name: "Od-Lagna",
+              alternateName: "Re:Zero Tappei Q&A Archive",
+              url: process.env.NEXT_PUBLIC_SITE_URL || "https://od-lagna.com",
+              description:
+                "Comprehensive, searchable index of every Tappei Q&A across events, interviews, and Twitter, featuring granular spoiler protection.",
+              potentialAction: {
+                "@type": "SearchAction",
+                target: {
+                  "@type": "EntryPoint",
+                  urlTemplate: `${process.env.NEXT_PUBLIC_SITE_URL || "https://od-lagna.com"}/browse?search={search_term_string}`,
+                },
+                "query-input": "required name=search_term_string",
+              },
+            }),
+          }}
+        />
         <script
           dangerouslySetInnerHTML={{
             __html: `

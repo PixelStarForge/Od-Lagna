@@ -30,7 +30,7 @@ export default function HomePage() {
         <div className="flex flex-wrap items-center justify-center gap-3 pt-2">
           <Link
             href="/browse"
-            className="px-6 py-3 rounded-lg text-sm font-semibold bg-[var(--accent)] text-white hover:bg-[var(--accent-hover)] transition-colors shadow-xs"
+            className="px-6 py-3 rounded-lg text-sm font-semibold bg-[var(--accent-solid)] text-white hover:bg-[var(--accent-solid-hover)] transition-colors shadow-xs"
           >
             Browse Archive Index
           </Link>
