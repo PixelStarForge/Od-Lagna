@@ -2,6 +2,7 @@
 
 import React from "react";
 import { usePreferences } from "../lib/preferences";
+import { preloadSearchIndex } from "../lib/search-index";
 
 export function SearchHeroButton() {
   const { setIsSearchOpen } = usePreferences();
@@ -10,6 +11,8 @@ export function SearchHeroButton() {
     <button
       type="button"
       onClick={() => setIsSearchOpen(true)}
+      onMouseEnter={preloadSearchIndex}
+      onFocus={preloadSearchIndex}
       className="px-5 py-3 rounded-lg text-sm font-semibold border border-[var(--border-subtle)] bg-[var(--bg-surface)] hover:bg-[var(--bg-elevated)] text-[var(--text-main)] transition-colors cursor-pointer inline-flex items-center gap-2 shadow-2xs"
     >
       <svg className="w-4 h-4 text-[var(--text-muted)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">

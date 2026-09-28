@@ -6,8 +6,9 @@ import Fuse from "fuse.js";
 import { usePreferences } from "../lib/preferences";
 import {
   SearchIndexRecord,
-  SearchIndexPayload,
   SearchIndexCharacterProfile,
+  fetchSearchIndex,
+  getCachedSearchPayload,
 } from "../lib/search-index";
 import { CANON_ARCS, IF_ROUTES, isArcSpoiler } from "../lib/arc-utils";
 import { formatQnaDate } from "../lib/date-utils";
@@ -28,11 +29,11 @@ export function SearchModal() {
   const [debouncedQuery, setDebouncedQuery] = useState("");
   const deferredQuery = useDeferredValue(debouncedQuery);
 
-  const [indexRecords, setIndexRecords] = useState<SearchIndexRecord[]>([]);
-  const [indexCharacters, setIndexCharacters] = useState<string[]>([]);
-  const [indexTopics, setIndexTopics] = useState<string[]>([]);
-  const [indexCharacterProfiles, setIndexCharacterProfiles] = useState<SearchIndexCharacterProfile[]>([]);
-  const [hasLoaded, setHasLoaded] = useState(false);
+  const [indexRecords, setIndexRecords] = useState<SearchIndexRecord[]>(() => getCachedSearchPayload()?.records || []);
+  const [indexCharacters, setIndexCharacters] = useState<string[]>(() => getCachedSearchPayload()?.characters || []);
+  const [indexTopics, setIndexTopics] = useState<string[]>(() => getCachedSearchPayload()?.topics || []);
+  const [indexCharacterProfiles, setIndexCharacterProfiles] = useState<SearchIndexCharacterProfile[]>(() => getCachedSearchPayload()?.characterProfiles || []);
+  const [hasLoaded, setHasLoaded] = useState(() => Boolean(getCachedSearchPayload()));
   const [selectedIndex, setSelectedIndex] = useState(0);
 
   const inputRef = useRef<HTMLInputElement>(null);
@@ -56,30 +57,13 @@ export function SearchModal() {
 
     let ignore = false;
 
-    fetch("/search-index.json")
-      .then((res) => {
-        if (!res.ok) throw new Error("Failed to load search index");
-        return res.json();
-      })
-      .then((data: SearchIndexPayload | SearchIndexRecord[]) => {
+    fetchSearchIndex()
+      .then((data) => {
         if (!ignore) {
-          if (Array.isArray(data)) {
-            setIndexRecords(data);
-            const chars = new Set<string>();
-            const topics = new Set<string>();
-            data.forEach((d) => {
-              d.characters.forEach((c) => chars.add(c));
-              d.topics.forEach((t) => topics.add(t));
-            });
-            setIndexCharacters(Array.from(chars).sort());
-            setIndexTopics(Array.from(topics).sort());
-            setIndexCharacterProfiles([]);
-          } else {
-            setIndexRecords(data.records || []);
-            setIndexCharacters(data.characters || []);
-            setIndexTopics(data.topics || []);
-            setIndexCharacterProfiles(data.characterProfiles || []);
-          }
+          setIndexRecords(data.records);
+          setIndexCharacters(data.characters);
+          setIndexTopics(data.topics);
+          setIndexCharacterProfiles(data.characterProfiles || []);
           setHasLoaded(true);
         }
       })

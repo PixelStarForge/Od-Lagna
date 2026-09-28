@@ -5,6 +5,7 @@ import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { usePreferences } from "../lib/preferences";
 import { getRandomEntryId } from "../lib/random-entry";
+import { preloadSearchIndex } from "../lib/search-index";
 import { dispatchUrlChange } from "../lib/navigation-events";
 
 export function Header() {
@@ -153,6 +154,8 @@ export function Header() {
           <button
             type="button"
             onClick={() => setIsSearchOpen(true)}
+            onMouseEnter={preloadSearchIndex}
+            onFocus={preloadSearchIndex}
             aria-label="Search archive... (press / or Cmd+K)"
             className="flex items-center gap-1.5 p-2 sm:px-3 sm:py-1.5 text-xs sm:text-sm rounded-lg border border-[var(--border-subtle)] bg-[var(--bg-surface)] hover:bg-[var(--bg-elevated)] text-[var(--text-muted)] hover:text-[var(--text-main)] transition-colors cursor-pointer"
           >

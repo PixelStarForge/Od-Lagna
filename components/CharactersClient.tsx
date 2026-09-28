@@ -227,7 +227,6 @@ export function CharactersClient({
     setSearchQuery(suggestion.label);
     setShowSuggestions(false);
     setHighlightedSuggestion(-1);
-    searchInputRef.current?.focus();
   }, []);
 
   const handleLetterSelect = (letter: string) => {
@@ -535,6 +534,7 @@ export function CharactersClient({
                         onMouseDown={(e) => {
                           e.preventDefault();
                           applySuggestion(suggestion);
+                          searchInputRef.current?.focus();
                         }}
                         onMouseEnter={() => setHighlightedSuggestion(idx)}
                         className={`w-full flex items-center justify-between gap-3 px-3.5 py-2.5 text-sm text-left transition-colors cursor-pointer ${
