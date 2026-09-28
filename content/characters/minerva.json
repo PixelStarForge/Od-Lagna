@@ -1,0 +1,30 @@
+{
+  "id": "minerva",
+  "name": "Minerva",
+  "arc": "arc-4",
+  "japaneseName": "ミネルヴァ",
+  "aliases": [
+    {
+      "name": "Witch of Wrath",
+      "arc": "arc-4"
+    },
+    {
+      "name": "Minerva of Wrath",
+      "arc": "arc-4"
+    },
+    {
+      "name": "Ner-Ner",
+      "arc": "arc-4"
+    }
+  ],
+  "gender": "Female",
+  "birthday": "July 20",
+  "age": "Late Teens (appearance) / 400+ (soul)",
+  "race": "Human",
+  "affiliation": [
+    "Witches of Sin",
+    "Castle of Dreams"
+  ],
+  "description": "Minerva was the Witch of Wrath who lived 400 years ago. Driven by an overwhelming aversion to seeing anyone suffer or weep, she punched wounds to heal them, inadvertently causing natural disasters across the world by distorting mana. Her soul was preserved by Echidna inside the Castle of Dreams in Sanctuary.",
+  "link": "https://rezero.fandom.com/wiki/Minerva"
+}

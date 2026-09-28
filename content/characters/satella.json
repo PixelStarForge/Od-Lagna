@@ -1,0 +1,37 @@
+{
+  "id": "satella",
+  "name": "Satella",
+  "arc": "arc-4",
+  "japaneseName": "サテラ",
+  "aliases": [
+    {
+      "name": "Witch of Envy",
+      "arc": "arc-1"
+    },
+    {
+      "name": "The Jealous Witch",
+      "arc": "arc-1"
+    },
+    {
+      "name": "The Witch",
+      "arc": "arc-1"
+    },
+    {
+      "name": "Tella",
+      "arc": "arc-4"
+    },
+    {
+      "name": "Tella-Tella",
+      "arc": "arc-4"
+    }
+  ],
+  "gender": "Female",
+  "age": "Late Teens (appearance) / 400+ (actual)",
+  "race": "Half-Elf",
+  "affiliation": [
+    "Witches of Sin",
+    "Witch Era Party"
+  ],
+  "description": "Satella is the Witch of Envy who swallowed half the world during the Great Calamity four centuries ago before being sealed in the Pleiades Watchtower. Possessing a split personality created when she absorbed the incompatible Witch Factor of Envy, the gentle Satella loves Subaru unconditionally and urges him to value his own life, in stark contrast to the obsessive, destructive malice of the Witch of Envy.",
+  "link": "https://rezero.fandom.com/wiki/Satella"
+}

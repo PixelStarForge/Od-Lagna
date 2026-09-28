@@ -1,0 +1,31 @@
+{
+  "id": "kiritaka-muse",
+  "name": "Kiritaka Muse",
+  "arc": "arc-5",
+  "japaneseName": "キリタカ・ミューズ",
+  "aliases": [
+    {
+      "name": "Kiritaka",
+      "arc": "arc-5"
+    },
+    {
+      "name": "The Man Whose Heart Was Stolen by the Songstress",
+      "arc": "arc-5"
+    },
+    {
+      "name": "Songstress Maniac",
+      "arc": "arc-5"
+    }
+  ],
+  "gender": "Male",
+  "age": "Late 20s",
+  "race": "Human",
+  "affiliation": [
+    "Kingdom of Lugunica",
+    "Priestella",
+    "Council of Ten",
+    "Muse Company"
+  ],
+  "description": "Kiritaka Muse is a trade representative of the Watergate City of Priestella, the owner of the Muse Company, and a member of the Council of Ten. Madly infatuated with the Songstress Liliana Masquerade, he controls the city's magic stone trade and played a key supporting role during the Witch Cult's assault on Priestella in Arc 5.",
+  "link": "https://rezero.fandom.com/wiki/Kiritaka_Muse"
+}

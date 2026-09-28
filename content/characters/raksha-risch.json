@@ -1,0 +1,32 @@
+{
+  "id": "raksha-risch",
+  "name": "Raksha Risch",
+  "arc": "arc-1",
+  "japaneseName": "ラクシャ・リッシュ",
+  "aliases": [
+    {
+      "name": "Rasksha Risch",
+      "arc": "arc-1"
+    },
+    {
+      "name": "Raksha",
+      "arc": "arc-1"
+    },
+    {
+      "name": "Raksha Fauzen",
+      "arc": "arc-1"
+    },
+    {
+      "name": "Rasksha",
+      "arc": "arc-1"
+    }
+  ],
+  "gender": "Female",
+  "race": "Human",
+  "affiliation": [
+    "Kingdom of Lugunica",
+    "Royal Capital"
+  ],
+  "description": "Raksha Risch (née Fauzen) is the wife of Kadomon Risch, mother of Plum Risch, and the daughter of Grimm and Carol Fauzen. A former female mercenary who left her mercenary band alongside Kadomon to operate a fruit stall in the Royal Capital, she maintains a calm, grounded presence for her family.",
+  "link": "https://rezero.fandom.com/wiki/Raksha_Risch"
+}

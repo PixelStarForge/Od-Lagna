@@ -1,0 +1,25 @@
+{
+  "id": "camberley",
+  "name": "Camberley",
+  "arc": "arc-1",
+  "japaneseName": "カンバリー",
+  "aliases": [
+    {
+      "name": "Kan",
+      "arc": "arc-1"
+    },
+    {
+      "name": "Playboy of the Red-Light District",
+      "arc": "arc-3"
+    }
+  ],
+  "gender": "Male",
+  "age": "23 (Arc 1-4) / 24 (Arc 5+)",
+  "race": "Dwarf",
+  "affiliation": [
+    "Kingdom of Lugunica",
+    "Felt Camp"
+  ],
+  "description": "Camberley, commonly known as Kan, is one of the three alleyway thugs that attacked Subaru at the start of the story. He was later taken in by Felt to become a member of the Felt Camp following the start of the Royal Selection.",
+  "link": "https://rezero.fandom.com/wiki/Camberley"
+}

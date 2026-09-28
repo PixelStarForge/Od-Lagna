@@ -1,0 +1,44 @@
+{
+  "id": "reinhard-van-astrea",
+  "name": "Reinhard van Astrea",
+  "arc": "arc-1",
+  "japaneseName": "ラインハルト・ヴァン・アストレア",
+  "aliases": [
+    {
+      "name": "Reinhard",
+      "arc": "arc-1"
+    },
+    {
+      "name": "Sword Saint",
+      "arc": "arc-1"
+    },
+    {
+      "name": "Knight Amongst Knights",
+      "arc": "arc-1"
+    },
+    {
+      "name": "Hero",
+      "arc": "arc-1"
+    },
+    {
+      "name": "Adelheid",
+      "arc": "if-genderbend"
+    },
+    {
+      "name": "Masked Knight Veltol",
+      "arc": "arc-7"
+    }
+  ],
+  "gender": "Male",
+  "birthday": "January 1",
+  "age": "19 (Arc 1-4) / 20 (Arc 5+)",
+  "race": "Human",
+  "affiliation": [
+    "Kingdom of Lugunica",
+    "Royal Guard",
+    "House Astrea",
+    "Felt Camp"
+  ],
+  "description": "Reinhard van Astrea is the current Sword Saint, an elite member of the Royal Guard, and Felt's knight in the Royal Selection. Widely recognized as the single strongest being in the world and the embodiment of an ideal hero, he effortlessly dispatched Elsa Granhiert during the loot cellar battle in Arc 1 and serves as the ultimate protector of the realm.",
+  "link": "https://rezero.fandom.com/wiki/Reinhard_van_Astrea"
+}

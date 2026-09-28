@@ -1,0 +1,21 @@
+{
+  "id": "berstetz-fondalfon",
+  "name": "Berstetz Fondalfon",
+  "arc": "arc-7",
+  "japaneseName": "ベルステツ・フォンダルフォン",
+  "aliases": [
+    {
+      "name": "His Excellency",
+      "arc": "arc-7"
+    }
+  ],
+  "gender": "Male",
+  "age": "Around 70",
+  "race": "Human",
+  "affiliation": [
+    "Vollachia Empire",
+    "House Godwin"
+  ],
+  "description": "Berstetz Fondalfon is the Prime Minister of the Sacred Vollachia Empire and the second-in-command after the Emperor in terms of political power. He was one of the masterminds behind the Imperial Civil War in Arc 7, and later played a supporting role in Arc 8.",
+  "link": "https://rezero.fandom.com/wiki/Berstetz_Fondalfon"
+}

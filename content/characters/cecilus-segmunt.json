@@ -1,0 +1,43 @@
+{
+  "id": "cecilus-segmunt",
+  "name": "Cecilus Segmunt",
+  "arc": "arc-7",
+  "japaneseName": "セシルス・セグムント",
+  "aliases": [
+    {
+      "name": "First",
+      "arc": "arc-7"
+    },
+    {
+      "name": "Blue Lightning",
+      "arc": "arc-7"
+    },
+    {
+      "name": "Blue Lightning of Vollachia",
+      "arc": "arc-7"
+    },
+    {
+      "name": "Leading Actor",
+      "arc": "arc-7"
+    },
+    {
+      "name": "Ceci",
+      "arc": "arc-7"
+    },
+    {
+      "name": "Cesshy",
+      "arc": "arc-7"
+    }
+  ],
+  "gender": "Male",
+  "birthday": "April 2",
+  "age": "19 (Arc 1-4) / 20 (Arc 5+)",
+  "race": "Human",
+  "affiliation": [
+    "Vollachia Empire",
+    "Nine Divine Generals",
+    "Pleiades Battalion"
+  ],
+  "description": "Cecilus Segmunt is the First ranking Divine General of the Sacred Vollachia Empire and the personal sword of Emperor Vincent Vollachia. Renowned as the 'Blue Lightning', he is celebrated as the strongest warrior in the Empire and one of the world's pinnacle fighters.",
+  "link": "https://rezero.fandom.com/wiki/Cecilus_Segmunt"
+}

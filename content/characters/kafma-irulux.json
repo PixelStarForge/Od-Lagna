@@ -1,0 +1,30 @@
+{
+  "id": "kafma-irulux",
+  "name": "Kafma Irulux",
+  "arc": "arc-7",
+  "japaneseName": "カフマ・イルルクス",
+  "aliases": [
+    {
+      "name": "Kafma",
+      "arc": "arc-7"
+    },
+    {
+      "name": "Seventh",
+      "arc": "arc-7"
+    },
+    {
+      "name": "Fighting Insect General",
+      "arc": "arc-7"
+    }
+  ],
+  "gender": "Male",
+  "birthday": "June 4",
+  "age": "25+",
+  "race": "Insect Cage Tribe",
+  "affiliation": [
+    "Vollachia Empire",
+    "Nine Divine Generals"
+  ],
+  "description": "Kafma Irulux is the Seventh ranking Divine General of the Sacred Vollachia Empire and a prominent warrior of the Insect Cage Tribe, known as the 'Fighting Insect General'. Utilizing unique insect traits and venomous combat styles, he served as both an adversary and a key ally across Arc 7 and Arc 8.",
+  "link": "https://rezero.fandom.com/wiki/Kafma_Irulux"
+}

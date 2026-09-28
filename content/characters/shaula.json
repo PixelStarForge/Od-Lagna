@@ -1,0 +1,31 @@
+{
+  "id": "shaula",
+  "name": "Shaula",
+  "arc": "arc-6",
+  "japaneseName": "シャウラ",
+  "aliases": [
+    {
+      "name": "Sage",
+      "arc": "arc-1"
+    },
+    {
+      "name": "Crimson Scorpion",
+      "arc": "arc-6"
+    },
+    {
+      "name": "Star Keeper",
+      "arc": "arc-6"
+    }
+  ],
+  "gender": "Female",
+  "birthday": "December 20",
+  "age": "400+",
+  "race": "Witchbeast",
+  "affiliation": [
+    "Kingdom of Lugunica",
+    "Pleiades Watchtower",
+    "Witch Era Party"
+  ],
+  "description": "Shaula is the apprentice of the Great Sage Flugel and the guardian of the Pleiades Watchtower, whom history widely and mistakenly remembered as the Sage herself. In reality a giant crimson scorpion Witchbeast created by Echidna, she maintained watch over the Augria Sand Dunes for four centuries waiting for her beloved master's return, overjoyed to welcome Subaru upon his arrival in Arc 6.",
+  "link": "https://rezero.fandom.com/wiki/Shaula"
+}

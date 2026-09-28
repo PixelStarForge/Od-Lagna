@@ -1,0 +1,32 @@
+{
+  "id": "taritta",
+  "name": "Taritta",
+  "arc": "arc-7",
+  "japaneseName": "タリッタ・シュドラク",
+  "aliases": [
+    {
+      "name": "Taritta Shudrak",
+      "arc": "arc-7"
+    },
+    {
+      "name": "The Hunter",
+      "arc": "arc-7"
+    },
+    {
+      "name": "Disgrace of the Shudrak",
+      "arc": "arc-7"
+    },
+    {
+      "name": "Taa",
+      "arc": "arc-7"
+    }
+  ],
+  "gender": "Female",
+  "race": "Human",
+  "affiliation": [
+    "Vollachia Empire",
+    "People of Shudrak"
+  ],
+  "description": "Taritta Shudrak is a warrior and former Chieftain of the People of Shudrak, an all-female tribe inhabiting the Buddheim Jungle in the Sacred Vollachia Empire. The younger sister of Mizelda, she is an expert archer who initially attacked Subaru before joining forces with him, bravely leading her people through the Imperial civil war in Arc 7 and Arc 8.",
+  "link": "https://rezero.fandom.com/wiki/Taritta_Shudrak"
+}

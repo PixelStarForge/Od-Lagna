@@ -1,0 +1,35 @@
+{
+  "id": "russell-fellow",
+  "name": "Russell Fellow",
+  "arc": "arc-3",
+  "japaneseName": "ラッセル・フェロー",
+  "aliases": [
+    {
+      "name": "Russel Fellow",
+      "arc": "arc-3"
+    },
+    {
+      "name": "Russell",
+      "arc": "arc-3"
+    },
+    {
+      "name": "Russel",
+      "arc": "arc-3"
+    },
+    {
+      "name": "Silver Fox",
+      "arc": "arc-3"
+    }
+  ],
+  "gender": "Male",
+  "age": "29 (Arc 1-4) / 30 (Arc 5+)",
+  "race": "Human",
+  "affiliation": [
+    "Kingdom of Lugunica",
+    "Royal Capital",
+    "Six Tongues",
+    "Commerce Guild"
+  ],
+  "description": "Russell Fellow is the treasurer and chairman of the Capital Commerce Guild and secretly the Director of the Kingdom of Lugunica's covert intelligence and defense organization, the Six Tongues. Nicknamed the 'Silver Fox' for his shrewd economic and political maneuvering, he allied with Subaru and the Crusch and Anastasia camps during the White Whale subjugation in Arc 3 and reemerges in Arc 10.",
+  "link": "https://rezero.fandom.com/wiki/Russell_Fellow"
+}

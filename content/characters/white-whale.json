@@ -1,0 +1,23 @@
+{
+  "id": "white-whale",
+  "name": "White Whale",
+  "arc": "arc-3",
+  "japaneseName": "白鯨",
+  "aliases": [
+    {
+      "name": "Witchbeast of the Mist",
+      "arc": "arc-3"
+    },
+    {
+      "name": "Hakugei",
+      "arc": "arc-3"
+    }
+  ],
+  "age": "400+",
+  "race": "Witchbeast",
+  "affiliation": [
+    "Witch Cult"
+  ],
+  "description": "The White Whale, infamously known as the Witchbeast of the Mist, was one of the Three Great Witchbeasts created four centuries ago by Daphne, the Witch of Gluttony. Capable of flight and spewing the Mist of Elimination that wipes victims from the world's memories, it terrorized the continent for hundreds of years—slaying Theresia van Astrea—before being successfully subjugated by Subaru, Wilhelm, and the alliance forces in Arc 3.",
+  "link": "https://rezero.fandom.com/wiki/White_Whale"
+}

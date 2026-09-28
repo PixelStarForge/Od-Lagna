@@ -88,7 +88,7 @@ export default function AboutPage() {
             <div className="text-2xl sm:text-3xl font-bold font-mono text-[var(--accent)]">
               {stats.totalCount}
             </div>
-            <div className="text-xs sm:text-sm font-medium text-[var(--text-muted)]">Queries Indexed</div>
+            <div className="text-xs sm:text-sm font-medium text-[var(--text-muted)]">Q&As & Trivias</div>
           </div>
           <div className="p-4 rounded-xl bg-[var(--bg-elevated)] border border-[var(--border-subtle)] space-y-1">
             <div className="text-2xl sm:text-3xl font-bold font-mono text-[var(--accent)]">

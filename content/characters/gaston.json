@@ -1,0 +1,21 @@
+{
+  "id": "gaston",
+  "name": "Gaston",
+  "arc": "arc-1",
+  "japaneseName": "ガストン",
+  "aliases": [
+    {
+      "name": "Ton",
+      "arc": "arc-1"
+    }
+  ],
+  "gender": "Male",
+  "age": "25 (Arc 1-4) / 26 (Arc 5+)",
+  "race": "Human",
+  "affiliation": [
+    "Kingdom of Lugunica",
+    "Felt Camp"
+  ],
+  "description": "Gaston, commonly known as Ton, is one of the three alleyway thugs that attacked Subaru upon his arrival in the Royal Capital. He later reformed and was taken in by Felt to serve as a guard and retainer in the Felt Camp.",
+  "link": "https://rezero.fandom.com/wiki/Gaston"
+}

@@ -1,0 +1,43 @@
+{
+  "id": "otto-suwen",
+  "name": "Otto Suwen",
+  "arc": "arc-3",
+  "japaneseName": "オットー・スーウェン",
+  "aliases": [
+    {
+      "name": "Otto",
+      "arc": "arc-3"
+    },
+    {
+      "name": "Internal Affairs Officer",
+      "arc": "arc-4"
+    },
+    {
+      "name": "Militant Internal Affairs Officer",
+      "arc": "arc-5"
+    },
+    {
+      "name": "Audrey Souffle",
+      "arc": "if-genderbend"
+    },
+    {
+      "name": "Laddie",
+      "arc": "arc-3"
+    },
+    {
+      "name": "Number Two",
+      "arc": "arc-7"
+    }
+  ],
+  "gender": "Male",
+  "birthday": "March 24",
+  "age": "20 (Arc 3-4) / 21 (Arc 5+)",
+  "race": "Human",
+  "affiliation": [
+    "Kingdom of Lugunica",
+    "Emilia Camp",
+    "Picoutatte"
+  ],
+  "description": "Otto Suwen is a former traveling merchant and the indispensable internal affairs officer of the Emilia Camp. First crossing paths with Subaru during the White Whale conflict in Arc 3, he cemented his status as Subaru's first true friend in the fantasy world by confronting Garfiel in Arc 4, subsequently handling the camp's administrative, political, and logistical affairs.",
+  "link": "https://rezero.fandom.com/wiki/Otto_Suwen"
+}

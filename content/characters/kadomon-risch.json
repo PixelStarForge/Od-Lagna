@@ -1,0 +1,25 @@
+{
+  "id": "kadomon-risch",
+  "name": "Kadomon Risch",
+  "arc": "arc-1",
+  "japaneseName": "カドモン・リッシュ",
+  "aliases": [
+    {
+      "name": "Kadomon",
+      "arc": "arc-1"
+    },
+    {
+      "name": "Appa Seller",
+      "arc": "arc-1"
+    }
+  ],
+  "gender": "Male",
+  "birthday": "November 6",
+  "race": "Human",
+  "affiliation": [
+    "Kingdom of Lugunica",
+    "Royal Capital"
+  ],
+  "description": "Kadomon Risch is a former mercenary turned fruit vendor operating an appa stall in the Royal Capital of Lugunica. Known for his intimidating scowl and big-hearted nature, his stall famously served as Natsuki Subaru's initial Return by Death checkpoint in Arc 1.",
+  "link": "https://rezero.fandom.com/wiki/Kadomon_Risch"
+}

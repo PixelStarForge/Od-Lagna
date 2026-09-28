@@ -1,0 +1,40 @@
+{
+  "id": "frederica-baumann",
+  "name": "Frederica Baumann",
+  "arc": "arc-4",
+  "japaneseName": "フレデリカ・バウマン",
+  "aliases": [
+    {
+      "name": "Frederica",
+      "arc": "arc-4"
+    },
+    {
+      "name": "Fuu",
+      "arc": "arc-4"
+    },
+    {
+      "name": "Half-Beast Girl",
+      "arc": "arc-4"
+    },
+    {
+      "name": "Fred",
+      "arc": "arc-5"
+    },
+    {
+      "name": "Freh",
+      "arc": "arc-7"
+    }
+  ],
+  "gender": "Female",
+  "birthday": "December 6",
+  "age": "21 (Arc 4) / 22 (Arc 5+)",
+  "race": "Beast Human",
+  "affiliation": [
+    "Kingdom of Lugunica",
+    "Emilia Camp",
+    "House Mathers",
+    "Sanctuary"
+  ],
+  "description": "Frederica Baumann is the head maid of House Mathers and a loyal member of the Emilia Camp. Originally from the Sanctuary and the older half-sister of Garfiel Tinsel, she returned to active service at Roswaal Manor at the start of Arc 4, subsequently playing supporting roles in Arc 4, Arc 7, and Arc 8.",
+  "link": "https://rezero.fandom.com/wiki/Frederica_Baumann"
+}

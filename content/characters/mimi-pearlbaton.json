@@ -1,0 +1,27 @@
+{
+  "id": "mimi-pearlbaton",
+  "name": "Mimi Pearlbaton",
+  "arc": "arc-3",
+  "japaneseName": "ミミ・パールバトン",
+  "aliases": [
+    {
+      "name": "Mimi",
+      "arc": "arc-3"
+    },
+    {
+      "name": "Gorgeous Mimi",
+      "arc": "arc-3"
+    }
+  ],
+  "gender": "Female",
+  "birthday": "May 5",
+  "age": "14 (Arc 1-4) / 15 (Arc 5+)",
+  "race": "Cat Demi-Human",
+  "affiliation": [
+    "Kararagi",
+    "Iron Fang",
+    "Anastasia Camp"
+  ],
+  "description": "Mimi Pearlbaton is the eldest of the Pearlbaton triplets and one of the three vice captains of the mercenary band Iron Fang under the Anastasia Camp. Known for her boundless energy, childlike demeanor, and devastating frontline combat strength, she fought in the White Whale subjugation in Arc 3 and the defense of Priestella in Arc 5.",
+  "link": "https://rezero.fandom.com/wiki/Mimi_Pearlbaton"
+}

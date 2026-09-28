@@ -1,0 +1,26 @@
+{
+  "id": "schult",
+  "name": "Schult",
+  "arc": "arc-3",
+  "japaneseName": "シュルト・バーリエル",
+  "aliases": [
+    {
+      "name": "Schult Barielle",
+      "arc": "arc-3"
+    },
+    {
+      "name": "Schu",
+      "arc": "arc-7"
+    }
+  ],
+  "gender": "Male",
+  "age": "11 (Arc 3-4) / 12 (Arc 5+)",
+  "race": "Human",
+  "affiliation": [
+    "Kingdom of Lugunica",
+    "Priscilla Camp",
+    "House Barielle"
+  ],
+  "description": "Schult is a former slave boy bought and freed by Priscilla Barielle, serving as her fiercely loyal and beloved attendant within House Barielle and the Priscilla Camp. Completely devoted to Priscilla, he accompanied her through Lugunica and the Vollachian campaigns in Arc 7 and Arc 8.",
+  "link": "https://rezero.fandom.com/wiki/Schult_Barielle"
+}

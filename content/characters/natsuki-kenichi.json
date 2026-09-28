@@ -1,0 +1,24 @@
+{
+  "id": "natsuki-kenichi",
+  "name": "Natsuki Kenichi",
+  "arc": "arc-4",
+  "japaneseName": "菜月 賢一",
+  "aliases": [
+    {
+      "name": "Kenichi",
+      "arc": "arc-4"
+    },
+    {
+      "name": "Ken",
+      "arc": "arc-4"
+    }
+  ],
+  "gender": "Male",
+  "age": "Past 40",
+  "race": "Human",
+  "affiliation": [
+    "Japan"
+  ],
+  "description": "Natsuki Kenichi is the father of Natsuki Subaru and husband of Natsuki Naoko. A charismatic, athletic, and universally admired man in his neighborhood in modern-day Japan, Subaru spent years trying to emulate him. He appears prominently in Subaru's First Trial in the Sanctuary during Arc 4, helping Subaru reconcile his insecurities and move forward.",
+  "link": "https://rezero.fandom.com/wiki/Natsuki_Kenichi"
+}

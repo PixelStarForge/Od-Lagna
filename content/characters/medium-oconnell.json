@@ -1,0 +1,33 @@
+{
+  "id": "medium-oconnell",
+  "name": "Medium O'Connell",
+  "arc": "arc-7",
+  "japaneseName": "ミディアム・オコーネル",
+  "aliases": [
+    {
+      "name": "Medium",
+      "arc": "arc-7"
+    },
+    {
+      "name": "Sword Consort",
+      "arc": "arc-8"
+    },
+    {
+      "name": "Medi",
+      "arc": "arc-7"
+    },
+    {
+      "name": "Midii",
+      "arc": "arc-7"
+    }
+  ],
+  "gender": "Female",
+  "birthday": "April 10",
+  "age": "20",
+  "race": "Human",
+  "affiliation": [
+    "Vollachia Empire"
+  ],
+  "description": "Medium O'Connell is an energetic, towering warrior from the Vollachia Empire and the younger sister of Flop O'Connell. Initially serving as her brother's loyal bodyguard, she fought on the front lines throughout the Imperial Civil War in Arc 7 and Arc 8, eventually becoming the Empress Consort of Vollachia beside Vincent Vollachia.",
+  "link": "https://rezero.fandom.com/wiki/Medium_O%27Connell"
+}

@@ -1,0 +1,28 @@
+{
+  "id": "moguro-hagane",
+  "name": "Moguro Hagane",
+  "arc": "arc-7",
+  "japaneseName": "モグロ・ハガネ",
+  "aliases": [
+    {
+      "name": "Moguro",
+      "arc": "arc-7"
+    },
+    {
+      "name": "Eighth",
+      "arc": "arc-7"
+    },
+    {
+      "name": "Steelman",
+      "arc": "arc-7"
+    }
+  ],
+  "gender": "None",
+  "race": "Meteor",
+  "affiliation": [
+    "Vollachia Empire",
+    "Nine Divine Generals"
+  ],
+  "description": "Moguro Hagane is the former Eighth ranking Divine General of the Sacred Vollachia Empire, known as the 'Steelman'. A living meteor integrated into the Crystal Palace of the Imperial Capital Lupugana, Moguro can transform into a colossal iron golem to protect the throne, playing an antagonistic role in Arc 7 before aiding the Empire during Arc 8.",
+  "link": "https://rezero.fandom.com/wiki/Moguro_Hagane"
+}

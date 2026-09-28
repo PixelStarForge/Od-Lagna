@@ -1,0 +1,30 @@
+{
+  "id": "carmilla",
+  "name": "Carmilla",
+  "arc": "arc-4",
+  "japaneseName": "カーミラ",
+  "aliases": [
+    {
+      "name": "Witch of Lust",
+      "arc": "arc-4"
+    },
+    {
+      "name": "Carmilla of Lust",
+      "arc": "arc-4"
+    },
+    {
+      "name": "Mila Mila",
+      "arc": "arc-4"
+    }
+  ],
+  "gender": "Female",
+  "birthday": "June 19",
+  "age": "17 (physical) / 400+ (soul)",
+  "race": "Human",
+  "affiliation": [
+    "Witches of Sin",
+    "Castle of Dreams"
+  ],
+  "description": "Carmilla was the Witch of Lust who lived 400 years ago. Possessing an authority that captivated anyone who perceived her, she unintentionally sparked rebellions and wars in life. Her soul was preserved by Echidna inside the Castle of Dreams in Sanctuary.",
+  "link": "https://rezero.fandom.com/wiki/Carmilla"
+}

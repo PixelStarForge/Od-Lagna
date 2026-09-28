@@ -1,0 +1,32 @@
+{
+  "id": "sirius-romanee-conti",
+  "name": "Sirius Romanée-Conti",
+  "arc": "arc-5",
+  "japaneseName": "シリウス・ロマネコンティ",
+  "aliases": [
+    {
+      "name": "Sirius",
+      "arc": "arc-5"
+    },
+    {
+      "name": "Sirius Romanee-Conti",
+      "arc": "arc-5"
+    },
+    {
+      "name": "Sin Archbishop of Wrath",
+      "arc": "arc-5"
+    },
+    {
+      "name": "Wrath",
+      "arc": "arc-5"
+    }
+  ],
+  "gender": "Female",
+  "age": "Unknown",
+  "race": "Unknown",
+  "affiliation": [
+    "Witch Cult"
+  ],
+  "description": "Sirius Romanée-Conti is the Sin Archbishop of Wrath in the Witch Cult. Bound in bandages and proclaiming herself to be Petelgeuse Romanée-Conti's wife, she adheres to an obsessive philosophy of shared emotion and sensory unity. She served as one of the primary antagonists during the siege of Priestella in Arc 5 before being defeated and captured.",
+  "link": "https://rezero.fandom.com/wiki/Sirius_Roman%C3%A9e-Conti"
+}

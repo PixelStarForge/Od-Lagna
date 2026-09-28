@@ -1,0 +1,26 @@
+{
+  "id": "fortuna",
+  "name": "Fortuna",
+  "arc": "arc-4",
+  "japaneseName": "フォルトナ",
+  "aliases": [
+    {
+      "name": "Mother Fortuna",
+      "arc": "arc-4"
+    },
+    {
+      "name": "Number 79",
+      "arc": "arc-4"
+    }
+  ],
+  "gender": "Female",
+  "birthday": "June 20",
+  "age": "Unknown (at least over 100)",
+  "race": "Elf",
+  "affiliation": [
+    "Kingdom of Lugunica",
+    "Elior Forest"
+  ],
+  "description": "Fortuna was Emilia's paternal aunt and the guardian of the seal in Elior Forest roughly a century before the main story. Acting as a mother figure to young Emilia alongside Geuse, she fought fiercely to protect her family and the forest seal during the attack by Pandora and Regulus Corneas in Arc 4.",
+  "link": "https://rezero.fandom.com/wiki/Fortuna"
+}

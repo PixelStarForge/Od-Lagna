@@ -1,0 +1,30 @@
+{
+  "id": "fourier-lugunica",
+  "name": "Fourier Lugunica",
+  "arc": "arc-3",
+  "japaneseName": "フーリエ・ルグニカ",
+  "aliases": [
+    {
+      "name": "Fourier",
+      "arc": "arc-3"
+    },
+    {
+      "name": "Prince Fourier",
+      "arc": "arc-3"
+    },
+    {
+      "name": "Fourth Prince",
+      "arc": "arc-3"
+    }
+  ],
+  "gender": "Male",
+  "age": "Around 20 (Time of Death)",
+  "race": "Human",
+  "affiliation": [
+    "Kingdom of Lugunica",
+    "Royal Capital",
+    "Royal Family of Lugunica"
+  ],
+  "description": "Fourier Lugunica was the Fourth Prince of the Kingdom of Lugunica and a beloved childhood friend of Crusch Karsten and Ferris. A vibrant and warmhearted prince adored by the people of the Royal Capital, he was a central protagonist in The Dream the Lion King Saw (Ex 1) before tragically succumbing to a sudden illness.",
+  "link": "https://rezero.fandom.com/wiki/Fourier_Lugunica"
+}

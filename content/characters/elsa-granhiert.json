@@ -1,0 +1,30 @@
+{
+  "id": "elsa-granhiert",
+  "name": "Elsa Granhiert",
+  "arc": "arc-1",
+  "japaneseName": "エルザ・グランヒルテ",
+  "aliases": [
+    {
+      "name": "Bowel Hunter",
+      "arc": "arc-1"
+    },
+    {
+      "name": "Elsa Featherrun",
+      "arc": "arc-4"
+    },
+    {
+      "name": "Black Widow",
+      "arc": "arc-1"
+    }
+  ],
+  "gender": "Female",
+  "birthday": "April 29",
+  "age": "23",
+  "race": "Human",
+  "affiliation": [
+    "Beloved Children",
+    "Gusteko"
+  ],
+  "description": "Elsa Granhiert was a notorious assassin known as the 'Bowel Hunter' hailing from the Holy Kingdom of Gusteko. Working alongside Meili Portroute under 'Mother', she was the primary antagonist of Arc 1 and a secondary antagonist of Arc 4.",
+  "link": "https://rezero.fandom.com/wiki/Elsa_Granhiert"
+}

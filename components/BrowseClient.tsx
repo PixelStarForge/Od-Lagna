@@ -192,6 +192,30 @@ export function BrowseClient({
     return [...qnas, ...trivias];
   }, [allQnas, allTrivia]);
 
+  // Pre-index entries: compute all lowercase fields once when entries change.
+  // filteredEntries reads from this instead of calling .toLowerCase() per keystroke per entry.
+  const indexedEntries = useMemo(() => {
+    return combinedEntries.map((entry) => {
+      const idLower = entry.id.toLowerCase();
+      const charsLower = entry.characters.map((c) => c.toLowerCase());
+      const topicsLower = entry.topics.map((t) => t.toLowerCase());
+      const yearStr = getYearFromDate(getEntryDate(entry)) ?? "";
+
+      let qText = "";
+      let aText = "";
+      let tTitle = "";
+      if (entry.entryType === "qna") {
+        qText = entry.question.toLowerCase();
+        aText = entry.answer.toLowerCase();
+      } else {
+        aText = entry.text.toLowerCase();
+        tTitle = (entry.title || "").toLowerCase();
+      }
+
+      return { entry, idLower, charsLower, topicsLower, yearStr, qText, aText, tTitle };
+    });
+  }, [combinedEntries]);
+
   const syncFiltersFromUrl = useCallback(
     (urlOrParams?: string | URLSearchParams) => {
       let sp: URLSearchParams;
@@ -385,126 +409,100 @@ export function BrowseClient({
     }
   };
 
-  // Filter items
+  // Filter items — reads from indexedEntries (pre-lowercased fields) instead of
+  // computing .toLowerCase() on every field per entry per keystroke.
   const filteredEntries = useMemo(() => {
     const trimmedQuery = deferredSearchFilter.trim().toLowerCase();
     const queryTokens = trimmedQuery ? trimmedQuery.split(/\s+/).filter(Boolean) : [];
 
-    return combinedEntries.filter((entry) => {
-      // Entry Type filter
-      if (entryTypeFilter !== "all" && entry.entryType !== entryTypeFilter) {
-        return false;
-      }
+    // Pre-parse ID query shape once, outside the per-entry loop
+    const rawTrimmed = trimmedQuery.replace(/^#/, "");
+    const isTriviaSearch = /^tr[-_\s]?\d+/i.test(rawTrimmed);
+    const numericIdQuery = rawTrimmed.replace(/^(qna|tr)[\s#-]+/i, "").trim();
+    const isNumeric = /^\d+$/.test(numericIdQuery);
 
-      // Arcs multi-filter
-      if (selectedArcs.length > 0 && !selectedArcs.includes(entry.arc)) {
-        return false;
-      }
-
-      // Character multi-filter (supports "all" and "any" match mode)
-      if (selectedCharacters.length > 0) {
-        const entryCharsLower = entry.characters.map((c) => c.toLowerCase());
-        const matchSingleChar = (sc: string) => {
-          const scl = sc.toLowerCase();
-          return entryCharsLower.some(
-            (ec) =>
-              ec === scl ||
-              ec.includes(`(${scl})`) ||
-              ec.startsWith(`${scl} (`) ||
-              scl.includes(`(${ec})`) ||
-              scl.startsWith(`${ec} (`)
-          );
-        };
-
-        if (characterMatchMode === "all") {
-          const hasAll = selectedCharacters.every(matchSingleChar);
-          if (!hasAll) return false;
-        } else {
-          const hasAny = selectedCharacters.some(matchSingleChar);
-          if (!hasAny) return false;
-        }
-      }
-
-      // Topic multi-filter
-      if (selectedTopics.length > 0) {
-        const entryTopicsLower = entry.topics.map((t) => t.toLowerCase());
-        if (topicMatchMode === "all") {
-          const hasAll = selectedTopics.every((st) =>
-            entryTopicsLower.includes(st.toLowerCase())
-          );
-          if (!hasAll) return false;
-        } else {
-          const hasAny = selectedTopics.some((st) =>
-            entryTopicsLower.includes(st.toLowerCase())
-          );
-          if (!hasAny) return false;
-        }
-      }
-
-      // Year multi-filter
-      if (selectedYears.length > 0) {
-        const entryYear = getYearFromDate(getEntryDate(entry));
-        if (!entryYear || !selectedYears.includes(entryYear)) return false;
-      }
-
-      // Verified filter
-      if (verifiedOnly && !entry.verified) {
-        return false;
-      }
-
-      // Text search filter (token-based AND matching across question, answer/text, title, tags, ID)
-      if (queryTokens.length > 0) {
-        const entryIdLower = entry.id.toLowerCase();
-        const charsLower = entry.characters.map((c) => c.toLowerCase());
-        const topicsLower = entry.topics.map((t) => t.toLowerCase());
-
-        let qText = "";
-        let aText = "";
-        let tTitle = "";
-
-        if (entry.entryType === "qna") {
-          qText = entry.question.toLowerCase();
-          aText = entry.answer.toLowerCase();
-        } else {
-          aText = entry.text.toLowerCase();
-          tTitle = (entry.title || "").toLowerCase();
+    return indexedEntries
+      .filter(({ entry, idLower, charsLower, topicsLower, yearStr, qText, aText, tTitle }) => {
+        // Entry Type filter
+        if (entryTypeFilter !== "all" && entry.entryType !== entryTypeFilter) {
+          return false;
         }
 
-        // Handle exact/normalized ID match check
-        const rawTrimmed = trimmedQuery.replace(/^#/, "");
-        const isTriviaSearch = /^tr[-_\s]?\d+/i.test(rawTrimmed);
-        const numericIdQuery = rawTrimmed.replace(/^(qna|tr)[\s#-]+/i, "").trim();
-        const isNumeric = /^\d+$/.test(numericIdQuery);
-
-        const exactIdMatch =
-          entryIdLower === rawTrimmed ||
-          (isTriviaSearch && entryIdLower === rawTrimmed.replace(/\s+/g, "-")) ||
-          (isNumeric &&
-            (entryIdLower === numericIdQuery.padStart(4, "0") ||
-              parseInt(entryIdLower.replace(/^tr-/, ""), 10).toString() === numericIdQuery));
-
-        if (exactIdMatch) {
-          return true;
+        // Arcs multi-filter
+        if (selectedArcs.length > 0 && !selectedArcs.includes(entry.arc)) {
+          return false;
         }
 
-        // Each token must match at least one field
-        for (const token of queryTokens) {
-          const matches =
-            entryIdLower.includes(token) ||
-            qText.includes(token) ||
-            aText.includes(token) ||
-            tTitle.includes(token) ||
-            charsLower.some((c) => c.includes(token)) ||
-            topicsLower.some((t) => t.includes(token));
+        // Character multi-filter (supports "all" and "any" match mode)
+        if (selectedCharacters.length > 0) {
+          const matchSingleChar = (sc: string) => {
+            const scl = sc.toLowerCase();
+            return charsLower.some(
+              (ec) =>
+                ec === scl ||
+                ec.includes(`(${scl})`) ||
+                ec.startsWith(`${scl} (`) ||
+                scl.includes(`(${ec})`) ||
+                scl.startsWith(`${ec} (`)
+            );
+          };
 
-          if (!matches) return false;
+          if (characterMatchMode === "all") {
+            if (!selectedCharacters.every(matchSingleChar)) return false;
+          } else {
+            if (!selectedCharacters.some(matchSingleChar)) return false;
+          }
         }
-      }
 
-      return true;
-    });
+        // Topic multi-filter
+        if (selectedTopics.length > 0) {
+          if (topicMatchMode === "all") {
+            if (!selectedTopics.every((st) => topicsLower.includes(st.toLowerCase()))) return false;
+          } else {
+            if (!selectedTopics.some((st) => topicsLower.includes(st.toLowerCase()))) return false;
+          }
+        }
+
+        // Year multi-filter
+        if (selectedYears.length > 0) {
+          if (!yearStr || !selectedYears.includes(yearStr)) return false;
+        }
+
+        // Verified filter
+        if (verifiedOnly && !entry.verified) {
+          return false;
+        }
+
+        // Text search filter (token-based AND matching across question, answer/text, title, tags, ID)
+        if (queryTokens.length > 0) {
+          const exactIdMatch =
+            idLower === rawTrimmed ||
+            (isTriviaSearch && idLower === rawTrimmed.replace(/\s+/g, "-")) ||
+            (isNumeric &&
+              (idLower === numericIdQuery.padStart(4, "0") ||
+                parseInt(idLower.replace(/^tr-/, ""), 10).toString() === numericIdQuery));
+
+          if (exactIdMatch) return true;
+
+          // Each token must match at least one field
+          for (const token of queryTokens) {
+            const matches =
+              idLower.includes(token) ||
+              qText.includes(token) ||
+              aText.includes(token) ||
+              tTitle.includes(token) ||
+              charsLower.some((c) => c.includes(token)) ||
+              topicsLower.some((t) => t.includes(token));
+
+            if (!matches) return false;
+          }
+        }
+
+        return true;
+      })
+      .map(({ entry }) => entry);
   }, [
-    combinedEntries,
+    indexedEntries,
     entryTypeFilter,
     selectedArcs,
     selectedCharacters,

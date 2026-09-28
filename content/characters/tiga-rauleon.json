@@ -1,0 +1,25 @@
+{
+  "id": "tiga-rauleon",
+  "name": "Tiga Rauleon",
+  "arc": "arc-10",
+  "japaneseName": "ティーガ・ラウレオン",
+  "aliases": [
+    {
+      "name": "Tiga",
+      "arc": "arc-10"
+    },
+    {
+      "name": "My Friend",
+      "arc": "arc-10"
+    }
+  ],
+  "gender": "Male",
+  "race": "Human",
+  "affiliation": [
+    "Kingdom of Lugunica",
+    "Divine Dragon Church",
+    "Filore Camp"
+  ],
+  "description": "Tiga Rauleon is an emissary and knight of the Divine Dragon Church who originally appeared in The Prophecy of the Throne before entering the main light novel series. Serving as a guardian to Saintess Filore within the Filore Camp, he plays an antagonistic role during the events of Arc 10.",
+  "link": "https://rezero.fandom.com/wiki/Tiga_Rauleon"
+}

@@ -1,0 +1,40 @@
+{
+  "id": "priscilla-barielle",
+  "name": "Priscilla Barielle",
+  "arc": "arc-3",
+  "japaneseName": "プリシラ・バーリエル",
+  "aliases": [
+    {
+      "name": "Priscilla",
+      "arc": "arc-3"
+    },
+    {
+      "name": "Sun Princess",
+      "arc": "arc-3"
+    },
+    {
+      "name": "Bloody Bride",
+      "arc": "arc-3"
+    },
+    {
+      "name": "Prisca Benedict",
+      "arc": "arc-7"
+    },
+    {
+      "name": "Princess",
+      "arc": "arc-3"
+    }
+  ],
+  "gender": "Female",
+  "birthday": "September 7",
+  "age": "19 (Arc 3-4) / 20 (Arc 5+)",
+  "race": "Human",
+  "affiliation": [
+    "Kingdom of Lugunica",
+    "Priscilla Camp",
+    "House Barielle",
+    "Vollachia Empire"
+  ],
+  "description": "Priscilla Barielle, born Prisca Benedict, is an exiled imperial princess of the Sacred Vollachia Empire, the Matriarch of House Barielle, and a candidate in Lugunica's Royal Selection. Endowed with incomparable haughtiness, fierce charisma, and absolute conviction that the world turns in her favor, she stands as a central figure throughout Arc 3, Arc 5, and especially the Vollachian campaigns in Arc 7 and Arc 8.",
+  "link": "https://rezero.fandom.com/wiki/Priscilla_Barielle"
+}

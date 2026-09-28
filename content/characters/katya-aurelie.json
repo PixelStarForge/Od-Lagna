@@ -1,0 +1,25 @@
+{
+  "id": "katya-aurelie",
+  "name": "Katya Aurélie",
+  "arc": "arc-7",
+  "japaneseName": "カチュア・オーレリー",
+  "aliases": [
+    {
+      "name": "Katya",
+      "arc": "arc-7"
+    },
+    {
+      "name": "Katya Aurelie",
+      "arc": "arc-7"
+    }
+  ],
+  "gender": "Female",
+  "birthday": "December 22",
+  "race": "Human",
+  "affiliation": [
+    "Vollachia Empire",
+    "House Aurélie"
+  ],
+  "description": "Katya Aurélie is a noblewoman of the Sacred Vollachia Empire, the younger sister of Jamal Aurélie, and the wife of Todd Fang. Despite suffering from chronic illness and physical disability, she displays a fierce, sharp-witted resilience, playing a prominent supporting role across Arc 7 and Arc 8.",
+  "link": "https://rezero.fandom.com/wiki/Katya_Aur%C3%A9lie"
+}

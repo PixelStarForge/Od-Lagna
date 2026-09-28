@@ -1,0 +1,32 @@
+{
+  "id": "rem",
+  "name": "Rem",
+  "arc": "arc-2",
+  "japaneseName": "レム",
+  "aliases": [
+    {
+      "name": "Subaru-kun's Caretaker",
+      "arc": "arc-4"
+    },
+    {
+      "name": "Hero's Confidant",
+      "arc": "arc-9"
+    },
+    {
+      "name": "Wife-san",
+      "arc": "arc-7"
+    }
+  ],
+  "gender": "Female",
+  "birthday": "February 2",
+  "age": "17 (Arcs 1-2) / 18 (Arcs 3-4) / 19 (Arc 5+)",
+  "race": "Oni",
+  "affiliation": [
+    "Kingdom of Lugunica",
+    "Emilia Camp",
+    "House Mathers",
+    "Oni Village"
+  ],
+  "description": "Rem is Ram's younger twin sister and a maid serving Margrave Roswaal L. Mathers at Roswaal Manor. Initially suspicious and deadly toward Subaru in early loops of Arc 2, she came to adore and devote herself entirely to him after he saved her in the Wolgarm forest. Her steadfast faith inspired Subaru during his darkest moments in Arc 3 before her name and memories were stolen by Gluttony.",
+  "link": "https://rezero.fandom.com/wiki/Rem"
+}

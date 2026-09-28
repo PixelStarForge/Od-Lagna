@@ -1,0 +1,33 @@
+{
+  "id": "odglass",
+  "name": "Odglass",
+  "arc": "arc-1",
+  "japaneseName": "オドグラス",
+  "aliases": [
+    {
+      "name": "OdGlass",
+      "arc": "general"
+    },
+    {
+      "name": "Sacred Beast",
+      "arc": "general"
+    },
+    {
+      "name": "Benevolent Mother",
+      "arc": "general"
+    },
+    {
+      "name": "Virtuous Monster",
+      "arc": "general"
+    }
+  ],
+  "gender": "Female",
+  "race": "Spirit",
+  "affiliation": [
+    "Four Great Spirits",
+    "Gusteko",
+    "Gustekan Church"
+  ],
+  "description": "Odglass is the Sacred Beast, one of the Four Great Spirits alongside Puck and Melakuera. Revered as the Benevolent Mother and foundational deity of the Holy Kingdom of Gusteko, she resembles a giant polar bear whose snowfall grants omnipresent perception over the snowy realm to the Gustekan Church.",
+  "link": "https://rezero.fandom.com/wiki/Odglass"
+}

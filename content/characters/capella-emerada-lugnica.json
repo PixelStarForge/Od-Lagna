@@ -1,0 +1,33 @@
+{
+  "id": "capella-emerada-lugnica",
+  "name": "Capella Emerada Lugnica",
+  "arc": "arc-5",
+  "japaneseName": "カペラ・エメラダ・ルグニカ",
+  "aliases": [
+    {
+      "name": "Capella",
+      "arc": "arc-5"
+    },
+    {
+      "name": "Sin Archbishop of Lust",
+      "arc": "arc-5"
+    },
+    {
+      "name": "Mama",
+      "arc": "arc-6"
+    },
+    {
+      "name": "Mother",
+      "arc": "arc-6"
+    }
+  ],
+  "gender": "Female",
+  "age": "Unknown",
+  "race": "Unknown",
+  "affiliation": [
+    "Witch Cult",
+    "Beloved Children"
+  ],
+  "description": "Capella Emerada Lugnica is the Sin Archbishop of the Witch Cult representing Lust. She is also known as Mama, the leader of the assassin organization known as the Beloved Children. She serves as one of the primary antagonists of Arc 5.",
+  "link": "https://rezero.fandom.com/wiki/Capella_Emerada_Lugnica"
+}

@@ -1,0 +1,22 @@
+{
+  "id": "fred-thompson",
+  "name": "Fred Thompson",
+  "arc": "arc-5",
+  "japaneseName": "フレド・トンプソン",
+  "aliases": [
+    {
+      "name": "Fred",
+      "arc": "arc-5"
+    }
+  ],
+  "gender": "Male",
+  "birthday": "July 3",
+  "age": "Around 6-7",
+  "race": "Human",
+  "affiliation": [
+    "Kingdom of Lugunica",
+    "Priestella"
+  ],
+  "description": "Fred Thompson is a young resident of the Watergate City of Priestella, the son of Garek and Reala Thompson, and the maternal younger half-brother of Garfiel Tinsel and Frederica Baumann. He is introduced during the siege of Priestella in Arc 5.",
+  "link": "https://rezero.fandom.com/wiki/Fred_Thompson"
+}

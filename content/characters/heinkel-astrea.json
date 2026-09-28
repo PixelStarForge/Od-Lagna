@@ -1,0 +1,49 @@
+{
+  "id": "heinkel-astrea",
+  "name": "Heinkel Astrea",
+  "arc": "arc-5",
+  "japaneseName": "ハインケル・アストレア",
+  "aliases": [
+    {
+      "name": "Heinkel",
+      "arc": "arc-5"
+    },
+    {
+      "name": "Parasite",
+      "arc": "arc-5"
+    },
+    {
+      "name": "Backstabber",
+      "arc": "arc-5"
+    },
+    {
+      "name": "Old Man",
+      "arc": "arc-5"
+    },
+    {
+      "name": "Pops",
+      "arc": "arc-5"
+    },
+    {
+      "name": "Redhead",
+      "arc": "arc-7"
+    },
+    {
+      "name": "Hei-san",
+      "arc": "arc-7"
+    }
+  ],
+  "gender": "Male",
+  "birthday": "May 17",
+  "age": "39 (Arc 5+)",
+  "race": "Human",
+  "affiliation": [
+    "Kingdom of Lugunica",
+    "Royal Guard",
+    "House Astrea",
+    "Priscilla Camp",
+    "Filore Camp"
+  ],
+  "description": "Heinkel Astrea is the Patriarch of House Astrea and the Deputy Commander of the Royal Guard. The son of Wilhelm van Astrea and Theresia van Astrea, and the estranged father of Reinhard van Astrea, he is deeply burdened by complex feelings of inadequacy, grief, and family strife. Introduced in Arc 5, he plays complicated roles across Arcs 5, 7, 8, 9, and 10.",
+  "link": "https://rezero.fandom.com/wiki/Heinkel_Astrea"
+}

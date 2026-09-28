@@ -1,0 +1,21 @@
+{
+  "id": "mazeran-suwen",
+  "name": "Mazeran Suwen",
+  "arc": "arc-4",
+  "japaneseName": "マゼラン・スーウェン",
+  "aliases": [
+    {
+      "name": "Mazeran",
+      "arc": "arc-4"
+    }
+  ],
+  "gender": "Male",
+  "race": "Human",
+  "affiliation": [
+    "Kingdom of Lugunica",
+    "Picoutatte",
+    "Suwen Company"
+  ],
+  "description": "Mazeran Suwen is the head of the Suwen Company based in Picoutatte, the husband of Framir Suwen, and the father of Oslo, Otto, and Regin Suwen. He worked diligently to shield young Otto from persecution regarding his Divine Protection of Soul Language.",
+  "link": "https://rezero.fandom.com/wiki/Mazeran_Suwen"
+}

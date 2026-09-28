@@ -50,6 +50,14 @@ export function StoryDetailClient({
               {story.name}
             </h1>
           </div>
+
+          <Link
+            href={categoryHref}
+            className="inline-flex items-center gap-2 px-3.5 py-2 rounded-lg border border-[var(--border-subtle)] bg-[var(--bg-surface)] hover:bg-[var(--bg-elevated)] hover:border-[var(--text-muted)] text-[var(--text-main)] transition-colors text-xs sm:text-sm font-semibold self-start"
+          >
+            <span>←</span>
+            <span>Back to {categoryLabel}</span>
+          </Link>
         </div>
 
         {/* Metadata Grid */}

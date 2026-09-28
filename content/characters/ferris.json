@@ -1,0 +1,32 @@
+{
+  "id": "ferris",
+  "name": "Felix Argyle",
+  "arc": "arc-3",
+  "japaneseName": "フェリックス・アーガイル",
+  "aliases": [
+    {
+      "name": "Ferris",
+      "arc": "arc-3"
+    },
+    {
+      "name": "Blue",
+      "arc": "arc-3"
+    },
+    {
+      "name": "Ferri-chan",
+      "arc": "arc-3"
+    }
+  ],
+  "gender": "Male",
+  "birthday": "January 16",
+  "age": "19 (Arc 3-4) / 20 (Arc 5+)",
+  "race": "Beast Human",
+  "affiliation": [
+    "Kingdom of Lugunica",
+    "Royal Guard",
+    "House Karsten",
+    "Crusch Camp"
+  ],
+  "description": "Felix Argyle, commonly known as Ferris, is the personal knight of Crusch Karsten, a member of the Royal Guard, and the greatest water magic healer in the Kingdom of Lugunica. He plays a major role in Arc 3, and supporting roles in Arc 5, Arc 9, and Arc 10.",
+  "link": "https://rezero.fandom.com/wiki/Ferris"
+}

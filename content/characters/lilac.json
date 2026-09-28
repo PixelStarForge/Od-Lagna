@@ -1,0 +1,20 @@
+{
+  "id": "lilac",
+  "name": "Lilac",
+  "arc": "arc-4",
+  "japaneseName": "ライラ",
+  "aliases": [
+    {
+      "name": "Lyra",
+      "arc": "arc-4"
+    }
+  ],
+  "gender": "Female",
+  "birthday": "September 9",
+  "race": "Elf",
+  "affiliation": [
+    "Omega Party"
+  ],
+  "description": "Lilac (also known as Lyra) is an elven Dream Arts user and the alternate soul sharing a body with Shion. Originally a primary character in the game Re:Zero - Lost in Memories, she and Shion subsequently joined Echidna's traveling Omega Party following the events of Arc 4.",
+  "link": "https://rezero.fandom.com/wiki/Lilac"
+}

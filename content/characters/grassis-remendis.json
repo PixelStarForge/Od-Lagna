@@ -1,0 +1,23 @@
+{
+  "id": "grassis-remendis",
+  "name": "Grassis Remendis",
+  "arc": "arc-3",
+  "japaneseName": "グラシス・レメンディス",
+  "aliases": [
+    {
+      "name": "Grassis",
+      "arc": "arc-3"
+    }
+  ],
+  "gender": "Female",
+  "age": "12 (Arc 1-4) / 13 (Arc 5+)",
+  "race": "Human",
+  "affiliation": [
+    "Kingdom of Lugunica",
+    "Felt Camp",
+    "House Remendis",
+    "House Astrea"
+  ],
+  "description": "Grassis Remendis is a servant of the Felt Camp and House Astrea, the granddaughter of Carol Remendis and Grimm Fauzen, and the younger twin sister of Flam Remendis. Introduced in Arc 3, she plays a supporting role in Arc 9.",
+  "link": "https://rezero.fandom.com/wiki/Grassis_Remendis"
+}

@@ -1,0 +1,34 @@
+{
+  "id": "typhon",
+  "name": "Typhon",
+  "arc": "arc-4",
+  "japaneseName": "テュフォン",
+  "aliases": [
+    {
+      "name": "Witch of Pride",
+      "arc": "arc-4"
+    },
+    {
+      "name": "Typhon of Pride",
+      "arc": "arc-4"
+    },
+    {
+      "name": "The Bearer of the Balance",
+      "arc": "arc-4"
+    },
+    {
+      "name": "Tyu-Tyu",
+      "arc": "arc-4"
+    }
+  ],
+  "gender": "Female",
+  "birthday": "February 5",
+  "age": "Around 10 (appearance) / 400+ (soul)",
+  "race": "Human",
+  "affiliation": [
+    "Witches of Sin",
+    "Castle of Dreams"
+  ],
+  "description": "Typhon was the Witch of Pride who lived 400 years ago. Retaining the innocent demeanor of a young child, she judged everyone she met against an absolute balance of right and wrong, dismembering those she found guilty of sin. She met her demise drowning in a trap at the Watergate City of Priestella, and her soul was preserved by Echidna inside the Castle of Dreams.",
+  "link": "https://rezero.fandom.com/wiki/Typhon"
+}

@@ -1,0 +1,48 @@
+{
+  "id": "petelgeuse-romanee-conti",
+  "name": "Petelgeuse Romanée-Conti",
+  "arc": "arc-3",
+  "japaneseName": "ペテルギウス・ロマネコンティ",
+  "aliases": [
+    {
+      "name": "Petelgeuse",
+      "arc": "arc-3"
+    },
+    {
+      "name": "Sin Archbishop of Sloth",
+      "arc": "arc-3"
+    },
+    {
+      "name": "Sloth",
+      "arc": "arc-3"
+    },
+    {
+      "name": "Betelgeuse",
+      "arc": "arc-3"
+    },
+    {
+      "name": "Betelgeuse Romanee-Conti",
+      "arc": "arc-3"
+    },
+    {
+      "name": "Petelgeuse Romanee-Conti",
+      "arc": "arc-3"
+    },
+    {
+      "name": "Geuse",
+      "arc": "arc-4"
+    },
+    {
+      "name": "Juice",
+      "arc": "arc-4"
+    }
+  ],
+  "gender": "Male",
+  "age": "402",
+  "race": "Spirit",
+  "affiliation": [
+    "Witch Cult"
+  ],
+  "description": "Petelgeuse Romanée-Conti was the Sin Archbishop of the Witch Cult representing Sloth and the primary antagonist of Arc 3. A manic spirit who inhabited various host bodies dubbed 'Fingers', he fanatically pursued the Witch of Envy's love. A century prior, he was known as the gentle spirit Geuse, a co-founder of the Witch Cult's moderate faction who protected Fortuna and young Emilia before being corrupted by the Sloth Witch Factor in Arc 4.",
+  "link": "https://rezero.fandom.com/wiki/Petelgeuse_Roman%C3%A9e-Conti"
+}

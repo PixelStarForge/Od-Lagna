@@ -1,0 +1,23 @@
+{
+  "id": "miklotov-mcmahon",
+  "name": "Miklotov McMahon",
+  "arc": "arc-3",
+  "japaneseName": "マイクロトフ・マクマホン",
+  "aliases": [
+    {
+      "name": "Miklotov",
+      "arc": "arc-3"
+    }
+  ],
+  "gender": "Male",
+  "age": "~74 (Arc 1-4) / ~75 (Arc 5+)",
+  "race": "Human",
+  "affiliation": [
+    "Kingdom of Lugunica",
+    "Royal Capital",
+    "Council of Wise Men",
+    "House McMahon"
+  ],
+  "description": "Miklotov McMahon is the head representative of the Council of Wise Men, effectively serving as the governing intellect of the Kingdom of Lugunica in the absence of a reigning monarch. Renowned as a hero of civil administration since the Demihuman War, he oversaw the commencement of the Royal Selection in Arc 3 and continues to guide state affairs through subsequent national crises.",
+  "link": "https://rezero.fandom.com/wiki/Miklotov_McMahon"
+}

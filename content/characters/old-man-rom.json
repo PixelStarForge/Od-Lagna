@@ -1,0 +1,32 @@
+{
+  "id": "old-man-rom",
+  "name": "Old Man Rom",
+  "arc": "arc-1",
+  "japaneseName": "バルガ・クロムウェル",
+  "aliases": [
+    {
+      "name": "Rom",
+      "arc": "arc-1"
+    },
+    {
+      "name": "Valga Cromwell",
+      "arc": "arc-8"
+    },
+    {
+      "name": "Great Strategist",
+      "arc": "arc-8"
+    }
+  ],
+  "gender": "Male",
+  "birthday": "February 20",
+  "age": "Around 120-130",
+  "race": "Giant",
+  "affiliation": [
+    "Kingdom of Lugunica",
+    "Felt Camp",
+    "Demi-Human Alliance",
+    "Royal Capital"
+  ],
+  "description": "Old Man Rom, whose true identity is Valga Cromwell, is a giant, the former leader and 'Great Strategist' of the Demi-Human Alliance during the Demihuman War, and the former proprietor of the Loot House in the slums of the Royal Capital. Raising Felt like his own granddaughter, he joined the Felt Camp to protect and support her in the Royal Selection.",
+  "link": "https://rezero.fandom.com/wiki/Rom"
+}

@@ -1,11 +1,25 @@
 "use client";
 
-import React, { useState, useRef, useEffect, useId } from "react";
+import React, { useState, useRef, useEffect, useId, useMemo } from "react";
 
 export interface SelectOption {
   value: string;
   label: string;
   group?: string;
+}
+
+// Highlight the matched portion of an option label when searching
+function HighlightMatch({ label, query }: { label: string; query: string }) {
+  if (!query) return <>{label}</>;
+  const idx = label.toLowerCase().indexOf(query.toLowerCase());
+  if (idx === -1) return <>{label}</>;
+  return (
+    <>
+      {label.slice(0, idx)}
+      <strong className="text-[var(--accent)] font-bold">{label.slice(idx, idx + query.length)}</strong>
+      {label.slice(idx + query.length)}
+    </>
+  );
 }
 
 interface CustomSelectProps {
@@ -44,11 +58,19 @@ export function CustomSelect({
 
   // Filter options if search is enabled
   const shouldShowSearch = showSearch ?? options.length > 12;
-  const filteredOptions = searchTerm.trim()
-    ? options.filter((opt) =>
-        opt.label.toLowerCase().includes(searchTerm.toLowerCase().trim())
-      )
-    : options;
+
+  // Pre-lowercase option labels once per options change
+  const indexedOptions = useMemo(
+    () => options.map((opt) => ({ opt, labelLower: opt.label.toLowerCase() })),
+    [options]
+  );
+
+  // Filter using pre-lowercased labels — avoids toLowerCase per option per keystroke
+  const filteredOptions = useMemo(() => {
+    const q = searchTerm.trim().toLowerCase();
+    if (!q) return options;
+    return indexedOptions.filter(({ labelLower }) => labelLower.includes(q)).map(({ opt }) => opt);
+  }, [indexedOptions, options, searchTerm]);
 
   // Group options if applicable
   const groupedOptions: { group?: string; items: SelectOption[] }[] = [];
@@ -110,14 +132,22 @@ export function CustomSelect({
       closeDropdown();
     } else if (e.key === "ArrowDown") {
       e.preventDefault();
-      setHighlightedIndex((prev) =>
-        prev < filteredOptions.length - 1 ? prev + 1 : 0
-      );
+      setHighlightedIndex((prev) => {
+        const next = prev < filteredOptions.length - 1 ? prev + 1 : 0;
+        const list = listRef.current?.querySelector(".overflow-y-auto");
+        const child = list?.children[next] as HTMLElement | undefined;
+        child?.scrollIntoView({ block: "nearest" });
+        return next;
+      });
     } else if (e.key === "ArrowUp") {
       e.preventDefault();
-      setHighlightedIndex((prev) =>
-        prev > 0 ? prev - 1 : filteredOptions.length - 1
-      );
+      setHighlightedIndex((prev) => {
+        const next = prev > 0 ? prev - 1 : filteredOptions.length - 1;
+        const list = listRef.current?.querySelector(".overflow-y-auto");
+        const child = list?.children[next] as HTMLElement | undefined;
+        child?.scrollIntoView({ block: "nearest" });
+        return next;
+      });
     } else if (e.key === "Enter") {
       e.preventDefault();
       if (filteredOptions[highlightedIndex]) {
@@ -240,7 +270,9 @@ export function CustomSelect({
                               : "text-[var(--text-main)] hover:bg-[var(--bg-elevated)]"
                         }`}
                       >
-                        <span className="truncate">{opt.label}</span>
+                        <span className="truncate">
+                          <HighlightMatch label={opt.label} query={searchTerm.trim()} />
+                        </span>
                         {isSelected && (
                           <svg
                             className="w-3.5 h-3.5 shrink-0 text-[var(--accent)] ml-2"

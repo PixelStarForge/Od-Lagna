@@ -1,0 +1,40 @@
+{
+  "id": "wilhelm-van-astrea",
+  "name": "Wilhelm van Astrea",
+  "arc": "arc-3",
+  "japaneseName": "ヴィルヘルム・ヴァン・アストレア",
+  "aliases": [
+    {
+      "name": "Sword Demon",
+      "arc": "arc-3"
+    },
+    {
+      "name": "Wilhelm Trias",
+      "arc": "arc-3"
+    },
+    {
+      "name": "Wilhelm",
+      "arc": "arc-3"
+    },
+    {
+      "name": "Old Man Wil",
+      "arc": "arc-3"
+    },
+    {
+      "name": "Captain Killer",
+      "arc": "arc-3"
+    }
+  ],
+  "gender": "Male",
+  "birthday": "May 7",
+  "age": "15-20 (Ex 2) / 61 (Arc 3-4) / 62 (Arc 5+)",
+  "race": "Human",
+  "affiliation": [
+    "Kingdom of Lugunica",
+    "Crusch Camp",
+    "House Karsten",
+    "House Astrea"
+  ],
+  "description": "Wilhelm van Astrea, formerly Wilhelm Trias and famously known as the Sword Demon, is a master swordsman and butler serving Crusch Karsten within the Crusch Camp. The widower of former Sword Saint Theresia van Astrea, he dedicated fourteen years to hunting down the White Whale, playing a decisive role in its defeat in Arc 3 and later defending Priestella in Arc 5.",
+  "link": "https://rezero.fandom.com/wiki/Wilhelm_van_Astrea"
+}

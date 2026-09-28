@@ -1,0 +1,24 @@
+{
+  "id": "vague-adgard",
+  "name": "Vague Adgard",
+  "arc": "arc-6",
+  "japaneseName": "ヴェイグ・アドガルド",
+  "aliases": [
+    {
+      "name": "Mad Prince",
+      "arc": "arc-6"
+    },
+    {
+      "name": "Vague",
+      "arc": "arc-6"
+    }
+  ],
+  "gender": "Male",
+  "birthday": "June 6",
+  "race": "Spirit Human/Spirit and Human Hybrid",
+  "affiliation": [
+    "Holy Kingdom of Gusteko"
+  ],
+  "description": "Vague Adgard is an imprisoned prince of the Holy Kingdom of Gusteko, known throughout the world as the 'Mad Prince'. A hybrid born of a great spirit and a human, he is revered as one of the four strongest warriors across the four great nations, standing alongside Lugunica's Reinhard van Astrea, Vollachia's Cecilus Segmunt, and Kararagi's Halibel.",
+  "link": "https://rezero.fandom.com/wiki/Vague_Adgard"
+}

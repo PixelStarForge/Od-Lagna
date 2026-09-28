@@ -1,0 +1,27 @@
+{
+  "id": "filore-lugunica",
+  "name": "Filore Lugunica",
+  "arc": "arc-10",
+  "japaneseName": "フィルオーレ",
+  "aliases": [
+    {
+      "name": "Filore",
+      "arc": "arc-10"
+    },
+    {
+      "name": "Saintess",
+      "arc": "arc-10"
+    }
+  ],
+  "gender": "Female",
+  "birthday": "November 25",
+  "age": "15",
+  "race": "Human",
+  "affiliation": [
+    "Kingdom of Lugunica",
+    "Divine Dragon Church",
+    "Filore Camp"
+  ],
+  "description": "Filore Lugunica is a nun and the Saintess of the Divine Dragon Church, who emerges as a candidate in the Royal Selection to become the 42nd monarch of Lugunica. She plays a major supporting role in Arc 10.",
+  "link": "https://rezero.fandom.com/wiki/Filore"
+}

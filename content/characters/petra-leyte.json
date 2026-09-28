@@ -1,0 +1,36 @@
+{
+  "id": "petra-leyte",
+  "name": "Petra Leyte",
+  "arc": "arc-2",
+  "japaneseName": "ペトラ・レイテ",
+  "aliases": [
+    {
+      "name": "Petra",
+      "arc": "arc-2"
+    },
+    {
+      "name": "Lil' Miss Petra",
+      "arc": "arc-3"
+    },
+    {
+      "name": "Petra Baumann",
+      "arc": "arc-9"
+    },
+    {
+      "name": "Witch of Melancholy",
+      "arc": "arc-9"
+    }
+  ],
+  "gender": "Female",
+  "birthday": "February 14",
+  "age": "12 (Arc 1-4) / 13 (Arc 5+)",
+  "race": "Human",
+  "affiliation": [
+    "Kingdom of Lugunica",
+    "Emilia Camp",
+    "House Mathers",
+    "Arlam Village"
+  ],
+  "description": "Petra Leyte is a young girl from Arlam Village who, after being rescued by Natsuki Subaru during the Wolgarm crisis in Arc 2, begins working as an apprentice maid at Roswaal Manor in Arc 4. Diligent, perceptive, and openly affectionate toward Subaru, she becomes an indispensable member of the Emilia Camp and House Mathers household staff.",
+  "link": "https://rezero.fandom.com/wiki/Petra_Leyte"
+}

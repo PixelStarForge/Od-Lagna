@@ -49,4 +49,4 @@ tools/*.py
 reports/
 
 # generated search index
-**/search-index.json
+public/search-index.json

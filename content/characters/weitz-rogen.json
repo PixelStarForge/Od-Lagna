@@ -1,0 +1,22 @@
+{
+  "id": "weitz-rogen",
+  "name": "Weitz Rogen",
+  "arc": "arc-7",
+  "japaneseName": "ヴァイツ・ログン",
+  "aliases": [
+    {
+      "name": "Weitz",
+      "arc": "arc-7"
+    }
+  ],
+  "gender": "Male",
+  "birthday": "September 21",
+  "race": "Human",
+  "affiliation": [
+    "Vollachia Empire",
+    "Ginunhive",
+    "Pleiades Battalion"
+  ],
+  "description": "Weitz Rogen is a former gladiator at the Gladiator Island of Ginunhive who served as an essential member of Subaru's unit during their escape. Possessing formidable physical strength and a background as a blacksmith's assistant, he joined the Pleiades Battalion to fight alongside Subaru throughout Arc 7 and Arc 8.",
+  "link": "https://rezero.fandom.com/wiki/Weitz_Rogen"
+}

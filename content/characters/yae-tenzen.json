@@ -1,0 +1,31 @@
+{
+  "id": "yae-tenzen",
+  "name": "Yae Tenzen",
+  "arc": "arc-9",
+  "japaneseName": "ヤエ・テンゼン",
+  "aliases": [
+    {
+      "name": "Crimson Sakura",
+      "arc": "arc-9"
+    },
+    {
+      "name": "Red Number 8",
+      "arc": "arc-9"
+    },
+    {
+      "name": "Yae",
+      "arc": "arc-9"
+    }
+  ],
+  "gender": "Female",
+  "birthday": "October 31",
+  "age": "Around 20",
+  "race": "Human",
+  "affiliation": [
+    "Vollachia Empire",
+    "House Barielle",
+    "Priscilla Camp"
+  ],
+  "description": "Yae Tenzen, codenamed Crimson Sakura and Red Number 8, is a shinobi originating from the Vollachia Empire who worked as a maid at the Barielle Estate and within the Priscilla Camp. Originally appearing in the Tanpenshuu 4 story 'Pride and Prejudice and Zombies', she resurfaces as a secondary antagonist in Arc 9.",
+  "link": "https://rezero.fandom.com/wiki/Yae_Tenzen"
+}

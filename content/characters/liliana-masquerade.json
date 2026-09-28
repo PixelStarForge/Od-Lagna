@@ -1,0 +1,25 @@
+{
+  "id": "liliana-masquerade",
+  "name": "Liliana Masquerade",
+  "arc": "arc-5",
+  "japaneseName": "リリアナ・マスカレード",
+  "aliases": [
+    {
+      "name": "Liliana",
+      "arc": "arc-5"
+    },
+    {
+      "name": "Songstress",
+      "arc": "arc-5"
+    }
+  ],
+  "gender": "Female",
+  "age": "21 (Introduction) / 22 (Arc 5+)",
+  "race": "Human",
+  "affiliation": [
+    "Kingdom of Lugunica",
+    "Priestella"
+  ],
+  "description": "Liliana Masquerade is an eccentric, cheerful traveling bard renowned as the 'Songstress' of the Watergate City of Priestella. Possessing a gift for song and performance, she played an instrumental role in rallying the citizens and overcoming the Witch Cult during the siege of Priestella in Arc 5.",
+  "link": "https://rezero.fandom.com/wiki/Liliana_Masquerade"
+}

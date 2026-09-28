@@ -1,0 +1,26 @@
+{
+  "id": "kurgan",
+  "name": "Kurgan",
+  "arc": "arc-5",
+  "japaneseName": "クルガン",
+  "aliases": [
+    {
+      "name": "Eight Arms",
+      "arc": "arc-5"
+    },
+    {
+      "name": "War God",
+      "arc": "arc-5"
+    }
+  ],
+  "gender": "Male",
+  "age": "Unknown",
+  "race": "Multi-Arm Tribe",
+  "affiliation": [
+    "Vollachia Empire",
+    "Imperial Army",
+    "Stride Faction"
+  ],
+  "description": "Kurgan was a legendary hero of the Sacred Vollachia Empire revered as the 'War God' and 'Eight Arms' of the Multi-Arm Tribe. Celebrated as the Empire's strongest warrior in life, he was resurrected as a corpse soldier by the Witch Cult during the siege of Priestella in Arc 5, engaging Garfiel Tinsel in a monumental duel.",
+  "link": "https://rezero.fandom.com/wiki/Kurgan"
+}

@@ -7,6 +7,20 @@ export interface MultiSelectOption extends SelectOption {
   count?: number;
 }
 
+// Highlight the matched portion of an option label when searching
+function HighlightMatch({ label, query }: { label: string; query: string }) {
+  if (!query) return <>{label}</>;
+  const idx = label.toLowerCase().indexOf(query.toLowerCase());
+  if (idx === -1) return <>{label}</>;
+  return (
+    <>
+      {label.slice(0, idx)}
+      <strong className="text-[var(--accent)] font-bold">{label.slice(idx, idx + query.length)}</strong>
+      {label.slice(idx + query.length)}
+    </>
+  );
+}
+
 interface CustomMultiSelectProps {
   values: string[];
   onChange: (values: string[]) => void;
@@ -44,6 +58,17 @@ export function CustomMultiSelect({
 
   const valueSet = useMemo(() => new Set(values), [values]);
 
+  // Pre-lowercase option labels and groups once per options change
+  const indexedOptions = useMemo(
+    () =>
+      options.map((opt) => ({
+        opt,
+        labelLower: opt.label.toLowerCase(),
+        groupLower: opt.group ? opt.group.toLowerCase() : "",
+      })),
+    [options]
+  );
+
   // Selected label summary
   const summaryText = useMemo(() => {
     if (values.length === 0) return placeholder;
@@ -56,16 +81,14 @@ export function CustomMultiSelect({
     return `${firstLabel} +${values.length - 1} (${values.length})`;
   }, [values, options, placeholder]);
 
-  // Filter options by search
+  // Filter options by search — uses pre-lowercased fields to avoid per-keystroke toLowerCase
   const filteredOptions = useMemo(() => {
     const q = searchTerm.trim().toLowerCase();
     if (!q) return options;
-    return options.filter(
-      (opt) =>
-        opt.label.toLowerCase().includes(q) ||
-        (opt.group && opt.group.toLowerCase().includes(q))
-    );
-  }, [options, searchTerm]);
+    return indexedOptions
+      .filter(({ labelLower, groupLower }) => labelLower.includes(q) || groupLower.includes(q))
+      .map(({ opt }) => opt);
+  }, [indexedOptions, options, searchTerm]);
 
   // Group options if applicable
   const groupedOptions = useMemo(() => {
@@ -149,14 +172,22 @@ export function CustomMultiSelect({
       closeDropdown();
     } else if (e.key === "ArrowDown") {
       e.preventDefault();
-      setHighlightedIndex((prev) =>
-        prev < filteredOptions.length - 1 ? prev + 1 : 0
-      );
+      setHighlightedIndex((prev) => {
+        const next = prev < filteredOptions.length - 1 ? prev + 1 : 0;
+        const list = listRef.current?.querySelector(".overflow-y-auto");
+        const child = list?.children[next] as HTMLElement | undefined;
+        child?.scrollIntoView({ block: "nearest" });
+        return next;
+      });
     } else if (e.key === "ArrowUp") {
       e.preventDefault();
-      setHighlightedIndex((prev) =>
-        prev > 0 ? prev - 1 : filteredOptions.length - 1
-      );
+      setHighlightedIndex((prev) => {
+        const next = prev > 0 ? prev - 1 : filteredOptions.length - 1;
+        const list = listRef.current?.querySelector(".overflow-y-auto");
+        const child = list?.children[next] as HTMLElement | undefined;
+        child?.scrollIntoView({ block: "nearest" });
+        return next;
+      });
     } else if (e.key === "Enter" || e.key === " ") {
       if (
         document.activeElement === searchInputRef.current &&
@@ -377,7 +408,7 @@ export function CustomMultiSelect({
                           className="h-3.5 w-3.5 rounded border-[var(--border-strong)] text-[var(--accent)] focus:ring-[var(--accent)] accent-[var(--accent)] cursor-pointer shrink-0 pointer-events-none"
                         />
                         <span className={`truncate flex-1 ${isSelected ? "font-semibold" : ""}`}>
-                          {opt.label}
+                          <HighlightMatch label={opt.label} query={searchTerm.trim()} />
                         </span>
                         {opt.count !== undefined && (
                           <span className="text-[10px] font-mono text-[var(--text-muted)] bg-[var(--bg-surface)] px-1.5 py-0.5 rounded border border-[var(--border-subtle)] shrink-0">

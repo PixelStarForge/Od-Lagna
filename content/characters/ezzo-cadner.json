@@ -1,0 +1,21 @@
+{
+  "id": "ezzo-cadner",
+  "name": "Ezzo Cadner",
+  "arc": "arc-9",
+  "japaneseName": "エッゾ・カドナー",
+  "aliases": [
+    {
+      "name": "Grey",
+      "arc": "arc-9"
+    }
+  ],
+  "gender": "Male",
+  "age": "Late 20s",
+  "race": "Dwarf",
+  "affiliation": [
+    "Kingdom of Lugunica",
+    "Felt Camp"
+  ],
+  "description": "Ezzo Cadner is a dwarf mage and strategist of the Felt Camp, who officially serves as their advisor and as an educator to Felt. He plays a supporting role in Arc 9.",
+  "link": "https://rezero.fandom.com/wiki/Ezzo_Cadner"
+}

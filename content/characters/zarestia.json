@@ -1,0 +1,35 @@
+{
+  "id": "zarestia",
+  "name": "Zarestia",
+  "arc": "arc-1",
+  "japaneseName": "ザーレスティア",
+  "aliases": [
+    {
+      "name": "Slasher",
+      "arc": "arc-1"
+    },
+    {
+      "name": "Most Beautiful Reaper",
+      "arc": "arc-1"
+    },
+    {
+      "name": "Tia",
+      "arc": "arc-1"
+    },
+    {
+      "name": "White Tia",
+      "arc": "arc-1"
+    }
+  ],
+  "gender": "Female",
+  "birthday": "March 27",
+  "age": "Ancient, predating the Divine Dragon (actual) / Late Teens-Early 20s (appearance)",
+  "race": "Spirit",
+  "affiliation": [
+    "Four Great Spirits",
+    "Kararagi",
+    "Zarestia's Bed"
+  ],
+  "description": "Zarestia is the Great Spirit of Wind and one of the Four Great Spirits, known notoriously as the 'Slasher' and the 'Most Beautiful Reaper'. Residing at Zarestia's Bed within Kararagi, she plays a central role in the Kararagi Reaper Incident side story and the Sloth IF storyline, forming a warm bond with Subaru's family and Anastasia Hoshin.",
+  "link": "https://rezero.fandom.com/wiki/Zarestia"
+}

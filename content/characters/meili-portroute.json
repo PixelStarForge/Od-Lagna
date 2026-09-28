@@ -1,0 +1,31 @@
+{
+  "id": "meili-portroute",
+  "name": "Meili Portroute",
+  "arc": "arc-2",
+  "japaneseName": "メィリィ・ポートルート",
+  "aliases": [
+    {
+      "name": "Meili",
+      "arc": "arc-2"
+    },
+    {
+      "name": "Witchbeast User",
+      "arc": "arc-2"
+    },
+    {
+      "name": "Ankle-Biter Number Two",
+      "arc": "arc-6"
+    }
+  ],
+  "gender": "Female",
+  "birthday": "October 4",
+  "age": "13 (Arc 2-4) / 14 (Arc 5+)",
+  "race": "Human",
+  "affiliation": [
+    "Kingdom of Lugunica",
+    "Emilia Camp",
+    "Beloved Children"
+  ],
+  "description": "Meili Portroute is a witchbeast tamer and former assassin raised under 'Mother' in the assassin organization known as the Beloved Children. Initially serving as the hidden antagonist behind the Wolgarm attack on Arlam Village in Arc 2 and a secondary antagonist in Arc 4 alongside Elsa Granhiert, she was later captured and eventually integrated into the Emilia Camp, playing an indispensable role during the expedition to the Pleiades Watchtower in Arc 6.",
+  "link": "https://rezero.fandom.com/wiki/Meili_Portroute"
+}

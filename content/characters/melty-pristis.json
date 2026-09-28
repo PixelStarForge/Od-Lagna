@@ -1,0 +1,27 @@
+{
+  "id": "melty-pristis",
+  "name": "Melty Pristis",
+  "arc": "arc-10",
+  "japaneseName": "メルティ・プリスティス",
+  "aliases": [
+    {
+      "name": "Melty",
+      "arc": "arc-10"
+    },
+    {
+      "name": "White Sheep",
+      "arc": "arc-10"
+    }
+  ],
+  "gender": "Female",
+  "age": "16-17",
+  "race": "Unknown",
+  "affiliation": [
+    "Kingdom of Lugunica",
+    "Six Tongues",
+    "Beloved Children",
+    "Divine Dragon Church"
+  ],
+  "description": "Melty Pristis, codenamed White Sheep, is an operative of the Six Tongues who previously defected from the assassin organization known as the Beloved Children and was affiliated with the Divine Dragon Church. She plays a supporting role in Arc 10.",
+  "link": "https://rezero.fandom.com/wiki/Melty_Pristis"
+}

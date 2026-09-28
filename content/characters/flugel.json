@@ -1,0 +1,38 @@
+{
+  "id": "flugel",
+  "name": "Flugel",
+  "arc": "arc-3",
+  "japaneseName": "フリューゲル",
+  "aliases": [
+    {
+      "name": "Sage",
+      "arc": "arc-6"
+    },
+    {
+      "name": "Great Sage",
+      "arc": "arc-6"
+    },
+    {
+      "name": "The Wisest One",
+      "arc": "arc-6"
+    },
+    {
+      "name": "Master",
+      "arc": "arc-6"
+    },
+    {
+      "name": "Instigator",
+      "arc": "arc-4"
+    }
+  ],
+  "gender": "Male",
+  "age": "Unknown",
+  "race": "Human",
+  "affiliation": [
+    "Kingdom of Lugunica",
+    "Witch Era Party",
+    "Pleiades Watchtower"
+  ],
+  "description": "Flugel was the legendary figure who planted the giant Flugel's Tree on the Lifaus Plains 400 years ago. Though initially referenced in Arc 3, his true identity as the Great Sage of the Witch Era—credited alongside the Divine Dragon and First Sword Saint with sealing the Witch of Envy—is revealed in Arc 6.",
+  "link": "https://rezero.fandom.com/wiki/Flugel"
+}

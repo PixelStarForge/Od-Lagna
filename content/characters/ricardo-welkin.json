@@ -1,0 +1,27 @@
+{
+  "id": "ricardo-welkin",
+  "name": "Ricardo Welkin",
+  "arc": "arc-3",
+  "japaneseName": "リカード・ウェルキン",
+  "aliases": [
+    {
+      "name": "Ricardo",
+      "arc": "arc-3"
+    },
+    {
+      "name": "Hound",
+      "arc": "arc-3"
+    }
+  ],
+  "gender": "Male",
+  "birthday": "January 12",
+  "age": "39 (Arc 3-4) / 40 (Arc 5+)",
+  "race": "Wolf Demi-Human",
+  "affiliation": [
+    "Kararagi",
+    "Iron Fang",
+    "Anastasia Camp"
+  ],
+  "description": "Ricardo Welkin is the boisterous captain of the mercenary band Iron Fang and a core protector of the Anastasia Camp. A veteran wolf demi-human warrior who acts as an adoptive father to the Pearlbaton triplets, he spearheaded frontline operations during the White Whale subjugation in Arc 3 and the defense of Priestella in Arc 5.",
+  "link": "https://rezero.fandom.com/wiki/Ricardo_Welkin"
+}

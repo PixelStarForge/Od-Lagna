@@ -1,0 +1,23 @@
+{
+  "id": "hetaro-pearlbaton",
+  "name": "Hetaro Pearlbaton",
+  "arc": "arc-3",
+  "japaneseName": "ヘータロー・パールバトン",
+  "aliases": [
+    {
+      "name": "Hetaro",
+      "arc": "arc-3"
+    }
+  ],
+  "gender": "Male",
+  "birthday": "May 5",
+  "age": "14 (Arc 1-4) / 15 (Arc 5+)",
+  "race": "Cat Demi-Human",
+  "affiliation": [
+    "Kararagi",
+    "Iron Fang",
+    "Anastasia Camp"
+  ],
+  "description": "Hetaro Pearlbaton is one of the three vice captains of the mercenary squad Iron Fang and a trusted retainer of the Anastasia Camp. One of the Pearlbaton triplets alongside his sister Mimi and brother Tivey, he acts as the calm, responsible tactician and battlefield commander.",
+  "link": "https://rezero.fandom.com/wiki/Hetaro_Pearlbaton"
+}

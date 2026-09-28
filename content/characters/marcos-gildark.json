@@ -1,0 +1,36 @@
+{
+  "id": "marcos-gildark",
+  "name": "Marcos Gildark",
+  "arc": "arc-3",
+  "japaneseName": "マーコス・ギルダーク",
+  "aliases": [
+    {
+      "name": "Marcos",
+      "arc": "arc-3"
+    },
+    {
+      "name": "Boulder",
+      "arc": "arc-3"
+    },
+    {
+      "name": "Knight Commander",
+      "arc": "arc-3"
+    },
+    {
+      "name": "Rock-san",
+      "arc": "arc-10"
+    }
+  ],
+  "gender": "Male",
+  "birthday": "June 28",
+  "age": "A bit over 40",
+  "race": "Human",
+  "affiliation": [
+    "Kingdom of Lugunica",
+    "Royal Capital",
+    "Royal Guard",
+    "Royal Army"
+  ],
+  "description": "Marcos Gildark is the Knight Commander of the Kingdom of Lugunica and the Captain of the Royal Guard, known as 'Boulder'. A stalwart and resolute leader introduced during the Royal Selection gathering in Arc 3, he plays a key supporting role in Arc 10.",
+  "link": "https://rezero.fandom.com/wiki/Marcos_Gildark"
+}

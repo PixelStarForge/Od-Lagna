@@ -208,10 +208,11 @@ console.log("✓ Contributor validation tests passed");
 console.log("\n10. Testing getAllContributors() loader...");
 const contributors = getAllContributors();
 assert(Array.isArray(contributors), "Expected contributors to be an array");
-assert(contributors.length === 3, `Expected 3 contributors, got ${contributors.length}`);
+assert(contributors.length === 4, `Expected 4 contributors, got ${contributors.length}`);
 assert(contributors[0].username === "Mildly_Confused_NPC", "Expected first contributor to match");
 assert(contributors[1].username === "u/Affectionate_Run6250", "Expected second contributor to match");
 assert(contributors[2].username === "Historical-Weird7591", "Expected third contributor to match");
+assert(contributors[3].username === "Ehknee", "Expected fourth contributor to match");
 console.log("✓ getAllContributors() loader passed");
 
 // 11. Testing characterSchema

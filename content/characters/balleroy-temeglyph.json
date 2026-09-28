@@ -1,0 +1,30 @@
+{
+  "id": "balleroy-temeglyph",
+  "name": "Balleroy Temeglyph",
+  "arc": "arc-7",
+  "japaneseName": "バルロイ・テメグリフ",
+  "aliases": [
+    {
+      "name": "Ninth",
+      "arc": "arc-7"
+    },
+    {
+      "name": "Magic Bullet Sharpshooter",
+      "arc": "arc-7"
+    },
+    {
+      "name": "Balleroy",
+      "arc": "arc-7"
+    }
+  ],
+  "gender": "Male",
+  "birthday": "September 12",
+  "race": "Human",
+  "affiliation": [
+    "Vollachia Empire",
+    "Nine Divine Generals",
+    "House Dracroy"
+  ],
+  "description": "Balleroy Temeglyph was the former Ninth ranking Divine General of the Sacred Vollachia Empire. He played an antagonistic role in The Travelogue of the Finest (Ex Volume 4), Arc 7, and Arc 8, as well as a small supporting role toward the end of the latter arc.",
+  "link": "https://rezero.fandom.com/wiki/Balleroy_Temeglyph"
+}

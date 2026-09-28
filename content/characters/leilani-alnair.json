@@ -1,0 +1,23 @@
+{
+  "id": "leilani-alnair",
+  "name": "Leilani Alnair",
+  "arc": "scorpion-tales",
+  "japaneseName": "レイラニ・アルナイル",
+  "aliases": [
+    {
+      "name": "Leilani",
+      "arc": "scorpion-tales"
+    },
+    {
+      "name": "Sin Archbishop of Gluttony",
+      "arc": "scorpion-tales"
+    }
+  ],
+  "gender": "Female",
+  "race": "Human",
+  "affiliation": [
+    "Witch Cult"
+  ],
+  "description": "Leilani Alnair was a Sin Archbishop of the Witch Cult representing Gluttony and the mother of Lye Batenkaitos, Roy Alphard, and Rui Arneb. Introduced in the side story Re:Zero EX: Scorpion Tales, she formerly wielded the Authority of Gluttony.",
+  "link": "https://rezero.fandom.com/wiki/Leilani_Alnair"
+}

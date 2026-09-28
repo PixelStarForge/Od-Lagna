@@ -1,0 +1,28 @@
+{
+  "id": "hector",
+  "name": "Hector",
+  "arc": "arc-4",
+  "japaneseName": "ヘクトール",
+  "aliases": [
+    {
+      "name": "Warlock of Melancholy",
+      "arc": "arc-4"
+    },
+    {
+      "name": "Valiant",
+      "arc": "arc-4"
+    },
+    {
+      "name": "Melancholy",
+      "arc": "arc-4"
+    }
+  ],
+  "gender": "Male",
+  "age": "Around 20 (appearance) / Unknown (actual)",
+  "race": "Unknown",
+  "affiliation": [
+    "Witches of Sin"
+  ],
+  "description": "Hector was the Warlock of Melancholy from 400 years ago, also known as the Valiant. Possessing a deeply lethargic demeanor, he attacked the Sanctuary in an obsessive pursuit of Echidna, forcing Roswaal, Beatrice, and Ryuzu Meyer into desperate measures to seal the barrier.",
+  "link": "https://rezero.fandom.com/wiki/Hector"
+}

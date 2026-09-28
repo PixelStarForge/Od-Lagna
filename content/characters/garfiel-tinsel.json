@@ -1,0 +1,43 @@
+{
+  "id": "garfiel-tinsel",
+  "name": "Garfiel Tinsel",
+  "arc": "arc-4",
+  "japaneseName": "ガーフィール・ティンゼル",
+  "aliases": [
+    {
+      "name": "Garfiel Tinzel",
+      "arc": "arc-4"
+    },
+    {
+      "name": "Garfiel",
+      "arc": "arc-4"
+    },
+    {
+      "name": "Garf",
+      "arc": "arc-4"
+    },
+    {
+      "name": "Shield of the Sanctuary",
+      "arc": "arc-4"
+    },
+    {
+      "name": "Young Gar",
+      "arc": "arc-4"
+    },
+    {
+      "name": "Gorgeous Tiger",
+      "arc": "arc-5"
+    }
+  ],
+  "gender": "Male",
+  "birthday": "October 12",
+  "age": "14 (Arc 4) / 15 (Arc 5+)",
+  "race": "Beast Human",
+  "affiliation": [
+    "Kingdom of Lugunica",
+    "Emilia Camp",
+    "Sanctuary"
+  ],
+  "description": "Garfiel Tinsel is the former guardian of the Sanctuary and the fierce military officer of the Emilia Camp. The younger half-brother of Frederica Baumann and a powerful Beast Human hybrid, he was initially an antagonist during the first half of Arc 4 before joining Subaru's side, becoming a crucial powerhouse throughout Arcs 4, 5, 7, 8, 9, and 10.",
+  "link": "https://rezero.fandom.com/wiki/Garfiel_Tinzel"
+}

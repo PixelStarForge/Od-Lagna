@@ -1,0 +1,23 @@
+{
+  "id": "regin-suwen",
+  "name": "Regin Suwen",
+  "arc": "arc-4",
+  "japaneseName": "レギン・スーウェン",
+  "aliases": [
+    {
+      "name": "Regin",
+      "arc": "arc-4"
+    }
+  ],
+  "gender": "Male",
+  "age": "19",
+  "race": "Human",
+  "affiliation": [
+    "Kingdom of Lugunica",
+    "Suwen Treatment Center",
+    "Pappelt",
+    "Picoutatte"
+  ],
+  "description": "Regin Suwen is the youngest son of the Suwen family in Picoutatte and the younger brother of Oslo and Otto. Choosing not to enter the merchant trade, he pursued veterinary medicine and established the Suwen Treatment Center in the town of Pappelt, inspired by Otto's ability to communicate with animals.",
+  "link": "https://rezero.fandom.com/wiki/Regin_Suwen"
+}

@@ -1,0 +1,26 @@
+{
+  "id": "halibel",
+  "name": "Halibel",
+  "arc": "arc-8",
+  "japaneseName": "ハリベル",
+  "aliases": [
+    {
+      "name": "Admirer",
+      "arc": "arc-8"
+    },
+    {
+      "name": "Eternal Playboy",
+      "arc": "arc-8"
+    }
+  ],
+  "gender": "Male",
+  "age": "40 (Arc 8+)",
+  "race": "Wolf Human",
+  "affiliation": [
+    "Kararagi",
+    "Banan",
+    "Wolf Person Village"
+  ],
+  "description": "Halibel is a master shinobi of Kararagi known as the 'Admirer', revered as one of the four greatest combatants in the world alongside Reinhard van Astrea and Cecilus Segmunt. A laid-back wolf human who originally starred in the Sloth IF, he made his canon main story debut in Arc 8 aiding the alliance in Vollachia.",
+  "link": "https://rezero.fandom.com/wiki/Halibel"
+}

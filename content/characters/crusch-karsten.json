@@ -1,0 +1,27 @@
+{
+  "id": "crusch-karsten",
+  "name": "Crusch Karsten",
+  "arc": "arc-3",
+  "japaneseName": "クルシュ・カルステン",
+  "aliases": [
+    {
+      "name": "Valkyrie",
+      "arc": "arc-3"
+    },
+    {
+      "name": "Green Beauty",
+      "arc": "arc-3"
+    }
+  ],
+  "gender": "Female",
+  "birthday": "April 4",
+  "age": "20 (Arc 3-4) / 21 (Arc 5+)",
+  "race": "Human",
+  "affiliation": [
+    "Kingdom of Lugunica",
+    "House Karsten",
+    "Crusch Camp"
+  ],
+  "description": "Crusch Karsten is the Matriarch of House Karsten and a candidate to become the 42nd monarch of Lugunica in the Royal Selection. A charismatic leader of noble conviction, she plays a major role in Arc 3 and Arc 10, as well as a supporting role in Arc 5.",
+  "link": "https://rezero.fandom.com/wiki/Crusch_Karsten"
+}

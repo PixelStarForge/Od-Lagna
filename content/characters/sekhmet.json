@@ -1,0 +1,30 @@
+{
+  "id": "sekhmet",
+  "name": "Sekhmet",
+  "arc": "arc-4",
+  "japaneseName": "セクメト",
+  "aliases": [
+    {
+      "name": "Witch of Sloth",
+      "arc": "arc-4"
+    },
+    {
+      "name": "Sekhmet of Sloth",
+      "arc": "arc-4"
+    },
+    {
+      "name": "Met Met",
+      "arc": "arc-4"
+    }
+  ],
+  "gender": "Female",
+  "birthday": "August 13",
+  "age": "Mid 20s (appearance) / 400+ (soul)",
+  "race": "Giant",
+  "affiliation": [
+    "Witches of Sin",
+    "Castle of Dreams"
+  ],
+  "description": "Sekhmet was the Witch of Sloth who lived 400 years ago. Regarded as the strongest of the Witches of Sin aside from Satella, she found even breathing tiresome yet routinely pacified Typhon's rampages. She met her end falling past the Great Waterfall during a confrontation with the Divine Dragon Volcanica, and her soul was preserved by Echidna inside the Castle of Dreams.",
+  "link": "https://rezero.fandom.com/wiki/Sekhmet"
+}

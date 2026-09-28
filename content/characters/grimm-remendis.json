@@ -1,0 +1,35 @@
+{
+  "id": "grimm-remendis",
+  "name": "Grimm Remendis",
+  "arc": "arc-3",
+  "japaneseName": "グリム・ファウゼン",
+  "aliases": [
+    {
+      "name": "Grimm Fauzen",
+      "arc": "arc-3"
+    },
+    {
+      "name": "Grimm",
+      "arc": "arc-3"
+    },
+    {
+      "name": "Shield Knight",
+      "arc": "arc-3"
+    },
+    {
+      "name": "Watch Dog",
+      "arc": "arc-3"
+    }
+  ],
+  "gender": "Male",
+  "age": "18-23 (Ex 2) / 64 (Arc 1-4) / 65 (Arc 5+)",
+  "race": "Human",
+  "affiliation": [
+    "Kingdom of Lugunica",
+    "House Astrea",
+    "House Remendis",
+    "Zergev Squadron"
+  ],
+  "description": "Grimm Remendis (born Grimm Fauzen) is a servant of House Astrea alongside his wife Carol, and the former Deputy Commander of the Zergev Squadron. Known as the 'Shield Knight' during the Demi-Human War, he played a central supporting role in the Sword Demon trilogy.",
+  "link": "https://rezero.fandom.com/wiki/Grimm_Fauzen"
+}

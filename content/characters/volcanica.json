@@ -1,0 +1,37 @@
+{
+  "id": "volcanica",
+  "name": "Divine Dragon Volcanica",
+  "arc": "arc-6",
+  "japaneseName": "ボルカニカ",
+  "aliases": [
+    {
+      "name": "Volcanica",
+      "arc": "arc-6"
+    },
+    {
+      "name": "Divine Dragon",
+      "arc": "arc-1"
+    },
+    {
+      "name": "Cynic",
+      "arc": "arc-6"
+    },
+    {
+      "name": "Alter",
+      "arc": "arc-9"
+    },
+    {
+      "name": "Vol-sama",
+      "arc": "arc-9"
+    }
+  ],
+  "gender": "Unknown",
+  "age": "Unknown",
+  "race": "Dragon",
+  "affiliation": [
+    "Kingdom of Lugunica",
+    "Witch Era Party"
+  ],
+  "description": "Volcanica, revered as the Divine Dragon, is one of the legendary figures who helped seal the Witch of Envy four centuries ago alongside Flugel, Reid Astrea, and Farsale Lugunica. Revered as the covenant guardian and symbol of hope for the Kingdom of Lugunica, he resides atop the first floor of the Pleiades Watchtower, playing significant antagonistic and supporting roles in Arc 6 and Arc 9.",
+  "link": "https://rezero.fandom.com/wiki/Volcanica"
+}

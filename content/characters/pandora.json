@@ -1,0 +1,31 @@
+{
+  "id": "pandora",
+  "name": "Pandora",
+  "arc": "arc-4",
+  "japaneseName": "パンドラ",
+  "aliases": [
+    {
+      "name": "Witch of Vainglory",
+      "arc": "arc-4"
+    },
+    {
+      "name": "Saintess",
+      "arc": "arc-4"
+    },
+    {
+      "name": "Vainglory",
+      "arc": "arc-4"
+    }
+  ],
+  "gender": "Female",
+  "birthday": "May 3",
+  "age": "Unknown ",
+  "race": "Unknown",
+  "affiliation": [
+    "Witches of Sin",
+    "Witch Cult",
+    "Saintess Sect"
+  ],
+  "description": "Pandora is the Witch of Vainglory and the enigmatic Saintess presiding over the Witch Cult as a supernumerary Witch regarded as taboo across history. She orchestrated the assault on Elior Forest roughly a century prior to the main story, leading to the corruption of Petelgeuse Romanée-Conti and causing young Emilia to freeze the forest.",
+  "link": "https://rezero.fandom.com/wiki/Pandora"
+}

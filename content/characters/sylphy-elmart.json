@@ -1,0 +1,34 @@
+{
+  "id": "sylphy-elmart",
+  "name": "Sylphy Elmart",
+  "arc": "arc-5",
+  "japaneseName": "シルフィ・エルマート",
+  "aliases": [
+    {
+      "name": "Slyphy Elmart",
+      "arc": "arc-5"
+    },
+    {
+      "name": "Number 184",
+      "arc": "arc-5"
+    },
+    {
+      "name": "Sylphy",
+      "arc": "arc-5"
+    },
+    {
+      "name": "Slyphy",
+      "arc": "arc-5"
+    }
+  ],
+  "gender": "Female",
+  "birthday": "May 6",
+  "race": "Human",
+  "affiliation": [
+    "Kingdom of Lugunica",
+    "House Miload",
+    "Roswaal Manor"
+  ],
+  "description": "Sylphy Elmart is a maid at Roswaal Manor and the former 184th wife of Regulus Corneas. Forced into marriage after Regulus massacred her family and village, she acted as the protective representative of his surviving wives in Priestella during Arc 5, aiding Subaru, Emilia, and Reinhard in discovering the weakness of Regulus's Authority. Following his defeat, she was hired by Annerose Miload as a maid devoted to the Emilia Camp.",
+  "link": "https://rezero.fandom.com/wiki/Sylphy_Elmart"
+}

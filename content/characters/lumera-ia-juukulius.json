@@ -1,0 +1,29 @@
+{
+  "id": "lumera-ia-juukulius",
+  "name": "Lumera Ia Juukulius",
+  "arc": "arc-3",
+  "japaneseName": "イア",
+  "aliases": [
+    {
+      "name": "Ia",
+      "arc": "arc-3"
+    },
+    {
+      "name": "Lumera",
+      "arc": "if-sasageru"
+    },
+    {
+      "name": "Lumera Ia Juukulius",
+      "arc": "if-sasageru"
+    }
+  ],
+  "gender": "Female",
+  "birthday": "July 26",
+  "race": "Spirit",
+  "affiliation": [
+    "Kingdom of Lugunica",
+    "Julius Juukulius"
+  ],
+  "description": "Ia is a fire-attribute contracted spirit serving Julius Juukulius. First introduced as a quasi-spirit in Arc 3, she evolved into a full spirit during the trials of the Pleiades Watchtower in Arc 6. In the Sasageru IF route set 400 years in the future, she evolves into the Great Spirit named Lumera Ia Juukulius.",
+  "link": "https://rezero.fandom.com/wiki/Ia"
+}

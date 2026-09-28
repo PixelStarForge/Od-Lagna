@@ -1,0 +1,30 @@
+{
+  "id": "chisha-gold",
+  "name": "Chisha Gold",
+  "arc": "arc-7",
+  "japaneseName": "チシャ・ゴールド",
+  "aliases": [
+    {
+      "name": "Fourth",
+      "arc": "arc-7"
+    },
+    {
+      "name": "White Spider",
+      "arc": "arc-7"
+    },
+    {
+      "name": "Chesshy",
+      "arc": "arc-7"
+    }
+  ],
+  "gender": "Male",
+  "birthday": "November 1",
+  "age": "28-29",
+  "race": "Human",
+  "affiliation": [
+    "Vollachia Empire",
+    "Nine Divine Generals"
+  ],
+  "description": "Chisha Gold was the Fourth ranking Divine General of the Sacred Vollachia Empire and Emperor Vincent Vollachia's military advisor and decoy. As the apparent leader of the coup d'état preceding Arc 7, he played a central role throughout the events of Arc 7 and Arc 8.",
+  "link": "https://rezero.fandom.com/wiki/Chisha_Gold"
+}

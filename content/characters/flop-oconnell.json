@@ -1,0 +1,29 @@
+{
+  "id": "flop-oconnell",
+  "name": "Flop O'Connell",
+  "arc": "arc-7",
+  "japaneseName": "フロップ・オコーネル",
+  "aliases": [
+    {
+      "name": "Flop",
+      "arc": "arc-7"
+    },
+    {
+      "name": "Flora",
+      "arc": "arc-7"
+    },
+    {
+      "name": "Fuu",
+      "arc": "arc-7"
+    }
+  ],
+  "gender": "Male",
+  "birthday": "April 10",
+  "age": "22",
+  "race": "Human",
+  "affiliation": [
+    "Vollachia Empire"
+  ],
+  "description": "Flop O'Connell is a traveling merchant from the Vollachia Empire and the older brother of Medium O'Connell. Known for his cheerful optimism and determination to overwhelm cruelty with kindness, he plays a major supporting role throughout Arc 7 and Arc 8.",
+  "link": "https://rezero.fandom.com/wiki/Flop_O%27Connell"
+}

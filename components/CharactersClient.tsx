@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useMemo, useDeferredValue } from "react";
+import React, { useState, useMemo, useDeferredValue, useRef, useEffect, useCallback } from "react";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import type { CharacterCatalogItem } from "../lib/content-loader";
@@ -10,6 +10,39 @@ import { CharacterDetailClient } from "./CharacterDetailClient";
 import { CustomSelect, SelectOption } from "./CustomSelect";
 import { usePreferences } from "../lib/preferences";
 import { getArcMetadata, isArcSpoiler } from "../lib/arc-utils";
+
+// Build the set of letters actually present in a catalog slice
+function getAvailableLetters(items: CharacterCatalogItem[]): Set<string> {
+  const letters = new Set<string>();
+  for (const item of items) {
+    const first = item.name.trim()[0]?.toUpperCase();
+    if (first && /[A-Z]/.test(first)) letters.add(first);
+  }
+  return letters;
+}
+
+const ALPHABET = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
+
+// Autocomplete suggestion type — labelLower is pre-computed to avoid per-keystroke lowercasing
+interface Suggestion {
+  label: string;
+  labelLower: string;
+  kind: "name" | "alias" | "affiliation";
+}
+
+// Highlight the matched portion of a suggestion label
+function HighlightMatch({ label, query }: { label: string; query: string }) {
+  if (!query) return <>{label}</>;
+  const idx = label.toLowerCase().indexOf(query.toLowerCase());
+  if (idx === -1) return <>{label}</>;
+  return (
+    <>
+      {label.slice(0, idx)}
+      <strong className="text-[var(--accent)]">{label.slice(idx, idx + query.length)}</strong>
+      {label.slice(idx + query.length)}
+    </>
+  );
+}
 
 interface CharactersClientProps {
   catalog: CharacterCatalogItem[];
@@ -39,6 +72,14 @@ export function CharactersClient({
   const deferredSearch = useDeferredValue(searchQuery);
   const [selectedArc, setSelectedArc] = useState<string>("all");
   const [filterWithEntriesOnly, setFilterWithEntriesOnly] = useState(false);
+  const [selectedLetter, setSelectedLetter] = useState<string>("all");
+
+  // Autocomplete state
+  const [showSuggestions, setShowSuggestions] = useState(false);
+  const [highlightedSuggestion, setHighlightedSuggestion] = useState(-1);
+  const searchInputRef = useRef<HTMLInputElement>(null);
+  const suggestionsRef = useRef<HTMLDivElement>(null);
+  const searchContainerRef = useRef<HTMLDivElement>(null);
 
   const arcOptions = useMemo<SelectOption[]>(() => {
     return [
@@ -56,6 +97,159 @@ export function CharactersClient({
       })),
     ];
   }, [arcs, ifRoutes]);
+
+  // Non-spoiler catalog — hide characters above the spoiler threshold entirely
+  const visibleCatalog = useMemo(() => {
+    if (!mounted) return catalog; // SSR: show all, avoid flash
+    return catalog.filter(
+      (item) => !isArcSpoiler(item.arc, spoilerArc, allowedIfRoutes)
+    );
+  }, [catalog, mounted, spoilerArc, allowedIfRoutes]);
+
+  // Available letters computed from visible catalog
+  const availableLetters = useMemo(
+    () => getAvailableLetters(visibleCatalog),
+    [visibleCatalog]
+  );
+
+  // Per-letter character counts for QoL #4 badge/tooltip
+  const letterCounts = useMemo<Map<string, number>>(() => {
+    const map = new Map<string, number>();
+    for (const item of visibleCatalog) {
+      const first = item.name[0]?.toUpperCase();
+      if (first && /[A-Z]/.test(first)) {
+        map.set(first, (map.get(first) ?? 0) + 1);
+      }
+    }
+    return map;
+  }, [visibleCatalog]);
+
+  // Autocomplete suggestions built from visible catalog.
+  // labelLower is pre-computed so filteredSuggestions never re-lowercases on every keystroke.
+  // Bug fix: dropped `mounted` from alias check — visibleCatalog already excludes spoiler chars,
+  // and isArcSpoiler is pure, so the guard was redundant and caused SSR inconsistency.
+  const allSuggestions = useMemo<Suggestion[]>(() => {
+    const seen = new Set<string>();
+    const suggestions: Suggestion[] = [];
+    for (const item of visibleCatalog) {
+      const name = item.name.trim();
+      const nameLower = name.toLowerCase();
+      if (!seen.has(nameLower)) {
+        seen.add(nameLower);
+        suggestions.push({ label: name, labelLower: nameLower, kind: "name" });
+      }
+      for (const alias of item.aliases) {
+        const a = alias.name.trim();
+        const aLower = a.toLowerCase();
+        const aliasArcSpoiled = isArcSpoiler(alias.arc, spoilerArc, allowedIfRoutes);
+        if (!aliasArcSpoiled && !seen.has(aLower)) {
+          seen.add(aLower);
+          suggestions.push({ label: a, labelLower: aLower, kind: "alias" });
+        }
+      }
+      for (const aff of item.affiliation) {
+        const a = aff.trim();
+        const aLower = a.toLowerCase();
+        if (!seen.has(aLower)) {
+          seen.add(aLower);
+          suggestions.push({ label: a, labelLower: aLower, kind: "affiliation" });
+        }
+      }
+    }
+    return suggestions;
+  }, [visibleCatalog, spoilerArc, allowedIfRoutes]);
+
+  // Filtered suggestions based on current query — uses pre-lowercased labelLower (Opt #4)
+  const filteredSuggestions = useMemo<Suggestion[]>(() => {
+    const q = searchQuery.trim().toLowerCase();
+    if (!q) return [];
+    return allSuggestions
+      .filter((s) => s.labelLower.includes(q))
+      .slice(0, 8);
+  }, [searchQuery, allSuggestions]);
+
+  // Close suggestions on outside click
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      if (
+        searchContainerRef.current &&
+        !searchContainerRef.current.contains(e.target as Node)
+      ) {
+        setShowSuggestions(false);
+        setHighlightedSuggestion(-1);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
+  const handleSearchKeyDown = useCallback(
+    (e: React.KeyboardEvent<HTMLInputElement>) => {
+      if (!showSuggestions) return;
+      if (e.key === "ArrowDown") {
+        e.preventDefault();
+        setHighlightedSuggestion((i) => {
+          const next = Math.min(i + 1, filteredSuggestions.length - 1);
+          // QoL #1: scroll highlighted item into view
+          const list = suggestionsRef.current;
+          if (list) {
+            const child = list.children[next] as HTMLElement | undefined;
+            child?.scrollIntoView({ block: "nearest" });
+          }
+          return next;
+        });
+      } else if (e.key === "ArrowUp") {
+        e.preventDefault();
+        setHighlightedSuggestion((i) => {
+          const next = Math.max(i - 1, -1);
+          const list = suggestionsRef.current;
+          if (list && next >= 0) {
+            const child = list.children[next] as HTMLElement | undefined;
+            child?.scrollIntoView({ block: "nearest" });
+          }
+          return next;
+        });
+      } else if (e.key === "Enter" && highlightedSuggestion >= 0) {
+        e.preventDefault();
+        const chosen = filteredSuggestions[highlightedSuggestion];
+        setSearchQuery(chosen.label);
+        setShowSuggestions(false);
+        setHighlightedSuggestion(-1);
+      } else if (e.key === "Escape") {
+        setShowSuggestions(false);
+        setHighlightedSuggestion(-1);
+      }
+    },
+    [showSuggestions, filteredSuggestions, highlightedSuggestion]
+  );
+
+  const applySuggestion = useCallback((suggestion: Suggestion) => {
+    setSearchQuery(suggestion.label);
+    setShowSuggestions(false);
+    setHighlightedSuggestion(-1);
+    searchInputRef.current?.focus();
+  }, []);
+
+  const handleLetterSelect = (letter: string) => {
+    setSelectedLetter(letter);
+    setSearchQuery("");
+    setShowSuggestions(false);
+  };
+
+  const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const val = e.target.value;
+    setSearchQuery(val);
+    setSelectedLetter("all"); // clear letter filter when typing
+    setShowSuggestions(val.trim().length > 0);
+    setHighlightedSuggestion(-1);
+  };
+
+  const clearSearch = () => {
+    setSearchQuery("");
+    setShowSuggestions(false);
+    setHighlightedSuggestion(-1);
+    searchInputRef.current?.focus();
+  };
 
   // If a specific character query param is present, render detail view
   const activeCharacter = useMemo(() => {
@@ -104,7 +298,7 @@ export function CharactersClient({
     const query = deferredSearch.trim().toLowerCase();
     const queryTokens = query ? query.split(/\s+/).filter(Boolean) : [];
 
-    return catalog.filter((item) => {
+    return visibleCatalog.filter((item) => {
       // Arc filter
       if (selectedArc !== "all" && item.arc !== selectedArc) {
         return false;
@@ -113,6 +307,13 @@ export function CharactersClient({
       // Filter with entries only
       if (filterWithEntriesOnly && item.qnaCount === 0 && item.triviaCount === 0) {
         return false;
+      }
+
+      // Alphabet filter (only applied when no search query)
+      // Opt #5: trim()[0] is cheap but called inside a potentially large loop;
+      // since names never change per render, this is consistent.
+      if (selectedLetter !== "all" && queryTokens.length === 0) {
+        if (item.name[0]?.toUpperCase() !== selectedLetter) return false;
       }
 
       // Search matching across name, aliases, Japanese name, and affiliation
@@ -135,7 +336,7 @@ export function CharactersClient({
 
       return true;
     });
-  }, [catalog, deferredSearch, selectedArc, filterWithEntriesOnly]);
+  }, [visibleCatalog, deferredSearch, selectedArc, filterWithEntriesOnly, selectedLetter]);
 
   // If a character was specified in URL
   if (characterParam) {
@@ -193,7 +394,7 @@ export function CharactersClient({
       <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 pb-2">
         <div className="space-y-2">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono font-semibold border border-[var(--accent-border)] bg-[var(--accent-bg)] text-[var(--accent-text)]">
-            {catalog.length} Named Characters
+            {visibleCatalog.length} Named Characters
           </div>
           <h1 className="text-2xl sm:text-4xl font-extrabold tracking-tight text-[var(--text-main)]">
             Characters Database
@@ -225,11 +426,44 @@ export function CharactersClient({
         </div>
       </div>
 
+      {/* Scope Notice */}
+      <div className="flex items-start gap-3 px-4 py-3 rounded-lg border border-[var(--border-subtle)] bg-[var(--bg-surface)] text-xs text-[var(--text-muted)]">
+        <svg
+          className="w-4 h-4 shrink-0 mt-0.5 text-[var(--accent)]"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+          aria-hidden="true"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={1.75}
+            d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+          />
+        </svg>
+        <p className="leading-relaxed">
+          <span className="font-semibold text-[var(--text-main)]">Partial catalog.</span>{" "}
+          This database only includes characters mentioned in indexed author Q&amp;As and trivia — not every named character in the Re:Zero universe.{" "}
+          For the full character roster, visit the{" "}
+          <a
+            href="https://rezero.fandom.com/wiki/Category:Characters"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-semibold text-[var(--accent)] hover:underline underline-offset-2"
+          >
+            Re:Zero Wiki ↗
+          </a>
+          .
+        </p>
+      </div>
+
       {/* Search and Filters Toolbar */}
+
       <div className="p-4 sm:p-5 rounded-xl border border-[var(--border-subtle)] bg-[var(--bg-surface)] space-y-4">
         <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
-          {/* Search Input */}
-          <div className="relative flex-1">
+          {/* Search Input with Autocomplete */}
+          <div className="relative flex-1" ref={searchContainerRef}>
             <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-[var(--text-muted)]">
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path
@@ -242,20 +476,87 @@ export function CharactersClient({
             </div>
             <input
               id="character-search"
+              ref={searchInputRef}
               type="text"
               value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
+              onChange={handleSearchChange}
+              onKeyDown={handleSearchKeyDown}
+              onFocus={() => {
+                if (searchQuery.trim().length > 0 && filteredSuggestions.length > 0) {
+                  setShowSuggestions(true);
+                }
+              }}
               placeholder="Search by character name, alias, or affiliation..."
+              autoComplete="off"
               className="w-full pl-10 pr-4 py-2.5 text-xs sm:text-sm rounded-lg border border-[var(--border-subtle)] bg-[var(--bg-main)] text-[var(--text-main)] placeholder-[var(--text-muted)] focus:outline-none focus:border-[var(--accent)]"
             />
             {searchQuery && (
               <button
                 type="button"
-                onClick={() => setSearchQuery("")}
+                onClick={clearSearch}
                 className="absolute inset-y-0 right-0 pr-3 flex items-center text-[var(--text-muted)] hover:text-[var(--text-main)]"
               >
                 ✕
               </button>
+            )}
+
+            {/* Autocomplete Dropdown */}
+            {showSuggestions && (
+              <div
+                ref={suggestionsRef}
+                className="absolute top-full left-0 right-0 z-50 mt-1 rounded-lg border border-[var(--border-subtle)] bg-[var(--bg-surface)] shadow-lg overflow-y-auto max-h-64"
+                role="listbox"
+                aria-label="Search suggestions"
+              >
+                {filteredSuggestions.length === 0 ? (
+                  /* QoL #5: explicit no-results row */
+                  <div className="px-3.5 py-3 text-sm text-[var(--text-muted)] italic select-none">
+                    No characters found for &ldquo;{searchQuery.trim()}&rdquo;
+                  </div>
+                ) : (
+                  filteredSuggestions.map((suggestion, idx) => {
+                    const isHighlighted = idx === highlightedSuggestion;
+                    const kindColors: Record<Suggestion["kind"], string> = {
+                      name: "text-[var(--accent-text)] bg-[var(--accent-bg)] border-[var(--accent-border)]",
+                      alias: "text-amber-600 bg-amber-50 border-amber-200 dark:text-amber-400 dark:bg-amber-950/30 dark:border-amber-800/40",
+                      affiliation: "text-blue-600 bg-blue-50 border-blue-200 dark:text-blue-400 dark:bg-blue-950/30 dark:border-blue-800/40",
+                    };
+                    const kindLabel: Record<Suggestion["kind"], string> = {
+                      name: "Character",
+                      alias: "Alias",
+                      affiliation: "Group",
+                    };
+                    return (
+                      <button
+                        key={`${suggestion.kind}-${suggestion.label}`}
+                        type="button"
+                        role="option"
+                        aria-selected={isHighlighted}
+                        onMouseDown={(e) => {
+                          e.preventDefault();
+                          applySuggestion(suggestion);
+                        }}
+                        onMouseEnter={() => setHighlightedSuggestion(idx)}
+                        className={`w-full flex items-center justify-between gap-3 px-3.5 py-2.5 text-sm text-left transition-colors cursor-pointer ${
+                          isHighlighted
+                            ? "bg-[var(--bg-elevated)]"
+                            : "hover:bg-[var(--bg-elevated)]"
+                        }`}
+                      >
+                        {/* QoL #3: highlight matched substring */}
+                        <span className="text-[var(--text-main)] font-medium truncate">
+                          <HighlightMatch label={suggestion.label} query={searchQuery.trim()} />
+                        </span>
+                        <span
+                          className={`text-[10px] font-mono font-semibold px-1.5 py-0.5 rounded border shrink-0 ${kindColors[suggestion.kind]}`}
+                        >
+                          {kindLabel[suggestion.kind]}
+                        </span>
+                      </button>
+                    );
+                  })
+                )}
+              </div>
             )}
           </div>
 
@@ -288,8 +589,104 @@ export function CharactersClient({
           </label>
 
           <div className="font-mono text-xs">
-            Showing <strong>{filteredCatalog.length}</strong> of {catalog.length} characters
+            Showing <strong>{filteredCatalog.length}</strong> of {visibleCatalog.length} characters
           </div>
+        </div>
+      </div>
+
+      {/* Active filter chips — style matches Browse page active filter pills */}
+      {(selectedLetter !== "all" || selectedArc !== "all" || filterWithEntriesOnly) && (
+        <div className="flex flex-wrap items-center gap-1.5">
+          <span className="text-xs font-mono font-medium text-[var(--text-muted)] mr-1">Active:</span>
+          {selectedLetter !== "all" && (
+            <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs sm:text-sm font-medium bg-[var(--bg-elevated)] border border-[var(--border-subtle)] text-[var(--text-main)] font-mono">
+              Letter: {selectedLetter}
+              <button
+                type="button"
+                onClick={() => setSelectedLetter("all")}
+                aria-label="Remove letter filter"
+                className="hover:text-[var(--accent)] ml-1 font-bold cursor-pointer font-sans"
+              >
+                ×
+              </button>
+            </span>
+          )}
+          {selectedArc !== "all" && (
+            <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs sm:text-sm font-medium bg-[var(--bg-elevated)] border border-[var(--border-subtle)] text-[var(--text-main)]">
+              {arcOptions.find((o) => o.value === selectedArc)?.label ?? selectedArc}
+              <button
+                type="button"
+                onClick={() => setSelectedArc("all")}
+                aria-label="Remove arc filter"
+                className="hover:text-[var(--accent)] ml-1 font-bold cursor-pointer"
+              >
+                ×
+              </button>
+            </span>
+          )}
+          {filterWithEntriesOnly && (
+            <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs sm:text-sm font-medium bg-[var(--bg-elevated)] border border-[var(--border-subtle)] text-[var(--text-main)]">
+              Has entries
+              <button
+                type="button"
+                onClick={() => setFilterWithEntriesOnly(false)}
+                aria-label="Remove entries-only filter"
+                className="hover:text-[var(--accent)] ml-1 font-bold cursor-pointer"
+              >
+                ×
+              </button>
+            </span>
+          )}
+        </div>
+      )}
+
+      {/* Alphabet Filter Bar */}
+      <div className="rounded-xl border border-[var(--border-subtle)] bg-[var(--bg-surface)] p-3 sm:p-4">
+        <div className="flex flex-wrap gap-1 items-center">
+          {/* All button — shows total visible character count */}
+          <button
+            type="button"
+            onClick={() => handleLetterSelect("all")}
+            className={`px-2.5 py-1 rounded-md text-xs font-mono font-semibold transition-colors ${
+              selectedLetter === "all"
+                ? "bg-[var(--accent-solid)] text-white"
+                : "bg-[var(--bg-elevated)] text-[var(--text-muted)] hover:text-[var(--text-main)]"
+            }`}
+          >
+            All{" "}
+            <span className={`text-[10px] ${
+              selectedLetter === "all" ? "opacity-75" : "opacity-60"
+            }`}>
+              ({visibleCatalog.length})
+            </span>
+          </button>
+
+          <span className="w-px h-4 bg-[var(--border-subtle)] mx-1 self-center" />
+
+          {/* A–Z buttons */}
+          {ALPHABET.map((letter) => {
+            const available = availableLetters.has(letter);
+            const isActive = selectedLetter === letter;
+            const count = letterCounts.get(letter) ?? 0;
+            return (
+              <button
+                key={letter}
+                type="button"
+                disabled={!available}
+                title={available ? `${count} character${count !== 1 ? "s" : ""}` : undefined}
+                onClick={() => available && handleLetterSelect(letter)}
+                className={`w-7 h-7 flex items-center justify-center rounded-md text-xs font-mono font-semibold transition-colors ${
+                  isActive
+                    ? "bg-[var(--accent-solid)] text-white"
+                    : available
+                    ? "bg-[var(--bg-elevated)] text-[var(--text-main)] hover:bg-[var(--accent-bg)] hover:text-[var(--accent-text)] cursor-pointer"
+                    : "text-[var(--text-faint)] opacity-30 cursor-not-allowed"
+                }`}
+              >
+                {letter}
+              </button>
+            );
+          })}
         </div>
       </div>
 
@@ -308,6 +705,7 @@ export function CharactersClient({
               setSearchQuery("");
               setSelectedArc("all");
               setFilterWithEntriesOnly(false);
+              setSelectedLetter("all");
             }}
             className="px-4 py-2 rounded-lg bg-[var(--accent-solid)] hover:bg-[var(--accent-solid-hover)] text-white text-xs sm:text-sm font-semibold transition-colors cursor-pointer"
           >
@@ -318,7 +716,6 @@ export function CharactersClient({
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
           {filteredCatalog.map((item) => {
             const arcMeta = getArcMetadata(item.arc);
-            const isSpoiled = mounted && isArcSpoiler(item.arc, spoilerArc, allowedIfRoutes);
 
             return (
               <Link
@@ -333,22 +730,12 @@ export function CharactersClient({
                       {arcMeta.name}
                     </span>
 
-                    {/* Spoiler / Profile Badges */}
-                    <div className="flex items-center gap-1.5 shrink-0">
-                      {isSpoiled && (
-                        <span
-                          title={`Character debut is beyond your Arc ${spoilerArc} cutoff`}
-                          className="text-[10px] font-mono font-bold px-1.5 py-0.5 rounded bg-amber-500/15 border border-amber-500/30 text-amber-500"
-                        >
-                          Spoiler
-                        </span>
-                      )}
-                      {item.hasFullProfile && (
-                        <span className="text-[10px] font-mono font-semibold px-1.5 py-0.5 rounded bg-emerald-500/10 border border-emerald-500/20 text-emerald-500">
-                          Profile
-                        </span>
-                      )}
-                    </div>
+                    {/* Profile Badge */}
+                    {item.hasFullProfile && (
+                      <span className="text-[10px] font-mono font-semibold px-1.5 py-0.5 rounded bg-emerald-500/10 border border-emerald-500/20 text-emerald-500 shrink-0">
+                        Profile
+                      </span>
+                    )}
                   </div>
 
                   {/* Character Name & Japanese Name */}

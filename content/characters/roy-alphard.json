@@ -1,0 +1,36 @@
+{
+  "id": "roy-alphard",
+  "name": "Roy Alphard",
+  "arc": "arc-5",
+  "japaneseName": "ロイ・アルファルド",
+  "aliases": [
+    {
+      "name": "Roy",
+      "arc": "arc-5"
+    },
+    {
+      "name": "Sin Archbishop of Gluttony",
+      "arc": "arc-5"
+    },
+    {
+      "name": "Bizarre Eating",
+      "arc": "arc-5"
+    },
+    {
+      "name": "Gluttony",
+      "arc": "arc-5"
+    },
+    {
+      "name": "Alphard",
+      "arc": "arc-5"
+    }
+  ],
+  "gender": "Male",
+  "age": "Mid Teens (appearance) / Unknown (actual)",
+  "race": "Human",
+  "affiliation": [
+    "Witch Cult"
+  ],
+  "description": "Roy Alphard is a Sin Archbishop of the Witch Cult representing the Bizarre Eating aspect of Gluttony. Indiscriminate and voracious in his consumption of names and memories compared to his brother Lye's gourmet preferences, he served as a major antagonist during the siege of Priestella in Arc 5 and the assault on the Pleiades Watchtower in Arc 6.",
+  "link": "https://rezero.fandom.com/wiki/Roy_Alphard"
+}

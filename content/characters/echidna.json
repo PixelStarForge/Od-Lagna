@@ -1,0 +1,47 @@
+{
+  "id": "echidna",
+  "name": "Echidna",
+  "arc": "arc-4",
+  "japaneseName": "エキドナ",
+  "aliases": [
+    {
+      "name": "Witch of Greed",
+      "arc": "arc-4"
+    },
+    {
+      "name": "Echidna of Greed",
+      "arc": "arc-4"
+    },
+    {
+      "name": "Incarnation of the Thirst for Knowledge",
+      "arc": "arc-4"
+    },
+    {
+      "name": "Witch of Wisdom",
+      "arc": "arc-4"
+    },
+    {
+      "name": "Dona",
+      "arc": "arc-4"
+    },
+    {
+      "name": "Dna Dna",
+      "arc": "arc-4"
+    },
+    {
+      "name": "Teacher",
+      "arc": "arc-4"
+    }
+  ],
+  "gender": "Female",
+  "birthday": "January 24",
+  "age": "19 (Castle of Dreams) / Mid 20s (body) / 400+ (soul)",
+  "race": "Human",
+  "affiliation": [
+    "Witches of Sin",
+    "Castle of Dreams",
+    "Sanctuary"
+  ],
+  "description": "Echidna was the Witch of Greed who lived 400 years ago. Driven by an insatiable thirst for knowledge, she created the Sanctuary, the Forbidden Library, and artificial spirits including Beatrice and Puck. Her soul lingered within the Castle of Dreams in Arc 4.",
+  "link": "https://rezero.fandom.com/wiki/Echidna"
+}

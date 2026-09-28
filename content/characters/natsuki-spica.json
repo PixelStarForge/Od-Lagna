@@ -1,0 +1,20 @@
+{
+  "id": "natsuki-spica",
+  "name": "Natsuki Spica",
+  "arc": "if-sloth",
+  "japaneseName": "ナツキ・スピカ",
+  "aliases": [
+    {
+      "name": "Spica",
+      "arc": "if-sloth"
+    }
+  ],
+  "gender": "Female",
+  "race": "Half-Oni",
+  "affiliation": [
+    "Kararagi",
+    "Banan"
+  ],
+  "description": "Natsuki Spica is the younger daughter of Natsuki Subaru and Rem in the Sloth IF (Rem IF) storyline. Born in the Kararagi city of Banan after Rigel, she inherited her father's black hair and gentle features, cherished by both her parents and brother.",
+  "link": "https://rezero.fandom.com/wiki/Natsuki_Spica"
+}

@@ -1,0 +1,24 @@
+{
+  "id": "rowan-segmunt",
+  "name": "Rowan Segmunt",
+  "arc": "arc-7",
+  "japaneseName": "ロウアン・セグムント",
+  "aliases": [
+    {
+      "name": "Rowan",
+      "arc": "arc-7"
+    },
+    {
+      "name": "Undead Swordmaster",
+      "arc": "arc-8"
+    }
+  ],
+  "gender": "Male",
+  "age": "Around 50",
+  "race": "Human",
+  "affiliation": [
+    "Vollachia Empire"
+  ],
+  "description": "Rowan Segmunt was a cynical Vollachian mercenary, former bodyguard to Emperor Vincent Vollachia, a Stargazer, and the father of First Divine General Cecilus Segmunt. Debuting during a failed loop in Arc 7, he reappeared as an undead corpse soldier in Arc 8, crossing blades with his son before imparting a final paternal lesson.",
+  "link": "https://rezero.fandom.com/wiki/Rowan_Segmunt"
+}

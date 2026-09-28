@@ -1,0 +1,42 @@
+{
+  "id": "vincent-vollachia",
+  "name": "Vincent Vollachia",
+  "arc": "arc-7",
+  "japaneseName": "ヴィンセント・ヴォラキア",
+  "aliases": [
+    {
+      "name": "Abel",
+      "arc": "arc-7"
+    },
+    {
+      "name": "His Excellency the Emperor",
+      "arc": "arc-7"
+    },
+    {
+      "name": "Sanguinary Prince",
+      "arc": "arc-7"
+    },
+    {
+      "name": "Wise Emperor",
+      "arc": "arc-7"
+    },
+    {
+      "name": "Bianca",
+      "arc": "arc-7"
+    },
+    {
+      "name": "King of Sword Wolves",
+      "arc": "arc-7"
+    }
+  ],
+  "gender": "Male",
+  "birthday": "December 23",
+  "age": "26-27",
+  "race": "Human",
+  "affiliation": [
+    "Vollachia Empire",
+    "Imperial Family"
+  ],
+  "description": "Vincent Vollachia, also known under his alias Abel, is the seventy-seventh Emperor of the Sacred Vollachia Empire and the half-brother of Priscilla Barielle. Driven into hiding following a coup d'état designed to avert the prophesied Great Disaster, he forged an alliance with Natsuki Subaru to reclaim the capital and lead the Empire across Arc 7 and Arc 8.",
+  "link": "https://rezero.fandom.com/wiki/Vincent_Vollachia"
+}

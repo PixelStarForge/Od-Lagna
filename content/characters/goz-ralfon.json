@@ -1,0 +1,37 @@
+{
+  "id": "goz-ralfon",
+  "name": "Goz Ralfon",
+  "arc": "arc-7",
+  "japaneseName": "ゴズ・ラルフォン",
+  "aliases": [
+    {
+      "name": "Goz",
+      "arc": "arc-7"
+    },
+    {
+      "name": "Lion Knight",
+      "arc": "arc-7"
+    },
+    {
+      "name": "Fourth",
+      "arc": "arc-7"
+    },
+    {
+      "name": "Fifth",
+      "arc": "arc-7"
+    },
+    {
+      "name": "Ape",
+      "arc": "arc-7"
+    }
+  ],
+  "gender": "Male",
+  "birthday": "March 13",
+  "race": "Human",
+  "affiliation": [
+    "Vollachia Empire",
+    "Nine Divine Generals"
+  ],
+  "description": "Goz Ralfon is a fiercely loyal military commander and the Fourth (formerly Fifth) ranking Divine General of the Sacred Vollachia Empire, known as the 'Lion Knight'. He played supporting roles throughout Arc 7 and Arc 8, serving as a dedicated protector to Emperor Vincent Vollachia.",
+  "link": "https://rezero.fandom.com/wiki/Goz_Ralfon"
+}

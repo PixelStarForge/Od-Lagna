@@ -1,0 +1,42 @@
+{
+  "id": "beatrice",
+  "name": "Beatrice",
+  "arc": "arc-2",
+  "japaneseName": "ベアトリス",
+  "aliases": [
+    {
+      "name": "Betty",
+      "arc": "arc-2"
+    },
+    {
+      "name": "Beako",
+      "arc": "arc-2"
+    },
+    {
+      "name": "Great Spirit of the Forbidden Library",
+      "arc": "arc-2"
+    },
+    {
+      "name": "Librarian",
+      "arc": "arc-2"
+    },
+    {
+      "name": "Four-Hundred-Year-Old Child",
+      "arc": "arc-4"
+    },
+    {
+      "name": "Ankle-Biter Number One",
+      "arc": "arc-6"
+    }
+  ],
+  "gender": "Female",
+  "age": "Looks around 11 or 12 / 400+ (actual)",
+  "race": "Artificial Spirit",
+  "affiliation": [
+    "Kingdom of Lugunica",
+    "Emilia Camp",
+    "Forbidden Library"
+  ],
+  "description": "Beatrice is a member of the Emilia Camp and the former caretaker of the Forbidden Library at Roswaal Manor until its destruction in Arc 4. She is an Artificial Spirit created by Echidna and the contracted spirit of Natsuki Subaru.",
+  "link": "https://rezero.fandom.com/wiki/Beatrice"
+}

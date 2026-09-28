@@ -1,0 +1,20 @@
+{
+  "id": "shion",
+  "name": "Shion",
+  "arc": "arc-4",
+  "japaneseName": "シオン",
+  "aliases": [
+    {
+      "name": "Dream Arts User",
+      "arc": "general"
+    }
+  ],
+  "gender": "Female",
+  "birthday": "September 9",
+  "race": "Elf",
+  "affiliation": [
+    "Omega Party"
+  ],
+  "description": "Shion is an elven Dream Arts user who shares a single body and soul with her alternate personality, Lilac. Originally appearing as a central guide in the mobile game Re:Zero - Lost in Memories, she later journeyed across the continent and joined Echidna's traveling Omega Party following the events of Arc 4.",
+  "link": "https://rezero.fandom.com/wiki/Shion"
+}

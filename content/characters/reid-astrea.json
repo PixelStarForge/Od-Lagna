@@ -1,0 +1,30 @@
+{
+  "id": "reid-astrea",
+  "name": "Reid Astrea",
+  "arc": "arc-6",
+  "japaneseName": "レイド・アストレア",
+  "aliases": [
+    {
+      "name": "Reid",
+      "arc": "arc-6"
+    },
+    {
+      "name": "Heavenly Sword",
+      "arc": "arc-6"
+    },
+    {
+      "name": "Stick Swinger",
+      "arc": "arc-6"
+    }
+  ],
+  "gender": "Male",
+  "birthday": "October 1",
+  "race": "Human",
+  "affiliation": [
+    "Kingdom of Lugunica",
+    "House Astrea",
+    "Witch Era Party"
+  ],
+  "description": "Reid Astrea was the legendary first Sword Saint who helped seal the Witch of Envy four centuries ago alongside Flugel, Volcanica, and Farsale Lugunica. Coarse, hedonistic, and overwhelmingly peerless in swordsmanship, his reconstructed soul serves as the examiner of the second floor, Electra, within the Pleiades Watchtower in Arc 6.",
+  "link": "https://rezero.fandom.com/wiki/Reid_Astrea"
+}

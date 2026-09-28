@@ -1,0 +1,29 @@
+{
+  "id": "sphinx",
+  "name": "Sphinx",
+  "arc": "arc-8",
+  "japaneseName": "スピンクス",
+  "aliases": [
+    {
+      "name": "Witch of Greed",
+      "arc": "arc-8"
+    },
+    {
+      "name": "Witch",
+      "arc": "arc-8"
+    },
+    {
+      "name": "Great Disaster",
+      "arc": "arc-8"
+    }
+  ],
+  "gender": "Female",
+  "age": "12 (former appearance) / 19 (later appearance) / 400+ (actual)",
+  "race": "Human/Half-Elf (formerly)",
+  "affiliation": [
+    "Sanctuary",
+    "Demi-Human Alliance"
+  ],
+  "description": "Sphinx was the first imperfect clone of Ryuzu Meyer created by Echidna in the Sanctuary 400 years ago. Cast aside as a failure, she was a leader of the Demi-Human Alliance during the Demi-Human War in EX 2 before resurfacing in Vollachia, orchestrating the catastrophic Great Disaster as the primary antagonist of Arc 8.",
+  "link": "https://rezero.fandom.com/wiki/Sphinx"
+}

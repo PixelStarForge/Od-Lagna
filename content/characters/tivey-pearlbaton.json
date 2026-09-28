@@ -1,0 +1,23 @@
+{
+  "id": "tivey-pearlbaton",
+  "name": "Tivey Pearlbaton",
+  "arc": "arc-3",
+  "japaneseName": "ティビー・パールバトン",
+  "aliases": [
+    {
+      "name": "Tivey",
+      "arc": "arc-3"
+    }
+  ],
+  "gender": "Male",
+  "birthday": "May 5",
+  "age": "14 (Arc 1-4) / 15 (Arc 5+)",
+  "race": "Cat Demi-Human",
+  "affiliation": [
+    "Kararagi",
+    "Iron Fang",
+    "Anastasia Camp"
+  ],
+  "description": "Tivey Pearlbaton is the youngest of the Pearlbaton triplets, serving as one of the three vice captains and the treasurer of the mercenary group Iron Fang under the Anastasia Camp. Wearing a distinctive monocle, he acts as the intellectual strategist managing the group's accounts, logistics, and spellcasting support during the battles of Arc 3 and Arc 5.",
+  "link": "https://rezero.fandom.com/wiki/Tivey_Pearlbaton"
+}

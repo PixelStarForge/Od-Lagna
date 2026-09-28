@@ -1,0 +1,32 @@
+{
+  "id": "ram",
+  "name": "Ram",
+  "arc": "arc-2",
+  "japaneseName": "ラム",
+  "aliases": [
+    {
+      "name": "Reincarnation of the Oni God",
+      "arc": "arc-2"
+    },
+    {
+      "name": "Ram Leyte",
+      "arc": "arc-9"
+    },
+    {
+      "name": "Nee-sama",
+      "arc": "arc-2"
+    }
+  ],
+  "gender": "Female",
+  "birthday": "February 2",
+  "age": "17 (Arcs 1-2) / 18 (Arcs 3-4) / 19 (Arc 5+)",
+  "race": "Oni",
+  "affiliation": [
+    "Kingdom of Lugunica",
+    "Emilia Camp",
+    "House Mathers",
+    "Oni Village"
+  ],
+  "description": "Ram is Rem's older twin sister and a head maid serving Margrave Roswaal L. Mathers at Roswaal Manor. Formerly celebrated as a prodigy regarded as the reincarnation of the Oni God before her horn was severed by the Witch Cult, she is sharp-tongued, observant, and deeply devoted to Roswaal and her sister, serving as a core member of the Emilia Camp.",
+  "link": "https://rezero.fandom.com/wiki/Ram"
+}

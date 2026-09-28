@@ -1,0 +1,22 @@
+{
+  "id": "rickert-hoffman",
+  "name": "Rickert Hoffman",
+  "arc": "arc-3",
+  "japaneseName": "リッケルト・ホフマン",
+  "aliases": [
+    {
+      "name": "Rickert",
+      "arc": "arc-3"
+    }
+  ],
+  "gender": "Male",
+  "race": "Human",
+  "affiliation": [
+    "Kingdom of Lugunica",
+    "Royal Capital",
+    "House Hoffman",
+    "Royal Army"
+  ],
+  "description": "Rickert Hoffman is a former Royal Army knight, former Royal Instructor of Lugunica, and the father of Rachins Hoffman (Chin). A prominent noble civil official representing aristocrats who prize bloodline and tradition, he took part in the Royal Selection proceedings convened in Arc 3.",
+  "link": "https://rezero.fandom.com/wiki/Rickert_Hoffman"
+}

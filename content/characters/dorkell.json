@@ -1,0 +1,20 @@
+{
+  "id": "dorkell",
+  "name": "Dorkell",
+  "arc": "arc-6",
+  "japaneseName": "ドルケル",
+  "aliases": [
+    {
+      "name": "Leaper",
+      "arc": "arc-6"
+    }
+  ],
+  "gender": "Male",
+  "race": "Human",
+  "affiliation": [
+    "Kararagi",
+    "Witch Cult"
+  ],
+  "description": "Dorkell was a former merchant in Kararagi, an assassin, and a former member of the Witch Cult known by the moniker 'Leaper'. He acquired an ability that exceeded normal physical limits through proximity to an Authority.",
+  "link": "https://rezero.fandom.com/wiki/Dorkell"
+}

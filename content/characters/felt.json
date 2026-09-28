@@ -1,0 +1,22 @@
+{
+  "id": "felt",
+  "name": "Felt",
+  "arc": "arc-1",
+  "japaneseName": "フェルト",
+  "aliases": [
+    {
+      "name": "Golden Lion",
+      "arc": "arc-5"
+    }
+  ],
+  "gender": "Female",
+  "birthday": "August 8",
+  "age": "14 (claims 15 in Arc 1-4) / 15 (Arc 5+)",
+  "race": "Human",
+  "affiliation": [
+    "Kingdom of Lugunica",
+    "Felt Camp"
+  ],
+  "description": "Felt is a former slum thief who was discovered to be a candidate for the 42nd monarch of Lugunica in the Royal Selection. Backed by Reinhard van Astrea, she campaigns to tear down the kingdom's rigid hierarchy and established aristocracy, playing major roles in Arc 1 and Arc 9.",
+  "link": "https://rezero.fandom.com/wiki/Felt"
+}

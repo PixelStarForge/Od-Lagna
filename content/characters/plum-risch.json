@@ -1,0 +1,25 @@
+{
+  "id": "plum-risch",
+  "name": "Plum Risch",
+  "arc": "arc-1",
+  "japaneseName": "プラム・リッシュ",
+  "aliases": [
+    {
+      "name": "Plum",
+      "arc": "arc-1"
+    },
+    {
+      "name": "Lost Child",
+      "arc": "arc-1"
+    }
+  ],
+  "gender": "Female",
+  "age": "Around 10",
+  "race": "Human",
+  "affiliation": [
+    "Kingdom of Lugunica",
+    "Royal Capital"
+  ],
+  "description": "Plum Risch is the young daughter of fruit vendor Kadomon Risch and Raksha Risch in the Royal Capital of Lugunica. After getting lost in the capital during Arc 1, she was comforted and guided safely back to her parents by Natsuki Subaru and Emilia, which helped Subaru uncover key clues and cemented a friendly bond with Kadomon.",
+  "link": "https://rezero.fandom.com/wiki/Plum_Risch"
+}

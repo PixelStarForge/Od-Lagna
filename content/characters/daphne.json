@@ -1,0 +1,29 @@
+{
+  "id": "daphne",
+  "name": "Daphne",
+  "arc": "arc-4",
+  "japaneseName": "ダフネ",
+  "aliases": [
+    {
+      "name": "Witch of Gluttony",
+      "arc": "arc-4"
+    },
+    {
+      "name": "Daphne of Gluttony",
+      "arc": "arc-4"
+    },
+    {
+      "name": "Daph",
+      "arc": "arc-4"
+    }
+  ],
+  "gender": "Female",
+  "age": "Early Teens (physical) / 400+ (soul)",
+  "race": "Human",
+  "affiliation": [
+    "Witches of Sin",
+    "Castle of Dreams"
+  ],
+  "description": "Daphne was the Witch of Gluttony who lived 400 years ago. Driven by insatiable hunger, she created the Three Great Mabeasts—the White Whale, the Great Rabbit, and the Black Serpent—in an effort to feed the world. Her soul was preserved by Echidna inside the Castle of Dreams.",
+  "link": "https://rezero.fandom.com/wiki/Daphne"
+}

@@ -1,0 +1,31 @@
+{
+  "id": "puck",
+  "name": "Puck",
+  "arc": "arc-1",
+  "japaneseName": "パック",
+  "aliases": [
+    {
+      "name": "Beast of the End",
+      "arc": "arc-3"
+    },
+    {
+      "name": "Bubby",
+      "arc": "arc-2"
+    },
+    {
+      "name": "Great Spirit of Fire",
+      "arc": "arc-1"
+    }
+  ],
+  "gender": "Male",
+  "age": "420 (Arc 1-4) / 421 (Arc 5+)",
+  "race": "Artificial Spirit",
+  "affiliation": [
+    "Four Great Spirits",
+    "Kingdom of Lugunica",
+    "Emilia Camp",
+    "Elior Forest"
+  ],
+  "description": "Puck is an Artificial Spirit created by Echidna and the former contracted familiar of Emilia, affectionately serving as a father figure to her. Counted among the Four Great Spirits as the Great Spirit of Fire and the monstrous 'Beast of the End', his playful cat-like demeanor conceals world-freezing cataclysmic power should Emilia ever perish, as demonstrated across devastating loops in Arc 3 and Arc 4.",
+  "link": "https://rezero.fandom.com/wiki/Puck"
+}

@@ -61,9 +61,10 @@ export function CharacterDetailClient({
 
         <Link
           href="/characters"
-          className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-semibold text-[var(--accent)] hover:underline shrink-0"
+          className="inline-flex items-center gap-2 px-3.5 py-2 rounded-lg border border-[var(--border-subtle)] bg-[var(--bg-surface)] hover:bg-[var(--bg-elevated)] hover:border-[var(--text-muted)] text-[var(--text-main)] transition-colors text-xs sm:text-sm font-semibold self-start sm:self-auto"
         >
-          <span>← All Characters</span>
+          <span>←</span>
+          <span>All Characters</span>
         </Link>
       </div>
 
