@@ -8,6 +8,7 @@ import { ArcMetadata, getArcMetadata } from "../lib/arc-utils";
 import { usePreferences } from "../lib/preferences";
 import { formatQnaDate, getEntryDate } from "../lib/date-utils";
 import { BookmarkButton } from "./BookmarkButton";
+import { useShareModal } from "../lib/share";
 
 interface TriviaCardProps {
   entry: TriviaEntry;
@@ -24,6 +25,7 @@ export function TriviaCard({ entry, onTagClick, unmaskSpoiler = false }: TriviaC
     (pathname === "/qna" && searchParams.get("id") === entry.id);
 
   const { spoilerArc, isIfRouteAllowed, mounted } = usePreferences();
+  const { openShareModal } = useShareModal();
   const [isCopied, setIsCopied] = useState(false);
   const [isManuallyRevealed, setIsManuallyRevealed] = useState(false);
 
@@ -286,58 +288,79 @@ export function TriviaCard({ entry, onTagClick, unmaskSpoiler = false }: TriviaC
             </div>
           )}
 
-          {/* Source Citation */}
+          {/* Bottom Bar: Source Citation & Actions (Share button on bottom-right) */}
           {(() => {
             const validSources = getEntrySources(entry).filter(
               (s) => s.value && s.value.trim().length > 0
             );
-            if (validSources.length === 0) return null;
 
             return (
-              <div className="pt-2 text-xs sm:text-sm text-[var(--text-muted)] flex flex-wrap items-baseline gap-x-2 gap-y-1 border-t border-[var(--border-subtle)]">
-                <span className="font-mono font-semibold shrink-0">
-                  {validSources.length > 1 ? "Sources:" : "Source:"}
-                </span>
-                {validSources.map((source, index) => (
-                  <span key={index} className="inline-flex flex-wrap items-baseline gap-1 min-w-0 max-w-full">
-                    {index > 0 && (
-                      <span className="text-[var(--border-subtle)] select-none mr-1">
-                        •
+              <div className="pt-3 border-t border-[var(--border-subtle)] flex flex-col sm:flex-row sm:items-end justify-between gap-3 text-xs sm:text-sm">
+                {/* Left: Sources */}
+                <div className="text-[var(--text-muted)] min-w-0 flex-1 space-y-1">
+                  {validSources.length > 0 && (
+                    <>
+                      <span className="font-mono font-semibold block text-[var(--text-muted)]">
+                        {validSources.length > 1 ? "Sources:" : "Source:"}
                       </span>
-                    )}
-                    {source.type === "url" ? (
-                      <a
-                        href={source.value}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-[var(--accent)] hover:underline break-all font-medium inline items-baseline"
-                      >
-                        <span>{source.value}</span>
-                        <span className="inline-block ml-0.5 text-[11px] align-baseline">↗</span>
-                      </a>
-                    ) : (
-                      <span className="italic break-words">
-                        {source.value}
-                      </span>
-                    )}
-                  </span>
-                ))}
+                      <div className="space-y-1">
+                        {validSources.map((source, index) => (
+                          <div key={index} className="flex items-baseline gap-1.5 min-w-0">
+                            {validSources.length > 1 && (
+                              <span className="text-[var(--border-subtle)] select-none mr-0.5">•</span>
+                            )}
+                            {source.type === "url" ? (
+                              <a
+                                href={source.value}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="text-[var(--accent)] hover:underline break-all font-medium inline items-baseline"
+                              >
+                                <span>{source.value}</span>
+                                <span className="inline-block ml-0.5 text-[11px] align-baseline">↗</span>
+                              </a>
+                            ) : (
+                              <span className="italic break-words">
+                                {source.value}
+                              </span>
+                            )}
+                          </div>
+                        ))}
+                      </div>
+                    </>
+                  )}
+                </div>
+
+                {/* Right: Actions */}
+                <div className="flex items-center gap-2 shrink-0 self-end sm:self-center ml-auto">
+                  {/* If entry was manually revealed while gated, offer to re-hide */}
+                  {isGated && isManuallyRevealed && (
+                    <button
+                      type="button"
+                      onClick={() => setIsManuallyRevealed(false)}
+                      className="text-xs font-medium text-[var(--text-muted)] hover:text-[var(--text-main)] underline cursor-pointer mr-1"
+                    >
+                      Hide spoiler
+                    </button>
+                  )}
+
+                  {/* Share Button on bottom right */}
+                  <button
+                    type="button"
+                    onClick={() => openShareModal(entry)}
+                    title="Share or export Trivia (Image / Markdown)"
+                    aria-label="Share statement"
+                    className="text-xs font-semibold px-2.5 py-1 rounded-md border border-[var(--border-subtle)] bg-[var(--bg-elevated)] hover:bg-[var(--bg-surface)] text-[var(--text-main)] hover:text-[var(--accent)] hover:border-[var(--accent-border)] transition-all inline-flex items-center gap-1.5 cursor-pointer shadow-2xs"
+                  >
+                    <svg className="w-3.5 h-3.5 text-[var(--accent)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z" />
+                    </svg>
+                    <span>Share</span>
+                  </button>
+                </div>
               </div>
             );
           })()}
-
-          {/* If entry was manually revealed while gated, offer to re-hide */}
-          {isGated && isManuallyRevealed && (
-            <div className="flex justify-end">
-              <button
-                type="button"
-                onClick={() => setIsManuallyRevealed(false)}
-                className="text-xs font-medium text-[var(--text-muted)] hover:text-[var(--text-main)] underline cursor-pointer"
-              >
-                Hide statement &amp; spoiler again
-              </button>
-            </div>
-          )}
         </div>
       )}
     </article>
