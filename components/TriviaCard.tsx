@@ -7,13 +7,15 @@ import { TriviaEntry, getEntrySources } from "../lib/schema";
 import { ArcMetadata, getArcMetadata } from "../lib/arc-utils";
 import { usePreferences } from "../lib/preferences";
 import { formatQnaDate, getEntryDate } from "../lib/date-utils";
+import { BookmarkButton } from "./BookmarkButton";
 
 interface TriviaCardProps {
   entry: TriviaEntry;
   onTagClick?: (type: "character" | "topic", tag: string) => void;
+  unmaskSpoiler?: boolean;
 }
 
-export function TriviaCard({ entry, onTagClick }: TriviaCardProps) {
+export function TriviaCard({ entry, onTagClick, unmaskSpoiler = false }: TriviaCardProps) {
   const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();
@@ -44,8 +46,8 @@ export function TriviaCard({ entry, onTagClick }: TriviaCardProps) {
     }
   }
 
-  // If manually revealed, override gate
-  const isHidden = isGated && !isManuallyRevealed;
+  // If manually revealed or unmasked, override gate
+  const isHidden = isGated && !isManuallyRevealed && !unmaskSpoiler;
 
   // Handle permalink copy
   const handleCopyLink = async () => {
@@ -59,109 +61,145 @@ export function TriviaCard({ entry, onTagClick }: TriviaCardProps) {
     }
   };
 
+  // Verification Badge markup
+  const verificationBadge = entry.verified ? (
+    <span
+      title="Verified with primary source"
+      className="inline-flex items-center gap-1 font-semibold px-2 sm:px-2.5 py-0.5 rounded-full bg-[var(--verified-bg)] text-[var(--verified-text)] border border-[var(--verified-border)] text-xs"
+    >
+      <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
+      </svg>
+      <span>Verified</span>
+    </span>
+  ) : (
+    <span
+      title="Awaiting primary citation verification"
+      className="inline-flex items-center gap-1 font-semibold px-2 sm:px-2.5 py-0.5 rounded-full bg-[var(--unverified-bg)] text-[var(--unverified-text)] border border-[var(--unverified-border)] text-xs"
+    >
+      <span className="font-bold text-xs">!</span>
+      <span>Unverified</span>
+    </span>
+  );
+
+  // Statement Date Badge markup
+  const dateBadge = dateFormatted ? (
+    <span
+      title={`Statement Date: ${rawDate}`}
+      className="inline-flex items-center gap-1.5 font-mono text-xs px-2 sm:px-2.5 py-0.5 rounded bg-[var(--bg-elevated)] border border-[var(--border-subtle)] text-[var(--text-muted)]"
+    >
+      <svg className="w-3.5 h-3.5 text-[var(--text-muted)] shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+      </svg>
+      <span>{dateFormatted}</span>
+    </span>
+  ) : null;
+
+  // Arc Badge markup
+  const arcBadge = (
+    <>
+      {arcMeta.type === "canon" && arcMeta.order && (
+        <span className="font-mono font-medium px-2 sm:px-2.5 py-0.5 rounded bg-[var(--bg-elevated)] border border-[var(--border-subtle)] text-[var(--text-main)] truncate">
+          Arc {arcMeta.order}: {arcMeta.name}
+        </span>
+      )}
+
+      {arcMeta.type === "if" && (
+        <span className="font-mono font-medium px-2 sm:px-2.5 py-0.5 rounded bg-[var(--accent-bg)] border border-[var(--accent-border)] text-[var(--accent-text)] truncate">
+          {arcMeta.name}
+          {arcMeta.divergesFrom && ` (Diverges ${arcMeta.divergesFrom.toUpperCase()})`}
+        </span>
+      )}
+
+      {arcMeta.type === "side-story" && (
+        <span className="font-mono font-medium px-2 sm:px-2.5 py-0.5 rounded bg-[var(--bg-elevated)] border border-[var(--border-subtle)] text-[var(--text-main)] truncate">
+          {arcMeta.name}
+          {arcMeta.timeline && ` · ${arcMeta.timeline}`}
+        </span>
+      )}
+
+      {arcMeta.type === "general" && (
+        <span className="font-mono font-medium px-2 sm:px-2.5 py-0.5 rounded bg-[var(--bg-elevated)] border border-[var(--border-subtle)] text-[var(--text-muted)] shrink-0">
+          General / Lore
+        </span>
+      )}
+    </>
+  );
+
   return (
     <article
       id={`trivia-${entry.id}`}
       className="group relative rounded-xl border border-[var(--border-subtle)] bg-[var(--bg-surface)] p-5 sm:p-6 transition-all hover:border-[var(--border-strong)] shadow-xs space-y-4"
     >
       {/* Top Meta Bar */}
-      <div className="flex flex-wrap items-center justify-between gap-2 text-xs sm:text-sm">
-        <div className="flex flex-wrap items-center gap-2">
-          {/* Trivia Type Badge */}
-          <span className="font-mono text-[12px] font-bold px-2.5 py-0.5 rounded border border-[var(--accent-border)] text-[var(--accent)] tracking-wider">
-            TRIVIA
-          </span>
+      <div className="space-y-2 sm:space-y-0 sm:flex sm:items-center sm:justify-between sm:gap-3 text-xs sm:text-sm">
+        {/* Row 1 on mobile / Left group on desktop */}
+        <div className="flex items-center justify-between sm:justify-start gap-2 min-w-0">
+          <div className="flex items-center gap-1.5 sm:gap-2 min-w-0 flex-1 sm:flex-initial">
+            {/* Trivia Type Badge */}
+            <span className="font-mono text-[11px] sm:text-[12px] font-bold px-2 sm:px-2.5 py-0.5 rounded border border-[var(--accent-border)] text-[var(--accent)] tracking-wider shrink-0">
+              TRIVIA
+            </span>
 
-          {/* Arc / Route Badge */}
-          {arcMeta.type === "canon" && arcMeta.order && (
-            <span className="font-mono font-medium px-2.5 py-0.5 rounded bg-[var(--bg-elevated)] border border-[var(--border-subtle)] text-[var(--text-main)]">
-              Arc {arcMeta.order}: {arcMeta.name}
-            </span>
-          )}
+            {/* Arc / Route Badge */}
+            {arcBadge}
 
-          {arcMeta.type === "if" && (
-            <span className="font-mono font-medium px-2.5 py-0.5 rounded bg-[var(--accent-bg)] border border-[var(--accent-border)] text-[var(--accent-text)]">
-              {arcMeta.name}
-              {arcMeta.divergesFrom && ` (Diverges ${arcMeta.divergesFrom.toUpperCase()})`}
-            </span>
-          )}
+            {/* Desktop-only: Verification and Date Badges */}
+            <div className="hidden sm:flex items-center gap-2">
+              {verificationBadge}
+              {dateBadge}
+            </div>
+          </div>
 
-          {arcMeta.type === "side-story" && (
-            <span className="font-mono font-medium px-2.5 py-0.5 rounded bg-[var(--bg-elevated)] border border-[var(--border-subtle)] text-[var(--text-main)]">
-              {arcMeta.name}
-              {arcMeta.timeline && ` · ${arcMeta.timeline}`}
-            </span>
-          )}
-
-          {arcMeta.type === "general" && (
-            <span className="font-mono font-medium px-2.5 py-0.5 rounded bg-[var(--bg-elevated)] border border-[var(--border-subtle)] text-[var(--text-muted)]">
-              General / Lore
-            </span>
-          )}
-
-          {/* Verification Badge */}
-          {entry.verified ? (
-            <span
-              title="Verified with primary source"
-              className="inline-flex items-center gap-1 font-semibold px-2.5 py-0.5 rounded-full bg-[var(--verified-bg)] text-[var(--verified-text)] border border-[var(--verified-border)] text-xs"
-            >
-              <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
-              </svg>
-              <span>Verified</span>
-            </span>
-          ) : (
-            <span
-              title="Awaiting primary citation verification"
-              className="inline-flex items-center gap-1 font-semibold px-2.5 py-0.5 rounded-full bg-[var(--unverified-bg)] text-[var(--unverified-text)] border border-[var(--unverified-border)] text-xs"
-            >
-              <span className="font-bold text-xs">!</span>
-              <span>Unverified</span>
-            </span>
-          )}
-
-          {/* Statement Date Badge */}
-          {dateFormatted && (
-            <span
-              title={`Statement Date: ${rawDate}`}
-              className="inline-flex items-center gap-1.5 font-mono text-xs px-2.5 py-0.5 rounded bg-[var(--bg-elevated)] border border-[var(--border-subtle)] text-[var(--text-muted)]"
-            >
-              <svg className="w-3.5 h-3.5 text-[var(--text-muted)] shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-              </svg>
-              <span>{dateFormatted}</span>
-            </span>
-          )}
+          {/* Mobile-only Top Right: Bookmark button */}
+          <div className="sm:hidden shrink-0">
+            <BookmarkButton id={entry.id} size="sm" />
+          </div>
         </div>
 
-        {/* Entry ID & Actions */}
-        <div className="flex items-center gap-2.5 shrink-0">
-          {!isDetailPage && (
-            <Link
-              href={`/qna?id=${entry.id}`}
-              title="Open dedicated page for this trivia entry"
-              className="text-xs font-semibold px-2 py-0.5 rounded border border-transparent hover:border-[var(--border-subtle)] bg-transparent hover:bg-[var(--bg-elevated)] text-[var(--accent)] hover:text-[var(--accent-hover)] transition-all inline-flex items-center gap-1"
-            >
-              <span>Full View</span>
-              <span>→</span>
-            </Link>
-          )}
-          <button
-            type="button"
-            onClick={handleCopyLink}
-            title="Copy direct permalink to this trivia"
-            aria-label="Copy permalink"
-            className="font-mono text-xs sm:text-sm text-[var(--text-muted)] hover:text-[var(--text-main)] px-2 py-0.5 rounded hover:bg-[var(--bg-elevated)] transition-colors inline-flex items-center gap-1 cursor-pointer font-medium"
-          >
-            <span>#{entry.id}</span>
-            {isCopied ? (
-              <span className="text-xs text-[var(--verified-text)] font-sans font-semibold">copied</span>
-            ) : (
-              <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" />
-              </svg>
+        {/* Row 2 on mobile / Right group on desktop */}
+        <div className="flex items-center justify-between gap-2 pt-0.5 sm:pt-0">
+          {/* Mobile-only Left: Verification and Date Badges */}
+          <div className="flex sm:hidden items-center gap-1.5 flex-wrap">
+            {verificationBadge}
+            {dateBadge}
+          </div>
+
+          {/* Actions & Permalink */}
+          <div className="flex items-center gap-1 sm:gap-2 shrink-0 ml-auto sm:ml-0">
+            {/* Desktop Bookmark Button */}
+            <div className="hidden sm:block">
+              <BookmarkButton id={entry.id} size="sm" />
+            </div>
+
+            {!isDetailPage && (
+              <Link
+                href={`/qna?id=${entry.id}`}
+                title="Open dedicated page for this trivia entry"
+                className="text-xs font-semibold px-2 py-0.5 rounded border border-transparent hover:border-[var(--border-subtle)] bg-transparent hover:bg-[var(--bg-elevated)] text-[var(--accent)] hover:text-[var(--accent-hover)] transition-all inline-flex items-center gap-0.5 sm:gap-1"
+              >
+                <span>Full View</span>
+                <span>→</span>
+              </Link>
             )}
-          </button>
+
+            <button
+              type="button"
+              onClick={handleCopyLink}
+              title="Copy direct permalink to this trivia"
+              aria-label="Copy permalink"
+              className="font-mono text-xs sm:text-sm text-[var(--text-muted)] hover:text-[var(--text-main)] px-1.5 sm:px-2 py-0.5 rounded hover:bg-[var(--bg-elevated)] transition-colors inline-flex items-center gap-1 cursor-pointer font-medium"
+            >
+              <span>#{entry.id}</span>
+              {isCopied ? (
+                <span className="text-xs text-[var(--verified-text)] font-sans font-semibold">copied</span>
+              ) : (
+                <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" />
+                </svg>
+              )}
+            </button>
+          </div>
         </div>
       </div>
 

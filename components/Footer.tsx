@@ -51,7 +51,7 @@ export function Footer() {
             Unofficial, non-commercial fan archive. Re:Zero kara Hajimeru Isekai Seikatsu is copyright © Tappei Nagatsuki / KADOKAWA.
           </p>
           <p className="font-mono font-medium">
-            Od-Lagna Static Export
+            Od-Lagna
           </p>
         </div>
       </div>

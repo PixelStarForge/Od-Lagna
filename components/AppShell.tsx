@@ -2,6 +2,7 @@
 
 import React from "react";
 import { PreferencesProvider } from "../lib/preferences";
+import { BookmarksProvider } from "../lib/bookmarks";
 import { Header } from "./Header";
 import { Footer } from "./Footer";
 import { SettingsModal } from "./SettingsModal";
@@ -12,14 +13,16 @@ import "../lib/navigation-events";
 export function AppShell({ children }: { children: React.ReactNode }) {
   return (
     <PreferencesProvider>
-      <div className="flex flex-col min-h-screen bg-[var(--bg-main)] text-[var(--text-main)] transition-colors">
-        <Header />
-        <main className="flex-1">{children}</main>
-        <Footer />
-        <SettingsModal />
-        <OnboardingModal />
-        <SearchModal />
-      </div>
+      <BookmarksProvider>
+        <div className="flex flex-col min-h-screen bg-[var(--bg-main)] text-[var(--text-main)] transition-colors">
+          <Header />
+          <main className="flex-1">{children}</main>
+          <Footer />
+          <SettingsModal />
+          <OnboardingModal />
+          <SearchModal />
+        </div>
+      </BookmarksProvider>
     </PreferencesProvider>
   );
 }

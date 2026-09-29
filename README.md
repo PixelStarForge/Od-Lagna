@@ -20,6 +20,7 @@ Od-Lagna was created to collect, categorize, and cross-reference these statement
 
 - **Spoiler Protection**: Filter statements behind an arc cutoff barrier (Arcs 1 through 9, plus anime season presets) and independent IF route toggles. Content beyond the selected threshold remains masked until manually revealed.
 - **Search**: Search across questions, answers, characters, topics, and entry IDs.
+- **Bookmarks & Favorites**: Save Q&A and trivia entries locally in your browser with one-click bookmarking. Access, filter, and sort your personal collection, with JSON backup export/import and shareable URL hash sync for cross-device transfer.
 - **Random Entry**: Quickly load a random statement filtered strictly within the user's active spoiler boundaries.
 - **Characters**: Canonical debut arcs, aliases, affiliations, and associated author statements for major figures.
 - **IF Routes and Side Stories**: Cataloged directory covering alternate what-if routes, side stories and related author commentary.

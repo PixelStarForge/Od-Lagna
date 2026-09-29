@@ -7,6 +7,7 @@ import { usePreferences } from "../lib/preferences";
 import { getRandomEntryId } from "../lib/random-entry";
 import { preloadSearchIndex } from "../lib/search-index";
 import { dispatchUrlChange } from "../lib/navigation-events";
+import { useBookmarks } from "../lib/bookmarks";
 
 export function Header() {
   const pathname = usePathname();
@@ -19,6 +20,7 @@ export function Header() {
     spoilerArc,
     allowedIfRoutes,
   } = usePreferences();
+  const { bookmarkCount, mounted: bookmarksMounted } = useBookmarks();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isRolling, setIsRolling] = useState(false);
   const [prevPathname, setPrevPathname] = useState(pathname);
@@ -59,11 +61,11 @@ export function Header() {
       <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-2 sm:gap-4">
         {/* Logo and Brand */}
         <div className="flex items-center gap-2 sm:gap-6 min-w-0">
-          <Link href="/" className="group flex items-center gap-2 text-decoration-none shrink-0">
+          <Link href="/" aria-label="Od-Lagna Home" className="group flex items-center gap-2 text-decoration-none shrink-0">
             <span className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-[var(--accent)] text-white flex items-center justify-center font-bold text-xs sm:text-sm shadow-xs group-hover:bg-[var(--accent-hover)] transition-colors">
               Ω
             </span>
-            <div className="flex flex-col">
+            <div className="hidden sm:flex flex-col">
               <span className="font-bold text-base sm:text-lg tracking-tight text-[var(--text-main)] group-hover:text-[var(--accent)] transition-colors leading-tight">
                 Od-Lagna
               </span>
@@ -203,6 +205,35 @@ export function Header() {
               <circle cx="16" cy="16" r="1.5" fill="currentColor" />
             </svg>
           </button>
+
+          {/* Saved Hub Quick Access */}
+          <Link
+            href="/saved"
+            aria-label={`Saved bookmarks (${bookmarksMounted ? bookmarkCount : 0} items)`}
+            title={`Saved bookmarks (${bookmarksMounted ? bookmarkCount : 0} items)`}
+            className={`relative p-2 rounded-lg border transition-colors cursor-pointer ${
+              pathname === "/saved"
+                ? "border-[var(--accent-border)] bg-[var(--accent-bg)] text-[var(--accent)]"
+                : "border-[var(--border-subtle)] bg-[var(--bg-surface)] hover:bg-[var(--bg-elevated)] text-[var(--text-muted)] hover:text-[var(--text-main)]"
+            }`}
+          >
+            <svg
+              className="w-4 h-4"
+              fill={pathname === "/saved" ? "currentColor" : "none"}
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={pathname === "/saved" ? 2 : 1.75}
+                d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"
+              />
+            </svg>
+            {bookmarksMounted && bookmarkCount > 0 && (
+              <span className="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-[var(--accent)] ring-2 ring-[var(--bg-surface)] animate-in zoom-in-75 duration-150" />
+            )}
+          </Link>
 
           {/* Quick Theme Toggle Button */}
           <button

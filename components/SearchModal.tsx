@@ -13,6 +13,7 @@ import {
 import { CANON_ARCS, IF_ROUTES, isArcSpoiler } from "../lib/arc-utils";
 import { formatQnaDate } from "../lib/date-utils";
 import { dispatchUrlChange } from "../lib/navigation-events";
+import { BookmarkButton } from "./BookmarkButton";
 
 type SearchResultItem =
   | { type: "character-profile"; id: string; name: string; arc: string; japaneseName?: string; aliases?: string[] }
@@ -770,7 +771,8 @@ export function SearchModal() {
                           </>
                         )}
                       </div>
-                      <div className="flex items-center gap-1.5 shrink-0">
+                      <div className="flex items-center gap-1 shrink-0">
+                        <BookmarkButton id={qna.id} size="sm" />
                         {qna.verified && (
                           <span className="text-xs text-[var(--verified-text)] font-semibold inline-flex items-center gap-0.5 shrink-0">
                             <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
