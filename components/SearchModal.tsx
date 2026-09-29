@@ -21,6 +21,10 @@ type SearchResultItem =
   | { type: "arc"; slug: string; name: string }
   | { type: "qna"; data: SearchIndexRecord };
 
+const EMPTY_RECORDS: SearchIndexRecord[] = [];
+const EMPTY_STRINGS: string[] = [];
+const EMPTY_PROFILES: SearchIndexCharacterProfile[] = [];
+
 export function SearchModal() {
   const { isSearchOpen, setIsSearchOpen, spoilerArc, allowedIfRoutes } = usePreferences();
   const router = useRouter();
@@ -29,17 +33,21 @@ export function SearchModal() {
   const [debouncedQuery, setDebouncedQuery] = useState("");
   const deferredQuery = useDeferredValue(debouncedQuery);
 
-  const [indexRecords, setIndexRecords] = useState<SearchIndexRecord[]>(() => getCachedSearchPayload()?.records || []);
-  const [indexCharacters, setIndexCharacters] = useState<string[]>(() => getCachedSearchPayload()?.characters || []);
-  const [indexTopics, setIndexTopics] = useState<string[]>(() => getCachedSearchPayload()?.topics || []);
-  const [indexCharacterProfiles, setIndexCharacterProfiles] = useState<SearchIndexCharacterProfile[]>(() => getCachedSearchPayload()?.characterProfiles || []);
-  const [hasLoaded, setHasLoaded] = useState(() => Boolean(getCachedSearchPayload()));
+  const [, setFetchVersion] = useState(0);
   const [selectedIndex, setSelectedIndex] = useState(0);
 
   const inputRef = useRef<HTMLInputElement>(null);
   const listRef = useRef<HTMLDivElement>(null);
 
-  const isLoading = isSearchOpen && !hasLoaded;
+  // Read warm in-memory cache directly; avoids state desync and eliminates initial frame loading flash
+  const cachedPayload = getCachedSearchPayload();
+  const indexRecords = cachedPayload?.records || EMPTY_RECORDS;
+  const indexCharacters = cachedPayload?.characters || EMPTY_STRINGS;
+  const indexTopics = cachedPayload?.topics || EMPTY_STRINGS;
+  const indexCharacterProfiles = cachedPayload?.characterProfiles || EMPTY_PROFILES;
+  const isLoaded = Boolean(cachedPayload);
+
+  const isLoading = isSearchOpen && !isLoaded;
 
   // Debounce search query to prevent lag on multi-word strings while keeping input responsive
   useEffect(() => {
@@ -51,20 +59,16 @@ export function SearchModal() {
     return () => clearTimeout(timer);
   }, [inputValue]);
 
-  // Lazy-load the search index only when the modal opens
+  // Lazy-load the search index only when the modal opens and not already loaded
   useEffect(() => {
-    if (!isSearchOpen || hasLoaded) return;
+    if (!isSearchOpen || isLoaded) return;
 
     let ignore = false;
 
     fetchSearchIndex()
-      .then((data) => {
+      .then(() => {
         if (!ignore) {
-          setIndexRecords(data.records);
-          setIndexCharacters(data.characters);
-          setIndexTopics(data.topics);
-          setIndexCharacterProfiles(data.characterProfiles || []);
-          setHasLoaded(true);
+          setFetchVersion((v) => v + 1);
         }
       })
       .catch((err) => {
@@ -76,7 +80,7 @@ export function SearchModal() {
     return () => {
       ignore = true;
     };
-  }, [isSearchOpen, hasLoaded]);
+  }, [isSearchOpen, isLoaded]);
 
   // Autofocus input and select text immediately when modal opens
   useEffect(() => {

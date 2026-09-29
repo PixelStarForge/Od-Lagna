@@ -1,10 +1,8 @@
 # Cloudflare Pages Custom Cache & Security Headers
 # Reference: https://developers.cloudflare.com/pages/configuration/headers/
 
-# Default rule for all HTML pages and document routes:
-# Revalidate with ETag so updates deploy immediately, with 304 Not Modified when unchanged
+# Default security headers for all routes
 /*
-  Cache-Control: public, max-age=0, must-revalidate
   X-Content-Type-Options: nosniff
   X-Frame-Options: SAMEORIGIN
   Referrer-Policy: strict-origin-when-cross-origin
