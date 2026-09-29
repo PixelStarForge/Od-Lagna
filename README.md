@@ -80,5 +80,3 @@ Od-Lagna is an unofficial, non-commercial fan project created for archival, refe
 
 *Re:Zero kara Hajimeru Isekai Seikatsu*, its characters, settings, and original Japanese text are the intellectual property of **Tappei Nagatsuki**, **Kadokawa**, and illustrator **Shinichirou Otsuka**.
 
-
-Source code is available under the [MIT License](LICENSE).
