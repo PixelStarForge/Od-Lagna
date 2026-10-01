@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { getContentStats, getAllArcs, getAllIfRoutes, getIfStories, getSideStories } from "../lib/content-loader";
+import { getAnimeCatalog } from "../lib/anime-loader";
 import { SearchHeroButton } from "../components/SearchHeroButton";
 
 export default function HomePage() {
@@ -8,6 +9,9 @@ export default function HomePage() {
   const ifRoutes = getAllIfRoutes();
   const ifStories = getIfStories();
   const sideStories = getSideStories();
+  const animeReleases = getAnimeCatalog().filter(
+    (item) => item.status !== "planned" && item.type !== "break-time"
+  );
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-16 space-y-16">
@@ -275,6 +279,93 @@ export default function HomePage() {
                     <p className="text-sm text-[var(--text-muted)]">
                       Timeline: {route.timeline || "Canonical standalone"}
                     </p>
+                  </div>
+                </Link>
+              );
+            })}
+          </div>
+        </section>
+      )}
+
+      {/* Anime Broadcast Commentary */}
+      {animeReleases.length > 0 && (
+        <section className="space-y-4">
+          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-1.5 sm:gap-4">
+            <div>
+              <div className="flex items-center justify-between sm:block">
+                <h2 className="text-lg sm:text-xl font-bold text-[var(--text-main)] tracking-tight">
+                  Anime Broadcast Commentary
+                </h2>
+                <Link
+                  href="/anime"
+                  className="sm:hidden text-xs font-semibold text-[var(--accent)] hover:underline whitespace-nowrap shrink-0 ml-2"
+                >
+                  View All →
+                </Link>
+              </div>
+              <p className="text-xs sm:text-sm text-[var(--text-muted)] mt-0.5">
+                Author Tappei Nagatsuki&apos;s real-time broadcast live-tweets and episode context.
+              </p>
+            </div>
+            <Link
+              href="/anime"
+              className="hidden sm:inline-flex items-center gap-1 text-sm font-semibold text-[var(--accent)] hover:underline whitespace-nowrap shrink-0"
+            >
+              View All Anime Releases →
+            </Link>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+            {animeReleases.slice(0, 6).map((release) => {
+              const isAnnounced = release.status === "announced";
+              if (isAnnounced) {
+                return (
+                  <div
+                    key={release.id}
+                    className="p-4 rounded-xl border border-[var(--border-subtle)] bg-[var(--bg-surface)] opacity-75 flex flex-col justify-between space-y-2"
+                  >
+                    <div className="space-y-1">
+                      <div className="flex items-center justify-between">
+                        <span className="text-sm font-semibold text-[var(--text-main)]">
+                          {release.title}
+                        </span>
+                        <span className="text-xs font-mono font-medium text-[var(--unverified-text)]">
+                          {release.year}
+                        </span>
+                      </div>
+                      <p className="text-sm text-[var(--text-muted)] line-clamp-1">
+                        {release.synopsis}
+                      </p>
+                    </div>
+                    <div className="text-xs text-[var(--text-muted)] font-mono italic">
+                      In Production
+                    </div>
+                  </div>
+                );
+              }
+
+              return (
+                <Link
+                  key={release.id}
+                  href={`/anime/${release.id}`}
+                  className="group p-4 rounded-xl border border-[var(--border-subtle)] bg-[var(--bg-surface)] hover:border-[var(--accent-border)] hover:bg-[var(--bg-elevated)] transition-all flex flex-col justify-between space-y-2"
+                >
+                  <div className="space-y-1">
+                    <div className="flex items-center justify-between">
+                      <span className="text-sm font-semibold text-[var(--accent)]">
+                        {release.title}
+                      </span>
+                      <span className="text-xs font-mono font-medium text-[var(--text-muted)]">
+                        {release.year}
+                      </span>
+                    </div>
+                    <p className="text-sm text-[var(--text-muted)] line-clamp-1">
+                      {release.synopsis}
+                    </p>
+                  </div>
+                  <div className="text-xs text-[var(--text-muted)] font-medium flex items-center gap-1 group-hover:text-[var(--accent)]">
+                    <span>View Commentary</span>
+                    <span className="group-hover:translate-x-0.5 transition-transform">→</span>
                   </div>
                 </Link>
               );

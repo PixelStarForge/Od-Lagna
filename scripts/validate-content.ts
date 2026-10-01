@@ -7,6 +7,8 @@ import {
   contributorSchema,
   triviaEntrySchema,
   characterSchema,
+  animeCatalogEntrySchema,
+  episodeCommentarySchema,
 } from "../lib/schema";
 
 const ROOT_DIR = path.resolve(__dirname, "..");
@@ -264,6 +266,135 @@ export function validateCharactersDirectory(dirPath = CONTENT_CHARACTERS_DIR): {
   return { valid: errors.length === 0, errors };
 }
 
+export function validateAnimeContent(): { valid: boolean; errors: string[] } {
+  const errors: string[] = [];
+  const validArcSlugs = getValidArcSlugs();
+  const animeDir = path.join(ROOT_DIR, "content", "anime");
+  const configFile = path.join(animeDir, "config.json");
+
+  if (!fs.existsSync(animeDir) || !fs.existsSync(configFile)) {
+    return { valid: true, errors: [] };
+  }
+
+  // 1. Validate config.json
+  let configRaw: unknown;
+  try {
+    configRaw = JSON.parse(fs.readFileSync(configFile, "utf-8"));
+  } catch (err: unknown) {
+    const msg = err instanceof Error ? err.message : String(err);
+    errors.push(`[anime/config.json] Invalid JSON format: ${msg}`);
+    return { valid: false, errors };
+  }
+
+  if (!Array.isArray(configRaw)) {
+    errors.push(`[anime/config.json] Must be a JSON array of anime catalog entries`);
+    return { valid: false, errors };
+  }
+
+  const validSeasonIds = new Set<string>();
+
+  configRaw.forEach((entry, idx) => {
+    const result = animeCatalogEntrySchema.safeParse(entry);
+    if (!result.success) {
+      const issues = result.error.issues
+        .map((i) => `${i.path.join(".") || "root"}: ${i.message}`)
+        .join("; ");
+      errors.push(`[anime/config.json #${idx + 1}] Schema validation failed: ${issues}`);
+      return;
+    }
+
+    const data = result.data;
+    if (validSeasonIds.has(data.id)) {
+      errors.push(`[anime/config.json] Duplicate season id "${data.id}"`);
+    } else {
+      validSeasonIds.add(data.id);
+    }
+
+    for (const arc of data.arcs) {
+      if (!validArcSlugs.has(arc)) {
+        errors.push(
+          `[anime/config.json ${data.id}] Invalid arc slug "${arc}". Valid arcs: ${Array.from(validArcSlugs).sort().join(", ")}`
+        );
+      }
+    }
+  });
+
+  // 2. Validate all season directories and episode files
+  const entries = fs.readdirSync(animeDir, { withFileTypes: true });
+  for (const dirEntry of entries) {
+    if (!dirEntry.isDirectory()) continue;
+    const seasonId = dirEntry.name;
+    if (!validSeasonIds.has(seasonId)) {
+      errors.push(`[anime/${seasonId}] Directory found without corresponding entry in config.json`);
+      continue;
+    }
+
+    const seasonDir = path.join(animeDir, seasonId);
+    const files = fs.readdirSync(seasonDir);
+    const jsonFiles = files.filter((f) => f.endsWith(".json") && !f.startsWith("_"));
+
+    for (const filename of jsonFiles) {
+      const epNumStr = filename.replace(/\.json$/, "");
+      if (!/^\d+$/.test(epNumStr)) {
+        errors.push(`[anime/${seasonId}/${filename}] Filename must be a number followed by .json (e.g. 1.json)`);
+        continue;
+      }
+      const epNum = parseInt(epNumStr, 10);
+      const filePath = path.join(seasonDir, filename);
+
+      let parsed: unknown;
+      try {
+        parsed = JSON.parse(fs.readFileSync(filePath, "utf-8"));
+      } catch (err: unknown) {
+        const msg = err instanceof Error ? err.message : String(err);
+        errors.push(`[anime/${seasonId}/${filename}] Invalid JSON format: ${msg}`);
+        continue;
+      }
+
+      const result = episodeCommentarySchema.safeParse(parsed);
+      if (!result.success) {
+        const issues = result.error.issues
+          .map((i) => `${i.path.join(".") || "root"}: ${i.message}`)
+          .join("; ");
+        errors.push(`[anime/${seasonId}/${filename}] Schema validation failed: ${issues}`);
+        continue;
+      }
+
+      const ep = result.data;
+      if (ep.seasonId !== seasonId) {
+        errors.push(
+          `[anime/${seasonId}/${filename}] seasonId mismatch: JSON specifies "${ep.seasonId}", expected "${seasonId}"`
+        );
+      }
+      if (ep.episodeNumber !== epNum) {
+        errors.push(
+          `[anime/${seasonId}/${filename}] episodeNumber mismatch: JSON specifies ${ep.episodeNumber}, expected ${epNum}`
+        );
+      }
+
+      // Check comments numbering integrity
+      const seenCommentIds = new Set<number>();
+      for (let i = 0; i < ep.comments.length; i++) {
+        const comment = ep.comments[i];
+        if (seenCommentIds.has(comment.id)) {
+          errors.push(
+            `[anime/${seasonId}/${filename}] Duplicate comment ID #${comment.id}`
+          );
+        } else {
+          seenCommentIds.add(comment.id);
+        }
+        if (comment.id !== i + 1) {
+          errors.push(
+            `[anime/${seasonId}/${filename}] Non-sequential comment ID #${comment.id}, expected #${i + 1}`
+          );
+        }
+      }
+    }
+  }
+
+  return { valid: errors.length === 0, errors };
+}
+
 function run() {
   console.log("Validating Q&A content in content/qna/...");
   const qnaResult = validateQnaDirectory();
@@ -277,11 +408,15 @@ function run() {
   console.log("Validating contributors in content/config/contributors.json...");
   const contributorsResult = validateContributors();
 
+  console.log("Validating anime content in content/anime/...");
+  const animeResult = validateAnimeContent();
+
   const allErrors = [
     ...qnaResult.errors,
     ...triviaResult.errors,
     ...charactersResult.errors,
     ...contributorsResult.errors,
+    ...animeResult.errors,
   ];
 
   if (allErrors.length > 0) {

@@ -9,6 +9,7 @@
 - [Character Profiles](https://od-lagna.pages.dev/characters): Character database detailing canon debut arcs, aliases, Japanese names, affiliations, and verified Q&A statements.
 - [IF Routes Directory](https://od-lagna.pages.dev/ifs): Exploration of alternate-reality IF stories (Sloth IF, Greed IF, Pride IF, Wrath IF, Gluttony IF, Lust IF, etc.) and related Q&A supplements.
 - [Side Stories Directory](https://od-lagna.pages.dev/side-stories): Index of store bonus booklets, monthly magazine novellas, and canon side stories.
+- [Anime Episode Commentary](https://od-lagna.pages.dev/anime): Archive of over 4,000 broadcast live-tweets, behind-the-scenes trivia, and scene commentary by Tappei Nagatsuki across all television seasons (Season 1 to Season 4).
 - [About](https://od-lagna.pages.dev/about): Methodology, verification criteria, and project philosophy.
 - [Contribute](https://od-lagna.pages.dev/contribute): Contribution guidelines, submission templates, and verification standards.
 

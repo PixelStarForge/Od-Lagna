@@ -29,6 +29,15 @@ export function Footer() {
             <Link href="/characters" className="hover:text-[var(--text-main)] transition-colors">
               Characters
             </Link>
+            <Link href="/anime" className="hover:text-[var(--text-main)] transition-colors">
+              Anime
+            </Link>
+            <Link href="/side-stories" className="hover:text-[var(--text-main)] transition-colors">
+              Side Stories
+            </Link>
+            <Link href="/ifs" className="hover:text-[var(--text-main)] transition-colors">
+              IF Routes
+            </Link>
             <Link href="/about" className="hover:text-[var(--text-main)] transition-colors">
               About
             </Link>

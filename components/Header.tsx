@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { usePreferences } from "../lib/preferences";
@@ -22,14 +22,37 @@ export function Header() {
   } = usePreferences();
   const { bookmarkCount, mounted: bookmarksMounted } = useBookmarks();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [openDropdown, setOpenDropdown] = useState<"stories" | "more" | null>(null);
   const [isRolling, setIsRolling] = useState(false);
   const [prevPathname, setPrevPathname] = useState(pathname);
+  const navRef = useRef<HTMLElement>(null);
 
-  // Close mobile menu on route change during render
+  // Close menus on route change during render
   if (prevPathname !== pathname) {
     setPrevPathname(pathname);
     setIsMobileMenuOpen(false);
+    setOpenDropdown(null);
   }
+
+  // Handle clicking outside or pressing Escape to close dropdowns
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (navRef.current && !navRef.current.contains(event.target as Node)) {
+        setOpenDropdown(null);
+      }
+    };
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setOpenDropdown(null);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    document.addEventListener("keydown", handleKeyDown);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener("keydown", handleKeyDown);
+    };
+  }, []);
 
   const handleSurpriseMe = async () => {
     if (isRolling) return;
@@ -56,6 +79,12 @@ export function Header() {
     }
   };
 
+  const isBrowseActive = pathname === "/browse" || pathname?.startsWith("/browse/");
+  const isCharactersActive = pathname?.startsWith("/characters");
+  const isAnimeActive = pathname?.startsWith("/anime");
+  const isStoriesActive = pathname?.startsWith("/side-stories") || pathname?.startsWith("/ifs") || pathname?.startsWith("/stories");
+  const isMoreActive = pathname === "/about" || pathname === "/contribute";
+
   return (
     <header className="sticky top-0 z-40 w-full border-b border-[var(--border-subtle)] bg-[var(--bg-main)]/95 backdrop-blur-none transition-colors">
       <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-2 sm:gap-4">
@@ -76,22 +105,12 @@ export function Header() {
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center gap-0.5 sm:gap-1">
-            <Link
-              href="/"
-              className={`px-2 py-1 sm:px-3 sm:py-1.5 rounded-md text-xs sm:text-sm font-medium transition-colors ${
-                pathname === "/"
-                  ? "bg-[var(--bg-elevated)] text-[var(--text-main)] font-semibold"
-                  : "text-[var(--text-muted)] hover:text-[var(--text-main)] hover:bg-[var(--bg-elevated)]"
-              }`}
-            >
-              Home
-            </Link>
+          <nav ref={navRef} className="hidden lg:flex items-center gap-1">
             <Link
               href="/browse"
-              className={`px-2 py-1 sm:px-3 sm:py-1.5 rounded-md text-xs sm:text-sm font-medium transition-colors ${
-                pathname === "/browse"
-                  ? "bg-[var(--bg-elevated)] text-[var(--text-main)] font-semibold"
+              className={`px-3 py-1.5 rounded-md text-sm font-medium transition-colors ${
+                isBrowseActive
+                  ? "bg-[var(--bg-elevated)] text-[var(--accent)] font-semibold"
                   : "text-[var(--text-muted)] hover:text-[var(--text-main)] hover:bg-[var(--bg-elevated)]"
               }`}
             >
@@ -99,54 +118,189 @@ export function Header() {
             </Link>
             <Link
               href="/characters"
-              className={`px-2 py-1 sm:px-3 sm:py-1.5 rounded-md text-xs sm:text-sm font-medium transition-colors ${
-                pathname?.startsWith("/characters")
-                  ? "bg-[var(--bg-elevated)] text-[var(--text-main)] font-semibold"
+              className={`px-3 py-1.5 rounded-md text-sm font-medium transition-colors ${
+                isCharactersActive
+                  ? "bg-[var(--bg-elevated)] text-[var(--accent)] font-semibold"
                   : "text-[var(--text-muted)] hover:text-[var(--text-main)] hover:bg-[var(--bg-elevated)]"
               }`}
             >
               Characters
             </Link>
             <Link
-              href="/ifs"
-              className={`px-2 py-1 sm:px-3 sm:py-1.5 rounded-md text-xs sm:text-sm font-medium transition-colors ${
-                pathname?.startsWith("/ifs")
-                  ? "bg-[var(--bg-elevated)] text-[var(--text-main)] font-semibold"
+              href="/anime"
+              className={`px-3 py-1.5 rounded-md text-sm font-medium transition-colors ${
+                isAnimeActive
+                  ? "bg-[var(--bg-elevated)] text-[var(--accent)] font-semibold"
                   : "text-[var(--text-muted)] hover:text-[var(--text-main)] hover:bg-[var(--bg-elevated)]"
               }`}
             >
-              IF Routes
+              Anime
             </Link>
-            <Link
-              href="/side-stories"
-              className={`px-2 py-1 sm:px-3 sm:py-1.5 rounded-md text-xs sm:text-sm font-medium transition-colors ${
-                pathname?.startsWith("/side-stories")
-                  ? "bg-[var(--bg-elevated)] text-[var(--text-main)] font-semibold"
-                  : "text-[var(--text-muted)] hover:text-[var(--text-main)] hover:bg-[var(--bg-elevated)]"
-              }`}
-            >
-              Side Stories
-            </Link>
-            <Link
-              href="/about"
-              className={`px-2 py-1 sm:px-3 sm:py-1.5 rounded-md text-xs sm:text-sm font-medium transition-colors hidden xl:inline-block ${
-                pathname === "/about"
-                  ? "bg-[var(--bg-elevated)] text-[var(--text-main)] font-semibold"
-                  : "text-[var(--text-muted)] hover:text-[var(--text-main)] hover:bg-[var(--bg-elevated)]"
-              }`}
-            >
-              About
-            </Link>
-            <Link
-              href="/contribute"
-              className={`px-2 py-1 sm:px-3 sm:py-1.5 rounded-md text-xs sm:text-sm font-medium transition-colors hidden xl:inline-block ${
-                pathname === "/contribute"
-                  ? "bg-[var(--bg-elevated)] text-[var(--text-main)] font-semibold"
-                  : "text-[var(--text-muted)] hover:text-[var(--text-main)] hover:bg-[var(--bg-elevated)]"
-              }`}
-            >
-              Contribute
-            </Link>
+
+            {/* Stories Dropdown */}
+            <div className="relative">
+              <button
+                type="button"
+                onClick={() => setOpenDropdown((prev) => (prev === "stories" ? null : "stories"))}
+                aria-expanded={openDropdown === "stories"}
+                aria-haspopup="true"
+                className={`flex items-center gap-1 px-3 py-1.5 rounded-md text-sm font-medium transition-colors cursor-pointer ${
+                  isStoriesActive
+                    ? "bg-[var(--bg-elevated)] text-[var(--accent)] font-semibold"
+                    : openDropdown === "stories"
+                    ? "bg-[var(--bg-elevated)] text-[var(--text-main)] font-semibold"
+                    : "text-[var(--text-muted)] hover:text-[var(--text-main)] hover:bg-[var(--bg-elevated)]"
+                }`}
+              >
+                <span>Stories</span>
+                <svg
+                  className={`w-3.5 h-3.5 transition-transform duration-200 ${
+                    openDropdown === "stories" ? "rotate-180" : ""
+                  } ${
+                    isStoriesActive
+                      ? "text-[var(--accent)]"
+                      : openDropdown === "stories"
+                      ? "text-[var(--text-main)]"
+                      : "text-[var(--text-muted)]"
+                  }`}
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
+              </button>
+
+              {openDropdown === "stories" && (
+                <div
+                  role="menu"
+                  className="absolute left-0 mt-1.5 w-60 rounded-xl border border-[var(--border-subtle)] bg-[var(--bg-surface)] p-1.5 shadow-xl animate-in fade-in-50 zoom-in-95 duration-100 z-50"
+                >
+                  <Link
+                    href="/side-stories"
+                    role="menuitem"
+                    onClick={() => setOpenDropdown(null)}
+                    className={`block px-3 py-2 rounded-lg text-sm transition-colors ${
+                      pathname?.startsWith("/side-stories")
+                        ? "bg-[var(--bg-elevated)] text-[var(--accent)] font-semibold"
+                        : "hover:bg-[var(--bg-elevated)] text-[var(--text-main)]"
+                    }`}
+                  >
+                    <div className={`font-medium text-xs sm:text-sm ${pathname?.startsWith("/side-stories") ? "text-[var(--accent)] font-semibold" : "text-[var(--text-main)]"}`}>
+                      Side Stories
+                    </div>
+                    <div className={`text-xs ${pathname?.startsWith("/side-stories") ? "text-[var(--accent)] opacity-85" : "text-[var(--text-muted)]"}`}>
+                      Canon side stories
+                    </div>
+                  </Link>
+                  <Link
+                    href="/ifs"
+                    role="menuitem"
+                    onClick={() => setOpenDropdown(null)}
+                    className={`block px-3 py-2 rounded-lg text-sm transition-colors mt-0.5 ${
+                      pathname?.startsWith("/ifs")
+                        ? "bg-[var(--bg-elevated)] text-[var(--accent)] font-semibold"
+                        : "hover:bg-[var(--bg-elevated)] text-[var(--text-main)]"
+                    }`}
+                  >
+                    <div className={`font-medium text-xs sm:text-sm ${pathname?.startsWith("/ifs") ? "text-[var(--accent)] font-semibold" : "text-[var(--text-main)]"}`}>
+                      IF Routes
+                    </div>
+                    <div className={`text-xs ${pathname?.startsWith("/ifs") ? "text-[var(--accent)] opacity-85" : "text-[var(--text-muted)]"}`}>
+                      Alternative what-if timelines
+                    </div>
+                  </Link>
+                </div>
+              )}
+            </div>
+
+            {/* More Dropdown */}
+            <div className="relative">
+              <button
+                type="button"
+                onClick={() => setOpenDropdown((prev) => (prev === "more" ? null : "more"))}
+                aria-expanded={openDropdown === "more"}
+                aria-haspopup="true"
+                className={`flex items-center gap-1 px-3 py-1.5 rounded-md text-sm font-medium transition-colors cursor-pointer ${
+                  isMoreActive
+                    ? "bg-[var(--bg-elevated)] text-[var(--accent)] font-semibold"
+                    : openDropdown === "more"
+                    ? "bg-[var(--bg-elevated)] text-[var(--text-main)] font-semibold"
+                    : "text-[var(--text-muted)] hover:text-[var(--text-main)] hover:bg-[var(--bg-elevated)]"
+                }`}
+              >
+                <span>More</span>
+                <svg
+                  className={`w-3.5 h-3.5 transition-transform duration-200 ${
+                    openDropdown === "more" ? "rotate-180" : ""
+                  } ${
+                    isMoreActive
+                      ? "text-[var(--accent)]"
+                      : openDropdown === "more"
+                      ? "text-[var(--text-main)]"
+                      : "text-[var(--text-muted)]"
+                  }`}
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
+              </button>
+
+              {openDropdown === "more" && (
+                <div
+                  role="menu"
+                  className="absolute left-0 mt-1.5 w-56 rounded-xl border border-[var(--border-subtle)] bg-[var(--bg-surface)] p-1.5 shadow-xl animate-in fade-in-50 zoom-in-95 duration-100 z-50"
+                >
+                  <Link
+                    href="/about"
+                    role="menuitem"
+                    onClick={() => setOpenDropdown(null)}
+                    className={`block px-3 py-2 rounded-lg text-sm transition-colors ${
+                      pathname === "/about"
+                        ? "bg-[var(--bg-elevated)] text-[var(--accent)] font-semibold"
+                        : "hover:bg-[var(--bg-elevated)] text-[var(--text-main)]"
+                    }`}
+                  >
+                    <div className={`font-medium text-xs sm:text-sm ${pathname === "/about" ? "text-[var(--accent)] font-semibold" : "text-[var(--text-main)]"}`}>
+                      About
+                    </div>
+                    <div className={`text-xs ${pathname === "/about" ? "text-[var(--accent)] opacity-85" : "text-[var(--text-muted)]"}`}>
+                      About this Website
+                    </div>
+                  </Link>
+                  <Link
+                    href="/contribute"
+                    role="menuitem"
+                    onClick={() => setOpenDropdown(null)}
+                    className={`block px-3 py-2 rounded-lg text-sm transition-colors mt-0.5 ${
+                      pathname === "/contribute"
+                        ? "bg-[var(--bg-elevated)] text-[var(--accent)] font-semibold"
+                        : "hover:bg-[var(--bg-elevated)] text-[var(--text-main)]"
+                    }`}
+                  >
+                    <div className={`font-medium text-xs sm:text-sm ${pathname === "/contribute" ? "text-[var(--accent)] font-semibold" : "text-[var(--text-main)]"}`}>
+                      Contribute
+                    </div>
+                    <div className={`text-xs ${pathname === "/contribute" ? "text-[var(--accent)] opacity-85" : "text-[var(--text-muted)]"}`}>
+                      Contribution guidelines &amp; templates</div>
+                  </Link>
+                  <div className="my-1 border-t border-[var(--border-subtle)]" />
+                  <a
+                    href="https://github.com/PixelStarForge/Od-Lagna"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    role="menuitem"
+                    onClick={() => setOpenDropdown(null)}
+                    className="flex items-center justify-between px-3 py-2 rounded-lg text-xs sm:text-sm text-[var(--text-muted)] hover:text-[var(--text-main)] hover:bg-[var(--bg-elevated)] transition-colors"
+                  >
+                    <span>GitHub Repository</span>
+                    <span className="text-xs text-[var(--text-muted)]">↗</span>
+                  </a>
+                </div>
+              )}
+            </div>
           </nav>
         </div>
 
@@ -326,118 +480,182 @@ export function Header() {
 
       {/* Mobile Navigation Dropdown Menu */}
       {isMobileMenuOpen && (
-        <div className="lg:hidden border-t border-[var(--border-subtle)] bg-[var(--bg-surface)] px-4 py-3 space-y-1 shadow-lg animate-in slide-in-from-top-2 duration-150">
-          <Link
-            href="/"
-            onClick={() => setIsMobileMenuOpen(false)}
-            className={`flex items-center justify-between px-3 py-2.5 rounded-lg text-sm font-medium transition-colors ${
-              pathname === "/"
-                ? "bg-[var(--bg-elevated)] text-[var(--accent)] font-semibold"
-                : "text-[var(--text-muted)] hover:text-[var(--text-main)] hover:bg-[var(--bg-elevated)]"
-            }`}
-          >
-            <span>Home</span>
-            <span className="text-xs font-mono text-[var(--text-muted)]">Index</span>
-          </Link>
-          <Link
-            href="/browse"
-            onClick={() => setIsMobileMenuOpen(false)}
-            className={`flex items-center justify-between px-3 py-2.5 rounded-lg text-sm font-medium transition-colors ${
-              pathname === "/browse"
-                ? "bg-[var(--bg-elevated)] text-[var(--accent)] font-semibold"
-                : "text-[var(--text-muted)] hover:text-[var(--text-main)] hover:bg-[var(--bg-elevated)]"
-            }`}
-          >
-            <span>Browse Q&amp;A</span>
-            <span className="text-xs font-mono text-[var(--text-muted)]">Archive</span>
-          </Link>
-          <Link
-            href="/characters"
-            onClick={() => setIsMobileMenuOpen(false)}
-            className={`flex items-center justify-between px-3 py-2.5 rounded-lg text-sm font-medium transition-colors ${
-              pathname?.startsWith("/characters")
-                ? "bg-[var(--bg-elevated)] text-[var(--accent)] font-semibold"
-                : "text-[var(--text-muted)] hover:text-[var(--text-main)] hover:bg-[var(--bg-elevated)]"
-            }`}
-          >
-            <span>Characters</span>
-            <span className="text-xs font-mono text-[var(--text-muted)]">Database</span>
-          </Link>
-          <Link
-            href="/ifs"
-            onClick={() => setIsMobileMenuOpen(false)}
-            className={`flex items-center justify-between px-3 py-2.5 rounded-lg text-sm font-medium transition-colors ${
-              pathname?.startsWith("/ifs")
-                ? "bg-[var(--bg-elevated)] text-[var(--accent)] font-semibold"
-                : "text-[var(--text-muted)] hover:text-[var(--text-main)] hover:bg-[var(--bg-elevated)]"
-            }`}
-          >
-            <span>IF Routes</span>
-            <span className="text-xs font-mono text-[var(--text-muted)]">What-If</span>
-          </Link>
-          <Link
-            href="/side-stories"
-            onClick={() => setIsMobileMenuOpen(false)}
-            className={`flex items-center justify-between px-3 py-2.5 rounded-lg text-sm font-medium transition-colors ${
-              pathname?.startsWith("/side-stories")
-                ? "bg-[var(--bg-elevated)] text-[var(--accent)] font-semibold"
-                : "text-[var(--text-muted)] hover:text-[var(--text-main)] hover:bg-[var(--bg-elevated)]"
-            }`}
-          >
-            <span>Side Stories</span>
-            <span className="text-xs font-mono text-[var(--text-muted)]">Canon</span>
-          </Link>
-          <Link
-            href="/about"
-            onClick={() => setIsMobileMenuOpen(false)}
-            className={`flex items-center justify-between px-3 py-2.5 rounded-lg text-sm font-medium transition-colors ${
-              pathname === "/about"
-                ? "bg-[var(--bg-elevated)] text-[var(--accent)] font-semibold"
-                : "text-[var(--text-muted)] hover:text-[var(--text-main)] hover:bg-[var(--bg-elevated)]"
-            }`}
-          >
-            <span>About</span>
-          </Link>
-          <Link
-            href="/contribute"
-            onClick={() => setIsMobileMenuOpen(false)}
-            className={`flex items-center justify-between px-3 py-2.5 rounded-lg text-sm font-medium transition-colors ${
-              pathname === "/contribute"
-                ? "bg-[var(--bg-elevated)] text-[var(--accent)] font-semibold"
-                : "text-[var(--text-muted)] hover:text-[var(--text-main)] hover:bg-[var(--bg-elevated)]"
-            }`}
-          >
-            <span>Contribute</span>
-          </Link>
-          <button
-            type="button"
-            onClick={() => {
-              setIsMobileMenuOpen(false);
-              handleSurpriseMe();
-            }}
-            disabled={isRolling}
-            className="w-full flex items-center justify-between px-3 py-2.5 rounded-lg text-sm font-medium text-[var(--text-muted)] hover:text-[var(--accent)] hover:bg-[var(--bg-elevated)] transition-colors text-left cursor-pointer border-t border-[var(--border-subtle)] mt-1 pt-3 group"
-          >
-            <div className="flex items-center gap-2.5">
-              <svg
-                className={`w-4 h-4 shrink-0 transition-transform duration-300 ${
-                  isRolling ? "animate-spin text-[var(--accent)]" : "group-hover:rotate-45"
-                }`}
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <rect x="3" y="3" width="18" height="18" rx="3" strokeWidth="2" />
-                <circle cx="8" cy="8" r="1.5" fill="currentColor" />
-                <circle cx="16" cy="8" r="1.5" fill="currentColor" />
-                <circle cx="12" cy="12" r="1.5" fill="currentColor" />
-                <circle cx="8" cy="16" r="1.5" fill="currentColor" />
-                <circle cx="16" cy="16" r="1.5" fill="currentColor" />
-              </svg>
-              <span>Surprise Me</span>
+        <div className="lg:hidden border-t border-[var(--border-subtle)] bg-[var(--bg-surface)] px-4 py-3 space-y-3 shadow-lg animate-in slide-in-from-top-2 duration-150 max-h-[calc(100vh-4rem)] overflow-y-auto">
+          {/* Section: Explore */}
+          <div className="space-y-1">
+            <div className="px-3 pt-1 pb-1 text-[11px] font-mono uppercase tracking-wider text-[var(--text-muted)] font-semibold">
+              Explore
             </div>
-            <span className="text-xs font-mono text-[var(--accent)] font-semibold">Random Lore</span>
-          </button>
+            <Link
+              href="/"
+              onClick={() => setIsMobileMenuOpen(false)}
+              className={`flex items-center justify-between px-3 py-2 rounded-lg text-sm font-medium transition-colors ${
+                pathname === "/"
+                  ? "bg-[var(--bg-elevated)] text-[var(--accent)] font-semibold"
+                  : "text-[var(--text-muted)] hover:text-[var(--text-main)] hover:bg-[var(--bg-elevated)]"
+              }`}
+            >
+              <span>Home</span>
+              <span className={`text-xs font-mono ${pathname === "/" ? "text-[var(--accent)] font-medium" : "text-[var(--text-muted)]"}`}>
+                Index
+              </span>
+            </Link>
+            <Link
+              href="/browse"
+              onClick={() => setIsMobileMenuOpen(false)}
+              className={`flex items-center justify-between px-3 py-2 rounded-lg text-sm font-medium transition-colors ${
+                isBrowseActive
+                  ? "bg-[var(--bg-elevated)] text-[var(--accent)] font-semibold"
+                  : "text-[var(--text-muted)] hover:text-[var(--text-main)] hover:bg-[var(--bg-elevated)]"
+              }`}
+            >
+              <span>Browse Q&amp;A</span>
+              <span className={`text-xs font-mono ${isBrowseActive ? "text-[var(--accent)] font-medium" : "text-[var(--text-muted)]"}`}>
+                Archive
+              </span>
+            </Link>
+            <Link
+              href="/characters"
+              onClick={() => setIsMobileMenuOpen(false)}
+              className={`flex items-center justify-between px-3 py-2 rounded-lg text-sm font-medium transition-colors ${
+                isCharactersActive
+                  ? "bg-[var(--bg-elevated)] text-[var(--accent)] font-semibold"
+                  : "text-[var(--text-muted)] hover:text-[var(--text-main)] hover:bg-[var(--bg-elevated)]"
+              }`}
+            >
+              <span>Characters</span>
+              <span className={`text-xs font-mono ${isCharactersActive ? "text-[var(--accent)] font-medium" : "text-[var(--text-muted)]"}`}>
+                Database
+              </span>
+            </Link>
+            <Link
+              href="/anime"
+              onClick={() => setIsMobileMenuOpen(false)}
+              className={`flex items-center justify-between px-3 py-2 rounded-lg text-sm font-medium transition-colors ${
+                isAnimeActive
+                  ? "bg-[var(--bg-elevated)] text-[var(--accent)] font-semibold"
+                  : "text-[var(--text-muted)] hover:text-[var(--text-main)] hover:bg-[var(--bg-elevated)]"
+              }`}
+            >
+              <span>Anime Comments</span>
+              <span className={`text-xs font-mono ${isAnimeActive ? "text-[var(--accent)] font-medium" : "text-[var(--text-muted)]"}`}>
+                Episodes
+              </span>
+            </Link>
+          </div>
+
+          {/* Section: Stories & Lore */}
+          <div className="space-y-1 pt-2 border-t border-[var(--border-subtle)]">
+            <div className="px-3 pt-1 pb-1 text-[11px] font-mono uppercase tracking-wider text-[var(--text-muted)] font-semibold">
+              Stories &amp; Lore
+            </div>
+            <Link
+              href="/side-stories"
+              onClick={() => setIsMobileMenuOpen(false)}
+              className={`flex items-center justify-between px-3 py-2 rounded-lg text-sm font-medium transition-colors ${
+                pathname?.startsWith("/side-stories")
+                  ? "bg-[var(--bg-elevated)] text-[var(--accent)] font-semibold"
+                  : "text-[var(--text-muted)] hover:text-[var(--text-main)] hover:bg-[var(--bg-elevated)]"
+              }`}
+            >
+              <span>Side Stories</span>
+              <span className={`text-xs font-mono ${pathname?.startsWith("/side-stories") ? "text-[var(--accent)] font-medium" : "text-[var(--text-muted)]"}`}>
+                Canon
+              </span>
+            </Link>
+            <Link
+              href="/ifs"
+              onClick={() => setIsMobileMenuOpen(false)}
+              className={`flex items-center justify-between px-3 py-2 rounded-lg text-sm font-medium transition-colors ${
+                pathname?.startsWith("/ifs")
+                  ? "bg-[var(--bg-elevated)] text-[var(--accent)] font-semibold"
+                  : "text-[var(--text-muted)] hover:text-[var(--text-main)] hover:bg-[var(--bg-elevated)]"
+              }`}
+            >
+              <span>IF Routes</span>
+              <span className={`text-xs font-mono ${pathname?.startsWith("/ifs") ? "text-[var(--accent)] font-medium" : "text-[var(--text-muted)]"}`}>
+                What-If
+              </span>
+            </Link>
+          </div>
+
+          {/* Section: Project */}
+          <div className="space-y-1 pt-2 border-t border-[var(--border-subtle)]">
+            <div className="px-3 pt-1 pb-1 text-[11px] font-mono uppercase tracking-wider text-[var(--text-muted)] font-semibold">
+              Project
+            </div>
+            <Link
+              href="/about"
+              onClick={() => setIsMobileMenuOpen(false)}
+              className={`flex items-center justify-between px-3 py-2 rounded-lg text-sm font-medium transition-colors ${
+                pathname === "/about"
+                  ? "bg-[var(--bg-elevated)] text-[var(--accent)] font-semibold"
+                  : "text-[var(--text-muted)] hover:text-[var(--text-main)] hover:bg-[var(--bg-elevated)]"
+              }`}
+            >
+              <span>About</span>
+              <span className={`text-xs font-mono ${pathname === "/about" ? "text-[var(--accent)] font-medium" : "text-[var(--text-muted)]"}`}>
+                Info
+              </span>
+            </Link>
+            <Link
+              href="/contribute"
+              onClick={() => setIsMobileMenuOpen(false)}
+              className={`flex items-center justify-between px-3 py-2 rounded-lg text-sm font-medium transition-colors ${
+                pathname === "/contribute"
+                  ? "bg-[var(--bg-elevated)] text-[var(--accent)] font-semibold"
+                  : "text-[var(--text-muted)] hover:text-[var(--text-main)] hover:bg-[var(--bg-elevated)]"
+              }`}
+            >
+              <span>Contribute</span>
+              <span className={`text-xs font-mono ${pathname === "/contribute" ? "text-[var(--accent)] font-medium" : "text-[var(--text-muted)]"}`}>
+                Guide
+              </span>
+            </Link>
+            <a
+              href="https://github.com/PixelStarForge/Od-Lagna"
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="flex items-center justify-between px-3 py-2 rounded-lg text-sm font-medium text-[var(--text-muted)] hover:text-[var(--text-main)] hover:bg-[var(--bg-elevated)] transition-colors"
+            >
+              <span>GitHub Repository</span>
+              <span className="text-xs font-mono text-[var(--text-muted)]">↗</span>
+            </a>
+          </div>
+
+          {/* Surprise Me / Action button in Mobile */}
+          <div className="pt-2 border-t border-[var(--border-subtle)]">
+            <button
+              type="button"
+              onClick={() => {
+                setIsMobileMenuOpen(false);
+                handleSurpriseMe();
+              }}
+              disabled={isRolling}
+              className="w-full flex items-center justify-between px-3 py-2.5 rounded-lg text-sm font-medium text-[var(--text-muted)] hover:text-[var(--accent)] hover:bg-[var(--bg-elevated)] transition-colors text-left cursor-pointer group"
+            >
+              <div className="flex items-center gap-2.5">
+                <svg
+                  className={`w-4 h-4 shrink-0 transition-transform duration-300 ${
+                    isRolling ? "animate-spin text-[var(--accent)]" : "group-hover:rotate-45"
+                  }`}
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <rect x="3" y="3" width="18" height="18" rx="3" strokeWidth="2" />
+                  <circle cx="8" cy="8" r="1.5" fill="currentColor" />
+                  <circle cx="16" cy="8" r="1.5" fill="currentColor" />
+                  <circle cx="12" cy="12" r="1.5" fill="currentColor" />
+                  <circle cx="8" cy="16" r="1.5" fill="currentColor" />
+                  <circle cx="16" cy="16" r="1.5" fill="currentColor" />
+                </svg>
+                <span>Surprise Me</span>
+              </div>
+              <span className="text-xs font-mono text-[var(--accent)] font-semibold">Random Lore</span>
+            </button>
+          </div>
         </div>
       )}
     </header>

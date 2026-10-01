@@ -167,3 +167,53 @@ export const characterSchema = z
   );
 
 export type CharacterDetail = z.infer<typeof characterSchema>;
+
+export const animeCatalogEntrySchema = z.object({
+  id: z.string().min(1, "ID is required"),
+  title: z.string().min(1, "Title is required"),
+  japaneseTitle: z.string().optional(),
+  type: z.enum(["season", "ova", "break-time"]),
+  order: z.number().int().positive(),
+  seasonNumber: z.number().int().positive().optional(),
+  arcs: z.array(z.string()).default([]),
+  episodesCount: z.number().int().nonnegative().nullable().optional(),
+  year: z.string().min(1, "Year is required"),
+  status: z.enum(["completed", "in-progress", "announced", "planned"]),
+  synopsis: z.string().min(1, "Synopsis is required"),
+  duration: z.string().optional(),
+  timeline: z.string().optional(),
+  studio: z.string().optional(),
+  broadcast: z.string().optional(),
+});
+
+export type AnimeCatalogEntry = z.infer<typeof animeCatalogEntrySchema>;
+
+export const authorCommentSchema = z.object({
+  id: z.number().int().positive(),
+  text: z.string().min(1, "Comment text is required"),
+  source: z.string().optional().default(""),
+});
+
+export type AuthorComment = z.infer<typeof authorCommentSchema>;
+
+export const episodeCommentarySchema = z.object({
+  id: z.string().min(1, "ID is required"),
+  seasonId: z.string().min(1, "Season ID is required"),
+  episodeNumber: z.number().int().nonnegative(),
+  title: z.object({
+    en: z.string().min(1, "English title is required"),
+    jp: z.string().optional(),
+  }),
+  airDate: z.string().optional().default(""),
+  translationSource: z
+    .object({
+      type: z.enum(["reddit", "url", "text"]),
+      name: z.string().optional(),
+      url: z.string().url("Must be a valid URL"),
+    })
+    .optional(),
+  comments: z.array(authorCommentSchema).default([]),
+});
+
+export type EpisodeCommentary = z.infer<typeof episodeCommentarySchema>;
+

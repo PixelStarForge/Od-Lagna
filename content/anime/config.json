@@ -1,0 +1,63 @@
+[
+  {
+    "id": "season-1",
+    "title": "Season 1",
+    "type": "season",
+    "order": 1,
+    "seasonNumber": 1,
+    "arcs": ["arc-1", "arc-2", "arc-3"],
+    "episodesCount": 25,
+    "year": "2016",
+    "status": "completed",
+    "synopsis": "Natsuki Subaru is suddenly summoned to an alternate fantasy world, discovering that whenever he dies, time reverses back to a 'save point'."
+  },
+  {
+    "id": "season-1-dc",
+    "title": "Season 1 (Director's Cut)",
+    "type": "season",
+    "order": 2,
+    "seasonNumber": 1,
+    "arcs": ["arc-1", "arc-2", "arc-3"],
+    "episodesCount": 13,
+    "year": "2020",
+    "status": "completed",
+    "synopsis": "A re-edited 13-episode broadcast of Season 1 with updated animation cuts, audio adjustments, and the crucial cliffhanger ending leading into Season 2."
+  },
+  {
+    "id": "season-2",
+    "title": "Season 2",
+    "type": "season",
+    "order": 3,
+    "seasonNumber": 2,
+    "arcs": ["arc-4"],
+    "episodesCount": 25,
+    "year": "2020–2021",
+    "status": "completed",
+    "synopsis": "Subaru faces the Witch of Greed and the deadly trials of the Sanctuary to save Emilia and the villagers of Arlam."
+  },
+  {
+    "id": "season-3",
+    "title": "Season 3",
+    "type": "season",
+    "order": 4,
+    "seasonNumber": 3,
+    "arcs": ["arc-5"],
+    "episodesCount": 16,
+    "year": "2024–2025",
+    "status": "completed",
+    "synopsis": "One year after the Sanctuary, the Royal Selection camps gather at the water city of Priestella, which is besieged by the Sin Archbishops."
+  },
+  {
+    "id": "season-4",
+    "title": "Season 4",
+    "type": "season",
+    "order": 5,
+    "seasonNumber": 4,
+    "arcs": ["arc-6"],
+    "episodesCount": 19,
+    "year": "2026",
+    "status": "completed",
+    "synopsis": "Subaru and his companions venture into the Pleiades Watchtower across the Augria Sand Dunes to find a cure for the victims of Priestella."
+  }
+]
+

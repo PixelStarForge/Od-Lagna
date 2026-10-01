@@ -1,5 +1,6 @@
 import { MetadataRoute } from "next";
 import { getAllIfRoutes, getAllCharacterProfiles } from "../lib/content-loader";
+import { getAnimeCatalog, getAllEpisodeParams } from "../lib/anime-loader";
 
 export const dynamic = "force-static";
 
@@ -29,6 +30,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.9,
     },
     {
+      url: `${SITE_URL}/anime`,
+      lastModified,
+      changeFrequency: "weekly",
+      priority: 0.9,
+    },
+    {
       url: `${SITE_URL}/saved`,
       lastModified,
       changeFrequency: "monthly",
@@ -47,6 +54,24 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.5,
     },
   ];
+
+  // Anime Seasons
+  const animeSeasons = getAnimeCatalog();
+  const animeSeasonRoutes: MetadataRoute.Sitemap = animeSeasons.map((season) => ({
+    url: `${SITE_URL}/anime/${season.id}`,
+    lastModified,
+    changeFrequency: "monthly",
+    priority: 0.85,
+  }));
+
+  // Anime Episodes
+  const animeEpisodes = getAllEpisodeParams();
+  const animeEpisodeRoutes: MetadataRoute.Sitemap = animeEpisodes.map((ep) => ({
+    url: `${SITE_URL}/anime/${ep.season}/${ep.episode}`,
+    lastModified,
+    changeFrequency: "monthly",
+    priority: 0.8,
+  }));
 
   // Story & IF Routes
   const stories = getAllIfRoutes();
@@ -69,5 +94,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.8,
   }));
 
-  return [...staticRoutes, ...storyRoutes, ...characterRoutes];
+  return [
+    ...staticRoutes,
+    ...animeSeasonRoutes,
+    ...animeEpisodeRoutes,
+    ...storyRoutes,
+    ...characterRoutes,
+  ];
 }

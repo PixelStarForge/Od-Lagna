@@ -3,7 +3,17 @@ import {
   getEntrySources,
   contributorSchema,
   characterSchema,
+  animeCatalogEntrySchema,
+  episodeCommentarySchema,
 } from "./schema";
+import {
+  getAnimeCatalog,
+  getAnimeSeason,
+  getSeasonEpisodes,
+  getEpisodeCommentary,
+  getAnimeStats,
+  clearAnimeCache,
+} from "./anime-loader";
 import {
   getAllContributors,
   getAllCharacterProfiles,
@@ -290,5 +300,41 @@ assert(subaruDetail?.character.name === "Natsuki Subaru", "Detail character name
 assert(Array.isArray(subaruDetail?.qnas), "Expected related Q&As array");
 assert(Array.isArray(subaruDetail?.trivia), "Expected related trivia array");
 console.log("✓ catalog and detail with related tests passed");
+
+// 15. Testing anime schemas and loader
+console.log("\n15. Testing anime schemas and loaders...");
+const animeCatalog = getAnimeCatalog();
+assert(animeCatalog.length === 5, `Expected 5 anime catalog entries, got ${animeCatalog.length}`);
+const s1 = getAnimeSeason("season-1");
+assert(s1 !== null && s1.title === "Season 1", "Expected Season 1 entry");
+const s1CaseInsensitive = getAnimeSeason("SEASON-1");
+assert(s1CaseInsensitive !== null && s1CaseInsensitive.id === "season-1", "Expected case-insensitive match");
+
+const s4Episodes = getSeasonEpisodes("season-4");
+assert(s4Episodes.length === 19, `Expected 19 episodes for Season 4, got ${s4Episodes.length}`);
+const s4Ep1 = getEpisodeCommentary("season-4", 1);
+assert(s4Ep1 !== null && s4Ep1.episodeNumber === 1, "Expected Season 4 Episode 1");
+const s4Ep1Str = getEpisodeCommentary("season-4", "01");
+assert(s4Ep1Str !== null && s4Ep1Str.episodeNumber === 1, "Expected '01' to normalize to episode 1");
+
+const stats = getAnimeStats();
+assert(stats.totalCatalogedEpisodes === 98, `Expected 98 total episodes, got ${stats.totalCatalogedEpisodes}`);
+assert(stats.totalComments === 4085, `Expected 4085 author comments, got ${stats.totalComments}`);
+console.log("✓ anime schemas and loaders passed");
+
+// 16. Testing in-memory cache and clearAnimeCache()
+console.log("\n16. Testing anime in-memory caching...");
+const cat1 = getAnimeCatalog();
+const cat2 = getAnimeCatalog();
+assert(cat1 === cat2, "Expected cached anime catalog reference equality");
+
+const eps1 = getSeasonEpisodes("season-1");
+const eps2 = getSeasonEpisodes("season-1");
+assert(eps1 === eps2, "Expected cached season episodes reference equality");
+
+clearAnimeCache();
+const cat3 = getAnimeCatalog();
+assert(cat3.length === 5, "Expected re-populated catalog after clearAnimeCache()");
+console.log("✓ anime in-memory cache passed");
 
 console.log("\n🎉 ALL SCHEMA TESTS PASSED!");
