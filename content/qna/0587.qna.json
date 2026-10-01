@@ -1,17 +1,18 @@
 {
   "id": "0587",
-  "question": "Echidna being a fashionable boku-girl crushed my dreams… (Note: ‘boku-girl’ refers to a woman who refers to herself as ‘boku’, a self-reference usually used by little boys and polite old men.)",
-  "answer": "Someone who’s a boku-girl only to specific people… wouldn’t that be a good bit of trivia?",
+  "question": "Echidna, who was a fashionably self-proclaimed “boku” girl, shattered my dreams...\n\n\nNote: A “boku girl” is a girl/woman who refers to herself using (boku) instead of the more typical (watashi).",
+  "answer": "She only uses “boku” when speaking to specific people... Doesn't that count as trivia?",
   "characters": [
     "Echidna"
   ],
   "topics": [
     "General"
   ],
-  "arc": "general",
+  "arc": "arc-4",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/475609651716042752"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-06-08"
 }
