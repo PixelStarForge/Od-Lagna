@@ -1,6 +1,6 @@
 {
   "id": "2812",
-  "question": "(hidden, from a protected account)",
+  "question": "What is Roswaal's favorite food?",
   "answer": "There's the meat pie recipe that's been handed down from continuously from the past, and he likes that. Unfortunately, since he's lost his sense of taste, he can't experience the flavor, but if he can re-experience the texture he had in the past, it might be like his memories are being reborn atop his tongue.",
   "characters": [
     "Roswaal L. Mathers"
@@ -10,8 +10,9 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/1041270703113232384"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2018-09-16"
 }
