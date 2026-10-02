@@ -12,8 +12,9 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/resaogakill/status/1050676290913624064"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2018-10-12"
 }

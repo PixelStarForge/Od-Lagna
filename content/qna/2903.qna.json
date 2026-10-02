@@ -12,8 +12,9 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/pfehLwqnhFEXi7a/status/1050722011243143168"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2018-10-12"
 }

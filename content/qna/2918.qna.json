@@ -11,8 +11,9 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/highbad0demoe18/status/1050668502250545152"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2018-10-12"
 }
