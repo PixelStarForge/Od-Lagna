@@ -1,7 +1,7 @@
 {
   "id": "2227",
-  "question": "If he had the power of Return by Death, what would he like to do?",
-  "answer": "He'd like to not die, wouldn't he.",
+  "question": "If he (Otto) had the power of Return by Death, what would he want to do?!",
+  "answer": "I suppose... not die.",
   "characters": [
     "Otto Suwen"
   ],
@@ -10,8 +10,9 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/977537078325002246"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2018-03-24"
 }

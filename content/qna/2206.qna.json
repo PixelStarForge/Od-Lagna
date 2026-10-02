@@ -1,17 +1,19 @@
 {
   "id": "2206",
-  "question": "(hidden, from protected account)",
-  "answer": "If by that you mean 'in the main story', then I haven't thought about it. In side stories, it could be possible.",
+  "question": "Will Otto's family appear in the future?",
+  "answer": "If you mean in the main story, I don't have plans for that. There is a possibility of them appearing in a side story, though.",
   "characters": [
     "Otto Suwen"
   ],
   "topics": [
-    "General"
+    "General",
+    "Character Relationships"
   ],
-  "arc": "general",
+  "arc": "arc-4",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/977539078521372673"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2018-03-24"
 }

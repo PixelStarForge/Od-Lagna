@@ -1,7 +1,7 @@
 {
   "id": "2251",
-  "question": "Thanks for all your work. What were Otto's first words after he was born?",
-  "answer": "If you mean the first words he spoke that had meaning, it's 'Thanks'.",
+  "question": "What was the first word Otto ever said after being born?",
+  "answer": "If you mean an actual meaningful word, then “Thank you.”",
   "characters": [
     "Otto Suwen"
   ],
@@ -10,8 +10,9 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/977542343678046208"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2018-03-24"
 }

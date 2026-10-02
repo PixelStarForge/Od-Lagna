@@ -1,7 +1,7 @@
 {
   "id": "2257",
-  "question": "What color does Otto like? Is it green, as you'd expect?",
-  "answer": "The reason that Otto wears green clothing is that, from his experience, it's the appearance that is the least likely to needlessly provoke someone else. The color he likes is a different one. Perhaps he likes red or something, since it's reminiscent of spicy things...",
+  "question": "What is Otto's favorite color? Green, perhaps?",
+  "answer": "The reason Otto wears green is that, from experience, it's the color that is least likely to unnecessarily provoke the other person. When it comes to his favorite color, that's a different matter.\n\nMaybe red, since it reminds him of spicy food...",
   "characters": [
     "Otto Suwen"
   ],
@@ -10,8 +10,9 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/977541108778455040"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2018-03-24"
 }

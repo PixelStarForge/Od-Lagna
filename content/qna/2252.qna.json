@@ -1,17 +1,20 @@
 {
   "id": "2252",
-  "question": "The funnest moment together with Subaru!?",
-  "answer": "Now is the best, and the future will continue to update that. That's how it should be, isn't it.",
+  "question": "What was the most enjoyable moment Otto had with Subaru?!",
+  "answer": "Right now is the best, and the future should keep updating that. That's how it should be, right?",
   "characters": [
-    "Natsuki Subaru"
+    "Natsuki Subaru",
+    "Otto Suwen"
   ],
   "topics": [
-    "General"
+    "General",
+    "Character Relationships"
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/977537892514803712"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2018-03-24"
 }

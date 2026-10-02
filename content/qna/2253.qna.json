@@ -1,17 +1,19 @@
 {
   "id": "2253",
-  "question": "The most embarrassing story in Otto's life",
-  "answer": "Being dumped by the cat that was his first love, in front of his little brother.",
+  "question": "What is the most embarrassing story from Otto's life?",
+  "answer": "Getting rejected by his first love, a cat, in front of his younger brother.",
   "characters": [
-    "Otto Suwen"
+    "Otto Suwen",
+    "Regin Suwen"
   ],
   "topics": [
     "General"
   ],
-  "arc": "general",
+  "arc": "arc-4",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/977530658598764545"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2018-03-24"
 }

@@ -1,18 +1,21 @@
 {
   "id": "2207",
-  "question": "A bit of a conversation between Otto and Patrasche...",
-  "answer": "Otto: \"Is there anything you'd like me to tell Natsuki-san?\" Patrasche: \"Please don't make me say it out loud, would be all.\"",
+  "question": "Could you give us one little snippet of a conversation between Otto and Patrasche?",
+  "answer": "Otto: “Is there anything you'd like to tell Natsuki-san?”\n\nPatrasche: “Don't make me say it.”",
   "characters": [
     "Natsuki Subaru",
-    "Otto Suwen"
+    "Otto Suwen",
+    "Patrasche"
   ],
   "topics": [
-    "General"
+    "General",
+    "Character Relationships"
   ],
-  "arc": "general",
+  "arc": "arc-4",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/977542714035073029"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2018-03-24"
 }

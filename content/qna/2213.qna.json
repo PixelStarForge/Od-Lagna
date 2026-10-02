@@ -1,17 +1,19 @@
 {
   "id": "2213",
-  "question": "Does Otto not use weapons? I've only seen scenes where he fights bare-handed or with his blessing, so...",
-  "answer": "He doesn't use them. He's not familiar with any weapon, so even if he used one, it would likely be a short sword. That, too, would be not a tool for causing harm, but for cooking and such.",
+  "question": "Does Otto not use weapons? I've only ever seen him fight barehanded or using his Divine Protection...",
+  "answer": "He doesn't. He doesn't have any weapon he's accustomed to using, so if he did use one, it'd probably be something like a dagger. Even then, he wouldn't use it as a weapon for hurting people—he'd use it for things like cooking.",
   "characters": [
     "Otto Suwen"
   ],
   "topics": [
-    "Divine Protections"
+    "Divine Protections",
+    "Combat & Tiering"
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/977537490125955072"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2018-03-24"
 }

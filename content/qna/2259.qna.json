@@ -1,7 +1,7 @@
 {
   "id": "2259",
-  "question": "What flower does Otto like?",
-  "answer": "It's edible flowers, indeed. Back when he was very poor, he asked animals and bugs about it, and got along by eating them.",
+  "question": "What kind of flowers does Otto like?",
+  "answer": "Flowers that can be eaten. Back when he was extremely poor, he would ask animals and insects about them and survive by eating whatever he could.",
   "characters": [
     "Otto Suwen"
   ],
@@ -10,8 +10,9 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/977539170661933056"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2018-03-24"
 }

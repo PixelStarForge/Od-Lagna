@@ -1,7 +1,7 @@
 {
   "id": "2233",
-  "question": "It seems like he's capable of anything, but is there something he has trouble with?",
-  "answer": "It's obligations and empathy, perhaps...",
+  "question": "He seems like he can do just about anything, but is there anything he's bad at?",
+  "answer": "I suppose... duty and human compassion.",
   "characters": [
     "Otto Suwen"
   ],
@@ -10,8 +10,9 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/977538176821575681"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2018-03-24"
 }

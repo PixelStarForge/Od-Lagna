@@ -1,18 +1,20 @@
 {
   "id": "2258",
-  "question": "What does Otto think about Subaru?",
-  "answer": "This guy... if the people around him don't help him out, he's going nowhere... I guess there's no choice.",
+  "question": "What does Otto think of Subaru?",
+  "answer": "“This guy... he really can't manage without the people around him helping him out... Guess it can't be helped.”",
   "characters": [
     "Natsuki Subaru",
     "Otto Suwen"
   ],
   "topics": [
-    "General"
+    "General",
+    "Character Relationships"
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/977537379853414400"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2018-03-24"
 }

@@ -1,17 +1,18 @@
 {
   "id": "2250",
-  "question": "Thanks for all your work! The job that Otto worked the hardest on!!",
-  "answer": "In order to regain his honor, he checked over the friendship of the daughter of a person of importance in his home town, and saved the future of a pitiful man, you see! As a result, he's a wanted man!",
+  "question": "Thank you for all your hard work! What was the job Otto worked hardest at?!",
+  "answer": "Investigating the social circle of the daughter of a prominent figure from his hometown in order to restore his own reputation, thereby saving the future of a poor man! The result? He's now a wanted man!",
   "characters": [
     "Otto Suwen"
   ],
   "topics": [
     "General"
   ],
-  "arc": "general",
+  "arc": "arc-4",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/977531284728659968"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2018-03-24"
 }

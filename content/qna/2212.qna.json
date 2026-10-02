@@ -1,17 +1,21 @@
 {
   "id": "2212",
-  "question": "Does Otto look like his mother? His father? Or does he look like Yakult-san?",
-  "answer": "I think it's Yaktol-san, not Yakult-san, but he looks like his mother. The three brothers of the Suwen family all look fairly similar, so it's best to say that he looks like his older and younger brothers, though.",
+  "question": "Is Otto more like his mother, his father, or Yakult-san?",
+  "answer": "I think you mean Yaktol-san, not Yakult-san, but he's more like his mother.\n\nThat said, the three Suwen brothers all look fairly similar, so more than anything, I'd say he resembles his older and younger brothers.",
   "characters": [
-    "Otto Suwen"
+    "Otto Suwen",
+    "Framir Suwen",
+    "Regin Suwen",
+    "Oslo Suwen"
   ],
   "topics": [
     "General"
   ],
-  "arc": "general",
+  "arc": "arc-4",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/977538058995122181"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2018-03-24"
 }

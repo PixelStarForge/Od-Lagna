@@ -1,18 +1,20 @@
 {
   "id": "2221",
-  "question": "I'm way too late, but is Felis a possibility for Otto?",
+  "question": "I didn't make it in time, but from Otto's perspective, would Ferris be an option?",
   "answer": "Nope.",
   "characters": [
     "Felix Argyle (Ferris)",
     "Otto Suwen"
   ],
   "topics": [
-    "General"
+    "General",
+    "Character Relationships"
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/977536227619385344"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2018-03-24"
 }

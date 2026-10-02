@@ -1,18 +1,21 @@
 {
   "id": "2209",
-  "question": "An episode together with Subaru or Garfi?",
-  "answer": "Look forward to them returning to Otto's home with him, and almost dying, in Tsuchigumo Hunting.",
+  "question": "What kind of episodes are there involving Subaru and Garfiel (and Otto) ?",
+  "answer": "Look forward to the death-defying earth spider hunt when they tag along with Otto on his trip back home.",
   "characters": [
     "Natsuki Subaru",
-    "Otto Suwen"
+    "Otto Suwen",
+    "Garfiel Tinsel"
   ],
   "topics": [
-    "General"
+    "General",
+    "Worldbuilding"
   ],
-  "arc": "general",
+  "arc": "arc-4",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/977539947421773824"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2018-03-24"
 }

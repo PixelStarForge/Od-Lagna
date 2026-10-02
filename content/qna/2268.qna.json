@@ -1,17 +1,21 @@
 {
   "id": "2268",
-  "question": "What kind of training has he done?",
-  "answer": "Nothing in particular worth calling training. As a simple family policy, he learned a moderate amount of self-defense and magic. Outside of that is ability he gained while working as a merchant, so honestly, it's just the difference between bodies in Suburu's original world, and the other world, I think. It can't be helped that he can't win.",
+  "question": "What kind of training did he (Otto) do?",
+  "answer": "There wasn't really anything you could call proper “training.” Basically, following his family's policy, he learned a moderate amount of self-defense and magic.\n\nEverything else is made up of abilities he developed while working as a traveling merchant. To be blunt, I think the bodies of people from Subaru's original world and people from the other world are fundamentally different. So it's no wonder he can't win.",
   "characters": [
-    "Otto Suwen"
+    "Otto Suwen",
+    "Natsuki Subaru"
   ],
   "topics": [
-    "General"
+    "General",
+    "Mana & Magic",
+    "Combat & Tiering"
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/977530933396959232"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2018-03-24"
 }

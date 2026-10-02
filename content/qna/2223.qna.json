@@ -1,7 +1,7 @@
 {
   "id": "2223",
-  "question": "If Otto hadn't met with Subaru, and continued his life normally, how would things be going now!!",
-  "answer": "He'd have been one of Petelgeuse's sacrifices, or a slave route like Ayamatsu!",
+  "question": "If Otto had never met Subaru and had simply continued living a normal life, what would his life be like now?!",
+  "answer": "He'd either be one of Petelgeuse's victims, or end up on a slave route like in Pride IF!",
   "characters": [
     "Natsuki Subaru",
     "Otto Suwen",
@@ -13,8 +13,9 @@
   ],
   "arc": "if-pride",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/977534413285203968"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2018-03-24"
 }

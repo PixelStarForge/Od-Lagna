@@ -1,7 +1,7 @@
 {
   "id": "0505",
-  "question": "Julius has the Blessing of Gathering Spirits; how effective was this blessing on Petelgeuse? Mr. Petelgeuse is a spirit after all, so it should have had an effect. It seems like it might have made him really angry, though.",
-  "answer": "With lesser spirits and quasispirits, the effect is immediate, but when they’ve advanced to the status of spirit, it’s maybe not that effective. For someone like Petelgeuse, it would affect his faith, so yeah, he’d probably be very angry.",
+  "question": "Julius has the Divine Protection of Spirit Affection. To what extent was this Divine Protection effective against Petelgeuse?",
+  "answer": "It's extremely effective against lesser spirits and quasi-spirits, but once you reach the level of a full-fledged spirit, it's not quite as effective.\n\nWith someone around Petelgeuse's level, he himself...",
   "characters": [
     "Julius Juukulius",
     "Petelgeuse Romanée-Conti"
@@ -10,10 +10,11 @@
     "Contracts & Spirits",
     "Divine Protections"
   ],
-  "arc": "general",
+  "arc": "arc-3",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/531268666654851072"
   },
-  "verified": false
+  "verified": false,
+  "dateTime": "2014-11-09"
 }

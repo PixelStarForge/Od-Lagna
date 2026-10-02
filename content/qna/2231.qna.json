@@ -1,7 +1,7 @@
 {
   "id": "2231",
-  "question": "Is Otto in the mayonnaise faction? The ketchup faction?",
-  "answer": "If it's a choice between those two, he's in the ketchup faction.",
+  "question": "Is Otto a mayonnaise person or a ketchup person?",
+  "answer": "Between those two, ketchup.",
   "characters": [
     "Otto Suwen"
   ],
@@ -10,8 +10,9 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/977537569666695169"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2018-03-24"
 }

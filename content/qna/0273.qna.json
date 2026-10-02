@@ -1,15 +1,19 @@
 {
   "id": "0273",
-  "question": "I didn’t ask the “He’d call her ‘half-devil’” question very well. If he didn’t even know she was a half-elf (the robe that interferes with recognition was working), what might he call her?",
-  "answer": "I think he’d call her ‘Miss’. Whether he’d remember her when they next met is a different question.**",
-  "characters": [],
+  "question": "If you don't even know she's (Emilia) a half-elf because the robe's recognition-blocking effect is working, what would you call her?",
+  "answer": "I'd probably call her “miss” or “little lady.” Whether I'd actually remember her the next time we met is another matter.",
+  "characters": [
+    "Emilia"
+  ],
   "topics": [
-    "General"
+    "General",
+    "Metia & Equipment"
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/502821258485301248"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-08-22"
 }
