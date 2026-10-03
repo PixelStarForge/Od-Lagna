@@ -3,16 +3,16 @@
   "question": "Petra is diligent, but have there been any concerns about her work since she came to the Roswaal manor?",
   "answer": "Well, she did burn down the mansion and such.",
   "characters": [
-    "Petra Leyte",
-    "Roswaal L. Mathers"
+    "Petra Leyte"
   ],
   "topics": [
     "General"
   ],
-  "arc": "general",
+  "arc": "arc-4",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/1104682455808667649"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2019-03-10"
 }
