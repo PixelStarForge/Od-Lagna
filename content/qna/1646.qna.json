@@ -3,6 +3,7 @@
   "question": "In the end, around how much curry udon can he eat without getting his clothes dirty?",
   "answer": "First he’d research curry udon. When he learns that you use chopsticks, he’d make his attempt after perfecting his chopstick technique, and he’d eat far more cleanly than Subaru, indeed.",
   "characters": [
+    "Julius Juukulius",
     "Natsuki Subaru"
   ],
   "topics": [
@@ -10,8 +11,9 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/883268457868873729"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2017-07-07"
 }
