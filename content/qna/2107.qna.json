@@ -3,15 +3,17 @@
   "question": "Is that club hand-made?",
   "answer": "The club was hand-made, and I'd guess it was Felt that added spikes to it. She'd say \"This way it's stronger and hurts more!\" or something.",
   "characters": [
-    "Felt"
+    "Felt",
+    "Old Man Rom"
   ],
   "topics": [
     "General"
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/965977395843903488"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2018-02-20"
 }

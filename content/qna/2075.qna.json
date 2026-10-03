@@ -1,6 +1,6 @@
 {
   "id": "2075",
-  "question": "(hidden, from a protected account)",
+  "question": "Why is Old Man Rom brown?",
   "answer": "Brown, maybe? I didn't have a mental image of brown. If it's like that, it's a tint that would work well better than most as a skin tone.",
   "characters": [
     "Old Man Rom"
@@ -10,8 +10,9 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/965976287369031681"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2018-02-20"
 }
