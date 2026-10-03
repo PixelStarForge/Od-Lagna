@@ -2,14 +2,17 @@
   "id": "3801",
   "question": "When is the next arc where he’ll be active?",
   "answer": "He’s taken care of his named chapter, so from now on, I can only promise that, at best, he’ll be as active as he was in arc five.  And when that will be, even I won’t know until I write it.",
-  "characters": [],
+  "characters": [
+    "Otto Suwen"
+  ],
   "topics": [
     "General"
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/844934502422003713"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2017-03-23"
 }
