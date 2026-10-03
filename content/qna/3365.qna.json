@@ -3,18 +3,19 @@
   "question": "It seems that the metia used by Otto and Felt in the battle against Gluttony were made by Echidna for the purpose of teasing Volcanica, but aside from those, are there any other weapons left that were left behind by Echidna?",
   "answer": "There are. They're not known by Echidna's name, though.",
   "characters": [
+    "Divine Dragon Volcanica",
     "Echidna",
     "Felt",
-    "Otto Suwen",
-    "Divine Dragon Volcanica"
+    "Otto Suwen"
   ],
   "topics": [
     "Metia & Equipment"
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/1096035150486327298"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2019-02-14"
 }
