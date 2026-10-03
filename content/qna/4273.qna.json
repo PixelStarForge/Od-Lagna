@@ -1,16 +1,15 @@
 {
-  "id": "TR-0031",
-  "title": "Tappei on reader's Letter",
-  "text": "I hope the words on the letters from readers can be clearer. Sometimes I can’t read it.",
-  "arc": "general",
+  "id": "4273",
+  "question": "What is the birthday of Otto?",
+  "answer": "24 March",
   "characters": [
-    "God (Author)"
+    "Otto Suwen"
   ],
   "topics": [
-    "General"
+    "Birthday",
+    "Emilia Camp"
   ],
-  "verified": true,
-  "dateTime": "2017-10-23",
+  "arc": "general",
   "sources": [
     {
       "type": "url",
@@ -20,5 +19,7 @@
       "type": "url",
       "value": "https://live.nicovideo.jp/watch/lv307587181"
     }
-  ]
+  ],
+  "verified": true,
+  "dateTime": "2017-10-23"
 }

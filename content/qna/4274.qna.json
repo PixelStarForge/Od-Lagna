@@ -1,14 +1,12 @@
 {
-  "id": "4242",
-  "question": "What is the most interesting question from others?",
-  "answer": "Someone asked me that if a character would die or not later. I surprise that how did he know about it. It is related to the truth of Re:Zero.",
+  "id": "4274",
+  "question": "Do you like cat or dog?",
+  "answer": "Cat.",
   "characters": [],
   "topics": [
-    "Return by Death"
+    "General"
   ],
   "arc": "general",
-  "verified": true,
-  "dateTime": "2017-10-23",
   "sources": [
     {
       "type": "url",
@@ -18,5 +16,7 @@
       "type": "url",
       "value": "https://live.nicovideo.jp/watch/lv307587181"
     }
-  ]
+  ],
+  "verified": true,
+  "dateTime": "2017-10-23"
 }
