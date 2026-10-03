@@ -10,207 +10,390 @@
     {
       "id": 1,
       "text": "All right, Episode 2 is finally starting!\nThe author will be chatting with the hashtag again today too, so please join me!\n",
-      "source": "https://x.com/nezumiironyanko/status/1844022277110894769"
+      "source": "https://x.com/nezumiironyanko/status/1844022277110894769",
+      "characters": [],
+      "topics": []
     },
     {
       "id": 2,
       "text": "Last time was 90 minutes that ended on \"this is disgusting,\" but now we're getting started on what happens, why, and how.\n",
-      "source": "https://x.com/nezumiironyanko/status/1844022479918178610"
+      "source": "https://x.com/nezumiironyanko/status/1844022479918178610",
+      "characters": [],
+      "topics": []
     },
     {
       "id": 3,
       "text": "In the year since Arc 4 ended, Subaru never once ran into a situation where he had to \"Return by Death,\" so this really was his first \"Return by Death\" in a full year.\nBefore he knew it, \"thank you\" and \"I'm sorry\" had become trauma triggers.\n",
-      "source": "https://x.com/nezumiironyanko/status/1844022703269007463"
+      "source": "https://x.com/nezumiironyanko/status/1844022703269007463",
+      "characters": [
+        "Natsuki Subaru"
+      ],
+      "topics": [
+        "Return by Death"
+      ]
     },
     {
       "id": 4,
       "text": "Even though they're under contract, he still can't tell Beatrice about \"Return by Death,\" but having someone who believes him when he says \"trust me\" is huge. So huge it practically saves him.\n",
-      "source": "https://x.com/nezumiironyanko/status/1844022905824538824"
+      "source": "https://x.com/nezumiironyanko/status/1844022905824538824",
+      "characters": [
+        "Beatrice"
+      ],
+      "topics": [
+        "Return by Death"
+      ]
     },
     {
       "id": 5,
       "text": "YEAHHH!! It's here, it's here, it's here, time for that insanely cool OP aaAAAAAAAH!!!\n",
-      "source": "https://x.com/nezumiironyanko/status/1844023015941796166"
+      "source": "https://x.com/nezumiironyanko/status/1844023015941796166",
+      "characters": [],
+      "topics": []
     },
     {
       "id": 6,
       "text": "Isn't Emilia looking over here from the top of the tower just insanely cute!?\n",
-      "source": "https://x.com/nezumiironyanko/status/1844023094530429165"
+      "source": "https://x.com/nezumiironyanko/status/1844023094530429165",
+      "characters": [
+        "Emilia"
+      ],
+      "topics": []
     },
     {
       "id": 7,
       "text": "An OP so good you hold your breath watching it...!\n",
-      "source": "https://x.com/nezumiironyanko/status/1844023204215685353"
+      "source": "https://x.com/nezumiironyanko/status/1844023204215685353",
+      "characters": [],
+      "topics": []
     },
     {
       "id": 8,
       "text": "Seriously, this OP is absolutely packed with things to see even frame by frame, so please watch it frame by frame! I did! (lol)\n",
-      "source": "https://x.com/nezumiironyanko/status/1844023377922769230"
+      "source": "https://x.com/nezumiironyanko/status/1844023377922769230",
+      "characters": [],
+      "topics": []
     },
     {
       "id": 9,
       "text": "After what happened last time, Subaru heads into the Timeworn Tower early to save Lusbel, who's supposed to become a sacrifice.\nLusbel having to prepare for that speech himself makes the situation unbearably painful.\n",
-      "source": "https://x.com/nezumiironyanko/status/1844023752969044099"
+      "source": "https://x.com/nezumiironyanko/status/1844023752969044099",
+      "characters": [
+        "Natsuki Subaru"
+      ],
+      "topics": []
     },
     {
       "id": 10,
       "text": "I didn't say all his fingers had to go flying...!\n",
-      "source": "https://x.com/nezumiironyanko/status/1844023938973929691"
+      "source": "https://x.com/nezumiironyanko/status/1844023938973929691",
+      "characters": [],
+      "topics": [
+        "Witch Cult"
+      ]
     },
     {
       "id": 11,
       "text": "That knee strike Sirius used when she kicked Subaru off was so compact and efficient, like the kick of someone who really knows how to move.\n",
-      "source": "https://x.com/nezumiironyanko/status/1844024059446861977"
+      "source": "https://x.com/nezumiironyanko/status/1844024059446861977",
+      "characters": [
+        "Natsuki Subaru",
+        "Sirius Romanee-Conti"
+      ],
+      "topics": []
     },
     {
       "id": 12,
       "text": "If you've got the Romanee-Conti surname, then eyeball-licking is just something you have to do...!\n",
-      "source": "https://x.com/nezumiironyanko/status/1844024151511859276"
+      "source": "https://x.com/nezumiironyanko/status/1844024151511859276",
+      "characters": [
+        "Petelgeuse Romanée-Conti",
+        "Sirius Romanee-Conti"
+      ],
+      "topics": []
     },
     {
       "id": 13,
       "text": "Last time it was more of a shared empathy with the crowd, but this time it happened between Subaru and Lusbel.\nHe ended up hanging there, but Subaru's direct cause of death was actually shock from fear.\n",
-      "source": "https://x.com/nezumiironyanko/status/1844024401303633932"
+      "source": "https://x.com/nezumiironyanko/status/1844024401303633932",
+      "characters": [
+        "Natsuki Subaru"
+      ],
+      "topics": []
     },
     {
       "id": 14,
       "text": "Sneakily, Priscilla was showing Liliana how to wink, like, \"You do it like this.\" Priscilla must have really taken a liking to Liliana.\n",
-      "source": "https://x.com/nezumiironyanko/status/1844024526377791532"
+      "source": "https://x.com/nezumiironyanko/status/1844024526377791532",
+      "characters": [
+        "Liliana Masquerade",
+        "Priscilla Barielle"
+      ],
+      "topics": []
     },
     {
       "id": 15,
       "text": "That split-second hesitation from Subaru when telling Lathins was because he didn't know whether saying it would trigger the Witch of Envy's penalty. The events of Arc 3, when Emilia died after he told someone, have remained an endless trauma for Subaru.\n",
-      "source": "https://x.com/nezumiironyanko/status/1844024809455575253"
+      "source": "https://x.com/nezumiironyanko/status/1844024809455575253",
+      "characters": [
+        "Emilia",
+        "Natsuki Subaru",
+        "Witch of Envy"
+      ],
+      "topics": [
+        "Witches of Sin"
+      ]
     },
     {
       "id": 16,
       "text": "Obviously, when the penalty might kill the person you tell, you can't exactly test it like, \"How much can I say?\"\n",
-      "source": "https://x.com/nezumiironyanko/status/1844024936844894248"
+      "source": "https://x.com/nezumiironyanko/status/1844024936844894248",
+      "characters": [],
+      "topics": []
     },
     {
       "id": 17,
       "text": "Aahhh! Reinhard can run on water!!\n",
-      "source": "https://x.com/nezumiironyanko/status/1844025004880760947"
+      "source": "https://x.com/nezumiironyanko/status/1844025004880760947",
+      "characters": [
+        "Reinhard van Astrea"
+      ],
+      "topics": []
     },
     {
       "id": 18,
       "text": "That BGM when Reinhard arrives...!\nEven against an Archbishop of Sin, the sheer reliability you feel when Reinhard shows up. Even Sirius, who seems completely uninterested in anyone around her, knows him well enough to go, \"Isn't that the Sword Saint?\"\n",
-      "source": "https://x.com/nezumiironyanko/status/1844025197739012235"
+      "source": "https://x.com/nezumiironyanko/status/1844025197739012235",
+      "characters": [
+        "Reinhard van Astrea",
+        "Sirius Romanee-Conti"
+      ],
+      "topics": [
+        "Combat & Tiering",
+        "Sin Archbishops"
+      ]
     },
     {
       "id": 19,
       "text": "He doesn't often get the right opponent to show it off against, but setting Authorities aside, Sirius is actually one of the more capable fighters among the Archbishops of Sin. Not enough to take on Reinhard, though.\n",
-      "source": "https://x.com/nezumiironyanko/status/1844025465989911031"
+      "source": "https://x.com/nezumiironyanko/status/1844025465989911031",
+      "characters": [
+        "Reinhard van Astrea",
+        "Sirius Romanee-Conti"
+      ],
+      "topics": [
+        "Authorities",
+        "Sin Archbishops"
+      ]
     },
     {
       "id": 20,
       "text": "A depiction of everyone's hearts becoming one.\nKill her! Kill her! Kill her!\n",
-      "source": "https://x.com/nezumiironyanko/status/1844025573670338974"
+      "source": "https://x.com/nezumiironyanko/status/1844025573670338974",
+      "characters": [],
+      "topics": []
     },
     {
       "id": 21,
       "text": "You probably get it already, but like Petelgeuse before them, the Archbishops of Sin specialize in being deadly to anyone facing them for the first time.\n",
-      "source": "https://x.com/nezumiironyanko/status/1844025785914691842"
+      "source": "https://x.com/nezumiironyanko/status/1844025785914691842",
+      "characters": [
+        "Petelgeuse Romanée-Conti"
+      ],
+      "topics": [
+        "Sin Archbishops"
+      ]
     },
     {
       "id": 22,
       "text": "S-so fast...! Part A is already over.\nAnd he's already died twice.\n",
-      "source": "https://x.com/nezumiironyanko/status/1844026089594904766"
+      "source": "https://x.com/nezumiironyanko/status/1844026089594904766",
+      "characters": [],
+      "topics": []
     },
     {
       "id": 23,
       "text": "Taking the failures of last time and the time before that into account, this time it's the part where Subaru works out countermeasures together with Beatrice. Like I said earlier, he can't tell Beatrice about \"Return by Death\" either, but Beako is seriously the perfect partner for letting him talk about what he learned while ignoring the question of \"how did you find that out?\"\n",
-      "source": "https://x.com/nezumiironyanko/status/1844026464439800146"
+      "source": "https://x.com/nezumiironyanko/status/1844026464439800146",
+      "characters": [
+        "Beatrice",
+        "Natsuki Subaru"
+      ],
+      "topics": [
+        "Return by Death"
+      ]
     },
     {
       "id": 24,
       "text": "Just as Beatrice explains, Reinhard is the strongest in the series, but he's forced to fight plenty of situations all by himself. And just being \"strong\" doesn't make everything go smoothly. Even if you're strong, you still can't solve a quadratic function...! Though Reinhard can, thanks to the Divine Protection of Arithmetic.\n",
-      "source": "https://x.com/nezumiironyanko/status/1844026830401249756"
+      "source": "https://x.com/nezumiironyanko/status/1844026830401249756",
+      "characters": [
+        "Beatrice",
+        "Reinhard van Astrea"
+      ],
+      "topics": [
+        "Combat & Tiering",
+        "Divine Protections"
+      ]
     },
     {
       "id": 25,
       "text": "Around here, you can really see in the animation that Subaru is putting on a brave front and has that sharp look in his eyes, which is very good. His shoulders even seem to be drooping a little, too.\n",
-      "source": "https://x.com/nezumiironyanko/status/1844027122903564503"
+      "source": "https://x.com/nezumiironyanko/status/1844027122903564503",
+      "characters": [
+        "Natsuki Subaru"
+      ],
+      "topics": []
     },
     {
       "id": 26,
       "text": "Beatrice's line, \"I don't want to persuade them,\" is understated, but it's one of my favorites.\n",
-      "source": "https://x.com/nezumiironyanko/status/1844027224279929144"
+      "source": "https://x.com/nezumiironyanko/status/1844027224279929144",
+      "characters": [
+        "Beatrice"
+      ],
+      "topics": []
     },
     {
       "id": 27,
       "text": "\"That guy is with the Witch Cult, so Ul Huma!\"\nThis preemptive-strike kind of thinking is a subtle little sign of Emilia's tendency to make snap decisions, and I really like it.\n",
-      "source": "https://x.com/nezumiironyanko/status/1844027407612944577"
+      "source": "https://x.com/nezumiironyanko/status/1844027407612944577",
+      "characters": [
+        "Emilia"
+      ],
+      "topics": [
+        "Mana & Magic",
+        "Witch Cult"
+      ]
     },
     {
       "id": 28,
       "text": "By the way, in Subaru's mind, his trust in Patrasche, Shamak, and Beatrice is extremely high. A little behind them come Ram and Otto.\nGarfiel feels more like a kid-brother figure, and what he feels for Emilia is different from trust, so that's how it is.\n",
-      "source": "https://x.com/nezumiironyanko/status/1844027651163570585"
+      "source": "https://x.com/nezumiironyanko/status/1844027651163570585",
+      "characters": [
+        "Beatrice",
+        "Emilia",
+        "Garfiel Tinsel",
+        "Natsuki Subaru",
+        "Otto Suwen",
+        "Patrasche",
+        "Ram"
+      ],
+      "topics": [
+        "Mana & Magic"
+      ]
     },
     {
       "id": 29,
       "text": "Sneakily, Emilia is freezing the ground under everyone's feet to stop the people around them in their tracks.\nSubaru isn't the only one who's grown over this past year.\n",
-      "source": "https://x.com/nezumiironyanko/status/1844027778276212909"
+      "source": "https://x.com/nezumiironyanko/status/1844027778276212909",
+      "characters": [
+        "Emilia",
+        "Natsuki Subaru"
+      ],
+      "topics": []
     },
     {
       "id": 30,
       "text": "That fighting style where she attacks with weapons made of ice, \"Ice Brand Arts,\" is a combat technique Emilia developed over the past year after talking it over with Subaru and asking, \"How can I get stronger?\" It involves pulling out all kinds of weapons, and the battle cries are cute.\n",
-      "source": "https://x.com/nezumiironyanko/status/1844028003539718452"
+      "source": "https://x.com/nezumiironyanko/status/1844028003539718452",
+      "characters": [
+        "Emilia",
+        "Natsuki Subaru"
+      ],
+      "topics": [
+        "Combat & Tiering"
+      ]
     },
     {
       "id": 31,
       "text": "\"Murak\" showed up in Arc 4 during the fight with the Great Rabbit too, but it's yin magic that lightens gravity so you can bounce around all over the place. \"Moon gravity\" is probably a decent image for it. Though it's probably even lighter than that.\n",
-      "source": "https://x.com/nezumiironyanko/status/1844028227788103871"
+      "source": "https://x.com/nezumiironyanko/status/1844028227788103871",
+      "characters": [],
+      "topics": [
+        "Great Mabeasts",
+        "Mabeasts",
+        "Mana & Magic"
+      ]
     },
     {
       "id": 32,
       "text": "Emilia's ice and Sirius's flames around here have such a great mutually incompatible, clashing feel to them.\n",
-      "source": "https://x.com/nezumiironyanko/status/1844028333702705662"
+      "source": "https://x.com/nezumiironyanko/status/1844028333702705662",
+      "characters": [
+        "Emilia",
+        "Sirius Romanee-Conti"
+      ],
+      "topics": []
     },
     {
       "id": 33,
       "text": "This is no time for it, but isn't Tina-chan's design ridiculously cute?\n",
-      "source": "https://x.com/nezumiironyanko/status/1844028413981675553"
+      "source": "https://x.com/nezumiironyanko/status/1844028413981675553",
+      "characters": [],
+      "topics": []
     },
     {
       "id": 34,
       "text": "\"--I made it in time.\"\n",
-      "source": "https://x.com/nezumiironyanko/status/1844028515001508179"
+      "source": "https://x.com/nezumiironyanko/status/1844028515001508179",
+      "characters": [],
+      "topics": []
     },
     {
       "id": 35,
       "text": "No way, were you actually an ally...!?\n",
-      "source": "https://x.com/nezumiironyanko/status/1844028586531111244"
+      "source": "https://x.com/nezumiironyanko/status/1844028586531111244",
+      "characters": [],
+      "topics": []
     },
     {
       "id": 36,
       "text": "\"I'll make you my 79th wife.\"\nAnd with one line, it's instantly clear he's definitely not an ally after all! (lol)\n",
-      "source": "https://x.com/nezumiironyanko/status/1844028708891570399"
+      "source": "https://x.com/nezumiironyanko/status/1844028708891570399",
+      "characters": [],
+      "topics": []
     },
     {
       "id": 37,
       "text": "And then there's that ridiculously stylish ED aaaaaah!!!\n",
-      "source": "https://x.com/nezumiironyanko/status/1844028769297953040"
+      "source": "https://x.com/nezumiironyanko/status/1844028769297953040",
+      "characters": [],
+      "topics": []
     },
     {
       "id": 38,
       "text": "The way each camp is depicted in the ED is great, but these shots of each Archbishop of Sin are so cool too. Especially the direction of \"Gluttony\" stepping forward on his own. Isn't that downright divine?\n",
-      "source": "https://x.com/nezumiironyanko/status/1844028895412265181"
+      "source": "https://x.com/nezumiironyanko/status/1844028895412265181",
+      "characters": [],
+      "topics": [
+        "Sin Archbishops"
+      ]
     },
     {
       "id": 39,
       "text": "Here! Right here! Reinhard grabbing Subaru and pulling him over like that is so good!\n",
-      "source": "https://x.com/nezumiironyanko/status/1844028971161460919"
+      "source": "https://x.com/nezumiironyanko/status/1844028971161460919",
+      "characters": [
+        "Natsuki Subaru",
+        "Reinhard van Astrea"
+      ],
+      "topics": []
     },
     {
       "id": 40,
       "text": "Still, even though she overwhelms you, Sirius was incredible... Every time Anzai-san speaks I end up wondering, \"Where is that voice even coming from?\" but in this episode she's constantly switching between friendly and hostile, and it seriously does things to your brain.\n",
-      "source": "https://x.com/nezumiironyanko/status/1844029377564311679"
+      "source": "https://x.com/nezumiironyanko/status/1844029377564311679",
+      "characters": [
+        "Sirius Romanee-Conti"
+      ],
+      "topics": []
     },
     {
       "id": 41,
       "text": "And so, that's the end of Episode 2 without even a moment to breathe!\nThe OP and ED will probably get uploaded somewhere before long, but if you recorded it, definitely watch the visuals frame by frame! I'm going to do it again myself!\nSee you again next week! Thank you very much!!\n",
-      "source": "https://x.com/nezumiironyanko/status/1844029714496905612"
+      "source": "https://x.com/nezumiironyanko/status/1844029714496905612",
+      "characters": [],
+      "topics": []
     }
   ]
 }

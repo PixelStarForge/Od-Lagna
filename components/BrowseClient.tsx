@@ -811,7 +811,7 @@ export function BrowseClient({
                 setSearchFilter(e.target.value);
                 setCurrentPage(1);
               }}
-              placeholder="Filter by keyword or #ID..."
+              placeholder="Filter by keyword ..."
               className="w-full px-3 py-2 text-xs sm:text-sm rounded-lg border border-[var(--border-subtle)] bg-[var(--bg-surface)] text-[var(--text-main)] placeholder-[var(--text-muted)] focus:outline-none focus:border-[var(--accent)]"
             />
           </div>

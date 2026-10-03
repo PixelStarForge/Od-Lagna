@@ -241,3 +241,40 @@
     .modal-foot { padding: 1rem 1.5rem; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; background: rgba(0,0,0,0.2); border-bottom-left-radius: 12px; border-bottom-right-radius: 12px; }
     .btn-modal-close { background: transparent; border: none; color: var(--text-muted); font-size: 1.25rem; cursor: pointer; }
     .btn-modal-close:hover { color: var(--text); }
+
+    /* Anime Commentary View Styles */
+    #anime-episodes-list { flex: 1; overflow-y: auto; list-style: none; }
+    #anime-episodes-list li { padding: 0.85rem 1rem; border-bottom: 1px solid var(--border); cursor: pointer; transition: background 0.15s; }
+    #anime-episodes-list li:hover { background: rgba(255, 255, 255, 0.05); }
+    #anime-episodes-list li.active { background: rgba(239, 68, 68, 0.15); border-left: 3px solid var(--accent); }
+    .anime-comment-card { background: var(--card-alt); border: 1px solid var(--border); border-radius: 8px; padding: 1rem; display: flex; flex-direction: column; gap: 0.75rem; transition: border-color 0.15s; }
+    .anime-comment-card:focus-within { border-color: var(--border-focus); }
+    .anime-comment-top { display: flex; align-items: center; justify-content: space-between; gap: 0.75rem; }
+    .anime-tag-section { display: flex; flex-direction: column; gap: 0.35rem; }
+    .anime-chips-row { display: flex; flex-wrap: wrap; gap: 0.35rem; align-items: center; }
+    .anime-chip { display: inline-flex; align-items: center; gap: 0.35rem; background: rgba(255, 255, 255, 0.08); border: 1px solid var(--border); padding: 0.2rem 0.55rem; border-radius: 4px; font-size: 0.75rem; color: var(--text); }
+    .anime-chip.char-chip { border-color: rgba(56, 189, 248, 0.4); background: rgba(56, 189, 248, 0.1); color: #bae6fd; }
+    .anime-chip.topic-chip { border-color: rgba(168, 85, 247, 0.4); background: rgba(168, 85, 247, 0.1); color: #e9d5ff; }
+    .anime-chip-del { background: transparent; border: none; color: var(--text-muted); cursor: pointer; font-size: 0.85rem; line-height: 1; }
+    .anime-chip-del:hover { color: #f87171; }
+    .btn-anime-add-tag { background: transparent; border: 1px dashed var(--border); color: var(--text-muted); padding: 0.2rem 0.5rem; border-radius: 4px; font-size: 0.72rem; cursor: pointer; }
+    .btn-anime-add-tag:hover { border-color: var(--border-focus); color: var(--text); }
+
+    /* Anime Inline Autocomplete & Tag Suggestion Pills */
+    .anime-tag-input-wrap { position: relative; display: inline-flex; align-items: center; }
+    .anime-tag-inline-input { background: rgba(0, 0, 0, 0.4); border: 1px dashed var(--border); border-radius: 4px; padding: 0.2rem 0.6rem; font-size: 0.75rem; color: var(--text); outline: none; width: 140px; transition: all 0.15s; font-family: inherit; }
+    .anime-tag-inline-input:focus { border-style: solid; border-color: var(--border-focus); width: 220px; background: var(--input); box-shadow: 0 0 0 2px rgba(56, 189, 248, 0.2); }
+    .anime-autocomplete-popover { position: absolute; top: calc(100% + 4px); left: 0; width: 280px; background: #162032; border: 1px solid var(--border-focus); border-radius: 8px; box-shadow: 0 12px 30px rgba(0, 0, 0, 0.7); max-height: 250px; overflow-y: auto; z-index: 100; display: flex; flex-direction: column; }
+    .anime-popover-pills-row { display: flex; flex-wrap: wrap; gap: 0.3rem; padding: 0.5rem; background: rgba(0, 0, 0, 0.25); border-bottom: 1px solid var(--border); }
+    .anime-popover-list { display: flex; flex-direction: column; overflow-y: auto; max-height: 180px; }
+    .anime-autocomplete-popover-item { padding: 0.45rem 0.75rem; font-size: 0.78rem; color: var(--text); cursor: pointer; border-bottom: 1px solid rgba(255, 255, 255, 0.04); display: flex; align-items: center; justify-content: space-between; transition: background 0.1s; }
+    .anime-autocomplete-popover-item:hover, .anime-autocomplete-popover-item.selected { background: rgba(56, 189, 248, 0.18); color: #38bdf8; }
+    .anime-suggestion-pill { display: inline-flex; align-items: center; gap: 0.25rem; font-size: 0.72rem; padding: 0.15rem 0.55rem; border-radius: 9999px; background: rgba(56, 189, 248, 0.1); border: 1px solid rgba(56, 189, 248, 0.35); color: #7dd3fc; cursor: pointer; transition: all 0.15s; user-select: none; }
+    .anime-suggestion-pill:hover { background: rgba(56, 189, 248, 0.25); border-color: #38bdf8; color: #f8fafc; }
+    .anime-suggestion-pill.topic-pill { background: rgba(168, 85, 247, 0.1); border-color: rgba(168, 85, 247, 0.35); color: #d8b4fe; }
+    .anime-suggestion-pill.topic-pill:hover { background: rgba(168, 85, 247, 0.25); border-color: #a855f7; color: #f8fafc; }
+    .anime-detected-shelf { display: flex; flex-wrap: wrap; align-items: center; gap: 0.35rem; padding: 0.4rem 0.65rem; border-radius: 6px; background: rgba(56, 189, 248, 0.05); border: 1px dashed rgba(56, 189, 248, 0.25); font-size: 0.72rem; color: var(--text-muted); }
+    .btn-add-all-pills { background: rgba(16, 185, 129, 0.15); border: 1px solid #10b981; color: #6ee7b7; border-radius: 4px; padding: 0.15rem 0.45rem; font-size: 0.7rem; font-weight: 600; cursor: pointer; transition: all 0.15s; }
+    .btn-add-all-pills:hover { background: rgba(16, 185, 129, 0.3); color: #a7f3d0; }
+
+

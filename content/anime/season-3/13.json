@@ -10,162 +10,338 @@
     {
       "id": 1,
       "text": "All right, it's Wednesday! Re:Zero night!\nLast time, the fight with Regulus Corneas was settled, but the battles at the control tower, the city hall, and out on the streets are still going on!\nLet's see what happens, or what happened, over there from here on out! Here we go!",
-      "source": "https://x.com/nezumiironyanko/status/1897293451311636673"
+      "source": "https://x.com/nezumiironyanko/status/1897293451311636673",
+      "characters": [
+        "Regulus Corneas"
+      ],
+      "topics": []
     },
     {
       "id": 2,
       "text": "Tricked by Capella of \"Lust,\" Garfiel was attacked by a mysterious lump of flesh. His fight with Kurgan still ongoing, he tries to strike at the demi-beast, but what catches him is the remnant of the woman whose life he took.",
-      "source": "https://x.com/nezumiironyanko/status/1897293723496800638"
+      "source": "https://x.com/nezumiironyanko/status/1897293723496800638",
+      "characters": [
+        "Capella Emerada Lugnica",
+        "Garfiel Tinsel",
+        "Kurgan"
+      ],
+      "topics": []
     },
     {
       "id": 3,
       "text": "The way Kurgan pulls out all of his oni cleavers here and finishes off the demi-beasts gives you a glimpse of something like a warrior's creed in him.",
-      "source": "https://x.com/nezumiironyanko/status/1897293904455852085"
+      "source": "https://x.com/nezumiironyanko/status/1897293904455852085",
+      "characters": [
+        "Kurgan"
+      ],
+      "topics": []
     },
     {
       "id": 4,
       "text": "The OP! So it survived this week, OP!!",
-      "source": "https://x.com/nezumiironyanko/status/1897294005836423493"
+      "source": "https://x.com/nezumiironyanko/status/1897294005836423493",
+      "characters": [],
+      "topics": []
     },
     {
       "id": 5,
       "text": "Now that we're past the halfway point of the \"Counterattack Arc,\" the way this OP looks feels different than before, and that's nice. That goes for the changed Witch Cultist hoods too, but also for the fights where the matchups differ from the main story. Regulus-san is trying to look cool...",
-      "source": "https://x.com/nezumiironyanko/status/1897294289912389896"
+      "source": "https://x.com/nezumiironyanko/status/1897294289912389896",
+      "characters": [
+        "Regulus Corneas"
+      ],
+      "topics": [
+        "Witch Cult"
+      ]
     },
     {
       "id": 6,
       "text": "Leaving Garfiel's side for the moment, we move to Felt and Otto's side, where they've clashed with \"Gluttony.\" Ever since coming to this city, Otto had been using his \"Divine Protection of Soul Language\" to negotiate with the water dragons in preparation for emergencies. It's basically a precautionary habit of his no matter what city he goes to.",
-      "source": "https://x.com/nezumiironyanko/status/1897294791727370658"
+      "source": "https://x.com/nezumiironyanko/status/1897294791727370658",
+      "characters": [
+        "Felt",
+        "Garfiel Tinsel",
+        "Otto Suwen"
+      ],
+      "topics": [
+        "Divine Protections"
+      ]
     },
     {
       "id": 7,
       "text": "Felt and Gaston's team hadn't regrouped at the city hall, so compared with Subaru's group they were lacking shared information, but even in this situation they were still trying to do what was necessary to bring down a Sin Archbishop. Running into \"Gluttony\" feels less like bad luck and more like that's just who they are.",
-      "source": "https://x.com/nezumiironyanko/status/1897295065099464963"
+      "source": "https://x.com/nezumiironyanko/status/1897295065099464963",
+      "characters": [
+        "Felt",
+        "Gaston",
+        "Natsuki Subaru"
+      ],
+      "topics": [
+        "Sin Archbishops"
+      ]
     },
     {
       "id": 8,
       "text": "Felt is probably one of the most decisive characters among the royal selection candidates, on par with Priscilla, so in that sense she's a good match for Otto because she doesn't demand long explanations from him. Otto might actually have done well in the Felt camp too. Well, except he wouldn't be able to pay back his debts.",
-      "source": "https://x.com/nezumiironyanko/status/1897295254958870574"
+      "source": "https://x.com/nezumiironyanko/status/1897295254958870574",
+      "characters": [
+        "Felt",
+        "Otto Suwen",
+        "Priscilla Barielle"
+      ],
+      "topics": [
+        "Felt Camp",
+        "Royal Selection"
+      ]
     },
     {
       "id": 9,
       "text": "Hyuuh! Gaston's strong and cool!! Over the past year, not just Lachins but the whole Tonchinkan crew really trained hard! At this rate, he might be able to beat Subaru five times in a back alley now!",
-      "source": "https://x.com/nezumiironyanko/status/1897295426828820550"
+      "source": "https://x.com/nezumiironyanko/status/1897295426828820550",
+      "characters": [
+        "Gaston",
+        "Natsuki Subaru"
+      ],
+      "topics": []
     },
     {
       "id": 10,
       "text": "The camera keeps sweeping around! This time it's Al vs. Capella! Everyone's seeing Al really fight for the first time here against Capella of \"Lust\"! Which means the author is too, for that matter!",
-      "source": "https://x.com/nezumiironyanko/status/1897295626658103418"
+      "source": "https://x.com/nezumiironyanko/status/1897295626658103418",
+      "characters": [
+        "Al (Aldebaran)",
+        "Capella Emerada Lugnica"
+      ],
+      "topics": []
     },
     {
       "id": 11,
       "text": "At the end of Episode 5, Subaru and the others managed to escape from Capella's rampage at city hall thanks to the counterattack of the black dragon the citizens had been transformed into, and the opening of the final floodgate. But that situation felt strange for something supposedly done by the Witch Cult, so who exactly was behind it?",
-      "source": "https://x.com/nezumiironyanko/status/1897295835869950333"
+      "source": "https://x.com/nezumiironyanko/status/1897295835869950333",
+      "characters": [
+        "Capella Emerada Lugnica",
+        "Felt",
+        "Natsuki Subaru"
+      ],
+      "topics": [
+        "Witch Cult"
+      ]
     },
     {
       "id": 12,
       "text": "Knock-kneed, lol",
-      "source": "https://x.com/nezumiironyanko/status/1897295892883124294"
+      "source": "https://x.com/nezumiironyanko/status/1897295892883124294",
+      "characters": [],
+      "topics": []
     },
     {
       "id": 13,
       "text": "Capella's transformation here is the same as when she disguised herself as Emilia in front of Subaru at city hall. From the slightest reaction of the person in front of her, she has a monstrous level of observational skill that lets her perfectly identify who they love most. That's not her Authority, but an ability she naturally possesses.",
-      "source": "https://x.com/nezumiironyanko/status/1897296156667076670"
+      "source": "https://x.com/nezumiironyanko/status/1897296156667076670",
+      "characters": [
+        "Capella Emerada Lugnica",
+        "Emilia",
+        "Natsuki Subaru"
+      ],
+      "topics": [
+        "Authorities"
+      ]
     },
     {
       "id": 14,
       "text": "Man, seeing that expression and hearing those lines from Priscilla, who normally wouldn't do either, is really good!\n\"What is it about me that you don't like?\" Taken on its own, that almost makes her sound like one of those devoted heroine types. Well, she is the devoted type, but not a heroine.",
-      "source": "https://x.com/nezumiironyanko/status/1897296401627013586"
+      "source": "https://x.com/nezumiironyanko/status/1897296401627013586",
+      "characters": [
+        "Priscilla Barielle"
+      ],
+      "topics": []
     },
     {
       "id": 15,
       "text": "Al fights with absolutely no mercy. \"El Dona\" is an earth-attribute spell, and he used it by stabbing it into his opponent, then activating the magic inside them and making their body swell up and explode. Unfortunately, that didn't work on Capella, but against almost anyone else it would be close to a guaranteed win.",
-      "source": "https://x.com/nezumiironyanko/status/1897296710990487692"
+      "source": "https://x.com/nezumiironyanko/status/1897296710990487692",
+      "characters": [
+        "Al (Aldebaran)",
+        "Capella Emerada Lugnica"
+      ],
+      "topics": [
+        "Mana & Magic"
+      ]
     },
     {
       "id": 16,
       "text": "\"What a rotten damn day under the stars.\"",
-      "source": "https://x.com/nezumiironyanko/status/1897296814312972304"
+      "source": "https://x.com/nezumiironyanko/status/1897296814312972304",
+      "characters": [],
+      "topics": []
     },
     {
       "id": 17,
       "text": "Al hates Capella, and Capella hates that she can't seduce single-minded Al, so these two are a terrible personality match.",
-      "source": "https://x.com/nezumiironyanko/status/1897297000196165803"
+      "source": "https://x.com/nezumiironyanko/status/1897297000196165803",
+      "characters": [
+        "Al (Aldebaran)",
+        "Capella Emerada Lugnica"
+      ],
+      "topics": []
     },
     {
       "id": 18,
       "text": "Back from the avant title, and now it's Garfiel's side.\nKurgan's blow sent him crashing underground, but just like the waterways above ground, Pristella has underground sewers running all over beneath it, so the fight takes place there.",
-      "source": "https://x.com/nezumiironyanko/status/1897297197735322010"
+      "source": "https://x.com/nezumiironyanko/status/1897297197735322010",
+      "characters": [
+        "Garfiel Tinsel",
+        "Kurgan"
+      ],
+      "topics": []
     },
     {
       "id": 19,
       "text": "Kurgan of the \"Eight Arms\" is from the Multi-Armed Tribe. He once rampaged through the Kingdom of Lugunica in the past as well, and back then he even crossed blades with a young Wilhelm and Theresia... hm? For the details, maybe check \"EX3\" and \"EX6\"?",
-      "source": "https://x.com/nezumiironyanko/status/1897297457794703653"
+      "source": "https://x.com/nezumiironyanko/status/1897297457794703653",
+      "characters": [
+        "Filore Lugunica",
+        "Fourier Lugunica",
+        "Kurgan",
+        "Theresia van Astrea",
+        "Wilhelm van Astrea"
+      ],
+      "topics": []
     },
     {
       "id": 20,
       "text": "Unlike the gimmick-heavy fight with Regulus, the battle between Garfiel and Kurgan, who both tend toward straightforward slugfests, has a lot of grimy, down-and-dirty brawling. They really expanded even the finer points of the original battle descriptions, and it's incredibly exciting to watch.",
-      "source": "https://x.com/nezumiironyanko/status/1897297767556637033"
+      "source": "https://x.com/nezumiironyanko/status/1897297767556637033",
+      "characters": [
+        "Garfiel Tinsel",
+        "Kurgan",
+        "Regulus Corneas"
+      ],
+      "topics": [
+        "Combat & Tiering"
+      ]
     },
     {
       "id": 21,
       "text": "Making footholds, attacking with upheavals, and even recovering as long as the soles of his feet are on the ground, Garfiel's \"Divine Protection of Earth Spirits\" is a seriously lucky Divine Protection to have. Unlike Otto's \"Divine Protection of Soul Language,\" it barely has any drawbacks. I guess unless you move around as much as Garfiel does, the earth's energy would make you super fat!",
-      "source": "https://x.com/nezumiironyanko/status/1897298001938551110"
+      "source": "https://x.com/nezumiironyanko/status/1897298001938551110",
+      "characters": [
+        "Garfiel Tinsel",
+        "Otto Suwen"
+      ],
+      "topics": [
+        "Contracts & Spirits",
+        "Divine Protections"
+      ]
     },
     {
       "id": 22,
       "text": "If the sewers run all throughout the underground, then naturally that means they're also adjacent to the shelters scattered around the city. So they can end up connected like this. And it was fate that a brother and sister with such a complicated relationship happened to be there too... maybe that's because they're on the side that has that kind of luck.",
-      "source": "https://x.com/nezumiironyanko/status/1897298244251869452"
+      "source": "https://x.com/nezumiironyanko/status/1897298244251869452",
+      "characters": [],
+      "topics": [
+        "Character Relationships"
+      ]
     },
     {
       "id": 23,
       "text": "The image of Elsa that kept appearing over and over from episode 1 of Season 3 onward was basically Garfiel's lingering scar from having taken her life, but for Garfiel, who was struggling with the \"reason to fight,\" the ones who gave him the courage to break free of that were the brother and sister he met unexpectedly... the resolve to protect, I suppose.",
-      "source": "https://x.com/nezumiironyanko/status/1897298510325940593"
+      "source": "https://x.com/nezumiironyanko/status/1897298510325940593",
+      "characters": [
+        "Elsa Granhiert",
+        "Garfiel Tinsel"
+      ],
+      "topics": []
     },
     {
       "id": 24,
       "text": "With Subaru's mental state stabilized, Garfiel ended up facing a lot more trials, but that means it's his turn for some protagonist development!",
-      "source": "https://x.com/nezumiironyanko/status/1897298617314201710"
+      "source": "https://x.com/nezumiironyanko/status/1897298617314201710",
+      "characters": [
+        "Garfiel Tinsel",
+        "Natsuki Subaru"
+      ],
+      "topics": []
     },
     {
       "id": 25,
       "text": "From here on, it won't let you catch your breath, so blink at your own risk!",
-      "source": "https://x.com/nezumiironyanko/status/1897298676240015715"
+      "source": "https://x.com/nezumiironyanko/status/1897298676240015715",
+      "characters": [],
+      "topics": []
     },
     {
       "id": 26,
       "text": "Splendid...!",
-      "source": "https://x.com/nezumiironyanko/status/1897299273940881546"
+      "source": "https://x.com/nezumiironyanko/status/1897299273940881546",
+      "characters": [],
+      "topics": []
     },
     {
       "id": 27,
       "text": "That was fast! Fast again today! Especially Part B! It was over in an instant!",
-      "source": "https://x.com/nezumiironyanko/status/1897299445466980605"
+      "source": "https://x.com/nezumiironyanko/status/1897299445466980605",
+      "characters": [],
+      "topics": []
     },
     {
       "id": 28,
       "text": "Well, in terms of pure fighting strength, Garfiel just beat someone who, depending on how you look at it, may have been even more dangerous than a Sin Archbishop!",
-      "source": "https://x.com/nezumiironyanko/status/1897299863051866415"
+      "source": "https://x.com/nezumiironyanko/status/1897299863051866415",
+      "characters": [
+        "Garfiel Tinsel"
+      ],
+      "topics": [
+        "Sin Archbishops"
+      ]
     },
     {
       "id": 29,
       "text": "As for Wilhelm vs. Theresia, the \"Divine Protection of the Death God\" that got mentioned is a Divine Protection that prevents wounds inflicted by its bearer from healing, making it a Divine Protection meant to kill the opponent for certain.\nTheresia was a transcendent figure in the Re:Zero world, possessing both the \"Divine Protection of the Death God\" and the \"Divine Protection of the Sword Saint.\"",
-      "source": "https://x.com/nezumiironyanko/status/1897300294666801652"
+      "source": "https://x.com/nezumiironyanko/status/1897300294666801652",
+      "characters": [
+        "Theresia van Astrea",
+        "Wilhelm van Astrea"
+      ],
+      "topics": [
+        "Combat & Tiering",
+        "Divine Protections"
+      ]
     },
     {
       "id": 30,
       "text": "You could tell from the voice, and probably from the credits too, but Kurgan was voiced by Takaya Kuroda!\nCasting done just for that thing at the end! He made Kurgan feel incredibly convincing. Cool, right?",
-      "source": "https://x.com/nezumiironyanko/status/1897300658296180968"
+      "source": "https://x.com/nezumiironyanko/status/1897300658296180968",
+      "characters": [
+        "Kurgan"
+      ],
+      "topics": []
     },
     {
       "id": 31,
       "text": "As for Garfiel vs. Kurgan, from the author's perspective, it was actually the fight in Arc 5 that I felt I wrote with the most impact. They really understood that feeling, and it turned into an incredible battle. Garfiel's arms got completely wrecked.",
-      "source": "https://x.com/nezumiironyanko/status/1897301109980717398"
+      "source": "https://x.com/nezumiironyanko/status/1897301109980717398",
+      "characters": [
+        "Felt",
+        "Garfiel Tinsel",
+        "Kurgan"
+      ],
+      "topics": [
+        "Combat & Tiering"
+      ]
     },
     {
       "id": 32,
       "text": "And with that, another battle has reached its conclusion, and on to the next episode! What remains are \"Lust\" and \"Gluttony\" x2, and then \"Sword Saint\" vs. \"Sword Demon\"! The battle over the Water Gate City of Priestella is hitting its critical stage!\nPlease stick with us again next week! You did great, Garfiel!!",
-      "source": "https://x.com/nezumiironyanko/status/1897301626463138042"
+      "source": "https://x.com/nezumiironyanko/status/1897301626463138042",
+      "characters": [
+        "Garfiel Tinsel"
+      ],
+      "topics": [
+        "Combat & Tiering",
+        "Mana & Magic",
+        "Worldbuilding"
+      ]
     }
   ]
 }

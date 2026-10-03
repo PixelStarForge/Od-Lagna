@@ -10,152 +10,323 @@
     {
       "id": 1,
       "text": "All right, it's Re:Zero time again this week!\nLast time, Subaru returned to Beatrice. After answering Garfiel, \"I know what hell is,\" what is it that he will see in this world?\nWith that, please enjoy!\n",
-      "source": "https://x.com/nezumiironyanko/status/1306239191131410432"
+      "source": "https://x.com/nezumiironyanko/status/1306239191131410432",
+      "characters": [
+        "Beatrice",
+        "Garfiel Tinsel",
+        "Natsuki Subaru"
+      ],
+      "topics": []
     },
     {
       "id": 2,
       "text": "At the beginning, Frederica and the others follow Subaru's instructions and evacuate to Arlam Village with the sleeping Rem.\nPetra looks anxious.\n",
-      "source": "https://x.com/nezumiironyanko/status/1306239443141980160"
+      "source": "https://x.com/nezumiironyanko/status/1306239443141980160",
+      "characters": [
+        "Frederica Baumann",
+        "Natsuki Subaru",
+        "Petra Leyte",
+        "Rem"
+      ],
+      "topics": []
     },
     {
       "id": 3,
       "text": "At Subaru's words, Beatrice lowers her eyes to the book in her hands. Irritated by her evasive attitude, Subaru snatches the book away, but... far from showing the future, there was nothing written in it.\n",
-      "source": "https://x.com/nezumiironyanko/status/1306239603297251329"
+      "source": "https://x.com/nezumiironyanko/status/1306239603297251329",
+      "characters": [
+        "Beatrice",
+        "Natsuki Subaru"
+      ],
+      "topics": []
     },
     {
       "id": 4,
       "text": "Beatrice has continued waiting in the Forbidden Library for \"that person.\"\nBut weary of it all, Beatrice had begun to wish for an end. There was even a time when she placed her hopes in Subaru, but...\n",
-      "source": "https://x.com/nezumiironyanko/status/1306240086711779333"
+      "source": "https://x.com/nezumiironyanko/status/1306240086711779333",
+      "characters": [
+        "Beatrice",
+        "Natsuki Subaru"
+      ],
+      "topics": []
     },
     {
       "id": 5,
       "text": "Now that Subaru has returned to the mansion, Elsa-san and the others speed up their actions to match.\nThis answers why every last door in the mansion had been left open: it was proof that Elsa-san was searching for Beatrice.\n",
-      "source": "https://x.com/nezumiironyanko/status/1306241159845478401"
+      "source": "https://x.com/nezumiironyanko/status/1306241159845478401",
+      "characters": [
+        "Beatrice",
+        "Elsa Granhiert",
+        "Natsuki Subaru"
+      ],
+      "topics": []
     },
     {
       "id": 6,
       "text": "Kyaa!! Paisen!!\n",
-      "source": "https://x.com/nezumiironyanko/status/1306241205206831104"
+      "source": "https://x.com/nezumiironyanko/status/1306241205206831104",
+      "characters": [],
+      "topics": []
     },
     {
       "id": 7,
       "text": "Meili is a \"Beast Tamer,\" and what becomes clear from her actions is that Elsa and Meili are attacking at the same time. In other words, the assailants targeting the mansion are a tag-team of the culprits from Arc 1 and Arc 2.\n",
-      "source": "https://x.com/nezumiironyanko/status/1306241519548952576"
+      "source": "https://x.com/nezumiironyanko/status/1306241519548952576",
+      "characters": [
+        "Elsa Granhiert",
+        "Meili Portroute"
+      ],
+      "topics": []
     },
     {
       "id": 8,
       "text": "This is our first real look at Beatrice in full-on combat.\nIt's also the first time someone other than Subaru has used Shamak properly. When someone other than Subaru uses it, it's actually a real threat.\nIt would probably work on Julius, too.\n",
-      "source": "https://x.com/nezumiironyanko/status/1306241816035905536"
+      "source": "https://x.com/nezumiironyanko/status/1306241816035905536",
+      "characters": [
+        "Beatrice",
+        "Julius Juukulius",
+        "Natsuki Subaru"
+      ],
+      "topics": [
+        "Combat & Tiering",
+        "Mana & Magic"
+      ]
     },
     {
       "id": 9,
       "text": "Elsa should have been torn apart after taking Minya, but... Subaru has bigger problems than that, as Beatrice suffers a fatal wound and her very existence starts to unravel from there.\n",
-      "source": "https://x.com/nezumiironyanko/status/1306242106646646784"
+      "source": "https://x.com/nezumiironyanko/status/1306242106646646784",
+      "characters": [
+        "Beatrice",
+        "Elsa Granhiert",
+        "Natsuki Subaru"
+      ],
+      "topics": [
+        "Mana & Magic"
+      ]
     },
     {
       "id": 10,
       "text": "The instant Subaru thinks, \"So this is as far as we get this time...,\" Elsa-san goes straight for his eye.\nShe must have been really furious.\n",
-      "source": "https://x.com/nezumiironyanko/status/1306242260804071426"
+      "source": "https://x.com/nezumiironyanko/status/1306242260804071426",
+      "characters": [
+        "Elsa Granhiert",
+        "Natsuki Subaru"
+      ],
+      "topics": []
     },
     {
       "id": 11,
       "text": "Subaru loses his left eye and is nearly killed on the spot. Then he is swallowed up once more by a blue light and teleported. And there before him, all too familiar, is the snowy \"Sanctuary\" he was supposed to have already left behind.\n",
-      "source": "https://x.com/nezumiironyanko/status/1306242458582278144"
+      "source": "https://x.com/nezumiironyanko/status/1306242458582278144",
+      "characters": [
+        "Natsuki Subaru"
+      ],
+      "topics": [
+        "Worldbuilding"
+      ]
     },
     {
       "id": 12,
       "text": "And once again, snow is falling in the \"Sanctuary\"...\n",
-      "source": "https://x.com/nezumiironyanko/status/1306242526974681088"
+      "source": "https://x.com/nezumiironyanko/status/1306242526974681088",
+      "characters": [],
+      "topics": [
+        "Worldbuilding"
+      ]
     },
     {
       "id": 13,
       "text": "In the snow-covered \"Sanctuary,\" Subaru drags his feet back to the tomb. More than checking whether someone was safe, his real aim was to consult Echidna, but... waiting for him inside the tomb was an anxious-looking Emilia.\n",
-      "source": "https://x.com/nezumiironyanko/status/1306242847805325316"
+      "source": "https://x.com/nezumiironyanko/status/1306242847805325316",
+      "characters": [
+        "Echidna",
+        "Emilia",
+        "Natsuki Subaru"
+      ],
+      "topics": [
+        "Worldbuilding"
+      ]
     },
     {
       "id": 14,
       "text": "The encounter with Emilia was unexpected, but Subaru also realizes that something is off about her.\nUnable to understand what happened while he was away, Subaru is pressed harder and harder by Emilia standing before him.\n",
-      "source": "https://x.com/nezumiironyanko/status/1306243120267321344"
+      "source": "https://x.com/nezumiironyanko/status/1306243120267321344",
+      "characters": [
+        "Emilia",
+        "Natsuki Subaru"
+      ],
+      "topics": []
     },
     {
       "id": 15,
       "text": "Garfiel saw Emilia entering the tomb as dangerous, but since he can't go inside himself, he was waiting outside for Subaru to bring her back out. But Subaru came out empty-handed, and in a completely battered state. Garfiel is confused too.\n",
-      "source": "https://x.com/nezumiironyanko/status/1306243417035411462"
+      "source": "https://x.com/nezumiironyanko/status/1306243417035411462",
+      "characters": [
+        "Emilia",
+        "Garfiel Tinsel",
+        "Natsuki Subaru"
+      ],
+      "topics": []
     },
     {
       "id": 16,
       "text": "\"There's no way Emilia would say she loves me!!\" is some painfully sad self-awareness.\n",
-      "source": "https://x.com/nezumiironyanko/status/1306243511025508353"
+      "source": "https://x.com/nezumiironyanko/status/1306243511025508353",
+      "characters": [
+        "Emilia"
+      ],
+      "topics": []
     },
     {
       "id": 17,
       "text": "The repeated question: \"Was that something you heard from me?\"\n",
-      "source": "https://x.com/nezumiironyanko/status/1306243696967299072"
+      "source": "https://x.com/nezumiironyanko/status/1306243696967299072",
+      "characters": [],
+      "topics": []
     },
     {
       "id": 18,
       "text": "A blow delivered through the heroine, a strike focused entirely on catching him off guard. Roswaal's idea that using Ram would be the perfect way to kill Garfiel is downright devilish.\n",
-      "source": "https://x.com/nezumiironyanko/status/1306244092611887104"
+      "source": "https://x.com/nezumiironyanko/status/1306244092611887104",
+      "characters": [
+        "Garfiel Tinsel",
+        "Ram",
+        "Roswaal L. Mathers"
+      ],
+      "topics": []
     },
     {
       "id": 19,
       "text": "\"The boy I knew was one who would fly into a rage\" is a fitting line.\nWhy couldn't Subaru get angry? Roswaal's words, spoken as if he had figured Subaru out, may have hit the mark.\n",
-      "source": "https://x.com/nezumiironyanko/status/1306244379779059712"
+      "source": "https://x.com/nezumiironyanko/status/1306244379779059712",
+      "characters": [
+        "Natsuki Subaru",
+        "Roswaal L. Mathers"
+      ],
+      "topics": []
     },
     {
       "id": 20,
       "text": "Roswaal grips his book with bloodstained hands. Thinking about his state of mind, it's a very effective detail because it conveys what kind of end he already expects for himself.\n",
-      "source": "https://x.com/nezumiironyanko/status/1306244663326642176"
+      "source": "https://x.com/nezumiironyanko/status/1306244663326642176",
+      "characters": [
+        "Roswaal L. Mathers"
+      ],
+      "topics": []
     },
     {
       "id": 21,
       "text": "\"Emilia-sama will be isolated.\"\nIf snow falls where Emilia is, people will assume she is the cause. For Roswaal, who intended to set that in motion from a very early stage, even Memory Snow was part of the groundwork.\n",
-      "source": "https://x.com/nezumiironyanko/status/1306244981015756802"
+      "source": "https://x.com/nezumiironyanko/status/1306244981015756802",
+      "characters": [
+        "Emilia",
+        "Roswaal L. Mathers"
+      ],
+      "topics": []
     },
     {
       "id": 22,
       "text": "\"If he kills me, he won't get me to start over.\"\nThat mistaken assumption is Subaru's one and only advantage over Roswaal.\n",
-      "source": "https://x.com/nezumiironyanko/status/1306245245382746112"
+      "source": "https://x.com/nezumiironyanko/status/1306245245382746112",
+      "characters": [
+        "Natsuki Subaru",
+        "Roswaal L. Mathers"
+      ],
+      "topics": []
     },
     {
       "id": 23,
       "text": "Because the snow was made to fall, the Great Rabbit comes.\n",
-      "source": "https://x.com/nezumiironyanko/status/1306245324034330625"
+      "source": "https://x.com/nezumiironyanko/status/1306245324034330625",
+      "characters": [],
+      "topics": [
+        "Great Mabeasts",
+        "Mabeasts"
+      ]
     },
     {
       "id": 24,
       "text": "Roswaal seems to understand Subaru's loops, but he cannot carry over his memories.\nUnlike Subaru, he knows it will end here, yet he hopes to achieve his objective by relying on Subaru's loops. That is how Roswaal L. Mathers acts.\n",
-      "source": "https://x.com/nezumiironyanko/status/1306245620986863616"
+      "source": "https://x.com/nezumiironyanko/status/1306245620986863616",
+      "characters": [
+        "Natsuki Subaru",
+        "Roswaal L. Mathers"
+      ],
+      "topics": []
     },
     {
       "id": 25,
       "text": "\"You too can become like me.\"\nThat's Roswaal's own way of giving Subaru advice.\n",
-      "source": "https://x.com/nezumiironyanko/status/1306245715778101248"
+      "source": "https://x.com/nezumiironyanko/status/1306245715778101248",
+      "characters": [
+        "Natsuki Subaru",
+        "Roswaal L. Mathers"
+      ],
+      "topics": []
     },
     {
       "id": 26,
       "text": "Roswaal is taken out by the Great Rabbit, and Subaru somehow manages to make it back to Emilia, but by then his body is already on the verge of death...\n",
-      "source": "https://x.com/nezumiironyanko/status/1306246049539829761"
+      "source": "https://x.com/nezumiironyanko/status/1306246049539829761",
+      "characters": [
+        "Emilia",
+        "Natsuki Subaru",
+        "Roswaal L. Mathers"
+      ],
+      "topics": [
+        "Great Mabeasts",
+        "Mabeasts"
+      ]
     },
     {
       "id": 27,
       "text": "His first kiss tasted of cold \"death.\"\n",
-      "source": "https://x.com/nezumiironyanko/status/1306246101536616448"
+      "source": "https://x.com/nezumiironyanko/status/1306246101536616448",
+      "characters": [],
+      "topics": []
     },
     {
       "id": 28,
       "text": "Roswaal-san really caused all kinds of trouble this time, but today, the 16th, is his birthday!\nHe even received flowers for his birthday!\nWow, such lovely bright red flowers!\nThank you very much!!\n https://t.co/v6hA7fUOuD",
-      "source": "https://x.com/nezumiironyanko/status/1306246143655833602"
+      "source": "https://x.com/nezumiironyanko/status/1306246143655833602",
+      "characters": [
+        "Roswaal L. Mathers"
+      ],
+      "topics": []
     },
     {
       "id": 29,
       "text": "From Subaru's point of view, the most gruesome death he had was the first time he was eaten by the Great Rabbit, but I think it's fair to say this time was the worst ordeal he has been through.\nHe couldn't save Beatrice, Petra and the others were killed, Ram and Garfiel died right in front of him, Roswaal has lost his mind, and Emilia has fallen ill in spirit too.\n",
-      "source": "https://x.com/nezumiironyanko/status/1306246647261794304"
+      "source": "https://x.com/nezumiironyanko/status/1306246647261794304",
+      "characters": [
+        "Beatrice",
+        "Emilia",
+        "Garfiel Tinsel",
+        "Natsuki Subaru",
+        "Petra Leyte",
+        "Ram",
+        "Roswaal L. Mathers"
+      ],
+      "topics": [
+        "Contracts & Spirits",
+        "Great Mabeasts",
+        "Mabeasts"
+      ]
     },
     {
       "id": 30,
       "text": "Needless to say, since the Great Rabbit has arrived, the \"Sanctuary\" is wiped out too.\nOtto dies quietly offscreen!\nHinting at all that as well, thank you again for this week! Arc 4 is finally reaching the point where it feels like we understand who the enemy is, and also somehow less than ever!\nDote on Meili, who's half a new character, and wait for next week!!\n",
-      "source": "https://x.com/nezumiironyanko/status/1306247214486884352"
+      "source": "https://x.com/nezumiironyanko/status/1306247214486884352",
+      "characters": [
+        "Meili Portroute",
+        "Otto Suwen"
+      ],
+      "topics": [
+        "Great Mabeasts",
+        "Mabeasts",
+        "Worldbuilding"
+      ]
     }
   ]
 }

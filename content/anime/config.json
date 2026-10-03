@@ -5,7 +5,11 @@
     "type": "season",
     "order": 1,
     "seasonNumber": 1,
-    "arcs": ["arc-1", "arc-2", "arc-3"],
+    "arcs": [
+      "arc-1",
+      "arc-2",
+      "arc-3"
+    ],
     "episodesCount": 25,
     "year": "2016",
     "status": "completed",
@@ -17,7 +21,11 @@
     "type": "season",
     "order": 2,
     "seasonNumber": 1,
-    "arcs": ["arc-1", "arc-2", "arc-3"],
+    "arcs": [
+      "arc-1",
+      "arc-2",
+      "arc-3"
+    ],
     "episodesCount": 13,
     "year": "2020",
     "status": "completed",
@@ -29,7 +37,9 @@
     "type": "season",
     "order": 3,
     "seasonNumber": 2,
-    "arcs": ["arc-4"],
+    "arcs": [
+      "arc-4"
+    ],
     "episodesCount": 25,
     "year": "2020–2021",
     "status": "completed",
@@ -41,7 +51,9 @@
     "type": "season",
     "order": 4,
     "seasonNumber": 3,
-    "arcs": ["arc-5"],
+    "arcs": [
+      "arc-5"
+    ],
     "episodesCount": 16,
     "year": "2024–2025",
     "status": "completed",
@@ -53,11 +65,12 @@
     "type": "season",
     "order": 5,
     "seasonNumber": 4,
-    "arcs": ["arc-6"],
+    "arcs": [
+      "arc-6"
+    ],
     "episodesCount": 19,
     "year": "2026",
     "status": "completed",
     "synopsis": "Subaru and his companions venture into the Pleiades Watchtower across the Augria Sand Dunes to find a cure for the victims of Priestella."
   }
 ]
-

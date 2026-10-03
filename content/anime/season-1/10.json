@@ -10,277 +10,456 @@
     {
       "id": 1,
       "text": "Starting at 4:30, huh.\nAll right, let's get a little sleep!! Don't you worry about oversleeping!! See you at 4:30!!",
-      "source": "https://x.com/nezumiironyanko/status/739484217596383233"
+      "source": "https://x.com/nezumiironyanko/status/739484217596383233",
+      "characters": [],
+      "topics": []
     },
     {
       "id": 2,
       "text": "I woke up. I have awakened! ",
-      "source": "https://x.com/nezumiironyanko/status/739539231958130688"
+      "source": "https://x.com/nezumiironyanko/status/739539231958130688",
+      "characters": [],
+      "topics": []
     },
     {
       "id": 3,
       "text": "Well then, let's do this again this week! ",
-      "source": "https://x.com/nezumiironyanko/status/739539839159148544"
+      "source": "https://x.com/nezumiironyanko/status/739539839159148544",
+      "characters": [],
+      "topics": []
     },
     {
       "id": 4,
       "text": "Last time, he didn't die. ",
-      "source": "https://x.com/nezumiironyanko/status/739539964522696704"
+      "source": "https://x.com/nezumiironyanko/status/739539964522696704",
+      "characters": [],
+      "topics": []
     },
     {
       "id": 5,
       "text": "Whose house in Arlam Village do you suppose this is? ",
-      "source": "https://x.com/nezumiironyanko/status/739540043212017666"
+      "source": "https://x.com/nezumiironyanko/status/739540043212017666",
+      "characters": [],
+      "topics": []
     },
     {
       "id": 6,
       "text": "A truly compelling performance! ",
-      "source": "https://x.com/nezumiironyanko/status/739540151429300224"
+      "source": "https://x.com/nezumiironyanko/status/739540151429300224",
+      "characters": [],
+      "topics": []
     },
     {
       "id": 7,
       "text": "The conditions for lifting this curse are a little different from usual. Clap clap clap. ",
-      "source": "https://x.com/nezumiironyanko/status/739540341666127873"
+      "source": "https://x.com/nezumiironyanko/status/739540341666127873",
+      "characters": [],
+      "topics": []
     },
     {
       "id": 8,
       "text": "Opening! ",
-      "source": "https://x.com/nezumiironyanko/status/739540423538925568"
+      "source": "https://x.com/nezumiironyanko/status/739540423538925568",
+      "characters": [],
+      "topics": []
     },
     {
       "id": 9,
       "text": "Just like you saw in the preview, this week's episode moves like crazy, so look forward to it. Seriously, it's on an insane level. ",
-      "source": "https://x.com/nezumiironyanko/status/739540615990386688"
+      "source": "https://x.com/nezumiironyanko/status/739540615990386688",
+      "characters": [],
+      "topics": []
     },
     {
       "id": 10,
       "text": "It should be about time everyone started properly realizing that the lineup at the end is not Subaru's harem...! ",
-      "source": "https://x.com/nezumiironyanko/status/739540765022388224"
+      "source": "https://x.com/nezumiironyanko/status/739540765022388224",
+      "characters": [
+        "Natsuki Subaru"
+      ],
+      "topics": []
     },
     {
       "id": 11,
       "text": "Pack gag again ",
-      "source": "https://x.com/nezumiironyanko/status/739540799491215360"
+      "source": "https://x.com/nezumiironyanko/status/739540799491215360",
+      "characters": [],
+      "topics": []
     },
     {
       "id": 12,
       "text": "Part A starts now---! ",
-      "source": "https://x.com/nezumiironyanko/status/739541047827566592"
+      "source": "https://x.com/nezumiironyanko/status/739541047827566592",
+      "characters": [],
+      "topics": []
     },
     {
       "id": 13,
       "text": "Ram is cute this week too, so keep an eye on her. ",
-      "source": "https://x.com/nezumiironyanko/status/739541110708535296"
+      "source": "https://x.com/nezumiironyanko/status/739541110708535296",
+      "characters": [
+        "Ram"
+      ],
+      "topics": []
     },
     {
       "id": 14,
       "text": "This is an episode where nee-sama's charms come through really strongly. ",
-      "source": "https://x.com/nezumiironyanko/status/739541195777445889"
+      "source": "https://x.com/nezumiironyanko/status/739541195777445889",
+      "characters": [],
+      "topics": []
     },
     {
       "id": 15,
       "text": "A mabeast has appeared, so the villagers are in an emergency meeting. You could also call it waiting for Roswaal. ",
-      "source": "https://x.com/nezumiironyanko/status/739541407761764352"
+      "source": "https://x.com/nezumiironyanko/status/739541407761764352",
+      "characters": [
+        "Roswaal L. Mathers"
+      ],
+      "topics": [
+        "Mabeasts"
+      ]
     },
     {
       "id": 16,
       "text": "The protagonist casually going in for a touch on Petra... ",
-      "source": "https://x.com/nezumiironyanko/status/739541526569590785"
+      "source": "https://x.com/nezumiironyanko/status/739541526569590785",
+      "characters": [
+        "Petra Leyte"
+      ],
+      "topics": []
     },
     {
       "id": 17,
       "text": "Rare outdoor Beako ",
-      "source": "https://x.com/nezumiironyanko/status/739541567447302145"
+      "source": "https://x.com/nezumiironyanko/status/739541567447302145",
+      "characters": [
+        "Beatrice"
+      ],
+      "topics": []
     },
     {
       "id": 18,
       "text": "By the way, according to the setting, the steamed potatoes Ram made aren't potatoes, but a tuber called \"yam potato.\" ",
-      "source": "https://x.com/nezumiironyanko/status/739541681284878340"
+      "source": "https://x.com/nezumiironyanko/status/739541681284878340",
+      "characters": [
+        "Ram"
+      ],
+      "topics": []
     },
     {
       "id": 19,
       "text": "It's refreshing to see Beako standing on bare earth. It looks like her skirt is dragging on the ground, but the hem repels dirt and such with magic power. A long time ago, I saw a setting note saying Lulu from FF10 did the same thing, so we're using something like that here. ",
-      "source": "https://x.com/nezumiironyanko/status/739541981714518017"
+      "source": "https://x.com/nezumiironyanko/status/739541981714518017",
+      "characters": [
+        "Beatrice"
+      ],
+      "topics": [
+        "Mana & Magic"
+      ]
     },
     {
       "id": 20,
       "text": "The cold open returns ",
-      "source": "https://x.com/nezumiironyanko/status/739542324179406849"
+      "source": "https://x.com/nezumiironyanko/status/739542324179406849",
+      "characters": [],
+      "topics": []
     },
     {
       "id": 21,
       "text": "Nee-sama happened to overhear them while searching through the village. Was she really just overhearing? Maybe she was worried about Beako and Subaru's conversation. ",
-      "source": "https://x.com/nezumiironyanko/status/739542578295492609"
+      "source": "https://x.com/nezumiironyanko/status/739542578295492609",
+      "characters": [
+        "Beatrice",
+        "Natsuki Subaru"
+      ],
+      "topics": []
     },
     {
       "id": 22,
       "text": "Is it just the author's bias, or does Subaru basically look cuter whenever he's gotten something off his chest? ",
-      "source": "https://x.com/nezumiironyanko/status/739542753294438401"
+      "source": "https://x.com/nezumiironyanko/status/739542753294438401",
+      "characters": [
+        "Natsuki Subaru"
+      ],
+      "topics": []
     },
     {
       "id": 23,
       "text": "The sky is unbelievably beautiful ",
-      "source": "https://x.com/nezumiironyanko/status/739542894831271938"
+      "source": "https://x.com/nezumiironyanko/status/739542894831271938",
+      "characters": [],
+      "topics": []
     },
     {
       "id": 24,
       "text": "Part A over! Wasn't that fast? ",
-      "source": "https://x.com/nezumiironyanko/status/739542978717306880"
+      "source": "https://x.com/nezumiironyanko/status/739542978717306880",
+      "characters": [],
+      "topics": []
     },
     {
       "id": 25,
       "text": "It was mentioned so casually, but there's going to be an official anthology comic! Isn't that amazing? Isn't that amazing? ",
-      "source": "https://x.com/nezumiironyanko/status/739543170497662977"
+      "source": "https://x.com/nezumiironyanko/status/739543170497662977",
+      "characters": [],
+      "topics": []
     },
     {
       "id": 26,
       "text": "What a nonstop barrage of Re:Zero commercials! ",
-      "source": "https://x.com/nezumiironyanko/status/739543259010109442"
+      "source": "https://x.com/nezumiironyanko/status/739543259010109442",
+      "characters": [],
+      "topics": []
     },
     {
       "id": 27,
       "text": "Now then, enjoy the perfectly great Part B! ",
-      "source": "https://x.com/nezumiironyanko/status/739543345735684096"
+      "source": "https://x.com/nezumiironyanko/status/739543345735684096",
+      "characters": [],
+      "topics": []
     },
     {
       "id": 28,
       "text": "The finest blade in the village, the \"Destiny Blade\"...! (A name I made up myself) ",
-      "source": "https://x.com/nezumiironyanko/status/739543579127775232"
+      "source": "https://x.com/nezumiironyanko/status/739543579127775232",
+      "characters": [],
+      "topics": []
     },
     {
       "id": 29,
       "text": "I guess it's a rhinoceros beetle ",
-      "source": "https://x.com/nezumiironyanko/status/739543687982514176"
+      "source": "https://x.com/nezumiironyanko/status/739543687982514176",
+      "characters": [],
+      "topics": []
     },
     {
       "id": 30,
       "text": "Kobayashi-san fulfills the ikemen-voice quota ",
-      "source": "https://x.com/nezumiironyanko/status/739543785202286592"
+      "source": "https://x.com/nezumiironyanko/status/739543785202286592",
+      "characters": [],
+      "topics": []
     },
     {
       "id": 31,
       "text": "Anyone with an eye for it will spot Ram's clairvoyance immediately, but it was inspired by the vision-jacking effect from the game Siren. ",
-      "source": "https://x.com/nezumiironyanko/status/739543976005402624"
+      "source": "https://x.com/nezumiironyanko/status/739543976005402624",
+      "characters": [
+        "Ram"
+      ],
+      "topics": []
     },
     {
       "id": 32,
       "text": "Every mabeast gives priority to targeting Subaru. The reason is that he looks weak. Also, he looks easy to mess with. ",
-      "source": "https://x.com/nezumiironyanko/status/739544157845225472"
+      "source": "https://x.com/nezumiironyanko/status/739544157845225472",
+      "characters": [
+        "Natsuki Subaru"
+      ],
+      "topics": [
+        "Mabeasts"
+      ]
     },
     {
       "id": 33,
       "text": "A scene that steps a little into the deeper parts of those two. The explanatory dialogue has been changed slightly from the original. ",
-      "source": "https://x.com/nezumiironyanko/status/739544317459472384"
+      "source": "https://x.com/nezumiironyanko/status/739544317459472384",
+      "characters": [],
+      "topics": []
     },
     {
       "id": 34,
       "text": "Rem going wild in the forest moves an absurd amount ",
-      "source": "https://x.com/nezumiironyanko/status/739544494882709504"
+      "source": "https://x.com/nezumiironyanko/status/739544494882709504",
+      "characters": [
+        "Rem"
+      ],
+      "topics": []
     },
     {
       "id": 35,
       "text": "I wrote a ton in the second bonus booklet about Ram and Rem's stance on the whole horn issue. It's probably super interesting! (Shameless promotion) ",
-      "source": "https://x.com/nezumiironyanko/status/739544754031984640"
+      "source": "https://x.com/nezumiironyanko/status/739544754031984640",
+      "characters": [
+        "Ram",
+        "Rem"
+      ],
+      "topics": []
     },
     {
       "id": 36,
       "text": "Thanks to the battle right before this, Subaru-kun is rating Ram's combat ability pretty highly in his head. ",
-      "source": "https://x.com/nezumiironyanko/status/739544941395742720"
+      "source": "https://x.com/nezumiironyanko/status/739544941395742720",
+      "characters": [
+        "Natsuki Subaru",
+        "Ram"
+      ],
+      "topics": [
+        "Combat & Tiering"
+      ]
     },
     {
       "id": 37,
       "text": "This is the part from the preview where Rem reacted to Subaru's butt. ",
-      "source": "https://x.com/nezumiironyanko/status/739545009632874496"
+      "source": "https://x.com/nezumiironyanko/status/739545009632874496",
+      "characters": [
+        "Natsuki Subaru",
+        "Rem"
+      ],
+      "topics": []
     },
     {
       "id": 38,
       "text": "You might be wondering why the mabeasts haven't caught up here, but it's because they're toying with Subaru and the others, so they're deliberately not catching up. ",
-      "source": "https://x.com/nezumiironyanko/status/739545134090452992"
+      "source": "https://x.com/nezumiironyanko/status/739545134090452992",
+      "characters": [
+        "Natsuki Subaru"
+      ],
+      "topics": [
+        "Mabeasts"
+      ]
     },
     {
       "id": 39,
       "text": "The Destiny Blade breaks ",
-      "source": "https://x.com/nezumiironyanko/status/739545184652795905"
+      "source": "https://x.com/nezumiironyanko/status/739545184652795905",
+      "characters": [],
+      "topics": []
     },
     {
       "id": 40,
       "text": "Ram's face when she's sliding down just now is one she almost never shows, so if you watch it in slow motion, it's cute desu. ",
-      "source": "https://x.com/nezumiironyanko/status/739545270824763393"
+      "source": "https://x.com/nezumiironyanko/status/739545270824763393",
+      "characters": [
+        "Ram"
+      ],
+      "topics": []
     },
     {
       "id": 41,
       "text": "The boss Guiltylowe waiting behind the pack ",
-      "source": "https://x.com/nezumiironyanko/status/739545330752966657"
+      "source": "https://x.com/nezumiironyanko/status/739545330752966657",
+      "characters": [],
+      "topics": [
+        "Mabeasts"
+      ]
     },
     {
       "id": 42,
       "text": "And once again this week, a hero appears when the heroine is in trouble! This time, a dark hero. ",
-      "source": "https://x.com/nezumiironyanko/status/739545423107358720"
+      "source": "https://x.com/nezumiironyanko/status/739545423107358720",
+      "characters": [],
+      "topics": []
     },
     {
       "id": 43,
       "text": "Please pay close attention to Rem's movements from here on. ",
-      "source": "https://x.com/nezumiironyanko/status/739545493089329153"
+      "source": "https://x.com/nezumiironyanko/status/739545493089329153",
+      "characters": [
+        "Rem"
+      ],
+      "topics": []
     },
     {
       "id": 44,
       "text": "While Rem buys time for him, Subaru tries to put a little distance between them. But he's badly outnumbered. ",
-      "source": "https://x.com/nezumiironyanko/status/739545632243732480"
+      "source": "https://x.com/nezumiironyanko/status/739545632243732480",
+      "characters": [
+        "Natsuki Subaru",
+        "Rem"
+      ],
+      "topics": []
     },
     {
       "id": 45,
       "text": "He draws the enemies focused only on Rem over to himself by revealing \"Return by Death.\" But it also draws Rem's attention. ",
-      "source": "https://x.com/nezumiironyanko/status/739545747008278528"
+      "source": "https://x.com/nezumiironyanko/status/739545747008278528",
+      "characters": [
+        "Rem"
+      ],
+      "topics": [
+        "Return by Death"
+      ]
     },
     {
       "id": 46,
       "text": "Rem trying to kill the dogs and the staff ",
-      "source": "https://x.com/nezumiironyanko/status/739545865006678016"
+      "source": "https://x.com/nezumiironyanko/status/739545865006678016",
+      "characters": [
+        "Rem"
+      ],
+      "topics": []
     },
     {
       "id": 47,
       "text": "He throws it farther than expected here ",
-      "source": "https://x.com/nezumiironyanko/status/739545983277666304"
+      "source": "https://x.com/nezumiironyanko/status/739545983277666304",
+      "characters": [],
+      "topics": []
     },
     {
       "id": 48,
       "text": "Nee-sama's face while she's flying is surreal ",
-      "source": "https://x.com/nezumiironyanko/status/739546044157943812"
+      "source": "https://x.com/nezumiironyanko/status/739546044157943812",
+      "characters": [],
+      "topics": []
     },
     {
       "id": 49,
       "text": "The boss Guiltylowe pulled the attention from above downward. In other words, it was a joint effort by the two of them. ",
-      "source": "https://x.com/nezumiironyanko/status/739546197161959424"
+      "source": "https://x.com/nezumiironyanko/status/739546197161959424",
+      "characters": [],
+      "topics": [
+        "Mabeasts"
+      ]
     },
     {
       "id": 50,
       "text": "Part B over!! On to the ending!! ",
-      "source": "https://x.com/nezumiironyanko/status/739546263964684288"
+      "source": "https://x.com/nezumiironyanko/status/739546263964684288",
+      "characters": [],
+      "topics": []
     },
     {
       "id": 51,
       "text": "Did you know? This is actually the first time since episode 2 that both the OP and ED are here together. And back then, the ending didn't have visuals to avoid spoilers! This is the completed version! This is proper anime! ",
-      "source": "https://x.com/nezumiironyanko/status/739546448694366209"
+      "source": "https://x.com/nezumiironyanko/status/739546448694366209",
+      "characters": [],
+      "topics": []
     },
     {
       "id": 52,
       "text": "Wow, though, today was especially early. ",
-      "source": "https://x.com/nezumiironyanko/status/739546563786080257"
+      "source": "https://x.com/nezumiironyanko/status/739546563786080257",
+      "characters": [],
+      "topics": []
     },
     {
       "id": 53,
       "text": "It begins with mabeast sponsor cards and ends with mabeast sponsor cards. ...Oh, wait, Pack isn't a mabeast! ",
-      "source": "https://x.com/nezumiironyanko/status/739546953164328960"
+      "source": "https://x.com/nezumiironyanko/status/739546953164328960",
+      "characters": [],
+      "topics": [
+        "Mabeasts"
+      ]
     },
     {
       "id": 54,
       "text": "Still, Rem's movements were incredible. Really, all I can say is thank you so much. It was amazing. ",
-      "source": "https://x.com/nezumiironyanko/status/739547780905979906"
+      "source": "https://x.com/nezumiironyanko/status/739547780905979906",
+      "characters": [
+        "Rem"
+      ],
+      "topics": []
     },
     {
       "id": 55,
       "text": "Oh right, the scene showing how Rem, who was so active today, first met Mr. Iron Ball is in volume 2 of the bonus novel. It turned out very romantic and fateful, so please give it a read. Go on, here you are! ",
-      "source": "https://x.com/nezumiironyanko/status/739548230027878400"
+      "source": "https://x.com/nezumiironyanko/status/739548230027878400",
+      "characters": [
+        "Rem"
+      ],
+      "topics": []
     }
   ]
 }

@@ -388,6 +388,22 @@ export function validateAnimeContent(): { valid: boolean; errors: string[] } {
             `[anime/${seasonId}/${filename}] Non-sequential comment ID #${comment.id}, expected #${i + 1}`
           );
         }
+
+        // Validate character and topic tags if present
+        for (const char of comment.characters) {
+          if (!char || !char.trim()) {
+            errors.push(
+              `[anime/${seasonId}/${filename}] Empty character tag found in comment #${comment.id}`
+            );
+          }
+        }
+        for (const topic of comment.topics) {
+          if (!topic || !topic.trim()) {
+            errors.push(
+              `[anime/${seasonId}/${filename}] Empty topic tag found in comment #${comment.id}`
+            );
+          }
+        }
       }
     }
   }

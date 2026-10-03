@@ -10,127 +10,263 @@
     {
       "id": 1,
       "text": "Alright, it's Re:Zero time again today!\nBelieve it or not, today is the final episode of the first half of Re:Zero Season 3, titled the \"Assault Arc\"! The continuation comes after the new year! That means you'll have to wait for the second half, the \"Counterattack Arc,\" but then what exactly are we doing for the finale today?\nPlease enjoy!\n",
-      "source": "https://x.com/nezumiironyanko/status/1859241392708735308"
+      "source": "https://x.com/nezumiironyanko/status/1859241392708735308",
+      "characters": [],
+      "topics": []
     },
     {
       "id": 2,
       "text": "Here we go!\nThis is... the OP is giving off dead vibes...!!!\n",
-      "source": "https://x.com/nezumiironyanko/status/1859242854079733904"
+      "source": "https://x.com/nezumiironyanko/status/1859242854079733904",
+      "characters": [],
+      "topics": []
     },
     {
       "id": 3,
       "text": "Last time, Subaru's speech helped the group rebuild the spirits of Priestella's people. Then Otto and Reinhard joined them, and they held a strategy meeting for the rematch... but! A bombshell gets dropped!\n",
-      "source": "https://x.com/nezumiironyanko/status/1859243096179200039"
+      "source": "https://x.com/nezumiironyanko/status/1859243096179200039",
+      "characters": [
+        "Natsuki Subaru",
+        "Otto Suwen",
+        "Reinhard van Astrea"
+      ],
+      "topics": [
+        "Contracts & Spirits",
+        "Worldbuilding"
+      ]
     },
     {
       "id": 4,
       "text": "Just to confirm again about the \"Tome of Wisdom\": what the Witch Cult carries around are \"Gospels,\" and the \"Tome of Wisdom\" is the original. The \"Tome of Wisdom\" was created by Echidna, the \"Witch of Greed,\" and given to Roswaal and Beatrice. If you've forgotten, go watch Season 2 of the anime!!\n",
-      "source": "https://x.com/nezumiironyanko/status/1859243523532603696"
+      "source": "https://x.com/nezumiironyanko/status/1859243523532603696",
+      "characters": [
+        "Beatrice",
+        "Echidna",
+        "Roswaal L. Mathers"
+      ],
+      "topics": [
+        "Witch Cult",
+        "Witches of Sin"
+      ]
     },
     {
       "id": 5,
       "text": "Did that wink get a little better??\n",
-      "source": "https://x.com/nezumiironyanko/status/1859243582907146735"
+      "source": "https://x.com/nezumiironyanko/status/1859243582907146735",
+      "characters": [],
+      "topics": []
     },
     {
       "id": 6,
       "text": "Schult-chan, Priscilla's attendant, is a child from a farming village whom Priscilla whimsically took in. He devotedly serves Priscilla, and surviving in the current Priestella was incredibly lucky... though that's not the only reason.\n",
-      "source": "https://x.com/nezumiironyanko/status/1859243921399767166"
+      "source": "https://x.com/nezumiironyanko/status/1859243921399767166",
+      "characters": [
+        "Priscilla Barielle",
+        "Schult"
+      ],
+      "topics": [
+        "Worldbuilding"
+      ]
     },
     {
       "id": 7,
       "text": "\"I do not trust Margrave Mathers at all.\"\nThat's Otto's hard-edged side... or rather, Subaru and Emilia just feel too soft. That said, Roswaal's power is essential for the Royal Selection, so Otto keeping watch on him is very important. It's Petra and Otto's anti-Roswaal alliance.\n",
-      "source": "https://x.com/nezumiironyanko/status/1859244231774310591"
+      "source": "https://x.com/nezumiironyanko/status/1859244231774310591",
+      "characters": [
+        "Emilia",
+        "Natsuki Subaru",
+        "Otto Suwen",
+        "Petra Leyte",
+        "Roswaal L. Mathers"
+      ],
+      "topics": [
+        "Royal Selection"
+      ]
     },
     {
       "id": 8,
       "text": "The unit you can feel safe letting act alone.\nReinhard\nOtto\nRoswaal\nSomething like that seems about right, doesn't it?\n",
-      "source": "https://x.com/nezumiironyanko/status/1859244598893465743"
+      "source": "https://x.com/nezumiironyanko/status/1859244598893465743",
+      "characters": [
+        "Otto Suwen",
+        "Reinhard van Astrea",
+        "Roswaal L. Mathers"
+      ],
+      "topics": []
     },
     {
       "id": 9,
       "text": "The \"Dragon's Blood\" tormenting Crusch-san doesn't respond to Ferris's healing magic because it is neither damage nor a status ailment.\nThe same applies to the people Capella transformed as well. \"Lust\" is a very bad match for Ferris.\n",
-      "source": "https://x.com/nezumiironyanko/status/1859244890552693166"
+      "source": "https://x.com/nezumiironyanko/status/1859244890552693166",
+      "characters": [
+        "Capella Emerada Lugnica",
+        "Crusch Karsten",
+        "Felix Argyle (Ferris)"
+      ],
+      "topics": [
+        "Mana & Magic"
+      ]
     },
     {
       "id": 10,
       "text": "Here, Subaru knows that transferring the curse would do serious damage to himself too, but he thinks that if doing so would lessen its effects on Crusch-san's body, then ending up with ugly arms and legs himself would be basically no risk at all.\n",
-      "source": "https://x.com/nezumiironyanko/status/1859245187094245679"
+      "source": "https://x.com/nezumiironyanko/status/1859245187094245679",
+      "characters": [
+        "Crusch Karsten",
+        "Natsuki Subaru"
+      ],
+      "topics": []
     },
     {
       "id": 11,
       "text": "Crusch-san saying, \"Please say to me too, 'Leave everything after this to me,'\" makes her feel like such a strong heroine to me personally. I like that.\n",
-      "source": "https://x.com/nezumiironyanko/status/1859245397887315978"
+      "source": "https://x.com/nezumiironyanko/status/1859245397887315978",
+      "characters": [
+        "Crusch Karsten"
+      ],
+      "topics": []
     },
     {
       "id": 12,
       "text": "The strength of Witch Cultists other than the Sin Archbishops varies wildly, but the two who came to Priestella are absurdly strong, even so.\nThe people Wilhelm-san has in mind are among the strongest in the world. In simple combat ability, they're above the Sin Archbishops. The Sin Archbishops are troublesome because of everything besides raw combat power, though.\n",
-      "source": "https://x.com/nezumiironyanko/status/1859245921353290003"
+      "source": "https://x.com/nezumiironyanko/status/1859245921353290003",
+      "characters": [
+        "Wilhelm van Astrea"
+      ],
+      "topics": [
+        "Combat & Tiering",
+        "Sin Archbishops",
+        "Witch Cult",
+        "Worldbuilding"
+      ]
     },
     {
       "id": 13,
       "text": "Wilhelm-san is talking here about the time of the \"Demi-Human War,\" but for the details, see \"Re:ZERO -Starting Life in Another World- Ex2: Sword Demon Love Ballad\"! I've written other stories with young Wilhelm-san as the protagonist too, so they're worth checking out!\n",
-      "source": "https://x.com/nezumiironyanko/status/1859246364779254128"
+      "source": "https://x.com/nezumiironyanko/status/1859246364779254128",
+      "characters": [
+        "Wilhelm van Astrea"
+      ],
+      "topics": []
     },
     {
       "id": 14,
       "text": "This is the argument after the commercial break, but among the Royal Selection candidates, Priscilla and Anastasia don't get along especially well. The fact that Priscilla properly engages with her also means she recognizes Anastasia's ability.\n",
-      "source": "https://x.com/nezumiironyanko/status/1859246675090641358"
+      "source": "https://x.com/nezumiironyanko/status/1859246675090641358",
+      "characters": [
+        "Anastasia Hoshin",
+        "Priscilla Barielle"
+      ],
+      "topics": [
+        "Royal Selection"
+      ]
     },
     {
       "id": 15,
       "text": "Reinhard has a whole lot of Divine Protections, but he keeps gaining more at this rate, so it's only natural he'd have tons of them.\nBy the way, about one in a thousand people has a Divine Protection, and a truly proper one is one in a thousand of those, and one that's insanely useful is like one in a thousand beyond that.\n",
-      "source": "https://x.com/nezumiironyanko/status/1859246991135694911"
+      "source": "https://x.com/nezumiironyanko/status/1859246991135694911",
+      "characters": [
+        "Reinhard van Astrea"
+      ],
+      "topics": [
+        "Divine Protections"
+      ]
     },
     {
       "id": 16,
       "text": "On-screen captions...?\nNo way, did someone die? The ED...!!\n",
-      "source": "https://x.com/nezumiironyanko/status/1859247436533010802"
+      "source": "https://x.com/nezumiironyanko/status/1859247436533010802",
+      "characters": [],
+      "topics": []
     },
     {
       "id": 17,
       "text": "Reinhard and Wilhelm-san are grandson and grandfather, but I think that was the most they've talked in a long while. That's how distant they've been.\n",
-      "source": "https://x.com/nezumiironyanko/status/1859247620344213672"
+      "source": "https://x.com/nezumiironyanko/status/1859247620344213672",
+      "characters": [
+        "Reinhard van Astrea",
+        "Wilhelm van Astrea"
+      ],
+      "topics": []
     },
     {
       "id": 18,
       "text": "Since Subaru has run into the Archbishops of Sin across the board, his judgment of their combat strength is accurate. He properly understands that Regulus-san is someone only Reinhard can handle.\n",
-      "source": "https://x.com/nezumiironyanko/status/1859247849399333124"
+      "source": "https://x.com/nezumiironyanko/status/1859247849399333124",
+      "characters": [
+        "Natsuki Subaru",
+        "Regulus Corneas",
+        "Reinhard van Astrea"
+      ],
+      "topics": [
+        "Combat & Tiering",
+        "Sin Archbishops"
+      ]
     },
     {
       "id": 19,
       "text": "Alright, from here on it's an important scene!\n",
-      "source": "https://x.com/nezumiironyanko/status/1859247967485468709"
+      "source": "https://x.com/nezumiironyanko/status/1859247967485468709",
+      "characters": [],
+      "topics": []
     },
     {
       "id": 20,
       "text": "Regulus-san says she's \"the kind of girl who looks ugly when she smiles,\" but there are other reasons he dislikes smiles too.\nHe just doesn't want to say them, so he's giving a more presentable reason instead. As if this counts as a presentable reason.\n",
-      "source": "https://x.com/nezumiironyanko/status/1859248519787503635"
+      "source": "https://x.com/nezumiironyanko/status/1859248519787503635",
+      "characters": [
+        "Regulus Corneas"
+      ],
+      "topics": []
     },
     {
       "id": 21,
       "text": "\"Blow away everything below the neck\" -> because he likes the face.\n",
-      "source": "https://x.com/nezumiironyanko/status/1859248842681782327"
+      "source": "https://x.com/nezumiironyanko/status/1859248842681782327",
+      "characters": [],
+      "topics": []
     },
     {
       "id": 22,
       "text": "You might think it's surprising that Regulus-san is actually listening properly, but it's just that he hasn't been argued with this much in centuries, so right now his mind has gone completely blank and he couldn't move.\n",
-      "source": "https://x.com/nezumiironyanko/status/1859249135104491888"
+      "source": "https://x.com/nezumiironyanko/status/1859249135104491888",
+      "characters": [
+        "Regulus Corneas"
+      ],
+      "topics": []
     },
     {
       "id": 23,
       "text": "--The person Emilia will someday fall in love with.\nSadly, Subaru isn't hearing this conversation right now. Even if he were, he probably couldn't do anything about it, though!\n",
-      "source": "https://x.com/nezumiironyanko/status/1859249386297122837"
+      "source": "https://x.com/nezumiironyanko/status/1859249386297122837",
+      "characters": [
+        "Emilia",
+        "Natsuki Subaru"
+      ],
+      "topics": [
+        "Character Relationships"
+      ]
     },
     {
       "id": 24,
       "text": "This may be old-fashioned, but when it comes to weddings, it really has to be \"Stop this wedding!!\"\nSubaru and Reinhard crashing in, and the bride Emilia happily welcoming them in. The groom seriously gets no good moments at all.\n",
-      "source": "https://x.com/nezumiironyanko/status/1859249791458492611"
+      "source": "https://x.com/nezumiironyanko/status/1859249791458492611",
+      "characters": [
+        "Emilia",
+        "Natsuki Subaru",
+        "Reinhard van Astrea"
+      ],
+      "topics": []
     },
     {
       "id": 25,
       "text": "And with Subaru going to steal Emilia back, that's the end for today! Which means the first half is over!\nThe \"Assault Arc\" has ended, and it continues into the New Year's \"Counterattack Arc\"!\nAll I can really say is thank you for turning it into such an incredible anime! And thank you to everyone who watched it too!\nAnime really is a wonderful thing!\n",
-      "source": "https://x.com/nezumiironyanko/status/1859250200331825291"
+      "source": "https://x.com/nezumiironyanko/status/1859250200331825291",
+      "characters": [
+        "Emilia",
+        "Natsuki Subaru"
+      ],
+      "topics": []
     }
   ]
 }

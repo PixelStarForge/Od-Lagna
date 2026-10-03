@@ -10,247 +10,490 @@
     {
       "id": 1,
       "text": "All right, hello! We're back again this week!\nLast time, things got pretty bad for Natsuki Subaru, so what on earth will happen this time?! He dies!\n",
-      "source": "https://x.com/nezumiironyanko/status/1232674118182420480"
+      "source": "https://x.com/nezumiironyanko/status/1232674118182420480",
+      "characters": [
+        "Natsuki Kenichi",
+        "Natsuki Naoko",
+        "Natsuki Rigel",
+        "Natsuki Spica",
+        "Natsuki Subaru"
+      ],
+      "topics": []
     },
     {
       "id": 2,
       "text": "Even if an episode comes along where he doesn't die, I fully intend to keep saying, \"He dies!\"\n",
-      "source": "https://x.com/nezumiironyanko/status/1232674287451959297"
+      "source": "https://x.com/nezumiironyanko/status/1232674287451959297",
+      "characters": [],
+      "topics": []
     },
     {
       "id": 3,
       "text": "A nice, easy-to-follow recap of last time.\n",
-      "source": "https://x.com/nezumiironyanko/status/1232674685172604930"
+      "source": "https://x.com/nezumiironyanko/status/1232674685172604930",
+      "characters": [],
+      "topics": []
     },
     {
       "id": 4,
       "text": "After parting with Emilia on bad terms last time, Subaru is now staying at the mansion of Duchess Crusch Karsten, also a royal selection candidate, for treatment of his gate, which was his original objective.\n",
-      "source": "https://x.com/nezumiironyanko/status/1232674865708093440"
+      "source": "https://x.com/nezumiironyanko/status/1232674865708093440",
+      "characters": [
+        "Crusch Karsten",
+        "Emilia",
+        "Natsuki Subaru"
+      ],
+      "topics": [
+        "Mana & Magic",
+        "Royal Selection"
+      ]
     },
     {
       "id": 5,
       "text": "Ferris and Julius are friends, so Ferris understands Julius's true intent in beating Subaru to a pulp last time. And understanding that, Ferris is angry at Subaru for dragging disgrace onto his friend. Well, that's fair.\n",
-      "source": "https://x.com/nezumiironyanko/status/1232675063062622208"
+      "source": "https://x.com/nezumiironyanko/status/1232675063062622208",
+      "characters": [
+        "Felix Argyle (Ferris)",
+        "Julius Juukulius",
+        "Natsuki Subaru"
+      ],
+      "topics": []
     },
     {
       "id": 6,
       "text": "All right, starting this week, it's Paradise Paradox time!\n",
-      "source": "https://x.com/nezumiironyanko/status/1232675118670680064"
+      "source": "https://x.com/nezumiironyanko/status/1232675118670680064",
+      "characters": [],
+      "topics": []
     },
     {
       "id": 7,
       "text": "From here on, the royal selection candidates start filing into the OP one after another, and the jet-black heroine starts appearing too.\n",
-      "source": "https://x.com/nezumiironyanko/status/1232675351056138240"
+      "source": "https://x.com/nezumiironyanko/status/1232675351056138240",
+      "characters": [],
+      "topics": [
+        "Royal Selection"
+      ]
     },
     {
       "id": 8,
       "text": "Reinhard goes out of his way to visit the Crusch mansion and apologize about what happened at the training grounds, but Subaru is still like this.\nHe's probably going to Julius after this too, but from Julius's position, all he can really say is, \"If he comes to me himself, then I'll listen.\"\n",
-      "source": "https://x.com/nezumiironyanko/status/1232675803248218112"
+      "source": "https://x.com/nezumiironyanko/status/1232675803248218112",
+      "characters": [
+        "Crusch Karsten",
+        "Julius Juukulius",
+        "Natsuki Subaru",
+        "Reinhard van Astrea"
+      ],
+      "topics": []
     },
     {
       "id": 9,
       "text": "Rem didn't directly see what happened at the castle last time, so that's part of it, but I don't think her attitude would have changed even if she had seen it there in person. I don't think it would change, but maybe... there was a chance she would've attacked Julius, I guess?\n",
-      "source": "https://x.com/nezumiironyanko/status/1232676094249037827"
+      "source": "https://x.com/nezumiironyanko/status/1232676094249037827",
+      "characters": [
+        "Julius Juukulius",
+        "Rem"
+      ],
+      "topics": []
     },
     {
       "id": 10,
       "text": "By the way, on the day Rem handled customer service, it seems the fruit stand may or may not have broken its sales record, even in that short time.\n",
-      "source": "https://x.com/nezumiironyanko/status/1232676236767330305"
+      "source": "https://x.com/nezumiironyanko/status/1232676236767330305",
+      "characters": [
+        "Rem"
+      ],
+      "topics": []
     },
     {
       "id": 11,
       "text": "Speaking up to defend a half-elf is extremely heretical in this world, so Subaru's actions are pretty outrageous, and Kadomon kindly making sure to teach him that is really very nice of him.\n",
-      "source": "https://x.com/nezumiironyanko/status/1232676591035011072"
+      "source": "https://x.com/nezumiironyanko/status/1232676591035011072",
+      "characters": [
+        "Kadomon Risch",
+        "Natsuki Subaru"
+      ],
+      "topics": []
     },
     {
       "id": 12,
       "text": "By the way, even if Rem had been at the training grounds and had flown into a rage at Julius's actions and attacked him, Rem still wouldn't be able to beat Julius. I won't say he'd kill her instantly, but she'd be utterly crushed.\n",
-      "source": "https://x.com/nezumiironyanko/status/1232676865602727936"
+      "source": "https://x.com/nezumiironyanko/status/1232676865602727936",
+      "characters": [
+        "Julius Juukulius",
+        "Rem"
+      ],
+      "topics": []
     },
     {
       "id": 13,
       "text": "Crusch-san having a nightcap is a seriously cool lady.\n",
-      "source": "https://x.com/nezumiironyanko/status/1232676972859252736"
+      "source": "https://x.com/nezumiironyanko/status/1232676972859252736",
+      "characters": [
+        "Crusch Karsten"
+      ],
+      "topics": []
     },
     {
       "id": 14,
       "text": "As for these marriage proposals, the ones constantly getting them are probably Crusch-san and Anastasia-san.\nPriscilla's husbands keep dying, and Emilia and Felt are difficult because of their backgrounds. Which makes sense.\n",
-      "source": "https://x.com/nezumiironyanko/status/1232677328334909442"
+      "source": "https://x.com/nezumiironyanko/status/1232677328334909442",
+      "characters": [
+        "Anastasia Hoshin",
+        "Crusch Karsten",
+        "Emilia",
+        "Felt",
+        "Priscilla Barielle"
+      ],
+      "topics": []
     },
     {
       "id": 15,
       "text": "Considering Subaru's disgraceful behavior at the training grounds, Crusch-san and Ferris are treating him quite rationally. Even so, when things have gotten twisted, it's hard to honestly listen to the people around you.\n",
-      "source": "https://x.com/nezumiironyanko/status/1232677715188142080"
+      "source": "https://x.com/nezumiironyanko/status/1232677715188142080",
+      "characters": [
+        "Crusch Karsten",
+        "Felix Argyle (Ferris)",
+        "Natsuki Subaru"
+      ],
+      "topics": []
     },
     {
       "id": 16,
       "text": "No marriage proposals come for Felt in the first place, and even if they did, they'd have to get past the walls of the Sword Saint and an overdoting grandpa before reaching her. In other words, they won't reach her...!\n",
-      "source": "https://x.com/nezumiironyanko/status/1232678123369426944"
+      "source": "https://x.com/nezumiironyanko/status/1232678123369426944",
+      "characters": [
+        "Felt"
+      ],
+      "topics": [
+        "Combat & Tiering"
+      ]
     },
     {
       "id": 17,
       "text": "A champion of justice has no work without villains.\nNatsuki Subaru, who has \"Return by Death,\" is also only useful when that kind of situation happens. So that's the state of mind here.\n",
-      "source": "https://x.com/nezumiironyanko/status/1232678774749028353"
+      "source": "https://x.com/nezumiironyanko/status/1232678774749028353",
+      "characters": [
+        "Natsuki Kenichi",
+        "Natsuki Naoko",
+        "Natsuki Rigel",
+        "Natsuki Spica",
+        "Natsuki Subaru"
+      ],
+      "topics": [
+        "Return by Death"
+      ]
     },
     {
       "id": 18,
       "text": "Wilhelm reacting when he hears \"White Whale.\" Nice attention to detail.\n",
-      "source": "https://x.com/nezumiironyanko/status/1232679020593999873"
+      "source": "https://x.com/nezumiironyanko/status/1232679020593999873",
+      "characters": [
+        "White Whale",
+        "Wilhelm van Astrea"
+      ],
+      "topics": [
+        "Great Mabeasts",
+        "Mabeasts"
+      ]
     },
     {
       "id": 19,
       "text": "In this world, some degree of \"synesthesia\" is fairly common between siblings like twins and triplets. That said, for it to reach across a distance like it does with Ram and Rem is rare... in this case, what's special is less their relationship itself and more that Ram is a lump of talent all on her own, and that affects Rem too.\n",
-      "source": "https://x.com/nezumiironyanko/status/1232679372533850113"
+      "source": "https://x.com/nezumiironyanko/status/1232679372533850113",
+      "characters": [
+        "Ram",
+        "Rem"
+      ],
+      "topics": [
+        "Character Relationships"
+      ]
     },
     {
       "id": 20,
       "text": "People close to Ferris call Ferris \"Ferris,\" but people in servant-type positions like Ram and Rem call Ferris \"Felix-sama.\"\n",
-      "source": "https://x.com/nezumiironyanko/status/1232679876919906305"
+      "source": "https://x.com/nezumiironyanko/status/1232679876919906305",
+      "characters": [
+        "Felix Argyle (Ferris)",
+        "Ram",
+        "Rem"
+      ],
+      "topics": []
     },
     {
       "id": 21,
       "text": "Subaru can't read the letters, so it's something written only in the \"i\" script. In the original work, the contents of the letter were read through on the spot, but in the anime it's used in a way that's extremely effective for anime.\n",
-      "source": "https://x.com/nezumiironyanko/status/1232680331246895104"
+      "source": "https://x.com/nezumiironyanko/status/1232680331246895104",
+      "characters": [
+        "Natsuki Subaru"
+      ],
+      "topics": []
     },
     {
       "id": 22,
       "text": "The green figure that appears over Rem's opening monologue is \"Otto Suwen.\" He doesn't have a proper character illustration in the original work, so he's probably a mob character.\n",
-      "source": "https://x.com/nezumiironyanko/status/1232680669983039488"
+      "source": "https://x.com/nezumiironyanko/status/1232680669983039488",
+      "characters": [
+        "Framir Suwen",
+        "Mazeran Suwen",
+        "Nikola Suwen",
+        "Oslo Suwen",
+        "Otto Suwen",
+        "Regin Suwen",
+        "Rem"
+      ],
+      "topics": []
     },
     {
       "id": 23,
       "text": "These creepy people appearing for the first time. That silhouette showed up in the anime before too, but can you tell where?\n",
-      "source": "https://x.com/nezumiironyanko/status/1232680856491151366"
+      "source": "https://x.com/nezumiironyanko/status/1232680856491151366",
+      "characters": [],
+      "topics": []
     },
     {
       "id": 24,
       "text": "Arlam Village is usually lively during the day, but with no voices from the children or adults to be heard, Subaru walks around inside the village... but he can no longer deceive his own awareness.\n",
-      "source": "https://x.com/nezumiironyanko/status/1232681126235275266"
+      "source": "https://x.com/nezumiironyanko/status/1232681126235275266",
+      "characters": [
+        "Natsuki Subaru"
+      ],
+      "topics": []
     },
     {
       "id": 25,
       "text": "The reason Subaru keeps saying \"Rem, Rem\" here is, of course, because he's worried about Rem, but also because he doesn't want to imagine what might have happened to everyone else at the mansion besides Rem.\n",
-      "source": "https://x.com/nezumiironyanko/status/1232681415889653760"
+      "source": "https://x.com/nezumiironyanko/status/1232681415889653760",
+      "characters": [
+        "Natsuki Subaru",
+        "Rem"
+      ],
+      "topics": []
     },
     {
       "id": 26,
       "text": "That trick of overlaying Rem's corpse with the monologue from Rem's letter... this guy Eiji Umehara who wrote the script is something else. He has no human heart.\n",
-      "source": "https://x.com/nezumiironyanko/status/1232681730638675968"
+      "source": "https://x.com/nezumiironyanko/status/1232681730638675968",
+      "characters": [
+        "Rem"
+      ],
+      "topics": []
     },
     {
       "id": 27,
       "text": "The reason he's saying \"someone, someone\" here too is because he doesn't want to say anyone's name and imagine what happened to that person.\n",
-      "source": "https://x.com/nezumiironyanko/status/1232681984800870400"
+      "source": "https://x.com/nezumiironyanko/status/1232681984800870400",
+      "characters": [],
+      "topics": []
     },
     {
       "id": 28,
       "text": "A hidden passage, the standard feature of a great noble's mansion!\nBut for some reason, it's frozen over.\n",
-      "source": "https://x.com/nezumiironyanko/status/1232682310434050049"
+      "source": "https://x.com/nezumiironyanko/status/1232682310434050049",
+      "characters": [],
+      "topics": []
     },
     {
       "id": 29,
       "text": "Seeing an icy door makes me remember Memory Snow☆\n",
-      "source": "https://x.com/nezumiironyanko/status/1232682390880866304"
+      "source": "https://x.com/nezumiironyanko/status/1232682390880866304",
+      "characters": [],
+      "topics": []
     },
     {
       "id": 30,
       "text": "This Subaru LINE sticker here, \"I'm taking the day off today,\" is probably the one I use most often. Next is \"You're diligent, aren't you!\"\n",
-      "source": "https://x.com/nezumiironyanko/status/1232682761913135105"
+      "source": "https://x.com/nezumiironyanko/status/1232682761913135105",
+      "characters": [
+        "Natsuki Subaru"
+      ],
+      "topics": []
     },
     {
       "id": 31,
       "text": "In the original work, Subaru had lost his sanity here, so I think this may have been the first time the story spent quite a long stretch being depicted from the perspective of a character other than Subaru, and that character was Rem.\n",
-      "source": "https://x.com/nezumiironyanko/status/1232683513020706823"
+      "source": "https://x.com/nezumiironyanko/status/1232683513020706823",
+      "characters": [
+        "Natsuki Subaru",
+        "Rem"
+      ],
+      "topics": []
     },
     {
       "id": 32,
       "text": "Rem's action from here on is amazing again.\n",
-      "source": "https://x.com/nezumiironyanko/status/1232683638300364800"
+      "source": "https://x.com/nezumiironyanko/status/1232683638300364800",
+      "characters": [
+        "Rem"
+      ],
+      "topics": []
     },
     {
       "id": 33,
       "text": "Entering the scene, death――.\n",
-      "source": "https://x.com/nezumiironyanko/status/1232683979767074818"
+      "source": "https://x.com/nezumiironyanko/status/1232683979767074818",
+      "characters": [],
+      "topics": []
     },
     {
       "id": 34,
       "text": "Generally speaking, the Witch Cult tramples all the rules that exist in this world, but even so, they never fail to greet people. You could say it's the one rule the Witch Cult obeys. Greetings matter.\n",
-      "source": "https://x.com/nezumiironyanko/status/1232684322215231490"
+      "source": "https://x.com/nezumiironyanko/status/1232684322215231490",
+      "characters": [],
+      "topics": [
+        "Witch Cult"
+      ]
     },
     {
       "id": 35,
       "text": "The other Sin Archbishops besides Petelgeuse all observe greetings too.\n",
-      "source": "https://x.com/nezumiironyanko/status/1232684421750222848"
+      "source": "https://x.com/nezumiironyanko/status/1232684421750222848",
+      "characters": [
+        "Petelgeuse Romanée-Conti"
+      ],
+      "topics": [
+        "Sin Archbishops"
+      ]
     },
     {
       "id": 36,
       "text": "Petelgeuse is completely familiar to the eyes and ears now, but when I first heard it was Matsuoka-san, I thought, \"What happened...!?\"\n",
-      "source": "https://x.com/nezumiironyanko/status/1232684762927550464"
+      "source": "https://x.com/nezumiironyanko/status/1232684762927550464",
+      "characters": [
+        "Petelgeuse Romanée-Conti"
+      ],
+      "topics": []
     },
     {
       "id": 37,
       "text": "I don't want anyone to get the wrong idea, but Petelgeuse licked the eyeball on his own, and it's not like the author made him do it.\n",
-      "source": "https://x.com/nezumiironyanko/status/1232685125059502085"
+      "source": "https://x.com/nezumiironyanko/status/1232685125059502085",
+      "characters": [
+        "Petelgeuse Romanée-Conti"
+      ],
+      "topics": []
     },
     {
       "id": 38,
       "text": "Just to be clear, it's not that Subaru is acting like he's lost his mind. From Petelgeuse's point of view, he's just too much of a SAN 0 beginner, so he basically got told, \"That's no good.\"\n",
-      "source": "https://x.com/nezumiironyanko/status/1232685419604533248"
+      "source": "https://x.com/nezumiironyanko/status/1232685419604533248",
+      "characters": [
+        "Natsuki Subaru",
+        "Petelgeuse Romanée-Conti"
+      ],
+      "topics": []
     },
     {
       "id": 39,
       "text": "How am I supposed to describe this movement of Petelgeuse's in prose?\n",
-      "source": "https://x.com/nezumiironyanko/status/1232685809586671616"
+      "source": "https://x.com/nezumiironyanko/status/1232685809586671616",
+      "characters": [
+        "Petelgeuse Romanée-Conti"
+      ],
+      "topics": []
     },
     {
       "id": 40,
       "text": "Petelgeuse's logic here is like a witch trial: if she sinks in the pond and doesn't die, she's a witch; if she dies, she's human.\n",
-      "source": "https://x.com/nezumiironyanko/status/1232686521427222531"
+      "source": "https://x.com/nezumiironyanko/status/1232686521427222531",
+      "characters": [
+        "Petelgeuse Romanée-Conti"
+      ],
+      "topics": []
     },
     {
       "id": 41,
       "text": "How fitting that a Sin Archbishop of the Witch Cult uses logic straight out of a witch trial.\n",
-      "source": "https://x.com/nezumiironyanko/status/1232686611168518145"
+      "source": "https://x.com/nezumiironyanko/status/1232686611168518145",
+      "characters": [],
+      "topics": [
+        "Sin Archbishops",
+        "Witch Cult"
+      ]
     },
     {
       "id": 42,
       "text": "Oni are an exceptionally resilient race, but even so, the reason Rem can still crawl here isn't about oni vitality or anything like that. It's a matter of sheer willpower. Put simply, it's love.\n",
-      "source": "https://x.com/nezumiironyanko/status/1232686851887992833"
+      "source": "https://x.com/nezumiironyanko/status/1232686851887992833",
+      "characters": [
+        "Rem"
+      ],
+      "topics": []
     },
     {
       "id": 43,
       "text": "Subaru struggled for about half a day after Petelgeuse and the others left the cave, so during that time the same thing as last time happened in the village, and it's been devastated.\n",
-      "source": "https://x.com/nezumiironyanko/status/1232687284945747968"
+      "source": "https://x.com/nezumiironyanko/status/1232687284945747968",
+      "characters": [
+        "Natsuki Subaru",
+        "Petelgeuse Romanée-Conti"
+      ],
+      "topics": []
     },
     {
       "id": 44,
       "text": "While discussing the anime with the director, producer, and scriptwriter, there have been several times when I realized, \"I should have done that in the original work!\" Ram dead in front of the shack is one of those.\n",
-      "source": "https://x.com/nezumiironyanko/status/1232687497508880384"
+      "source": "https://x.com/nezumiironyanko/status/1232687497508880384",
+      "characters": [
+        "Ram"
+      ],
+      "topics": []
     },
     {
       "id": 45,
       "text": "Ram dies fighting Witch Cultists in front of the hut because she's hiding the village children inside the hut behind her. But her strength wasn't enough. It's the same reason she was with Petra inside the mansion last time too.\n",
-      "source": "https://x.com/nezumiironyanko/status/1232687692871159808"
+      "source": "https://x.com/nezumiironyanko/status/1232687692871159808",
+      "characters": [
+        "Petra Leyte",
+        "Ram"
+      ],
+      "topics": [
+        "Witch Cult"
+      ]
     },
     {
       "id": 46,
       "text": "From the original author's perspective, this is the single most painful episode to watch, so I wondered what the anime would do with it, but honestly, the anime staff powered through it with sheer skill.\n",
-      "source": "https://x.com/nezumiironyanko/status/1232687922383441921"
+      "source": "https://x.com/nezumiironyanko/status/1232687922383441921",
+      "characters": [],
+      "topics": []
     },
     {
       "id": 47,
       "text": "Having learned of the village's destruction and Petelgeuse's existence, the sane Natsuki Subaru has returned and will now positively begin the fight to rewrite fate... that is not the look in his eyes.\n",
-      "source": "https://x.com/nezumiironyanko/status/1232688092852580352"
+      "source": "https://x.com/nezumiironyanko/status/1232688092852580352",
+      "characters": [
+        "Natsuki Kenichi",
+        "Natsuki Naoko",
+        "Natsuki Rigel",
+        "Natsuki Spica",
+        "Natsuki Subaru",
+        "Petelgeuse Romanée-Conti"
+      ],
+      "topics": []
     },
     {
       "id": 48,
       "text": "And with that little Petelgeuse-style sign-off, that's it for this week!\nSee you next week! Survive, survive next time too!\n",
-      "source": "https://x.com/nezumiironyanko/status/1232688690960297984"
+      "source": "https://x.com/nezumiironyanko/status/1232688690960297984",
+      "characters": [
+        "Petelgeuse Romanée-Conti"
+      ],
+      "topics": []
     },
     {
       "id": 49,
       "text": "Come to think of it, in the first \"Return by Death,\" after parting ways with Subaru, Otto stayed around that area for a bit in case Subaru might come back. Then the Witch Cult that encountered Subaru headed that way, so... I'll leave the rest to your imagination.\n",
-      "source": "https://x.com/nezumiironyanko/status/1232691791440142342"
+      "source": "https://x.com/nezumiironyanko/status/1232691791440142342",
+      "characters": [
+        "Natsuki Subaru",
+        "Otto Suwen"
+      ],
+      "topics": [
+        "Return by Death",
+        "Witch Cult"
+      ]
     }
   ]
 }

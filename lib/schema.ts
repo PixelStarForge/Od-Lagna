@@ -192,6 +192,8 @@ export const authorCommentSchema = z.object({
   id: z.number().int().positive(),
   text: z.string().min(1, "Comment text is required"),
   source: z.string().optional().default(""),
+  characters: z.array(z.string()).default([]),
+  topics: z.array(z.string()).default([]),
 });
 
 export type AuthorComment = z.infer<typeof authorCommentSchema>;
@@ -216,4 +218,35 @@ export const episodeCommentarySchema = z.object({
 });
 
 export type EpisodeCommentary = z.infer<typeof episodeCommentarySchema>;
+
+export interface FlatAnimeComment extends AuthorComment {
+  seasonId: string;
+  seasonTitle: string;
+  episodeNumber: number;
+  episodeTitle: string;
+  airDate?: string;
+}
+
+/**
+ * Returns a human-friendly badge label for a season or release.
+ * e.g., "Season 01", "Director's Cut", "Season 02", "Break Time S1", "Re:Petit", etc.
+ */
+export function getSeasonBadgeLabel(season: AnimeCatalogEntry): string {
+  if (season.id === "re-petit") return "Re:Petit";
+  if (season.type === "break-time") {
+    if (season.seasonNumber) return `Break Time S${season.seasonNumber}`;
+    return "Break Time";
+  }
+  if (season.type === "ova") return "Canon OVA";
+  if (season.id === "season-1-dc") return "Director's Cut";
+  if (typeof season.seasonNumber === "number") {
+    return `Season 0${season.seasonNumber}`;
+  }
+  const match = season.id.match(/^season-(\d+)$/);
+  if (match) {
+    return `Season 0${match[1]}`;
+  }
+  return `Season 0${season.order}`;
+}
+
 

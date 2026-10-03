@@ -8,6 +8,14 @@ let entries = [];
     let tagDebounceTimer = null;
     const DRAFT_KEY = 'od_lagna_admin_draft';
 
+    // Anime state
+    let allAnimeCatalog = [];
+    let selectedAnimeSeasonId = null;
+    let selectedAnimeEpisodeNumber = null;
+    let currentAnimeEpisodeData = null;
+    let isAnimeDirty = false;
+    let activeFocusedAnimeInput = null;
+
     async function init() {
       await reloadConfigAndEntries();
       populateArcSelects();
@@ -34,11 +42,12 @@ let entries = [];
     }
 
     async function reloadConfigAndEntries() {
-      const [cfgRes, listRes, triviaRes, storiesRes] = await Promise.all([
+      const [cfgRes, listRes, triviaRes, storiesRes, animeRes] = await Promise.all([
         fetch('/api/config').then(r => r.json()),
         fetch('/api/entries').then(r => r.json()),
         fetch('/api/trivia').then(r => r.json()).catch(() => []),
-        fetch('/api/stories').then(r => r.json()).catch(() => [])
+        fetch('/api/stories').then(r => r.json()).catch(() => []),
+        fetch('/api/anime/catalog').then(r => r.json()).catch(() => [])
       ]);
       config = cfgRes;
       entries = listRes;
@@ -50,6 +59,21 @@ let entries = [];
       if (navTrivia) navTrivia.textContent = allTrivia.length;
       const navStories = document.getElementById('nav-stories-count');
       if (navStories && Array.isArray(storiesRes)) navStories.textContent = storiesRes.length;
+      if (Array.isArray(animeRes)) {
+        allAnimeCatalog = animeRes;
+        let totalComments = 0;
+        let totalEps = 0;
+        allAnimeCatalog.forEach(s => {
+          (s.episodes || []).forEach(e => {
+            totalEps++;
+            totalComments += e.commentCount || 0;
+          });
+        });
+        const navAnime = document.getElementById('nav-anime-count');
+        if (navAnime) navAnime.textContent = totalComments.toLocaleString();
+        const animeTotalEps = document.getElementById('anime-total-episodes');
+        if (animeTotalEps) animeTotalEps.textContent = totalEps + ' eps';
+      }
       renderTagClouds();
       renderTriviaTagClouds();
       renderEntryList();
@@ -1976,16 +2000,20 @@ let entries = [];
       const qnaView = document.getElementById('qna-view');
       const storiesView = document.getElementById('stories-view');
       const triviaView = document.getElementById('trivia-view');
+      const animeView = document.getElementById('anime-view');
       const qnaBtn = document.getElementById('tab-btn-qna');
       const storiesBtn = document.getElementById('tab-btn-stories');
       const triviaBtn = document.getElementById('tab-btn-trivia');
+      const animeBtn = document.getElementById('tab-btn-anime');
 
       qnaView.style.display = 'none';
       storiesView.style.display = 'none';
       triviaView.style.display = 'none';
+      if (animeView) animeView.style.display = 'none';
       qnaBtn.classList.remove('active');
       storiesBtn.classList.remove('active');
       triviaBtn.classList.remove('active');
+      if (animeBtn) animeBtn.classList.remove('active');
 
       if (tab === 'stories') {
         storiesView.style.display = 'flex';
@@ -1995,6 +2023,10 @@ let entries = [];
         triviaView.style.display = 'flex';
         triviaBtn.classList.add('active');
         loadTrivia();
+      } else if (tab === 'anime') {
+        if (animeView) animeView.style.display = 'flex';
+        if (animeBtn) animeBtn.classList.add('active');
+        loadAnime();
       } else {
         qnaView.style.display = 'flex';
         qnaBtn.classList.add('active');
@@ -3846,6 +3878,873 @@ let entries = [];
         createNewTrivia();
       } catch (err) {
         showTriviaStatus(err.message, 'error');
+      }
+    }
+
+    /* --- Anime Commentary Management Controller --- */
+
+    async function loadAnime() {
+      if (!allAnimeCatalog || allAnimeCatalog.length === 0) {
+        try {
+          const res = await fetch('/api/anime/catalog');
+          if (res.ok) {
+            allAnimeCatalog = await res.json();
+          }
+        } catch (e) {
+          console.error('Failed to load anime catalog:', e);
+        }
+      }
+
+      populateAnimeSeasonSelect();
+
+      if (!selectedAnimeSeasonId && allAnimeCatalog.length > 0) {
+        selectedAnimeSeasonId = allAnimeCatalog[0].id;
+      }
+
+      const sel = document.getElementById('anime-season-select');
+      if (sel && selectedAnimeSeasonId) sel.value = selectedAnimeSeasonId;
+
+      renderAnimeEpisodesList();
+
+      if (!currentAnimeEpisodeData && selectedAnimeSeasonId) {
+        const curSeason = allAnimeCatalog.find(s => s.id === selectedAnimeSeasonId);
+        if (curSeason && curSeason.episodes && curSeason.episodes.length > 0) {
+          selectAnimeEpisode(selectedAnimeSeasonId, curSeason.episodes[0].episodeNumber);
+        }
+      }
+    }
+
+    function populateAnimeSeasonSelect() {
+      const sel = document.getElementById('anime-season-select');
+      if (!sel) return;
+      sel.innerHTML = '';
+      allAnimeCatalog.forEach(s => {
+        const opt = document.createElement('option');
+        opt.value = s.id;
+        opt.textContent = `${s.title} (${(s.episodes || []).length} eps)`;
+        sel.appendChild(opt);
+      });
+      if (selectedAnimeSeasonId) {
+        sel.value = selectedAnimeSeasonId;
+      }
+    }
+
+    function handleAnimeSeasonSelectChange() {
+      if (isAnimeDirty) {
+        const discard = confirm('You have unsaved changes to this episode. Discard them?');
+        if (!discard) {
+          const sel = document.getElementById('anime-season-select');
+          if (sel) sel.value = selectedAnimeSeasonId;
+          return;
+        }
+      }
+
+      const sel = document.getElementById('anime-season-select');
+      if (!sel) return;
+      selectedAnimeSeasonId = sel.value;
+      isAnimeDirty = false;
+      renderAnimeEpisodesList();
+
+      const curSeason = allAnimeCatalog.find(s => s.id === selectedAnimeSeasonId);
+      if (curSeason && curSeason.episodes && curSeason.episodes.length > 0) {
+        selectAnimeEpisode(selectedAnimeSeasonId, curSeason.episodes[0].episodeNumber);
+      } else {
+        currentAnimeEpisodeData = null;
+        document.getElementById('anime-loaded-content').style.display = 'none';
+        document.getElementById('btn-save-anime-top').style.display = 'none';
+        document.getElementById('anime-episode-heading').textContent = 'No episodes found';
+        document.getElementById('anime-episode-subheading').textContent = '';
+      }
+    }
+
+    function renderAnimeEpisodesList() {
+      const ul = document.getElementById('anime-episodes-list');
+      if (!ul) return;
+      ul.innerHTML = '';
+
+      const curSeason = allAnimeCatalog.find(s => s.id === selectedAnimeSeasonId);
+      if (!curSeason || !curSeason.episodes) return;
+
+      const q = (document.getElementById('anime-ep-search')?.value || '').toLowerCase().trim();
+
+      const filtered = curSeason.episodes.filter(ep => {
+        if (!q) return true;
+        const epNumStr = String(ep.episodeNumber);
+        const titleEn = (ep.title && ep.title.en ? ep.title.en : '').toLowerCase();
+        return epNumStr === q || epNumStr.startsWith(q) || titleEn.includes(q);
+      });
+
+      filtered.forEach(ep => {
+        const li = document.createElement('li');
+        const isActive = selectedAnimeEpisodeNumber === ep.episodeNumber;
+        if (isActive) li.className = 'active';
+
+        li.innerHTML = `
+          <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 0.5rem;">
+            <div style="font-size: 0.85rem; font-weight: 600; color: var(--text);">
+              Ep ${ep.episodeNumber}: ${escapeHtml(ep.title?.en || 'Episode ' + ep.episodeNumber)}
+            </div>
+            <span class="badge-count" style="font-size: 0.7rem; flex-shrink: 0;">${ep.commentCount} cmts</span>
+          </div>
+          <div style="font-size: 0.72rem; color: var(--text-muted); margin-top: 0.2rem; font-family: monospace;">
+            ${ep.taggedCharsCount} tagged chars · ${ep.taggedTopicsCount} tagged topics
+          </div>
+        `;
+
+        li.onclick = () => {
+          if (selectedAnimeEpisodeNumber === ep.episodeNumber) return;
+          selectAnimeEpisode(selectedAnimeSeasonId, ep.episodeNumber);
+        };
+
+        ul.appendChild(li);
+      });
+    }
+
+    async function selectAnimeEpisode(seasonId, episodeNumber) {
+      if (isAnimeDirty) {
+        const discard = confirm('You have unsaved changes to this episode. Discard them?');
+        if (!discard) return;
+      }
+
+      selectedAnimeSeasonId = seasonId;
+      selectedAnimeEpisodeNumber = episodeNumber;
+      isAnimeDirty = false;
+
+      renderAnimeEpisodesList();
+
+      try {
+        const res = await fetch(`/api/anime/episode?season=${encodeURIComponent(seasonId)}&episode=${encodeURIComponent(episodeNumber)}`);
+        if (!res.ok) throw new Error('Episode not found');
+        const data = await res.json();
+        currentAnimeEpisodeData = data.episode;
+
+        const curSeason = allAnimeCatalog.find(s => s.id === seasonId);
+        const seasonTitle = curSeason ? curSeason.title : seasonId;
+
+        document.getElementById('anime-episode-heading').textContent = `${seasonTitle} — Episode ${currentAnimeEpisodeData.episodeNumber}`;
+        document.getElementById('anime-episode-subheading').textContent = currentAnimeEpisodeData.title?.en || '';
+
+        const badgeEl = document.getElementById('anime-ep-badge');
+        badgeEl.textContent = `Ep ${currentAnimeEpisodeData.episodeNumber}`;
+        badgeEl.style.display = 'inline-block';
+
+        const cmtBadge = document.getElementById('anime-comments-count-badge');
+        cmtBadge.textContent = `${(currentAnimeEpisodeData.comments || []).length} comments`;
+        cmtBadge.style.display = 'inline-block';
+
+        document.getElementById('btn-save-anime-top').style.display = 'inline-flex';
+        document.getElementById('anime-loaded-content').style.display = 'block';
+
+        // Set inputs
+        document.getElementById('anime-ep-title-en').value = currentAnimeEpisodeData.title?.en || '';
+        document.getElementById('anime-ep-title-jp').value = currentAnimeEpisodeData.title?.jp || '';
+        document.getElementById('anime-ep-air-date').value = currentAnimeEpisodeData.airDate || '';
+        document.getElementById('anime-ep-source-url').value =
+          currentAnimeEpisodeData.translationSource && currentAnimeEpisodeData.translationSource.url
+            ? currentAnimeEpisodeData.translationSource.url
+            : '';
+
+        renderAnimeCommentsUI();
+      } catch (err) {
+        alert('Failed to load episode: ' + err.message);
+      }
+    }
+
+    function markAnimeDirty() {
+      isAnimeDirty = true;
+    }
+
+    function highlightAnimeMatch(text, query) {
+      if (!query) return escapeHtml(text);
+      const idx = text.toLowerCase().indexOf(query.toLowerCase());
+      if (idx === -1) return escapeHtml(text);
+      const before = text.slice(0, idx);
+      const matched = text.slice(idx, idx + query.length);
+      const after = text.slice(idx + query.length);
+      return `${escapeHtml(before)}<span style="color: #38bdf8; font-weight: 700; text-decoration: underline;">${escapeHtml(matched)}</span>${escapeHtml(after)}`;
+    }
+
+    function detectAnimeCommentTags(text) {
+      if (!text) return { characters: [], topics: [] };
+      const chars = new Set();
+      const topics = new Set();
+
+      const characterRules = [
+        { name: "Natsuki Subaru", test: (t) => /\b(subaru|natsuki|barusu)\b/i.test(t) },
+        { name: "Emilia", test: (t) => /\b(emilia|emt)\b/i.test(t) },
+        { name: "Rem", test: (t) => /\b(rem)\b/i.test(t) },
+        { name: "Ram", test: (t) => /\b(ram)\b/i.test(t) },
+        { name: "Beatrice", test: (t) => /\b(beatrice|beako)\b/i.test(t) },
+        { name: "Roswaal L. Mathers", test: (t) => /\b(roswaal)\b/i.test(t) },
+        { name: "Puck", test: (t) => /\b(puck|pakku)\b/i.test(t) },
+        { name: "Felt", test: (t) => /\b(felt)\b/i.test(t) },
+        { name: "Reinhard van Astrea", test: (t) => /\b(reinhard)\b/i.test(t) },
+        { name: "Julius Juukulius", test: (t) => /\b(julius|juukulius)\b/i.test(t) },
+        { name: "Felix Argyle (Ferris)", test: (t) => /\b(felix|ferris)\b/i.test(t) },
+        { name: "Crusch Karsten", test: (t) => /\b(crusch)\b/i.test(t) },
+        { name: "Wilhelm van Astrea", test: (t) => /\b(wilhelm)\b/i.test(t) },
+        { name: "Otto Suwen", test: (t) => /\b(otto|suwen)\b/i.test(t) },
+        { name: "Garfiel Tinsel", test: (t) => /\b(garfiel|garf)\b/i.test(t) },
+        { name: "Frederica Baumann", test: (t) => /\b(frederica)\b/i.test(t) },
+        { name: "Petra Leyte", test: (t) => /\b(petra)\b/i.test(t) },
+        { name: "Echidna", test: (t) => /\b(echidna)\b/i.test(t) },
+        { name: "Ryuzu Meyer", test: (t) => /\b(ryuzu|lewes)\b/i.test(t) },
+        { name: "Petelgeuse Romanee-Conti", test: (t) => /\b(petelgeuse|betelgeuse|geuse)\b/i.test(t) },
+        { name: "Elsa Granhiert", test: (t) => /\b(elsa)\b/i.test(t) },
+        { name: "Meili Portroute", test: (t) => /\b(meili)\b/i.test(t) },
+        { name: "Anastasia Hoshin", test: (t) => /\b(anastasia)\b/i.test(t) },
+        { name: "Priscilla Barielle", test: (t) => /\b(priscilla)\b/i.test(t) },
+        { name: "Al (Aldebaran)", test: (t) => /\b(aldebaran)\b/i.test(t) || (/\bAl\b/.test(t) && !/\bAl\s+(?:Shamak|Goa|Huma|Fura|Dona|Clausel)\b/i.test(t) && !/->\s*Al/i.test(t)) },
+        { name: "Old Man Rom (Cromwell)", test: (t) => /\b(cromwell|old man rom)\b/i.test(t) },
+        { name: "Theresia van Astrea", test: (t) => /\b(theresia)\b/i.test(t) },
+        { name: "Kadomon Risch", test: (t) => /\b(kadomon)\b/i.test(t) },
+        { name: "Gaston", test: (t) => /\b(gaston)\b/i.test(t) },
+        { name: "Rachins Gastan", test: (t) => /\b(rachins)\b/i.test(t) },
+        { name: "Camberley", test: (t) => /\b(camberley)\b/i.test(t) },
+        { name: "Minerva", test: (t) => /\b(minerva)\b/i.test(t) },
+        { name: "Typhon", test: (t) => /\b(typhon)\b/i.test(t) },
+        { name: "Daphne", test: (t) => /\b(daphne)\b/i.test(t) },
+        { name: "Carmilla", test: (t) => /\b(carmilla)\b/i.test(t) },
+        { name: "Sekhmet", test: (t) => /\b(sekhmet)\b/i.test(t) },
+        { name: "Satella", test: (t) => /\b(satella)\b/i.test(t) },
+        { name: "Witch of Envy", test: (t) => /\b(witch of envy)\b/i.test(t) },
+        { name: "Hector", test: (t) => /\b(hector)\b/i.test(t) },
+        { name: "Fortuna", test: (t) => /\b(fortuna)\b/i.test(t) },
+        { name: "Archi", test: (t) => /\b(archi|arch)\b/i.test(t) },
+        { name: "Regulus Corneas", test: (t) => /\b(regulus)\b/i.test(t) },
+        { name: "Sirius Romanée-Conti", test: (t) => /\b(sirius)\b/i.test(t) },
+        { name: "Capella Emerada Lugnica", test: (t) => /\b(capella)\b/i.test(t) },
+        { name: "Ley Batenkaitos", test: (t) => /\b(ley|batenkaitos)\b/i.test(t) },
+        { name: "Roy Alphard", test: (t) => /\b(alphard)\b/i.test(t) },
+        { name: "Louis Arneb", test: (t) => /\b(louis arneb)\b/i.test(t) },
+        { name: "Shaula", test: (t) => /\b(shaula)\b/i.test(t) },
+        { name: "Reid Astrea", test: (t) => /\b(reid astrea|reid)\b/i.test(t) },
+        { name: "Divine Dragon Volcanica", test: (t) => /\b(volcanica)\b/i.test(t) },
+        { name: "Flugel", test: (t) => /\b(flugel)\b/i.test(t) },
+        { name: "Liliana Masquerade", test: (t) => /\b(liliana)\b/i.test(t) },
+        { name: "Kiritaka Muse", test: (t) => /\b(kiritaka)\b/i.test(t) },
+        { name: "Joshua Juukulius", test: (t) => /\b(joshua)\b/i.test(t) },
+        { name: "Heinkel Astrea", test: (t) => /\b(heinkel)\b/i.test(t) },
+        { name: "Carol Remendis", test: (t) => /\b(carol)\b/i.test(t) },
+        { name: "Grimm Remendis", test: (t) => /\b(grimm)\b/i.test(t) },
+        { name: "Ricardo Welkin", test: (t) => /\b(ricardo)\b/i.test(t) },
+        { name: "Mimi Pearlbaton", test: (t) => /\b(mimi)\b/i.test(t) },
+        { name: "Hetaro Pearlbaton", test: (t) => /\b(hetaro)\b/i.test(t) },
+        { name: "Tivey Pearlbaton", test: (t) => /\b(tivey)\b/i.test(t) },
+        { name: "Schult", test: (t) => /\b(schult)\b/i.test(t) },
+        { name: "Pandora", test: (t) => /\b(pandora)\b/i.test(t) }
+      ];
+
+      const topicRules = [
+        { name: "Return by Death", test: (t) => /\b(return by death|rbd|checkpoint|save point|resets?|restart)\b/i.test(t) },
+        { name: "Witch Cult", test: (t) => /\b(witch cult|cultist|cultists|gospel|fingers)\b/i.test(t) },
+        { name: "Sin Archbishops", test: (t) => /\b(sin archbishop|archbishop|archbishops)\b/i.test(t) },
+        { name: "Authorities", test: (t) => /\b(authorit(y|ies)|invisible providence|unseen hand|cor leonis)\b/i.test(t) },
+        { name: "Witches of Sin", test: (t) => /\b(witches of sin|witch of sin|witch of greed|witch of envy|witch of wrath|witch of sloth|witch of lust|witch of gluttony|witch of pride|witch of vainglory|witch of melancholy)\b/i.test(t) },
+        { name: "Tea Party", test: (t) => /\b(tea party)\b/i.test(t) },
+        { name: "Mana & Magic", test: (t) => /\b(magic|mana|gate|shamak|al shamak|goa|al goa|el goa|ul goa|huma|el huma|ul huma|al huma|fura|el fura|ul fura|al fura|jiwald|minya)\b/i.test(t) },
+        { name: "Contracts & Spirits", test: (t) => /\b(great spirit|lesser spirit|quasi-spirit|spirit contract|spirits|spirit)\b/i.test(t) },
+        { name: "Divine Protections", test: (t) => /\b(divine protection|divine protections|blessings?)\b/i.test(t) },
+        { name: "Mabeasts", test: (t) => /\b(mabeasts?|great rabbit|white whale|black snake|wolgarms?|guiltylowe)\b/i.test(t) },
+        { name: "Great Mabeasts", test: (t) => /\b(white whale|great rabbit|black snake)\b/i.test(t) },
+        { name: "Lore", test: (t) => /\b(400 years ago|lore|history|legendary|covenant)\b/i.test(t) },
+        { name: "Worldbuilding", test: (t) => /\b(lugnica|kararagi|vollachia|gusteko|royal election|dragon kingdom)\b/i.test(t) },
+        { name: "Royal Election", test: (t) => /\b(royal selection|royal election|dragon insignia|candidate)\b/i.test(t) }
+      ];
+
+      for (const r of characterRules) {
+        if ((config.characters || []).includes(r.name) && r.test(text)) {
+          chars.add(r.name);
+        }
+      }
+
+      for (const r of topicRules) {
+        if ((config.topics || []).includes(r.name) && r.test(text)) {
+          topics.add(r.name);
+        }
+      }
+
+      return {
+        characters: Array.from(chars),
+        topics: Array.from(topics)
+      };
+    }
+
+    function createAnimeTagInput(comment, type) {
+      const wrap = document.createElement('div');
+      wrap.className = 'anime-tag-input-wrap';
+
+      const input = document.createElement('input');
+      input.type = 'text';
+      input.id = `anime-tag-input-${type}-${comment.id}`;
+      input.className = 'anime-tag-inline-input';
+      input.placeholder = `+ Add ${type === 'character' ? 'character' : 'topic'}...`;
+      input.autocomplete = 'off';
+
+      const popover = document.createElement('div');
+      popover.className = 'anime-autocomplete-popover';
+      popover.style.display = 'none';
+
+      const pillsRow = document.createElement('div');
+      pillsRow.className = 'anime-popover-pills-row';
+
+      const listDiv = document.createElement('div');
+      listDiv.className = 'anime-popover-list';
+
+      popover.appendChild(pillsRow);
+      popover.appendChild(listDiv);
+      wrap.appendChild(input);
+      wrap.appendChild(popover);
+
+      let selectedIndex = -1;
+      let currentMatches = [];
+
+      function getAvailableTags() {
+        const fullList = type === 'character' ? (config.characters || []) : (config.topics || []);
+        const alreadyAttached = comment[type === 'character' ? 'characters' : 'topics'] || [];
+        return fullList.filter(item => !alreadyAttached.includes(item));
+      }
+
+      function addSelectedTag(tag) {
+        if (!tag || !tag.trim()) return;
+        const trimmed = tag.trim();
+        const available = type === 'character' ? (config.characters || []) : (config.topics || []);
+        // Case-insensitive canonical match
+        const canonical = available.find(item => item.toLowerCase() === trimmed.toLowerCase()) || trimmed;
+
+        activeFocusedAnimeInput = { commentId: comment.id, type: type };
+        addAnimeCommentTag(comment.id, type, canonical);
+      }
+
+      function updatePopover() {
+        const query = input.value.trim().toLowerCase();
+        const available = getAvailableTags();
+
+        let filtered = [];
+        if (!query) {
+          // If empty, show top/popular tags
+          filtered = available.slice(0, 15);
+        } else {
+          // Filter & Rank
+          const tier1 = []; // starts with query
+          const tier2 = []; // word in name starts with query
+          const tier3 = []; // substring anywhere
+
+          for (const item of available) {
+            const lower = item.toLowerCase();
+            if (lower.startsWith(query)) {
+              tier1.push(item);
+            } else {
+              const words = lower.split(/[\s\-_(),]+/);
+              if (words.some(w => w.startsWith(query))) {
+                tier2.push(item);
+              } else if (lower.includes(query)) {
+                tier3.push(item);
+              }
+            }
+          }
+          filtered = [...tier1, ...tier2, ...tier3];
+        }
+
+        currentMatches = filtered;
+        selectedIndex = -1;
+
+        // Render quick suggestion pills row
+        pillsRow.innerHTML = '';
+        const topPills = filtered.slice(0, 8);
+        if (topPills.length > 0) {
+          topPills.forEach(item => {
+            const pill = document.createElement('button');
+            pill.type = 'button';
+            pill.className = `anime-suggestion-pill ${type === 'topic' ? 'topic-pill' : ''}`;
+            pill.textContent = `+ ${item}`;
+            pill.onmousedown = (e) => {
+              e.preventDefault();
+              addSelectedTag(item);
+            };
+            pillsRow.appendChild(pill);
+          });
+          pillsRow.style.display = 'flex';
+        } else {
+          pillsRow.style.display = 'none';
+        }
+
+        // Render scrollable list
+        listDiv.innerHTML = '';
+        if (filtered.length === 0) {
+          if (query) {
+            const emptyNotice = document.createElement('div');
+            emptyNotice.style.cssText = 'padding: 0.5rem 0.75rem; font-size: 0.75rem; color: var(--text-muted); cursor: pointer;';
+            emptyNotice.innerHTML = `Press <b>Enter</b> to add "<b>${escapeHtml(input.value.trim())}</b>"`;
+            emptyNotice.onmousedown = (e) => {
+              e.preventDefault();
+              addSelectedTag(input.value.trim());
+            };
+            listDiv.appendChild(emptyNotice);
+            popover.style.display = 'flex';
+          } else {
+            popover.style.display = 'none';
+          }
+          return;
+        }
+
+        filtered.slice(0, 20).forEach((item, idx) => {
+          const itemDiv = document.createElement('div');
+          itemDiv.className = 'anime-autocomplete-popover-item';
+          itemDiv.innerHTML = highlightAnimeMatch(item, query);
+          itemDiv.onmousedown = (e) => {
+            e.preventDefault();
+            addSelectedTag(item);
+          };
+          itemDiv.onmouseenter = () => {
+            selectedIndex = idx;
+            updateSelection();
+          };
+          listDiv.appendChild(itemDiv);
+        });
+
+        popover.style.display = 'flex';
+      }
+
+      function updateSelection() {
+        const items = listDiv.querySelectorAll('.anime-autocomplete-popover-item');
+        items.forEach((el, idx) => {
+          if (idx === selectedIndex) {
+            el.classList.add('selected');
+            el.scrollIntoView({ block: 'nearest' });
+          } else {
+            el.classList.remove('selected');
+          }
+        });
+      }
+
+      input.addEventListener('focus', () => {
+        updatePopover();
+      });
+
+      input.addEventListener('input', () => {
+        updatePopover();
+      });
+
+      input.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowDown') {
+          e.preventDefault();
+          const max = Math.min(currentMatches.length, 20);
+          if (max > 0) {
+            selectedIndex = (selectedIndex + 1) % max;
+            updateSelection();
+          }
+        } else if (e.key === 'ArrowUp') {
+          e.preventDefault();
+          const max = Math.min(currentMatches.length, 20);
+          if (max > 0) {
+            selectedIndex = (selectedIndex - 1 + max) % max;
+            updateSelection();
+          }
+        } else if (e.key === 'Enter') {
+          e.preventDefault();
+          if (selectedIndex >= 0 && currentMatches[selectedIndex]) {
+            addSelectedTag(currentMatches[selectedIndex]);
+          } else if (currentMatches.length > 0 && input.value.trim()) {
+            addSelectedTag(currentMatches[0]);
+          } else if (input.value.trim()) {
+            addSelectedTag(input.value.trim());
+          }
+        } else if (e.key === 'Escape') {
+          popover.style.display = 'none';
+        } else if (e.key === 'Backspace' && !input.value) {
+          const arr = comment[type === 'character' ? 'characters' : 'topics'] || [];
+          if (arr.length > 0) {
+            const lastTag = arr[arr.length - 1];
+            activeFocusedAnimeInput = { commentId: comment.id, type: type };
+            removeAnimeCommentTag(comment.id, type, lastTag);
+          }
+        }
+      });
+
+      input.addEventListener('blur', () => {
+        setTimeout(() => {
+          popover.style.display = 'none';
+        }, 220);
+      });
+
+      return wrap;
+    }
+
+    function updateCommentCardDetectedShelf(card, comment) {
+      let shelf = card.querySelector('.anime-detected-shelf');
+      const detected = detectAnimeCommentTags(comment.text);
+      const untaggedChars = detected.characters.filter(ch => !(comment.characters || []).includes(ch));
+      const untaggedTopics = detected.topics.filter(tp => !(comment.topics || []).includes(tp));
+
+      if (untaggedChars.length === 0 && untaggedTopics.length === 0) {
+        if (shelf) shelf.remove();
+        return;
+      }
+
+      if (!shelf) {
+        shelf = document.createElement('div');
+        shelf.className = 'anime-detected-shelf';
+        const txtarea = card.querySelector('textarea');
+        if (txtarea && txtarea.nextSibling) {
+          card.insertBefore(shelf, txtarea.nextSibling);
+        } else {
+          card.appendChild(shelf);
+        }
+      }
+      shelf.innerHTML = '<span style="font-weight: 600; color: #38bdf8; display: inline-flex; align-items: center; gap: 0.25rem;">✨ Detected:</span>';
+
+      untaggedChars.forEach(ch => {
+        const pill = document.createElement('button');
+        pill.type = 'button';
+        pill.className = 'anime-suggestion-pill';
+        pill.textContent = `+ ${ch}`;
+        pill.onclick = () => addAnimeCommentTag(comment.id, 'character', ch);
+        shelf.appendChild(pill);
+      });
+
+      untaggedTopics.forEach(tp => {
+        const pill = document.createElement('button');
+        pill.type = 'button';
+        pill.className = 'anime-suggestion-pill topic-pill';
+        pill.textContent = `+ ${tp}`;
+        pill.onclick = () => addAnimeCommentTag(comment.id, 'topic', tp);
+        shelf.appendChild(pill);
+      });
+
+      const addAllBtn = document.createElement('button');
+      addAllBtn.type = 'button';
+      addAllBtn.className = 'btn-add-all-pills';
+      addAllBtn.textContent = '+ Add All';
+      addAllBtn.onclick = () => {
+        untaggedChars.forEach(ch => {
+          if (!comment.characters) comment.characters = [];
+          if (!comment.characters.includes(ch)) comment.characters.push(ch);
+        });
+        untaggedTopics.forEach(tp => {
+          if (!comment.topics) comment.topics = [];
+          if (!comment.topics.includes(tp)) comment.topics.push(tp);
+        });
+        markAnimeDirty();
+        renderAnimeCommentsUI();
+      };
+      shelf.appendChild(addAllBtn);
+    }
+
+    function renderAnimeCommentsUI() {
+      const container = document.getElementById('anime-comments-list');
+      if (!container || !currentAnimeEpisodeData) return;
+      container.innerHTML = '';
+
+      const comments = currentAnimeEpisodeData.comments || [];
+      const query = (document.getElementById('anime-comments-filter-input')?.value || '').toLowerCase().trim();
+      const tagFilter = document.getElementById('anime-comments-tag-filter')?.value || 'all';
+
+      const filtered = comments.filter(c => {
+        // Tag mode filter
+        if (tagFilter === 'untagged-chars' && c.characters && c.characters.length > 0) return false;
+        if (tagFilter === 'untagged-topics' && c.topics && c.topics.length > 0) return false;
+        if (tagFilter === 'untagged-any' && (c.characters?.length > 0 && c.topics?.length > 0)) return false;
+
+        if (!query) return true;
+        const cleanId = query.replace(/^#/, '');
+        if (String(c.id) === cleanId) return true;
+        if ((c.text || '').toLowerCase().includes(query)) return true;
+        if ((c.characters || []).some(ch => ch.toLowerCase().includes(query))) return true;
+        if ((c.topics || []).some(tp => tp.toLowerCase().includes(query))) return true;
+        return false;
+      });
+
+      if (filtered.length === 0) {
+        container.innerHTML = '<div style="padding: 2rem; text-align: center; color: var(--text-muted); font-size: 0.85rem;">No comments match your filter.</div>';
+        return;
+      }
+
+      filtered.forEach(c => {
+        const card = document.createElement('div');
+        card.className = 'anime-comment-card';
+
+        // Header with ID, Source, Delete
+        const topRow = document.createElement('div');
+        topRow.className = 'anime-comment-top';
+        topRow.innerHTML = `
+          <div style="display: flex; align-items: center; gap: 0.5rem;">
+            <span style="font-weight: 700; color: var(--accent); font-family: monospace; font-size: 0.85rem;">#${c.id}</span>
+            <input type="text" placeholder="Source / timestamp / tweet link" value="${escapeHtml(c.source || '')}" style="background: var(--input); border: 1px solid var(--border); border-radius: 4px; padding: 0.25rem 0.5rem; font-size: 0.75rem; color: var(--text); width: 280px;" oninput="updateAnimeCommentSource(${c.id}, this.value)">
+          </div>
+          <div style="display: flex; gap: 0.4rem; align-items: center;">
+            <button type="button" class="btn-date-action" onclick="autoDetectAnimeCommentTags(${c.id})" title="Auto-detect tags from comment text">✨ Detect Tags</button>
+            <button type="button" class="btn-sm-delete" onclick="deleteAnimeComment(${c.id})">🗑 Delete</button>
+          </div>
+        `;
+        card.appendChild(topRow);
+
+        // Textarea
+        const textarea = document.createElement('textarea');
+        textarea.rows = 3;
+        textarea.value = c.text || '';
+        textarea.style.cssText = 'width: 100%; font-family: inherit; font-size: 0.88rem; padding: 0.6rem; border: 1px solid var(--border); border-radius: 6px; background: var(--bg); color: var(--text); resize: vertical; line-height: 1.45;';
+        textarea.oninput = (e) => {
+          updateAnimeCommentText(c.id, e.target.value);
+          updateCommentCardDetectedShelf(card, c);
+        };
+        card.appendChild(textarea);
+
+        // Detected tags shelf (if any untagged matches exist in text)
+        updateCommentCardDetectedShelf(card, c);
+
+        // Tags Section
+        const tagsSec = document.createElement('div');
+        tagsSec.style.cssText = 'display: flex; flex-direction: column; gap: 0.5rem; font-size: 0.78rem; border-top: 1px dashed var(--border); padding-top: 0.5rem;';
+
+        // Characters row
+        const charRow = document.createElement('div');
+        charRow.style.cssText = 'display: flex; flex-wrap: wrap; align-items: center; gap: 0.35rem;';
+        charRow.innerHTML = '<span style="font-weight: 600; color: var(--text-muted); font-size: 0.72rem; text-transform: uppercase;">Characters:</span>';
+
+        (c.characters || []).forEach(ch => {
+          const chip = document.createElement('span');
+          chip.className = 'anime-chip char-chip';
+          chip.innerHTML = `${escapeHtml(ch)} <button type="button" class="anime-chip-del" title="Remove ${escapeHtml(ch)}">&times;</button>`;
+          chip.querySelector('.anime-chip-del').onclick = () => removeAnimeCommentTag(c.id, 'character', ch);
+          charRow.appendChild(chip);
+        });
+
+        charRow.appendChild(createAnimeTagInput(c, 'character'));
+        tagsSec.appendChild(charRow);
+
+        // Topics row
+        const topicRow = document.createElement('div');
+        topicRow.style.cssText = 'display: flex; flex-wrap: wrap; align-items: center; gap: 0.35rem;';
+        topicRow.innerHTML = '<span style="font-weight: 600; color: var(--text-muted); font-size: 0.72rem; text-transform: uppercase;">Topics:</span>';
+
+        (c.topics || []).forEach(tp => {
+          const chip = document.createElement('span');
+          chip.className = 'anime-chip topic-chip';
+          chip.innerHTML = `${escapeHtml(tp)} <button type="button" class="anime-chip-del" title="Remove ${escapeHtml(tp)}">&times;</button>`;
+          chip.querySelector('.anime-chip-del').onclick = () => removeAnimeCommentTag(c.id, 'topic', tp);
+          topicRow.appendChild(chip);
+        });
+
+        topicRow.appendChild(createAnimeTagInput(c, 'topic'));
+        tagsSec.appendChild(topicRow);
+
+        card.appendChild(tagsSec);
+        container.appendChild(card);
+      });
+
+      // Restore active input focus if tag was added or removed
+      if (activeFocusedAnimeInput) {
+        const inp = document.getElementById(`anime-tag-input-${activeFocusedAnimeInput.type}-${activeFocusedAnimeInput.commentId}`);
+        if (inp) {
+          inp.focus();
+        }
+        activeFocusedAnimeInput = null;
+      }
+    }
+
+    function updateAnimeCommentText(id, text) {
+      if (!currentAnimeEpisodeData || !currentAnimeEpisodeData.comments) return;
+      const c = currentAnimeEpisodeData.comments.find(item => item.id === id);
+      if (c) {
+        c.text = text;
+        markAnimeDirty();
+      }
+    }
+
+    function updateAnimeCommentSource(id, source) {
+      if (!currentAnimeEpisodeData || !currentAnimeEpisodeData.comments) return;
+      const c = currentAnimeEpisodeData.comments.find(item => item.id === id);
+      if (c) {
+        c.source = source;
+        markAnimeDirty();
+      }
+    }
+
+    function addAnimeCommentTag(id, type, tag) {
+      if (!currentAnimeEpisodeData || !currentAnimeEpisodeData.comments || !tag) return;
+      const c = currentAnimeEpisodeData.comments.find(item => item.id === id);
+      if (!c) return;
+      if (type === 'character') {
+        if (!c.characters) c.characters = [];
+        if (!c.characters.includes(tag)) c.characters.push(tag);
+      } else {
+        if (!c.topics) c.topics = [];
+        if (!c.topics.includes(tag)) c.topics.push(tag);
+      }
+      markAnimeDirty();
+      renderAnimeCommentsUI();
+    }
+
+    function removeAnimeCommentTag(id, type, tag) {
+      if (!currentAnimeEpisodeData || !currentAnimeEpisodeData.comments) return;
+      const c = currentAnimeEpisodeData.comments.find(item => item.id === id);
+      if (!c) return;
+      if (type === 'character') {
+        c.characters = (c.characters || []).filter(item => item !== tag);
+      } else {
+        c.topics = (c.topics || []).filter(item => item !== tag);
+      }
+      markAnimeDirty();
+      renderAnimeCommentsUI();
+    }
+
+    async function autoDetectAnimeCommentTags(id) {
+      if (!currentAnimeEpisodeData || !currentAnimeEpisodeData.comments) return;
+      const c = currentAnimeEpisodeData.comments.find(item => item.id === id);
+      if (!c || !c.text) return;
+
+      try {
+        const res = await fetch('/api/anime/suggest-tags', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ text: c.text })
+        });
+        if (!res.ok) throw new Error('Detection request failed');
+        const data = await res.json();
+
+        const charsSet = new Set([...(c.characters || []), ...(data.characters || [])]);
+        const topicsSet = new Set([...(c.topics || []), ...(data.topics || [])]);
+        c.characters = Array.from(charsSet).sort();
+        c.topics = Array.from(topicsSet).sort();
+        markAnimeDirty();
+        renderAnimeCommentsUI();
+      } catch (err) {
+        console.error('Error auto-detecting tags:', err);
+      }
+    }
+
+    async function autoDetectAllEpisodeTags() {
+      if (!currentAnimeEpisodeData || !currentAnimeEpisodeData.comments || currentAnimeEpisodeData.comments.length === 0) return;
+
+      let detectedCount = 0;
+      for (const c of currentAnimeEpisodeData.comments) {
+        if (!c.text) continue;
+        try {
+          const res = await fetch('/api/anime/suggest-tags', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ text: c.text })
+          });
+          if (res.ok) {
+            const data = await res.json();
+            const charsSet = new Set([...(c.characters || []), ...(data.characters || [])]);
+            const topicsSet = new Set([...(c.topics || []), ...(data.topics || [])]);
+            c.characters = Array.from(charsSet).sort();
+            c.topics = Array.from(topicsSet).sort();
+            detectedCount++;
+          }
+        } catch (e) {
+          // ignore individual comment error
+        }
+      }
+
+      markAnimeDirty();
+      renderAnimeCommentsUI();
+      alert(`Auto-detected tags for ${detectedCount} comments in Episode ${currentAnimeEpisodeData.episodeNumber}!`);
+    }
+
+    function addNewAnimeComment() {
+      if (!currentAnimeEpisodeData) return;
+      if (!currentAnimeEpisodeData.comments) currentAnimeEpisodeData.comments = [];
+      const newId = currentAnimeEpisodeData.comments.length + 1;
+      currentAnimeEpisodeData.comments.push({
+        id: newId,
+        text: '',
+        source: '',
+        characters: [],
+        topics: []
+      });
+      markAnimeDirty();
+      renderAnimeCommentsUI();
+
+      // Scroll to bottom
+      setTimeout(() => {
+        const container = document.getElementById('anime-comments-list');
+        if (container && container.lastElementChild) {
+          container.lastElementChild.scrollIntoView({ behavior: 'smooth' });
+          const txt = container.lastElementChild.querySelector('textarea');
+          if (txt) txt.focus();
+        }
+      }, 50);
+    }
+
+    function deleteAnimeComment(id) {
+      if (!currentAnimeEpisodeData || !currentAnimeEpisodeData.comments) return;
+      const confirmed = confirm(`Delete comment #${id}?`);
+      if (!confirmed) return;
+
+      currentAnimeEpisodeData.comments = currentAnimeEpisodeData.comments.filter(c => c.id !== id);
+      // Renumber sequentially 1..N
+      currentAnimeEpisodeData.comments.forEach((c, idx) => {
+        c.id = idx + 1;
+      });
+
+      markAnimeDirty();
+      renderAnimeCommentsUI();
+
+      const cmtBadge = document.getElementById('anime-comments-count-badge');
+      if (cmtBadge) cmtBadge.textContent = `${currentAnimeEpisodeData.comments.length} comments`;
+    }
+
+    async function saveAnimeEpisode() {
+      if (!currentAnimeEpisodeData) return;
+
+      const titleEn = document.getElementById('anime-ep-title-en')?.value.trim();
+      const titleJp = document.getElementById('anime-ep-title-jp')?.value.trim();
+      const airDate = document.getElementById('anime-ep-air-date')?.value.trim();
+      const sourceUrl = document.getElementById('anime-ep-source-url')?.value.trim();
+
+      if (!titleEn) {
+        alert('English episode title is required');
+        document.getElementById('anime-ep-title-en')?.focus();
+        return;
+      }
+
+      const payload = {
+        id: currentAnimeEpisodeData.id,
+        seasonId: currentAnimeEpisodeData.seasonId,
+        episodeNumber: currentAnimeEpisodeData.episodeNumber,
+        title: {
+          en: titleEn,
+          jp: titleJp || undefined
+        },
+        airDate: airDate || undefined,
+        translationSource: sourceUrl ? { type: 'url', url: sourceUrl } : undefined,
+        comments: (currentAnimeEpisodeData.comments || []).map((c, idx) => ({
+          id: idx + 1,
+          text: (c.text || '').trim(),
+          source: (c.source || '').trim(),
+          characters: Array.from(new Set(c.characters || [])),
+          topics: Array.from(new Set(c.topics || []))
+        }))
+      };
+
+      try {
+        const res = await fetch('/api/anime/episode', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        });
+
+        const data = await res.json();
+        if (!res.ok) {
+          alert('Save failed: ' + (data.error || 'Server error'));
+          return;
+        }
+
+        currentAnimeEpisodeData = data.episode;
+        isAnimeDirty = false;
+        alert(`✓ Episode ${currentAnimeEpisodeData.episodeNumber} commentary saved successfully!`);
+
+        // Reload catalog to refresh counts
+        const catRes = await fetch('/api/anime/catalog');
+        if (catRes.ok) {
+          allAnimeCatalog = await catRes.json();
+          renderAnimeEpisodesList();
+        }
+      } catch (err) {
+        alert('Save error: ' + err.message);
       }
     }
 

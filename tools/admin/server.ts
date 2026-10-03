@@ -1,8 +1,26 @@
 import http from "node:http";
 import fs from "node:fs";
 import path from "node:path";
-import { qnaEntrySchema, triviaEntrySchema, ArcConfig, IfRouteConfig, SupplementEntry, QnaEntry, TriviaEntry } from "../../lib/schema";
-import { findDuplicates, findTriviaDuplicates, normalizeTriviaId, suggestTags, parseQuickPaste, parseTriviaQuickPaste } from "./utils";
+import {
+  qnaEntrySchema,
+  triviaEntrySchema,
+  episodeCommentarySchema,
+  ArcConfig,
+  IfRouteConfig,
+  SupplementEntry,
+  QnaEntry,
+  TriviaEntry,
+  EpisodeCommentary,
+} from "../../lib/schema";
+import {
+  findDuplicates,
+  findTriviaDuplicates,
+  normalizeTriviaId,
+  suggestTags,
+  suggestAnimeTags,
+  parseQuickPaste,
+  parseTriviaQuickPaste,
+} from "./utils";
 
 const PORT = process.env.PORT ? parseInt(process.env.PORT, 10) : 4321;
 const ROOT_DIR = path.resolve(__dirname, "../..");
@@ -10,6 +28,8 @@ const CONTENT_CONFIG_DIR = path.join(ROOT_DIR, "content", "config");
 const CONTENT_QNA_DIR = path.join(ROOT_DIR, "content", "qna");
 const CONTENT_TRIVIA_DIR = path.join(ROOT_DIR, "content", "trivia");
 const CONTENT_SUPPLEMENTS_DIR = path.join(ROOT_DIR, "content", "supplements");
+const CONTENT_ANIME_DIR = path.join(ROOT_DIR, "content", "anime");
+const CONTENT_ANIME_CONFIG = path.join(CONTENT_CONFIG_DIR, "anime.json");
 
 function getNextSequentialId(): string {
   if (!fs.existsSync(CONTENT_QNA_DIR)) {
@@ -184,6 +204,92 @@ function getAllTriviaSummary() {
 
   list.sort((a, b) => a.id.localeCompare(b.id));
   return list;
+}
+
+interface AnimeCatalogSummaryEpisode {
+  id: string;
+  episodeNumber: number;
+  title: { en: string; jp?: string };
+  airDate: string;
+  commentCount: number;
+  taggedCharsCount: number;
+  taggedTopicsCount: number;
+}
+
+interface AnimeCatalogSummarySeason {
+  id: string;
+  title: string;
+  order: number;
+  episodes: AnimeCatalogSummaryEpisode[];
+}
+
+function getAnimeCatalogSummary(): AnimeCatalogSummarySeason[] {
+  let catalog: Array<{ id: string; title: string; order?: number }> = [];
+  if (fs.existsSync(CONTENT_ANIME_CONFIG)) {
+    try {
+      catalog = JSON.parse(fs.readFileSync(CONTENT_ANIME_CONFIG, "utf-8"));
+    } catch {
+      catalog = [];
+    }
+  }
+
+  const seasonsMap = new Map<string, AnimeCatalogSummarySeason>();
+
+  for (const item of catalog) {
+    seasonsMap.set(item.id, {
+      id: item.id,
+      title: item.title,
+      order: item.order ?? 99,
+      episodes: [],
+    });
+  }
+
+  if (fs.existsSync(CONTENT_ANIME_DIR)) {
+    const seasonDirs = fs.readdirSync(CONTENT_ANIME_DIR);
+    for (const seasonId of seasonDirs) {
+      const sPath = path.join(CONTENT_ANIME_DIR, seasonId);
+      if (!fs.statSync(sPath).isDirectory()) continue;
+
+      if (!seasonsMap.has(seasonId)) {
+        seasonsMap.set(seasonId, {
+          id: seasonId,
+          title: seasonId,
+          order: 99,
+          episodes: [],
+        });
+      }
+
+      const seasonObj = seasonsMap.get(seasonId)!;
+      const epFiles = fs.readdirSync(sPath).filter((f) => f.endsWith(".json"));
+
+      for (const epFile of epFiles) {
+        try {
+          const epData: EpisodeCommentary = JSON.parse(
+            fs.readFileSync(path.join(sPath, epFile), "utf-8")
+          );
+          seasonObj.episodes.push({
+            id: epData.id,
+            episodeNumber: epData.episodeNumber,
+            title: epData.title,
+            airDate: epData.airDate || "",
+            commentCount: epData.comments ? epData.comments.length : 0,
+            taggedCharsCount: (epData.comments || []).filter(
+              (c) => c.characters && c.characters.length > 0
+            ).length,
+            taggedTopicsCount: (epData.comments || []).filter(
+              (c) => c.topics && c.topics.length > 0
+            ).length,
+          });
+        } catch {
+          // ignore malformed
+        }
+      }
+
+      seasonObj.episodes.sort((a, b) => a.episodeNumber - b.episodeNumber);
+    }
+  }
+
+  return Array.from(seasonsMap.values()).sort((a, b) => a.order - b.order);
 }
 
 const server = http.createServer((req, res) => {
@@ -872,6 +978,102 @@ const server = http.createServer((req, res) => {
         return;
       }
     }
+  }
+
+  // --- Anime Commentary APIs ---
+
+  if (pathname === "/api/anime/catalog" && req.method === "GET") {
+    res.writeHead(200, { "Content-Type": "application/json" });
+    res.end(JSON.stringify(getAnimeCatalogSummary()));
+    return;
+  }
+
+  if (pathname === "/api/anime/episode" && req.method === "GET") {
+    const seasonId = url.searchParams.get("season");
+    const epNumStr = url.searchParams.get("episode");
+
+    if (!seasonId || !epNumStr) {
+      res.writeHead(400, { "Content-Type": "application/json" });
+      res.end(JSON.stringify({ error: "Missing 'season' or 'episode' parameter" }));
+      return;
+    }
+
+    const filePath = path.join(CONTENT_ANIME_DIR, seasonId, `${epNumStr}.json`);
+    if (fs.existsSync(filePath)) {
+      try {
+        const episodeData = JSON.parse(fs.readFileSync(filePath, "utf-8"));
+        res.writeHead(200, { "Content-Type": "application/json" });
+        res.end(JSON.stringify({ success: true, episode: episodeData }));
+      } catch (err: unknown) {
+        res.writeHead(500, { "Content-Type": "application/json" });
+        res.end(JSON.stringify({ error: String(err) }));
+      }
+    } else {
+      res.writeHead(404, { "Content-Type": "application/json" });
+      res.end(JSON.stringify({ error: `Episode ${seasonId}/${epNumStr} not found` }));
+    }
+    return;
+  }
+
+  if (pathname === "/api/anime/suggest-tags" && req.method === "POST") {
+    let body = "";
+    req.on("data", (chunk) => (body += chunk));
+    req.on("end", () => {
+      try {
+        const { text } = JSON.parse(body || "{}");
+        const configs = getConfigs();
+        const result = suggestAnimeTags(text || "", configs.characters, configs.topics);
+        res.writeHead(200, { "Content-Type": "application/json" });
+        res.end(JSON.stringify({ success: true, ...result }));
+      } catch (err: unknown) {
+        res.writeHead(400, { "Content-Type": "application/json" });
+        res.end(JSON.stringify({ error: String(err) }));
+      }
+    });
+    return;
+  }
+
+  if (pathname === "/api/anime/episode" && req.method === "POST") {
+    let body = "";
+    req.on("data", (chunk) => (body += chunk));
+    req.on("end", () => {
+      try {
+        const parsed = JSON.parse(body || "{}");
+
+        // Validate structure with episodeCommentarySchema
+        const validated = episodeCommentarySchema.parse(parsed);
+
+        // Ensure comment IDs are strictly sequential 1, 2, ... N
+        for (let i = 0; i < validated.comments.length; i++) {
+          validated.comments[i].id = i + 1;
+        }
+
+        const seasonDir = path.join(CONTENT_ANIME_DIR, validated.seasonId);
+        if (!fs.existsSync(seasonDir)) {
+          fs.mkdirSync(seasonDir, { recursive: true });
+        }
+
+        const targetFile = path.join(seasonDir, `${validated.episodeNumber}.json`);
+        fs.writeFileSync(targetFile, JSON.stringify(validated, null, 2) + "\n", "utf-8");
+
+        // Collect all tags to ensure registry updates if any new ones were entered
+        const allChars = new Set<string>();
+        const allTopics = new Set<string>();
+        for (const c of validated.comments) {
+          c.characters?.forEach((ch) => allChars.add(ch));
+          c.topics?.forEach((tp) => allTopics.add(tp));
+        }
+        updateTagRegistries(Array.from(allChars), Array.from(allTopics));
+
+        res.writeHead(200, { "Content-Type": "application/json" });
+        res.end(JSON.stringify({ success: true, episode: validated }));
+      } catch (err: unknown) {
+        const msg = err instanceof Error ? err.message : String(err);
+        res.writeHead(400, { "Content-Type": "application/json" });
+        res.end(JSON.stringify({ error: msg }));
+      }
+    });
+    return;
   }
 
   // Serve Admin GUI static assets (HTML, CSS, JS)

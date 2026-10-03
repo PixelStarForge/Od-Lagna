@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { getAnimeCatalog, getAnimeStats, getSeasonBadgeLabel } from "../../lib/anime-loader";
+import { getAnimeCatalog, getAnimeStats, getSeasonBadgeLabel, getAllAnimeComments } from "../../lib/anime-loader";
+import { AnimeCatalogHeroSearch } from "../../components/AnimeCatalogHeroSearch";
 
 export const metadata = {
   title: "Anime Episode Commentary — Od-Lagna",
@@ -23,6 +24,7 @@ export const metadata = {
 export default function AnimeCatalogPage() {
   const catalog = getAnimeCatalog();
   const stats = getAnimeStats();
+  const allComments = getAllAnimeComments();
 
   const seasons = catalog.filter((item) => item.type === "season");
 
@@ -59,23 +61,36 @@ export default function AnimeCatalogPage() {
         {/* Stats Strip */}
         <div className="pt-2 flex flex-wrap items-center gap-4 sm:gap-6 text-xs sm:text-sm font-mono text-[var(--text-muted)]">
           <div className="flex items-center gap-2">
-            <span className="w-2 h-2 rounded-full bg-[var(--accent)]" />
-            <span>
-              <strong className="text-[var(--text-main)] font-semibold">{stats.seasonsCount}</strong> Television Seasons
-            </span>
+              <span className="w-2 h-2 rounded-full bg-[var(--accent)]" />
+              <span>
+                <strong className="text-[var(--text-main)] font-semibold">{stats.seasonsCount}</strong> Television Seasons
+              </span>
+            </div>
+            <div className="flex items-center gap-2">
+              <span className="w-2 h-2 rounded-full bg-[var(--verified-text)]" />
+              <span>
+                <strong className="text-[var(--text-main)] font-semibold">{stats.totalCatalogedEpisodes}</strong> Cataloged Episodes
+              </span>
+            </div>
+            <div className="flex items-center gap-2">
+              <span className="w-2 h-2 rounded-full bg-[var(--accent-solid)]" />
+              <span>
+                <strong className="text-[var(--text-main)] font-semibold">{stats.totalComments}</strong> Author Comments
+              </span>
+            </div>
           </div>
-          <div className="flex items-center gap-2">
-            <span className="w-2 h-2 rounded-full bg-[var(--verified-text)]" />
-            <span>
-              <strong className="text-[var(--text-main)] font-semibold">{stats.totalCatalogedEpisodes}</strong> Cataloged Episodes
-            </span>
-          </div>
-          <div className="flex items-center gap-2">
-            <span className="w-2 h-2 rounded-full bg-[var(--accent-solid)]" />
-            <span>
-              <strong className="text-[var(--text-main)] font-semibold">{stats.totalComments}</strong> Author Comments
-            </span>
-          </div>
+
+        {/* Search Bar Popup Trigger & Global Link */}
+        <div className="pt-2 flex flex-col md:flex-row md:items-center justify-between gap-4">
+          <AnimeCatalogHeroSearch allComments={allComments} />
+
+          <Link
+            href="/anime/browse"
+            className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl border border-[var(--border-subtle)] bg-[var(--bg-surface)] hover:bg-[var(--bg-elevated)] hover:border-[var(--text-muted)] text-[var(--text-main)] text-xs sm:text-sm font-semibold transition-all shadow-2xs shrink-0 self-start md:self-auto cursor-pointer"
+          >
+            <span>Open Filter Archive</span>
+            <span>→</span>
+          </Link>
         </div>
       </div>
 

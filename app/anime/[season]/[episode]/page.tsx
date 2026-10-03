@@ -1,5 +1,7 @@
+import { Suspense } from "react";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { EpisodeCommentaryClient } from "../../../../components/EpisodeCommentaryClient";
 import {
   getAnimeSeason,
   getEpisodeCommentary,
@@ -310,77 +312,21 @@ export default async function EpisodeCommentaryPage({ params }: PageProps) {
         position="top"
       />
 
-      {/* Commentary Stream */}
-      <div className="space-y-4">
-        <div className="flex items-center justify-between pb-2 border-b border-[var(--border-subtle)]">
-          <h2 className="text-base sm:text-lg font-bold text-[var(--text-main)] flex items-center gap-2">
-            <span>Author Broadcast Live-Tweets</span>
-            <span className="text-xs font-mono font-normal text-[var(--text-muted)]">
-              ({commentary.comments.length} entries)
-            </span>
-          </h2>
-        </div>
-
-        {commentary.comments.length > 0 ? (
-          <div className="space-y-3">
-            {commentary.comments.map((comment) => (
-              <article
-                id={`comment-${comment.id}`}
-                key={comment.id}
-                className="group p-4 sm:p-5 rounded-xl border border-[var(--border-subtle)] bg-[var(--bg-surface)] hover:border-[var(--accent-border)] transition-colors space-y-3 shadow-xs scroll-mt-20"
-              >
-                {/* Comment Body */}
-                <p className="text-sm sm:text-base text-[var(--text-main)] leading-relaxed whitespace-pre-line">
-                  {comment.text}
-                </p>
-
-                {/* Bottom Bar: Source Citation with permalink anchor */}
-                <div className="pt-3 border-t border-[var(--border-subtle)] flex items-center justify-between gap-2 text-xs sm:text-sm">
-                  <div className="text-[var(--text-muted)] min-w-0 flex-1">
-                    {comment.source ? (
-                      <div className="flex items-baseline gap-1.5 min-w-0">
-                        <span className="font-mono font-semibold text-[var(--text-muted)] shrink-0">
-                          Source:
-                        </span>
-                        <a
-                          href={comment.source}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="text-[var(--accent)] hover:underline break-all font-medium inline-flex items-baseline gap-1 min-w-0"
-                        >
-                          <span className="break-all">{comment.source}</span>
-                          <span className="inline-block text-[11px] align-baseline shrink-0">↗</span>
-                        </a>
-                      </div>
-                    ) : (
-                      <span className="font-mono text-xs text-[var(--text-muted)]">
-                        Author Live-Tweet
-                      </span>
-                    )}
-                  </div>
-
-                  <a
-                    href={`#comment-${comment.id}`}
-                    title="Permalink to this comment"
-                    className="font-mono text-xs text-[var(--text-muted)] hover:text-[var(--text-main)] px-1.5 py-0.5 rounded hover:bg-[var(--bg-elevated)] transition-colors shrink-0 font-medium"
-                  >
-                    #{comment.id}
-                  </a>
-                </div>
-              </article>
-            ))}
+      {/* Commentary Stream with Interactive Filter System */}
+      <Suspense
+        fallback={
+          <div className="p-8 text-center text-sm font-mono text-[var(--text-muted)] border border-[var(--border-subtle)] bg-[var(--bg-surface)] rounded-xl">
+            Loading episode commentary...
           </div>
-        ) : (
-          <div className="p-8 sm:p-12 rounded-xl border border-[var(--border-subtle)] bg-[var(--bg-surface)] text-center space-y-2">
-            <p className="text-sm sm:text-base font-semibold text-[var(--text-main)]">
-              No commentary cataloged yet
-            </p>
-            <p className="text-xs sm:text-sm text-[var(--text-muted)] max-w-md mx-auto">
-              Author live-tweets and broadcast commentary for this episode have not been added yet.
-            </p>
-          </div>
-        )}
-      </div>
+        }
+      >
+        <EpisodeCommentaryClient
+          seasonId={seasonId}
+          seasonTitle={season.title}
+          episodeNumber={currentEpNum}
+          comments={commentary.comments}
+        />
+      </Suspense>
 
       {/* Bottom Episode Pagination */}
       <EpisodePagination

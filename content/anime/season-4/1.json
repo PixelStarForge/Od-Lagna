@@ -10,182 +10,367 @@
     {
       "id": 1,
       "text": "Today, April 8, is finally the start date for Re:Zero Season 4!\nAs always, the author plans to do live commentary in real time, so things will get noisy from 11 o'clock, and I appreciate your understanding!\nI'll be live-commenting with the hashtag below, so please track or mute as you see fit!",
-      "source": "https://x.com/nezumiironyanko/status/2041826243432345760"
+      "source": "https://x.com/nezumiironyanko/status/2041826243432345760",
+      "characters": [],
+      "topics": []
     },
     {
       "id": 2,
       "text": "It's about to start, so I'm going to the bathroom and then waiting on standby!",
-      "source": "https://x.com/nezumiironyanko/status/2041877218977312780"
+      "source": "https://x.com/nezumiironyanko/status/2041877218977312780",
+      "characters": [],
+      "topics": []
     },
     {
       "id": 3,
       "text": "One minute le-e-e-eft! One minute le-e-e-eft!",
-      "source": "https://x.com/nezumiironyanko/status/2041878464945648067"
+      "source": "https://x.com/nezumiironyanko/status/2041878464945648067",
+      "characters": [],
+      "topics": []
     },
     {
       "id": 4,
       "text": "It's started!\nPicking up right where Season 3 left off last time!",
-      "source": "https://x.com/nezumiironyanko/status/2041878760371437658"
+      "source": "https://x.com/nezumiironyanko/status/2041878760371437658",
+      "characters": [],
+      "topics": []
     },
     {
       "id": 5,
       "text": "Priestella is still in the middle of recovering, covered in scars, and this picks up from where last time's ending showed Subaru finding Julius, but it didn't turn into a happy ending.",
-      "source": "https://x.com/nezumiironyanko/status/2041878897747488955"
+      "source": "https://x.com/nezumiironyanko/status/2041878897747488955",
+      "characters": [
+        "Julius Juukulius",
+        "Natsuki Subaru"
+      ],
+      "topics": [
+        "Worldbuilding"
+      ]
     },
     {
       "id": 6,
       "text": "From Emilia's reaction, Subaru realizes what happened to Julius and presses the others about him, but he doesn't get the answer he wanted.\nJust as Subaru explains, it's the effect of Gluttony's Authority, which devours both \"name\" and \"memory.\"",
-      "source": "https://x.com/nezumiironyanko/status/2041879204057559270"
+      "source": "https://x.com/nezumiironyanko/status/2041879204057559270",
+      "characters": [
+        "Emilia",
+        "Julius Juukulius",
+        "Natsuki Subaru"
+      ],
+      "topics": [
+        "Authorities"
+      ]
     },
     {
       "id": 7,
       "text": "The people whose forms were altered by Lust are being kept frozen by Emilia's magic until a way to restore them is found. Along with the victims of Gluttony who ended up in the same state as Rem, quite a few people will be left in Priestella waiting to be saved.",
-      "source": "https://x.com/nezumiironyanko/status/2041879577367400596"
+      "source": "https://x.com/nezumiironyanko/status/2041879577367400596",
+      "characters": [
+        "Emilia",
+        "Rem"
+      ],
+      "topics": [
+        "Mana & Magic",
+        "Worldbuilding"
+      ]
     },
     {
       "id": 8,
       "text": "The Kingdom of Lugunica apparently has someone Emilia would call \"super-duper knowledgeable.\" And when you hear \"Sage,\" well, that's a classic isekai staple, isn't it?",
-      "source": "https://x.com/nezumiironyanko/status/2041879754614435985"
+      "source": "https://x.com/nezumiironyanko/status/2041879754614435985",
+      "characters": [
+        "Emilia",
+        "Filore Lugunica",
+        "Fourier Lugunica"
+      ],
+      "topics": []
     },
     {
       "id": 9,
       "text": "This part explaining the Three Great Heroes kind of has that narrated-by-Subaru Memory Snow vibe.",
-      "source": "https://x.com/nezumiironyanko/status/2041879845983150213"
+      "source": "https://x.com/nezumiironyanko/status/2041879845983150213",
+      "characters": [
+        "Natsuki Subaru"
+      ],
+      "topics": []
     },
     {
       "id": 10,
       "text": "The \"Augria Sand Dunes\" and the \"Pleiades Watchtower.\"\nThese will be key locations in season 4. Keep an eye on them.",
-      "source": "https://x.com/nezumiironyanko/status/2041879969534767115"
+      "source": "https://x.com/nezumiironyanko/status/2041879969534767115",
+      "characters": [],
+      "topics": []
     },
     {
       "id": 11,
       "text": "The tower Reinhard couldn't reach! The sea of sand he couldn't conquer! All right, pack it up, everyone!",
-      "source": "https://x.com/nezumiironyanko/status/2041880049885048956"
+      "source": "https://x.com/nezumiironyanko/status/2041880049885048956",
+      "characters": [
+        "Reinhard van Astrea"
+      ],
+      "topics": []
     },
     {
       "id": 12,
       "text": "Captured Sirius is restrained to an almost excessive degree, but even this still doesn't feel like enough when dealing with a Sin Archbishop. That's how wary you have to be.",
-      "source": "https://x.com/nezumiironyanko/status/2041880215849464223"
+      "source": "https://x.com/nezumiironyanko/status/2041880215849464223",
+      "characters": [
+        "Sirius Romanee-Conti"
+      ],
+      "topics": [
+        "Sin Archbishops"
+      ]
     },
     {
       "id": 13,
       "text": "The group leaving Priestella is Subaru, Emilia, Beatrice, Anastasia, and Julius, while Otto and Garfiel stay behind in Priestella. Both Otto and Garfiel are badly injured, which really shows the toll of that fierce battle.",
-      "source": "https://x.com/nezumiironyanko/status/2041880447001751651"
+      "source": "https://x.com/nezumiironyanko/status/2041880447001751651",
+      "characters": [
+        "Anastasia Hoshin",
+        "Beatrice",
+        "Emilia",
+        "Garfiel Tinsel",
+        "Julius Juukulius",
+        "Natsuki Subaru",
+        "Otto Suwen"
+      ],
+      "topics": [
+        "Combat & Tiering",
+        "Worldbuilding"
+      ]
     },
     {
       "id": 14,
       "text": "Basically, Beatrice usually sleeps with Subaru, but sometimes she sleeps with Emilia or with Petra like this too. The ratio is about 70% Subaru, and the remaining 30% split among everyone else.",
-      "source": "https://x.com/nezumiironyanko/status/2041880635862901127"
+      "source": "https://x.com/nezumiironyanko/status/2041880635862901127",
+      "characters": [
+        "Beatrice",
+        "Emilia",
+        "Natsuki Subaru",
+        "Petra Leyte"
+      ],
+      "topics": []
     },
     {
       "id": 15,
       "text": "The foreshadowing around Anastasia (?) here had already been dropped here and there since season 3. When Capella came to attack the members who stayed behind at the city hall, Al also overreacted to Anastasia's magic.",
-      "source": "https://x.com/nezumiironyanko/status/2041880914268172512"
+      "source": "https://x.com/nezumiironyanko/status/2041880914268172512",
+      "characters": [
+        "Al (Aldebaran)",
+        "Anastasia Hoshin",
+        "Capella Emerada Lugnica"
+      ],
+      "topics": [
+        "Mana & Magic"
+      ]
     },
     {
       "id": 16,
       "text": "Ueda-san's performance as Anastasia (?) here was so incredible that everyone was left speechless.",
-      "source": "https://x.com/nezumiironyanko/status/2041881058011181469"
+      "source": "https://x.com/nezumiironyanko/status/2041881058011181469",
+      "characters": [
+        "Anastasia Hoshin"
+      ],
+      "topics": []
     },
     {
       "id": 17,
       "text": "The moment he hears the name \"Echidna,\" Subaru can't help overreacting. Well, considering what Echidna did to him in the Sanctuary, what Echidna had set up, and what Echidna left him with, you can't really blame him.\nShe is firmly in the running for the top spot in Subaru's least trustworthy people in another world ranking.",
-      "source": "https://x.com/nezumiironyanko/status/2041881301201121428"
+      "source": "https://x.com/nezumiironyanko/status/2041881301201121428",
+      "characters": [
+        "Echidna",
+        "Natsuki Subaru"
+      ],
+      "topics": [
+        "Worldbuilding"
+      ]
     },
     {
       "id": 18,
       "text": "Since this is \"Echidna\" the \"scarf,\" I called her \"Scarfdona.\" After this, the novels, the web version, and the anime scripts all properly use the notation \"Scarfdona\" too.",
-      "source": "https://x.com/nezumiironyanko/status/2041881511310594358"
+      "source": "https://x.com/nezumiironyanko/status/2041881511310594358",
+      "characters": [
+        "Echidna"
+      ],
+      "topics": []
     },
     {
       "id": 19,
       "text": "The route to the Sage's tower is full of conflicting motives.\nThe Anastasia camp is left with major worries about both Anastasia and Julius. Subaru is worrying about everyone a lot, Beatrice is worrying about Subaru, and the only one bursting with energy is Emilia.",
-      "source": "https://x.com/nezumiironyanko/status/2041881981840187395"
+      "source": "https://x.com/nezumiironyanko/status/2041881981840187395",
+      "characters": [
+        "Anastasia Hoshin",
+        "Beatrice",
+        "Emilia",
+        "Julius Juukulius",
+        "Natsuki Subaru"
+      ],
+      "topics": [
+        "Anastasia Camp"
+      ]
     },
     {
       "id": 20,
       "text": "Roswaal, back after a long while. In short: Long-no-see-waal.",
-      "source": "https://x.com/nezumiironyanko/status/2041882440034341011"
+      "source": "https://x.com/nezumiironyanko/status/2041882440034341011",
+      "characters": [
+        "Roswaal L. Mathers"
+      ],
+      "topics": []
     },
     {
       "id": 21,
       "text": "Looking at Petra now kind of makes my chest tighten up for a lot of reasons...",
-      "source": "https://x.com/nezumiironyanko/status/2041882519164088441"
+      "source": "https://x.com/nezumiironyanko/status/2041882519164088441",
+      "characters": [
+        "Petra Leyte"
+      ],
+      "topics": []
     },
     {
       "id": 22,
       "text": "\"lolimancer\"\nFor the record, Julius's remark here is straightforward praise, not sarcasm or a jab.",
-      "source": "https://x.com/nezumiironyanko/status/2041882614651580818"
+      "source": "https://x.com/nezumiironyanko/status/2041882614651580818",
+      "characters": [
+        "Julius Juukulius"
+      ],
+      "topics": []
     },
     {
       "id": 23,
       "text": "Judging by how angry Petra is, you start to wonder how much Otto's injury story in Priestella got embellished. It wouldn't be strange if it had turned into a tale about Otto charging straight at a Sin Archbishop and getting hurt doing it.",
-      "source": "https://x.com/nezumiironyanko/status/2041882816301150286"
+      "source": "https://x.com/nezumiironyanko/status/2041882816301150286",
+      "characters": [
+        "Otto Suwen",
+        "Petra Leyte"
+      ],
+      "topics": [
+        "Sin Archbishops",
+        "Worldbuilding"
+      ]
     },
     {
       "id": 24,
       "text": "Meili! It's Meili! Meili's hereee!!",
-      "source": "https://x.com/nezumiironyanko/status/2041882873431781585"
+      "source": "https://x.com/nezumiironyanko/status/2041882873431781585",
+      "characters": [
+        "Meili Portroute"
+      ],
+      "topics": []
     },
     {
       "id": 25,
       "text": "Meili, the \"Beast Tamer\" who attacked the Roswaal mansion together with Elsa in season 2. After that, she was held prisoner in the basement of the Roswaal mansion. It's been a year now, and they've tried to make her captivity as comfortable as possible.",
-      "source": "https://x.com/nezumiironyanko/status/2041883107956322616"
+      "source": "https://x.com/nezumiironyanko/status/2041883107956322616",
+      "characters": [
+        "Elsa Granhiert",
+        "Meili Portroute",
+        "Roswaal L. Mathers"
+      ],
+      "topics": []
     },
     {
       "id": 26,
       "text": "There are lots of stuffed animals in Meili's tatami-cell, and those are presents from Subaru, who put his Sewing Skill S talents to use so she wouldn't get bored during captivity. So there are even stuffed animals of creatures that don't exist in this other world.",
-      "source": "https://x.com/nezumiironyanko/status/2041883299975753853"
+      "source": "https://x.com/nezumiironyanko/status/2041883299975753853",
+      "characters": [
+        "Meili Portroute",
+        "Natsuki Subaru"
+      ],
+      "topics": []
     },
     {
       "id": 27,
       "text": "They're going somewhere full of mabeasts, so they bring a \"Beast Tamer\" onto their side. Re:Zero rotates its setting and regular members every arc, but I wonder how many people expected Meili to join the regular cast.",
-      "source": "https://x.com/nezumiironyanko/status/2041883504959746134"
+      "source": "https://x.com/nezumiironyanko/status/2041883504959746134",
+      "characters": [
+        "Meili Portroute"
+      ],
+      "topics": [
+        "Mabeasts"
+      ]
     },
     {
       "id": 28,
       "text": "So this is why Eguchi-san thought of himself as the heroine position of season 4...",
-      "source": "https://x.com/nezumiironyanko/status/2041883592708813300"
+      "source": "https://x.com/nezumiironyanko/status/2041883592708813300",
+      "characters": [],
+      "topics": []
     },
     {
       "id": 29,
       "text": "Refusing to yield on Emilia, Rem, and Beatrice is exactly what makes Subaru Subaru. Still, the way Sis said \"you fool\" here was a very good \"you fool.\"",
-      "source": "https://x.com/nezumiironyanko/status/2041883981705318640"
+      "source": "https://x.com/nezumiironyanko/status/2041883981705318640",
+      "characters": [
+        "Beatrice",
+        "Emilia",
+        "Natsuki Subaru",
+        "Rem"
+      ],
+      "topics": []
     },
     {
       "id": 30,
       "text": "Part of the fun of Re:Zero is checking which letters in the subtitle are colored what, so keep an eye on that too.",
-      "source": "https://x.com/nezumiironyanko/status/2041884102681579597"
+      "source": "https://x.com/nezumiironyanko/status/2041884102681579597",
+      "characters": [],
+      "topics": []
     },
     {
       "id": 31,
       "text": "This time it's \"The Reason to Take You Out\" plus one more subtitle, a two-title lineup!",
-      "source": "https://x.com/nezumiironyanko/status/2041884183577162149"
+      "source": "https://x.com/nezumiironyanko/status/2041884183577162149",
+      "characters": [],
+      "topics": []
     },
     {
       "id": 32,
       "text": "Garek Thompson, the breadwinner of the Thompson family, was one of the people at the scene when Capella took over the city hall. He fell victim to Lust's Authority and was transformed into a black dragon. He's the black dragon that struck back at Capella to save Subaru and Crusch-san. Right now, he's one of the people being kept on ice in frozen storage.",
-      "source": "https://x.com/nezumiironyanko/status/2041884602713923764"
+      "source": "https://x.com/nezumiironyanko/status/2041884602713923764",
+      "characters": [
+        "Capella Emerada Lugnica",
+        "Crusch Karsten",
+        "Fred Thompson",
+        "Natsuki Subaru"
+      ],
+      "topics": [
+        "Authorities"
+      ]
     },
     {
       "id": 33,
       "text": "I wrote her that way myself, but wow, seeing Mimi moving and talking in Priestella really makes her too good of a woman the whole time...",
-      "source": "https://x.com/nezumiironyanko/status/2041884781257097458"
+      "source": "https://x.com/nezumiironyanko/status/2041884781257097458",
+      "characters": [
+        "Mimi Pearlbaton"
+      ],
+      "topics": [
+        "Worldbuilding"
+      ]
     },
     {
       "id": 34,
       "text": "Frederica, Garfiel, Rafiel, and Fred.\nThose are all names given by Liara=Lysia.",
-      "source": "https://x.com/nezumiironyanko/status/2041885117313122536"
+      "source": "https://x.com/nezumiironyanko/status/2041885117313122536",
+      "characters": [
+        "Fred Thompson",
+        "Frederica Baumann",
+        "Garfiel Tinsel"
+      ],
+      "topics": []
     },
     {
       "id": 35,
       "text": "Did you properly check which part of \"Gorgeous Tiger Reloaded\" was colored!?",
-      "source": "https://x.com/nezumiironyanko/status/2041885435203613026"
+      "source": "https://x.com/nezumiironyanko/status/2041885435203613026",
+      "characters": [],
+      "topics": []
     },
     {
       "id": 36,
       "text": "And with that, wow, that was fast! Super fast!\nEpisode 1 was over in an instant! The ending credit is Sis! That's all for this time!\nOnce the main episode of Re:Zero is over, don't forget to watch the mini anime, \"RipuChi,\" too!!\nAll right then, thanks for today! Looking forward to being with you all again through season 4!!",
-      "source": "https://x.com/nezumiironyanko/status/2041885935336608056"
+      "source": "https://x.com/nezumiironyanko/status/2041885935336608056",
+      "characters": [],
+      "topics": []
     }
   ]
 }

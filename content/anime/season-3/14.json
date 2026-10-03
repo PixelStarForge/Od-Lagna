@@ -10,167 +10,375 @@
     {
       "id": 1,
       "text": "Starting off, a retelling of a scene you all once saw, this time from the opposite side's point of view...",
-      "source": "https://x.com/nezumiironyanko/status/1899830340585431229"
+      "source": "https://x.com/nezumiironyanko/status/1899830340585431229",
+      "characters": [],
+      "topics": []
     },
     {
       "id": 2,
       "text": "For the other side of this, go watch the White Whale battle from Re:Zero episodes 20 to 22!",
-      "source": "https://x.com/nezumiironyanko/status/1899830534282641550"
+      "source": "https://x.com/nezumiironyanko/status/1899830534282641550",
+      "characters": [
+        "White Whale"
+      ],
+      "topics": [
+        "Combat & Tiering",
+        "Great Mabeasts",
+        "Mabeasts"
+      ]
     },
     {
       "id": 3,
       "text": "...If you found out it was actually love at first sight, just how surprised would you be?",
-      "source": "https://x.com/nezumiironyanko/status/1899830722803941468"
+      "source": "https://x.com/nezumiironyanko/status/1899830722803941468",
+      "characters": [],
+      "topics": []
     },
     {
       "id": 4,
       "text": "The scene returns to the present, starting with the clash of blades between Wilhelm and Theresia. Back then, Wilhelm pushed himself through truly desperate training to take the sword from Theresia, and that effort finally led him to that moment at the ceremony, but now...",
-      "source": "https://x.com/nezumiironyanko/status/1899830967969407302"
+      "source": "https://x.com/nezumiironyanko/status/1899830967969407302",
+      "characters": [
+        "Theresia van Astrea",
+        "Wilhelm van Astrea"
+      ],
+      "topics": []
     },
     {
       "id": 5,
       "text": "A breathtaking battle, and then the one who appeared there was...",
-      "source": "https://x.com/nezumiironyanko/status/1899831124593131726"
+      "source": "https://x.com/nezumiironyanko/status/1899831124593131726",
+      "characters": [],
+      "topics": [
+        "Combat & Tiering"
+      ]
     },
     {
       "id": 6,
       "text": "The Astrea family, all of them with terrible timing when they're together.",
-      "source": "https://x.com/nezumiironyanko/status/1899831260887044161"
+      "source": "https://x.com/nezumiironyanko/status/1899831260887044161",
+      "characters": [
+        "Louanna Astrea",
+        "Toska Astrea"
+      ],
+      "topics": []
     },
     {
       "id": 7,
       "text": "Heinkel had been knocked unconscious by a hit from Felt, so of course he had no grasp of the situation in the city. He knew there were Sin Archbishops around, but he never could have imagined there were dead warriors walking about, much less Theresia.",
-      "source": "https://x.com/nezumiironyanko/status/1899831442194260311"
+      "source": "https://x.com/nezumiironyanko/status/1899831442194260311",
+      "characters": [
+        "Felt",
+        "Heinkel Astrea",
+        "Theresia van Astrea"
+      ],
+      "topics": [
+        "Sin Archbishops"
+      ]
     },
     {
       "id": 8,
       "text": "...That's far enough.",
-      "source": "https://x.com/nezumiironyanko/status/1899831476239138975"
+      "source": "https://x.com/nezumiironyanko/status/1899831476239138975",
+      "characters": [],
+      "topics": []
     },
     {
       "id": 9,
       "text": "Wilhelm, Heinkel, Theresia, and Reinhard... the Astrea family, all assembled.",
-      "source": "https://x.com/nezumiironyanko/status/1899831559689293853"
+      "source": "https://x.com/nezumiironyanko/status/1899831559689293853",
+      "characters": [
+        "Heinkel Astrea",
+        "Louanna Astrea",
+        "Reinhard van Astrea",
+        "Theresia van Astrea",
+        "Toska Astrea",
+        "Wilhelm van Astrea"
+      ],
+      "topics": []
     },
     {
       "id": 10,
       "text": "After finishing the battle with Regulus, Reinhard was sent off by Subaru and Emilia and came flying in, and at last the \"Dragon Sword\" Reid is drawn from his hand.\nRegulus-san couldn't even draw it, and within the scope of what has been depicted in the story, this is the only moment the \"Dragon Sword\" has ever been unsheathed.",
-      "source": "https://x.com/nezumiironyanko/status/1899831835040821251"
+      "source": "https://x.com/nezumiironyanko/status/1899831835040821251",
+      "characters": [
+        "Emilia",
+        "Natsuki Subaru",
+        "Regulus Corneas",
+        "Reid Astrea",
+        "Reinhard van Astrea"
+      ],
+      "topics": [
+        "Combat & Tiering"
+      ]
     },
     {
       "id": 11,
       "text": "Undead Theresia was unquestionably as strong as she had been back when she fought Wilhelm, but Reinhard after drawing the \"Dragon Sword\" does not even consider that worth noting. That is the current \"Sword Saint,\" the strongest being in history, Reinhard van Astrea.",
-      "source": "https://x.com/nezumiironyanko/status/1899832236666749163"
+      "source": "https://x.com/nezumiironyanko/status/1899832236666749163",
+      "characters": [
+        "Louanna Astrea",
+        "Reinhard van Astrea",
+        "Theresia van Astrea",
+        "Toska Astrea",
+        "Wilhelm van Astrea"
+      ],
+      "topics": [
+        "Combat & Tiering",
+        "Lore"
+      ]
     },
     {
       "id": 12,
       "text": "At twelve years old, Theresia received the \"Divine Protection of the Sword Saint\" while she was simply admiring flowers. The \"Divine Protection of the Sword Saint\" is the one and only Divine Protection that is inherited through the generations, so it only occasionally falls upon someone in the Astrea family, and this time it was Theresia.",
-      "source": "https://x.com/nezumiironyanko/status/1899832470201110799"
+      "source": "https://x.com/nezumiironyanko/status/1899832470201110799",
+      "characters": [
+        "Louanna Astrea",
+        "Theresia van Astrea",
+        "Toska Astrea"
+      ],
+      "topics": [
+        "Combat & Tiering",
+        "Divine Protections"
+      ]
     },
     {
       "id": 13,
       "text": "Theresia had two older brothers and one younger brother, making four siblings in all. Her eldest brother was Thames, her second brother was Karran, and her youngest brother was Kajires. All of them, like true members of the Astrea family, devoted themselves to the sword, but once Theresia received her Divine Protection, she blew right past all of them on her own.",
-      "source": "https://x.com/nezumiironyanko/status/1899832707196362923"
+      "source": "https://x.com/nezumiironyanko/status/1899832707196362923",
+      "characters": [
+        "Louanna Astrea",
+        "Theresia van Astrea",
+        "Toska Astrea"
+      ],
+      "topics": [
+        "Divine Protections"
+      ]
     },
     {
       "id": 14,
       "text": "Incidentally, Theresia's father is Berthold Astrea. Her mother is Tishua Astrea. As you can tell from the name, Berthold, who earned no achievements, is hopeless with a sword, but the person Wilhelm respects most in his life is Berthold. For the details, maybe EX3?",
-      "source": "https://x.com/nezumiironyanko/status/1899832927317324157"
+      "source": "https://x.com/nezumiironyanko/status/1899832927317324157",
+      "characters": [
+        "Louanna Astrea",
+        "Theresia van Astrea",
+        "Toska Astrea",
+        "Wilhelm van Astrea"
+      ],
+      "topics": []
     },
     {
       "id": 15,
       "text": "The Demi-Human War was a civil war that lasted ten years. A simple outline of it was mentioned back in Season 1, but as for how tragic it was, and Theresia's circumstances before reaching that flower field, it was just as told here.",
-      "source": "https://x.com/nezumiironyanko/status/1899833249083576635"
+      "source": "https://x.com/nezumiironyanko/status/1899833249083576635",
+      "characters": [
+        "Theresia van Astrea"
+      ],
+      "topics": []
     },
     {
       "id": 16,
       "text": "The \"Divine Protection of the Sword Saint\" grants the qualification to wield the \"Dragon Sword\" and draws out one's sword talent to its absolute limit, which is why Theresia became overwhelmingly strong. The same can be said of Reinhard, of course, but Reinhard alone would still have been about that strong even without the \"Divine Protection of the Sword Saint.\" For Reinhard, the benefit is being able to use the \"Dragon Sword.\"",
-      "source": "https://x.com/nezumiironyanko/status/1899833553036448206"
+      "source": "https://x.com/nezumiironyanko/status/1899833553036448206",
+      "characters": [
+        "Reinhard van Astrea",
+        "Theresia van Astrea"
+      ],
+      "topics": [
+        "Combat & Tiering",
+        "Divine Protections"
+      ]
     },
     {
       "id": 17,
       "text": "Because Theresia also had the power of the \"Divine Protection of the Death God,\" which she possessed from the start, she ranks near the very top even among all the past \"Sword Saints.\" That means the Wilhelm of that time, who defeated her, ranks high even among all Re:Zero characters up to the present day. Being that strong without any Divine Protection is absurd. The power of love.",
-      "source": "https://x.com/nezumiironyanko/status/1899833834847481961"
+      "source": "https://x.com/nezumiironyanko/status/1899833834847481961",
+      "characters": [
+        "Theresia van Astrea",
+        "Wilhelm van Astrea"
+      ],
+      "topics": [
+        "Divine Protections"
+      ]
     },
     {
       "id": 18,
       "text": "The voice changed, didn't it?!",
-      "source": "https://x.com/nezumiironyanko/status/1899833919610229026"
+      "source": "https://x.com/nezumiironyanko/status/1899833919610229026",
+      "characters": [],
+      "topics": []
     },
     {
       "id": 19,
       "text": "From the present, back to fifteen years ago, to the story of the fateful White Whale subjugation.\nTheresia wounded Wilhelm so he wouldn't be able to chase after her. The \"Divine Protection of the Death God\" is a Divine Protection that prevents the wounds it inflicts from closing, but by this point Theresia had learned to control it.",
-      "source": "https://x.com/nezumiironyanko/status/1899834215086346517"
+      "source": "https://x.com/nezumiironyanko/status/1899834215086346517",
+      "characters": [
+        "Theresia van Astrea",
+        "White Whale",
+        "Wilhelm van Astrea"
+      ],
+      "topics": [
+        "Divine Protections",
+        "Great Mabeasts",
+        "Mabeasts"
+      ]
     },
     {
       "id": 20,
       "text": "It was quite a while later that Theresia became able to control the \"Divine Protection of the Death God.\" During the era of the Demi-Human War, meeting Theresia on the battlefield meant one of two things: die there on the battlefield, or die later.",
-      "source": "https://x.com/nezumiironyanko/status/1899834448713220301"
+      "source": "https://x.com/nezumiironyanko/status/1899834448713220301",
+      "characters": [
+        "Theresia van Astrea"
+      ],
+      "topics": [
+        "Divine Protections"
+      ]
     },
     {
       "id": 21,
       "text": "The White Whale, making its welcome appearance in Season 3 too!",
-      "source": "https://x.com/nezumiironyanko/status/1899834505806086291"
+      "source": "https://x.com/nezumiironyanko/status/1899834505806086291",
+      "characters": [
+        "White Whale"
+      ],
+      "topics": [
+        "Great Mabeasts",
+        "Mabeasts"
+      ]
     },
     {
       "id": 22,
       "text": "At this scene, which you could call the first White Whale subjugation battle, the adjutant serving under Theresia is Conwood Mellahau. He also took part in the White Whale battle in Season 1, and was one of those who achieved revenge by defeating the White Whale alongside Wilhelm.",
-      "source": "https://x.com/nezumiironyanko/status/1899834727840055381"
+      "source": "https://x.com/nezumiironyanko/status/1899834727840055381",
+      "characters": [
+        "Theresia van Astrea",
+        "White Whale",
+        "Wilhelm van Astrea"
+      ],
+      "topics": [
+        "Combat & Tiering",
+        "Great Mabeasts",
+        "Mabeasts"
+      ]
     },
     {
       "id": 23,
       "text": "The \"Witch of Vainglory,\" Pandora, made even Theresia think at first sight that she had to be killed even more urgently than the White Whale.",
-      "source": "https://x.com/nezumiironyanko/status/1899834891333996981"
+      "source": "https://x.com/nezumiironyanko/status/1899834891333996981",
+      "characters": [
+        "Pandora",
+        "Theresia van Astrea",
+        "White Whale"
+      ],
+      "topics": [
+        "Great Mabeasts",
+        "Mabeasts",
+        "Witches of Sin"
+      ]
     },
     {
       "id": 24,
       "text": "Ever since Season 1, I think a lot of people found it strange that even though Theresia was supposedly done in by the White Whale, Wilhelm and the others still remembered her. This is the truth behind that.",
-      "source": "https://x.com/nezumiironyanko/status/1899835023983096199"
+      "source": "https://x.com/nezumiironyanko/status/1899835023983096199",
+      "characters": [
+        "Theresia van Astrea",
+        "White Whale",
+        "Wilhelm van Astrea"
+      ],
+      "topics": [
+        "Great Mabeasts",
+        "Mabeasts"
+      ]
     },
     {
       "id": 25,
       "text": "Just like Kurgan last time, Theresia also regained her sense of self in this moment. Also, the reason Theresia appears not as she did at the time of her death, but as she looked during the era of Sword Devil Love Ballad, is because this forbidden art that revives the dead brings them back in the state of their prime.",
-      "source": "https://x.com/nezumiironyanko/status/1899835282402271685"
+      "source": "https://x.com/nezumiironyanko/status/1899835282402271685",
+      "characters": [
+        "Kurgan",
+        "Theresia van Astrea"
+      ],
+      "topics": []
     },
     {
       "id": 26,
       "text": "...I love you.",
-      "source": "https://x.com/nezumiironyanko/status/1899835329441595588"
+      "source": "https://x.com/nezumiironyanko/status/1899835329441595588",
+      "characters": [],
+      "topics": []
     },
     {
       "id": 27,
       "text": "As she fades away, Theresia reflects while looking at the Astrea men left behind.\nVan was red, red, red...",
-      "source": "https://x.com/nezumiironyanko/status/1899835485528432714"
+      "source": "https://x.com/nezumiironyanko/status/1899835485528432714",
+      "characters": [
+        "Louanna Astrea",
+        "Theresia van Astrea",
+        "Toska Astrea"
+      ],
+      "topics": []
     },
     {
       "id": 28,
       "text": "After the ED, the C part.\nI want you to watch it closely. You could even say this story was written because the author wanted to write this scene.",
-      "source": "https://x.com/nezumiironyanko/status/1899835934369313023"
+      "source": "https://x.com/nezumiironyanko/status/1899835934369313023",
+      "characters": [],
+      "topics": []
     },
     {
       "id": 29,
       "text": "Heinkel said, \"She looked at us with resentment in her eyes,\" but as all of you viewers know, we know what she was thinking at the end.\nEven so, what do you suppose made Heinkel perceive it that way?",
-      "source": "https://x.com/nezumiironyanko/status/1899836260338069885"
+      "source": "https://x.com/nezumiironyanko/status/1899836260338069885",
+      "characters": [
+        "Heinkel Astrea"
+      ],
+      "topics": []
     },
     {
       "id": 30,
       "text": "For this episode, I really want you to go back and listen closely to every detail of Heinkel's lines. The more you chew on them, the more flavor they have. That's the Astrea family for you.",
-      "source": "https://x.com/nezumiironyanko/status/1899836428777091176"
+      "source": "https://x.com/nezumiironyanko/status/1899836428777091176",
+      "characters": [
+        "Heinkel Astrea",
+        "Louanna Astrea",
+        "Toska Astrea"
+      ],
+      "topics": []
     },
     {
       "id": 31,
       "text": "From \"There's nothing left anymore\" onward, the way his speech returned to polite form marks the resolution of Wilhelm and Reinhard's relationship in this city. Please go back and rewatch the sukiyaki scene from Season 3, Episode 1!",
-      "source": "https://x.com/nezumiironyanko/status/1899836841857372398"
+      "source": "https://x.com/nezumiironyanko/status/1899836841857372398",
+      "characters": [
+        "Reinhard van Astrea",
+        "Wilhelm van Astrea"
+      ],
+      "topics": [
+        "Character Relationships"
+      ]
     },
     {
       "id": 32,
       "text": "That sword Heinkel kicked away at the end was the blade named \"Astrea\" that Belstol gave to Wilhelm, and it now belongs to Heinkel.",
-      "source": "https://x.com/nezumiironyanko/status/1899837214554738770"
+      "source": "https://x.com/nezumiironyanko/status/1899837214554738770",
+      "characters": [
+        "Heinkel Astrea",
+        "Louanna Astrea",
+        "Toska Astrea",
+        "Wilhelm van Astrea"
+      ],
+      "topics": []
     },
     {
       "id": 33,
       "text": "And with that, it was \"Theresia van Astrea\"! Thank you very much!\nA story from beginning to end with the camera never turning anywhere else, focused entirely on the Astrea family! I hope you enjoyed it.\nStaff, thank you all so much for your hard work!",
-      "source": "https://x.com/nezumiironyanko/status/1899837736619774228"
+      "source": "https://x.com/nezumiironyanko/status/1899837736619774228",
+      "characters": [
+        "Louanna Astrea",
+        "Theresia van Astrea",
+        "Toska Astrea"
+      ],
+      "topics": []
     }
   ]
 }

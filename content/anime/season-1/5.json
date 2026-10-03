@@ -10,332 +10,536 @@
     {
       "id": 1,
       "text": "Just barely made it home~ Today is Episode 5 of the anime. This anime is finally getting a bath episode too. Look forward to it!　  ",
-      "source": "https://x.com/nezumiironyanko/status/726803999848984576"
+      "source": "https://x.com/nezumiironyanko/status/726803999848984576",
+      "characters": [],
+      "topics": []
     },
     {
       "id": 2,
       "text": "Personally, pay attention to Emilia-tan's outfit in episode 5. I think nighttime Emilia-tan is the cutest. ",
-      "source": "https://x.com/nezumiironyanko/status/726804273648914435"
+      "source": "https://x.com/nezumiironyanko/status/726804273648914435",
+      "characters": [
+        "Emilia"
+      ],
+      "topics": []
     },
     {
       "id": 3,
       "text": "It's starting! ",
-      "source": "https://x.com/nezumiironyanko/status/726804651383775233"
+      "source": "https://x.com/nezumiironyanko/status/726804651383775233",
+      "characters": [],
+      "topics": []
     },
     {
       "id": 4,
       "text": "First save point updated. ",
-      "source": "https://x.com/nezumiironyanko/status/726804777334505472"
+      "source": "https://x.com/nezumiironyanko/status/726804777334505472",
+      "characters": [],
+      "topics": [
+        "Return by Death"
+      ]
     },
     {
       "id": 5,
       "text": "Unison. ",
-      "source": "https://x.com/nezumiironyanko/status/726804826500173824"
+      "source": "https://x.com/nezumiironyanko/status/726804826500173824",
+      "characters": [],
+      "topics": []
     },
     {
       "id": 6,
       "text": "In that instant, our hearts become one. ",
-      "source": "https://x.com/nezumiironyanko/status/726804867977646080"
+      "source": "https://x.com/nezumiironyanko/status/726804867977646080",
+      "characters": [],
+      "topics": []
     },
     {
       "id": 7,
       "text": "It starts like this, but the sponsor card is so calculatedly cute.　  ",
-      "source": "https://x.com/nezumiironyanko/status/726805027424112644"
+      "source": "https://x.com/nezumiironyanko/status/726805027424112644",
+      "characters": [],
+      "topics": []
     },
     {
       "id": 8,
       "text": "The Redo commercial is seriously cool, isn't it... ",
-      "source": "https://x.com/nezumiironyanko/status/726805128720736256"
+      "source": "https://x.com/nezumiironyanko/status/726805128720736256",
+      "characters": [],
+      "topics": []
     },
     {
       "id": 9,
       "text": "Before we knew it, the OP release date is only ten days away too! ",
-      "source": "https://x.com/nezumiironyanko/status/726805221125447680"
+      "source": "https://x.com/nezumiironyanko/status/726805221125447680",
+      "characters": [],
+      "topics": []
     },
     {
       "id": 10,
       "text": "A part starts! ",
-      "source": "https://x.com/nezumiironyanko/status/726805288901169152"
+      "source": "https://x.com/nezumiironyanko/status/726805288901169152",
+      "characters": [],
+      "topics": []
     },
     {
       "id": 11,
       "text": "Loli appears. ",
-      "source": "https://x.com/nezumiironyanko/status/726805326503116800"
+      "source": "https://x.com/nezumiironyanko/status/726805326503116800",
+      "characters": [],
+      "topics": []
     },
     {
       "id": 12,
       "text": "Encounter Beatrice -> save point -> we are here now. ",
-      "source": "https://x.com/nezumiironyanko/status/726805432816136193"
+      "source": "https://x.com/nezumiironyanko/status/726805432816136193",
+      "characters": [
+        "Beatrice"
+      ],
+      "topics": [
+        "Return by Death"
+      ]
     },
     {
       "id": 13,
       "text": "Apparently some people can do this finger twirl and some people can't. I don't really remember why. ",
-      "source": "https://x.com/nezumiironyanko/status/726805610553966592"
+      "source": "https://x.com/nezumiironyanko/status/726805610553966592",
+      "characters": [],
+      "topics": []
     },
     {
       "id": 14,
       "text": "Beatrice is a tranquilizer for the soul. ",
-      "source": "https://x.com/nezumiironyanko/status/726805666598281217"
+      "source": "https://x.com/nezumiironyanko/status/726805666598281217",
+      "characters": [
+        "Beatrice"
+      ],
+      "topics": []
     },
     {
       "id": 15,
       "text": "Beatrice's kindness in connecting \"Door Crossing\" to the garden. ",
-      "source": "https://x.com/nezumiironyanko/status/726805735523254272"
+      "source": "https://x.com/nezumiironyanko/status/726805735523254272",
+      "characters": [
+        "Beatrice"
+      ],
+      "topics": []
     },
     {
       "id": 16,
       "text": "Emilia-tan's way of running is cute. ",
-      "source": "https://x.com/nezumiironyanko/status/726805785372585984"
+      "source": "https://x.com/nezumiironyanko/status/726805785372585984",
+      "characters": [
+        "Emilia"
+      ],
+      "topics": []
     },
     {
       "id": 17,
       "text": "That little spin here is cute. ",
-      "source": "https://x.com/nezumiironyanko/status/726805897268207616"
+      "source": "https://x.com/nezumiironyanko/status/726805897268207616",
+      "characters": [],
+      "topics": []
     },
     {
       "id": 18,
       "text": "Cat appears. ",
-      "source": "https://x.com/nezumiironyanko/status/726805987626086401"
+      "source": "https://x.com/nezumiironyanko/status/726805987626086401",
+      "characters": [],
+      "topics": []
     },
     {
       "id": 19,
       "text": "\"What's tan? Where did it come from?\" ",
-      "source": "https://x.com/nezumiironyanko/status/726806099819565058"
+      "source": "https://x.com/nezumiironyanko/status/726806099819565058",
+      "characters": [],
+      "topics": []
     },
     {
       "id": 20,
       "text": "Second loop, now it's the morning dining hall. The conversation is roughly the same as the first loop. ",
-      "source": "https://x.com/nezumiironyanko/status/726806205906096130"
+      "source": "https://x.com/nezumiironyanko/status/726806205906096130",
+      "characters": [],
+      "topics": []
     },
     {
       "id": 21,
       "text": "The long-awaited bath. ",
-      "source": "https://x.com/nezumiironyanko/status/726806380623982592"
+      "source": "https://x.com/nezumiironyanko/status/726806380623982592",
+      "characters": [],
+      "topics": []
     },
     {
       "id": 22,
       "text": "The courage not to hide it. ",
-      "source": "https://x.com/nezumiironyanko/status/726806427340132353"
+      "source": "https://x.com/nezumiironyanko/status/726806427340132353",
+      "characters": [],
+      "topics": []
     },
     {
       "id": 23,
       "text": "Just what kind of splashing sound is that supposed to be... ",
-      "source": "https://x.com/nezumiironyanko/status/726806496470663168"
+      "source": "https://x.com/nezumiironyanko/status/726806496470663168",
+      "characters": [],
+      "topics": []
     },
     {
       "id": 24,
       "text": "This is the author's crowning bath scene. ",
-      "source": "https://x.com/nezumiironyanko/status/726806610375413762"
+      "source": "https://x.com/nezumiironyanko/status/726806610375413762",
+      "characters": [],
+      "topics": []
     },
     {
       "id": 25,
       "text": "If you look closely, Roswaal's makeup is properly washed off here. A bath-only privilege. ",
-      "source": "https://x.com/nezumiironyanko/status/726806703698640898"
+      "source": "https://x.com/nezumiironyanko/status/726806703698640898",
+      "characters": [
+        "Roswaal L. Mathers"
+      ],
+      "topics": []
     },
     {
       "id": 26,
       "text": "Hide your pitiful little thing. ",
-      "source": "https://x.com/nezumiironyanko/status/726806798091489282"
+      "source": "https://x.com/nezumiironyanko/status/726806798091489282",
+      "characters": [],
+      "topics": []
     },
     {
       "id": 27,
       "text": "This is the first full panty shot here. ",
-      "source": "https://x.com/nezumiironyanko/status/726806892480106496"
+      "source": "https://x.com/nezumiironyanko/status/726806892480106496",
+      "characters": [],
+      "topics": []
     },
     {
       "id": 28,
       "text": "Roswaal is naked, and then Roswaal's underwear appears. What were the people making this anime thinking...? ",
-      "source": "https://x.com/nezumiironyanko/status/726807056984887296"
+      "source": "https://x.com/nezumiironyanko/status/726807056984887296",
+      "characters": [
+        "Roswaal L. Mathers"
+      ],
+      "topics": []
     },
     {
       "id": 29,
       "text": "Teacher Ram's kind (not really) late-night private lesson. ",
-      "source": "https://x.com/nezumiironyanko/status/726807211456888832"
+      "source": "https://x.com/nezumiironyanko/status/726807211456888832",
+      "characters": [
+        "Ram"
+      ],
+      "topics": []
     },
     {
       "id": 30,
       "text": "Damn! They'll find out it was the author who picked Roswaal's underwear!! ",
-      "source": "https://x.com/nezumiironyanko/status/726807422002556928"
+      "source": "https://x.com/nezumiironyanko/status/726807422002556928",
+      "characters": [
+        "Roswaal L. Mathers"
+      ],
+      "topics": []
     },
     {
       "id": 31,
       "text": "\"...Hmph!\" A part ends! ",
-      "source": "https://x.com/nezumiironyanko/status/726807523559264257"
+      "source": "https://x.com/nezumiironyanko/status/726807523559264257",
+      "characters": [],
+      "topics": []
     },
     {
       "id": 32,
       "text": "A contest of mutual embarrassment unfolding between the author and staff member Hirano-san. ",
-      "source": "https://x.com/nezumiironyanko/status/726807827428167681"
+      "source": "https://x.com/nezumiironyanko/status/726807827428167681",
+      "characters": [],
+      "topics": []
     },
     {
       "id": 33,
       "text": "B part starts! ",
-      "source": "https://x.com/nezumiironyanko/status/726807878934257664"
+      "source": "https://x.com/nezumiironyanko/status/726807878934257664",
+      "characters": [],
+      "topics": []
     },
     {
       "id": 34,
       "text": "\"I'll take your measurements for yaaa!\" ",
-      "source": "https://x.com/nezumiironyanko/status/726807990972477440"
+      "source": "https://x.com/nezumiironyanko/status/726807990972477440",
+      "characters": [],
+      "topics": []
     },
     {
       "id": 35,
       "text": "Ram and Rem's maid outfits include regular wear, going-out wear, morning wear, night wear, and many more. ",
-      "source": "https://x.com/nezumiironyanko/status/726808120786194432"
+      "source": "https://x.com/nezumiironyanko/status/726808120786194432",
+      "characters": [
+        "Ram",
+        "Rem"
+      ],
+      "topics": []
     },
     {
       "id": 36,
       "text": "But the setting that they never wear anything except maid outfits is one of the few parts where the author felt turning it into anime was a mistake! Especially when you see Emilia-tan changing clothes. ",
-      "source": "https://x.com/nezumiironyanko/status/726808270820659200"
+      "source": "https://x.com/nezumiironyanko/status/726808270820659200",
+      "characters": [
+        "Emilia",
+        "Felt"
+      ],
+      "topics": []
     },
     {
       "id": 37,
       "text": "The difference in the sisters' abilities shown by the garden trees. ",
-      "source": "https://x.com/nezumiironyanko/status/726808411753443328"
+      "source": "https://x.com/nezumiironyanko/status/726808411753443328",
+      "characters": [],
+      "topics": []
     },
     {
       "id": 38,
       "text": "Some might say it's questionable that big sister is satisfied with that quality of work, but she's just spoiling herself because she knows Rem will fix it. ",
-      "source": "https://x.com/nezumiironyanko/status/726808529663758338"
+      "source": "https://x.com/nezumiironyanko/status/726808529663758338",
+      "characters": [
+        "Rem"
+      ],
+      "topics": []
     },
     {
       "id": 39,
       "text": "I like how Puck goes at the sweets here with his whole body. ",
-      "source": "https://x.com/nezumiironyanko/status/726808623372898305"
+      "source": "https://x.com/nezumiironyanko/status/726808623372898305",
+      "characters": [
+        "Puck"
+      ],
+      "topics": []
     },
     {
       "id": 40,
       "text": "\"Will you help me?\" Rem works five times harder than you do! You should be helping her! ",
-      "source": "https://x.com/nezumiironyanko/status/726808751886372864"
+      "source": "https://x.com/nezumiironyanko/status/726808751886372864",
+      "characters": [
+        "Rem"
+      ],
+      "topics": []
     },
     {
       "id": 41,
       "text": "Subaru-kun's all-out joke bombing spectacularly. ",
-      "source": "https://x.com/nezumiironyanko/status/726808852750983168"
+      "source": "https://x.com/nezumiironyanko/status/726808852750983168",
+      "characters": [
+        "Natsuki Subaru"
+      ],
+      "topics": []
     },
     {
       "id": 42,
       "text": "This is a precious barefoot Rem scene. Let this satisfy you for today. ",
-      "source": "https://x.com/nezumiironyanko/status/726808947122819072"
+      "source": "https://x.com/nezumiironyanko/status/726808947122819072",
+      "characters": [
+        "Rem"
+      ],
+      "topics": []
     },
     {
       "id": 43,
       "text": "Petra's first appearance! ",
-      "source": "https://x.com/nezumiironyanko/status/726809101162811394"
+      "source": "https://x.com/nezumiironyanko/status/726809101162811394",
+      "characters": [
+        "Petra Leyte"
+      ],
+      "topics": []
     },
     {
       "id": 44,
       "text": "The two whose fashion sense is obviously on a higher level are the regulars. ",
-      "source": "https://x.com/nezumiironyanko/status/726809274140106752"
+      "source": "https://x.com/nezumiironyanko/status/726809274140106752",
+      "characters": [],
+      "topics": []
     },
     {
       "id": 45,
       "text": "Subaru-kun's all-out joke bombing spectacularly. \nRem's voice here is wonderful, isn't it. ",
-      "source": "https://x.com/nezumiironyanko/status/726809508979216386"
+      "source": "https://x.com/nezumiironyanko/status/726809508979216386",
+      "characters": [
+        "Natsuki Subaru",
+        "Rem"
+      ],
+      "topics": []
     },
     {
       "id": 46,
       "text": "Rem's smile here is demonically good, isn't it. ",
-      "source": "https://x.com/nezumiironyanko/status/726809716710510594"
+      "source": "https://x.com/nezumiironyanko/status/726809716710510594",
+      "characters": [
+        "Rem"
+      ],
+      "topics": []
     },
     {
       "id": 47,
       "text": "Nighttime Emilia-tan. ",
-      "source": "https://x.com/nezumiironyanko/status/726809787892002816"
+      "source": "https://x.com/nezumiironyanko/status/726809787892002816",
+      "characters": [
+        "Emilia"
+      ],
+      "topics": []
     },
     {
       "id": 48,
       "text": "A mortifyingly defenseless Akujo. ",
-      "source": "https://x.com/nezumiironyanko/status/726809867214692353"
+      "source": "https://x.com/nezumiironyanko/status/726809867214692353",
+      "characters": [],
+      "topics": []
     },
     {
       "id": 49,
       "text": "Isn't Emilia-tan's nightgown here ridiculously cute? ",
-      "source": "https://x.com/nezumiironyanko/status/726809961016127489"
+      "source": "https://x.com/nezumiironyanko/status/726809961016127489",
+      "characters": [
+        "Emilia"
+      ],
+      "topics": []
     },
     {
       "id": 50,
       "text": "Where is Subaru's voice even coming from right now? ",
-      "source": "https://x.com/nezumiironyanko/status/726810057359290369"
+      "source": "https://x.com/nezumiironyanko/status/726810057359290369",
+      "characters": [
+        "Natsuki Subaru"
+      ],
+      "topics": []
     },
     {
       "id": 51,
       "text": "\"It'd be embarrassing if my friends saw me.\" ",
-      "source": "https://x.com/nezumiironyanko/status/726810161365422080"
+      "source": "https://x.com/nezumiironyanko/status/726810161365422080",
+      "characters": [],
+      "topics": []
     },
     {
       "id": 52,
       "text": "This is one of the author's fixations, but Emilia-tan says \"deito,\" not \"date.\" ",
-      "source": "https://x.com/nezumiironyanko/status/726810321201950720"
+      "source": "https://x.com/nezumiironyanko/status/726810321201950720",
+      "characters": [
+        "Emilia"
+      ],
+      "topics": []
     },
     {
       "id": 53,
       "text": "Here she is, Emilia-tan at her absolute cutest.　  ",
-      "source": "https://x.com/nezumiironyanko/status/726810382824669184"
+      "source": "https://x.com/nezumiironyanko/status/726810382824669184",
+      "characters": [
+        "Emilia"
+      ],
+      "topics": []
     },
     {
       "id": 54,
       "text": "Part B is over! And the ED debuts for the first time!　  ",
-      "source": "https://x.com/nezumiironyanko/status/726810470556921856"
+      "source": "https://x.com/nezumiironyanko/status/726810470556921856",
+      "characters": [],
+      "topics": []
     },
     {
       "id": 55,
       "text": "As for the ending, at the time of episode 2 it could have spoiled what was coming next, so they gave it a special form. This time, we finally got the true ED.　  ",
-      "source": "https://x.com/nezumiironyanko/status/726810696227295232"
+      "source": "https://x.com/nezumiironyanko/status/726810696227295232",
+      "characters": [],
+      "topics": []
     },
     {
       "id": 56,
       "text": "Part C begins...　  ",
-      "source": "https://x.com/nezumiironyanko/status/726810778041380866"
+      "source": "https://x.com/nezumiironyanko/status/726810778041380866",
+      "characters": [],
+      "topics": []
     },
     {
       "id": 57,
       "text": "Fate VS Subaru, one-match showdown.　  ",
-      "source": "https://x.com/nezumiironyanko/status/726810862497861632"
+      "source": "https://x.com/nezumiironyanko/status/726810862497861632",
+      "characters": [
+        "Natsuki Subaru"
+      ],
+      "topics": []
     },
     {
       "id": 58,
       "text": "A realistic vomit scene.　  ",
-      "source": "https://x.com/nezumiironyanko/status/726811124792877056"
+      "source": "https://x.com/nezumiironyanko/status/726811124792877056",
+      "characters": [],
+      "topics": []
     },
     {
       "id": 59,
       "text": "Realizing that something has happened, Subaru-kun is heading for his heroine.　  ",
-      "source": "https://x.com/nezumiironyanko/status/726811263557214209"
+      "source": "https://x.com/nezumiironyanko/status/726811263557214209",
+      "characters": [
+        "Natsuki Subaru"
+      ],
+      "topics": []
     },
     {
       "id": 60,
       "text": "Episode 5 is over.――　  ",
-      "source": "https://x.com/nezumiironyanko/status/726811467857555457"
+      "source": "https://x.com/nezumiironyanko/status/726811467857555457",
+      "characters": [],
+      "topics": []
     },
     {
       "id": 61,
       "text": "Part C felt like it was from a completely different anime. Still, that 30 minutes went by fast. And now, healing is provided.　  ",
-      "source": "https://x.com/nezumiironyanko/status/726811745361125376"
+      "source": "https://x.com/nezumiironyanko/status/726811745361125376",
+      "characters": [
+        "Felt"
+      ],
+      "topics": []
     },
     {
       "id": 62,
       "text": "As for episode 5, because of how episode 4 played out, it was restructured so that events from the previous loop that couldn't be picked up from the original were moved here and the like. Thanks to that, I think episodes 4 and 5 together ended up with a much better flow and hook.　  ",
-      "source": "https://x.com/nezumiironyanko/status/726812184513155072"
+      "source": "https://x.com/nezumiironyanko/status/726812184513155072",
+      "characters": [],
+      "topics": []
     },
     {
       "id": 63,
       "text": "Well, this time I think it's enough if you just remember that Beatrice, Emilia-tan, and Rem were cute in Parts A and B, that Nee-sama's sleeping face was cute, and that Roswaal was dangling around. Let's forget about Part C.　  ",
-      "source": "https://x.com/nezumiironyanko/status/726812493348106241"
+      "source": "https://x.com/nezumiironyanko/status/726812493348106241",
+      "characters": [
+        "Beatrice",
+        "Emilia",
+        "Rem",
+        "Roswaal L. Mathers"
+      ],
+      "topics": []
     },
     {
       "id": 64,
       "text": "The first ED with actual animation! Emilia-tan looks adorable in her sleepwear! Rem's smile is a million volts! Roswaal dangling around! If you're rewatching, keep an eye on those parts!　  ",
-      "source": "https://x.com/nezumiironyanko/status/726812858630041601"
+      "source": "https://x.com/nezumiironyanko/status/726812858630041601",
+      "characters": [
+        "Emilia",
+        "Rem",
+        "Roswaal L. Mathers"
+      ],
+      "topics": []
     },
     {
       "id": 65,
       "text": "Well then, thanks for joining me again this week! Please tune in again next week too! G'night!　  ",
-      "source": "https://x.com/nezumiironyanko/status/726813039421349888"
+      "source": "https://x.com/nezumiironyanko/status/726813039421349888",
+      "characters": [],
+      "topics": []
     },
     {
       "id": 66,
       "text": "Oh, and one last thing:\n○Fate VS Subaru● (utter defeat)　  ",
-      "source": "https://x.com/nezumiironyanko/status/726813280992288768"
+      "source": "https://x.com/nezumiironyanko/status/726813280992288768",
+      "characters": [
+        "Natsuki Subaru"
+      ],
+      "topics": []
     }
   ]
 }

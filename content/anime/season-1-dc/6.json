@@ -10,227 +10,416 @@
     {
       "id": 1,
       "text": "A week goes by so fast! I feel like I said that last week too!\nAnyway, thanks for joining me again this week!\n",
-      "source": "https://x.com/nezumiironyanko/status/1225063972883193856"
+      "source": "https://x.com/nezumiironyanko/status/1225063972883193856",
+      "characters": [],
+      "topics": []
     },
     {
       "id": 2,
       "text": "Last time, Subaru entered the forest with Rem, and then got chomped all over by Demon Beasts. So what in the world happened after that!? He died!\n",
-      "source": "https://x.com/nezumiironyanko/status/1225064171424735232"
+      "source": "https://x.com/nezumiironyanko/status/1225064171424735232",
+      "characters": [
+        "Natsuki Subaru",
+        "Rem"
+      ],
+      "topics": []
     },
     {
       "id": 3,
       "text": "Sorry, it was a lie that he died!\nHe was alive, so we're starting from him being alive!\n",
-      "source": "https://x.com/nezumiironyanko/status/1225064525935702016"
+      "source": "https://x.com/nezumiironyanko/status/1225064525935702016",
+      "characters": [],
+      "topics": []
     },
     {
       "id": 4,
       "text": "There was a white scar left on his arm, and from here on, Subaru's body will basically keep accumulating scars every time he survives.\n",
-      "source": "https://x.com/nezumiironyanko/status/1225064790382366720"
+      "source": "https://x.com/nezumiironyanko/status/1225064790382366720",
+      "characters": [
+        "Natsuki Subaru",
+        "White Whale"
+      ],
+      "topics": []
     },
     {
       "id": 5,
       "text": "Od doesn't recover; it's like an emergency reserve mana tank, so the fact that she went so far as to use that to heal him means she really, really pushed herself for him.\n",
-      "source": "https://x.com/nezumiironyanko/status/1225065180880441344"
+      "source": "https://x.com/nezumiironyanko/status/1225065180880441344",
+      "characters": [],
+      "topics": [
+        "Mana & Magic"
+      ]
     },
     {
       "id": 6,
       "text": "Because of what happened last night, Subaru and Rem needed to remain in the village, so someone from the village went to the mansion to report it. Emilia and Ram then came here from there, roughly from night until morning.\n",
-      "source": "https://x.com/nezumiironyanko/status/1225065682288574464"
+      "source": "https://x.com/nezumiironyanko/status/1225065682288574464",
+      "characters": [
+        "Emilia",
+        "Natsuki Subaru",
+        "Ram",
+        "Rem"
+      ],
+      "topics": []
     },
     {
       "id": 7,
       "text": "Steamed sweet potatoes are pretty much Nee-sama's trademark, but to begin with, Nee-sama has the kind of personality that would find even making steamed sweet potatoes a hassle. So the fact that she's handing them out to the villagers like this is itself proof that she acknowledges Subaru's and the villagers' efforts.\n",
-      "source": "https://x.com/nezumiironyanko/status/1225065891424899075"
+      "source": "https://x.com/nezumiironyanko/status/1225065891424899075",
+      "characters": [
+        "Natsuki Subaru"
+      ],
+      "topics": []
     },
     {
       "id": 8,
       "text": "The reason Beatrice, who hardly ever comes out of the Forbidden Library, is in the village is of course because Pack asked her to. But the one who earnestly asked Pack was Emilia, so that's how it is.\n",
-      "source": "https://x.com/nezumiironyanko/status/1225066028847075328"
+      "source": "https://x.com/nezumiironyanko/status/1225066028847075328",
+      "characters": [
+        "Beatrice",
+        "Emilia"
+      ],
+      "topics": []
     },
     {
       "id": 9,
       "text": "Beatrice's dress looks ill-suited for going outside, but I imagine the hem dragging along the ground lightly repels dirt and mud with something like magical magnetism. Lulu in FF10 was doing the same thing too.\n",
-      "source": "https://x.com/nezumiironyanko/status/1225066275644170241"
+      "source": "https://x.com/nezumiironyanko/status/1225066275644170241",
+      "characters": [
+        "Beatrice"
+      ],
+      "topics": []
     },
     {
       "id": 10,
       "text": "Subaru says a lot of careless things that hint at Return by Death, led by lines like \"four times what you're thinking,\" even if he never states it outright. The reason no penalty happens is because nobody takes him seriously. This is where the fact that he talks to himself all the time actually pays off.\n",
-      "source": "https://x.com/nezumiironyanko/status/1225066706076176384"
+      "source": "https://x.com/nezumiironyanko/status/1225066706076176384",
+      "characters": [
+        "Natsuki Subaru"
+      ],
+      "topics": [
+        "Return by Death"
+      ]
     },
     {
       "id": 11,
       "text": "The reason Ram wasn't worried about Rem being absent from the village, and didn't know where she was, is presumably because she had ordered Rem to \"go back to the mansion and rest.\" Rem disobeyed Ram's instruction, took Beatrice's words to heart, and headed into the forest.\n",
-      "source": "https://x.com/nezumiironyanko/status/1225067048587259910"
+      "source": "https://x.com/nezumiironyanko/status/1225067048587259910",
+      "characters": [
+        "Beatrice",
+        "Ram",
+        "Rem"
+      ],
+      "topics": []
     },
     {
       "id": 12,
       "text": "If you're not used to hiking in the mountains, just imagining making your way back from deep in the woods is enough to make your legs shake.\nFor the record, Subaru is the stay-in-his-room-and-work-out type, so his stamina is terrible.\n",
-      "source": "https://x.com/nezumiironyanko/status/1225067996076359680"
+      "source": "https://x.com/nezumiironyanko/status/1225067996076359680",
+      "characters": [
+        "Natsuki Subaru"
+      ],
+      "topics": []
     },
     {
       "id": 13,
       "text": "From the look of it, I guess it's some kind of rhinoceros beetle larva.\n",
-      "source": "https://x.com/nezumiironyanko/status/1225068123360911366"
+      "source": "https://x.com/nezumiironyanko/status/1225068123360911366",
+      "characters": [],
+      "topics": []
     },
     {
       "id": 14,
       "text": "Nee-sama's sustained combat ability is low, but in terms of burst combat power, she's not that far off from Rem. When stirring the contents of a bowl and slicing a Demon Beast clean in half consume about the same amount of mana, you start to wonder whether she's using way too much for cutting corners on chores, or whether exterminating Demon Beasts is just energy-efficient.\n",
-      "source": "https://x.com/nezumiironyanko/status/1225068803337248773"
+      "source": "https://x.com/nezumiironyanko/status/1225068803337248773",
+      "characters": [
+        "Rem"
+      ],
+      "topics": [
+        "Combat & Tiering",
+        "Mana & Magic"
+      ]
     },
     {
       "id": 15,
       "text": "Since he properly set a serious tone and directly tried to say \"Return by Death,\" a real penalty kicked in this time, unlike the self-talk from earlier.\n",
-      "source": "https://x.com/nezumiironyanko/status/1225069204983836672"
+      "source": "https://x.com/nezumiironyanko/status/1225069204983836672",
+      "characters": [],
+      "topics": [
+        "Return by Death"
+      ]
     },
     {
       "id": 16,
       "text": "Put extremely simply, if they wipe out every Demon Beast in the forest, they'll also kill the Demon Beast that cursed Subaru's body... It sounds like a pretty reckless plan, but it's the only strategy they have.\n",
-      "source": "https://x.com/nezumiironyanko/status/1225069505493123072"
+      "source": "https://x.com/nezumiironyanko/status/1225069505493123072",
+      "characters": [
+        "Natsuki Subaru"
+      ],
+      "topics": []
     },
     {
       "id": 17,
       "text": "This is where Rem's action from here on gets seriously insane.\n",
-      "source": "https://x.com/nezumiironyanko/status/1225069749937135616"
+      "source": "https://x.com/nezumiironyanko/status/1225069749937135616",
+      "characters": [
+        "Rem"
+      ],
+      "topics": []
     },
     {
       "id": 18,
       "text": "You just can't look away...\n",
-      "source": "https://x.com/nezumiironyanko/status/1225070268663513088"
+      "source": "https://x.com/nezumiironyanko/status/1225070268663513088",
+      "characters": [],
+      "topics": []
     },
     {
       "id": 19,
       "text": "After this, she must have absolutely botched the landing, so I figure her whole body probably took some serious damage...\n",
-      "source": "https://x.com/nezumiironyanko/status/1225070708989906945"
+      "source": "https://x.com/nezumiironyanko/status/1225070708989906945",
+      "characters": [],
+      "topics": []
     },
     {
       "id": 20,
       "text": "The day Ram and Rem were born, in other words, the day the Oni God was born.\n",
-      "source": "https://x.com/nezumiironyanko/status/1225071089472065536"
+      "source": "https://x.com/nezumiironyanko/status/1225071089472065536",
+      "characters": [
+        "Ram",
+        "Rem"
+      ],
+      "topics": []
     },
     {
       "id": 21,
       "text": "At this point, Ram already has a sense of self as she watches Rem crying, and it's likely she could have slaughtered every oni in the village if she'd felt like it. I mean, she wouldn't, though.\n",
-      "source": "https://x.com/nezumiironyanko/status/1225071275824934912"
+      "source": "https://x.com/nezumiironyanko/status/1225071275824934912",
+      "characters": [
+        "Felt",
+        "Ram",
+        "Rem"
+      ],
+      "topics": []
     },
     {
       "id": 22,
       "text": "Ram and Rem's father is Quark, their mother is Temae, and the village chief with the absolutely massive horn was Setanta.\n",
-      "source": "https://x.com/nezumiironyanko/status/1225071593702871046"
+      "source": "https://x.com/nezumiironyanko/status/1225071593702871046",
+      "characters": [
+        "Ram",
+        "Rem"
+      ],
+      "topics": []
     },
     {
       "id": 23,
       "text": "I said this back when it first aired too, but because I had the impression that Ram was already complete even as a child, I gave Murakawa-san the extremely complicated direction of, \"She's young, but her mentality is the same as she has now.\" The fact that she could pull that off is amazing.\n",
-      "source": "https://x.com/nezumiironyanko/status/1225071891594956800"
+      "source": "https://x.com/nezumiironyanko/status/1225071891594956800",
+      "characters": [
+        "Ram"
+      ],
+      "topics": []
     },
     {
       "id": 24,
       "text": "This past episode isn't in the original novel; it was created as anime-original content in order to depict the bond between Ram and Rem as sisters. I remember getting weirdly deep with Yokotani-san, who wrote the script, into discussing \"what exactly is a Barusu Rabbit\"... What kind of rabbit is that?\n",
-      "source": "https://x.com/nezumiironyanko/status/1225072301906857985"
+      "source": "https://x.com/nezumiironyanko/status/1225072301906857985",
+      "characters": [
+        "Natsuki Subaru",
+        "Ram",
+        "Rem"
+      ],
+      "topics": []
     },
     {
       "id": 25,
       "text": "I think you can understand this, but I really love Rem's mentality here of, \"My big sister is so amazing I can't compete, so I'll walk behind her instead.\"\n",
-      "source": "https://x.com/nezumiironyanko/status/1225072653716709377"
+      "source": "https://x.com/nezumiironyanko/status/1225072653716709377",
+      "characters": [
+        "Rem"
+      ],
+      "topics": []
     },
     {
       "id": 26,
       "text": "The first appearance of the Witch Cult, the bad guys of the Re:Zero world. And then they get taken out just like that.\n",
-      "source": "https://x.com/nezumiironyanko/status/1225072782561570817"
+      "source": "https://x.com/nezumiironyanko/status/1225072782561570817",
+      "characters": [],
+      "topics": [
+        "Witch Cult"
+      ]
     },
     {
       "id": 27,
       "text": "\"It broke for me\" feels like it could be referring either to the horn or to Ram herself. It can be taken both ways.\n",
-      "source": "https://x.com/nezumiironyanko/status/1225073001378398209"
+      "source": "https://x.com/nezumiironyanko/status/1225073001378398209",
+      "characters": [
+        "Ram"
+      ],
+      "topics": []
     },
     {
       "id": 28,
       "text": "Frederica Nee-sama appears for just a moment!\n",
-      "source": "https://x.com/nezumiironyanko/status/1225073109826277377"
+      "source": "https://x.com/nezumiironyanko/status/1225073109826277377",
+      "characters": [
+        "Frederica Baumann"
+      ],
+      "topics": []
     },
     {
       "id": 29,
       "text": "By the way, there's an illustration in the story where Subaru is made to wear a women's maid outfit, and size-wise, the one he's wearing is Frederica's maid uniform. There's also an episode where Subaru cross-dresses, and the dress he wears then is Frederica's too.\n",
-      "source": "https://x.com/nezumiironyanko/status/1225073288965021696"
+      "source": "https://x.com/nezumiironyanko/status/1225073288965021696",
+      "characters": [
+        "Frederica Baumann",
+        "Natsuki Subaru"
+      ],
+      "topics": []
     },
     {
       "id": 30,
       "text": "\"Your right shoulder's come out\" is the result of that catastrophic failed landing after he struck Rem's horn at the end of Episode 10.\n",
-      "source": "https://x.com/nezumiironyanko/status/1225073505114279939"
+      "source": "https://x.com/nezumiironyanko/status/1225073505114279939",
+      "characters": [
+        "Rem"
+      ],
+      "topics": []
     },
     {
       "id": 31,
       "text": "You really don't hear \"chopan\" these days...\n",
-      "source": "https://x.com/nezumiironyanko/status/1225073627294420993"
+      "source": "https://x.com/nezumiironyanko/status/1225073627294420993",
+      "characters": [],
+      "topics": []
     },
     {
       "id": 32,
       "text": "Having the OP play during the climax is such a hype bit of direction.\n",
-      "source": "https://x.com/nezumiironyanko/status/1225074111837134849"
+      "source": "https://x.com/nezumiironyanko/status/1225074111837134849",
+      "characters": [],
+      "topics": []
     },
     {
       "id": 33,
       "text": "Among the things the children stuffed into his pockets was a bokko fruit that can squeeze out mana from the body like dregs.\n",
-      "source": "https://x.com/nezumiironyanko/status/1225074355245174786"
+      "source": "https://x.com/nezumiironyanko/status/1225074355245174786",
+      "characters": [],
+      "topics": [
+        "Mana & Magic"
+      ]
     },
     {
       "id": 34,
       "text": "When things were hard, when things were painful, when he was about to break, Shamak saved Subaru again and again... This was the beginning of his inseparable bond with that Shamak.\n",
-      "source": "https://x.com/nezumiironyanko/status/1225074478721355782"
+      "source": "https://x.com/nezumiironyanko/status/1225074478721355782",
+      "characters": [
+        "Natsuki Subaru"
+      ],
+      "topics": [
+        "Mana & Magic"
+      ]
     },
     {
       "id": 35,
       "text": "Magic gets stronger in the order of \"plain -> El -> Ul -> Al,\" so even that wasn't Roswaal's maximum firepower. Magic follows the Vearn-sama theory where power varies depending on the skill of the caster, so that wasn't Merazoma, it was Merami.\n",
-      "source": "https://x.com/nezumiironyanko/status/1225074727980417025"
+      "source": "https://x.com/nezumiironyanko/status/1225074727980417025",
+      "characters": [
+        "Roswaal L. Mathers"
+      ],
+      "topics": [
+        "Mana & Magic"
+      ]
     },
     {
       "id": 36,
       "text": "Bondrewd...\n",
-      "source": "https://x.com/nezumiironyanko/status/1225074889989582850"
+      "source": "https://x.com/nezumiironyanko/status/1225074889989582850",
+      "characters": [],
+      "topics": []
     },
     {
       "id": 37,
       "text": "At this point, it's a very familiar ceiling.\n",
-      "source": "https://x.com/nezumiironyanko/status/1225075234111246336"
+      "source": "https://x.com/nezumiironyanko/status/1225075234111246336",
+      "characters": [],
+      "topics": []
     },
     {
       "id": 38,
       "text": "Grabbing someone's hand when they're suffering was what prompted Subaru to get back on his feet in Episode 7, and the reason he was able to be given that push was also because of what happened in Ram and Rem's childhood. When you think about it that way, everything is connected. Connected.\n",
-      "source": "https://x.com/nezumiironyanko/status/1225075500122439680"
+      "source": "https://x.com/nezumiironyanko/status/1225075500122439680",
+      "characters": [
+        "Natsuki Subaru",
+        "Ram",
+        "Rem"
+      ],
+      "topics": []
     },
     {
       "id": 39,
       "text": "\"She looks composed, but Rem isn't calm or composed at all, is she?\" is a very accurate assessment of Rem. Rem is reliably and consistently quick to jump to conclusions. You could also say once she gets an idea in her head, she charges straight ahead.\n",
-      "source": "https://x.com/nezumiironyanko/status/1225075756360798208"
+      "source": "https://x.com/nezumiironyanko/status/1225075756360798208",
+      "characters": [
+        "Rem"
+      ],
+      "topics": []
     },
     {
       "id": 40,
       "text": "Back in their home village, it wasn't that her parents neglected Rem; they had expectations for her too. But even that didn't really save Rem, and Subaru is just a man with good timing.\n",
-      "source": "https://x.com/nezumiironyanko/status/1225076225678270466"
+      "source": "https://x.com/nezumiironyanko/status/1225076225678270466",
+      "characters": [
+        "Natsuki Subaru",
+        "Rem"
+      ],
+      "topics": []
     },
     {
       "id": 41,
       "text": "Return by Death is a painful ability, but because it's an ability that lets you adjust the timing, I think it's the strongest ability from an author's point of view.\nIt's just that the burden on the user is off the charts.\n",
-      "source": "https://x.com/nezumiironyanko/status/1225076670186446848"
+      "source": "https://x.com/nezumiironyanko/status/1225076670186446848",
+      "characters": [],
+      "topics": [
+        "Combat & Tiering",
+        "Return by Death"
+      ]
     },
     {
       "id": 42,
       "text": "This title-card format, which will be used for memorable episodes going forward, was first used for this 'Rem.'\n",
-      "source": "https://x.com/nezumiironyanko/status/1225076812348153862"
+      "source": "https://x.com/nezumiironyanko/status/1225076812348153862",
+      "characters": [
+        "Rem"
+      ],
+      "topics": []
     },
     {
       "id": 43,
       "text": "That missing village child I was just talking about was the blue-haired girl with braids who had the Bossgulm with her. Who exactly was that girl, and whose pawn was she? You'll find that out a little later.\n",
-      "source": "https://x.com/nezumiironyanko/status/1225077076996214785"
+      "source": "https://x.com/nezumiironyanko/status/1225077076996214785",
+      "characters": [],
+      "topics": []
     },
     {
       "id": 44,
       "text": "Only four days have passed since the deadly battle in the royal capital... poor guy...\n",
-      "source": "https://x.com/nezumiironyanko/status/1225077193677524993"
+      "source": "https://x.com/nezumiironyanko/status/1225077193677524993",
+      "characters": [],
+      "topics": [
+        "Combat & Tiering",
+        "Worldbuilding"
+      ]
     },
     {
       "id": 45,
       "text": "\"Go on a date with me!\" was Subaru's original reason for repeating these four days, and his final goal.\nSo with that, Arc 2 clear! Happy ending!\n",
-      "source": "https://x.com/nezumiironyanko/status/1225077555822120960"
+      "source": "https://x.com/nezumiironyanko/status/1225077555822120960",
+      "characters": [
+        "Natsuki Subaru"
+      ],
+      "topics": []
     }
   ]
 }

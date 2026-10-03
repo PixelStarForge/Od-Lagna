@@ -10,182 +10,321 @@
     {
       "id": 1,
       "text": "Alright! It's anime time again this week! Please take care of me! ",
-      "source": "https://x.com/nezumiironyanko/status/767391731620810752"
+      "source": "https://x.com/nezumiironyanko/status/767391731620810752",
+      "characters": [],
+      "topics": []
     },
     {
       "id": 2,
       "text": "Last time, the White Whale went whoosh, Wilhelm-san got slammed, Ricardo went bam, and Subaru sank into despair. So what happens this week, I wonder! (A model original author careful about spoilers.) ",
-      "source": "https://x.com/nezumiironyanko/status/767392155107143680"
+      "source": "https://x.com/nezumiironyanko/status/767392155107143680",
+      "characters": [
+        "Natsuki Subaru",
+        "Ricardo Welkin",
+        "White Whale",
+        "Wilhelm van Astrea"
+      ],
+      "topics": [
+        "Great Mabeasts",
+        "Mabeasts"
+      ]
     },
     {
       "id": 3,
       "text": "Rem's hard fight. ",
-      "source": "https://x.com/nezumiironyanko/status/767392227685314560"
+      "source": "https://x.com/nezumiironyanko/status/767392227685314560",
+      "characters": [
+        "Rem"
+      ],
+      "topics": []
     },
     {
       "id": 4,
       "text": "What a nasty look! ",
-      "source": "https://x.com/nezumiironyanko/status/767392347608846336"
+      "source": "https://x.com/nezumiironyanko/status/767392347608846336",
+      "characters": [],
+      "topics": []
     },
     {
       "id": 5,
       "text": "\"Giving up is~~\" has been a recurring line since around Episode 18. ",
-      "source": "https://x.com/nezumiironyanko/status/767392566958436352"
+      "source": "https://x.com/nezumiironyanko/status/767392566958436352",
+      "characters": [],
+      "topics": []
     },
     {
       "id": 6,
       "text": "A-part starts! ",
-      "source": "https://x.com/nezumiironyanko/status/767392630187581440"
+      "source": "https://x.com/nezumiironyanko/status/767392630187581440",
+      "characters": [],
+      "topics": []
     },
     {
       "id": 7,
       "text": "Rem-san making a sneaky comment in the confusion. ",
-      "source": "https://x.com/nezumiironyanko/status/767392774370897920"
+      "source": "https://x.com/nezumiironyanko/status/767392774370897920",
+      "characters": [
+        "Rem"
+      ],
+      "topics": []
     },
     {
       "id": 8,
       "text": "The White Whale multiplied, and only people who don't break immediately can even start analyzing. ",
-      "source": "https://x.com/nezumiironyanko/status/767392976259514368"
+      "source": "https://x.com/nezumiironyanko/status/767392976259514368",
+      "characters": [
+        "White Whale"
+      ],
+      "topics": [
+        "Great Mabeasts",
+        "Mabeasts"
+      ]
     },
     {
       "id": 9,
       "text": "That dodge was entirely Patrasche's (the ground dragon's) judgment. ",
-      "source": "https://x.com/nezumiironyanko/status/767393136964358144"
+      "source": "https://x.com/nezumiironyanko/status/767393136964358144",
+      "characters": [
+        "Patrasche"
+      ],
+      "topics": [
+        "Worldbuilding"
+      ]
     },
     {
       "id": 10,
       "text": "The face looked similar, at least. (I'll give him credit for trying.) ",
-      "source": "https://x.com/nezumiironyanko/status/767393405198479360"
+      "source": "https://x.com/nezumiironyanko/status/767393405198479360",
+      "characters": [],
+      "topics": []
     },
     {
       "id": 11,
       "text": "That said, the Sword Devil still stirred things up inside its body. ",
-      "source": "https://x.com/nezumiironyanko/status/767393704617181184"
+      "source": "https://x.com/nezumiironyanko/status/767393704617181184",
+      "characters": [],
+      "topics": []
     },
     {
       "id": 12,
       "text": "One of them hasn't come down this whole time and has just been hanging overhead. ",
-      "source": "https://x.com/nezumiironyanko/status/767393929377423360"
+      "source": "https://x.com/nezumiironyanko/status/767393929377423360",
+      "characters": [],
+      "topics": []
     },
     {
       "id": 13,
       "text": "A gamble? Yay, Subaru-kun risking his life is my favorite. ",
-      "source": "https://x.com/nezumiironyanko/status/767394069655859201"
+      "source": "https://x.com/nezumiironyanko/status/767394069655859201",
+      "characters": [
+        "Natsuki Subaru"
+      ],
+      "topics": []
     },
     {
       "id": 14,
       "text": "It's a matchup advantage of 'Wind' against 'Mist,' but it's only possible because of Crusch-sama's skill. ",
-      "source": "https://x.com/nezumiironyanko/status/767394452482592769"
+      "source": "https://x.com/nezumiironyanko/status/767394452482592769",
+      "characters": [
+        "Crusch Karsten"
+      ],
+      "topics": []
     },
     {
       "id": 15,
       "text": "2600/3333 ",
-      "source": "https://x.com/nezumiironyanko/status/767394825729564672"
+      "source": "https://x.com/nezumiironyanko/status/767394825729564672",
+      "characters": [],
+      "topics": []
     },
     {
       "id": 16,
       "text": "Ride an icicle up above the enemy. Let's call it the Taopaipai tactic! ",
-      "source": "https://x.com/nezumiironyanko/status/767395032047366144"
+      "source": "https://x.com/nezumiironyanko/status/767395032047366144",
+      "characters": [],
+      "topics": []
     },
     {
       "id": 17,
       "text": "At this distance, the White Whale can't ignore the Witch's scent. ",
-      "source": "https://x.com/nezumiironyanko/status/767395233457852416"
+      "source": "https://x.com/nezumiironyanko/status/767395233457852416",
+      "characters": [
+        "White Whale"
+      ],
+      "topics": [
+        "Great Mabeasts",
+        "Mabeasts"
+      ]
     },
     {
       "id": 18,
       "text": "Patrasche: \"Hah!? If you put it that way, then I have no choice but to do it, do I!?\" ",
-      "source": "https://x.com/nezumiironyanko/status/767395397572538369"
+      "source": "https://x.com/nezumiironyanko/status/767395397572538369",
+      "characters": [
+        "Patrasche"
+      ],
+      "topics": []
     },
     {
       "id": 19,
       "text": "\"Theresia, I...\" ",
-      "source": "https://x.com/nezumiironyanko/status/767395984708030464"
+      "source": "https://x.com/nezumiironyanko/status/767395984708030464",
+      "characters": [
+        "Theresia van Astrea"
+      ],
+      "topics": []
     },
     {
       "id": 20,
       "text": "\"I love you...\" ",
-      "source": "https://x.com/nezumiironyanko/status/767396204875386880"
+      "source": "https://x.com/nezumiironyanko/status/767396204875386880",
+      "characters": [],
+      "topics": []
     },
     {
       "id": 21,
       "text": "Part A over! ",
-      "source": "https://x.com/nezumiironyanko/status/767396401063923712"
+      "source": "https://x.com/nezumiironyanko/status/767396401063923712",
+      "characters": [],
+      "topics": []
     },
     {
       "id": 22,
       "text": "From the time they married until this very scene, Wilhelm had never once directly told Theresia \"I love you.\" ",
-      "source": "https://x.com/nezumiironyanko/status/767396531234156544"
+      "source": "https://x.com/nezumiironyanko/status/767396531234156544",
+      "characters": [
+        "Theresia van Astrea",
+        "Wilhelm van Astrea"
+      ],
+      "topics": []
     },
     {
       "id": 23,
       "text": "And that same Wilhelm, after growing old, goes around gushing about his wife to everyone he meets. It really... hits you, doesn't it? ",
-      "source": "https://x.com/nezumiironyanko/status/767396707906654208"
+      "source": "https://x.com/nezumiironyanko/status/767396707906654208",
+      "characters": [
+        "Wilhelm van Astrea"
+      ],
+      "topics": []
     },
     {
       "id": 24,
       "text": "Part B start! ",
-      "source": "https://x.com/nezumiironyanko/status/767396764953346048"
+      "source": "https://x.com/nezumiironyanko/status/767396764953346048",
+      "characters": [],
+      "topics": []
     },
     {
       "id": 25,
       "text": "The author likes this scene. ",
-      "source": "https://x.com/nezumiironyanko/status/767397017018507264"
+      "source": "https://x.com/nezumiironyanko/status/767397017018507264",
+      "characters": [],
+      "topics": []
     },
     {
       "id": 26,
       "text": "Kind of like, \"There's someone waiting at the end of the dream...\" ",
-      "source": "https://x.com/nezumiironyanko/status/767397572172402688"
+      "source": "https://x.com/nezumiironyanko/status/767397572172402688",
+      "characters": [],
+      "topics": []
     },
     {
       "id": 27,
       "text": "Wilhelm-san with clear eyes. ",
-      "source": "https://x.com/nezumiironyanko/status/767397729928556544"
+      "source": "https://x.com/nezumiironyanko/status/767397729928556544",
+      "characters": [
+        "Wilhelm van Astrea"
+      ],
+      "topics": []
     },
     {
       "id": 28,
       "text": "W-whaaat!? You're saying Wilhelm-san and his wife's backstory, and the full details, are written in Re:ZERO EX 2: Sword Demon Love Ballad!? ",
-      "source": "https://x.com/nezumiironyanko/status/767397955657576448"
+      "source": "https://x.com/nezumiironyanko/status/767397955657576448",
+      "characters": [
+        "Wilhelm van Astrea"
+      ],
+      "topics": []
     },
     {
       "id": 29,
       "text": "The wounded withdrew, and the returning group carved out the White Whale's head to take back to the royal capital as proof of the \"subjugation of the White Whale.\" Hetaro went back too. ",
-      "source": "https://x.com/nezumiironyanko/status/767398611684433922"
+      "source": "https://x.com/nezumiironyanko/status/767398611684433922",
+      "characters": [
+        "Hetaro Pearlbaton",
+        "White Whale"
+      ],
+      "topics": [
+        "Great Mabeasts",
+        "Mabeasts",
+        "Worldbuilding"
+      ]
     },
     {
       "id": 30,
       "text": "Leaving aside the recognizable person's name, the name of the ground dragon he's riding is \"Shaknarl.\" It's named after the ground dragon ridden by a hero in some fairy tale or another. ",
-      "source": "https://x.com/nezumiironyanko/status/767399052535140352"
+      "source": "https://x.com/nezumiironyanko/status/767399052535140352",
+      "characters": [],
+      "topics": [
+        "Worldbuilding"
+      ]
     },
     {
       "id": 31,
       "text": "Final husband-and-wife scene. ",
-      "source": "https://x.com/nezumiironyanko/status/767399176132931584"
+      "source": "https://x.com/nezumiironyanko/status/767399176132931584",
+      "characters": [],
+      "topics": []
     },
     {
       "id": 32,
       "text": "And with that, thank you again for this week! Episode 21 is over! All enemies await in Mathers domain, with the Witch Cult!! ",
-      "source": "https://x.com/nezumiironyanko/status/767399433285668864"
+      "source": "https://x.com/nezumiironyanko/status/767399433285668864",
+      "characters": [],
+      "topics": [
+        "Witch Cult"
+      ]
     },
     {
       "id": 33,
       "text": "This time, the web preview for Episode 21 was handled by my fellow author friend, Rokaku Fefu-san! Hiding his own madness, he skillfully brought out an adorable side of Mimi and Ricardo. If you look at Fefu-san's work, I think you'll go, \"So this is the kind of person who's friends with the author of Re:Zero, huh.\" ",
-      "source": "https://x.com/nezumiironyanko/status/767399881241604096"
+      "source": "https://x.com/nezumiironyanko/status/767399881241604096",
+      "characters": [
+        "Mimi Pearlbaton",
+        "Ricardo Welkin",
+        "Russel Fellow"
+      ],
+      "topics": []
     },
     {
       "id": 34,
       "text": "There may be suspicions that Patrasche-san is easy, but she never opens her heart to anyone other than Subaru. She may reluctantly lend her strength to people Subaru has opened his heart to. Even when she does so reluctantly, she gives it her all, so she is probably serious by nature.",
-      "source": "https://x.com/nezumiironyanko/status/767400237946146816"
+      "source": "https://x.com/nezumiironyanko/status/767400237946146816",
+      "characters": [
+        "Natsuki Subaru",
+        "Patrasche"
+      ],
+      "topics": []
     },
     {
       "id": 35,
       "text": "Ultimately, the White Whale battle is about wanting to say, “I love you.” Could there be anything more satisfying than seeing that come to fruition like this? No, there could not. It was wonderful. Thank you, thank you!",
-      "source": "https://x.com/nezumiironyanko/status/767401556043968513"
+      "source": "https://x.com/nezumiironyanko/status/767401556043968513",
+      "characters": [
+        "White Whale"
+      ],
+      "topics": [
+        "Combat & Tiering",
+        "Great Mabeasts",
+        "Mabeasts"
+      ]
     },
     {
       "id": 36,
       "text": "Well then, thank you again for this week! Looking forward to having you with us again starting next week!! ",
-      "source": "https://x.com/nezumiironyanko/status/767401815998550016"
+      "source": "https://x.com/nezumiironyanko/status/767401815998550016",
+      "characters": [],
+      "topics": []
     }
   ]
 }

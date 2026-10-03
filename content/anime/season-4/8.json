@@ -10,147 +10,261 @@
     {
       "id": 1,
       "text": "Re:Zero is starting again this week!\nWell then, last time was like that, but what will happen this time!? Let's have fun with it!",
-      "source": "https://x.com/nezumiironyanko/status/2059635965304717798"
+      "source": "https://x.com/nezumiironyanko/status/2059635965304717798",
+      "characters": [],
+      "topics": []
     },
     {
       "id": 2,
       "text": "Subaru got strange last time, but what on earth happened to him? He says things that are awfully careless, though.",
-      "source": "https://x.com/nezumiironyanko/status/2059636209736147235"
+      "source": "https://x.com/nezumiironyanko/status/2059636209736147235",
+      "characters": [
+        "Natsuki Subaru"
+      ],
+      "topics": []
     },
     {
       "id": 3,
       "text": "Subaru acts as if he's forgotten everything, and Emilia and Beatrice respond to that, but given the situation, it's pretty hard to judge what to make of it.",
-      "source": "https://x.com/nezumiironyanko/status/2059636486958645634"
+      "source": "https://x.com/nezumiironyanko/status/2059636486958645634",
+      "characters": [
+        "Beatrice",
+        "Emilia",
+        "Natsuki Subaru"
+      ],
+      "topics": []
     },
     {
       "id": 4,
       "text": "In response to what Subaru said, Emilia and Beatrice reacted in a rather mature way, or rather, they showed understanding. But now then, what are they really feeling inside, I wonder--",
-      "source": "https://x.com/nezumiironyanko/status/2059636732208050319"
+      "source": "https://x.com/nezumiironyanko/status/2059636732208050319",
+      "characters": [
+        "Beatrice",
+        "Emilia",
+        "Natsuki Subaru"
+      ],
+      "topics": []
     },
     {
       "id": 5,
       "text": "By the way, Subaru in this state is cute with his bangs hanging down a little. His eyes are sparkling too. If you can, please compare him with episode one.",
-      "source": "https://x.com/nezumiironyanko/status/2059636971597914185"
+      "source": "https://x.com/nezumiironyanko/status/2059636971597914185",
+      "characters": [
+        "Natsuki Subaru"
+      ],
+      "topics": []
     },
     {
       "id": 6,
       "text": "Subaru's on pins and needles, but this is his first meeting with his companions since ending up like this. Subaru has no way of knowing it, but for some of them, being treated like it's their first meeting might be pretty hard. Yeah. Mm. Right.",
-      "source": "https://x.com/nezumiironyanko/status/2059637278801322197"
+      "source": "https://x.com/nezumiironyanko/status/2059637278801322197",
+      "characters": [
+        "Natsuki Subaru"
+      ],
+      "topics": []
     },
     {
       "id": 7,
       "text": "Shaula sticks right to him and he properly blushes, which really brings out how Subaru-like the current Subaru is.",
-      "source": "https://x.com/nezumiironyanko/status/2059637571425358165"
+      "source": "https://x.com/nezumiironyanko/status/2059637571425358165",
+      "characters": [
+        "Natsuki Subaru",
+        "Shaula"
+      ],
+      "topics": []
     },
     {
       "id": 8,
       "text": "Subaru and Ram talk where no one else is around, but that's because Ram properly picked up on his intention that he \"wanted to do that.\" Does that change your impression of him if I say he can actually read the room surprisingly well?",
-      "source": "https://x.com/nezumiironyanko/status/2059637804246950016"
+      "source": "https://x.com/nezumiironyanko/status/2059637804246950016",
+      "characters": [
+        "Natsuki Subaru",
+        "Ram"
+      ],
+      "topics": []
     },
     {
       "id": 9,
       "text": "From big sis's point of view too, she can't accept a story about Subaru losing his memories here. After all, if Subaru starts saying that, she loses her guide for how to take in everything about Rem. That's the background to how desperately Ram is acting. Though of course, the current Subaru doesn't understand that!",
-      "source": "https://x.com/nezumiironyanko/status/2059638058790821936"
+      "source": "https://x.com/nezumiironyanko/status/2059638058790821936",
+      "characters": [
+        "Natsuki Subaru",
+        "Ram",
+        "Rem"
+      ],
+      "topics": []
     },
     {
       "id": 10,
       "text": "Julius is finally able to come here and speak with Subaru, and it seems he has finally recovered from the shock he received in the opening scene. He also has to explain the circumstances surrounding Anastasia = Eridona, which he had intended to discuss, so they can finally talk.",
-      "source": "https://x.com/nezumiironyanko/status/2059638433426145713"
+      "source": "https://x.com/nezumiironyanko/status/2059638433426145713",
+      "characters": [
+        "Anastasia Hoshin",
+        "Julius Juukulius",
+        "Natsuki Subaru"
+      ],
+      "topics": []
     },
     {
       "id": 11,
       "text": "On top of Subaru's amnesia, once Anastasia declares she's Eridna, even Emilia reacts sharply. Still, the fact that Emilia only goes so far as calling it \"mean\" is just her personality; Subaru would've put it much more harshly. Well, not right now, though!",
-      "source": "https://x.com/nezumiironyanko/status/2059638723592302979"
+      "source": "https://x.com/nezumiironyanko/status/2059638723592302979",
+      "characters": [
+        "Anastasia Hoshin",
+        "Emilia",
+        "Natsuki Subaru"
+      ],
+      "topics": []
     },
     {
       "id": 12,
       "text": "With Subaru unable to properly function right now, the fact that Emilia is the one steering things around here lets you feel how much she's grown as a person, and as the author I really like that part. As for everyone's opinions toward the Subaru who follows along behind her, well, what do you think?",
-      "source": "https://x.com/nezumiironyanko/status/2059639003104882972"
+      "source": "https://x.com/nezumiironyanko/status/2059639003104882972",
+      "characters": [
+        "Emilia",
+        "Natsuki Subaru"
+      ],
+      "topics": []
     },
     {
       "id": 13,
       "text": "In case you've forgotten, let me explain: the third layer is the place where it's possible to read the \"Books of the Dead.\" So if they found Subaru collapsed there, then what exactly was the last thing Subaru was looking at? Thinking about that may be important for understanding Arc 6.",
-      "source": "https://x.com/nezumiironyanko/status/2059639324573081924"
+      "source": "https://x.com/nezumiironyanko/status/2059639324573081924",
+      "characters": [
+        "Natsuki Subaru"
+      ],
+      "topics": []
     },
     {
       "id": 14,
       "text": "\"Status Open!\" was actually something he did back in episode one too. Following that, he tried other abilities as well, but sadly there's a suspicion that along with losing his memories, his skills have been reset too--",
-      "source": "https://x.com/nezumiironyanko/status/2059639574700392807"
+      "source": "https://x.com/nezumiironyanko/status/2059639574700392807",
+      "characters": [],
+      "topics": [
+        "Return by Death"
+      ]
     },
     {
       "id": 15,
       "text": "A dream maybe? Yeah, it's a dream!",
-      "source": "https://x.com/nezumiironyanko/status/2059639663674208389"
+      "source": "https://x.com/nezumiironyanko/status/2059639663674208389",
+      "characters": [],
+      "topics": []
     },
     {
       "id": 16,
       "text": "A-part over! That was such a heartwarming part! Looks like this otherworld life is really going to work out!",
-      "source": "https://x.com/nezumiironyanko/status/2059639883254353961"
+      "source": "https://x.com/nezumiironyanko/status/2059639883254353961",
+      "characters": [],
+      "topics": []
     },
     {
       "id": 17,
       "text": "Subaru testifies that it happened \"again\"; if you're the kind of person who notices little details, maybe \"Emilia-tan\" has caught your attention. Nothing good comes from dwelling on it, so feel free to forget it!",
-      "source": "https://x.com/nezumiironyanko/status/2059640208396788087"
+      "source": "https://x.com/nezumiironyanko/status/2059640208396788087",
+      "characters": [
+        "Emilia",
+        "Natsuki Subaru"
+      ],
+      "topics": []
     },
     {
       "id": 18,
       "text": "Subaru has the sense that he's somehow come across the same scene, and Emilia and Beatrice's responses are similar in some way too.\nHmm, is it a dream??",
-      "source": "https://x.com/nezumiironyanko/status/2059640451024732341"
+      "source": "https://x.com/nezumiironyanko/status/2059640451024732341",
+      "characters": [
+        "Beatrice",
+        "Emilia",
+        "Natsuki Subaru"
+      ],
+      "topics": []
     },
     {
       "id": 19,
       "text": "A precognitive dream is quite an overpowered cheat skill.\nIf he follows it, he can clear every problem in the best possible way! Amazing! This is what isekai reincarnation is all about! Woo!",
-      "source": "https://x.com/nezumiironyanko/status/2059640689819074871"
+      "source": "https://x.com/nezumiironyanko/status/2059640689819074871",
+      "characters": [],
+      "topics": []
     },
     {
       "id": 20,
       "text": "Once again, Subaru peers down the stairs. What exactly happened to him? He steels himself to find out--",
-      "source": "https://x.com/nezumiironyanko/status/2059640925740220767"
+      "source": "https://x.com/nezumiironyanko/status/2059640925740220767",
+      "characters": [
+        "Natsuki Subaru"
+      ],
+      "topics": []
     },
     {
       "id": 21,
       "text": "When you accidentally hear people talking about you somewhere you aren't present, it can make you feel a little weird in all sorts of ways, can't it?",
-      "source": "https://x.com/nezumiironyanko/status/2059641114278429083"
+      "source": "https://x.com/nezumiironyanko/status/2059641114278429083",
+      "characters": [],
+      "topics": []
     },
     {
       "id": 22,
       "text": "As payback for feeling a little weird, this might be going just a bit too far, no??",
-      "source": "https://x.com/nezumiironyanko/status/2059641267265675612"
+      "source": "https://x.com/nezumiironyanko/status/2059641267265675612",
+      "characters": [],
+      "topics": []
     },
     {
       "id": 23,
       "text": "How terrible! Acting like that toward Beako! When Beako is a saint or a mom!",
-      "source": "https://x.com/nezumiironyanko/status/2059641439378899190"
+      "source": "https://x.com/nezumiironyanko/status/2059641439378899190",
+      "characters": [
+        "Beatrice"
+      ],
+      "topics": []
     },
     {
       "id": 24,
       "text": "In all sorts of ways, he accidentally wandered into the hands of someone who shows absolutely no mercy to the weak, and as a result he gets put through hell.",
-      "source": "https://x.com/nezumiironyanko/status/2059641610020028814"
+      "source": "https://x.com/nezumiironyanko/status/2059641610020028814",
+      "characters": [],
+      "topics": []
     },
     {
       "id": 25,
       "text": "Subaru's lament here is about how, when he tried to think of why he deserved something like this, the only thing he could come up with was, \"When my mother told me 'have a good day,' I didn't answer her, and I didn't wash the cup I drank cocoa from.\" It's a story showing that Subaru has lived an ordinary life to the point that he couldn't think of any other reason.",
-      "source": "https://x.com/nezumiironyanko/status/2059641997800186336"
+      "source": "https://x.com/nezumiironyanko/status/2059641997800186336",
+      "characters": [
+        "Natsuki Subaru"
+      ],
+      "topics": []
     },
     {
       "id": 26,
       "text": "He went through something pretty brutal, but the fact that even that repeats breaks his spirit. He's almost correctly grasped the situation, but whether that becomes hope is another matter.",
-      "source": "https://x.com/nezumiironyanko/status/2059642239803179025"
+      "source": "https://x.com/nezumiironyanko/status/2059642239803179025",
+      "characters": [],
+      "topics": [
+        "Contracts & Spirits"
+      ]
     },
     {
       "id": 27,
       "text": "Sadly, the action memoryless Subaru took to save himself runs afoul of a certain rule--",
-      "source": "https://x.com/nezumiironyanko/status/2059642389862773067"
+      "source": "https://x.com/nezumiironyanko/status/2059642389862773067",
+      "characters": [
+        "Natsuki Subaru"
+      ],
+      "topics": []
     },
     {
       "id": 28,
       "text": "And with that, this week's over already! Like every time, those 30 minutes, like every time, go by way too fast! What was God thinking? Didn't He make a mistake in how time is allotted? Why not make Re:Zero alone 300 minutes instead of 30? We can adjust everything else later!",
-      "source": "https://x.com/nezumiironyanko/status/2059642839571853599"
+      "source": "https://x.com/nezumiironyanko/status/2059642839571853599",
+      "characters": [],
+      "topics": []
     },
     {
       "id": 29,
       "text": "So, thank you again this week! Chapter 6 has finally begun—what on earth will happen from here, how will it unfold, and what is it all supposed to mean? Please look forward to it from next week as well; Chapter 6 has finally begun—what on earth will happen from here, how will it unfold, and what is it all supposed to mean? Please look forward to it from next week as well",
-      "source": "https://x.com/nezumiironyanko/status/2059643478645318060"
+      "source": "https://x.com/nezumiironyanko/status/2059643478645318060",
+      "characters": [],
+      "topics": []
     }
   ]
 }

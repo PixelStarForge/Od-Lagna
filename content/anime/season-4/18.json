@@ -10,137 +10,288 @@
     {
       "id": 1,
       "text": "Today, September 23, is Emilia’s birthday in Re:Zero!\nThere’s an Emilia birthday event again this year, and there’s also a Re:Zero exhibition celebrating the anime’s 10th anniversary. If you’re coming to Tokyo, I’d be really happy if you could visit both events! https://t.co/gfn6CKfo11",
-      "source": "https://x.com/nezumiironyanko/status/2102703377381831146"
+      "source": "https://x.com/nezumiironyanko/status/2102703377381831146",
+      "characters": [
+        "Emilia"
+      ],
+      "topics": []
     },
     {
       "id": 2,
       "text": "All right! Good evening again, everyone! It’s time for Re:Zero! Including tonight, only two episodes remain of this wonderfully fun fourth season! There are still problems to solve at the Tower, and only two episodes left!? Last time, Julius VS Reid reached its conclusion! What will happen today? Re:Starting Life in Another World from Ram starts now!!",
-      "source": "https://x.com/nezumiironyanko/status/2102759643877691526"
+      "source": "https://x.com/nezumiironyanko/status/2102759643877691526",
+      "characters": [
+        "Julius Juukulius",
+        "Ram",
+        "Reid Astrea"
+      ],
+      "topics": []
     },
     {
       "id": 3,
       "text": "Last time, when Emilia climbed to the first floor at the very top of the Tower, she found an extraordinary being waiting for her—one who shouldn’t have been there. Emilia steels herself to face it, but…!",
-      "source": "https://x.com/nezumiironyanko/status/2102759944370217050"
+      "source": "https://x.com/nezumiironyanko/status/2102759944370217050",
+      "characters": [
+        "Emilia"
+      ],
+      "topics": []
     },
     {
       "id": 4,
       "text": "By the way, Volcanica the “Divine Dragon” is the legendary “Dragon” with whom the Kingdom of Lugunica made a pact four hundred years ago. When the “Witch of Envy” once ran wild, Volcanica helped the “Sage” Shaula and the “Sword Saint” Reid seal her away. Volcanica comes to the kingdom’s aid in times of crisis and is also worshipped.",
-      "source": "https://x.com/nezumiironyanko/status/2102760192056463708"
+      "source": "https://x.com/nezumiironyanko/status/2102760192056463708",
+      "characters": [
+        "Divine Dragon Volcanica",
+        "Filore Lugunica",
+        "Fourier Lugunica",
+        "Reid Astrea",
+        "Shaula",
+        "Witch of Envy"
+      ],
+      "topics": [
+        "Combat & Tiering",
+        "Lore",
+        "Witches of Sin"
+      ]
     },
     {
       "id": 5,
       "text": "There’s also an organization called the “Divine Dragon Church” that worships Volcanica, and it’s getting some attention in Arc 10 of the main story. It first appeared in the game The Prophecy of the Throne, so give that a play if you’re interested.",
-      "source": "https://x.com/nezumiironyanko/status/2102760369404158278"
+      "source": "https://x.com/nezumiironyanko/status/2102760369404158278",
+      "characters": [
+        "Divine Dragon Volcanica"
+      ],
+      "topics": []
     },
     {
       "id": 6,
       "text": "Volcanica keeps repeating the same thing endlessly. Speaking to or touching Volcanica gets no different reaction; Volcanica won’t even make eye contact. “I shall not question your intentions” (meaning, won’t ask).",
-      "source": "https://x.com/nezumiironyanko/status/2102760579463360701"
+      "source": "https://x.com/nezumiironyanko/status/2102760579463360701",
+      "characters": [
+        "Divine Dragon Volcanica"
+      ],
+      "topics": []
     },
     {
       "id": 7,
       "text": "Emilia developed her Ice Brand Arts together with Subaru, but their real strength lies in creating seven ice soldiers and fighting alongside them! She can make more than seven, but then her control gets too fuzzy to move them properly, so seven is her limit. Still pretty amazing.",
-      "source": "https://x.com/nezumiironyanko/status/2102760884741554584"
+      "source": "https://x.com/nezumiironyanko/status/2102760884741554584",
+      "characters": [
+        "Emilia",
+        "Natsuki Subaru"
+      ],
+      "topics": []
     },
     {
       "id": 8,
       "text": "By the way, I feel like the ice soldiers are slightly better-looking than the originals… What do you think?",
-      "source": "https://x.com/nezumiironyanko/status/2102760983353782658"
+      "source": "https://x.com/nezumiironyanko/status/2102760983353782658",
+      "characters": [],
+      "topics": []
     },
     {
       "id": 9,
       "text": "Meanwhile, back inside the Tower, Ram VS Lye is an absolutely ferocious battle. With his Authority, Lye’s fighting skill stands out even among the Sin Archbishops, but Ram’s instincts are unmatched if she can go toe-to-toe with him. Even so, Ram shouldn’t be able to fight at full strength—and now we learn why.",
-      "source": "https://x.com/nezumiironyanko/status/2102761262342119919"
+      "source": "https://x.com/nezumiironyanko/status/2102761262342119919",
+      "characters": [
+        "Ram"
+      ],
+      "topics": [
+        "Authorities",
+        "Combat & Tiering",
+        "Sin Archbishops"
+      ]
     },
     {
       "id": 10,
       "text": "Subaru’s “Cor Leonis,” which he became able to use a little while ago, is an Authority of Greed, just as “Invisible Providence” is an Authority of Sloth. Since Regulus-san was defeated, the Witch Factor of Greed entered Subaru, allowing him to use it.",
-      "source": "https://x.com/nezumiironyanko/status/2102761478743093296"
+      "source": "https://x.com/nezumiironyanko/status/2102761478743093296",
+      "characters": [
+        "Natsuki Subaru",
+        "Regulus Corneas"
+      ],
+      "topics": [
+        "Authorities"
+      ]
     },
     {
       "id": 11,
       "text": "“Cor Leonis” lets people who consider each other comrades sense one another’s locations within a certain range. That let Subaru realize the giant scorpion and Shaula were the same being. This time, the ability goes a step further: Subaru takes on his allies’ ailments.",
-      "source": "https://x.com/nezumiironyanko/status/2102761790987993323"
+      "source": "https://x.com/nezumiironyanko/status/2102761790987993323",
+      "characters": [
+        "Natsuki Subaru",
+        "Shaula"
+      ],
+      "topics": [
+        "Authorities"
+      ]
     },
     {
       "id": 12,
       "text": "Lye filled the air with invisible rifts in space, but Ram saw through them with her “Clairvoyance,” memorized their positions, and got above him. She uses wind magic to kick off the air as she moves in battle. She isn’t actually flying—she’s kicking the air—so it works differently from flight magic.",
-      "source": "https://x.com/nezumiironyanko/status/2102762119804682682"
+      "source": "https://x.com/nezumiironyanko/status/2102762119804682682",
+      "characters": [
+        "Ram"
+      ],
+      "topics": [
+        "Combat & Tiering",
+        "Mana & Magic"
+      ]
     },
     {
       "id": 13,
       "text": "The Authority of “Gluttony” devours other people’s “Names” and “Memories,” letting its user wield their abilities at will. But there are two ways to use those abilities: “Lunar Eclipse,” which borrows only their techniques, and “Solar Eclipse,” which borrows their appearance too. Using their techniques alone is plenty powerful, but those techniques are generally tailored to the original person’s body, so—",
-      "source": "https://x.com/nezumiironyanko/status/2102762594851508733"
+      "source": "https://x.com/nezumiironyanko/status/2102762594851508733",
+      "characters": [],
+      "topics": [
+        "Authorities"
+      ]
     },
     {
       "id": 14,
       "text": "The three forms Lye used this time were Dorkell the “Leaper,” Beli Heinelga the “Carnivore,” and Neiji Lockheart the “Fist King.” All three were monsters who should have gone down in history, but their names aren’t recorded anywhere. Since “Gluttony” devoured them, these extraordinary people are now known to no one.",
-      "source": "https://x.com/nezumiironyanko/status/2102762834325336551"
+      "source": "https://x.com/nezumiironyanko/status/2102762834325336551",
+      "characters": [
+        "Dorkell"
+      ],
+      "topics": [
+        "Lore"
+      ]
     },
     {
       "id": 15,
       "text": "After the commercial break, we see that fiery scene from the past again, this time from another point of view. Back then, the girl whose face and name she couldn’t remember saw the broken horn and had a thought. It turns out someone else saw that same broken horn from another angle and thought the same thing. Please go back and rewatch episode 11 of season one if you—",
-      "source": "https://x.com/nezumiironyanko/status/2102763155265061057"
+      "source": "https://x.com/nezumiironyanko/status/2102763155265061057",
+      "characters": [],
+      "topics": []
     },
     {
       "id": 16,
       "text": "The sudden return of Ram’s physical symptoms is proof that something has happened to Subaru. Even knowing that, Ram heads where she needs to go—because Patrasche is desperately trying to follow her companions’ instructions, and Ram’s younger sister is doing her best despite no longer remembering their true relationship.",
-      "source": "https://x.com/nezumiironyanko/status/2102763470794133753"
+      "source": "https://x.com/nezumiironyanko/status/2102763470794133753",
+      "characters": [
+        "Natsuki Subaru",
+        "Patrasche",
+        "Ram"
+      ],
+      "topics": [
+        "Character Relationships"
+      ]
     },
     {
       "id": 17,
       "text": "Incidentally, there’s a difference in how they use the Authority of Gluttony: Lye and Roy generally use “Lunar Eclipse,” while Louis uses “Solar Eclipse.” Lye and Roy have bodies of their own and developed them alongside fully formed senses of self, so they avoid mixing their identities with others’. Louis, on the other hand, has no body and only a faint sense of herself, so her sense of self",
-      "source": "https://x.com/nezumiironyanko/status/2102763913612009598"
+      "source": "https://x.com/nezumiironyanko/status/2102763913612009598",
+      "characters": [],
+      "topics": [
+        "Authorities"
+      ]
     },
     {
       "id": 18,
       "text": "Normally, when the Authority of Gluttony is involved, the people concerned don’t remember, so a Ram vs. Rem confrontation like this one couldn’t happen. But because Subaru stepped in, Ram knows Rem exists and understands their relationship. That’s why Gluttony is going wild, thrilled by an experience unlike any before. That’s the story behind this matchup.",
-      "source": "https://x.com/nezumiironyanko/status/2102764252574711958"
+      "source": "https://x.com/nezumiironyanko/status/2102764252574711958",
+      "characters": [
+        "Natsuki Subaru",
+        "Ram",
+        "Rem"
+      ],
+      "topics": [
+        "Authorities",
+        "Character Relationships"
+      ]
     },
     {
       "id": 19,
       "text": "What flew out of the staff broken by the fake Rem’s blow was a fragment of the horn Ram had supposedly lost that day. Roswaal had prepared the staff and given it to Ram as a catalyst to make magic easier for her to use. By taking in that horn fragment, Ram has temporarily regained the power of her horn—but ordinarily, her body couldn’t withstand it, so this wouldn’t be possible",
-      "source": "https://x.com/nezumiironyanko/status/2102764770508288167"
+      "source": "https://x.com/nezumiironyanko/status/2102764770508288167",
+      "characters": [
+        "Ram",
+        "Rem",
+        "Roswaal L. Mathers"
+      ],
+      "topics": [
+        "Mana & Magic"
+      ]
     },
     {
       "id": 20,
       "text": "Now, please enjoy awakened Ram’s overwhelming display in battle. I think you’ll see that Ram at her full strength ranks among the strongest in the Kingdom of Lugunica, second only to Reinhard. She is the “Reincarnation of the Oni God” whom Roswaal wanted on his side for a battle against the Dragon.",
-      "source": "https://x.com/nezumiironyanko/status/2102764988322705464"
+      "source": "https://x.com/nezumiironyanko/status/2102764988322705464",
+      "characters": [
+        "Filore Lugunica",
+        "Fourier Lugunica",
+        "Ram",
+        "Reinhard van Astrea",
+        "Roswaal L. Mathers"
+      ],
+      "topics": [
+        "Combat & Tiering"
+      ]
     },
     {
       "id": 21,
       "text": "With her hand gripping her opponent’s face, Ram unleashed a magic attack that fired dozens of Fula wind spells—the most basic kind—every second. The sheer number of hits tore her opponent apart, body and soul.",
-      "source": "https://x.com/nezumiironyanko/status/2102765451415896173"
+      "source": "https://x.com/nezumiironyanko/status/2102765451415896173",
+      "characters": [
+        "Ram"
+      ],
+      "topics": [
+        "Mana & Magic"
+      ]
     },
     {
       "id": 22,
       "text": "Ram uses her “Clairvoyance” to aim a spell at the fleeing Lye from an enormous distance. To give you an idea of how absurd that feat is, it’s like closing your eyes and using a gust of wind to thread a needle several rooms away.",
-      "source": "https://x.com/nezumiironyanko/status/2102765820812435812"
+      "source": "https://x.com/nezumiironyanko/status/2102765820812435812",
+      "characters": [
+        "Ram"
+      ],
+      "topics": []
     },
     {
       "id": 23,
       "text": "At the end, Lye, having lost an arm, desperately writes a message on the wall in his own blood. It’s a love letter to the person who cornered him and showed him, a “gourmet,” a feast beyond compare.\nBy now, everyone who’s watched this far knows what a confession of love is called in Re:Zero.",
-      "source": "https://x.com/nezumiironyanko/status/2102766144964960279"
+      "source": "https://x.com/nezumiironyanko/status/2102766144964960279",
+      "characters": [],
+      "topics": []
     },
     {
       "id": 24,
       "text": "S-Subaru-dain!!!",
-      "source": "https://x.com/nezumiironyanko/status/2102766264154558496"
+      "source": "https://x.com/nezumiironyanko/status/2102766264154558496",
+      "characters": [
+        "Natsuki Subaru"
+      ],
+      "topics": []
     },
     {
       "id": 25,
       "text": "Ram and Lye’s battle has been settled, and while the battle at the top continues—in the most literal sense—Emilia finally reaches her destination, beyond the many fallen ice soldiers.\nWhat are those things there that seem so out of place? For the details—hmm, next time! Wait for the final episode of Re:Zero anime Season 4! Sorry for the tease!",
-      "source": "https://x.com/nezumiironyanko/status/2102766769677177342"
+      "source": "https://x.com/nezumiironyanko/status/2102766769677177342",
+      "characters": [
+        "Emilia",
+        "Ram"
+      ],
+      "topics": [
+        "Combat & Tiering"
+      ]
     },
     {
       "id": 26,
       "text": "Now that the anime broadcast is over, head straight over to watch the mini anime! Last time, we got a little glimpse of a story from four hundred years ago, and this one is connected to that too! I think you’ll find it pretty interesting, so enjoy!\n\n【Re:Zero】Mini Anime Episode 84, “Six-Star Travelogue” https://t.co/adhn8CKU71 via @YouTube",
-      "source": "https://x.com/nezumiironyanko/status/2102767490615144589"
+      "source": "https://x.com/nezumiironyanko/status/2102767490615144589",
+      "characters": [],
+      "topics": []
     },
     {
       "id": 27,
       "text": "Once again, thank you for watching this week!\nThis episode bears the name of Ram, one of the original cast, and it was packed with so much and made with such care that I, the author, was absolutely thrilled and delighted again! You may have heard rumors about how strong our dear big sister is. Well, she’s this strong.",
-      "source": "https://x.com/nezumiironyanko/status/2102768399919235097"
+      "source": "https://x.com/nezumiironyanko/status/2102768399919235097",
+      "characters": [
+        "Ram"
+      ],
+      "topics": []
     }
   ]
 }

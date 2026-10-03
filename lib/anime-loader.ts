@@ -4,9 +4,12 @@ import {
   AnimeCatalogEntry,
   AuthorComment,
   EpisodeCommentary,
+  FlatAnimeComment,
+  getSeasonBadgeLabel,
 } from "./schema";
 
-export type { AnimeCatalogEntry, AuthorComment, EpisodeCommentary };
+export type { AnimeCatalogEntry, AuthorComment, EpisodeCommentary, FlatAnimeComment };
+export { getSeasonBadgeLabel };
 
 const CONTENT_DIR = path.join(process.cwd(), "content");
 const ANIME_DIR = path.join(CONTENT_DIR, "anime");
@@ -24,6 +27,9 @@ let cachedAnimeStats: {
   totalComments: number;
 } | null = null;
 let cachedEpisodeParams: { season: string; episode: string }[] | null = null;
+let cachedAllComments: FlatAnimeComment[] | null = null;
+
+
 
 /**
  * Clears in-memory anime cache. Useful in tests and local watch/rebuild scenarios.
@@ -34,29 +40,10 @@ export function clearAnimeCache(): void {
   cachedEpisodeCommentaries.clear();
   cachedAnimeStats = null;
   cachedEpisodeParams = null;
+  cachedAllComments = null;
 }
 
-/**
- * Returns a human-friendly badge label for a season or release.
- * e.g., "Season 01", "Director's Cut", "Season 02", "Break Time S1", "Re:Petit", etc.
- */
-export function getSeasonBadgeLabel(season: AnimeCatalogEntry): string {
-  if (season.id === "re-petit") return "Re:Petit";
-  if (season.type === "break-time") {
-    if (season.seasonNumber) return `Break Time S${season.seasonNumber}`;
-    return "Break Time";
-  }
-  if (season.type === "ova") return "Canon OVA";
-  if (season.id === "season-1-dc") return "Director's Cut";
-  if (typeof season.seasonNumber === "number") {
-    return `Season 0${season.seasonNumber}`;
-  }
-  const match = season.id.match(/^season-(\d+)$/);
-  if (match) {
-    return `Season 0${match[1]}`;
-  }
-  return `Season 0${season.order}`;
-}
+
 
 /**
  * Returns all anime catalog entries (seasons, OVAs, shorts) sorted by order.
@@ -129,6 +116,8 @@ export function getSeasonEpisodes(seasonId: string): EpisodeCommentary[] {
             id: c.id,
             text: c.text,
             source: c.source || (c as unknown as { sourceUrl?: string }).sourceUrl || "",
+            characters: Array.isArray(c.characters) ? c.characters : [],
+            topics: Array.isArray(c.topics) ? c.topics : [],
           }));
         } else {
           parsed.comments = [];
@@ -201,6 +190,8 @@ export function getEpisodeCommentary(
         id: c.id,
         text: c.text,
         source: c.source || (c as unknown as { sourceUrl?: string }).sourceUrl || "",
+        characters: Array.isArray(c.characters) ? c.characters : [],
+        topics: Array.isArray(c.topics) ? c.topics : [],
       }));
     } else {
       parsed.comments = [];
@@ -275,4 +266,37 @@ export function getAllEpisodeParams(): { season: string; episode: string }[] {
 
   cachedEpisodeParams = params;
   return params;
+}
+
+/**
+ * Returns all author broadcast comments flattened across all seasons and episodes,
+ * enriched with season and episode metadata.
+ * Memoized in-memory after first calculation.
+ */
+export function getAllAnimeComments(): FlatAnimeComment[] {
+  if (cachedAllComments) {
+    return cachedAllComments;
+  }
+
+  const catalog = getAnimeCatalog();
+  const allComments: FlatAnimeComment[] = [];
+
+  for (const season of catalog) {
+    const episodes = getSeasonEpisodes(season.id);
+    for (const ep of episodes) {
+      for (const comment of ep.comments) {
+        allComments.push({
+          ...comment,
+          seasonId: season.id,
+          seasonTitle: season.title,
+          episodeNumber: ep.episodeNumber,
+          episodeTitle: ep.title.en,
+          airDate: ep.airDate,
+        });
+      }
+    }
+  }
+
+  cachedAllComments = allComments;
+  return cachedAllComments;
 }

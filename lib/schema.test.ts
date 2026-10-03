@@ -4,6 +4,7 @@ import {
   contributorSchema,
   characterSchema,
   animeCatalogEntrySchema,
+  authorCommentSchema,
   episodeCommentarySchema,
 } from "./schema";
 import {
@@ -12,6 +13,7 @@ import {
   getSeasonEpisodes,
   getEpisodeCommentary,
   getAnimeStats,
+  getAllAnimeComments,
   clearAnimeCache,
 } from "./anime-loader";
 import {
@@ -320,6 +322,30 @@ assert(s4Ep1Str !== null && s4Ep1Str.episodeNumber === 1, "Expected '01' to norm
 const stats = getAnimeStats();
 assert(stats.totalCatalogedEpisodes === 98, `Expected 98 total episodes, got ${stats.totalCatalogedEpisodes}`);
 assert(stats.totalComments === 4085, `Expected 4085 author comments, got ${stats.totalComments}`);
+
+// Test authorCommentSchema with and without tags
+const untaggedComment = authorCommentSchema.parse({
+  id: 1,
+  text: "Untagged live-tweet.",
+});
+assert(Array.isArray(untaggedComment.characters) && untaggedComment.characters.length === 0, "Expected empty characters array by default");
+assert(Array.isArray(untaggedComment.topics) && untaggedComment.topics.length === 0, "Expected empty topics array by default");
+
+const taggedComment = authorCommentSchema.parse({
+  id: 2,
+  text: "Subaru and Emilia in the capital.",
+  source: "https://x.com/example",
+  characters: ["Natsuki Subaru", "Emilia"],
+  topics: ["Lore", "Emilia Camp"],
+});
+assert(taggedComment.characters.length === 2 && taggedComment.characters[0] === "Natsuki Subaru", "Expected characters to be preserved");
+assert(taggedComment.topics.length === 2 && taggedComment.topics[1] === "Emilia Camp", "Expected topics to be preserved");
+
+const allAnimeComments = getAllAnimeComments();
+assert(Array.isArray(allAnimeComments), "Expected getAllAnimeComments() to return an array");
+assert(allAnimeComments.length === 4085, `Expected 4085 total anime comments, got ${allAnimeComments.length}`);
+assert(allAnimeComments[0].seasonId === "season-1", "Expected first comment to have seasonId");
+assert(typeof allAnimeComments[0].episodeNumber === "number", "Expected first comment to have episodeNumber");
 console.log("✓ anime schemas and loaders passed");
 
 // 16. Testing in-memory cache and clearAnimeCache()

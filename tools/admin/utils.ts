@@ -139,7 +139,7 @@ export function findDuplicates(
   };
 }
 
-const GENERIC_NAME_PARTS = new Set(["van", "von", "the", "san", "sama", "kun", "chan", "sir"]);
+const GENERIC_NAME_PARTS = new Set(["van", "von", "the", "san", "sama", "kun", "chan", "sir", "witch", "witches", "warlock", "cult"]);
 
 /**
  * Scans text to suggest matching tags from a known tag list.
@@ -714,5 +714,240 @@ export function parseTriviaQuickPaste(
     characters,
     topics,
     verified,
+  };
+}
+
+/**
+ * Specifically tuned tag suggester for anime broadcast live-tweets.
+ */
+export function suggestAnimeTags(
+  text: string,
+  knownCharacters: string[],
+  knownTopics: string[]
+): { characters: string[]; topics: string[] } {
+  if (!text) return { characters: [], topics: [] };
+
+  const charSet = new Set(knownCharacters);
+  const topicSet = new Set(knownTopics);
+  const chars = new Set<string>();
+  const topics = new Set<string>();
+
+  const characterRules: Array<{ name: string; test: (t: string) => boolean }> = [
+    { name: "Natsuki Subaru", test: (t) => /\b(subaru|natsuki|barusu)\b/i.test(t) },
+    { name: "Emilia", test: (t) => /\b(emilia|emt)\b/i.test(t) },
+    { name: "Rem", test: (t) => /\b(rem)\b/i.test(t) },
+    { name: "Ram", test: (t) => /\b(ram)\b/i.test(t) },
+    { name: "Beatrice", test: (t) => /\b(beatrice|beako)\b/i.test(t) },
+    { name: "Roswaal L. Mathers", test: (t) => /\b(roswaal)\b/i.test(t) },
+    { name: "Puck", test: (t) => /\b(puck|pakku)\b/i.test(t) },
+    { name: "Felt", test: (t) => /\b(felt)\b/i.test(t) },
+    { name: "Reinhard van Astrea", test: (t) => /\b(reinhard)\b/i.test(t) },
+    { name: "Julius Juukulius", test: (t) => /\b(julius|juukulius)\b/i.test(t) },
+    { name: "Felix Argyle (Ferris)", test: (t) => /\b(felix|ferris)\b/i.test(t) },
+    { name: "Crusch Karsten", test: (t) => /\b(crusch)\b/i.test(t) },
+    { name: "Wilhelm van Astrea", test: (t) => /\b(wilhelm)\b/i.test(t) },
+    { name: "Otto Suwen", test: (t) => /\b(otto|suwen)\b/i.test(t) },
+    { name: "Garfiel Tinsel", test: (t) => /\b(garfiel|garf)\b/i.test(t) },
+    { name: "Frederica Baumann", test: (t) => /\b(frederica)\b/i.test(t) },
+    { name: "Petra Leyte", test: (t) => /\b(petra)\b/i.test(t) },
+    { name: "Echidna", test: (t) => /\b(echidna)\b/i.test(t) },
+    { name: "Ryuzu Meyer", test: (t) => /\b(ryuzu|lewes)\b/i.test(t) },
+    { name: "Petelgeuse Romanee-Conti", test: (t) => /\b(petelgeuse|betelgeuse|geuse)\b/i.test(t) },
+    { name: "Elsa Granhiert", test: (t) => /\b(elsa)\b/i.test(t) },
+    { name: "Meili Portroute", test: (t) => /\b(meili)\b/i.test(t) },
+    { name: "Anastasia Hoshin", test: (t) => /\b(anastasia)\b/i.test(t) },
+    { name: "Priscilla Barielle", test: (t) => /\b(priscilla)\b/i.test(t) },
+    {
+      name: "Al (Aldebaran)",
+      test: (t) =>
+        /\b(aldebaran)\b/i.test(t) ||
+        (/\bAl\b/.test(t) &&
+          !/\bAl\s+(?:Shamak|Goa|Huma|Fura|Dona|Clausel)\b/i.test(t) &&
+          !/->\s*Al/i.test(t)),
+    },
+    { name: "Old Man Rom (Cromwell)", test: (t) => /\b(cromwell|old man rom)\b/i.test(t) },
+    { name: "Theresia van Astrea", test: (t) => /\b(theresia)\b/i.test(t) },
+    { name: "Kadomon Risch", test: (t) => /\b(kadomon)\b/i.test(t) },
+    { name: "Gaston", test: (t) => /\b(gaston)\b/i.test(t) },
+    { name: "Rachins Gastan", test: (t) => /\b(rachins)\b/i.test(t) },
+    { name: "Camberley", test: (t) => /\b(camberley)\b/i.test(t) },
+    { name: "Minerva", test: (t) => /\b(minerva)\b/i.test(t) },
+    { name: "Typhon", test: (t) => /\b(typhon)\b/i.test(t) },
+    { name: "Daphne", test: (t) => /\b(daphne)\b/i.test(t) },
+    { name: "Carmilla", test: (t) => /\b(carmilla)\b/i.test(t) },
+    { name: "Sekhmet", test: (t) => /\b(sekhmet)\b/i.test(t) },
+    { name: "Satella", test: (t) => /\b(satella)\b/i.test(t) },
+    { name: "Witch of Envy", test: (t) => /\b(witch of envy)\b/i.test(t) },
+    { name: "Hector", test: (t) => /\b(hector)\b/i.test(t) },
+    { name: "Fortuna", test: (t) => /\b(fortuna)\b/i.test(t) },
+    { name: "Archi", test: (t) => /\b(archi|arch)\b/i.test(t) },
+    { name: "Regulus Corneas", test: (t) => /\b(regulus)\b/i.test(t) },
+    { name: "Sirius Romanée-Conti", test: (t) => /\b(sirius)\b/i.test(t) },
+    { name: "Capella Emerada Lugnica", test: (t) => /\b(capella)\b/i.test(t) },
+    { name: "Ley Batenkaitos", test: (t) => /\b(ley|batenkaitos)\b/i.test(t) },
+    { name: "Roy Alphard", test: (t) => /\b(alphard)\b/i.test(t) },
+    { name: "Louis Arneb", test: (t) => /\b(louis arneb)\b/i.test(t) },
+    { name: "Shaula", test: (t) => /\b(shaula)\b/i.test(t) },
+    { name: "Reid Astrea", test: (t) => /\b(reid astrea|reid)\b/i.test(t) },
+    { name: "Divine Dragon Volcanica", test: (t) => /\b(volcanica)\b/i.test(t) },
+    { name: "Flugel", test: (t) => /\b(flugel)\b/i.test(t) },
+    { name: "Liliana Masquerade", test: (t) => /\b(liliana)\b/i.test(t) },
+    { name: "Kiritaka Muse", test: (t) => /\b(kiritaka)\b/i.test(t) },
+    { name: "Joshua Juukulius", test: (t) => /\b(joshua)\b/i.test(t) },
+    { name: "Heinkel Astrea", test: (t) => /\b(heinkel)\b/i.test(t) },
+    { name: "Carol Remendis", test: (t) => /\b(carol)\b/i.test(t) },
+    { name: "Grimm Remendis", test: (t) => /\b(grimm)\b/i.test(t) },
+    { name: "Ricardo Welkin", test: (t) => /\b(ricardo)\b/i.test(t) },
+    { name: "Mimi Pearlbaton", test: (t) => /\b(mimi)\b/i.test(t) },
+    { name: "Hetaro Pearlbaton", test: (t) => /\b(hetaro)\b/i.test(t) },
+    { name: "Tivey Pearlbaton", test: (t) => /\b(tivey)\b/i.test(t) },
+    { name: "Schult", test: (t) => /\b(schult)\b/i.test(t) },
+    { name: "Pandora", test: (t) => /\b(pandora)\b/i.test(t) },
+  ];
+
+  for (const rule of characterRules) {
+    if (charSet.has(rule.name) && rule.test(text)) {
+      chars.add(rule.name);
+    }
+  }
+
+  // Fallback suggestTags for any other characters (exclude Roswaal A. Mathers and Witch of Envy from matching generic single words)
+  const genericChars = suggestTags(
+    text,
+    knownCharacters.filter((c) => c !== "Roswaal A. Mathers" && c !== "Witch of Envy")
+  );
+  for (const c of genericChars) chars.add(c);
+  if (/\b(roswaal\s+a(?:\.|\b)|roswaal\s+a\.\s+mathers)\b/i.test(text)) {
+    chars.add("Roswaal A. Mathers");
+  }
+
+  const topicRules: Array<{ name: string; test: (t: string) => boolean }> = [
+    {
+      name: "Return by Death",
+      test: (t) => /\b(return by death|rbd|checkpoint|save point|resets?|restart)\b/i.test(t),
+    },
+    {
+      name: "Witch Cult",
+      test: (t) => /\b(witch cult|cultist|cultists|gospel|fingers)\b/i.test(t),
+    },
+    {
+      name: "Sin Archbishops",
+      test: (t) => /\b(sin archbishop|archbishop|archbishops)\b/i.test(t),
+    },
+    {
+      name: "Authorities",
+      test: (t) => /\b(authorit(y|ies)|invisible providence|unseen hand|cor leonis)\b/i.test(t),
+    },
+    {
+      name: "Witches of Sin",
+      test: (t) =>
+        /\b(witches of sin|witch of sin|witch of greed|witch of envy|witch of wrath|witch of sloth|witch of lust|witch of gluttony|witch of pride|witch of vainglory|witch of melancholy)\b/i.test(
+          t
+        ),
+    },
+    {
+      name: "Tea Party",
+      test: (t) => /\b(tea party)\b/i.test(t),
+    },
+    {
+      name: "Mana & Magic",
+      test: (t) =>
+        /\b(magic|mana|gate|shamak|al shamak|goa|al goa|el goa|ul goa|huma|el huma|ul huma|al huma|fura|el fura|ul fura|al fura|jiwald|minya)\b/i.test(
+          t
+        ),
+    },
+    {
+      name: "Contracts & Spirits",
+      test: (t) =>
+        /\b(great spirit|lesser spirit|quasi-spirit|spirit contract|spirits|spirit)\b/i.test(
+          t
+        ),
+    },
+    {
+      name: "Divine Protections",
+      test: (t) => /\b(divine protection|divine protections|blessings?)\b/i.test(t),
+    },
+    {
+      name: "Mabeasts",
+      test: (t) =>
+        /\b(mabeasts?|great rabbit|white whale|black snake|wolgarms?|guiltylowe)\b/i.test(
+          t
+        ),
+    },
+    {
+      name: "Great Mabeasts",
+      test: (t) => /\b(white whale|great rabbit|black snake)\b/i.test(t),
+    },
+    {
+      name: "Lore",
+      test: (t) => /\b(400 years ago|lore|history|legendary|covenant)\b/i.test(t),
+    },
+    {
+      name: "Worldbuilding",
+      test: (t) =>
+        /\b(lugnica|kararagi|vollachia|gusteko|royal capital|sanctuary|priestella|ground dragon|dragon carriage)\b/i.test(
+          t
+        ),
+    },
+    {
+      name: "Royal Selection",
+      test: (t) =>
+        /\b(royal selection|dragon tablet|dragon.s insignia|insignia|royal candidate|candidates)\b/i.test(
+          t
+        ),
+    },
+    {
+      name: "Royal Knights",
+      test: (t) => /\b(royal guard|royal knights|knight|knights|knighthood)\b/i.test(t),
+    },
+    {
+      name: "Emilia Camp",
+      test: (t) => /\b(emilia camp|emilia.s camp|emilia faction)\b/i.test(t),
+    },
+    {
+      name: "Crusch Camp",
+      test: (t) => /\b(crusch camp|crusch.s camp|crusch faction)\b/i.test(t),
+    },
+    {
+      name: "Anastasia Camp",
+      test: (t) => /\b(anastasia camp|iron fang)\b/i.test(t),
+    },
+    {
+      name: "Priscilla Camp",
+      test: (t) => /\b(priscilla camp)\b/i.test(t),
+    },
+    {
+      name: "Felt Camp",
+      test: (t) => /\b(felt camp)\b/i.test(t),
+    },
+    {
+      name: "Character Relationships",
+      test: (t) => /\b(relationship|feelings for|in love with|friendship|crush)\b/i.test(t),
+    },
+    {
+      name: "Combat & Tiering",
+      test: (t) =>
+        /\b(combat|swordsmanship|sword skills|sword saint|strongest|battle|martial arts)\b/i.test(
+          t
+        ),
+    },
+    {
+      name: "Dragon Kingdom Lugnica",
+      test: (t) => /\b(dragon kingdom|kingdom of lugnica|lugnica)\b/i.test(t),
+    },
+  ];
+
+  for (const rule of topicRules) {
+    if (topicSet.has(rule.name) && rule.test(text)) {
+      topics.add(rule.name);
+    }
+  }
+
+  const genericTopics = suggestTags(text, knownTopics);
+  for (const t of genericTopics) topics.add(t);
+
+  return {
+    characters: Array.from(chars).sort(),
+    topics: Array.from(topics).sort(),
   };
 }

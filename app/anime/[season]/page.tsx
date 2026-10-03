@@ -145,13 +145,23 @@ export default async function AnimeSeasonPage({ params }: PageProps) {
 
       {/* Episode Grid Section */}
       <div className="space-y-4">
-        <div className="flex items-center justify-between border-b border-[var(--border-subtle)] pb-2">
-          <h2 className="text-lg sm:text-xl font-bold tracking-tight text-[var(--text-main)]">
-            Episodes &amp; Broadcast Commentary
-          </h2>
-          <span className="text-xs font-mono text-[var(--text-muted)]">
-            {totalEpCount > 0 ? `${totalEpCount} Episodes Total` : "No episodes yet"}
-          </span>
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between border-b border-[var(--border-subtle)] pb-2 gap-2">
+          <div className="flex items-baseline gap-2">
+            <h2 className="text-lg sm:text-xl font-bold tracking-tight text-[var(--text-main)]">
+              Episodes &amp; Broadcast Commentary
+            </h2>
+            <span className="text-xs font-mono text-[var(--text-muted)]">
+              ({totalEpCount > 0 ? `${totalEpCount} Episodes` : "No episodes yet"})
+            </span>
+          </div>
+
+          <Link
+            href={`/anime/browse?seasons=${seasonId}`}
+            className="text-xs font-mono font-medium text-[var(--accent)] hover:underline inline-flex items-center gap-1 self-start sm:self-auto"
+          >
+            <span>Search all {season.title} comments</span>
+            <span>→</span>
+          </Link>
         </div>
 
         {totalEpCount > 0 ? (

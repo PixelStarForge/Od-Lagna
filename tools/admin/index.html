@@ -23,6 +23,9 @@
       <button type="button" class="nav-tab" id="tab-btn-stories" onclick="switchMainTab('stories')">
         📖 Stories &amp; Supplements (<span id="nav-stories-count">...</span>)
       </button>
+      <button type="button" class="nav-tab" id="tab-btn-anime" onclick="switchMainTab('anime')">
+        🎬 Anime Commentary (<span id="nav-anime-count">...</span>)
+      </button>
     </div>
   </div>
 
@@ -738,6 +741,98 @@
             </button>
           </div>
         </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Anime Commentary View -->
+  <div id="anime-view" class="view-container" style="display: none;">
+    <!-- Anime Sidebar -->
+    <div id="anime-sidebar" class="sub-sidebar">
+      <div class="side-header">
+        <h2>🎬 Anime Episodes <span id="anime-total-episodes" class="badge-count">...</span></h2>
+      </div>
+      <div class="filter-section">
+        <select id="anime-season-select" class="filter-arc-select" onchange="handleAnimeSeasonSelectChange()">
+        </select>
+        <input type="text" id="anime-ep-search" class="search-input" placeholder="Search episode # or title..." oninput="renderAnimeEpisodesList()">
+      </div>
+      <ul id="anime-episodes-list"></ul>
+    </div>
+
+    <!-- Anime Main Panel -->
+    <div id="anime-main" class="sub-main">
+      <div class="form-container" id="anime-editor-card">
+        <div class="form-header">
+          <div>
+            <h2 id="anime-episode-heading">Select an episode</h2>
+            <p id="anime-episode-subheading" style="font-size: 0.82rem; color: var(--text-muted); margin-top: 0.2rem;">
+              Select a season and episode from the sidebar to inspect, edit, and tag author commentary live-tweets.
+            </p>
+          </div>
+          <div class="form-header-actions" style="display: flex; gap: 0.5rem; align-items: center;">
+            <span id="anime-ep-badge" class="badge-id" style="display: none;"></span>
+            <span id="anime-comments-count-badge" class="badge-count" style="display: none;">0 comments</span>
+            <button type="button" class="btn-save" id="btn-save-anime-top" onclick="saveAnimeEpisode()" style="display: none;">
+              💾 Save Episode
+            </button>
+          </div>
+        </div>
+
+        <div id="anime-loaded-content" style="display: none;">
+          <!-- Episode Metadata Form -->
+          <div class="anime-meta-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 0.85rem; margin-bottom: 1.25rem; padding: 1rem; background: var(--bg-surface); border: 1px solid var(--border); border-radius: 8px;">
+            <div class="form-group" style="margin: 0;">
+              <label for="anime-ep-title-en">Title (English)</label>
+              <input type="text" id="anime-ep-title-en" oninput="markAnimeDirty()">
+            </div>
+            <div class="form-group" style="margin: 0;">
+              <label for="anime-ep-title-jp">Title (Japanese, Optional)</label>
+              <input type="text" id="anime-ep-title-jp" oninput="markAnimeDirty()">
+            </div>
+            <div class="form-group" style="margin: 0;">
+              <label for="anime-ep-air-date">Air Date (Optional)</label>
+              <input type="text" id="anime-ep-air-date" placeholder="YYYY-MM-DD" oninput="markAnimeDirty()">
+            </div>
+            <div class="form-group" style="margin: 0;">
+              <label for="anime-ep-source-url">Translation Source URL</label>
+              <input type="text" id="anime-ep-source-url" placeholder="https://..." oninput="markAnimeDirty()">
+            </div>
+          </div>
+
+          <!-- Comments Toolbar -->
+          <div class="anime-comments-toolbar" style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 0.75rem; margin-bottom: 1rem; padding-bottom: 0.75rem; border-bottom: 1px solid var(--border);">
+            <div style="display: flex; align-items: center; gap: 0.5rem; flex: 1; min-width: 250px;">
+              <input type="text" id="anime-comments-filter-input" class="search-input" placeholder="Filter comments in this episode (text or character)..." oninput="renderAnimeCommentsUI()">
+              <select id="anime-comments-tag-filter" class="filter-arc-select" style="max-width: 160px;" onchange="renderAnimeCommentsUI()">
+                <option value="all">All Comments</option>
+                <option value="untagged-chars">Missing Characters</option>
+                <option value="untagged-topics">Missing Topics</option>
+                <option value="untagged-any">Missing Any Tag</option>
+              </select>
+            </div>
+            <div style="display: flex; gap: 0.5rem;">
+              <button type="button" class="btn-quick-paste" onclick="autoDetectAllEpisodeTags()" title="Auto-detect character & topic tags for all comments in this episode">
+                ✨ Auto-Detect All Tags
+              </button>
+              <button type="button" class="btn-new" onclick="addNewAnimeComment()">
+                + Add Comment
+              </button>
+            </div>
+          </div>
+
+          <!-- Comments Container -->
+          <div id="anime-comments-list" style="display: flex; flex-direction: column; gap: 1rem;"></div>
+
+          <!-- Bottom Actions -->
+          <div class="actions" style="margin-top: 1.5rem; padding-top: 1rem; border-top: 1px solid var(--border);">
+            <button type="button" class="btn-new" onclick="addNewAnimeComment()">+ Add Comment</button>
+            <div style="flex: 1;"></div>
+            <button type="button" class="btn-save" onclick="saveAnimeEpisode()">
+              <span>Save Episode Comments</span>
+            </button>
+          </div>
+        </div>
       </div>
     </div>
   </div>

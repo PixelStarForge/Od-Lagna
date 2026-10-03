@@ -305,6 +305,59 @@ async function runTests() {
     }
     console.log(`✓ GET /admin.js returned valid JavaScript bundle (${jsText.length} bytes)`);
 
+    // 18. Test Anime Commentary APIs
+    const animeCatRes = await fetch("http://127.0.0.1:4329/api/anime/catalog");
+    if (!animeCatRes.ok) throw new Error(`GET /api/anime/catalog failed: ${animeCatRes.status}`);
+    const animeCatalog = await animeCatRes.json();
+    if (!Array.isArray(animeCatalog) || animeCatalog.length === 0) {
+      throw new Error("Expected anime catalog array with seasons");
+    }
+    const s1 = animeCatalog.find((s: any) => s.id === "season-1");
+    if (!s1 || s1.episodes.length === 0) {
+      throw new Error("Expected season-1 with episodes in anime catalog");
+    }
+    console.log(`✓ GET /api/anime/catalog passed (${animeCatalog.length} seasons, ${s1.episodes.length} eps in S1)`);
+
+    const ep1Res = await fetch("http://127.0.0.1:4329/api/anime/episode?season=season-1&episode=1");
+    if (!ep1Res.ok) throw new Error(`GET /api/anime/episode failed: ${ep1Res.status}`);
+    const ep1Data = await ep1Res.json();
+    if (!ep1Data.success || !ep1Data.episode || ep1Data.episode.episodeNumber !== 1) {
+      throw new Error("Expected episode 1 commentary data");
+    }
+    console.log(`✓ GET /api/anime/episode passed (Episode 1 has ${ep1Data.episode.comments.length} comments)`);
+
+    const suggestRes = await fetch("http://127.0.0.1:4329/api/anime/suggest-tags", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        text: "Subaru activated Return by Death to protect Emilia and Beatrice from the Sin Archbishops.",
+      }),
+    });
+    if (!suggestRes.ok) throw new Error(`POST /api/anime/suggest-tags failed: ${suggestRes.status}`);
+    const suggestData = await suggestRes.json();
+    if (
+      !suggestData.characters.includes("Natsuki Subaru") ||
+      !suggestData.characters.includes("Emilia") ||
+      !suggestData.characters.includes("Beatrice") ||
+      !suggestData.topics.includes("Return by Death") ||
+      !suggestData.topics.includes("Sin Archbishops")
+    ) {
+      throw new Error(`Anime suggest tags missed expected tags: ${JSON.stringify(suggestData)}`);
+    }
+    console.log("✓ POST /api/anime/suggest-tags detected characters and topics accurately");
+
+    // Save episode 1 back to test POST /api/anime/episode
+    const saveEpRes = await fetch("http://127.0.0.1:4329/api/anime/episode", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(ep1Data.episode),
+    });
+    if (!saveEpRes.ok) {
+      const err = await saveEpRes.json();
+      throw new Error(`POST /api/anime/episode failed: ${JSON.stringify(err)}`);
+    }
+    console.log("✓ POST /api/anime/episode saved commentary successfully");
+
     console.log("\n🎉 ALL ADMIN SERVER INTEGRATION TESTS PASSED!");
   } finally {
     serverProcess.kill("SIGTERM");
