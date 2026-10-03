@@ -3,15 +3,17 @@
   "question": "Anything that became a trauma?",
   "answer": "The conclusion of Emilia's second trial and such were fairly traumatic for her.",
   "characters": [
-    "Emilia"
+    "Emilia",
+    "Echidna"
   ],
   "topics": [
     "General"
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/955849658760179712"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2018-01-23"
 }
