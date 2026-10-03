@@ -3,6 +3,7 @@
   "question": "Aside from Wilhelm, who does Thearesia get along with the best?",
   "answer": "It's Carol, but in all of the main story, I think it's Emilia.",
   "characters": [
+    "Carol Remendis",
     "Emilia",
     "Theresia van Astrea",
     "Wilhelm van Astrea"
@@ -12,8 +13,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/1006595680427597824"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2018-06-12",
+  "date": "June 12, 2018"
 }

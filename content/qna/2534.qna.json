@@ -3,6 +3,7 @@
   "question": "Happy Birthday, Thearesia-san!! Please tell me your favorite food.",
   "answer": "\"Sweet things! Oh, if it's sweet, there's always room for one more! I often eat while walking around the shops with Carol.\"",
   "characters": [
+    "Carol Remendis",
     "Theresia van Astrea"
   ],
   "topics": [
@@ -10,8 +11,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/1006593445257809921"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2018-06-12",
+  "date": "June 12, 2018"
 }
