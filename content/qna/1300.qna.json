@@ -15,10 +15,11 @@
   "topics": [
     "Witches of Sin"
   ],
-  "arc": "general",
+  "arc": "arc-4",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/496983844172881920"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-08-06"
 }

@@ -1,6 +1,6 @@
 {
   "id": "1554",
-  "question": "Please give me Lewes-san as a bride!",
+  "question": "Please give me Ryuzu-san as a bride!",
   "answer": "Gar-boy is blocking your path!",
   "characters": [
     "Ryuzu Meyer(OG)"
@@ -10,8 +10,9 @@
   ],
   "arc": "arc-4",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/475637787199541248"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-06-08"
 }

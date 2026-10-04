@@ -751,7 +751,7 @@ export function suggestAnimeTags(
     { name: "Frederica Baumann", test: (t) => /\b(frederica)\b/i.test(t) },
     { name: "Petra Leyte", test: (t) => /\b(petra)\b/i.test(t) },
     { name: "Echidna", test: (t) => /\b(echidna)\b/i.test(t) },
-    { name: "Ryuzu Meyer", test: (t) => /\b(ryuzu|lewes)\b/i.test(t) },
+    { name: "Ryuzu Meyer", test: (t) => /\b(ryuzu|Ryuzu)\b/i.test(t) },
     { name: "Petelgeuse Romanee-Conti", test: (t) => /\b(petelgeuse|betelgeuse|geuse)\b/i.test(t) },
     { name: "Elsa Granhiert", test: (t) => /\b(elsa)\b/i.test(t) },
     { name: "Meili Portroute", test: (t) => /\b(meili)\b/i.test(t) },

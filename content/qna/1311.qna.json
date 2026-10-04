@@ -1,7 +1,7 @@
 {
   "id": "1311",
   "question": "How about “The Triple-Lacking Knight” as Subaru’s nickname?",
-  "answer": "He’s a main character who haslack of knowledge, lack of ability, lack of power, and lack of caution as his selling points. Someday I’ll figure out what Subaru will be called.",
+  "answer": "He’s a main character who has lack of knowledge, lack of ability, lack of power, and lack of caution as his selling points. Someday I’ll figure out what Subaru will be called.",
   "characters": [
     "Natsuki Subaru"
   ],
@@ -10,8 +10,9 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/500281040276299777"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-08-15"
 }
