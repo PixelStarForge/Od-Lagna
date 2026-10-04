@@ -4,15 +4,18 @@
   "answer": "No, Ferris’ favorite colors are green and gold. Also, he likes amber and red, too. It’s Crusch-sama and the prince’s colors.",
   "characters": [
     "Crusch Karsten",
-    "Felix Argyle (Ferris)"
+    "Felix Argyle (Ferris)",
+    "Fourier Lugnica"
   ],
   "topics": [
     "General"
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/821011164830142465"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2017-01-16",
+  "date": "January 16, 2017"
 }

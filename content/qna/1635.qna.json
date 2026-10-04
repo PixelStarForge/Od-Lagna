@@ -1,6 +1,6 @@
 {
   "id": "1635",
-  "question": "Does Feris have a favorite food or cuisine?",
+  "question": "Does Ferris have a favorite food or cuisine?",
   "answer": "Just like it looks, Feris has a cat-like love of fish dishes. He’s not fond of citrus. Incidentally, Feri-chan is outstandingly good at cooking. He personally prepares food for Crusch-sama too.",
   "characters": [
     "Crusch Karsten",
@@ -11,8 +11,9 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/821011595664900101"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2017-01-16"
 }

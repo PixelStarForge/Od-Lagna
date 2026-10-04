@@ -2,14 +2,18 @@
   "id": "1661",
   "question": "What food does he like!?",
   "answer": "Food made from fish! White meat! The culture of eating fish raw isn’t widespread in Lugunica, so he doesn’t eat raw fish!",
-  "characters": [],
+  "characters": [
+    "Felix Argyle (Ferris)"
+  ],
   "topics": [
     "Worldbuilding"
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/821013354927927296"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2017-01-16",
+  "date": "January 16, 2017"
 }
