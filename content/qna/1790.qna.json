@@ -1,8 +1,9 @@
 {
   "id": "1790",
-  "question": "(hidden, from a protected account)",
+  "question": "Good evening, Cat-sensei. If there is a memory that Joshua had the most fun with up until now, I would be happy if you could tell me.",
   "answer": "It's that Julius secretly took him away from his sickbed and took him for a long ride. Up to that point, honestly, he didn't get along that well with his older brother.",
   "characters": [
+    "Joshua Juukulius",
     "Julius Juukulius"
   ],
   "topics": [
@@ -10,8 +11,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/951103361708797952"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2018-01-10",
+  "date": "January 10, 2018"
 }
