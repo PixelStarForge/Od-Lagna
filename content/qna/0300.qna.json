@@ -2,14 +2,19 @@
   "id": "0300",
   "question": "Will Ton, Chin, and Kan have a chance to shine?",
   "answer": "They will, indeed.",
-  "characters": [],
+  "characters": [
+    "Gaston",
+    "Rachins Hoffman",
+    "Camberley"
+  ],
   "topics": [
     "General"
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/477317052324392960"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-06-13"
 }

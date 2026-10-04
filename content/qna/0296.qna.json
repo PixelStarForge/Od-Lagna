@@ -2,14 +2,19 @@
   "id": "0296",
   "question": "When will Ton, Chin, and Kan get a side story?",
   "answer": "Sooner or later.",
-  "characters": [],
+  "characters": [
+    "Rachins Hoffman",
+    "Gaston",
+    "Camberley"
+  ],
   "topics": [
     "General"
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/493378576390324224"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-07-27"
 }
