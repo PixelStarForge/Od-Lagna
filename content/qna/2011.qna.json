@@ -1,7 +1,7 @@
 {
   "id": "2011",
   "question": "Around what arc will Petra shine the brightest!?",
-  "answer": "Arc eight, perhaps.",
+  "answer": "Arc eight, perhaps.\n\nNote: It is Arc 9 due to splitting of Arc 7 into two Arcs",
   "characters": [
     "Petra Leyte"
   ],
@@ -10,8 +10,9 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/963786284891226112"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2018-02-14"
 }
