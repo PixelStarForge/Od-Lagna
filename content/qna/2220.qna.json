@@ -1,7 +1,7 @@
 {
   "id": "2220",
   "question": "I'm very grateful that you always write the most interesting stories. I'm really looking forward to the Tsuchigumo short story. I'd like to hear the celebratory comments from everyone in Otto's family on his birthday!",
-  "answer": "Asking for everyone is a bit much, so from older brother Oslo-san and younger brother Regin. \n\nOslo: \"We haven't seen you for a while now; are you doing well, Otto? Whenever you'd like to come back... is a bit difficult to say, but if you're ever in trouble over money, just let us know. You try to do too much by yourself, so I'm concerned. It's good that you're surrounded by good people, though.\"",
+  "answer": "Asking for everyone is a bit much, so from older brother Oslo-san and younger brother Regin. \n\nOslo: \"We haven't seen you for a while now; are you doing well, Otto? Whenever you'd like to come back... is a bit difficult to say, but if you're ever in trouble over money, just let us know. You try to do too much by yourself, so I'm concerned. It's good that you're surrounded by good people, though.\"\n\nRegin: \"Congratulations, big brother. Having you around is a huge help because I can figure out what the animals are thinking. So, if you ever lose your place to stay, feel free to come to the clinic. It's not like one more person like you would be a problem—we'd manage somehow. I mean, I can't have you dying before me or anything. Come on, I'm a doctor, after all. For animals, that is.\"",
   "characters": [
     "Otto Suwen",
     "Oslo Suwen",
@@ -11,10 +11,16 @@
     "General"
   ],
   "arc": "general",
-  "source": {
-    "type": "url",
-    "value": "https://x.com/nezumiironyanko/status/977529402182402048"
-  },
+  "sources": [
+    {
+      "type": "url",
+      "value": "https://x.com/nezumiironyanko/status/977529402182402048"
+    },
+    {
+      "type": "url",
+      "value": "https://x.com/nezumiironyanko/status/977529737756082178"
+    }
+  ],
   "verified": true,
   "dateTime": "2018-03-24"
 }
