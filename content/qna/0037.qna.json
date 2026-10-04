@@ -1,6 +1,6 @@
 {
   "id": "0037",
-  "question": "In what way was the idea for the Rizero series born from?",
+  "question": "In what way was the idea for the Re:zero series born from?",
   "answer": "At a family restaurant with my friend “An incompetent protagonist that saves a silver haired heroine would be nice right? It’s nice right?” after drinking some ginger ale it somehow became that kind of mood.",
   "characters": [],
   "topics": [
@@ -8,8 +8,9 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/470904275015843840"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-05-26"
 }

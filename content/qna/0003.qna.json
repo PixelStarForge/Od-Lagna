@@ -1,15 +1,16 @@
 {
   "id": "0003",
   "question": "Among the people who you know, who’s the number one person that likes to gossip?",
-  "answer": "The old lady in the household",
+  "answer": "My grandma, no doubt",
   "characters": [],
   "topics": [
     "General"
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/473078871160811520"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-06-01"
 }

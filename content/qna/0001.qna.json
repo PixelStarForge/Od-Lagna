@@ -2,14 +2,17 @@
   "id": "0001",
   "question": "Aah……you are Sloth right?",
   "answer": "You were the Sloth",
-  "characters": [],
+  "characters": [
+    "Petelgeuse Romanée-Conti"
+  ],
   "topics": [
     "General"
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/471204030946213888"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-05-27"
 }

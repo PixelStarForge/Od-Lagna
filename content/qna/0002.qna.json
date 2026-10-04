@@ -1,6 +1,6 @@
 {
   "id": "0002",
-  "question": "Among all the authors who is it that you see as your nemesis?",
+  "question": "Among the authors in the overall rankings, who do you consider your biggest rival?",
   "answer": "The one in first place",
   "characters": [],
   "topics": [
@@ -8,8 +8,9 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/470904502762344448"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-05-26"
 }
