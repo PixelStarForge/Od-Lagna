@@ -1,8 +1,9 @@
 {
-  "id": "1741",
-  "question": "What does he do in his free time?",
-  "answer": "He helps people.",
+  "id": "1742",
+  "question": "What does he think of Subaru?",
+  "answer": "He thinks of him as a friend he can respect.",
   "characters": [
+    "Natsuki Subaru",
     "Reinhard van Astrea"
   ],
   "topics": [
@@ -11,7 +12,7 @@
   "arc": "general",
   "source": {
     "type": "url",
-    "value": "https://x.com/nezumiironyanko/status/947858725376638976"
+    "value": "https://x.com/nezumiironyanko/status/947855699534520320"
   },
   "verified": true,
   "dateTime": "2018-01-01",
