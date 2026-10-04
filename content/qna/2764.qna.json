@@ -10,9 +10,16 @@
     "General"
   ],
   "arc": "general",
-  "source": {
-    "type": "text",
-    "value": ""
-  },
-  "verified": false
+  "verified": true,
+  "dateTime": "2018-09-08",
+  "sources": [
+    {
+      "type": "url",
+      "value": "https://x.com/nezumiironyanko/status/1038428920821907456"
+    },
+    {
+      "type": "url",
+      "value": "https://x.com/nezumiironyanko/status/1038429261982457858"
+    }
+  ]
 }
