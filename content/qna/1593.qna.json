@@ -3,17 +3,19 @@
   "question": "Is Garfiel an attack-type shielder? (note: maybe a reference to the Fate games)",
   "answer": "A~h, that way of putting it is pretty good. Indeed, that's it. Emilia and Rem are berzerkers.",
   "characters": [
+    "Emilia",
     "Garfiel Tinsel",
-    "Rem",
-    "Emilia"
+    "Rem"
   ],
   "topics": [
     "General"
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/918476477544271872"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2017-10-12",
+  "date": "October 12, 2017"
 }

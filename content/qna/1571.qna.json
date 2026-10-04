@@ -1,6 +1,6 @@
 {
   "id": "1571",
-  "question": "(not found)",
+  "question": "Does Garf give names to his own techniques?",
   "answer": "Probably he would give them names... A partial beast change would be \"Beast Mode\". A complete beast change would be \"Beast Mode - Overload\". (note: both names were the phonetic Japanese pronunciation of the English phrases)",
   "characters": [
     "Garfiel Tinsel"
@@ -10,8 +10,10 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/918476200133005312"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2017-10-12",
+  "date": "October 12, 2017"
 }
