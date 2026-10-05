@@ -6,12 +6,14 @@
     "Echidna"
   ],
   "topics": [
-    "General"
+    "General",
+    "Star Knowledge"
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/955839545022431233"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2018-01-23"
 }

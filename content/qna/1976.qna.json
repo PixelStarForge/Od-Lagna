@@ -1,17 +1,18 @@
 {
   "id": "1976",
   "question": "Please tell me a little bit from the witches' daily lives.",
-  "answer": "During their lifetimes, once a year, there was a day that the witches would gather for a 'tea party', and on that day only the witches wouldn't appear anywhere in the world, so that was a gentle day that anyone could puff up their pillow and sleep without fear... The country where the 'tea party' was held was an exception. (Land where it's held is random",
-  "characters": [
-    "Echidna"
-  ],
+  "answer": "During their lifetime, there was one day each year when the witches would gather for a “tea party.” On that day alone, no witches would appear anywhere in the world, allowing everyone to sleep peacefully without a care in the world...\n\nThe country hosting the “tea party” was the exception. (The location was chosen at random.)",
+  "characters": [],
   "topics": [
-    "General"
+    "General",
+    "Tea Party",
+    "Witches of Sin"
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/955844964549779456"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2018-01-23"
 }

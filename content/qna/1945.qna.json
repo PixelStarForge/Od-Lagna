@@ -1,7 +1,7 @@
 {
   "id": "1945",
   "question": "Echidna's age?",
-  "answer": "It's been set at a happy 19 years old.",
+  "answer": "She is officially considered to have died at the age of 19.",
   "characters": [
     "Echidna"
   ],
@@ -10,8 +10,9 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/955855450833997824"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2018-01-23"
 }

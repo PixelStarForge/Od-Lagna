@@ -1,7 +1,7 @@
 {
   "id": "1970",
   "question": "Ingredient list for Dona tea",
-  "answer": "%100 Dona.",
+  "answer": "100% Dona.",
   "characters": [
     "Echidna"
   ],
@@ -10,8 +10,9 @@
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/955840034682187778"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2018-01-23"
 }

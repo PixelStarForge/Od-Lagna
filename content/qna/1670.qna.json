@@ -2,14 +2,17 @@
   "id": "1670",
   "question": "Why… did you make him a boy!?",
   "answer": "I can only say it’s because it was necessary to make him a boy. Please understand that as a result of making him a boy, I’m able to write things than I could only write that way. Thanks.",
-  "characters": [],
+  "characters": [
+    "Felix Argyle (Ferris)"
+  ],
   "topics": [
     "General"
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/821011907586834432"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2017-01-16"
 }

@@ -1,17 +1,20 @@
 {
   "id": "1700",
   "question": "Around how strong is Reinhard? Please answer in terms of how many Subarus he's worth!!",
-  "answer": "It's kind of dull to compare Shin Godzilla's strength to how many Kakashis it would be, but hang in there and try comparing them. If you haven't seen Shin Godzilla yet, it's interesting so I recommend it.",
+  "answer": "Comparing Shin Godzilla's strength to how many scarecrows' worth it would be is a pain, so do your best to figure out the comparison yourself.\n\nIf you haven't seen Shin Godzilla yet, I recommend it. It's really interesting.",
   "characters": [
-    "Reinhard van Astrea"
+    "Reinhard van Astrea",
+    "Natsuki Subaru"
   ],
   "topics": [
-    "General"
+    "General",
+    "Combat & Tiering"
   ],
   "arc": "general",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/947856141001703424"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2018-01-01"
 }
