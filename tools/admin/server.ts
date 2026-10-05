@@ -15,6 +15,7 @@ import {
 import {
   findDuplicates,
   findTriviaDuplicates,
+  normalizeQuestion,
   normalizeTriviaId,
   suggestTags,
   suggestAnimeTags,
@@ -348,8 +349,24 @@ const server = http.createServer((req, res) => {
         const { question, currentId } = JSON.parse(body || "{}");
         const allEntries = getAllEntriesSummary();
         const dupResult = findDuplicates(question || "", allEntries, currentId || null);
+
+        let isPreExistingDuplicate = false;
+        if (currentId && dupResult.isExactDuplicate) {
+          const targetFile = path.join(CONTENT_QNA_DIR, `${currentId}.qna.json`);
+          if (fs.existsSync(targetFile)) {
+            try {
+              const existing = JSON.parse(fs.readFileSync(targetFile, "utf-8"));
+              if (normalizeQuestion(existing.question || "") === normalizeQuestion(question || "")) {
+                isPreExistingDuplicate = true;
+              }
+            } catch {
+              // ignore
+            }
+          }
+        }
+
         res.writeHead(200, { "Content-Type": "application/json" });
-        res.end(JSON.stringify(dupResult));
+        res.end(JSON.stringify({ ...dupResult, isPreExistingDuplicate }));
       } catch (err: unknown) {
         res.writeHead(400, { "Content-Type": "application/json" });
         res.end(JSON.stringify({ error: String(err) }));
@@ -481,21 +498,37 @@ const server = http.createServer((req, res) => {
           return;
         }
 
-        // Duplicate question check (Normalized match, excluding current entry)
-        const allEntries = getAllEntriesSummary();
-        const dupCheck = findDuplicates(validated.question, allEntries, id);
-        if (dupCheck.isExactDuplicate && dupCheck.exactMatch) {
-          res.writeHead(409, { "Content-Type": "application/json" });
-          res.end(
-            JSON.stringify({
-              error: `Duplicate question rejected: matches existing entry #${dupCheck.exactMatch.id}`,
-              duplicateId: dupCheck.exactMatch.id,
-            })
-          );
-          return;
+        const targetFile = path.join(CONTENT_QNA_DIR, `${validated.id}.qna.json`);
+
+        // Check if question changed from existing file on disk
+        let isQuestionChanged = true;
+        if (fs.existsSync(targetFile)) {
+          try {
+            const existing = JSON.parse(fs.readFileSync(targetFile, "utf-8"));
+            if (normalizeQuestion(existing.question || "") === normalizeQuestion(validated.question)) {
+              isQuestionChanged = false;
+            }
+          } catch {
+            // ignore malformed existing file
+          }
         }
 
-        const targetFile = path.join(CONTENT_QNA_DIR, `${validated.id}.qna.json`);
+        // Duplicate question check (Normalized match, excluding current entry)
+        if (isQuestionChanged) {
+          const allEntries = getAllEntriesSummary();
+          const dupCheck = findDuplicates(validated.question, allEntries, id);
+          if (dupCheck.isExactDuplicate && dupCheck.exactMatch) {
+            res.writeHead(409, { "Content-Type": "application/json" });
+            res.end(
+              JSON.stringify({
+                error: `Duplicate question rejected: matches existing entry #${dupCheck.exactMatch.id}`,
+                duplicateId: dupCheck.exactMatch.id,
+              })
+            );
+            return;
+          }
+        }
+
         fs.writeFileSync(targetFile, JSON.stringify(validated, null, 2), "utf-8");
 
         updateTagRegistries(validated.characters, validated.topics);
@@ -550,8 +583,25 @@ const server = http.createServer((req, res) => {
         const { text, currentId } = JSON.parse(body || "{}");
         const allTrivia = getAllTriviaSummary();
         const dupResult = findTriviaDuplicates(text || "", allTrivia, currentId || null);
+
+        let isPreExistingDuplicate = false;
+        if (currentId && dupResult.isExactDuplicate) {
+          const normId = normalizeTriviaId(currentId);
+          const targetFile = path.join(CONTENT_TRIVIA_DIR, `${normId}.trivia.json`);
+          if (fs.existsSync(targetFile)) {
+            try {
+              const existing = JSON.parse(fs.readFileSync(targetFile, "utf-8"));
+              if (normalizeQuestion(existing.text || "") === normalizeQuestion(text || "")) {
+                isPreExistingDuplicate = true;
+              }
+            } catch {
+              // ignore
+            }
+          }
+        }
+
         res.writeHead(200, { "Content-Type": "application/json" });
-        res.end(JSON.stringify(dupResult));
+        res.end(JSON.stringify({ ...dupResult, isPreExistingDuplicate }));
       } catch (err: unknown) {
         res.writeHead(400, { "Content-Type": "application/json" });
         res.end(JSON.stringify({ error: String(err) }));
@@ -689,25 +739,41 @@ const server = http.createServer((req, res) => {
           return;
         }
 
-        // Duplicate statement check (exclude current id)
-        const allTrivia = getAllTriviaSummary();
-        const dupCheck = findTriviaDuplicates(validated.text, allTrivia, id);
-        if (dupCheck.isExactDuplicate && dupCheck.exactMatch) {
-          res.writeHead(409, { "Content-Type": "application/json" });
-          res.end(
-            JSON.stringify({
-              error: `Duplicate statement rejected: matches existing entry #${dupCheck.exactMatch.id}`,
-              duplicateId: dupCheck.exactMatch.id,
-            })
-          );
-          return;
-        }
-
         if (!fs.existsSync(CONTENT_TRIVIA_DIR)) {
           fs.mkdirSync(CONTENT_TRIVIA_DIR, { recursive: true });
         }
 
         const targetFile = path.join(CONTENT_TRIVIA_DIR, `${validated.id}.trivia.json`);
+
+        // Check if text changed from existing file on disk
+        let isTextChanged = true;
+        if (fs.existsSync(targetFile)) {
+          try {
+            const existing = JSON.parse(fs.readFileSync(targetFile, "utf-8"));
+            if (normalizeQuestion(existing.text || "") === normalizeQuestion(validated.text)) {
+              isTextChanged = false;
+            }
+          } catch {
+            // ignore
+          }
+        }
+
+        // Duplicate statement check (exclude current id)
+        if (isTextChanged) {
+          const allTrivia = getAllTriviaSummary();
+          const dupCheck = findTriviaDuplicates(validated.text, allTrivia, id);
+          if (dupCheck.isExactDuplicate && dupCheck.exactMatch) {
+            res.writeHead(409, { "Content-Type": "application/json" });
+            res.end(
+              JSON.stringify({
+                error: `Duplicate statement rejected: matches existing entry #${dupCheck.exactMatch.id}`,
+                duplicateId: dupCheck.exactMatch.id,
+              })
+            );
+            return;
+          }
+        }
+
         fs.writeFileSync(targetFile, JSON.stringify(validated, null, 2), "utf-8");
 
         updateTagRegistries(validated.characters, validated.topics);

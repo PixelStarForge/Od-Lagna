@@ -774,29 +774,55 @@ async function checkDuplicateRealtime(question) {
     const data = await res.json();
 
     if (data.isExactDuplicate && data.exactMatch) {
-      isExactDuplicate = true;
-      saveBtn.disabled = true;
-      saveBtn.classList.add('disabled');
-      warnBox.className = 'dup-alert exact';
-      warnBox.innerHTML = '';
+      if (data.isPreExistingDuplicate) {
+        isExactDuplicate = false;
+        saveBtn.disabled = false;
+        saveBtn.classList.remove('disabled');
+        warnBox.className = 'dup-alert exact';
+        warnBox.innerHTML = '';
 
-      const head = document.createElement('div');
-      head.className = 'dup-alert-head';
-      const title = document.createElement('span');
-      title.textContent = '🚫 Exact Duplicate Question!';
-      const jumpBtn = document.createElement('button');
-      jumpBtn.type = 'button';
-      jumpBtn.className = 'btn-jump-entry';
-      jumpBtn.textContent = 'Open Entry #' + data.exactMatch.id;
-      jumpBtn.onclick = () => jumpToEntry(data.exactMatch.id);
-      head.appendChild(title);
-      head.appendChild(jumpBtn);
+        const head = document.createElement('div');
+        head.className = 'dup-alert-head';
+        const title = document.createElement('span');
+        title.textContent = '⚠️ Pre-Existing Duplicate Question';
+        const jumpBtn = document.createElement('button');
+        jumpBtn.type = 'button';
+        jumpBtn.className = 'btn-jump-entry';
+        jumpBtn.textContent = 'Open Entry #' + data.exactMatch.id;
+        jumpBtn.onclick = () => jumpToEntry(data.exactMatch.id);
+        head.appendChild(title);
+        head.appendChild(jumpBtn);
 
-      const desc = document.createElement('div');
-      desc.innerHTML = 'Question identical to existing entry <strong>#' + data.exactMatch.id + '</strong>. Duplicates are strictly blocked from being saved.';
+        const desc = document.createElement('div');
+        desc.innerHTML = 'This question matches existing entry <strong>#' + data.exactMatch.id + '</strong> (legacy duplicate). You can still save updates to this entry, or open #' + data.exactMatch.id + ' to merge or delete.';
 
-      warnBox.appendChild(head);
-      warnBox.appendChild(desc);
+        warnBox.appendChild(head);
+        warnBox.appendChild(desc);
+      } else {
+        isExactDuplicate = true;
+        saveBtn.disabled = true;
+        saveBtn.classList.add('disabled');
+        warnBox.className = 'dup-alert exact';
+        warnBox.innerHTML = '';
+
+        const head = document.createElement('div');
+        head.className = 'dup-alert-head';
+        const title = document.createElement('span');
+        title.textContent = '🚫 Exact Duplicate Question!';
+        const jumpBtn = document.createElement('button');
+        jumpBtn.type = 'button';
+        jumpBtn.className = 'btn-jump-entry';
+        jumpBtn.textContent = 'Open Entry #' + data.exactMatch.id;
+        jumpBtn.onclick = () => jumpToEntry(data.exactMatch.id);
+        head.appendChild(title);
+        head.appendChild(jumpBtn);
+
+        const desc = document.createElement('div');
+        desc.innerHTML = 'Question identical to existing entry <strong>#' + data.exactMatch.id + '</strong>. Duplicates are strictly blocked from being saved.';
+
+        warnBox.appendChild(head);
+        warnBox.appendChild(desc);
+      }
     } else if (data.similarMatches && data.similarMatches.length > 0) {
       isExactDuplicate = false;
       saveBtn.disabled = false;
@@ -1619,8 +1645,11 @@ function setupKeyboardShortcuts() {
 
 function showStatus(msg, type) {
   const el = document.getElementById('status-msg');
-  el.textContent = msg;
-  el.className = type;
+  if (el) {
+    el.textContent = msg;
+    el.className = type;
+    el.style.display = 'block';
+  }
 }
 
 function hideStatus() {
@@ -3148,29 +3177,55 @@ async function checkTriviaDuplicateRealtime(text) {
     const data = await res.json();
 
     if (data.isExactDuplicate && data.exactMatch) {
-      isExactTriviaDuplicate = true;
-      saveBtn.disabled = true;
-      saveBtn.classList.add('disabled');
-      warnBox.className = 'dup-alert exact';
-      warnBox.innerHTML = '';
+      if (data.isPreExistingDuplicate) {
+        isExactTriviaDuplicate = false;
+        saveBtn.disabled = false;
+        saveBtn.classList.remove('disabled');
+        warnBox.className = 'dup-alert exact';
+        warnBox.innerHTML = '';
 
-      const head = document.createElement('div');
-      head.className = 'dup-alert-head';
-      const title = document.createElement('span');
-      title.textContent = '🚫 Exact Duplicate Trivia Statement!';
-      const jumpBtn = document.createElement('button');
-      jumpBtn.type = 'button';
-      jumpBtn.className = 'btn-jump-entry';
-      jumpBtn.textContent = 'Open Trivia #' + data.exactMatch.id;
-      jumpBtn.onclick = () => jumpToTrivia(data.exactMatch.id);
-      head.appendChild(title);
-      head.appendChild(jumpBtn);
+        const head = document.createElement('div');
+        head.className = 'dup-alert-head';
+        const title = document.createElement('span');
+        title.textContent = '⚠️ Pre-Existing Duplicate Trivia Statement';
+        const jumpBtn = document.createElement('button');
+        jumpBtn.type = 'button';
+        jumpBtn.className = 'btn-jump-entry';
+        jumpBtn.textContent = 'Open Trivia #' + data.exactMatch.id;
+        jumpBtn.onclick = () => jumpToTrivia(data.exactMatch.id);
+        head.appendChild(title);
+        head.appendChild(jumpBtn);
 
-      const desc = document.createElement('div');
-      desc.innerHTML = 'Statement identical to existing entry <strong>#' + data.exactMatch.id + '</strong>. Duplicates are strictly blocked from being saved.';
+        const desc = document.createElement('div');
+        desc.innerHTML = 'This statement matches existing entry <strong>#' + data.exactMatch.id + '</strong> (legacy duplicate). You can still save updates to this entry, or open #' + data.exactMatch.id + ' to merge or delete.';
 
-      warnBox.appendChild(head);
-      warnBox.appendChild(desc);
+        warnBox.appendChild(head);
+        warnBox.appendChild(desc);
+      } else {
+        isExactTriviaDuplicate = true;
+        saveBtn.disabled = true;
+        saveBtn.classList.add('disabled');
+        warnBox.className = 'dup-alert exact';
+        warnBox.innerHTML = '';
+
+        const head = document.createElement('div');
+        head.className = 'dup-alert-head';
+        const title = document.createElement('span');
+        title.textContent = '🚫 Exact Duplicate Trivia Statement!';
+        const jumpBtn = document.createElement('button');
+        jumpBtn.type = 'button';
+        jumpBtn.className = 'btn-jump-entry';
+        jumpBtn.textContent = 'Open Trivia #' + data.exactMatch.id;
+        jumpBtn.onclick = () => jumpToTrivia(data.exactMatch.id);
+        head.appendChild(title);
+        head.appendChild(jumpBtn);
+
+        const desc = document.createElement('div');
+        desc.innerHTML = 'Statement identical to existing entry <strong>#' + data.exactMatch.id + '</strong>. Duplicates are strictly blocked from being saved.';
+
+        warnBox.appendChild(head);
+        warnBox.appendChild(desc);
+      }
     } else if (data.similarMatches && data.similarMatches.length > 0) {
       isExactTriviaDuplicate = false;
       saveBtn.disabled = false;

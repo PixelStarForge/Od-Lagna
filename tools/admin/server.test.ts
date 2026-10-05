@@ -93,6 +93,71 @@ async function runTests() {
     }
     console.log("✓ POST /api/entries strictly blocked duplicate save with HTTP 409 Conflict");
 
+    // 5b. Test POST /api/check-duplicate for pre-existing duplicate entry (e.g. 3648 duplicating 0310)
+    const preExistingRes = await fetch("http://127.0.0.1:4329/api/check-duplicate", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        question: "Elsa, who has enough power to go toe-to-toe with Garfiel, was outwitted by Subaru-kun in Arc 1, but wasn’t she just playing with him there? It looked like he was able to move around alright, so I really didn’t expect him to be in such bad shape afterwards.",
+        currentId: "3648",
+      }),
+    });
+    const preExistingData = await preExistingRes.json();
+    if (!preExistingData.isExactDuplicate || !preExistingData.isPreExistingDuplicate || preExistingData.exactMatch?.id !== "0310") {
+      throw new Error(`Expected isPreExistingDuplicate true matching 0310, got ${JSON.stringify(preExistingData)}`);
+    }
+    console.log("✓ POST /api/check-duplicate correctly identified pre-existing legacy duplicate");
+
+    // 5c. Test PUT /api/entries/3648: updating metadata with unchanged question succeeds
+    const put3648Res = await fetch("http://127.0.0.1:4329/api/entries/3648", {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        id: "3648",
+        question: "Elsa, who has enough power to go toe-to-toe with Garfiel, was outwitted by Subaru-kun in Arc 1, but wasn’t she just playing with him there? It looked like he was able to move around alright, so I really didn’t expect him to be in such bad shape afterwards.",
+        answer: "She was playing around enough that he did manage to land a kick, wasn’t she. Elsa is similar to a saiyan in that as she faces stronger opponents, she becomes stronger herself, so when she was facing Subaru-kun, it turns out like that.",
+        characters: ["Elsa Granhiert", "Garfiel Tinsel", "Natsuki Subaru"],
+        topics: ["General"],
+        arc: "arc-1",
+        source: {
+          type: "url",
+          value: "https://x.com/nezumiironyanko/status/532469288842854401",
+        },
+        verified: true,
+        date: "November 12, 2014",
+        dateTime: "2014-11-12",
+      }),
+    });
+    if (!put3648Res.ok) {
+      const err = await put3648Res.json();
+      throw new Error(`PUT /api/entries/3648 failed: ${JSON.stringify(err)}`);
+    }
+    console.log("✓ PUT /api/entries/3648 succeeded to update metadata on legacy duplicate");
+
+    // 5d. Test PUT /api/entries/0002: changing question to match 0001 is strictly blocked
+    const putDup0002Res = await fetch("http://127.0.0.1:4329/api/entries/0002", {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        id: "0002",
+        question: "Aah……you are Sloth right?",
+        answer: "The one in first place",
+        characters: [],
+        topics: ["General"],
+        arc: "general",
+        source: {
+          type: "url",
+          value: "https://x.com/nezumiironyanko/status/470904502762344448",
+        },
+        verified: true,
+        dateTime: "2014-05-26",
+      }),
+    });
+    if (putDup0002Res.status !== 409) {
+      throw new Error(`Expected HTTP 409 Conflict when changing question to duplicate, got ${putDup0002Res.status}`);
+    }
+    console.log("✓ PUT /api/entries/0002 strictly blocked changing question to duplicate existing entry");
+
     // 6. Test POST /api/parse-quick-paste
     const parseRes = await fetch("http://127.0.0.1:4329/api/parse-quick-paste", {
       method: "POST",
