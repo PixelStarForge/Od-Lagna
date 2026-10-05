@@ -1,18 +1,21 @@
 {
   "id": "3275",
-  "question": "The relationship between Ferris and Old Man Wil, is it like that of co-workers with the same master?",
-  "answer": "Ferris feels a closeness like that of a friend of a different age.",
+  "question": "What is Wilhelm-san to Ferris? (A colleague, a father figure, etc.) Haven't the two of them become less friendly with each other since Arc 5? I'm worried about them.",
+  "answer": "**A:** They probably have the impression of being friends despite the age gap. However, the fact remains that Wilhelm failed to protect Crusch, so I imagine their relationship has become a little complicated because of that.",
   "characters": [
     "Felix Argyle (Ferris)",
-    "Wilhelm van Astrea"
+    "Wilhelm van Astrea",
+    "Crusch Karsten"
   ],
   "topics": [
-    "General"
+    "General",
+    "Character Relationships"
   ],
-  "arc": "general",
+  "arc": "arc-5",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/1088139563984248833"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2019-01-23"
 }

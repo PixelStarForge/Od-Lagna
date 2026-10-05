@@ -17,6 +17,12 @@ if (typeof window !== "undefined") {
   console.log("✓ Running in Node environment, testing URL parsing logic");
 }
 
+function parseVerifiedParam(param: string | null): "all" | "verified" | "unverified" {
+  if (param === "true" || param === "verified") return "verified";
+  if (param === "false" || param === "unverified") return "unverified";
+  return "all";
+}
+
 // Test URL parsing logic for Browse filter synchronization
 function parseBrowseUrl(urlStr: string) {
   const url = new URL(urlStr, "http://localhost:3000");
@@ -26,7 +32,7 @@ function parseBrowseUrl(urlStr: string) {
     character: sp.get("character") || "all",
     topic: sp.get("topic") || "all",
     year: sp.get("year") || "all",
-    verified: sp.get("verified") === "true",
+    verified: parseVerifiedParam(sp.get("verified")),
     search: sp.get("search") || sp.get("q") || "",
   };
 }
@@ -35,15 +41,24 @@ const res1 = parseBrowseUrl("http://localhost:3000/browse?character=Natsuki%20Su
 assert.strictEqual(res1.character, "Natsuki Subaru");
 assert.strictEqual(res1.arc, "all");
 assert.strictEqual(res1.topic, "all");
+assert.strictEqual(res1.verified, "all");
 assert.strictEqual(res1.search, "");
 console.log("✓ Character filter parsed correctly from URL");
 
 const res2 = parseBrowseUrl("http://localhost:3000/browse?topic=Witch%20of%20Envy&arc=arc-4&verified=true");
 assert.strictEqual(res2.topic, "Witch of Envy");
 assert.strictEqual(res2.arc, "arc-4");
-assert.strictEqual(res2.verified, true);
+assert.strictEqual(res2.verified, "verified");
 assert.strictEqual(res2.character, "all");
-console.log("✓ Compound filters parsed correctly from URL");
+console.log("✓ Compound filters with verified=true parsed correctly as 'verified'");
+
+const res2b = parseBrowseUrl("http://localhost:3000/browse?verified=unverified");
+assert.strictEqual(res2b.verified, "unverified");
+console.log("✓ Filter verified=unverified parsed correctly as 'unverified'");
+
+const res2c = parseBrowseUrl("http://localhost:3000/browse?verified=false");
+assert.strictEqual(res2c.verified, "unverified");
+console.log("✓ Filter verified=false parsed correctly as 'unverified'");
 
 const res3 = parseBrowseUrl("http://localhost:3000/browse?search=dragon");
 assert.strictEqual(res3.search, "dragon");
@@ -54,6 +69,7 @@ const res4 = parseBrowseUrl("http://localhost:3000/browse");
 assert.strictEqual(res4.character, "all");
 assert.strictEqual(res4.topic, "all");
 assert.strictEqual(res4.arc, "all");
+assert.strictEqual(res4.verified, "all");
 assert.strictEqual(res4.search, "");
 console.log("✓ Clean browse URL resets all filters to default");
 

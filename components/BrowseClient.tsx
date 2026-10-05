@@ -28,6 +28,12 @@ function parseArrayParam(param: string | null): string[] {
   return param.split(",").map((s) => s.trim()).filter(Boolean);
 }
 
+function parseVerifiedParam(param: string | null): "all" | "verified" | "unverified" {
+  if (param === "true" || param === "verified") return "verified";
+  if (param === "false" || param === "unverified") return "unverified";
+  return "all";
+}
+
 interface PaginationNavProps {
   currentPage: number;
   totalPages: number;
@@ -168,8 +174,8 @@ export function BrowseClient({
       searchParams.get("years") || searchParams.get("year")
     );
   });
-  const [verifiedOnly, setVerifiedOnly] = useState<boolean>(() => {
-    return searchParams.get("verified") === "true";
+  const [verifiedFilter, setVerifiedFilter] = useState<"all" | "verified" | "unverified">(() => {
+    return parseVerifiedParam(searchParams.get("verified"));
   });
   const [entryTypeFilter, setEntryTypeFilter] = useState<"all" | "qna" | "trivia">(() => {
     const t = searchParams.get("type");
@@ -253,7 +259,7 @@ export function BrowseClient({
           parseArrayParam(sp.get("years") || sp.get("year"))
         );
 
-        setVerifiedOnly(sp.get("verified") === "true");
+        setVerifiedFilter(parseVerifiedParam(sp.get("verified")));
         const typeParam = sp.get("type");
         setEntryTypeFilter(typeParam === "qna" || typeParam === "trivia" ? typeParam : "all");
         setSearchFilter(sp.get("search") || sp.get("q") || "");
@@ -469,7 +475,10 @@ export function BrowseClient({
         }
 
         // Verified filter
-        if (verifiedOnly && !entry.verified) {
+        if (verifiedFilter === "verified" && !entry.verified) {
+          return false;
+        }
+        if (verifiedFilter === "unverified" && entry.verified) {
           return false;
         }
 
@@ -510,7 +519,7 @@ export function BrowseClient({
     selectedTopics,
     topicMatchMode,
     selectedYears,
-    verifiedOnly,
+    verifiedFilter,
     deferredSearchFilter,
   ]);
 
@@ -597,7 +606,8 @@ export function BrowseClient({
       if (topicMatchMode === "all") params.set("topicMatch", "all");
     }
     if (selectedYears.length > 0) params.set("years", selectedYears.join(","));
-    if (verifiedOnly) params.set("verified", "true");
+    if (verifiedFilter === "verified") params.set("verified", "verified");
+    if (verifiedFilter === "unverified") params.set("verified", "unverified");
     if (searchFilter.trim()) params.set("search", searchFilter.trim());
 
     const newQuery = params.toString();
@@ -614,7 +624,7 @@ export function BrowseClient({
     selectedTopics,
     topicMatchMode,
     selectedYears,
-    verifiedOnly,
+    verifiedFilter,
     searchFilter,
   ]);
 
@@ -667,7 +677,7 @@ export function BrowseClient({
     selectedCharacters.length > 0 ||
     selectedTopics.length > 0 ||
     selectedYears.length > 0 ||
-    verifiedOnly ||
+    verifiedFilter !== "all" ||
     searchFilter.trim() !== "";
 
   const clearAllFilters = () => {
@@ -678,7 +688,7 @@ export function BrowseClient({
     setSelectedTopics([]);
     setTopicMatchMode("any");
     setSelectedYears([]);
-    setVerifiedOnly(false);
+    setVerifiedFilter("all");
     setSearchFilter("");
     setCurrentPage(1);
     if (typeof window !== "undefined" && window.location.search) {
@@ -904,22 +914,55 @@ export function BrowseClient({
             </div>
           )}
 
-          {/* Verified Only Toggle */}
-          <div className="pt-2 border-t border-[var(--border-subtle)]">
-            <label className="flex items-center gap-3 cursor-pointer select-none group">
-              <input
-                type="checkbox"
-                checked={verifiedOnly}
-                onChange={(e) => {
-                  setVerifiedOnly(e.target.checked);
+          {/* Verification Status Filter Toggle */}
+          <div className="space-y-1.5 pt-2 border-t border-[var(--border-subtle)]">
+            <label className="text-xs font-mono font-bold uppercase tracking-wider text-[var(--text-muted)]">
+              Verification Status
+            </label>
+            <div className="grid grid-cols-3 gap-1 p-1 rounded-lg border border-[var(--border-subtle)] bg-[var(--bg-surface)] text-xs font-medium">
+              <button
+                type="button"
+                onClick={() => {
+                  setVerifiedFilter("all");
                   setCurrentPage(1);
                 }}
-                className="h-4 w-4 rounded border-[var(--border-strong)] text-[var(--accent)] focus:ring-[var(--accent)] accent-[var(--accent)] cursor-pointer"
-              />
-              <span className="text-sm font-medium text-[var(--text-main)] group-hover:text-[var(--accent)] transition-colors">
-                Verified Sources Only
-              </span>
-            </label>
+                className={`py-1.5 px-2 rounded-md text-center transition-colors cursor-pointer ${
+                  verifiedFilter === "all"
+                    ? "bg-[var(--accent)] text-white font-bold"
+                    : "text-[var(--text-muted)] hover:text-[var(--text-main)] hover:bg-[var(--bg-elevated)]"
+                }`}
+              >
+                All
+              </button>
+              <button
+                type="button"
+                onClick={() => {
+                  setVerifiedFilter(verifiedFilter === "verified" ? "all" : "verified");
+                  setCurrentPage(1);
+                }}
+                className={`py-1.5 px-2 rounded-md text-center transition-colors cursor-pointer flex items-center justify-center gap-1 ${
+                  verifiedFilter === "verified"
+                    ? "bg-[var(--verified-bg)] text-[var(--verified-text)] border border-[var(--verified-border)] font-bold shadow-xs"
+                    : "text-[var(--text-muted)] hover:text-[var(--text-main)] hover:bg-[var(--bg-elevated)]"
+                }`}
+              >
+                <span>✓</span> Verified
+              </button>
+              <button
+                type="button"
+                onClick={() => {
+                  setVerifiedFilter(verifiedFilter === "unverified" ? "all" : "unverified");
+                  setCurrentPage(1);
+                }}
+                className={`py-1.5 px-2 rounded-md text-center transition-colors cursor-pointer flex items-center justify-center gap-1 ${
+                  verifiedFilter === "unverified"
+                    ? "bg-[var(--unverified-bg)] text-[var(--unverified-text)] border border-[var(--unverified-border)] font-bold shadow-xs"
+                    : "text-[var(--text-muted)] hover:text-[var(--text-main)] hover:bg-[var(--bg-elevated)]"
+                }`}
+              >
+                <span>⚠</span> Unverified
+              </button>
+            </div>
           </div>
 
           {/* Clear button if active filters */}
@@ -1098,13 +1141,27 @@ export function BrowseClient({
                 </span>
               ))}
 
-              {verifiedOnly && (
+              {verifiedFilter === "verified" && (
                 <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs sm:text-sm font-medium bg-[var(--verified-bg)] border border-[var(--verified-border)] text-[var(--verified-text)]">
                   Verified Only
                   <button
                     type="button"
-                    onClick={() => setVerifiedOnly(false)}
+                    onClick={() => setVerifiedFilter("all")}
                     aria-label="Remove verified only filter"
+                    className="hover:text-[var(--accent)] ml-1 font-bold cursor-pointer"
+                  >
+                    ×
+                  </button>
+                </span>
+              )}
+
+              {verifiedFilter === "unverified" && (
+                <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs sm:text-sm font-medium bg-[var(--unverified-bg)] border border-[var(--unverified-border)] text-[var(--unverified-text)]">
+                  Unverified Only
+                  <button
+                    type="button"
+                    onClick={() => setVerifiedFilter("all")}
+                    aria-label="Remove unverified only filter"
                     className="hover:text-[var(--accent)] ml-1 font-bold cursor-pointer"
                   >
                     ×

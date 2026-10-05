@@ -79,7 +79,7 @@ export function QnaCard({ entry, onTagClick, unmaskSpoiler = false }: QnaCardPro
       title="Awaiting primary citation verification"
       className="inline-flex items-center gap-1 font-semibold px-2 sm:px-2.5 py-0.5 rounded-full bg-[var(--unverified-bg)] text-[var(--unverified-text)] border border-[var(--unverified-border)] text-xs"
     >
-      <span className="font-bold text-xs">!</span>
+      <span className="font-bold text-xs">⚠</span>
       <span>Unverified</span>
     </span>
   );

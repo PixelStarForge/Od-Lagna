@@ -9,9 +9,16 @@
     "Divine Protections"
   ],
   "arc": "general",
-  "source": {
-    "type": "text",
-    "value": ""
-  },
-  "verified": false
+  "verified": true,
+  "dateTime": "2019-01-23",
+  "sources": [
+    {
+      "type": "url",
+      "value": "https://x.com/nezumiironyanko/status/1088130689126457344"
+    },
+    {
+      "type": "url",
+      "value": "https://x.com/nezumiironyanko/status/1088131872951914496"
+    }
+  ]
 }
