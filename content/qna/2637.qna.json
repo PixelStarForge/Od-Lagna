@@ -13,8 +13,9 @@
   ],
   "arc": "if-wrath",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://x.com/nezumiironyanko/status/1015647458829877248"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2018-07-07"
 }
