@@ -2,8 +2,12 @@
   "id": "1674",
   "question": "Even before he moved his heart into himself, he was smashed down, but how did he stop himself then?",
   "answer": "He just stopped the time of the ground that he was touching.",
-  "characters": [],
-  "topics": ["Authorities"],
+  "characters": [
+    "Regulus Corneas"
+  ],
+  "topics": [
+    "Authorities"
+  ],
   "arc": "arc-5",
   "source": {
     "type": "text",
