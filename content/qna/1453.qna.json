@@ -8,13 +8,14 @@
     "White Whale"
   ],
   "topics": [
-    "Combat & Tiering",
-    "Great Mabeasts"
+    "Great Mabeasts",
+    "General"
   ],
-  "arc": "arc-3",
+  "arc": "arc-4",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://novelcom.syosetu.com/impression/view/ncode/302237/kanrino/2433994/"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2014-06-22"
 }

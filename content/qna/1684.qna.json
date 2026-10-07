@@ -7,11 +7,14 @@
     "Julius Juukulius",
     "Natsuki Subaru"
   ],
-  "topics": ["General"],
+  "topics": [
+    "General"
+  ],
   "arc": "arc-5",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://novelcom.syosetu.com/impression/view/ncode/302237/kanrino/3424274/"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2015-11-12"
 }
