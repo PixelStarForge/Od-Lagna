@@ -168,9 +168,9 @@ export function buildSearchIndex(): SearchIndexPayload {
   const characterProfiles: SearchIndexCharacterProfile[] = [];
   if (fs.existsSync(CONTENT_CHARACTERS_DIR)) {
     const files = fs.readdirSync(CONTENT_CHARACTERS_DIR);
-    const validFiles = files.filter(
-      (file) => file.endsWith(".json") && !file.startsWith("_")
-    );
+    const validFiles = files
+      .filter((file) => file.endsWith(".json") && !file.startsWith("_"))
+      .sort();
 
     for (const file of validFiles) {
       const fullPath = path.join(CONTENT_CHARACTERS_DIR, file);

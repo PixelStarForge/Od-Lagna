@@ -131,6 +131,8 @@ export function CharactersClient({
   const allSuggestions = useMemo<Suggestion[]>(() => {
     const seen = new Set<string>();
     const suggestions: Suggestion[] = [];
+
+    // Step 1: Register primary canonical names first so they always take precedence
     for (const item of visibleCatalog) {
       const name = item.name.trim();
       const nameLower = name.toLowerCase();
@@ -138,6 +140,10 @@ export function CharactersClient({
         seen.add(nameLower);
         suggestions.push({ label: name, labelLower: nameLower, kind: "name" });
       }
+    }
+
+    // Step 2: Register aliases that don't collide with existing primary names
+    for (const item of visibleCatalog) {
       for (const alias of item.aliases) {
         const a = alias.name.trim();
         const aLower = a.toLowerCase();
@@ -147,6 +153,10 @@ export function CharactersClient({
           suggestions.push({ label: a, labelLower: aLower, kind: "alias" });
         }
       }
+    }
+
+    // Step 3: Register affiliations
+    for (const item of visibleCatalog) {
       for (const aff of item.affiliation) {
         const a = aff.trim();
         const aLower = a.toLowerCase();
@@ -156,15 +166,33 @@ export function CharactersClient({
         }
       }
     }
+
     return suggestions;
   }, [visibleCatalog, spoilerArc, allowedIfRoutes]);
 
-  // Filtered suggestions based on current query — uses pre-lowercased labelLower (Opt #4)
+  // Filtered suggestions based on current query — sorted by relevance
   const filteredSuggestions = useMemo<Suggestion[]>(() => {
     const q = searchQuery.trim().toLowerCase();
     if (!q) return [];
     return allSuggestions
       .filter((s) => s.labelLower.includes(q))
+      .sort((a, b) => {
+        const aExact = a.labelLower === q;
+        const bExact = b.labelLower === q;
+        if (aExact && !bExact) return -1;
+        if (!aExact && bExact) return 1;
+
+        const aStart = a.labelLower.startsWith(q);
+        const bStart = b.labelLower.startsWith(q);
+        if (aStart && !bStart) return -1;
+        if (!aStart && bStart) return 1;
+
+        const kindWeight = (k: Suggestion["kind"]) => (k === "name" ? 2 : k === "alias" ? 1 : 0);
+        const diffKind = kindWeight(b.kind) - kindWeight(a.kind);
+        if (diffKind !== 0) return diffKind;
+
+        return a.label.localeCompare(b.label);
+      })
       .slice(0, 8);
   }, [searchQuery, allSuggestions]);
 
@@ -255,14 +283,21 @@ export function CharactersClient({
     if (!characterParam) return null;
     const cleanParam = characterParam.trim().toLowerCase();
 
-    const exact = catalog.find(
-      (c) =>
-        c.id.toLowerCase() === cleanParam ||
-        c.name.toLowerCase() === cleanParam ||
-        c.aliases?.some((a) => a.name.toLowerCase() === cleanParam)
-    );
-    if (exact) return exact;
+    // 1. Exact ID match (highest priority, ensures /characters?id=spica always resolves to Spica)
+    const exactId = catalog.find((c) => c.id.toLowerCase() === cleanParam);
+    if (exactId) return exactId;
 
+    // 2. Exact Name match (e.g. /characters?name=Spica resolves to Spica)
+    const exactName = catalog.find((c) => c.name.toLowerCase() === cleanParam);
+    if (exactName) return exactName;
+
+    // 3. Exact Alias match (only if no character has this as exact ID or Name)
+    const exactAlias = catalog.find((c) =>
+      c.aliases?.some((a) => a.name.toLowerCase() === cleanParam)
+    );
+    if (exactAlias) return exactAlias;
+
+    // 4. Fallback fuzzy / substring match
     return (
       catalog.find(
         (c) =>
@@ -297,7 +332,7 @@ export function CharactersClient({
     const query = deferredSearch.trim().toLowerCase();
     const queryTokens = query ? query.split(/\s+/).filter(Boolean) : [];
 
-    return visibleCatalog.filter((item) => {
+    const matched = visibleCatalog.filter((item) => {
       // Arc filter
       if (selectedArc !== "all" && item.arc !== selectedArc) {
         return false;
@@ -318,6 +353,7 @@ export function CharactersClient({
       // Search matching across name, aliases, Japanese name, and affiliation
       if (queryTokens.length > 0) {
         const nameLower = item.name.toLowerCase();
+        const idLower = item.id.toLowerCase();
         const jpLower = (item.japaneseName || "").toLowerCase();
         const aliasesLower = item.aliases.map((a) => a.name.toLowerCase());
         const affLower = item.affiliation.map((a) => a.toLowerCase());
@@ -325,6 +361,7 @@ export function CharactersClient({
         for (const token of queryTokens) {
           const matches =
             nameLower.includes(token) ||
+            idLower.includes(token) ||
             jpLower.includes(token) ||
             aliasesLower.some((a) => a.includes(token)) ||
             affLower.some((a) => a.includes(token));
@@ -334,6 +371,35 @@ export function CharactersClient({
       }
 
       return true;
+    });
+
+    if (queryTokens.length === 0) {
+      return matched;
+    }
+
+    // Sort matching results by search relevance so exact name/id matches appear first
+    return matched.slice().sort((a, b) => {
+      const aName = a.name.toLowerCase();
+      const bName = b.name.toLowerCase();
+      const aId = a.id.toLowerCase();
+      const bId = b.id.toLowerCase();
+
+      const aExact = aName === query || aId === query;
+      const bExact = bName === query || bId === query;
+      if (aExact && !bExact) return -1;
+      if (!aExact && bExact) return 1;
+
+      const aStart = aName.startsWith(query) || aId.startsWith(query);
+      const bStart = bName.startsWith(query) || bId.startsWith(query);
+      if (aStart && !bStart) return -1;
+      if (!aStart && bStart) return 1;
+
+      const aAliases = a.aliases.some((al) => al.name.toLowerCase() === query);
+      const bAliases = b.aliases.some((al) => al.name.toLowerCase() === query);
+      if (aAliases && !bAliases) return -1;
+      if (!aAliases && bAliases) return 1;
+
+      return a.name.localeCompare(b.name);
     });
   }, [visibleCatalog, deferredSearch, selectedArc, filterWithEntriesOnly, selectedLetter]);
 

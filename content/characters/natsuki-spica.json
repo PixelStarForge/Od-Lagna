@@ -3,12 +3,7 @@
   "name": "Natsuki Spica",
   "arc": "if-sloth",
   "japaneseName": "ナツキ・スピカ",
-  "aliases": [
-    {
-      "name": "Spica",
-      "arc": "if-sloth"
-    }
-  ],
+  "aliases": [],
   "gender": "Female",
   "race": "Half-Oni",
   "affiliation": [

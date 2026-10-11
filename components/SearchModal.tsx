@@ -180,16 +180,41 @@ export function SearchModal() {
 
     // 0. Character Profile Matches (e.g. Subaru, Natsuki Subaru, ナツキ・スバル, Barusu, Natsumi Schwartz, etc.)
     const matchedProfiles = allowedCharacterProfiles
-      .filter((prof) => {
+      .map((prof) => {
         const nameLower = prof.name.toLowerCase();
+        const idLower = prof.id.toLowerCase();
         const jpLower = (prof.japaneseName || "").toLowerCase();
         const aliasesLower = (prof.aliases || []).map((a) => a.toLowerCase());
         const hay = `${nameLower} ${jpLower} ${aliasesLower.join(" ")}`;
-        if (tokens.length <= 1) {
-          return hay.includes(q) || (cleanQ && hay.includes(cleanQ));
+
+        const matches =
+          tokens.length <= 1
+            ? hay.includes(q) || (cleanQ && hay.includes(cleanQ))
+            : tokens.every((tok) => hay.includes(tok));
+
+        if (!matches) return null;
+
+        let score = 0;
+        // Exact name or exact id match gets highest score
+        if (nameLower === q || idLower === q || (cleanQ && (nameLower === cleanQ || idLower === cleanQ))) {
+          score += 1000;
+        } else if (nameLower.startsWith(q) || idLower.startsWith(q)) {
+          score += 500;
+        } else if (jpLower === q || jpLower === cleanQ) {
+          score += 400;
+        } else if (aliasesLower.includes(q) || (cleanQ && aliasesLower.includes(cleanQ))) {
+          score += 300;
+        } else if (nameLower.includes(q)) {
+          score += 200;
+        } else if (aliasesLower.some((a) => a.includes(q))) {
+          score += 100;
         }
-        return tokens.every((tok) => hay.includes(tok));
+
+        return { prof, score };
       })
+      .filter((item): item is { prof: (typeof allowedCharacterProfiles)[number]; score: number } => item !== null)
+      .sort((a, b) => b.score - a.score || a.prof.name.localeCompare(b.prof.name))
+      .map((item) => item.prof)
       .slice(0, 4);
 
     const seenQnaIds = new Set<string>();

@@ -1,20 +1,28 @@
 {
   "id": "spica",
   "name": "Spica",
-  "arc": "arc-7",
+  "arc": "arc-8",
   "japaneseName": "スピカ",
   "aliases": [
+    {
+      "name": "Star Eating",
+      "arc": "arc-8"
+    },
+    {
+      "name": "Rui Arneb",
+      "arc": "arc-6"
+    },
     {
       "name": "Louis Arneb",
       "arc": "arc-6"
     },
     {
-      "name": "Louis",
+      "name": "Rui",
       "arc": "arc-6"
     },
     {
-      "name": "Star Eating",
-      "arc": "arc-8"
+      "name": "Louis",
+      "arc": "arc-6"
     },
     {
       "name": "Ica",
@@ -37,6 +45,6 @@
     "Rem",
     "Emilia Camp"
   ],
-  "description": "Spica is a devoted companion of Natsuki Subaru and Rem. Formerly Louis Arneb, the Sin Archbishop of Gluttony representing Satiation, she suffered complete memory loss at the conclusion of Arc 6. Stranded alongside Subaru and Rem in the Sacred Vollachia Empire, she developed profound affection for them and fought relentlessly to safeguard them, ultimately being granted the name 'Spica' by Subaru in Arc 8.",
+  "description": "Spica is a devoted companion of Natsuki Subaru and Rem. Her previous identity was Louis Arneb (Rui Arneb), a Sin Archbishop of the Witch Cult representing the Satiation aspect of Gluttony. Following complete memory loss at the conclusion of Arc 6, she was stranded alongside Subaru and Rem in the Sacred Vollachia Empire, developing profound affection for them and fighting relentlessly to safeguard them throughout Arc 7 and Arc 8 before officially being granted the name 'Spica' by Subaru.",
   "link": "https://rezero.fandom.com/wiki/Spica"
 }

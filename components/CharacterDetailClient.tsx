@@ -256,6 +256,90 @@ export function CharacterDetailClient({
               </div>
             </div>
           )}
+
+          {/* Authorities with Per-Item Arc Spoiler Protection */}
+          {character.authorities && character.authorities.length > 0 && (
+            <div className="p-3.5 sm:p-4 rounded-lg bg-[var(--bg-elevated)] border border-purple-500/20 space-y-1.5 col-span-2 sm:col-span-4">
+              <p className="text-[10px] sm:text-xs font-mono font-bold uppercase tracking-wider text-purple-600 dark:text-purple-400">
+                Authorities
+              </p>
+              <div className="flex flex-wrap gap-2 pt-0.5">
+                {character.authorities.map((auth) => {
+                  const authArcMeta = getArcMetadata(auth.arc);
+                  const isAuthSpoiled =
+                    mounted && isArcSpoiler(auth.arc, spoilerArc, allowedIfRoutes);
+                  const itemKey = `auth-${auth.name}`;
+                  const isRevealed = revealedItems[itemKey];
+
+                  if (isAuthSpoiled && !isRevealed) {
+                    return (
+                      <button
+                        key={auth.name}
+                        type="button"
+                        onClick={() => toggleItemReveal(itemKey)}
+                        title={`Contains spoiler from ${authArcMeta.name}. Click to reveal.`}
+                        className="inline-flex items-center gap-1.5 text-[11px] sm:text-xs px-2.5 py-1 rounded-md bg-amber-500/10 border border-amber-500/30 text-amber-500 hover:bg-amber-500/20 transition-colors cursor-pointer"
+                      >
+                        <span>⚠️ Spoiler ({authArcMeta.name.split(":")[0]})</span>
+                        <span className="text-[10px] font-semibold underline">Reveal</span>
+                      </button>
+                    );
+                  }
+
+                  return (
+                    <span
+                      key={auth.name}
+                      className="inline-flex items-center text-[11px] sm:text-xs px-2.5 py-1 rounded-md bg-purple-500/10 border border-purple-500/25 text-purple-700 dark:text-purple-300 font-medium"
+                    >
+                      {auth.name}
+                    </span>
+                  );
+                })}
+              </div>
+            </div>
+          )}
+
+          {/* Divine Protections with Per-Item Arc Spoiler Protection */}
+          {character.divineProtections && character.divineProtections.length > 0 && (
+            <div className="p-3.5 sm:p-4 rounded-lg bg-[var(--bg-elevated)] border border-amber-500/20 space-y-1.5 col-span-2 sm:col-span-4">
+              <p className="text-[10px] sm:text-xs font-mono font-bold uppercase tracking-wider text-amber-600 dark:text-amber-400">
+                Divine Protections
+              </p>
+              <div className="flex flex-wrap gap-2 pt-0.5">
+                {character.divineProtections.map((dp) => {
+                  const dpArcMeta = getArcMetadata(dp.arc);
+                  const isDpSpoiled =
+                    mounted && isArcSpoiler(dp.arc, spoilerArc, allowedIfRoutes);
+                  const itemKey = `dp-${dp.name}`;
+                  const isRevealed = revealedItems[itemKey];
+
+                  if (isDpSpoiled && !isRevealed) {
+                    return (
+                      <button
+                        key={dp.name}
+                        type="button"
+                        onClick={() => toggleItemReveal(itemKey)}
+                        title={`Contains spoiler from ${dpArcMeta.name}. Click to reveal.`}
+                        className="inline-flex items-center gap-1.5 text-[11px] sm:text-xs px-2.5 py-1 rounded-md bg-amber-500/10 border border-amber-500/30 text-amber-500 hover:bg-amber-500/20 transition-colors cursor-pointer"
+                      >
+                        <span>⚠️ Spoiler ({dpArcMeta.name.split(":")[0]})</span>
+                        <span className="text-[10px] font-semibold underline">Reveal</span>
+                      </button>
+                    );
+                  }
+
+                  return (
+                    <span
+                      key={dp.name}
+                      className="inline-flex items-center text-[11px] sm:text-xs px-2.5 py-1 rounded-md bg-amber-500/10 border border-amber-500/25 text-amber-700 dark:text-amber-300 font-medium"
+                    >
+                      {dp.name}
+                    </span>
+                  );
+                })}
+              </div>
+            </div>
+          )}
         </div>
 
         {/* Bio / Description */}
