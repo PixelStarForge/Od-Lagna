@@ -8,8 +8,9 @@
   ],
   "arc": "arc-5",
   "source": {
-    "type": "text",
-    "value": ""
+    "type": "url",
+    "value": "https://novelcom.syosetu.com/impression/view/ncode/302237/kanrino/2832910/"
   },
-  "verified": false
+  "verified": true,
+  "dateTime": "2015-02-03"
 }
