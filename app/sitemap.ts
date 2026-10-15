@@ -1,5 +1,5 @@
 import { MetadataRoute } from "next";
-import { getAllIfRoutes, getAllCharacterProfiles } from "../lib/content-loader";
+import { getAllIfRoutes, getAllCharacterProfiles, getAllTwitterShortStories } from "../lib/content-loader";
 import { getAnimeCatalog, getAllEpisodeParams } from "../lib/anime-loader";
 
 export const dynamic = "force-static";
@@ -40,6 +40,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified,
       changeFrequency: "monthly",
       priority: 0.7,
+    },
+    {
+      url: `${SITE_URL}/twitter-short-stories`,
+      lastModified,
+      changeFrequency: "weekly",
+      priority: 0.85,
     },
     {
       url: `${SITE_URL}/about`,
@@ -94,11 +100,21 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.8,
   }));
 
+  // Twitter Short Story detail pages
+  const twitterStories = getAllTwitterShortStories();
+  const twitterStoryRoutes: MetadataRoute.Sitemap = twitterStories.map((story) => ({
+    url: `${SITE_URL}/twitter-short-stories?id=${story.id}`,
+    lastModified,
+    changeFrequency: "monthly",
+    priority: 0.8,
+  }));
+
   return [
     ...staticRoutes,
     ...animeSeasonRoutes,
     ...animeEpisodeRoutes,
     ...storyRoutes,
     ...characterRoutes,
+    ...twitterStoryRoutes,
   ];
 }

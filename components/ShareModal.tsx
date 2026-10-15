@@ -3,17 +3,19 @@
 import React, { useState, useEffect, useRef } from "react";
 import { toBlob } from "html-to-image";
 import { useShareModal } from "../lib/share";
-import { QnaEntry, TriviaEntry, getEntrySources } from "../lib/schema";
+import { getEntrySources } from "../lib/schema";
 import { ShareCardView } from "./ShareCardView";
 import {
   formatPlainMarkdown,
   formatPlainText,
   formatSourcesOnly,
   getEntryTypeLabel,
+  type AnyShareableEntry,
+  isTwitterShortStory,
 } from "../lib/share-utils";
 
 interface ShareModalDialogProps {
-  entry: QnaEntry | TriviaEntry;
+  entry: AnyShareableEntry;
   onClose: () => void;
 }
 
@@ -48,8 +50,10 @@ function ShareModalDialog({ entry, onClose }: ShareModalDialogProps) {
   const plainMarkdown = formatPlainMarkdown(entry);
   const plainText = formatPlainText(entry);
   const sourcesOnly = formatSourcesOnly(entry);
-  const sources = getEntrySources(entry).filter((s) => s && s.value && s.value.trim().length > 0);
-  const filename = `od-lagna-${typeLabel.toLowerCase()}-${entry.id}.png`;
+  const sources = isTwitterShortStory(entry)
+    ? (entry.urls && entry.urls.length > 0 ? entry.urls : [entry.url]).map((u) => ({ type: "url" as const, value: u }))
+    : getEntrySources(entry).filter((s) => s && s.value && s.value.trim().length > 0);
+  const filename = `od-lagna-${typeLabel.toLowerCase().replace(/\s+/g, "-")}-${entry.id}.png`;
 
   // Captures the unconstrained off-screen DOM card using html-to-image
   const captureCardBlob = async (): Promise<Blob | null> => {

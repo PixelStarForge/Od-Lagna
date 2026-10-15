@@ -2,17 +2,21 @@
 
 import React, { useState, useMemo, useEffect, useRef, useDeferredValue, useCallback } from "react";
 import Link from "next/link";
-import { QnaEntry, TriviaEntry } from "../lib/schema";
+import { QnaEntry, TriviaEntry, TwitterShortStory } from "../lib/schema";
 import { QnaCard } from "./QnaCard";
 import { TriviaCard } from "./TriviaCard";
+import { TwitterShortStoryCard } from "./TwitterShortStoryCard";
 import { CustomSelect, SelectOption } from "./CustomSelect";
 import { CustomMultiSelect, MultiSelectOption } from "./CustomMultiSelect";
 import { useBookmarks } from "../lib/bookmarks";
 import { getArcMetadata } from "../lib/arc-utils";
 
+type SavedItemType = "qna" | "trivia" | "twitter-story";
+
 interface SavedClientProps {
   allQnas: QnaEntry[];
   allTrivia?: TriviaEntry[];
+  allTwitterStories?: TwitterShortStory[];
 }
 
 const ITEMS_PER_PAGE = 20;
@@ -21,8 +25,8 @@ type SortOption = "recent" | "oldest" | "arc" | "id";
 
 interface SavedItem {
   id: string;
-  type: "qna" | "trivia";
-  entry: QnaEntry | TriviaEntry;
+  type: SavedItemType;
+  entry: QnaEntry | TriviaEntry | TwitterShortStory;
   savedAt: number;
 }
 
@@ -128,6 +132,7 @@ function PaginationNav({
 export function SavedClient({
   allQnas,
   allTrivia = [],
+  allTwitterStories = [],
 }: SavedClientProps) {
   const {
     bookmarks,
@@ -143,7 +148,7 @@ export function SavedClient({
   // Filters & Search state
   const [searchQuery, setSearchQuery] = useState("");
   const deferredSearch = useDeferredValue(searchQuery);
-  const [typeFilter, setTypeFilter] = useState<"all" | "qna" | "trivia">("all");
+  const [typeFilter, setTypeFilter] = useState<"all" | "qna" | "trivia" | "twitter-story">("all");
   const [selectedArcs, setSelectedArcs] = useState<string[]>([]);
   const [selectedCharacters, setSelectedCharacters] = useState<string[]>([]);
   const [characterMatchMode, setCharacterMatchMode] = useState<"all" | "any">("any");
@@ -189,15 +194,20 @@ export function SavedClient({
 
   // Map of all available entries in database
   const entriesById = useMemo(() => {
-    const map = new Map<string, { type: "qna" | "trivia"; entry: QnaEntry | TriviaEntry }>();
+    const map = new Map<string, { type: SavedItemType; entry: QnaEntry | TriviaEntry | TwitterShortStory }>();
     for (const q of allQnas) {
       map.set(q.id, { type: "qna", entry: q });
     }
     for (const t of allTrivia) {
       map.set(t.id, { type: "trivia", entry: t });
     }
+    for (const s of allTwitterStories) {
+      map.set(s.id, { type: "twitter-story", entry: s });
+      map.set(s.id.toLowerCase(), { type: "twitter-story", entry: s });
+      map.set(s.id.toUpperCase(), { type: "twitter-story", entry: s });
+    }
     return map;
-  }, [allQnas, allTrivia]);
+  }, [allQnas, allTrivia, allTwitterStories]);
 
   // Resolve saved entries with savedAt timestamps
   const allSavedItems = useMemo<SavedItem[]>(() => {
@@ -218,18 +228,20 @@ export function SavedClient({
   }, [mounted, bookmarkedIds, bookmarks, entriesById]);
 
   // Dynamic filter options derived exclusively from the saved items with counts
-  const { arcOptions, characterOptions, topicOptions, qnaCount, triviaCount } = useMemo(() => {
+  const { arcOptions, characterOptions, topicOptions, qnaCount, triviaCount, twitterStoryCount } = useMemo(() => {
     const arcCounts: Record<string, number> = {};
     const charCounts: Record<string, number> = {};
     const topicCounts: Record<string, number> = {};
     let qCount = 0;
     let tCount = 0;
+    let tsCount = 0;
 
     for (const item of allSavedItems) {
       if (item.type === "qna") qCount++;
       if (item.type === "trivia") tCount++;
+      if (item.type === "twitter-story") tsCount++;
 
-      if (item.entry.arc) {
+      if ("arc" in item.entry && item.entry.arc) {
         arcCounts[item.entry.arc] = (arcCounts[item.entry.arc] || 0) + 1;
       }
       if (item.entry.characters) {
@@ -237,7 +249,7 @@ export function SavedClient({
           charCounts[c] = (charCounts[c] || 0) + 1;
         }
       }
-      if (item.entry.topics) {
+      if ("topics" in item.entry && item.entry.topics) {
         for (const t of item.entry.topics) {
           topicCounts[t] = (topicCounts[t] || 0) + 1;
         }
@@ -278,6 +290,7 @@ export function SavedClient({
       topicOptions: topics,
       qnaCount: qCount,
       triviaCount: tCount,
+      twitterStoryCount: tsCount,
     };
   }, [allSavedItems]);
 
@@ -293,7 +306,7 @@ export function SavedClient({
     // Arc filter
     if (selectedArcs.length > 0) {
       const arcSet = new Set(selectedArcs);
-      result = result.filter((item) => arcSet.has(item.entry.arc));
+      result = result.filter((item) => "arc" in item.entry && arcSet.has(item.entry.arc));
     }
 
     // Character filter with match mode (any / all)
@@ -315,12 +328,12 @@ export function SavedClient({
     if (selectedTopics.length > 0) {
       if (topicMatchMode === "all") {
         result = result.filter((item) => {
-          const itemTopics = item.entry.topics || [];
+          const itemTopics = "topics" in item.entry ? item.entry.topics || [] : [];
           return selectedTopics.every((t) => itemTopics.includes(t));
         });
       } else {
         result = result.filter((item) => {
-          const itemTopics = item.entry.topics || [];
+          const itemTopics = "topics" in item.entry ? item.entry.topics || [] : [];
           return selectedTopics.some((t) => itemTopics.includes(t));
         });
       }
@@ -338,13 +351,14 @@ export function SavedClient({
 
         const question = "question" in item.entry ? item.entry.question.toLowerCase() : "";
         const answer = "answer" in item.entry ? item.entry.answer.toLowerCase() : "";
+        const storyText = "story" in item.entry ? item.entry.story.toLowerCase() : "";
         const title = "title" in item.entry && item.entry.title ? item.entry.title.toLowerCase() : "";
         const chars = (item.entry.characters || []).map((c) => c.toLowerCase()).join(" ");
-        const topics = (item.entry.topics || []).map((t) => t.toLowerCase()).join(" ");
-        const arcMeta = getArcMetadata(item.entry.arc);
-        const arcName = arcMeta.name.toLowerCase();
+        const topics = ("topics" in item.entry ? item.entry.topics || [] : []).map((t) => t.toLowerCase()).join(" ");
+        const arcMeta = "arc" in item.entry && item.entry.arc ? getArcMetadata(item.entry.arc) : null;
+        const arcName = arcMeta?.name.toLowerCase() || "";
 
-        const fullText = `${idLower} ${title} ${question} ${answer} ${chars} ${topics} ${arcName}`;
+        const fullText = `${idLower} ${title} ${question} ${answer} ${storyText} ${chars} ${topics} ${arcName}`;
 
         return tokens.every((token) => fullText.includes(token));
       });
@@ -365,12 +379,14 @@ export function SavedClient({
         return a.id.localeCompare(b.id, undefined, { numeric: true });
       }
       if (sortBy === "arc") {
-        const metaA = getArcMetadata(a.entry.arc);
-        const metaB = getArcMetadata(b.entry.arc);
-        const orderA = metaA.type === "canon" ? metaA.order ?? 99 : 100;
-        const orderB = metaB.type === "canon" ? metaB.order ?? 99 : 100;
+        const arcA = "arc" in a.entry ? a.entry.arc : "";
+        const arcB = "arc" in b.entry ? b.entry.arc : "";
+        const metaA = arcA ? getArcMetadata(arcA) : null;
+        const metaB = arcB ? getArcMetadata(arcB) : null;
+        const orderA = metaA?.type === "canon" ? metaA.order ?? 99 : 100;
+        const orderB = metaB?.type === "canon" ? metaB.order ?? 99 : 100;
         if (orderA !== orderB) return orderA - orderB;
-        return a.entry.arc.localeCompare(b.entry.arc);
+        return arcA.localeCompare(arcB);
       }
       return 0;
     });
@@ -685,7 +701,7 @@ export function SavedClient({
               </div>
 
               {/* Type Filter Pills */}
-              <div className="w-full sm:w-auto grid grid-cols-3 sm:inline-flex rounded-lg border border-[var(--border-subtle)] bg-[var(--bg-elevated)] p-0.5 text-xs font-medium shrink-0">
+              <div className="w-full sm:w-auto grid grid-cols-2 sm:flex sm:flex-wrap rounded-lg border border-[var(--border-subtle)] bg-[var(--bg-elevated)] p-0.5 text-xs font-medium shrink-0">
                 <button
                   type="button"
                   onClick={() => setTypeFilter("all")}
@@ -718,6 +734,17 @@ export function SavedClient({
                   }`}
                 >
                   Trivia ({triviaCount})
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setTypeFilter("twitter-story")}
+                  className={`flex items-center justify-center px-2 sm:px-3 py-1.5 rounded-md transition-colors cursor-pointer text-center ${
+                    typeFilter === "twitter-story"
+                      ? "bg-[var(--accent)] text-white font-semibold shadow-2xs"
+                      : "text-[var(--text-muted)] hover:text-[var(--text-main)]"
+                  }`}
+                >
+                  Stories ({twitterStoryCount})
                 </button>
               </div>
             </div>
@@ -960,8 +987,10 @@ export function SavedClient({
                 <div key={item.id} className="relative group">
                   {item.type === "qna" ? (
                     <QnaCard entry={item.entry as QnaEntry} />
-                  ) : (
+                  ) : item.type === "trivia" ? (
                     <TriviaCard entry={item.entry as TriviaEntry} />
+                  ) : (
+                    <TwitterShortStoryCard story={item.entry as TwitterShortStory} />
                   )}
                 </div>
               ))}

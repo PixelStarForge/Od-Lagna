@@ -48,7 +48,14 @@ export function getEntrySources(
   entry:
     | Pick<QnaEntry, "source" | "sources">
     | Pick<TriviaEntry, "source" | "sources">
+    | { url?: string; urls?: string[]; source?: QnaSource | QnaSource[]; sources?: QnaSource[] }
 ): QnaSource[] {
+  if ("urls" in entry && Array.isArray(entry.urls) && entry.urls.length > 0) {
+    return entry.urls.map((u) => ({ type: "url", value: u }));
+  }
+  if ("url" in entry && typeof entry.url === "string" && entry.url.length > 0) {
+    return [{ type: "url", value: entry.url }];
+  }
   if (Array.isArray(entry.sources) && entry.sources.length > 0) {
     return entry.sources;
   }
@@ -248,5 +255,57 @@ export function getSeasonBadgeLabel(season: AnimeCatalogEntry): string {
   }
   return `Season 0${season.order}`;
 }
+
+export const twitterShortStorySchema = z.preprocess(
+  (val: unknown) => {
+    if (typeof val === "object" && val !== null) {
+      const copy = { ...(val as Record<string, unknown>) };
+      if (!copy.story && typeof copy.text === "string") copy.story = copy.text;
+      if (!copy.story && typeof copy.content === "string") copy.story = copy.content;
+      if (typeof copy.story === "string") {
+        copy.story = copy.story
+          .split("\n")
+          .map((line: string) => line.replace(/^[ \t\u3000]+/, ""))
+          .join("\n");
+      }
+      if (!copy.author) copy.author = "Tappei Nagatsuki";
+      if (!copy.url && typeof (copy.source as { value?: string } | undefined)?.value === "string") {
+        copy.url = (copy.source as { value: string }).value;
+      }
+      const rawUrls = copy.urls;
+      const rawUrl = copy.url;
+      if (Array.isArray(rawUrls) && rawUrls.length > 0) {
+        if (!copy.url) copy.url = rawUrls[0];
+      } else if (Array.isArray(rawUrl)) {
+        copy.urls = rawUrl;
+        copy.url = rawUrl[0];
+      } else if (typeof rawUrl === "string") {
+        copy.urls = [rawUrl];
+      }
+      return copy;
+    }
+    return val;
+  },
+  z.object({
+    id: z.string().regex(/^TSS-\d{4,}$/, "ID must follow TSS-XXXX format (e.g. TSS-0001)"),
+    title: z.string().optional(),
+    story: z.string().min(1, "Story text is required"),
+    author: z.string().optional().default("Tappei Nagatsuki"),
+    url: z.string().url("Must be a valid URL"),
+    urls: z.array(z.string().url("Must be a valid URL")).default([]),
+    date: z.string().min(1, "Date is required"),
+    characters: z.array(z.string()).default([]),
+    arc: z.string().optional().default("general"),
+    verified: z.boolean().default(true),
+    translationSource: z
+      .object({
+        name: z.string().optional(),
+        url: z.string().url("Must be a valid URL").optional(),
+      })
+      .optional(),
+  })
+);
+
+export type TwitterShortStory = z.infer<typeof twitterShortStorySchema>;
 
 

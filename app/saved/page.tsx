@@ -1,16 +1,21 @@
 import { Suspense } from "react";
-import { getAllQnas, getAllTrivia } from "../../lib/content-loader";
+import {
+  getAllQnas,
+  getAllTrivia,
+  getAllTwitterShortStories,
+} from "../../lib/content-loader";
 import { SavedClient } from "../../components/SavedClient";
 
 export const metadata = {
   title: "Saved Lore & Bookmarks — Od-Lagna",
   description:
-    "Your private, locally saved Re:Zero author Q&A and trivia statements with instant filtering, spoiler protection, export, and cross-device sharing.",
+    "Your private, locally saved Re:Zero author Q&A, trivia statements, and Twitter short stories with instant filtering, spoiler protection, export, and cross-device sharing.",
 };
 
 export default function SavedPage() {
   const allQnas = getAllQnas();
   const allTrivia = getAllTrivia();
+  const allTwitterStories = getAllTwitterShortStories();
 
   return (
     <Suspense
@@ -20,7 +25,11 @@ export default function SavedPage() {
         </div>
       }
     >
-      <SavedClient allQnas={allQnas} allTrivia={allTrivia} />
+      <SavedClient
+        allQnas={allQnas}
+        allTrivia={allTrivia}
+        allTwitterStories={allTwitterStories}
+      />
     </Suspense>
   );
 }

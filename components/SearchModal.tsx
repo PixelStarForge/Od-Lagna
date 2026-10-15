@@ -472,7 +472,11 @@ export function SearchModal() {
     if (item.type === "character-profile") {
       navigateTo(`/characters?id=${encodeURIComponent(item.id)}`);
     } else if (item.type === "qna") {
-      navigateTo(`/qna?id=${item.data.id}`);
+      if (item.data.entryType === "twitter-story") {
+        navigateTo(`/twitter-short-stories?id=${item.data.id}`);
+      } else {
+        navigateTo(`/qna?id=${item.data.id}`);
+      }
     } else if (item.type === "character") {
       navigateTo(`/browse?character=${encodeURIComponent(item.name)}`);
     } else if (item.type === "topic") {

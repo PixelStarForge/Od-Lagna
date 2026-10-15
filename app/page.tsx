@@ -1,5 +1,12 @@
 import Link from "next/link";
-import { getContentStats, getAllArcs, getAllIfRoutes, getIfStories, getSideStories } from "../lib/content-loader";
+import {
+  getContentStats,
+  getAllArcs,
+  getAllIfRoutes,
+  getIfStories,
+  getSideStories,
+  getAllTwitterShortStories,
+} from "../lib/content-loader";
 import { getAnimeCatalog } from "../lib/anime-loader";
 import { SearchHeroButton } from "../components/SearchHeroButton";
 
@@ -9,6 +16,7 @@ export default function HomePage() {
   const ifRoutes = getAllIfRoutes();
   const ifStories = getIfStories();
   const sideStories = getSideStories();
+  const twitterStories = getAllTwitterShortStories();
   const animeReleases = getAnimeCatalog().filter(
     (item) => item.status !== "planned" && item.type !== "break-time"
   );
@@ -51,7 +59,7 @@ export default function HomePage() {
           <span className="text-xs font-mono text-[var(--text-muted)]">Updated at build time</span>
         </div>
 
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3 sm:gap-4">
           <div className="p-5 rounded-xl border border-[var(--border-subtle)] bg-[var(--bg-surface)]">
             <p className="text-xs font-mono font-semibold text-[var(--text-muted)] uppercase">Total Indexed</p>
             <p className="text-3xl font-extrabold text-[var(--text-main)] mt-1 font-mono">
@@ -82,6 +90,14 @@ export default function HomePage() {
               {ifRoutes.length}
             </p>
             <p className="text-sm text-[var(--text-muted)] mt-1 font-medium">IF Routes &amp; Side Stories</p>
+          </div>
+
+          <div className="p-5 rounded-xl border border-[var(--border-subtle)] bg-[var(--bg-surface)] col-span-2 md:col-span-1">
+            <p className="text-xs font-mono font-semibold text-[var(--text-muted)] uppercase">Twitter Stories</p>
+            <p className="text-3xl font-extrabold text-[var(--accent)] mt-1 font-mono">
+              {twitterStories.length}
+            </p>
+            <p className="text-sm text-[var(--text-muted)] mt-1 font-medium">Author Threads</p>
           </div>
         </div>
       </section>
@@ -283,6 +299,64 @@ export default function HomePage() {
                 </Link>
               );
             })}
+          </div>
+        </section>
+      )}
+
+      {/* Twitter Short Stories */}
+      {twitterStories.length > 0 && (
+        <section className="space-y-4">
+          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-1.5 sm:gap-4">
+            <div>
+              <div className="flex items-center justify-between sm:block">
+                <h2 className="text-lg sm:text-xl font-bold text-[var(--text-main)] tracking-tight">
+                  Twitter Short Stories
+                </h2>
+                <Link
+                  href="/twitter-short-stories"
+                  className="sm:hidden text-xs font-semibold text-[var(--accent)] hover:underline whitespace-nowrap shrink-0 ml-2"
+                >
+                  View All →
+                </Link>
+              </div>
+              <p className="text-xs sm:text-sm text-[var(--text-muted)] mt-0.5">
+                Official short stories published directly to Twitter by author Tappei Nagatsuki.
+              </p>
+            </div>
+            <Link
+              href="/twitter-short-stories"
+              className="hidden sm:inline-flex items-center gap-1 text-sm font-semibold text-[var(--accent)] hover:underline whitespace-nowrap shrink-0"
+            >
+              View All Twitter Stories →
+            </Link>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+            {twitterStories.slice(0, 3).map((story) => (
+              <Link
+                key={story.id}
+                href={`/twitter-short-stories?id=${story.id}`}
+                className="group p-4 rounded-xl border border-[var(--border-subtle)] bg-[var(--bg-surface)] hover:border-[var(--accent-border)] hover:bg-[var(--bg-elevated)] transition-all flex flex-col justify-between space-y-3"
+              >
+                <div className="space-y-1.5">
+                  <div className="flex items-center justify-between">
+                    <span className="text-sm font-semibold text-[var(--accent)] group-hover:text-[var(--accent-hover)] transition-colors line-clamp-1">
+                      {story.title || `Twitter Short Story #${story.id}`}
+                    </span>
+                    <span className="text-xs font-mono font-medium text-[var(--text-muted)] shrink-0 ml-2">
+                      #{story.id}
+                    </span>
+                  </div>
+                  <p className="text-xs sm:text-sm text-[var(--text-muted)] line-clamp-2 leading-relaxed">
+                    {story.story}
+                  </p>
+                </div>
+                <div className="pt-2 border-t border-[var(--border-subtle)]/60 flex items-center justify-between text-xs font-mono text-[var(--text-muted)]">
+                  <span className="truncate max-w-[150px]">{story.characters.slice(0, 2).join(", ")}{story.characters.length > 2 ? "..." : ""}</span>
+                  <span>{story.date}</span>
+                </div>
+              </Link>
+            ))}
           </div>
         </section>
       )}

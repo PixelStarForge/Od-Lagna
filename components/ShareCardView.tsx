@@ -1,23 +1,24 @@
 "use client";
 
 import React, { forwardRef } from "react";
-import { QnaEntry, TriviaEntry, getEntrySources } from "../lib/schema";
+import { getEntrySources } from "../lib/schema";
 import { getArcMetadata } from "../lib/arc-utils";
 import { formatQnaDate, getEntryDate } from "../lib/date-utils";
-import { isQnaEntry } from "../lib/share-utils";
+import { isQnaEntry, isTwitterShortStory, type AnyShareableEntry } from "../lib/share-utils";
 
 interface ShareCardViewProps {
-  entry: QnaEntry | TriviaEntry;
+  entry: AnyShareableEntry;
 }
 
 export const ShareCardView = forwardRef<HTMLDivElement, ShareCardViewProps>(
   function ShareCardView({ entry }, ref) {
     const isQna = isQnaEntry(entry);
-    const arcMeta = getArcMetadata(entry.arc);
-    const dateFormatted = formatQnaDate(getEntryDate(entry));
-    const sources = getEntrySources(entry).filter(
-      (s) => s.value && s.value.trim().length > 0
-    );
+    const isTss = isTwitterShortStory(entry);
+    const arcMeta = getArcMetadata(isTss ? "general" : entry.arc);
+    const dateFormatted = formatQnaDate(isTss ? entry.date : getEntryDate(entry));
+    const sources = isTss
+      ? (entry.urls && entry.urls.length > 0 ? entry.urls : [entry.url]).map((u) => ({ type: "url" as const, value: u }))
+      : getEntrySources(entry).filter((s) => s.value && s.value.trim().length > 0);
 
     const arcBadge = (
       <>
@@ -61,7 +62,7 @@ export const ShareCardView = forwardRef<HTMLDivElement, ShareCardViewProps>(
           <div className="flex items-center gap-2 flex-wrap min-w-0">
             {/* Type Badge */}
             <span className="font-mono text-xs font-bold px-2.5 py-0.5 rounded border border-[var(--accent-border)] text-[var(--accent)] tracking-wider shrink-0">
-              {isQna ? "Q&A" : "TRIVIA"}
+              {isTss ? "SHORT STORY" : isQna ? "Q&A" : "TRIVIA"}
             </span>
 
             {/* Arc Badge */}
@@ -103,7 +104,23 @@ export const ShareCardView = forwardRef<HTMLDivElement, ShareCardViewProps>(
 
         {/* Content Area */}
         <div className="space-y-4">
-          {isQna ? (
+          {isTss ? (
+            <>
+              {/* Optional Title */}
+              {entry.title && (
+                <div className="space-y-1">
+                  <h3 className="font-sans font-bold text-base sm:text-lg text-[var(--text-main)] leading-snug">
+                    {entry.title}
+                  </h3>
+                </div>
+              )}
+
+              {/* Story Content */}
+              <div className="font-sans text-sm sm:text-base text-[var(--text-main)] leading-relaxed whitespace-pre-line max-h-96 overflow-y-auto pr-1">
+                {entry.story}
+              </div>
+            </>
+          ) : isQna ? (
             <>
               {/* Question */}
               <div className="space-y-1.5">
@@ -148,8 +165,8 @@ export const ShareCardView = forwardRef<HTMLDivElement, ShareCardViewProps>(
             </>
           )}
 
-          {/* Tags */}
-          {(entry.characters.length > 0 || entry.topics.length > 0) && (
+          {/* Tags (Characters only for TSS; no topics) */}
+          {entry.characters.length > 0 && (
             <div className="flex flex-wrap gap-2 pt-2">
               {entry.characters.map((char) => (
                 <span
@@ -160,7 +177,7 @@ export const ShareCardView = forwardRef<HTMLDivElement, ShareCardViewProps>(
                 </span>
               ))}
 
-              {entry.topics.map((topic) => (
+              {!isTss && "topics" in entry && (entry.topics || []).map((topic) => (
                 <span
                   key={topic}
                   className="text-xs font-medium font-sans px-2.5 py-1 rounded-md border border-[var(--border-subtle)] bg-[var(--bg-surface)] text-[var(--text-muted)]"

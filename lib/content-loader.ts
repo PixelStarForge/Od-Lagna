@@ -16,6 +16,8 @@ import {
   characterSchema,
   CharacterDetail,
   CharacterLoreItem,
+  twitterShortStorySchema,
+  TwitterShortStory,
 } from "./schema";
 
 const CONTENT_DIR = path.join(process.cwd(), "content");
@@ -23,6 +25,7 @@ const CONFIG_DIR = path.join(CONTENT_DIR, "config");
 const QNA_DIR = path.join(CONTENT_DIR, "qna");
 const CONTENT_TRIVIA_DIR = path.join(CONTENT_DIR, "trivia");
 const CONTENT_CHARACTERS_DIR = path.join(CONTENT_DIR, "characters");
+const CONTENT_TWITTER_STORIES_DIR = path.join(CONTENT_DIR, "twitter-short-stories");
 
 export interface ArcMetadata {
   slug: string;
@@ -37,6 +40,7 @@ export interface ContentStats {
   totalCount: number;
   verifiedCount: number;
   arcCounts: Record<string, number>;
+  twitterStoriesCount: number;
 }
 
 export function getAllArcs(): ArcConfig[] {
@@ -171,10 +175,13 @@ export function getContentStats(): ContentStats {
     arcCounts[entry.arc] = (arcCounts[entry.arc] || 0) + 1;
   }
 
+  const twitterStoriesCount = getAllTwitterShortStories().length;
+
   return {
     totalCount,
     verifiedCount,
     arcCounts,
+    twitterStoriesCount,
   };
 }
 
@@ -270,6 +277,66 @@ export function getAllArchiveEntries(): ArchiveEntry[] {
   }));
 
   return [...qnas, ...trivias];
+}
+
+export function getAllTwitterShortStories(): TwitterShortStory[] {
+  if (!fs.existsSync(CONTENT_TWITTER_STORIES_DIR)) {
+    return [];
+  }
+
+  const files = fs.readdirSync(CONTENT_TWITTER_STORIES_DIR);
+  const stories: TwitterShortStory[] = [];
+
+  const validFiles = files.filter(
+    (file) => file.endsWith(".json") && !file.startsWith("_")
+  );
+
+  for (const file of validFiles) {
+    const fullPath = path.join(CONTENT_TWITTER_STORIES_DIR, file);
+    try {
+      const raw = fs.readFileSync(fullPath, "utf-8");
+      const parsed = JSON.parse(raw);
+      const validated = twitterShortStorySchema.parse(parsed);
+      stories.push(validated);
+    } catch (e) {
+      console.warn(`[content-loader] Skipping invalid twitter story file ${file}:`, e);
+    }
+  }
+
+  // Sort by date descending (newest first) by default, then by ID
+  stories.sort((a, b) => {
+    const dateComp = (b.date || "").localeCompare(a.date || "");
+    if (dateComp !== 0) return dateComp;
+    return a.id.localeCompare(b.id);
+  });
+
+  return stories;
+}
+
+export function getTwitterShortStoryById(id: string): TwitterShortStory | null {
+  if (!id || !fs.existsSync(CONTENT_TWITTER_STORIES_DIR)) {
+    return null;
+  }
+  const normalizedId = id.trim().toUpperCase();
+  const file = path.join(CONTENT_TWITTER_STORIES_DIR, `${normalizedId}.json`);
+  if (fs.existsSync(file)) {
+    try {
+      const raw = fs.readFileSync(file, "utf-8");
+      return twitterShortStorySchema.parse(JSON.parse(raw));
+    } catch {
+      return null;
+    }
+  }
+
+  // Fallback: search all
+  const all = getAllTwitterShortStories();
+  return (
+    all.find(
+      (s) =>
+        s.id.toUpperCase() === normalizedId ||
+        s.id.toLowerCase() === id.trim().toLowerCase()
+    ) ?? null
+  );
 }
 
 export interface CharacterCatalogItem {
@@ -397,6 +464,7 @@ export function getCharacterDetailWithRelated(idOrSlug: string): {
   character: CharacterCatalogItem;
   qnas: QnaEntry[];
   trivia: TriviaEntry[];
+  twitterStories: TwitterShortStory[];
 } | null {
   if (!idOrSlug) return null;
   const items = getAllCharacterCatalogItems();
@@ -413,6 +481,7 @@ export function getCharacterDetailWithRelated(idOrSlug: string): {
 
   const allQnas = getAllQnas();
   const allTrivia = getAllTrivia();
+  const allTwitterStories = getAllTwitterShortStories();
 
   const relatedQnas = allQnas.filter((q) =>
     q.characters.some((c) => matchesCharacterTag(item, c))
@@ -420,11 +489,15 @@ export function getCharacterDetailWithRelated(idOrSlug: string): {
   const relatedTrivia = allTrivia.filter((t) =>
     t.characters.some((c) => matchesCharacterTag(item, c))
   );
+  const relatedTwitterStories = allTwitterStories.filter((s) =>
+    s.characters.some((c) => matchesCharacterTag(item, c))
+  );
 
   return {
     character: item,
     qnas: relatedQnas,
     trivia: relatedTrivia,
+    twitterStories: relatedTwitterStories,
   };
 }
 

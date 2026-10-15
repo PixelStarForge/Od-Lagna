@@ -38,6 +38,9 @@ export function Footer() {
             <Link href="/ifs" className="hover:text-[var(--text-main)] transition-colors">
               IF Routes
             </Link>
+            <Link href="/twitter-short-stories" className="hover:text-[var(--text-main)] transition-colors">
+              Twitter Stories
+            </Link>
             <Link href="/about" className="hover:text-[var(--text-main)] transition-colors">
               About
             </Link>

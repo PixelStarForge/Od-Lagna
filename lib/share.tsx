@@ -1,12 +1,12 @@
 "use client";
 
 import React, { createContext, useContext, useState, useCallback } from "react";
-import { QnaEntry, TriviaEntry } from "./schema";
+import { QnaEntry, TriviaEntry, TwitterShortStory } from "./schema";
 
 export interface ShareContextType {
   isShareOpen: boolean;
-  shareEntry: QnaEntry | TriviaEntry | null;
-  openShareModal: (entry: QnaEntry | TriviaEntry) => void;
+  shareEntry: QnaEntry | TriviaEntry | TwitterShortStory | null;
+  openShareModal: (entry: QnaEntry | TriviaEntry | TwitterShortStory) => void;
   closeShareModal: () => void;
 }
 
@@ -14,9 +14,9 @@ const ShareContext = createContext<ShareContextType | null>(null);
 
 export function ShareProvider({ children }: { children: React.ReactNode }) {
   const [isShareOpen, setIsShareOpen] = useState(false);
-  const [shareEntry, setShareEntry] = useState<QnaEntry | TriviaEntry | null>(null);
+  const [shareEntry, setShareEntry] = useState<QnaEntry | TriviaEntry | TwitterShortStory | null>(null);
 
-  const openShareModal = useCallback((entry: QnaEntry | TriviaEntry) => {
+  const openShareModal = useCallback((entry: QnaEntry | TriviaEntry | TwitterShortStory) => {
     setShareEntry(entry);
     setIsShareOpen(true);
   }, []);

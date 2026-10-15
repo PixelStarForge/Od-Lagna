@@ -82,7 +82,11 @@ export function Header() {
   const isBrowseActive = pathname === "/browse" || pathname?.startsWith("/browse/");
   const isCharactersActive = pathname?.startsWith("/characters");
   const isAnimeActive = pathname?.startsWith("/anime");
-  const isStoriesActive = pathname?.startsWith("/side-stories") || pathname?.startsWith("/ifs") || pathname?.startsWith("/stories");
+  const isStoriesActive =
+    pathname?.startsWith("/side-stories") ||
+    pathname?.startsWith("/ifs") ||
+    pathname?.startsWith("/stories") ||
+    pathname?.startsWith("/twitter-short-stories");
   const isMoreActive = pathname === "/about" || pathname === "/contribute";
 
   return (
@@ -208,6 +212,23 @@ export function Header() {
                     </div>
                     <div className={`text-xs ${pathname?.startsWith("/ifs") ? "text-[var(--accent)] opacity-85" : "text-[var(--text-muted)]"}`}>
                       Alternative what-if timelines
+                    </div>
+                  </Link>
+                  <Link
+                    href="/twitter-short-stories"
+                    role="menuitem"
+                    onClick={() => setOpenDropdown(null)}
+                    className={`block px-3 py-2 rounded-lg text-sm transition-colors mt-0.5 ${
+                      pathname?.startsWith("/twitter-short-stories")
+                        ? "bg-[var(--bg-elevated)] text-[var(--accent)] font-semibold"
+                        : "hover:bg-[var(--bg-elevated)] text-[var(--text-main)]"
+                    }`}
+                  >
+                    <div className={`font-medium text-xs sm:text-sm ${pathname?.startsWith("/twitter-short-stories") ? "text-[var(--accent)] font-semibold" : "text-[var(--text-main)]"}`}>
+                      Twitter Short Stories
+                    </div>
+                    <div className={`text-xs ${pathname?.startsWith("/twitter-short-stories") ? "text-[var(--accent)] opacity-85" : "text-[var(--text-muted)]"}`}>
+                      Short Story on Twitter
                     </div>
                   </Link>
                 </div>
@@ -575,6 +596,20 @@ export function Header() {
               <span>IF Routes</span>
               <span className={`text-xs font-mono ${pathname?.startsWith("/ifs") ? "text-[var(--accent)] font-medium" : "text-[var(--text-muted)]"}`}>
                 What-If
+              </span>
+            </Link>
+            <Link
+              href="/twitter-short-stories"
+              onClick={() => setIsMobileMenuOpen(false)}
+              className={`flex items-center justify-between px-3 py-2 rounded-lg text-sm font-medium transition-colors ${
+                pathname?.startsWith("/twitter-short-stories")
+                  ? "bg-[var(--bg-elevated)] text-[var(--accent)] font-semibold"
+                  : "text-[var(--text-muted)] hover:text-[var(--text-main)] hover:bg-[var(--bg-elevated)]"
+              }`}
+            >
+              <span>Twitter Short Stories</span>
+              <span className={`text-xs font-mono ${pathname?.startsWith("/twitter-short-stories") ? "text-[var(--accent)] font-medium" : "text-[var(--text-muted)]"}`}>
+                Twitter
               </span>
             </Link>
           </div>

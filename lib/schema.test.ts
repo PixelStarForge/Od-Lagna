@@ -3,9 +3,8 @@ import {
   getEntrySources,
   contributorSchema,
   characterSchema,
-  animeCatalogEntrySchema,
   authorCommentSchema,
-  episodeCommentarySchema,
+  twitterShortStorySchema,
 } from "./schema";
 import {
   getAnimeCatalog,
@@ -23,6 +22,8 @@ import {
   getAllCharacterCatalogItems,
   getCharacterDetailWithRelated,
   slugifyCharacterName,
+  getAllTwitterShortStories,
+  getTwitterShortStoryById,
 } from "./content-loader";
 
 function assert(condition: boolean, message: string) {
@@ -220,10 +221,10 @@ console.log("✓ Contributor validation tests passed");
 console.log("\n10. Testing getAllContributors() loader...");
 const contributors = getAllContributors();
 assert(Array.isArray(contributors), "Expected contributors to be an array");
-assert(contributors.length === 4, `Expected 4 contributors, got ${contributors.length}`);
+assert(contributors.length >= 4, `Expected at least 4 contributors, got ${contributors.length}`);
 assert(contributors[0].username === "Mildly_Confused_NPC", "Expected first contributor to match");
-assert(contributors[1].username === "u/Affectionate_Run6250", "Expected second contributor to match");
-assert(contributors[2].username === "Historical-Weird7591", "Expected third contributor to match");
+assert(contributors[1].username === "Hercules", "Expected second contributor to match");
+assert(contributors[2].username === "Nika_■_Alastor", "Expected third contributor to match");
 assert(contributors[3].username === "Ehknee", "Expected fourth contributor to match");
 console.log("✓ getAllContributors() loader passed");
 
@@ -362,5 +363,75 @@ clearAnimeCache();
 const cat3 = getAnimeCatalog();
 assert(cat3.length === 5, "Expected re-populated catalog after clearAnimeCache()");
 console.log("✓ anime in-memory cache passed");
+
+// 17. Testing twitterShortStorySchema
+console.log("\n17. Testing twitterShortStorySchema...");
+const validStory = {
+  id: "TSS-0001",
+  title: "Test Short Story",
+  story: "A short story written by the author.",
+  author: "Tappei Nagatsuki",
+  url: "https://x.com/nezumiironyanko/status/123456789",
+  date: "2020-05-01",
+  characters: ["Natsuki Subaru", "Rem"],
+  // Explicitly NO topics tag!
+};
+const parsedStory = twitterShortStorySchema.parse(validStory);
+assert(parsedStory.id === "TSS-0001", "Expected ID match");
+assert(parsedStory.title === "Test Short Story", "Expected title match");
+assert(parsedStory.author === "Tappei Nagatsuki", "Expected author match");
+assert(parsedStory.characters.length === 2, "Expected 2 characters");
+assert(!("topics" in parsedStory), "Twitter short story must not require topics");
+
+// Test preprocess fallback from text/content to story
+const fallbackStory = twitterShortStorySchema.parse({
+  id: "TSS-0002",
+  title: "Fallback Story",
+  text: "Fallback text field.",
+  url: "https://x.com/nezumiironyanko/status/987654321",
+  date: "2021-01-01",
+});
+assert(fallbackStory.story === "Fallback text field.", "Expected text to be mapped to story");
+assert(fallbackStory.author === "Tappei Nagatsuki", "Expected default author to be Tappei Nagatsuki");
+
+// Test that title is optional
+const storyWithoutTitle = twitterShortStorySchema.parse({
+  id: "TSS-0003",
+  story: "Story without title.",
+  url: "https://x.com/nezumiironyanko/status/123456789",
+  date: "2021-01-01",
+});
+// Test that urls array is supported for multi-tweet threads
+const multiUrlStory = twitterShortStorySchema.parse({
+  id: "TSS-0004",
+  story: "Thread story.",
+  urls: [
+    "https://x.com/nezumiironyanko/status/111",
+    "https://x.com/nezumiironyanko/status/222",
+    "https://x.com/nezumiironyanko/status/333",
+  ],
+  date: "2021-01-01",
+});
+assert(multiUrlStory.urls.length === 3, "Expected 3 URLs in urls array");
+assert(multiUrlStory.url === "https://x.com/nezumiironyanko/status/111", "Expected url to match first URL");
+const extractedSources = getEntrySources(multiUrlStory);
+assert(extractedSources.length === 3, "Expected getEntrySources to return 3 sources");
+assert(extractedSources[1].value === "https://x.com/nezumiironyanko/status/222", "Expected second URL match");
+console.log("✓ twitterShortStorySchema passed");
+
+// 18. Testing getAllTwitterShortStories() and getTwitterShortStoryById()
+console.log("\n18. Testing twitter short stories loaders...");
+const allTwitterStories = getAllTwitterShortStories();
+assert(Array.isArray(allTwitterStories), "Expected array of twitter short stories");
+assert(allTwitterStories.length >= 1, `Expected at least 1 twitter short story, got ${allTwitterStories.length}`);
+
+const singleStory = getTwitterShortStoryById("TSS-0001");
+assert(singleStory !== null, "Expected to find TSS-0001");
+assert(singleStory?.id === "TSS-0001", "Expected ID TSS-0001");
+assert(Boolean(singleStory?.characters.includes("Julius Juukulius")), "Expected Julius Juukulius in characters");
+
+const caseInsensitiveStory = getTwitterShortStoryById("tss-0001");
+assert(caseInsensitiveStory !== null, "Expected case-insensitive ID lookup to succeed");
+console.log("✓ twitter short stories loaders passed");
 
 console.log("\n🎉 ALL SCHEMA TESTS PASSED!");

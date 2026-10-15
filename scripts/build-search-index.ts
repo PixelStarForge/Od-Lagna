@@ -1,17 +1,24 @@
 import fs from "node:fs";
 import path from "node:path";
-import { qnaEntrySchema, triviaEntrySchema, ArcConfig, IfRouteConfig } from "../lib/schema";
+import {
+  qnaEntrySchema,
+  triviaEntrySchema,
+  twitterShortStorySchema,
+  ArcConfig,
+  IfRouteConfig,
+} from "../lib/schema";
 
 const ROOT_DIR = path.resolve(__dirname, "..");
 const CONTENT_CONFIG_DIR = path.join(ROOT_DIR, "content", "config");
 const CONTENT_QNA_DIR = path.join(ROOT_DIR, "content", "qna");
 const CONTENT_TRIVIA_DIR = path.join(ROOT_DIR, "content", "trivia");
+const CONTENT_TWITTER_STORIES_DIR = path.join(ROOT_DIR, "content", "twitter-short-stories");
 const CONTENT_CHARACTERS_DIR = path.join(ROOT_DIR, "content", "characters");
 const PUBLIC_DIR = path.join(ROOT_DIR, "public");
 
 export interface SearchIndexRecord {
   id: string;
-  entryType?: "qna" | "trivia";
+  entryType?: "qna" | "trivia" | "twitter-story";
   title?: string;
   question: string;
   answerSnippet: string;
@@ -160,6 +167,49 @@ export function buildSearchIndex(): SearchIndexPayload {
         });
       } catch (err) {
         console.error(`Error indexing trivia file ${file}:`, err);
+      }
+    }
+  }
+
+  // Index Twitter Short Stories
+  if (fs.existsSync(CONTENT_TWITTER_STORIES_DIR)) {
+    const files = fs.readdirSync(CONTENT_TWITTER_STORIES_DIR);
+    const validFiles = files.filter(
+      (file) => file.endsWith(".json") && !file.startsWith("_")
+    );
+
+    for (const file of validFiles) {
+      const fullPath = path.join(CONTENT_TWITTER_STORIES_DIR, file);
+      try {
+        const raw = fs.readFileSync(fullPath, "utf-8");
+        const parsed = JSON.parse(raw);
+        const entry = twitterShortStorySchema.parse(parsed);
+
+        const cleanStory = entry.story.replace(/\s+/g, " ").trim();
+        const snippet =
+          cleanStory.length > 200
+            ? cleanStory.slice(0, 197) + "..."
+            : cleanStory;
+
+        entry.characters.forEach((c) => characterSet.add(c));
+        // Explicitly NO topic tags for twitter short stories!
+
+        records.push({
+          id: entry.id,
+          entryType: "twitter-story",
+          title: entry.title,
+          question: entry.title || snippet,
+          answerSnippet: snippet,
+          answerSearchText: cleanStory,
+          characters: entry.characters,
+          topics: [],
+          arc: entry.arc || "general",
+          arcName: arcMap.get(entry.arc || "general") || "General / Lore",
+          verified: entry.verified,
+          dateTime: entry.date,
+        });
+      } catch (err) {
+        console.error(`Error indexing twitter short story file ${file}:`, err);
       }
     }
   }

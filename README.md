@@ -2,7 +2,7 @@
 
 A searchable, spoiler-safe archive of author Q&As, interviews, anime live-tweets, and lore statements by *Re:Zero kara Hajimeru Isekai Seikatsu* creator **Tappei Nagatsuki**.
 
-[Website](https://od-lagna.pages.dev) | [Browse Archive](https://od-lagna.pages.dev/browse) | [Character Profiles](https://od-lagna.pages.dev/characters) | [Anime Commentary](https://od-lagna.pages.dev/anime) | [IF Stories](https://od-lagna.pages.dev/ifs)
+[Website](https://od-lagna.pages.dev) | [Browse Archive](https://od-lagna.pages.dev/browse) | [Character Profiles](https://od-lagna.pages.dev/characters) | [Anime Commentary](https://od-lagna.pages.dev/anime) | [IF Stories](https://od-lagna.pages.dev/ifs) | [Twitter Stories](https://od-lagna.pages.dev/twitter-short-stories)
 
 ![Od-Lagna Interface (Light and Dark Theme)](public/screenshots/hero-split.png)
 
