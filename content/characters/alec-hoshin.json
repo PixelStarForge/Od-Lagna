@@ -1,0 +1,28 @@
+{
+  "id": "alec-hoshin",
+  "name": "Alec Hoshin",
+  "arc": "arc-10",
+  "japaneseName": "アレク・ホーシン",
+  "aliases": [
+    {
+      "name": "Hoshin",
+      "arc": "arc-3"
+    },
+    {
+      "name": "Hoshin of the Wasteland",
+      "arc": "arc-3"
+    },
+    {
+      "name": "Hoshin of the Wilderness",
+      "arc": "arc-3"
+    }
+  ],
+  "gender": "Male",
+  "race": "Human",
+  "affiliation": [
+    "Kararagi City-States",
+    "Witch Era Party"
+  ],
+  "description": "Alec Hoshin, historically known as Hoshin of the Wilderness, was the legendary founder of the Kararagi City-States 400 years ago during the Witch Era. Known for introducing modern Japanese cultural concepts and commerce into the world, he was a key companion alongside Flugel, Reid Astrea, and Echidna.",
+  "link": "https://rezero.fandom.com/wiki/Alec_Hoshin"
+}
