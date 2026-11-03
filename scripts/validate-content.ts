@@ -10,6 +10,7 @@ import {
   animeCatalogEntrySchema,
   episodeCommentarySchema,
   twitterShortStorySchema,
+  readingGuideSchema,
 } from "../lib/schema";
 
 const ROOT_DIR = path.resolve(__dirname, "..");
@@ -134,6 +135,35 @@ export function validateContributors(): { valid: boolean; errors: string[] } {
       errors.push(`[contributors.json #${index + 1}] Schema validation failed: ${issues}`);
     }
   });
+
+  return { valid: errors.length === 0, errors };
+}
+
+export function validateReadingGuide(): { valid: boolean; errors: string[] } {
+  const errors: string[] = [];
+  const guideFile = path.join(CONTENT_CONFIG_DIR, "reading-guide.json");
+
+  if (!fs.existsSync(guideFile)) {
+    return { valid: true, errors: [] };
+  }
+
+  let parsed: unknown;
+  try {
+    const raw = fs.readFileSync(guideFile, "utf-8");
+    parsed = JSON.parse(raw);
+  } catch (err: unknown) {
+    const msg = err instanceof Error ? err.message : String(err);
+    errors.push(`[content/config/reading-guide.json] Invalid JSON format: ${msg}`);
+    return { valid: false, errors };
+  }
+
+  const result = readingGuideSchema.safeParse(parsed);
+  if (!result.success) {
+    const issues = result.error.issues
+      .map((i) => `${i.path.join(".") || "root"}: ${i.message}`)
+      .join("; ");
+    errors.push(`[content/config/reading-guide.json] Schema validation failed: ${issues}`);
+  }
 
   return { valid: errors.length === 0, errors };
 }
@@ -492,11 +522,15 @@ function run() {
   console.log("Validating twitter short stories in content/twitter-short-stories/...");
   const twitterStoriesResult = validateTwitterShortStoriesDirectory();
 
+  console.log("Validating reading guide in content/config/reading-guide.json...");
+  const readingGuideResult = validateReadingGuide();
+
   const allErrors = [
     ...qnaResult.errors,
     ...triviaResult.errors,
     ...charactersResult.errors,
     ...contributorsResult.errors,
+    ...readingGuideResult.errors,
     ...animeResult.errors,
     ...twitterStoriesResult.errors,
   ];

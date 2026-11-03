@@ -18,6 +18,8 @@ import {
   CharacterLoreItem,
   twitterShortStorySchema,
   TwitterShortStory,
+  ReadingGuideData,
+  readingGuideSchema,
 } from "./schema";
 
 const CONTENT_DIR = path.join(process.cwd(), "content");
@@ -500,4 +502,23 @@ export function getCharacterDetailWithRelated(idOrSlug: string): {
     twitterStories: relatedTwitterStories,
   };
 }
+
+export function getReadingGuide(): ReadingGuideData | null {
+  const file = path.join(CONFIG_DIR, "reading-guide.json");
+  if (!fs.existsSync(file)) return null;
+  try {
+    const raw = fs.readFileSync(file, "utf-8");
+    const parsed = JSON.parse(raw);
+    const result = readingGuideSchema.safeParse(parsed);
+    if (!result.success) {
+      console.error("Invalid reading-guide.json schema:", result.error);
+      return null;
+    }
+    return result.data;
+  } catch (err) {
+    console.error("Failed to read reading-guide.json:", err);
+    return null;
+  }
+}
+
 

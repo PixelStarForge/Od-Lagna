@@ -82,6 +82,11 @@ export function Header() {
   const isBrowseActive = pathname === "/browse" || pathname?.startsWith("/browse/");
   const isCharactersActive = pathname?.startsWith("/characters");
   const isAnimeActive = pathname?.startsWith("/anime");
+  const isGuideActive =
+    pathname === "/guide" ||
+    pathname?.startsWith("/guide") ||
+    pathname === "/reading-guide" ||
+    pathname?.startsWith("/reading-guide");
   const isStoriesActive =
     pathname?.startsWith("/side-stories") ||
     pathname?.startsWith("/ifs") ||
@@ -139,6 +144,16 @@ export function Header() {
               }`}
             >
               Anime
+            </Link>
+            <Link
+              href="/guide"
+              className={`px-3 py-1.5 rounded-md text-sm font-medium transition-colors ${
+                isGuideActive
+                  ? "bg-[var(--bg-elevated)] text-[var(--accent)] font-semibold"
+                  : "text-[var(--text-muted)] hover:text-[var(--text-main)] hover:bg-[var(--bg-elevated)]"
+              }`}
+            >
+              Guide
             </Link>
 
             {/* Stories Dropdown */}
@@ -561,6 +576,20 @@ export function Header() {
               <span>Anime Comments</span>
               <span className={`text-xs font-mono ${isAnimeActive ? "text-[var(--accent)] font-medium" : "text-[var(--text-muted)]"}`}>
                 Episodes
+              </span>
+            </Link>
+            <Link
+              href="/guide"
+              onClick={() => setIsMobileMenuOpen(false)}
+              className={`flex items-center justify-between px-3 py-2 rounded-lg text-sm font-medium transition-colors ${
+                isGuideActive
+                  ? "bg-[var(--bg-elevated)] text-[var(--accent)] font-semibold"
+                  : "text-[var(--text-muted)] hover:text-[var(--text-main)] hover:bg-[var(--bg-elevated)]"
+              }`}
+            >
+              <span>Reading Guide</span>
+              <span className={`text-xs font-mono ${isGuideActive ? "text-[var(--accent)] font-medium" : "text-[var(--text-muted)]"}`}>
+                Novels
               </span>
             </Link>
           </div>

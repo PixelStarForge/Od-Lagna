@@ -308,4 +308,44 @@ export const twitterShortStorySchema = z.preprocess(
 
 export type TwitterShortStory = z.infer<typeof twitterShortStorySchema>;
 
+export const readingGuideTerminologySchema = z.object({
+  id: z.string(),
+  badge: z.string(),
+  status: z.string(),
+  title: z.string(),
+  description: z.string(),
+});
+
+export const readingGuideSeasonSchema = z.object({
+  id: z.string(),
+  seasonName: z.string(),
+  adaptedCoverage: z.string(),
+  lnStart: z.object({
+    volume: z.string(),
+  }),
+  wnStart: z.object({
+    arc: z.string(),
+    chapter: z.string(),
+  }),
+  nextArcSlug: z.string(),
+});
+
+export const readingGuideFaqSchema = z.object({
+  q: z.string(),
+  a: z.string(),
+});
+
+export const readingGuideSchema = z.object({
+  title: z.string(),
+  subtitle: z.string(),
+  terminologies: z.array(readingGuideTerminologySchema),
+  seasons: z.array(readingGuideSeasonSchema),
+  faqs: z.array(readingGuideFaqSchema),
+});
+
+export type ReadingGuideData = z.infer<typeof readingGuideSchema>;
+export type ReadingGuideSeason = z.infer<typeof readingGuideSeasonSchema>;
+export type ReadingGuideTerminology = z.infer<typeof readingGuideTerminologySchema>;
+export type ReadingGuideFaq = z.infer<typeof readingGuideFaqSchema>;
+
 

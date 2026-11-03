@@ -1,0 +1,99 @@
+{
+  "title": "Where to Start Reading After the Anime",
+  "subtitle": "Want to continue Re:Zero after the anime ended? Here is everything you need to know to pick up the story after each season.",
+  "terminologies": [
+    {
+      "id": "wn",
+      "badge": "WN",
+      "status": "Original Author Story",
+      "title": "Web Novel",
+      "description": "The original draft self-published by Tappei Nagatsuki on the free Japanese platform Shōsetsuka ni Narō since 2012. It serves as the raw draft where new story arcs first debut before being revised and trimmed for the light novel releases. Translated into English by fan communities."
+    },
+    {
+      "id": "ln",
+      "badge": "LN",
+      "status": "Official Canon",
+      "title": "Light Novels",
+      "description": "The official commercial book release written by Tappei Nagatsuki, illustrated by Shinichirou Otsuka, and published by MF Bunko J (Kadokawa). It is the definitive canon source adapted directly by the anime series. Officially translated and published in English by Yen Press."
+    },
+    {
+      "id": "manga",
+      "badge": "Manga",
+      "status": " Manga Adaptation",
+      "title": "Manga",
+      "description": "Serialized across various Japanese manga magazines with different artists illustrating individual story arcs. While it adapts the light novel, its publication pacing generally lags behind both the novels and the anime adaptation."
+    }
+  ],
+  "seasons": [
+    {
+      "id": "season-1",
+      "seasonName": "Season 1 / Director's Cut",
+      "adaptedCoverage": "Covers Arc 1, Arc 2, and Arc 3 (Light Novel Volumes 1–9)",
+      "lnStart": {
+        "volume": "Volume 10"
+      },
+      "wnStart": {
+        "arc": "Arc 4",
+        "chapter": "Chapter 1: 'In the Place Left Behind'"
+      },
+      "nextArcSlug": "arc-4"
+    },
+    {
+      "id": "season-2",
+      "seasonName": "Season 2",
+      "adaptedCoverage": "Covers Arc 4: The Everlasting Contract (Light Novel Volumes 10–15)",
+      "lnStart": {
+        "volume": "Volume 16"
+      },
+      "wnStart": {
+        "arc": "Arc 5",
+        "chapter": "Chapter 1: 'Always Starting With a Visitor'"
+      },
+      "nextArcSlug": "arc-5"
+    },
+    {
+      "id": "season-3",
+      "seasonName": "Season 3",
+      "adaptedCoverage": "Covers Arc 5: The Stars That Engrave History (Light Novel Volumes 16–20)",
+      "lnStart": {
+        "volume": "Volume 21"
+      },
+      "wnStart": {
+        "arc": "Arc 6",
+        "chapter": "Chapter 1: 'Off to the Sand Dunes'"
+      },
+      "nextArcSlug": "arc-6"
+    },
+    {
+      "id": "season-4",
+      "seasonName": "Season 4 / Future",
+      "adaptedCoverage": "Covers Arc 6: The Corridor of Memories (Light Novel Volumes 21–25)",
+      "lnStart": {
+        "volume": "Volume 26"
+      },
+      "wnStart": {
+        "arc": "Arc 7",
+        "chapter": "Chapter 1: 'The Land of Wolves'"
+      },
+      "nextArcSlug": "arc-7"
+    }
+  ],
+  "faqs": [
+    {
+      "q": "Do I need to start reading from Volume 1 or can I skip to where the anime ended?",
+      "a": "You can safely jump straight to the volume or arc where the anime concluded. The White Fox anime adaptation stays very faithful to the core plot. That said, starting from beginning provides more content, monologues, richer worldbuilding and cut scenes (especially in Arc 3)."
+    },
+    {
+      "q": "Which one is canon: the Light Novel (LN) or the Web Novel (WN)?",
+      "a": "The Light Novel is the definitive official canon. The Web Novel is the raw author draft written on Syosetu. While the main story arcs and milestones are identical, Tappei Nagatsuki polishes scenes, trims bloat, and standardizes lore when adapting the WN into the published LN. WN can be taken as source, but if it is contradicting the LN, the LN will be taken as canon."
+    },
+    {
+      "q": "Should I read the Web Novel or the Light Novel?",
+      "a": "If you want illustrations, polished prose, and physical/e-book convenience, go with the Light Novel. If you want to read ahead for free with rapid translation coverage and deeper, unedited prose, the Web Novel (via Witch Cult Translations) is a choice."
+    },
+    {
+      "q": "Can I read the Manga instead of the Light Novel or Web Novel?",
+      "a": "The manga adapts the light novels, but its serialization  pace generally lag behind both the anime and the novels. If you want to read beyond the anime, the Light Novel or Web Novel are the recommended formats."
+    }
+  ]
+}
