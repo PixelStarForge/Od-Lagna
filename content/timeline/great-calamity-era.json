@@ -1,0 +1,114 @@
+[
+  {
+    "id": "satella-great-calamity-rampage",
+    "eraId": "great-calamity-era",
+    "name": "The Great Calamity: Satella Consumes Half the World",
+    "approxStartDate": "~400 Years Ago",
+    "duration": "Cataclysmic Era",
+    "location": "Global / Continental Divide",
+    "characters": ["Satella"],
+    "topic": "Great Calamity",
+    "importance": 1,
+    "description": "Due to incompatibility with the Envy Witch Factor, Satella undergoes catastrophic mental bifurcation. The Witch of Envy rampages across the continents, obliterating almost half the globe.",
+    "image": "https://images.unsplash.com/photo-1534447677768-be436bb09401?auto=format&fit=crop&w=1200&q=80",
+    "source": {
+      "title": "Arc 4 & Arc 6 Lore"
+    }
+  },
+  {
+    "id": "sealing-of-satella-pleiades",
+    "eraId": "great-calamity-era",
+    "name": "The Sealing of the Witch of Envy at Pleiades Watchtower",
+    "approxStartDate": "~400 Years Ago",
+    "duration": "Decisive Battle",
+    "location": "Pleiades Watchtower, Augria Sand Dunes",
+    "characters": ["Satella", "Flugel", "Reid Astrea", "Divine Dragon Volcanica"],
+    "topic": "Pleiades Watchtower",
+    "importance": 1,
+    "description": "Unable to kill the immortal Witch, Flugel, Reid Astrea, and Volcanica combine their legendary might to seal Satella inside a shrine in the eastern sand sea, placing Shaula and divine oaths on guard.",
+    "image": "https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?auto=format&fit=crop&w=1200&q=80",
+    "source": {
+      "title": "Arc 6 Chronicles & Author Q&A"
+    }
+  },
+  {
+    "id": "deaths-of-the-six-witches",
+    "eraId": "great-calamity-era",
+    "name": "Fall of the Six Witches & The Dream World Soul Harvest",
+    "approxStartDate": "~400 Years Ago",
+    "duration": "Several Months",
+    "location": "Scattered Across the Continent",
+    "characters": ["Echidna", "Carmilla", "Daphne", "Minerva", "Typhon", "Sekhmet"],
+    "topic": "Witches of Sin",
+    "importance": 2,
+    "description": "The remaining Witches perish one by one in the wake of the disaster. Echidna collects their soul essences into her Dream Castle before her own physical demise.",
+    "image": "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=1200&q=80",
+    "source": {
+      "title": "Arc 4 Tea Party Dialogues"
+    }
+  },
+  {
+    "id": "dragon-covenant-lugunica",
+    "eraId": "great-calamity-era",
+    "name": "Establishment of the Dragon Covenant",
+    "approxStartDate": "~400 Years Ago",
+    "duration": "Binding Treaty",
+    "location": "Royal Capital of Lugunica",
+    "characters": ["Divine Dragon Volcanica"],
+    "topic": "Dragon Kingdom Lugnica",
+    "importance": 2,
+    "description": "The Divine Dragon Volcanica enters into a sacred alliance with the first King of Lugunica, bestowing the Dragon Stone, divine protection, and founding the Dragon Kingdom.",
+    "image": "https://images.unsplash.com/photo-1524397076537-8178d8a25c13?auto=format&fit=crop&w=1200&q=80",
+    "source": {
+      "title": "Lugunica State Records"
+    }
+  },
+  {
+    "id": "founding-of-kararagi",
+    "eraId": "great-calamity-era",
+    "name": "Alec Hoshin Founds the Merchant Republic of Kararagi",
+    "approxStartDate": "~400 Years Ago",
+    "duration": "Decade of Expansion",
+    "location": "Western Continent (Kararagi)",
+    "characters": [],
+    "topic": "Kararagi",
+    "importance": 3,
+    "description": "Alec Hoshin migrates west, introduces commercial trade agreements, infrastructure, Kansai-style culture, and organizes independent city-states into the unified merchant federation of Kararagi.",
+    "image": "https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?auto=format&fit=crop&w=1200&q=80",
+    "source": {
+      "title": "Kararagi Merchant Annals"
+    }
+  },
+  {
+    "id": "roswaal-bloodline-pact",
+    "eraId": "great-calamity-era",
+    "name": "The First Roswaal's Soul-Transference Bloodline Oath",
+    "approxStartDate": "~400 Years Ago",
+    "duration": "Centuries-long Ritual",
+    "location": "Mathers Domain",
+    "characters": ["Echidna"],
+    "topic": "Lore",
+    "importance": 4,
+    "description": "Roswaal A. Mathers commences a forbidden soul-possession ritual across successive generations of bloodline descendants, dedicated entirely to reviving Echidna.",
+    "image": "https://images.unsplash.com/photo-1506703719100-a0f3a48c0f86?auto=format&fit=crop&w=1200&q=80",
+    "source": {
+      "title": "Light Novel Volume 15"
+    }
+  },
+  {
+    "id": "stabilization-of-the-waterfall",
+    "eraId": "great-calamity-era",
+    "name": "Stabilization of the Great Waterfall and Sand Seas",
+    "approxStartDate": "~390 Years Ago",
+    "duration": "Decades",
+    "location": "World Edge / Augria Dunes",
+    "characters": [],
+    "topic": "Timeline & Ages",
+    "importance": 5,
+    "description": "The planetary scar left behind by the Great Calamity freezes the borders of the flat world, forming the deadly Augria Sand Dunes and permanent cascades of the Great Waterfall.",
+    "image": "https://images.unsplash.com/photo-1432405972618-c60b0225b8f9?auto=format&fit=crop&w=1200&q=80",
+    "source": {
+      "title": "Geography of the Re:Zero World"
+    }
+  }
+]

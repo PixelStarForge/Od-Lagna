@@ -1,0 +1,61 @@
+[
+  {
+    "id": "od-laguna-emergence",
+    "eraId": "ancient-era",
+    "name": "Awakening of Od Laguna & The Wellspring of Mana",
+    "approxStartDate": "Mythological Past (>1000 Years Ago)",
+    "duration": "Indefinite",
+    "location": "Core of the World / Od Laguna",
+    "characters": ["Divine Dragon Volcanica"],
+    "topic": "Od Lagna",
+    "importance": 1,
+    "description": "Od Laguna serves as the fundamental core of mana and soul reincarnation, establishing the magical framework and elemental spirits of the flat world.",
+    "image": "https://images.unsplash.com/photo-1506703719100-a0f3a48c0f86?auto=format&fit=crop&w=1200&q=80",
+    "source": {
+      "title": "Author Lore Statements & World Q&As"
+    }
+  },
+  {
+    "id": "divine-dragons-flight",
+    "eraId": "ancient-era",
+    "name": "The Era of True Dragons & Primordial Spirits",
+    "approxStartDate": "Mythological Past (~800 Years Ago)",
+    "duration": "Centuries",
+    "location": "Global / The Great Waterfall",
+    "characters": ["Divine Dragon Volcanica"],
+    "topic": "Lore",
+    "importance": 3,
+    "description": "Primordial Great Spirits and ancient dragons roamed the lands unbounded, shaping mountain ranges and natural flows of mana toward the Great Waterfall.",
+    "image": "https://images.unsplash.com/photo-1534447677768-be436bb09401?auto=format&fit=crop&w=1200&q=80",
+    "source": {
+      "title": "Lugunica Royal Archives"
+    }
+  },
+  {
+    "id": "dawn-of-mortal-races",
+    "eraId": "ancient-era",
+    "name": "Dawn of Mortal Civilizations & Settlements",
+    "approxStartDate": "~600–500 Years Ago",
+    "duration": "Generations",
+    "location": "Four Great Nations Regions",
+    "characters": [],
+    "topic": "Timeline & Ages",
+    "importance": 4,
+    "description": "Humans, elves, dwarves, giants, and beastmen organized into the early regional principalities that eventually laid the borders for the Four Great Nations.",
+    "source": {
+      "title": "Continental History Volume I"
+    }
+  },
+  {
+    "id": "reign-of-the-giants",
+    "eraId": "ancient-era",
+    "name": "Reign of the Giant Kings",
+    "approxStartDate": "~500 Years Ago",
+    "duration": "Decades",
+    "location": "Southern Plains (Early Vollachia)",
+    "characters": [],
+    "topic": "Vollachia Empire",
+    "importance": 5,
+    "description": "Powerful giant chieftains maintained territorial dominance over the southern wilderness before martial human warlords united to form early Imperial Vollachia."
+  }
+]

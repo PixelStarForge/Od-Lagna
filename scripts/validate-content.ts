@@ -11,6 +11,8 @@ import {
   episodeCommentarySchema,
   twitterShortStorySchema,
   readingGuideSchema,
+  timelineEraSchema,
+  timelineEventSchema,
 } from "../lib/schema";
 
 const ROOT_DIR = path.resolve(__dirname, "..");
@@ -19,6 +21,7 @@ const CONTENT_QNA_DIR = path.join(ROOT_DIR, "content", "qna");
 const CONTENT_TRIVIA_DIR = path.join(ROOT_DIR, "content", "trivia");
 const CONTENT_CHARACTERS_DIR = path.join(ROOT_DIR, "content", "characters");
 const CONTENT_TWITTER_STORIES_DIR = path.join(ROOT_DIR, "content", "twitter-short-stories");
+const CONTENT_TIMELINE_DIR = path.join(ROOT_DIR, "content", "timeline");
 
 function getValidArcSlugs(): Set<string> {
   const arcsFile = path.join(CONTENT_CONFIG_DIR, "arcs.json");
@@ -503,6 +506,90 @@ export function validateTwitterShortStoriesDirectory(dirPath = CONTENT_TWITTER_S
   return { valid: errors.length === 0, errors };
 }
 
+export function validateTimelineContent(): { valid: boolean; errors: string[] } {
+  const errors: string[] = [];
+  if (!fs.existsSync(CONTENT_TIMELINE_DIR)) {
+    errors.push("Missing directory content/timeline/");
+    return { valid: false, errors };
+  }
+
+  const erasFile = path.join(CONTENT_TIMELINE_DIR, "eras.json");
+  if (!fs.existsSync(erasFile)) {
+    errors.push("Missing required file content/timeline/eras.json");
+    return { valid: false, errors };
+  }
+
+  const validEraIds = new Set<string>();
+  try {
+    const raw = fs.readFileSync(erasFile, "utf-8");
+    const parsed = JSON.parse(raw);
+    const result = timelineEraSchema.array().safeParse(parsed);
+    if (!result.success) {
+      for (const issue of result.error.issues) {
+        errors.push(`[eras.json] Schema error at ${issue.path.join(".")}: ${issue.message}`);
+      }
+    } else {
+      for (const era of result.data) {
+        if (validEraIds.has(era.id)) {
+          errors.push(`[eras.json] Duplicate era ID "${era.id}"`);
+        }
+        validEraIds.add(era.id);
+      }
+    }
+  } catch (err: unknown) {
+    const msg = err instanceof Error ? err.message : String(err);
+    errors.push(`[eras.json] Failed to read or parse: ${msg}`);
+  }
+
+  const files = fs.readdirSync(CONTENT_TIMELINE_DIR);
+  const seenEventIds = new Map<string, string>();
+
+  for (const filename of files) {
+    if (filename === "eras.json" || !filename.endsWith(".json") || filename.startsWith("_")) {
+      continue;
+    }
+    const fullPath = path.join(CONTENT_TIMELINE_DIR, filename);
+    const expectedEraId = filename.replace(/\.json$/, "");
+
+    try {
+      const raw = fs.readFileSync(fullPath, "utf-8");
+      const parsed = JSON.parse(raw);
+      const result = timelineEventSchema.array().safeParse(parsed);
+      if (!result.success) {
+        for (const issue of result.error.issues) {
+          errors.push(`[${filename}] Schema error at ${issue.path.join(".")}: ${issue.message}`);
+        }
+        continue;
+      }
+
+      for (const event of result.data) {
+        if (seenEventIds.has(event.id)) {
+          errors.push(`[${filename}] Duplicate event ID "${event.id}" already seen in "${seenEventIds.get(event.id)}"`);
+        } else {
+          seenEventIds.set(event.id, filename);
+        }
+
+        if (!validEraIds.has(event.eraId)) {
+          errors.push(`[${filename}] Unknown eraId "${event.eraId}" on event "${event.id}"`);
+        }
+
+        if (event.eraId !== expectedEraId) {
+          errors.push(`[${filename}] Event "${event.id}" has eraId "${event.eraId}" but is in file "${filename}"`);
+        }
+
+        if (event.importance < 1 || event.importance > 5) {
+          errors.push(`[${filename}] Event "${event.id}" has invalid importance factor ${event.importance} (must be 1-5)`);
+        }
+      }
+    } catch (err: unknown) {
+      const msg = err instanceof Error ? err.message : String(err);
+      errors.push(`[${filename}] Failed to read or parse: ${msg}`);
+    }
+  }
+
+  return { valid: errors.length === 0, errors };
+}
+
 function run() {
   console.log("Validating Q&A content in content/qna/...");
   const qnaResult = validateQnaDirectory();
@@ -525,6 +612,9 @@ function run() {
   console.log("Validating reading guide in content/config/reading-guide.json...");
   const readingGuideResult = validateReadingGuide();
 
+  console.log("Validating world timeline in content/timeline/...");
+  const timelineResult = validateTimelineContent();
+
   const allErrors = [
     ...qnaResult.errors,
     ...triviaResult.errors,
@@ -533,6 +623,7 @@ function run() {
     ...readingGuideResult.errors,
     ...animeResult.errors,
     ...twitterStoriesResult.errors,
+    ...timelineResult.errors,
   ];
 
   if (allErrors.length > 0) {

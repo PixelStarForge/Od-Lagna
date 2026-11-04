@@ -1,0 +1,94 @@
+[
+  {
+    "id": "manifestation-of-witch-factors",
+    "eraId": "witch-era",
+    "name": "Rise of the Witches of Sin & Primordial Witch Factors",
+    "approxStartDate": "~400+ Years Ago",
+    "duration": "Decades",
+    "location": "Global",
+    "characters": ["Echidna", "Satella", "Carmilla", "Daphne", "Minerva", "Typhon", "Sekhmet"],
+    "topic": "Witches of Sin",
+    "importance": 1,
+    "description": "Seven individuals awaken the primordial Witch Factors, commanding transcendent Authorities that defy natural magic and reason.",
+    "image": "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?auto=format&fit=crop&w=1200&q=80",
+    "source": {
+      "title": "Arc 4 Lore / Dream Castle Records"
+    }
+  },
+  {
+    "id": "creation-of-great-mabeasts",
+    "eraId": "witch-era",
+    "name": "Creation of the Three Great Mabeasts",
+    "approxStartDate": "~400+ Years Ago",
+    "duration": "Several Months",
+    "location": "Western Wastelands",
+    "characters": ["Daphne"],
+    "topic": "Great Mabeasts",
+    "importance": 2,
+    "description": "Daphne, the Witch of Gluttony, creates the White Whale, the Great Rabbit, and the Black Snake with the ironic intent to end famine across the world.",
+    "image": "https://images.unsplash.com/photo-1511497584788-87676104235f?auto=format&fit=crop&w=1200&q=80",
+    "source": {
+      "title": "Light Novel Volume 12"
+    }
+  },
+  {
+    "id": "gathering-of-three-heroes",
+    "eraId": "witch-era",
+    "name": "Alliance of the Three Legendary Heroes",
+    "approxStartDate": "~400+ Years Ago",
+    "duration": "Ongoing",
+    "location": "Continental Heartland",
+    "characters": ["Flugel", "Reid Astrea", "Divine Dragon Volcanica"],
+    "topic": "Lore",
+    "importance": 2,
+    "description": "Sage Flugel, the first Sword Saint Reid Astrea, and the Divine Dragon Volcanica form an unbreakable triumvirate to preserve order and counter rising catastrophic threats.",
+    "image": "https://images.unsplash.com/photo-1516483638261-f4dbaf036963?auto=format&fit=crop&w=1200&q=80",
+    "source": {
+      "title": "Historical Chronicle of the Sage"
+    }
+  },
+  {
+    "id": "establishment-of-sanctuary",
+    "eraId": "witch-era",
+    "name": "Founding of the Sanctuary & Creation of Beatrice",
+    "approxStartDate": "~400+ Years Ago",
+    "duration": "Several Years",
+    "location": "Cremaldy Border Forest (The Sanctuary)",
+    "characters": ["Echidna", "Beatrice"],
+    "topic": "Lore",
+    "importance": 3,
+    "description": "Echidna constructs the Sanctuary barrier, initiates artificial spirit creation yielding Beatrice and Puck, and pursues immortality through Ryuzu Meyer clones.",
+    "image": "https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=1200&q=80",
+    "source": {
+      "title": "Arc 4 Chapter 70+"
+    }
+  },
+  {
+    "id": "hector-assault-sanctuary",
+    "eraId": "witch-era",
+    "name": "The Melancholy Incursion: Hector Strikes Sanctuary",
+    "approxStartDate": "~400+ Years Ago",
+    "duration": "1 Day",
+    "location": "The Sanctuary",
+    "characters": ["Echidna", "Hector"],
+    "topic": "Authorities",
+    "importance": 4,
+    "description": "Hector, the Warlock of Melancholy, attacks the Sanctuary using crushing gravitational authorities, forcing Ryuzu Meyer's self-sacrifice to power the defensive barrier.",
+    "source": {
+      "title": "Light Novel Volume 14"
+    }
+  },
+  {
+    "id": "minerva-healing-crusade",
+    "eraId": "witch-era",
+    "name": "Minerva's Fist of Wrath & Global Calamities",
+    "approxStartDate": "~400+ Years Ago",
+    "duration": "Over a Year",
+    "location": "Global",
+    "characters": ["Minerva"],
+    "topic": "Witches of Sin",
+    "importance": 5,
+    "description": "Minerva travels the continents punching and instantaneously healing all wounded mortals, unaware that her distorted authority siphons mana elsewhere and triggers violent natural disasters.",
+    "image": "https://images.unsplash.com/photo-1470240731273-7821a6eeb6bd?auto=format&fit=crop&w=1200&q=80"
+  }
+]

@@ -348,4 +348,50 @@ export type ReadingGuideSeason = z.infer<typeof readingGuideSeasonSchema>;
 export type ReadingGuideTerminology = z.infer<typeof readingGuideTerminologySchema>;
 export type ReadingGuideFaq = z.infer<typeof readingGuideFaqSchema>;
 
+export const timelineSourceSchema = z.union([
+  z.string(),
+  z.object({
+    title: z.string(),
+    url: z.string().optional(),
+  }),
+]);
+
+export const timelineEventSchema = z.object({
+  id: z.string().min(1, "Event ID is required"),
+  eraId: z.enum([
+    "ancient-era",
+    "witch-era",
+    "great-calamity-era",
+    "mystery-era",
+    "old-era",
+    "modern-era",
+  ]),
+  name: z.string().min(1, "Event name is required"),
+  approxStartDate: z.string().min(1, "Approx start date is required"),
+  duration: z.string().optional(),
+  location: z.string().min(1, "Location is required"),
+  characters: z.array(z.string()).default([]),
+  topic: z.string().min(1, "Topic tag is required"),
+  importance: z.number().int().min(1).max(5),
+  description: z.string().min(1, "Description is required"),
+  image: z.string().optional(),
+  source: timelineSourceSchema.optional(),
+  order: z.number().int().optional(),
+});
+
+export const timelineEraSchema = z.object({
+  id: z.string().min(1, "Era ID is required"),
+  name: z.string().min(1, "Era name is required"),
+  timeSpan: z.string().min(1, "Timespan is required"),
+  headline: z.string().min(1, "Headline is required"),
+  description: z.string().min(1, "Description is required"),
+  order: z.number().int(),
+  themeColor: z.string().min(1, "Theme color is required"),
+  accentColor: z.string().min(1, "Accent color is required"),
+});
+
+export type TimelineEvent = z.infer<typeof timelineEventSchema>;
+export type TimelineEra = z.infer<typeof timelineEraSchema>;
+export type TimelineSource = z.infer<typeof timelineSourceSchema>;
+
 

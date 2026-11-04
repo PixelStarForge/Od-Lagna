@@ -1,0 +1,114 @@
+[
+  {
+    "id": "elior-forest-catastrophe",
+    "eraId": "old-era",
+    "name": "The Fall of Elior Forest & Emilia's Glaciation",
+    "approxStartDate": "~100 Years Ago",
+    "duration": "1 Tragic Day",
+    "location": "Elior Forest",
+    "characters": ["Emilia", "Fortuna"],
+    "topic": "Witch Cult",
+    "importance": 1,
+    "description": "Pandora and Regulus Corneas attack the hidden elven settlement. Petelgeuse absorbs the Sloth Witch Factor to protect young Emilia. In sheer despair, Emilia unleashes boundless ice magic, freezing herself and the entire forest for nearly a century.",
+    "image": "https://images.unsplash.com/photo-1517411032315-54ef2cb783bb?auto=format&fit=crop&w=1200&q=80",
+    "source": {
+      "title": "Arc 4 Bonds of Ice & Flashback Chapters"
+    }
+  },
+  {
+    "id": "demi-human-civil-war-begins",
+    "eraId": "old-era",
+    "name": "Outbreak of the 10-Year Demi-Human War",
+    "approxStartDate": "~50 Years Ago",
+    "duration": "10 Years",
+    "location": "Kingdom of Lugunica",
+    "characters": ["Wilhelm van Astrea", "Theresia van Astrea"],
+    "topic": "Timeline & Ages",
+    "importance": 1,
+    "description": "Rising political disenfranchisement explodes into a devastating civil war across Lugunica between human loyalists and demi-human rebel factions led by Valga Cromwell.",
+    "image": "https://images.unsplash.com/photo-1579783902614-a3fb3927b675?auto=format&fit=crop&w=1200&q=80",
+    "source": {
+      "title": "EX Volume 2: Sword Devil Battle Ballad"
+    }
+  },
+  {
+    "id": "theresia-ends-demi-human-war",
+    "eraId": "old-era",
+    "name": "Theresia van Astrea Draws the Dragon Sword & Ends the War",
+    "approxStartDate": "~40 Years Ago",
+    "duration": "Decisive Battle",
+    "location": "Royal Capital Lugunica",
+    "characters": ["Theresia van Astrea", "Wilhelm van Astrea"],
+    "topic": "Royal Knights",
+    "importance": 2,
+    "description": "Mastering the Divine Protection of the Sword Saint, Theresia unsheathes the Dragon Sword Reid, crushing the rebellion's command and forcing peace treaties, subsequently marrying Wilhelm Trias.",
+    "image": "https://images.unsplash.com/photo-1490750967868-88aa4486c946?auto=format&fit=crop&w=1200&q=80",
+    "source": {
+      "title": "EX Volume 3: Sword Devil Love Song"
+    }
+  },
+  {
+    "id": "fall-of-theresia-white-whale",
+    "eraId": "old-era",
+    "name": "Fall of the Sword Saint: Theresia Perishes against the White Whale",
+    "approxStartDate": "~14 Years Ago",
+    "duration": "1 Day",
+    "location": "Flugel's Tree Plains",
+    "characters": ["Theresia van Astrea", "Wilhelm van Astrea"],
+    "topic": "Great Mabeasts",
+    "importance": 1,
+    "description": "Theresia leads the Royal Knight expedition to slay the White Whale. In the midst of combat, her Sword Saint blessing suddenly transfers to 5-year-old Reinhard, leaving her vulnerable to fatal strikes.",
+    "image": "https://images.unsplash.com/photo-1534447677768-be436bb09401?auto=format&fit=crop&w=1200&q=80",
+    "source": {
+      "title": "Arc 3 Interlude & EX Volume Lore"
+    }
+  },
+  {
+    "id": "abduction-of-infant-felt",
+    "eraId": "old-era",
+    "name": "The Kidnapping of Princess Felt from the Royal Villa",
+    "approxStartDate": "~14 Years Ago",
+    "duration": "Single Night",
+    "location": "Lugunica Royal Estate",
+    "characters": ["Felt"],
+    "topic": "Royal Selection",
+    "importance": 3,
+    "description": "The newborn royal princess is secretly abducted from the palace nursery by shadowy conspirators and presumed lost, eventually growing up in the slums unaware of her royal blood.",
+    "image": "https://images.unsplash.com/photo-1519501025264-65ba15a82390?auto=format&fit=crop&w=1200&q=80",
+    "source": {
+      "title": "Arc 1 & Arc 3 Background Lore"
+    }
+  },
+  {
+    "id": "oni-village-extermination",
+    "eraId": "old-era",
+    "name": "The Witch Cult Exterminates the Oni Clan",
+    "approxStartDate": "~10 Years Ago",
+    "duration": "Single Night",
+    "location": "Secret Oni Village",
+    "characters": [],
+    "topic": "Witch Cult",
+    "importance": 4,
+    "description": "Cultists raid the secluded Oni village, butchering the clan. Ram loses her horn protecting Rem before Roswaal arrives to rescue the surviving twin sisters.",
+    "image": "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?auto=format&fit=crop&w=1200&q=80",
+    "source": {
+      "title": "Arc 2 Light Novel Volume 2"
+    }
+  },
+  {
+    "id": "rebellion-of-stride-vollachia",
+    "eraId": "old-era",
+    "name": "Stride Vollachia's Insurrection in the Empire",
+    "approxStartDate": "~30 Years Ago",
+    "duration": "Several Months",
+    "location": "Southern Empire Vollachia",
+    "characters": [],
+    "topic": "Vollachia Empire",
+    "importance": 5,
+    "description": "Stride Vollachia, allied with the Kurgan clan and rogue authorities, stages an insurrection against the Vollachian throne, testing the empire's imperial line of succession.",
+    "image": "https://images.unsplash.com/photo-1533158326339-7f3cf2404354?auto=format&fit=crop&w=1200&q=80",
+    "source": {
+      "title": "EX Volume 4 Lore"
+    }
+  }
+]

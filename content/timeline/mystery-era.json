@@ -1,0 +1,94 @@
+[
+  {
+    "id": "erasure-of-calamity-history",
+    "eraId": "mystery-era",
+    "name": "The Great Taboo: Systematic Erasure of Calamity History",
+    "approxStartDate": "~350–300 Years Ago",
+    "duration": "Century-long Taboo",
+    "location": "Global",
+    "characters": [],
+    "topic": "Lore",
+    "importance": 1,
+    "description": "Fearing mass hysteria and resurgence of Witch Factor corruption, continental authorities outlaw the speaking of the Witch of Envy's name, destroying primary texts and cloaking centuries in mystery.",
+    "image": "https://images.unsplash.com/photo-1461360370896-922624d12aa1?auto=format&fit=crop&w=1200&q=80",
+    "source": {
+      "title": "Lugunican Library of Alexandria Archives"
+    }
+  },
+  {
+    "id": "birth-of-the-witch-cult",
+    "eraId": "mystery-era",
+    "name": "Rise & Radicalization of the Witch Cult",
+    "approxStartDate": "~250 Years Ago",
+    "duration": "Decades",
+    "location": "Underground Networks / Continental Shadows",
+    "characters": [],
+    "topic": "Witch Cult",
+    "importance": 2,
+    "description": "Devotees of the Witches reorganize underground. While initial factions claimed peaceful ideological preservation, sinister influences like Pandora radicalize the syndicate into violent archbishops.",
+    "image": "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=1200&q=80",
+    "source": {
+      "title": "Witch Cult Inquiry Records"
+    }
+  },
+  {
+    "id": "systemic-anti-half-elf-prejudice",
+    "eraId": "mystery-era",
+    "name": "Institutionalization of Anti-Half-Elf Discrimination",
+    "approxStartDate": "~200 Years Ago",
+    "duration": "Generations",
+    "location": "Four Great Nations",
+    "characters": [],
+    "topic": "Timeline & Ages",
+    "importance": 2,
+    "description": "Because the Witch of Envy bore silver hair and half-elven heritage, intense fear evolves into institutionalized racism, isolating elven settlements like Elior Forest from the outside world.",
+    "image": "https://images.unsplash.com/photo-1517411032315-54ef2cb783bb?auto=format&fit=crop&w=1200&q=80",
+    "source": {
+      "title": "Social History of Lugunica"
+    }
+  },
+  {
+    "id": "rise-of-holy-kingdom-gusteko",
+    "eraId": "mystery-era",
+    "name": "Consolidation of the Holy Kingdom of Gusteko",
+    "approxStartDate": "~180 Years Ago",
+    "duration": "Decades",
+    "location": "Northern Tundra (Gusteko)",
+    "characters": [],
+    "topic": "Gusteko",
+    "importance": 3,
+    "description": "The religious theocracy of Gusteko fortifies its borders in the frozen north, worshipping spirits and enforcing strict purity doctrines overseen by the Holy King.",
+    "image": "https://images.unsplash.com/photo-1483921020237-2ff51e8e4b22?auto=format&fit=crop&w=1200&q=80",
+    "source": {
+      "title": "Northern Geographic Survey"
+    }
+  },
+  {
+    "id": "vollachia-iron-rule-consolidation",
+    "eraId": "mystery-era",
+    "name": "Vollachia Codifies the Principle of Iron and Blood",
+    "approxStartDate": "~150 Years Ago",
+    "duration": "Generations",
+    "location": "Imperial Capital Garkla (Vollachia)",
+    "characters": [],
+    "topic": "Vollachia Empire",
+    "importance": 4,
+    "description": "Succession wars in the southern empire culminate in legalizing the doctrine of the strong devouring the weak, giving rise to the Nine Divine Generals and ritual battle rites."
+  },
+  {
+    "id": "sporadic-great-mabeast-raids",
+    "eraId": "mystery-era",
+    "name": "The Great Mabeasts Roam Unchecked",
+    "approxStartDate": "~120 Years Ago",
+    "duration": "Periodic",
+    "location": "Frontier Outposts & Sky Corridors",
+    "characters": [],
+    "topic": "Great Mabeasts",
+    "importance": 5,
+    "description": "The White Whale drifts through fog layers devastating trade caravans, while the Black Snake contaminates entire soils, maintaining terror in uninhabited borders.",
+    "image": "https://images.unsplash.com/photo-1511497584788-87676104235f?auto=format&fit=crop&w=1200&q=80",
+    "source": {
+      "title": "Frontier Ranger Logs"
+    }
+  }
+]

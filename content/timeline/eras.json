@@ -1,0 +1,63 @@
+[
+  {
+    "id": "ancient-era",
+    "name": "Ancient Era",
+    "timeSpan": "Prior to ~400 Years Ago",
+    "headline": "Origins of Mana, Divine Dragons & Mythological Beginnings",
+    "description": "The primordial epoch before recorded calamity, marked by the world's shaping by Od Laguna, primordial dragons, and the dawn of mortal civilizations.",
+    "order": 1,
+    "themeColor": "#d97706",
+    "accentColor": "amber"
+  },
+  {
+    "id": "witch-era",
+    "name": "Witch Era",
+    "timeSpan": "~400+ Years Ago",
+    "headline": "Rise of the Witches of Sin & Primordial Witch Factors",
+    "description": "An age defined by the rise of the Witches of Sin, devastating authorities, the creation of the Three Great Mabeasts, and the convergence of legends.",
+    "order": 2,
+    "themeColor": "#8b5cf6",
+    "accentColor": "purple"
+  },
+  {
+    "id": "great-calamity-era",
+    "name": "Great Calamity Era",
+    "timeSpan": "~400 Years Ago",
+    "headline": "Satella's Rampage, Fall of Half the World & The Great Sealing",
+    "description": "The cataclysmic rupture where the Witch of Envy consumed half the world, ending with her sealing at Pleiades Watchtower and the founding covenants.",
+    "order": 3,
+    "themeColor": "#dc2626",
+    "accentColor": "red"
+  },
+  {
+    "id": "mystery-era",
+    "name": "Mystery Era",
+    "timeSpan": "~400 to ~100 Years Ago",
+    "headline": "Rebuilding, Historical Taboos & The Rise of the Witch Cult",
+    "description": "Centuries cloaked in secrecy and loss of records. Anti-half-elf discrimination spreads while the radicalized Witch Cult forms in the shadows.",
+    "order": 4,
+    "themeColor": "#0ea5e9",
+    "accentColor": "cyan"
+  },
+  {
+    "id": "old-era",
+    "name": "Old Era",
+    "timeSpan": "~100 to ~15 Years Ago",
+    "headline": "Elior Forest Freeze, Demi-Human Civil War & The Sword Saint",
+    "description": "A turbulent century defined by the tragedy of Elior Forest, Lugunica's bloody Demi-Human War, and the fall of Theresia van Astrea.",
+    "order": 5,
+    "themeColor": "#eab308",
+    "accentColor": "yellow"
+  },
+  {
+    "id": "modern-era",
+    "name": "Modern Era",
+    "timeSpan": "~7 Years Ago to Present",
+    "headline": "Royal Selection Crisis & The Summoning of Natsuki Subaru",
+    "description": "Emilia awakens, the royal family perishes from sudden illness, and Natsuki Subaru is summoned to Lugunica to challenge fate.",
+    "order": 6,
+    "themeColor": "#3b82f6",
+    "accentColor": "blue"
+  }
+]
+

@@ -20,6 +20,10 @@ import {
   TwitterShortStory,
   ReadingGuideData,
   readingGuideSchema,
+  timelineEraSchema,
+  timelineEventSchema,
+  TimelineEra,
+  TimelineEvent,
 } from "./schema";
 
 const CONTENT_DIR = path.join(process.cwd(), "content");
@@ -28,6 +32,7 @@ const QNA_DIR = path.join(CONTENT_DIR, "qna");
 const CONTENT_TRIVIA_DIR = path.join(CONTENT_DIR, "trivia");
 const CONTENT_CHARACTERS_DIR = path.join(CONTENT_DIR, "characters");
 const CONTENT_TWITTER_STORIES_DIR = path.join(CONTENT_DIR, "twitter-short-stories");
+const CONTENT_TIMELINE_DIR = path.join(CONTENT_DIR, "timeline");
 
 export interface ArcMetadata {
   slug: string;
@@ -519,6 +524,66 @@ export function getReadingGuide(): ReadingGuideData | null {
     console.error("Failed to read reading-guide.json:", err);
     return null;
   }
+}
+
+export function getTimelineEras(): TimelineEra[] {
+  const file = path.join(CONTENT_TIMELINE_DIR, "eras.json");
+  if (!fs.existsSync(file)) return [];
+  try {
+    const raw = fs.readFileSync(file, "utf-8");
+    const parsed = JSON.parse(raw);
+    const result = timelineEraSchema.array().safeParse(parsed);
+    if (!result.success) {
+      console.error("Invalid eras.json schema:", result.error);
+      return [];
+    }
+    return result.data.sort((a, b) => a.order - b.order);
+  } catch (err) {
+    console.error("Failed to read eras.json:", err);
+    return [];
+  }
+}
+
+export function getTimelineEvents(): TimelineEvent[] {
+  if (!fs.existsSync(CONTENT_TIMELINE_DIR)) return [];
+  const events: TimelineEvent[] = [];
+  const eras = getTimelineEras();
+  const eraOrderMap = new Map<string, number>(eras.map((e) => [e.id, e.order]));
+
+  const files = fs.readdirSync(CONTENT_TIMELINE_DIR);
+  for (const file of files) {
+    if (file === "eras.json" || !file.endsWith(".json") || file.startsWith("_")) {
+      continue;
+    }
+    try {
+      const filePath = path.join(CONTENT_TIMELINE_DIR, file);
+      const raw = fs.readFileSync(filePath, "utf-8");
+      const parsed = JSON.parse(raw);
+      const result = timelineEventSchema.array().safeParse(parsed);
+      if (!result.success) {
+        console.error(`Invalid schema in timeline file ${file}:`, result.error);
+        continue;
+      }
+      events.push(...result.data);
+    } catch (err) {
+      console.error(`Failed to parse timeline file ${file}:`, err);
+    }
+  }
+
+  // Sort events by Era order first, then preservation order
+  return events.sort((a, b) => {
+    const eraA = eraOrderMap.get(a.eraId) ?? 99;
+    const eraB = eraOrderMap.get(b.eraId) ?? 99;
+    if (eraA !== eraB) return eraA - eraB;
+    return (a.order ?? 0) - (b.order ?? 0);
+  });
+}
+
+export function getTimelineData(): { eras: TimelineEra[]; events: TimelineEvent[] } {
+  return {
+    eras: getTimelineEras(),
+    events: getTimelineEvents(),
+  };
 }
 
 

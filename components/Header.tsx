@@ -82,6 +82,7 @@ export function Header() {
   const isBrowseActive = pathname === "/browse" || pathname?.startsWith("/browse/");
   const isCharactersActive = pathname?.startsWith("/characters");
   const isAnimeActive = pathname?.startsWith("/anime");
+  const isTimelineActive = pathname === "/timeline" || pathname?.startsWith("/timeline");
   const isGuideActive =
     pathname === "/guide" ||
     pathname?.startsWith("/guide") ||
@@ -92,7 +93,7 @@ export function Header() {
     pathname?.startsWith("/ifs") ||
     pathname?.startsWith("/stories") ||
     pathname?.startsWith("/twitter-short-stories");
-  const isMoreActive = pathname === "/about" || pathname === "/contribute";
+  const isMoreActive = pathname === "/about" || pathname === "/contribute" || isGuideActive;
 
   return (
     <header className="sticky top-0 z-40 w-full border-b border-[var(--border-subtle)] bg-[var(--bg-main)]/95 backdrop-blur-none transition-colors">
@@ -146,14 +147,14 @@ export function Header() {
               Anime
             </Link>
             <Link
-              href="/guide"
+              href="/timeline"
               className={`px-3 py-1.5 rounded-md text-sm font-medium transition-colors ${
-                isGuideActive
+                isTimelineActive
                   ? "bg-[var(--bg-elevated)] text-[var(--accent)] font-semibold"
                   : "text-[var(--text-muted)] hover:text-[var(--text-main)] hover:bg-[var(--bg-elevated)]"
               }`}
             >
-              Guide
+              Timeline
             </Link>
 
             {/* Stories Dropdown */}
@@ -287,13 +288,30 @@ export function Header() {
               {openDropdown === "more" && (
                 <div
                   role="menu"
-                  className="absolute left-0 mt-1.5 w-56 rounded-xl border border-[var(--border-subtle)] bg-[var(--bg-surface)] p-1.5 shadow-xl animate-in fade-in-50 zoom-in-95 duration-100 z-50"
+                  className="absolute left-0 mt-1.5 w-60 rounded-xl border border-[var(--border-subtle)] bg-[var(--bg-surface)] p-1.5 shadow-xl animate-in fade-in-50 zoom-in-95 duration-100 z-50"
                 >
+                  <Link
+                    href="/guide"
+                    role="menuitem"
+                    onClick={() => setOpenDropdown(null)}
+                    className={`block px-3 py-2 rounded-lg text-sm transition-colors ${
+                      isGuideActive
+                        ? "bg-[var(--bg-elevated)] text-[var(--accent)] font-semibold"
+                        : "hover:bg-[var(--bg-elevated)] text-[var(--text-main)]"
+                    }`}
+                  >
+                    <div className={`font-medium text-xs sm:text-sm ${isGuideActive ? "text-[var(--accent)] font-semibold" : "text-[var(--text-main)]"}`}>
+                      Reading Guide
+                    </div>
+                    <div className={`text-xs ${isGuideActive ? "text-[var(--accent)] opacity-85" : "text-[var(--text-muted)]"}`}>
+                      Post-anime novel &amp; manga guide
+                    </div>
+                  </Link>
                   <Link
                     href="/about"
                     role="menuitem"
                     onClick={() => setOpenDropdown(null)}
-                    className={`block px-3 py-2 rounded-lg text-sm transition-colors ${
+                    className={`block px-3 py-2 rounded-lg text-sm transition-colors mt-0.5 ${
                       pathname === "/about"
                         ? "bg-[var(--bg-elevated)] text-[var(--accent)] font-semibold"
                         : "hover:bg-[var(--bg-elevated)] text-[var(--text-main)]"
@@ -579,17 +597,17 @@ export function Header() {
               </span>
             </Link>
             <Link
-              href="/guide"
+              href="/timeline"
               onClick={() => setIsMobileMenuOpen(false)}
               className={`flex items-center justify-between px-3 py-2 rounded-lg text-sm font-medium transition-colors ${
-                isGuideActive
+                isTimelineActive
                   ? "bg-[var(--bg-elevated)] text-[var(--accent)] font-semibold"
                   : "text-[var(--text-muted)] hover:text-[var(--text-main)] hover:bg-[var(--bg-elevated)]"
               }`}
             >
-              <span>Reading Guide</span>
-              <span className={`text-xs font-mono ${isGuideActive ? "text-[var(--accent)] font-medium" : "text-[var(--text-muted)]"}`}>
-                Novels
+              <span>World Timeline</span>
+              <span className={`text-xs font-mono ${isTimelineActive ? "text-[var(--accent)] font-medium" : "text-[var(--text-muted)]"}`}>
+                History
               </span>
             </Link>
           </div>
@@ -646,8 +664,22 @@ export function Header() {
           {/* Section: Project */}
           <div className="space-y-1 pt-2 border-t border-[var(--border-subtle)]">
             <div className="px-3 pt-1 pb-1 text-[11px] font-mono uppercase tracking-wider text-[var(--text-muted)] font-semibold">
-              Project
+              Project &amp; Guides
             </div>
+            <Link
+              href="/guide"
+              onClick={() => setIsMobileMenuOpen(false)}
+              className={`flex items-center justify-between px-3 py-2 rounded-lg text-sm font-medium transition-colors ${
+                isGuideActive
+                  ? "bg-[var(--bg-elevated)] text-[var(--accent)] font-semibold"
+                  : "text-[var(--text-muted)] hover:text-[var(--text-main)] hover:bg-[var(--bg-elevated)]"
+              }`}
+            >
+              <span>Reading Guide</span>
+              <span className={`text-xs font-mono ${isGuideActive ? "text-[var(--accent)] font-medium" : "text-[var(--text-muted)]"}`}>
+                Novels
+              </span>
+            </Link>
             <Link
               href="/about"
               onClick={() => setIsMobileMenuOpen(false)}
