@@ -64,9 +64,21 @@ export function PostAnimeGuide({ guide }: PostAnimeGuideProps) {
               {term.id === "wn" && (
                 <div className="mt-4 pt-3.5 border-t border-[var(--border-subtle)] space-y-2.5">
                   <div className="text-xs font-mono font-semibold uppercase tracking-wider text-[var(--text-muted)]">
-                    Translation Sources
+                    Reading &amp; Translation Sources
                   </div>
                   <ul className="space-y-2 text-sm sm:text-base">
+                    <li className="flex flex-wrap items-baseline gap-2">
+                      <a
+                        href="https://ncode.syosetu.com/n2267be/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-[var(--accent)] hover:underline font-semibold inline-flex items-center gap-1"
+                      >
+                        <span>Shōsetsuka ni Narō</span>
+                        <span className="text-xs">↗</span>
+                      </a>
+                      <span className="text-xs sm:text-sm text-[var(--text-muted)]">(Original Japanese Web Novel)</span>
+                    </li>
                     <li className="flex flex-wrap items-baseline gap-2">
                       <a
                         href="https://witchculttranslation.com/"
