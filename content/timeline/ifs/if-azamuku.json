@@ -1,0 +1,48 @@
+{
+  "slug": "if-azamuku",
+  "name": "Azamuku IF",
+  "kanjiTitle": "Deceive IF",
+  "divergesFromEventId": "vollachia-empire-disaster-campaign",
+  "divergencePoint": "Arc 7 Divergence",
+  "divergenceSummary": "Teleported to the southern empire with Rem, Subaru makes an alternate contract with Emperor Vincent to deceive fate and outwit the Imperial throne through pure subterfuge.",
+  "direction": "down",
+  "approxDate": "Month 15 (Vollachia)",
+  "headline": "The Two Who Deceived Fate",
+  "description": "Subaru and Emperor Vincent Vollachia cross paths in the Land of the Sword Wolves to deceive destiny in an alternate imperial confrontation.",
+  "image": "https://images.unsplash.com/photo-1533158326339-7f3cf2404354?auto=format&fit=crop&w=1200&q=80",
+  "href": "/ifs/if-azamuku",
+  "subEvents": ["Land of Sword Wolves", "Alliance with Vincent", "Deceiving Imperial Fate"],
+  "events": [
+    {
+      "id": "azamuku-wolf-territory",
+      "name": "Stranded in the Land of Sword Wolves",
+      "approxStartDate": "Month 15 (Day 1)",
+      "location": "Buddheim Jungle, Vollachia",
+      "characters": ["Natsuki Subaru", "Rem"],
+      "importance": 1,
+      "description": "Subaru awakens deep in hostile imperial territory with an amnesiac Rem who distrusts him, forced to outsmart imperial hunters.",
+      "image": "https://images.unsplash.com/photo-1533158326339-7f3cf2404354?auto=format&fit=crop&w=1200&q=80"
+    },
+    {
+      "id": "azamuku-emperor-pact",
+      "name": "The Sovereign Pact of Mutual Deception",
+      "approxStartDate": "Month 15 (Week 2)",
+      "location": "Secret Imperial Outpost",
+      "characters": ["Natsuki Subaru", "Vincent Vollachia"],
+      "importance": 1,
+      "description": "Subaru and Emperor Vincent agree to an alternate scheme of grand theater and disinformation to overthrow usurper Chisha Gold without bloodshed.",
+      "image": "https://images.unsplash.com/photo-1519501025264-65ba15a82390?auto=format&fit=crop&w=1200&q=80"
+    },
+    {
+      "id": "azamuku-rebel-triumph",
+      "name": "The Bloodless Coup of Lupugana",
+      "approxStartDate": "Month 16",
+      "location": "Imperial Capital Lupugana",
+      "characters": ["Natsuki Subaru", "Vincent Vollachia"],
+      "importance": 1,
+      "description": "Through an audacious chain of bluffs, illusions, and military deception, the imperial throne is restored without a single casualty.",
+      "image": "https://images.unsplash.com/photo-1514890547357-a9ee288728e0?auto=format&fit=crop&w=1200&q=80"
+    }
+  ]
+}
+

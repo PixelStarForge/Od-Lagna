@@ -110,5 +110,37 @@
     "source": {
       "title": "EX Volume 4 Lore"
     }
+  },
+  {
+    "id": "wilhelm-sword-demon-uprising",
+    "eraId": "old-era",
+    "name": "Wilhelm Trias Earns the Moniker 'Sword Demon'",
+    "approxStartDate": "~45 Years Ago",
+    "duration": "Battlefield Campaign",
+    "location": "Lugunica Border Forts",
+    "characters": ["Wilhelm van Astrea"],
+    "topic": "Royal Knights",
+    "importance": 2,
+    "description": "A fiercely disciplined youth, Wilhelm carves through rebel ranks with singular obsession, earning terror and awe across the battlegrounds as the ruthless 'Sword Demon'.",
+    "image": "https://images.unsplash.com/photo-1534447677768-be436bb09401?auto=format&fit=crop&w=1200&q=80",
+    "source": {
+      "title": "EX Volume 2: Sword Devil Battle Ballad"
+    }
+  },
+  {
+    "id": "valga-cromwell-slums-exile",
+    "eraId": "old-era",
+    "name": "Exile of Rom: Valga Cromwell Shelters in the Royal Slums",
+    "approxStartDate": "~35 Years Ago",
+    "duration": "Decades of Seclusion",
+    "location": "Capital Slums, Lugunica",
+    "characters": [],
+    "topic": "Royal Selection",
+    "importance": 3,
+    "description": "Following the collapse of the demi-human uprising, commander Valga Cromwell goes into deep hiding under the alias 'Old Man Rom', establishing a scrap warehouse that becomes an underground refuge.",
+    "image": "https://images.unsplash.com/photo-1519501025264-65ba15a82390?auto=format&fit=crop&w=1200&q=80",
+    "source": {
+      "title": "Arc 1 Prologue & Sword Devil Epilogue"
+    }
   }
 ]

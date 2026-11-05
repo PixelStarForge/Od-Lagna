@@ -23,7 +23,7 @@ export const metadata: Metadata = {
 };
 
 export default function TimelinePage() {
-  const { eras, events } = getTimelineData();
+  const { eras, events, ifRoutes } = getTimelineData();
 
   return (
     <div className="w-full max-w-[1720px] mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-10 space-y-6">
@@ -39,7 +39,7 @@ export default function TimelinePage() {
       </nav>
 
       {/* Main Interactive Timeline Client */}
-      <TimelineClient eras={eras} events={events} />
+      <TimelineClient eras={eras} events={events} initialIfRoutes={ifRoutes} />
     </div>
   );
 }

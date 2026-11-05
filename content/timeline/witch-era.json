@@ -90,5 +90,36 @@
     "importance": 5,
     "description": "Minerva travels the continents punching and instantaneously healing all wounded mortals, unaware that her distorted authority siphons mana elsewhere and triggers violent natural disasters.",
     "image": "https://images.unsplash.com/photo-1470240731273-7821a6eeb6bd?auto=format&fit=crop&w=1200&q=80"
+  },
+  {
+    "id": "carmilla-faceless-bride-tragedy",
+    "eraId": "witch-era",
+    "name": "Carmilla's Unintentional Kingdom Ruin",
+    "approxStartDate": "~400+ Years Ago",
+    "duration": "Months",
+    "location": "Forgotten Eastern Realm",
+    "characters": ["Carmilla"],
+    "topic": "Witches of Sin",
+    "importance": 3,
+    "description": "Carmilla the Witch of Lust flees her home kingdom; her overwhelming Authority of faceless adoration drives an entire nation of citizens to forget to breathe or eat in her presence.",
+    "image": "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=1200&q=80",
+    "source": {
+      "title": "Arc 4 Witch Commentary"
+    }
+  },
+  {
+    "id": "sekhmet-dragon-cloud-slumber",
+    "eraId": "witch-era",
+    "name": "Sekhmet's Duel at the Great Waterfall",
+    "approxStartDate": "~400+ Years Ago",
+    "duration": "Hours",
+    "location": "Beyond the Great Waterfall",
+    "characters": ["Sekhmet", "Divine Dragon Volcanica"],
+    "topic": "Witches of Sin",
+    "importance": 4,
+    "description": "Sekhmet the Witch of Sloth battles Volcanica past the rim of the world, effortlessly striking the Divine Dragon past the horizon before falling into an eternal nap.",
+    "source": {
+      "title": "Author Q&A Lore Chronicles"
+    }
   }
 ]

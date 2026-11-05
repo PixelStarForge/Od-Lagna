@@ -1,0 +1,78 @@
+{
+  "slug": "if-pride",
+  "name": "Pride IF",
+  "kanjiTitle": "Ayamatsu",
+  "divergesFromEventId": "loot-house-bowel-hunter-clash",
+  "divergencePoint": "Arc 1 Divergence",
+  "divergenceSummary": "Subaru never screams for help or summons Reinhard in the slum alleyway. Loop after loop, he casts away his moral conscience, executing the thugs himself and forging a bloody assassination pact with Bowel Hunter Elsa.",
+  "direction": "down",
+  "approxDate": "Day 1 (Slums)",
+  "headline": "The Sin Archbishop of Pride",
+  "description": "Subaru never cries for help in the alleyway. Forming a sinister pact with Elsa and Meili, he incinerates the royal capital to crown Emilia as king.",
+  "image": "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?auto=format&fit=crop&w=1200&q=80",
+  "href": "/ifs/if-pride",
+  "subEvents": ["Elsa & Meili Alliance", "Slaying Sin Archbishops", "Burning of Capital"],
+  "events": [
+    {
+      "id": "pride-alleyway-silence",
+      "name": "The Unbroken Silence of the Slum Alleyway",
+      "approxStartDate": "Day 1 (Afternoon)",
+      "location": "Royal Capital Slums",
+      "characters": ["Natsuki Subaru", "Elsa Granhiert"],
+      "importance": 1,
+      "description": "Refusing to summon Reinhard, Subaru loops dozens of times until he ambushes and slaughters the alleyway thugs, presenting their remains to an intrigued Elsa.",
+      "image": "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?auto=format&fit=crop&w=1200&q=80"
+    },
+    {
+      "id": "pride-assassination-pact",
+      "name": "The Blood Covenant with Elsa and Meili",
+      "approxStartDate": "Week 2",
+      "location": "Gut Hunter Hideout, Capital Outskirts",
+      "characters": ["Natsuki Subaru", "Elsa Granhiert"],
+      "importance": 2,
+      "description": "Subaru leverages Return by Death's infinite foresight to supply Elsa and Meili with perfect targets, forging an unbreakable and sinister partnership.",
+      "image": "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=1200&q=80"
+    },
+    {
+      "id": "pride-sloth-hunting",
+      "name": "Annihilation of Sloth: Slaying Petelgeuse Romanee-Conti",
+      "approxStartDate": "Month 2",
+      "location": "Mathers Borderlands",
+      "characters": ["Natsuki Subaru", "Petelgeuse Romanee-Conti"],
+      "importance": 2,
+      "description": "Subaru ambushes the Sloth division, burning their underground tunnels and crushing Petelgeuse to proclaim himself the true Sin Archbishop of Pride.",
+      "image": "https://images.unsplash.com/photo-1534447677768-be436bb09401?auto=format&fit=crop&w=1200&q=80"
+    },
+    {
+      "id": "pride-four-camp-sabotage",
+      "name": "The Systematic Ruin of the Four Royal Camps",
+      "approxStartDate": "Month 8",
+      "location": "Kingdom of Lugunica",
+      "characters": ["Natsuki Subaru", "Crusch Karsten", "Priscilla Barielle"],
+      "importance": 2,
+      "description": "Through engineered disasters, poisonings, and calculated terror, Subaru systematically destroys every rival candidate until only Emilia remains standing.",
+      "image": "https://images.unsplash.com/photo-1511497584788-87676104235f?auto=format&fit=crop&w=1200&q=80"
+    },
+    {
+      "id": "pride-capital-inferno",
+      "name": "The Great Incineration of the Royal Capital",
+      "approxStartDate": "Year 2",
+      "location": "Royal Capital Lugunica",
+      "characters": ["Natsuki Subaru", "Elsa Granhiert", "Reinhard van Astrea"],
+      "importance": 1,
+      "description": "Subaru unleashes magical wildfire across all twelve quarters of the capital, turning the city into a blazing pedestal to force Reinhard into despair.",
+      "image": "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?auto=format&fit=crop&w=1200&q=80"
+    },
+    {
+      "id": "pride-sword-saint-duel",
+      "name": "The Fall of the Sword Saint's Soul & Emilia's Throne",
+      "approxStartDate": "Year 2 (Final Loop)",
+      "location": "Ruins of the Royal Palace",
+      "characters": ["Natsuki Subaru", "Emilia", "Reinhard van Astrea"],
+      "importance": 1,
+      "description": "Subaru dies smiling at Emilia's feet, taking the blame for every horror in the world so that she ascends the throne hailed as the pure savior who slew Pride.",
+      "image": "https://images.unsplash.com/photo-1579783902614-a3fb3927b675?auto=format&fit=crop&w=1200&q=80"
+    }
+  ]
+}
+

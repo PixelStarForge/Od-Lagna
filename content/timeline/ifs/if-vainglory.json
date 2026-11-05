@@ -1,0 +1,68 @@
+{
+  "slug": "if-vainglory",
+  "name": "School IF",
+  "kanjiTitle": "Gekkou",
+  "divergesFromEventId": "subaru-summoned-lugunica",
+  "divergencePoint": "Prologue Alternative",
+  "divergenceSummary": "Subaru never crosses over into the fantasy world of Lugunica. Instead, he wakes up in modern Japan as a third-year student attending Lugunica Private High School alongside familiar classmates and faculty.",
+  "direction": "up",
+  "approxDate": "Day 0 (High School)",
+  "headline": "Lugunica Academy Days",
+  "description": "Subaru lives out a quirky high school romance where classmates, teachers, and club presidents mirror the heroes and villains of the four nations.",
+  "image": "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=1200&q=80",
+  "href": "/ifs/if-vainglory",
+  "subEvents": ["Homeroom Roll Call", "Disciplinary Committee Clash", "Rooftop Confession"],
+  "events": [
+    {
+      "id": "vainglory-school-entrance",
+      "name": "Spring Entrance & The Silver-Haired Transfer Student",
+      "approxStartDate": "April (Spring Semester)",
+      "location": "Lugunica Academy Main Gate",
+      "characters": ["Natsuki Subaru", "Emilia"],
+      "importance": 1,
+      "description": "Subaru arrives late with toast in hand and literally collides with Emilia, a shy half-elf exchange student who recently transferred into Class 3-A.",
+      "image": "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=1200&q=80"
+    },
+    {
+      "id": "vainglory-rooftop-bento",
+      "name": "Rooftop Bento Standoff with Rem and Ram",
+      "approxStartDate": "May (Club Recruitment)",
+      "location": "School Rooftop",
+      "characters": ["Natsuki Subaru", "Rem", "Ram"],
+      "importance": 2,
+      "description": "Ram ruthlessly steals Subaru's potato salad while Rem secretly packs him an elaborate homemade bento, setting off a daily rooftop feud.",
+      "image": "https://images.unsplash.com/photo-1517411032315-54ef2cb783bb?auto=format&fit=crop&w=1200&q=80"
+    },
+    {
+      "id": "vainglory-hallway-clash",
+      "name": "The Hallway Turf War with Disciplinary Head Reinhard",
+      "approxStartDate": "July (Pre-Midterms)",
+      "location": "Disciplinary Office",
+      "characters": ["Natsuki Subaru", "Reinhard van Astrea", "Felt"],
+      "importance": 2,
+      "description": "Subaru and Felt get caught setting up an unauthorized snack stand in the hallway. Student council president Reinhard gracefully pays for the snacks himself.",
+      "image": "https://images.unsplash.com/photo-1519501025264-65ba15a82390?auto=format&fit=crop&w=1200&q=80"
+    },
+    {
+      "id": "vainglory-culture-festival",
+      "name": "The Four Nations Cultural Festival Exhibition",
+      "approxStartDate": "October (Festival Week)",
+      "location": "School Gymnasium",
+      "characters": ["Natsuki Subaru", "Emilia", "Beatrice", "Roswaal L. Mathers"],
+      "importance": 1,
+      "description": "Class 3-A organizes a haunted maid cafe under eccentric homeroom advisor Roswaal, where Beatrice sits in the corner library scoffing at students.",
+      "image": "https://images.unsplash.com/photo-1514890547357-a9ee288728e0?auto=format&fit=crop&w=1200&q=80"
+    },
+    {
+      "id": "vainglory-graduation-confession",
+      "name": "Sunset Confession Under the Blooming Cherry Blossoms",
+      "approxStartDate": "March (Graduation Eve)",
+      "location": "Courtyard Clock Tower",
+      "characters": ["Natsuki Subaru", "Emilia"],
+      "importance": 1,
+      "description": "Under the sunset shadows of the academy clock tower, Subaru finally gathers his courage to deliver a direct, heartfelt confession to Emilia.",
+      "image": "https://images.unsplash.com/photo-1490750967868-88aa4486c946?auto=format&fit=crop&w=1200&q=80"
+    }
+  ]
+}
+

@@ -1,0 +1,48 @@
+{
+  "slug": "if-gluttony",
+  "name": "Gluttony IF",
+  "kanjiTitle": "Tsugihagu",
+  "divergesFromEventId": "pleiades-watchtower-expedition",
+  "divergencePoint": "Arc 6 Divergence",
+  "divergenceSummary": "Awakening in Pleiades Watchtower with complete amnesia, Subaru finds the Books of the Dead in Taygeta. Terrified of his comrades' expectations, he begins assassinating anyone who ever knew him to piece together his lost identity.",
+  "direction": "down",
+  "approxDate": "Month 14 (Watchtower)",
+  "headline": "Patchwork of the Dead",
+  "description": "Awakening with complete amnesia, Subaru uses the Books of the Dead to kill anyone who ever knew him, desperately stitching together his lost identity.",
+  "image": "https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?auto=format&fit=crop&w=1200&q=80",
+  "href": "/ifs/if-gluttony",
+  "subEvents": ["Loss of Memories", "Pleiades Book Plunder", "Stitching the Self"],
+  "events": [
+    {
+      "id": "gluttony-tower-amnesia",
+      "name": "The Clean Slate in the Augria Sands",
+      "approxStartDate": "Month 14",
+      "location": "Pleiades Watchtower",
+      "characters": ["Natsuki Subaru"],
+      "importance": 1,
+      "description": "Subaru loses every single memory of his life and companions, terrified by the expectant gazes of strangers treating him as a legendary savior.",
+      "image": "https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?auto=format&fit=crop&w=1200&q=80"
+    },
+    {
+      "id": "gluttony-taygeta-despair",
+      "name": "Discovery of the Books of the Dead",
+      "approxStartDate": "Month 14 (Week 2)",
+      "location": "Taygeta Library",
+      "characters": ["Natsuki Subaru"],
+      "importance": 1,
+      "description": "Reading a book of a deceased person reveals their memories. Realizing this, Subaru decides that to know who he was, everyone who knows him must die.",
+      "image": "https://images.unsplash.com/photo-1432405972618-c60b0225b8f9?auto=format&fit=crop&w=1200&q=80"
+    },
+    {
+      "id": "gluttony-patchwork-soul",
+      "name": "The Patchwork of Slaughtered Memories",
+      "approxStartDate": "Month 15",
+      "location": "Augria Sand Dunes",
+      "characters": ["Natsuki Subaru", "Emilia", "Shaula"],
+      "importance": 1,
+      "description": "One by one, comrades are poisoned and murdered so Subaru can read their memoirs, resulting in a horrifying stitched personality that is neither past nor present Subaru.",
+      "image": "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=1200&q=80"
+    }
+  ]
+}
+

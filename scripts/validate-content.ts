@@ -13,6 +13,7 @@ import {
   readingGuideSchema,
   timelineEraSchema,
   timelineEventSchema,
+  timelineIfRouteSchema,
 } from "../lib/schema";
 
 const ROOT_DIR = path.resolve(__dirname, "..");
@@ -549,6 +550,9 @@ export function validateTimelineContent(): { valid: boolean; errors: string[] } 
       continue;
     }
     const fullPath = path.join(CONTENT_TIMELINE_DIR, filename);
+    if (fs.statSync(fullPath).isDirectory()) {
+      continue;
+    }
     const expectedEraId = filename.replace(/\.json$/, "");
 
     try {
@@ -584,6 +588,34 @@ export function validateTimelineContent(): { valid: boolean; errors: string[] } 
     } catch (err: unknown) {
       const msg = err instanceof Error ? err.message : String(err);
       errors.push(`[${filename}] Failed to read or parse: ${msg}`);
+    }
+  }
+
+  // Validate IF divergence routes in content/timeline/ifs/
+  const ifsDir = path.join(CONTENT_TIMELINE_DIR, "ifs");
+  if (fs.existsSync(ifsDir)) {
+    const ifFiles = fs.readdirSync(ifsDir);
+    for (const ifFile of ifFiles) {
+      if (!ifFile.endsWith(".json")) continue;
+      const ifPath = path.join(ifsDir, ifFile);
+      try {
+        const raw = fs.readFileSync(ifPath, "utf-8");
+        const parsed = JSON.parse(raw);
+        const result = timelineIfRouteSchema.safeParse(parsed);
+        if (!result.success) {
+          for (const issue of result.error.issues) {
+            errors.push(`[ifs/${ifFile}] Schema error at ${issue.path.join(".")}: ${issue.message}`);
+          }
+        } else {
+          // Verify that divergence event exists in canon timeline
+          if (!seenEventIds.has(result.data.divergesFromEventId)) {
+            errors.push(`[ifs/${ifFile}] Divergence event "${result.data.divergesFromEventId}" not found in any canon era`);
+          }
+        }
+      } catch (err: unknown) {
+        const msg = err instanceof Error ? err.message : String(err);
+        errors.push(`[ifs/${ifFile}] Failed to read or parse: ${msg}`);
+      }
     }
   }
 

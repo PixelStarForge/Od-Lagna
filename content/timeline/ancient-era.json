@@ -57,5 +57,36 @@
     "topic": "Vollachia Empire",
     "importance": 5,
     "description": "Powerful giant chieftains maintained territorial dominance over the southern wilderness before martial human warlords united to form early Imperial Vollachia."
+  },
+  {
+    "id": "volcanica-first-pact",
+    "eraId": "ancient-era",
+    "name": "The Dragon's First Blessing on Lugunica",
+    "approxStartDate": "~700 Years Ago",
+    "duration": "Days",
+    "location": "Plateau of Lugunica",
+    "characters": ["Divine Dragon Volcanica"],
+    "topic": "Divine Dragon",
+    "importance": 2,
+    "description": "Volcanica descends upon the high plateau, blessing the fertility of the soil and shielding early Lugunican tribes from cataclysmic elemental storms.",
+    "image": "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=1200&q=80",
+    "source": {
+      "title": "Royal Archives of the Dragon Kingdom"
+    }
+  },
+  {
+    "id": "stargazers-first-astronomical-scrolls",
+    "eraId": "ancient-era",
+    "name": "First Revelations of the Stargazers",
+    "approxStartDate": "~450 Years Ago",
+    "duration": "Years",
+    "location": "Southern Star Observation Ruins",
+    "characters": [],
+    "topic": "Vollachia Empire",
+    "importance": 4,
+    "description": "The primitive Stargazers divine messages from the celestial canopy, inaugurating the divine mandate doctrine that would later shape the imperial succession of Vollachia.",
+    "source": {
+      "title": "Imperial Vollachian Lore Scrolls"
+    }
   }
 ]

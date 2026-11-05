@@ -1,0 +1,58 @@
+{
+  "slug": "if-sloth",
+  "name": "Sloth IF",
+  "kanjiTitle": "Rem IF",
+  "divergesFromEventId": "royal-selection-and-white-whale-conquest",
+  "divergencePoint": "Arc 3 Divergence",
+  "divergenceSummary": "Psychologically crushed by endless horrific deaths, Subaru begs Rem to abandon Lugunica and run away together to Kararagi. Rem accepts his desperate plea, and they board a dragon carriage west.",
+  "direction": "up",
+  "approxDate": "Month 2 (Capital)",
+  "headline": "Fugitives in Kararagi",
+  "description": "Subaru asks Rem to abandon Lugunica and run away together, and she says yes. They start a new life in Kararagi, raising their children Rigel and Spica.",
+  "image": "https://images.unsplash.com/photo-1534447677768-be436bb09401?auto=format&fit=crop&w=1200&q=80",
+  "href": "/ifs/if-sloth",
+  "subEvents": ["Flight to West", "Quiet Life with Rem", "Birth of Rigel & Spica"],
+  "events": [
+    {
+      "id": "sloth-capital-departure",
+      "name": "The Dragon Carriage to the Western Border",
+      "approxStartDate": "Month 2 (Morning)",
+      "location": "Capital Highway",
+      "characters": ["Natsuki Subaru", "Rem"],
+      "importance": 1,
+      "description": "Subaru and Rem board a carriage heading west toward Kararagi, leaving Lugunica to burn as Subaru buries his heroic ideals in exchange for quiet survival.",
+      "image": "https://images.unsplash.com/photo-1534447677768-be436bb09401?auto=format&fit=crop&w=1200&q=80"
+    },
+    {
+      "id": "sloth-kararagi-arrival",
+      "name": "Arrival in the Merchant City of Banan",
+      "approxStartDate": "Month 3",
+      "location": "Banan, Kararagi",
+      "characters": ["Natsuki Subaru", "Rem"],
+      "importance": 2,
+      "description": "Under assumed aliases, the two rent a modest cottage on the outskirts, where Rem grows out her hair and Subaru takes up work at a local trade firm.",
+      "image": "https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?auto=format&fit=crop&w=1200&q=80"
+    },
+    {
+      "id": "sloth-birth-of-rigel",
+      "name": "The Birth of Rigel",
+      "approxStartDate": "Year 2",
+      "location": "Natsuki Residence, Banan",
+      "characters": ["Natsuki Subaru", "Rem"],
+      "importance": 1,
+      "description": "Rem gives birth to their first child, a blue-haired boy named Rigel who inherits his mother's demon strength and his father's sharp, unruly glare.",
+      "image": "https://images.unsplash.com/photo-1517411032315-54ef2cb783bb?auto=format&fit=crop&w=1200&q=80"
+    },
+    {
+      "id": "sloth-birth-of-spica",
+      "name": "Welcoming Spica & Decades of Domestic Peace",
+      "approxStartDate": "Year 8",
+      "location": "Natsuki Homestead",
+      "characters": ["Natsuki Subaru", "Rem"],
+      "importance": 1,
+      "description": "With the birth of their daughter Spica, Subaru watches his family thrive under golden western sunsets, though the phantom memory of Emilia never truly fades.",
+      "image": "https://images.unsplash.com/photo-1506703719100-a0f3a48c0f86?auto=format&fit=crop&w=1200&q=80"
+    }
+  ]
+}
+

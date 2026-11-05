@@ -394,4 +394,37 @@ export type TimelineEvent = z.infer<typeof timelineEventSchema>;
 export type TimelineEra = z.infer<typeof timelineEraSchema>;
 export type TimelineSource = z.infer<typeof timelineSourceSchema>;
 
+export const timelineIfEventSchema = z.object({
+  id: z.string().min(1, "Event ID is required"),
+  name: z.string().min(1, "Event name is required"),
+  approxStartDate: z.string().min(1, "Approx start date is required"),
+  duration: z.string().optional(),
+  location: z.string().min(1, "Location is required"),
+  characters: z.array(z.string()).default([]),
+  importance: z.number().int().min(1).max(5).default(2),
+  description: z.string().min(1, "Description is required"),
+  image: z.string().optional(),
+});
+
+export const timelineIfRouteSchema = z.object({
+  slug: z.string().min(1, "Route slug is required"),
+  name: z.string().min(1, "Route name is required"),
+  kanjiTitle: z.string().min(1, "Kanji title is required"),
+  divergesFromEventId: z.string().min(1, "Divergence event ID is required"),
+  divergencePoint: z.string().min(1, "Divergence point label is required"),
+  divergenceSummary: z.string().optional(),
+  direction: z.enum(["up", "down"]),
+  approxDate: z.string().min(1, "Approx date is required"),
+  headline: z.string().min(1, "Headline is required"),
+  description: z.string().min(1, "Description is required"),
+  image: z.string().min(1, "Image URL is required"),
+  href: z.string().min(1, "Link href is required"),
+  subEvents: z.array(z.string()).optional(),
+  events: z.array(timelineIfEventSchema).optional(),
+});
+
+export type TimelineIfEvent = z.infer<typeof timelineIfEventSchema>;
+export type TimelineIfRoute = z.infer<typeof timelineIfRouteSchema>;
+
+
 

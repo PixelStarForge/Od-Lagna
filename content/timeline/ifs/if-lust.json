@@ -1,0 +1,48 @@
+{
+  "slug": "if-lust",
+  "name": "Lust IF",
+  "kanjiTitle": "Koikagurui",
+  "divergesFromEventId": "royal-selection-ceremony-declaration",
+  "divergencePoint": "Arc 3 Divergence",
+  "divergenceSummary": "Subaru intervenes in the royal selection ceremony with overwhelming charisma and diplomatic brilliance, forming an unprecedented alliance uniting all five candidate camps and ascending the throne.",
+  "direction": "down",
+  "approxDate": "Month 2 (Capital)",
+  "headline": "Butterfly Dream: The Golden King",
+  "description": "Subaru ascends the throne of Lugunica with a royal harem uniting all candidates, guiding the kingdom through an eccentric and peaceful era.",
+  "image": "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=1200&q=80",
+  "href": "/ifs/if-lust",
+  "subEvents": ["Palace Coronation", "Candidate Council Accord", "Lugunica Golden Age"],
+  "events": [
+    {
+      "id": "lust-royal-assembly-proclamation",
+      "name": "The Grand Royal Assembly Proclamation",
+      "approxStartDate": "Month 2 (Mid)",
+      "location": "Lugunica Royal Palace",
+      "characters": ["Natsuki Subaru", "Emilia", "Crusch Karsten", "Priscilla Barielle", "Anastasia Hoshin", "Felt"],
+      "importance": 1,
+      "description": "Rather than clashing with the council, Subaru delivers an electrifying speech that dissolves factional conflict and proposes a collective sovereign council.",
+      "image": "https://images.unsplash.com/photo-1524397076537-8178d8a25c13?auto=format&fit=crop&w=1200&q=80"
+    },
+    {
+      "id": "lust-coronation-banquet",
+      "name": "The Coronation of the Eccentric Sovereign",
+      "approxStartDate": "Month 3",
+      "location": "Palace of the Dragon King",
+      "characters": ["Natsuki Subaru", "Emilia", "Rem"],
+      "importance": 1,
+      "description": "Subaru is officially crowned regent and spouse to the royal candidates in an opulent state banquet celebrated by commoners across all four borders.",
+      "image": "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=1200&q=80"
+    },
+    {
+      "id": "lust-golden-reign",
+      "name": "The Golden Era of Lugunican Grand Feasts",
+      "approxStartDate": "Year 1",
+      "location": "Capital of Lugunica",
+      "characters": ["Natsuki Subaru"],
+      "importance": 2,
+      "description": "With every foreign power pacified through diplomatic dinners and festival contracts, Lugunica enjoys a period of unprecedented harmony and joyous celebrations.",
+      "image": "https://images.unsplash.com/photo-1490750967868-88aa4486c946?auto=format&fit=crop&w=1200&q=80"
+    }
+  ]
+}
+

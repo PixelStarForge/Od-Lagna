@@ -110,5 +110,37 @@
     "source": {
       "title": "Geography of the Re:Zero World"
     }
+  },
+  {
+    "id": "fall-of-southern-empire-provinces",
+    "eraId": "great-calamity-era",
+    "name": "Destruction of the Southern Vollachian Borderlands",
+    "approxStartDate": "~400 Years Ago",
+    "duration": "Weeks of Chaos",
+    "location": "Southern Empire Borders",
+    "characters": [],
+    "topic": "Great Calamity",
+    "importance": 3,
+    "description": "Shadows from the Witch of Envy ravage the early settlements of the Vollachia Empire, permanently reshaping its militaristic doctrine of absolute strength to survive existential threats.",
+    "image": "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=1200&q=80",
+    "source": {
+      "title": "Vollachian Imperial Records"
+    }
+  },
+  {
+    "id": "reid-astrea-divine-sword-slashes",
+    "eraId": "great-calamity-era",
+    "name": "Reid Astrea Cleaves the Atmospheric Miasma",
+    "approxStartDate": "~400 Years Ago",
+    "duration": "Single Day",
+    "location": "Augria Sand Dunes",
+    "characters": ["Reid Astrea"],
+    "topic": "Pleiades Watchtower",
+    "importance": 2,
+    "description": "Using only ordinary wooden sticks and overwhelming physical mastery, first Sword Saint Reid Astrea slices space itself to bisect the raging miasma storms surrounding the dragon's lair.",
+    "image": "https://images.unsplash.com/photo-1579783902614-a3fb3927b675?auto=format&fit=crop&w=1200&q=80",
+    "source": {
+      "title": "Arc 6 Pleiades Trials"
+    }
   }
 ]

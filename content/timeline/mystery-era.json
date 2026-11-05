@@ -90,5 +90,37 @@
     "source": {
       "title": "Frontier Ranger Logs"
     }
+  },
+  {
+    "id": "flugel-tree-planting-ritual",
+    "eraId": "mystery-era",
+    "name": "The Planting of Flugel's Tree",
+    "approxStartDate": "~380 Years Ago",
+    "duration": "Days",
+    "location": "Lifaus Plains",
+    "characters": [],
+    "topic": "Lore",
+    "importance": 3,
+    "description": "A gigantic, ancient sapling is rooted in the open plains of Lifaus by followers of the Sage Flugel, standing as a landmark of history that would endure for centuries.",
+    "image": "https://images.unsplash.com/photo-1542273917363-3b1817f69a2d?auto=format&fit=crop&w=1200&q=80",
+    "source": {
+      "title": "Continental Geographic Survey"
+    }
+  },
+  {
+    "id": "hoshin-founding-of-kararagi",
+    "eraId": "mystery-era",
+    "name": "Hoshin Unifies the Free Trade Cities of Kararagi",
+    "approxStartDate": "~300 Years Ago",
+    "duration": "Decades",
+    "location": "Western City-States of Kararagi",
+    "characters": [],
+    "topic": "Kararagi",
+    "importance": 2,
+    "description": "Hoshin of the Wilderness introduces unique monetary systems, Kansai-styled dialects, and mercantile infrastructure, converting chaotic desert city-states into the trade powerhouse Kararagi.",
+    "image": "https://images.unsplash.com/photo-1519501025264-65ba15a82390?auto=format&fit=crop&w=1200&q=80",
+    "source": {
+      "title": "Chronicles of Hoshin of the Wilderness"
+    }
   }
 ]

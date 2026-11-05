@@ -1,0 +1,68 @@
+{
+  "slug": "if-wrath",
+  "name": "Wrath IF",
+  "kanjiTitle": "Oboreru",
+  "divergesFromEventId": "manor-curse-mabeast-forest",
+  "divergencePoint": "Arc 2 Divergence",
+  "divergenceSummary": "Paralyzed by sheer panic after being interrogated and tortured by Rem, Subaru refuses to leap from the cliffside. Fleeing through the night into the west, he founds the Pleiades syndicate in Kararagi.",
+  "direction": "up",
+  "approxDate": "Week 2 (Roswaal Manor)",
+  "headline": "The Purge King of Pleiades",
+  "description": "Paralyzed by fear, Subaru flees the manor rather than jumping from the cliff. In Kararagi, he rises as the feared syndicate ruler who perceives a colorless world.",
+  "image": "https://images.unsplash.com/photo-1511497584788-87676104235f?auto=format&fit=crop&w=1200&q=80",
+  "href": "/ifs/if-wrath",
+  "subEvents": ["Flight to Kararagi", "Pleiades Syndicate", "Colorless Coin Flip"],
+  "events": [
+    {
+      "id": "wrath-cliff-flight",
+      "name": "The Coward's Escape: Fleeing Roswaal Manor",
+      "approxStartDate": "Week 2 (Midnight)",
+      "location": "Roswaal Manor Cliffside",
+      "characters": ["Natsuki Subaru"],
+      "importance": 1,
+      "description": "Unable to stomach jumping to his death to save the maid who tortured him, Subaru turns his back on the manor and sprints into the dark night.",
+      "image": "https://images.unsplash.com/photo-1511497584788-87676104235f?auto=format&fit=crop&w=1200&q=80"
+    },
+    {
+      "id": "wrath-syndicate-birth",
+      "name": "Founding of the Pleiades Criminal Syndicate",
+      "approxStartDate": "Month 4",
+      "location": "Banan, Kararagi",
+      "characters": ["Natsuki Subaru"],
+      "importance": 2,
+      "description": "Trusting no living human, Subaru utilizes Return by Death to bankrupt underground syndicates and build the continent's most ruthlessly paranoid crime syndicate.",
+      "image": "https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?auto=format&fit=crop&w=1200&q=80"
+    },
+    {
+      "id": "wrath-cecilus-contract",
+      "name": "Retaining the Blue Lightning: Cecilus Segmunt's Contract",
+      "approxStartDate": "Year 1",
+      "location": "Pleiades Headquarters",
+      "characters": ["Natsuki Subaru"],
+      "importance": 2,
+      "description": "Subaru hires Cecilus Segmunt, First Divine General of Vollachia, as his supreme personal enforcer with exorbitant fortunes and promise of grand stages.",
+      "image": "https://images.unsplash.com/photo-1533158326339-7f3cf2404354?auto=format&fit=crop&w=1200&q=80"
+    },
+    {
+      "id": "wrath-colorless-world",
+      "name": "Onset of the Colorless World (Monochrome Vision)",
+      "approxStartDate": "Year 2",
+      "location": "Pleiades Inner Sanctum",
+      "characters": ["Natsuki Subaru"],
+      "importance": 1,
+      "description": "Subaru's mental state completely detaches from empathy; all humans appear to him as lifeless gray silhouettes, with only Emilia retaining vivid color.",
+      "image": "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?auto=format&fit=crop&w=1200&q=80"
+    },
+    {
+      "id": "wrath-coin-flip-purge",
+      "name": "The Coin-Toss Purge Trials",
+      "approxStartDate": "Year 2 (Winter)",
+      "location": "High Court of Pleiades",
+      "characters": ["Natsuki Subaru", "Ram"],
+      "importance": 1,
+      "description": "Subaru decides the survival of captives and subordinates through pure coin tosses. Ram, held captive in the manor, scorns his cowardice as the Purge King.",
+      "image": "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=1200&q=80"
+    }
+  ]
+}
+

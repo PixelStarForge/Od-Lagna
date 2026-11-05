@@ -80,19 +80,51 @@
     }
   },
   {
+    "id": "royal-selection-ceremony-declaration",
+    "eraId": "modern-era",
+    "name": "Assembly of the Five Dragon Priestesses & Royal Selection Declaration",
+    "approxStartDate": "Month 1",
+    "duration": "1 Day",
+    "location": "Lugunica Royal Throne Room",
+    "characters": ["Emilia", "Natsuki Subaru", "Crusch Karsten", "Priscilla Barielle", "Anastasia Hoshin", "Felt", "Reinhard van Astrea"],
+    "topic": "Royal Selection",
+    "importance": 1,
+    "description": "The five chosen candidates assemble before the Council of Wise Men. With the Dragon's insignia responding to each priestess, the contest for the royal crown of Lugunica officially commences.",
+    "image": "https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&w=1200&q=80",
+    "source": {
+      "title": "Light Novel Volume 4"
+    }
+  },
+  {
     "id": "royal-selection-and-white-whale-conquest",
     "eraId": "modern-era",
-    "name": "Royal Selection Declaration & The Fall of the White Whale",
+    "name": "The Fall of the White Whale",
     "approxStartDate": "Month 2",
     "duration": "Several Days",
-    "location": "Lugunica Palace & Flugel's Tree",
+    "location": "Flugel's Tree (Lifaus Plains)",
     "characters": ["Natsuki Subaru", "Wilhelm van Astrea", "Crusch Karsten", "Anastasia Hoshin"],
     "topic": "Great Mabeasts",
     "importance": 1,
-    "description": "After the dramatic announcement of the five dragon priestess candidates, Subaru orchestrates a joint crusade with Crusch and Anastasia, successfully felling the legendary White Whale and avenging Theresia.",
+    "description": "Subaru orchestrates a joint crusade with Crusch and Anastasia, successfully felling the legendary White Whale and avenging Theresia van Astrea after fourteen years.",
     "image": "https://images.unsplash.com/photo-1534447677768-be436bb09401?auto=format&fit=crop&w=1200&q=80",
     "source": {
       "title": "Light Novel Volumes 4–7"
+    }
+  },
+  {
+    "id": "petelgeuse-sloth-defeat-forest",
+    "eraId": "modern-era",
+    "name": "The Fall of Sloth: Annihilation of Petelgeuse Romanee-Conti",
+    "approxStartDate": "Month 2 (End)",
+    "duration": "1 Day",
+    "location": "Mathers Domain Forest",
+    "characters": ["Natsuki Subaru", "Julius Juukulius", "Petelgeuse Romanee-Conti"],
+    "topic": "Sin Archbishops",
+    "importance": 2,
+    "description": "Through an unprecedented union of Subaru's sight and Julius's spirit blade, Petelgeuse's Unseen Hands are cut down, ending the mad Sin Archbishop's reign of terror.",
+    "image": "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?auto=format&fit=crop&w=1200&q=80",
+    "source": {
+      "title": "Light Novel Volumes 8–9"
     }
   },
   {
@@ -125,6 +157,22 @@
     "image": "https://images.unsplash.com/photo-1514890547357-a9ee288728e0?auto=format&fit=crop&w=1200&q=80",
     "source": {
       "title": "Light Novel Volumes 16–20"
+    }
+  },
+  {
+    "id": "arc-5-city-hall-broadcast-speech",
+    "eraId": "modern-era",
+    "name": "Subaru's Mirror Broadcast: The Hero of Priestella Speaks",
+    "approxStartDate": "One Year Later (Mid)",
+    "duration": "Several Hours",
+    "location": "Priestella City Hall",
+    "characters": ["Natsuki Subaru", "Emilia", "Garfiel Tinsel"],
+    "topic": "Emilia Camp",
+    "importance": 3,
+    "description": "Using the magic communication mirrors of Priestella, Subaru delivers an inspiring address to thousands of terrified refugees, banishing despair across all four quadrants.",
+    "image": "https://images.unsplash.com/photo-1514890547357-a9ee288728e0?auto=format&fit=crop&w=1200&q=80",
+    "source": {
+      "title": "Light Novel Volume 18"
     }
   },
   {

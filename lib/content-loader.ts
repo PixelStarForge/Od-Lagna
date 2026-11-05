@@ -24,6 +24,8 @@ import {
   timelineEventSchema,
   TimelineEra,
   TimelineEvent,
+  timelineIfRouteSchema,
+  TimelineIfRoute,
 } from "./schema";
 
 const CONTENT_DIR = path.join(process.cwd(), "content");
@@ -579,11 +581,42 @@ export function getTimelineEvents(): TimelineEvent[] {
   });
 }
 
-export function getTimelineData(): { eras: TimelineEra[]; events: TimelineEvent[] } {
+const CONTENT_TIMELINE_IFS_DIR = path.join(CONTENT_TIMELINE_DIR, "ifs");
+
+export function getTimelineIfRoutes(): TimelineIfRoute[] {
+  if (!fs.existsSync(CONTENT_TIMELINE_IFS_DIR)) return [];
+  const routes: TimelineIfRoute[] = [];
+  const files = fs.readdirSync(CONTENT_TIMELINE_IFS_DIR);
+  for (const file of files) {
+    if (!file.endsWith(".json")) continue;
+    try {
+      const filePath = path.join(CONTENT_TIMELINE_IFS_DIR, file);
+      const raw = fs.readFileSync(filePath, "utf-8");
+      const parsed = JSON.parse(raw);
+      const result = timelineIfRouteSchema.safeParse(parsed);
+      if (result.success) {
+        routes.push(result.data);
+      } else {
+        console.error(`Invalid schema in IF file ${file}:`, result.error);
+      }
+    } catch (err) {
+      console.error(`Failed to parse IF file ${file}:`, err);
+    }
+  }
+  return routes;
+}
+
+export function getTimelineData(): {
+  eras: TimelineEra[];
+  events: TimelineEvent[];
+  ifRoutes: TimelineIfRoute[];
+} {
   return {
     eras: getTimelineEras(),
     events: getTimelineEvents(),
+    ifRoutes: getTimelineIfRoutes(),
   };
 }
+
 
 

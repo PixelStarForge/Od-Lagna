@@ -1,0 +1,48 @@
+{
+  "slug": "if-melancholy",
+  "name": "Aganau IF",
+  "kanjiTitle": "Aganau",
+  "divergesFromEventId": "petelgeuse-sloth-defeat-forest",
+  "divergencePoint": "Arc 3 Alternate",
+  "divergenceSummary": "Petelgeuse massacres Rem while Subaru is restrained, and Subaru's checkpoint updates past her death. Realizing he cannot reverse her fate, Subaru spends twenty bitter years as a vengeful swordsman wandering the continent.",
+  "direction": "down",
+  "approxDate": "20 Years Later",
+  "headline": "The Vengeful Swordsman's Path",
+  "description": "Following Rem's death, Subaru spends twenty bitter years training his body and blade to exact relentless vengeance on the Witch Cult.",
+  "image": "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?auto=format&fit=crop&w=1200&q=80",
+  "href": "/ifs/if-melancholy",
+  "subEvents": ["Rem's Tragic Loss", "Twenty Years in Exile", "Final Duel with Sloth"],
+  "events": [
+    {
+      "id": "melancholy-forest-tragedy",
+      "name": "The Irreversible Loss in the Forest",
+      "approxStartDate": "Month 2",
+      "location": "Lifaus Forest",
+      "characters": ["Natsuki Subaru", "Petelgeuse Romanee-Conti"],
+      "importance": 1,
+      "description": "Subaru witnesses Rem's death at Petelgeuse's hands, only to awaken at a save point after her body is cold. Realizing he cannot reverse her fate, his sanity fractures.",
+      "image": "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?auto=format&fit=crop&w=1200&q=80"
+    },
+    {
+      "id": "melancholy-sword-training",
+      "name": "Twenty Years of Solitary Sword Discipline",
+      "approxStartDate": "Years 1–10",
+      "location": "Frontier Mountains",
+      "characters": ["Natsuki Subaru"],
+      "importance": 2,
+      "description": "Subaru departs the camp, sharpening his physical strength and spirit magic into lethal instruments of war, scarred from head to toe.",
+      "image": "https://images.unsplash.com/photo-1579783902614-a3fb3927b675?auto=format&fit=crop&w=1200&q=80"
+    },
+    {
+      "id": "melancholy-final-retribution",
+      "name": "The Vengeful Blade's Reckoning",
+      "approxStartDate": "20 Years Later",
+      "location": "Ruins of the Sloth Shrine",
+      "characters": ["Natsuki Subaru", "Petelgeuse Romanee-Conti"],
+      "importance": 1,
+      "description": "A weathered, graying Subaru corners Petelgeuse in the temple crypts, severing his invisible fingers one by one to fulfill two decades of unrelenting vengeance.",
+      "image": "https://images.unsplash.com/photo-1534447677768-be436bb09401?auto=format&fit=crop&w=1200&q=80"
+    }
+  ]
+}
+
