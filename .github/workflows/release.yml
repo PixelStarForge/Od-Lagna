@@ -106,7 +106,7 @@ jobs:
         with:
           tagName: ${{ github.ref_name || 'v0.1.0' }}
           releaseName: "Od-Lagna ${{ github.ref_name || 'v0.1.0' }}"
-          releaseBody: "Offline release of Od-Lagna for Windows, macOS, and Linux."
+          releaseBody: "Od-Lagna offline archive release for Windows, macOS, Linux, Android, and iOS."
           releaseDraft: false
           prerelease: false
           includeUpdaterJson: true
@@ -134,7 +134,6 @@ jobs:
         with:
           distribution: temurin
           java-version: 17
-          cache: gradle
 
       - name: Setup Android SDK
         uses: android-actions/setup-android@v3
@@ -202,8 +201,12 @@ jobs:
           while IFS= read -r apk; do
             [ -f "$apk" ] || continue
             APK_NAME=$(basename "$apk")
-            NEW_NAME="Od-Lagna_${VERSION}_${APK_NAME}"
-            NEW_NAME=$(echo "$NEW_NAME" | sed 's/_app-/_/' | sed 's/-unsigned//')
+            CLEAN_NAME=$(echo "$APK_NAME" | sed 's/^app-//' | sed 's/-unsigned//' | sed 's/-release//' | sed 's/\.apk$//')
+            if [ "$CLEAN_NAME" = "universal" ] || [ -z "$CLEAN_NAME" ]; then
+              NEW_NAME="Od-Lagna_${VERSION}_android.apk"
+            else
+              NEW_NAME="Od-Lagna_${VERSION}_android_${CLEAN_NAME}.apk"
+            fi
             cp "$apk" "dist-android/$NEW_NAME"
             echo "Prepared $apk -> dist-android/$NEW_NAME"
             APK_COUNT=$((APK_COUNT + 1))
@@ -226,7 +229,7 @@ jobs:
 
           if ! gh release view "$TAG" >/dev/null 2>&1; then
             echo "Release not found; creating release $TAG..."
-            gh release create "$TAG" --title "Od-Lagna $TAG" --notes "Release $TAG"
+            gh release create "$TAG" --title "Od-Lagna $TAG" --notes "Od-Lagna offline archive release for Windows, macOS, Linux, Android, and iOS."
           fi
 
           for file in dist-android/*.apk; do
@@ -321,7 +324,7 @@ jobs:
           VERSION="${TAG#v}"
 
           if [ -f od-lagna.ipa ]; then
-            RELEASE_IPA="Od-Lagna_${VERSION}.ipa"
+            RELEASE_IPA="Od-Lagna_${VERSION}_ios.ipa"
             cp od-lagna.ipa "$RELEASE_IPA"
             echo "Prepared $RELEASE_IPA for release upload."
 
@@ -336,7 +339,7 @@ jobs:
 
             if ! gh release view "$TAG" >/dev/null 2>&1; then
               echo "Release not found; creating release $TAG..."
-              gh release create "$TAG" --title "Od-Lagna $TAG" --notes "Release $TAG"
+              gh release create "$TAG" --title "Od-Lagna $TAG" --notes "Od-Lagna offline archive release for Windows, macOS, Linux, Android, and iOS."
             fi
 
             echo "Uploading $RELEASE_IPA to release $TAG..."
