@@ -9,6 +9,7 @@ import {
 } from "../lib/content-loader";
 import { getAnimeCatalog } from "../lib/anime-loader";
 import { SearchHeroButton } from "../components/SearchHeroButton";
+import { HomeDownloadSection } from "../components/HomeDownloadSection";
 
 export default function HomePage() {
   const stats = getContentStats();
@@ -447,6 +448,9 @@ export default function HomePage() {
           </div>
         </section>
       )}
+
+      {/* Download Offline App Section */}
+      <HomeDownloadSection />
     </div>
   );
 }

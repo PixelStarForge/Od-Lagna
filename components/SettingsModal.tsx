@@ -1,12 +1,35 @@
 "use client";
 
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { usePreferences, ThemeMode } from "../lib/preferences";
 import { SpoilerControls } from "./SpoilerControls";
+import { useIsApp } from "../lib/is-app";
 
 export function SettingsModal() {
   const { isSettingsOpen, setIsSettingsOpen, theme, setTheme } = usePreferences();
   const modalRef = useRef<HTMLDivElement>(null);
+  const inApp = useIsApp();
+  const [isChecking, setIsChecking] = useState(false);
+  const [checkStatus, setCheckStatus] = useState<string | null>(null);
+
+  const handleManualCheck = async () => {
+    setIsChecking(true);
+    setCheckStatus("Checking GitHub Releases...");
+    try {
+      const { check } = await import("@tauri-apps/plugin-updater");
+      const update = await check();
+      if (update) {
+        setCheckStatus(`Update v${update.version} available! Use the banner to install.`);
+      } else {
+        setCheckStatus("You are on the latest version.");
+      }
+    } catch (err: unknown) {
+      const message = err instanceof Error ? err.message : String(err);
+      setCheckStatus(message || "Could not reach update server (offline).");
+    } finally {
+      setIsChecking(false);
+    }
+  };
 
   useEffect(() => {
     if (!isSettingsOpen) return;
@@ -132,6 +155,42 @@ export function SettingsModal() {
             ))}
           </div>
         </section>
+
+        {/* Section 3: In-App Updates (Desktop / Mobile App only) */}
+        {inApp && (
+          <section className="space-y-3 pt-4 border-t border-[var(--border-subtle)]">
+            <div className="flex items-center justify-between">
+              <div className="flex items-center gap-2">
+                <svg className="w-4 h-4 text-emerald-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+                </svg>
+                <h3 className="text-sm font-bold uppercase tracking-wider text-[var(--text-main)]">
+                  Application Updates
+                </h3>
+              </div>
+              <span className="text-[11px] font-mono text-[var(--text-muted)] bg-[var(--bg-elevated)] px-2 py-0.5 rounded border border-[var(--border-subtle)]">
+                v0.1.0 Offline App
+              </span>
+            </div>
+
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 p-3.5 rounded-xl border border-[var(--border-subtle)] bg-[var(--bg-elevated)]">
+              <div className="space-y-0.5">
+                <p className="text-xs font-medium text-[var(--text-main)]">GitHub Releases Auto-Updater</p>
+                <p className="text-[11px] text-[var(--text-muted)]">
+                  {checkStatus || "Automatic background update checks enabled on launch"}
+                </p>
+              </div>
+              <button
+                type="button"
+                onClick={handleManualCheck}
+                disabled={isChecking}
+                className="px-3 py-1.5 text-xs font-medium rounded-lg bg-[var(--bg-surface)] hover:bg-[var(--accent)] hover:text-white border border-[var(--border-subtle)] transition-colors cursor-pointer shrink-0 disabled:opacity-50"
+              >
+                {isChecking ? "Checking..." : "Check for Updates"}
+              </button>
+            </div>
+          </section>
+        )}
 
         {/* Footer actions */}
         <div className="pt-4 border-t border-[var(--border-subtle)] flex justify-end">

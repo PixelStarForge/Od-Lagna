@@ -10,6 +10,7 @@ import { SettingsModal } from "./SettingsModal";
 import { OnboardingModal } from "./OnboardingModal";
 import { SearchModal } from "./SearchModal";
 import { ShareModal } from "./ShareModal";
+import { AppUpdater } from "./AppUpdater";
 import "../lib/navigation-events";
 
 export function AppShell({ children }: { children: React.ReactNode }) {
@@ -25,6 +26,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
             <OnboardingModal />
             <SearchModal />
             <ShareModal />
+            <AppUpdater />
           </div>
         </ShareProvider>
       </BookmarksProvider>

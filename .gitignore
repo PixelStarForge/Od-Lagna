@@ -55,3 +55,7 @@ public/search-index.json
 
 .venv
 scratch/
+
+# Tauri
+src-tauri/target/
+src-tauri/gen/

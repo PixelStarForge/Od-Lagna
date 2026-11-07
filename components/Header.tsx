@@ -8,10 +8,12 @@ import { getRandomEntryId } from "../lib/random-entry";
 import { preloadSearchIndex } from "../lib/search-index";
 import { dispatchUrlChange } from "../lib/navigation-events";
 import { useBookmarks } from "../lib/bookmarks";
+import { useIsApp } from "../lib/is-app";
 
 export function Header() {
   const pathname = usePathname();
   const router = useRouter();
+  const inApp = useIsApp();
   const {
     theme,
     setTheme,
@@ -340,6 +342,25 @@ export function Header() {
                     <div className={`text-xs ${pathname === "/contribute" ? "text-[var(--accent)] opacity-85" : "text-[var(--text-muted)]"}`}>
                       Contribution guidelines &amp; templates</div>
                   </Link>
+                  {!inApp && (
+                    <Link
+                      href="/download"
+                      role="menuitem"
+                      onClick={() => setOpenDropdown(null)}
+                      className={`block px-3 py-2 rounded-lg text-sm transition-colors mt-0.5 ${
+                        pathname === "/download"
+                          ? "bg-[var(--bg-elevated)] text-[var(--accent)] font-semibold"
+                          : "hover:bg-[var(--bg-elevated)] text-[var(--text-main)]"
+                      }`}
+                    >
+                      <div className={`font-medium text-xs sm:text-sm ${pathname === "/download" ? "text-[var(--accent)] font-semibold" : "text-[var(--text-main)]"}`}>
+                        Download App
+                      </div>
+                      <div className={`text-xs ${pathname === "/download" ? "text-[var(--accent)] opacity-85" : "text-[var(--text-muted)]"}`}>
+                        Windows, Mac, Linux, Android &amp; iOS
+                      </div>
+                    </Link>
+                  )}
                   <div className="my-1 border-t border-[var(--border-subtle)]" />
                   <a
                     href="https://github.com/PixelStarForge/Od-Lagna"
@@ -708,6 +729,19 @@ export function Header() {
                 Guide
               </span>
             </Link>
+            {!inApp && (
+              <Link
+                href="/download"
+                onClick={() => setIsMobileMenuOpen(false)}
+                className={`flex items-center justify-between px-3 py-2 rounded-lg text-sm font-medium transition-colors ${
+                  pathname === "/download"
+                    ? "bg-[var(--bg-elevated)] text-[var(--accent)] font-semibold"
+                    : "text-[var(--text-muted)] hover:text-[var(--text-main)] hover:bg-[var(--bg-elevated)]"
+                }`}
+              >
+                <span>Download App</span>
+              </Link>
+            )}
             <a
               href="https://github.com/PixelStarForge/Od-Lagna"
               target="_blank"

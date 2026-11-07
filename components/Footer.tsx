@@ -1,8 +1,12 @@
 "use client";
 
+import React from "react";
 import Link from "next/link";
+import { useIsApp } from "../lib/is-app";
 
 export function Footer() {
+  const inApp = useIsApp();
+
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
@@ -193,6 +197,13 @@ export function Footer() {
                   About Archive
                 </Link>
               </li>
+              {!inApp && (
+                <li>
+                  <Link href="/download" className={linkClass}>
+                    Download App
+                  </Link>
+                </li>
+              )}
               <li>
                 <Link href="/saved" className={linkClass}>
                   Saved Bookmarks
