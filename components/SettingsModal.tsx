@@ -4,22 +4,38 @@ import React, { useEffect, useRef, useState } from "react";
 import { usePreferences, ThemeMode } from "../lib/preferences";
 import { SpoilerControls } from "./SpoilerControls";
 import { useIsApp } from "../lib/is-app";
+import type { Update, DownloadEvent } from "@tauri-apps/plugin-updater";
 
 export function SettingsModal() {
   const { isSettingsOpen, setIsSettingsOpen, theme, setTheme } = usePreferences();
   const modalRef = useRef<HTMLDivElement>(null);
   const inApp = useIsApp();
+  const [appVersion, setAppVersion] = useState<string>("0.1.2");
   const [isChecking, setIsChecking] = useState(false);
+  const [isUpdating, setIsUpdating] = useState(false);
+  const [updateProgress, setUpdateProgress] = useState<number | null>(null);
+  const [availableUpdate, setAvailableUpdate] = useState<Update | null>(null);
   const [checkStatus, setCheckStatus] = useState<string | null>(null);
+
+  useEffect(() => {
+    if (inApp) {
+      import("@tauri-apps/api/app")
+        .then((m) => m.getVersion())
+        .then((v) => setAppVersion(v))
+        .catch(() => {});
+    }
+  }, [inApp]);
 
   const handleManualCheck = async () => {
     setIsChecking(true);
     setCheckStatus("Checking GitHub Releases...");
+    setAvailableUpdate(null);
     try {
       const { check } = await import("@tauri-apps/plugin-updater");
       const update = await check();
       if (update) {
-        setCheckStatus(`Update v${update.version} available! Use the banner to install.`);
+        setAvailableUpdate(update);
+        setCheckStatus(`Update v${update.version} is available!`);
       } else {
         setCheckStatus("You are on the latest version.");
       }
@@ -28,6 +44,40 @@ export function SettingsModal() {
       setCheckStatus(message || "Could not reach update server (offline).");
     } finally {
       setIsChecking(false);
+    }
+  };
+
+  const handleInstallFromModal = async () => {
+    if (!availableUpdate) return;
+    setIsUpdating(true);
+    setCheckStatus("Downloading update...");
+    setUpdateProgress(0);
+
+    try {
+      let total = 0;
+      let downloaded = 0;
+      await availableUpdate.downloadAndInstall((event: DownloadEvent) => {
+        if (event.event === "Started") {
+          total = event.data?.contentLength || 0;
+        } else if (event.event === "Progress") {
+          downloaded += event.data?.chunkLength || 0;
+          const pct = total > 0 ? Math.min(100, Math.round((downloaded / total) * 100)) : 0;
+          setUpdateProgress(pct);
+          setCheckStatus(`Downloading: ${pct}%`);
+        } else if (event.event === "Finished") {
+          setUpdateProgress(100);
+          setCheckStatus("Installing and relaunching...");
+        }
+      });
+
+      setTimeout(async () => {
+        const { relaunch } = await import("@tauri-apps/plugin-process");
+        await relaunch();
+      }, 600);
+    } catch (err: unknown) {
+      const message = err instanceof Error ? err.message : String(err);
+      setCheckStatus(`Update failed: ${message}`);
+      setIsUpdating(false);
     }
   };
 
@@ -169,25 +219,48 @@ export function SettingsModal() {
                 </h3>
               </div>
               <span className="text-[11px] font-mono text-[var(--text-muted)] bg-[var(--bg-elevated)] px-2 py-0.5 rounded border border-[var(--border-subtle)]">
-                v0.1.0 Offline App
+                v{appVersion} Offline App
               </span>
             </div>
 
-            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 p-3.5 rounded-xl border border-[var(--border-subtle)] bg-[var(--bg-elevated)]">
-              <div className="space-y-0.5">
-                <p className="text-xs font-medium text-[var(--text-main)]">GitHub Releases Auto-Updater</p>
-                <p className="text-[11px] text-[var(--text-muted)]">
-                  {checkStatus || "Automatic background update checks enabled on launch"}
-                </p>
+            <div className="flex flex-col gap-3 p-3.5 rounded-xl border border-[var(--border-subtle)] bg-[var(--bg-elevated)]">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                <div className="space-y-0.5">
+                  <p className="text-xs font-semibold text-[var(--text-main)]">
+                    {availableUpdate ? `Update v${availableUpdate.version} Ready` : "GitHub Releases Auto-Updater"}
+                  </p>
+                  <p className="text-[11px] text-[var(--text-muted)]">
+                    {checkStatus || "Automatic background update checks enabled on launch"}
+                  </p>
+                </div>
+                {!availableUpdate ? (
+                  <button
+                    type="button"
+                    onClick={handleManualCheck}
+                    disabled={isChecking}
+                    className="px-3 py-1.5 text-xs font-medium rounded-lg bg-[var(--bg-surface)] hover:bg-[var(--accent)] hover:text-white border border-[var(--border-subtle)] transition-colors cursor-pointer shrink-0 disabled:opacity-50"
+                  >
+                    {isChecking ? "Checking..." : "Check for Updates"}
+                  </button>
+                ) : (
+                  <button
+                    type="button"
+                    onClick={handleInstallFromModal}
+                    disabled={isUpdating}
+                    className="px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-[var(--accent-solid)] hover:bg-[var(--accent-solid-hover)] text-white shadow-xs transition-colors cursor-pointer shrink-0 disabled:opacity-50 flex items-center gap-1.5"
+                  >
+                    <span>{isUpdating ? "Updating..." : "Update Now"}</span>
+                  </button>
+                )}
               </div>
-              <button
-                type="button"
-                onClick={handleManualCheck}
-                disabled={isChecking}
-                className="px-3 py-1.5 text-xs font-medium rounded-lg bg-[var(--bg-surface)] hover:bg-[var(--accent)] hover:text-white border border-[var(--border-subtle)] transition-colors cursor-pointer shrink-0 disabled:opacity-50"
-              >
-                {isChecking ? "Checking..." : "Check for Updates"}
-              </button>
+              {updateProgress !== null && isUpdating && (
+                <div className="w-full bg-[var(--bg-surface)] rounded-full h-1.5 overflow-hidden border border-[var(--border-subtle)]">
+                  <div
+                    className="bg-[var(--accent-solid)] h-full transition-all duration-300"
+                    style={{ width: `${updateProgress}%` }}
+                  />
+                </div>
+              )}
             </div>
           </section>
         )}

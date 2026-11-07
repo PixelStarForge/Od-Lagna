@@ -55,6 +55,30 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y libwebkit2gtk-4.1-dev libappindicator3-dev librsvg2-dev patchelf
 
+      - name: Sync version from git tag
+        if: startsWith(github.ref, 'refs/tags/v')
+        shell: bash
+        run: |
+          RAW_TAG="${{ github.ref_name }}"
+          VERSION="${RAW_TAG#v}"
+          echo "Setting release version to ${VERSION}..."
+          node -e "
+            const fs = require('fs');
+            const v = '${VERSION}';
+
+            const pkg = JSON.parse(fs.readFileSync('package.json', 'utf8'));
+            pkg.version = v;
+            fs.writeFileSync('package.json', JSON.stringify(pkg, null, 2) + '\n');
+
+            const tauri = JSON.parse(fs.readFileSync('src-tauri/tauri.conf.json', 'utf8'));
+            tauri.version = v;
+            fs.writeFileSync('src-tauri/tauri.conf.json', JSON.stringify(tauri, null, 2) + '\n');
+
+            let cargo = fs.readFileSync('src-tauri/Cargo.toml', 'utf8');
+            cargo = cargo.replace(/^version = \".*\"/m, 'version = \"' + v + '\"');
+            fs.writeFileSync('src-tauri/Cargo.toml', cargo);
+          "
+
       - name: Install npm dependencies
         run: npm ci
 
@@ -110,6 +134,30 @@ jobs:
         with:
           targets: aarch64-linux-android,armv7-linux-androideabi,i686-linux-android,x86_64-linux-android
 
+      - name: Sync version from git tag
+        if: startsWith(github.ref, 'refs/tags/v')
+        shell: bash
+        run: |
+          RAW_TAG="${{ github.ref_name }}"
+          VERSION="${RAW_TAG#v}"
+          echo "Setting release version to ${VERSION}..."
+          node -e "
+            const fs = require('fs');
+            const v = '${VERSION}';
+
+            const pkg = JSON.parse(fs.readFileSync('package.json', 'utf8'));
+            pkg.version = v;
+            fs.writeFileSync('package.json', JSON.stringify(pkg, null, 2) + '\n');
+
+            const tauri = JSON.parse(fs.readFileSync('src-tauri/tauri.conf.json', 'utf8'));
+            tauri.version = v;
+            fs.writeFileSync('src-tauri/tauri.conf.json', JSON.stringify(tauri, null, 2) + '\n');
+
+            let cargo = fs.readFileSync('src-tauri/Cargo.toml', 'utf8');
+            cargo = cargo.replace(/^version = \".*\"/m, 'version = \"' + v + '\"');
+            fs.writeFileSync('src-tauri/Cargo.toml', cargo);
+          "
+
       - name: Install npm dependencies
         run: npm ci
 
@@ -143,6 +191,30 @@ jobs:
         uses: dtolnay/rust-toolchain@stable
         with:
           targets: aarch64-apple-ios
+
+      - name: Sync version from git tag
+        if: startsWith(github.ref, 'refs/tags/v')
+        shell: bash
+        run: |
+          RAW_TAG="${{ github.ref_name }}"
+          VERSION="${RAW_TAG#v}"
+          echo "Setting release version to ${VERSION}..."
+          node -e "
+            const fs = require('fs');
+            const v = '${VERSION}';
+
+            const pkg = JSON.parse(fs.readFileSync('package.json', 'utf8'));
+            pkg.version = v;
+            fs.writeFileSync('package.json', JSON.stringify(pkg, null, 2) + '\n');
+
+            const tauri = JSON.parse(fs.readFileSync('src-tauri/tauri.conf.json', 'utf8'));
+            tauri.version = v;
+            fs.writeFileSync('src-tauri/tauri.conf.json', JSON.stringify(tauri, null, 2) + '\n');
+
+            let cargo = fs.readFileSync('src-tauri/Cargo.toml', 'utf8');
+            cargo = cargo.replace(/^version = \".*\"/m, 'version = \"' + v + '\"');
+            fs.writeFileSync('src-tauri/Cargo.toml', cargo);
+          "
 
       - name: Install npm dependencies
         run: npm ci
