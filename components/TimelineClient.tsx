@@ -445,6 +445,12 @@ export function TimelineClient({ eras, events, initialIfRoutes }: TimelineClient
   const isProgrammaticScrollRef = useRef(false);
   const targetEraIdRef = useRef<string | null>(null);
   const scrollDebounceTimerRef = useRef<NodeJS.Timeout | null>(null);
+  const desktopZoomRef = useRef(desktopZoom);
+  useEffect(() => {
+    desktopZoomRef.current = desktopZoom;
+  }, [desktopZoom]);
+  const activePointersRef = useRef<Map<number, { clientX: number; clientY: number }>>(new Map());
+  const pinchStartRef = useRef<{ dist: number; zoom: number; midX: number } | null>(null);
 
   // Measure canvas clientWidth for dynamic horizontal centering and responsive Fit All
   const [canvasWidth, setCanvasWidth] = useState<number>(0);
@@ -969,6 +975,31 @@ export function TimelineClient({ eras, events, initialIfRoutes }: TimelineClient
   // Pointer drag-to-scroll handlers (Pointer Events API for instantaneous 1:1 direct tracking)
   // Supports both Left-Click (0) and Middle-Click (1) drag panning
   const handlePointerDown = (e: React.PointerEvent) => {
+    // Only track touch pointers (from actual touchscreens) for multi-touch pinch-to-zoom
+    // Trackpads and mice are indirect pointer streams that must not be counted here
+    if (e.pointerType === "touch") {
+      activePointersRef.current.set(e.pointerId, { clientX: e.clientX, clientY: e.clientY });
+
+      // Two-finger touchscreen pinch detected: cancel any single-pointer drag/click and begin pinch-zoom
+      if (activePointersRef.current.size >= 2) {
+        const canvas = desktopCanvasRef.current;
+        if (canvas && canvas.hasPointerCapture(e.pointerId)) {
+          try { canvas.releasePointerCapture(e.pointerId); } catch {}
+        }
+        isPointerDownRef.current = false;
+        isDraggingRef.current = false;
+        pressedEventRef.current = null;
+        hasMovedRef.current = true;
+
+        const pts = Array.from(activePointersRef.current.values());
+        const dist = Math.hypot(pts[0].clientX - pts[1].clientX, pts[0].clientY - pts[1].clientY);
+        const midX = (pts[0].clientX + pts[1].clientX) / 2;
+        pinchStartRef.current = { dist: Math.max(1, dist), zoom: desktopZoomRef.current, midX };
+        focalAnchorRef.current = findAnchorAtX(midX);
+        return;
+      }
+    }
+
     if (e.button !== 0 && e.button !== 1) return;
     if (e.button === 1) {
       e.preventDefault();
@@ -1008,10 +1039,35 @@ export function TimelineClient({ eras, events, initialIfRoutes }: TimelineClient
     scrollLeftRef.current = canvas.scrollLeft;
     scrollTopRef.current = canvas.scrollTop;
 
-    canvas.setPointerCapture(e.pointerId);
+    try {
+      canvas.setPointerCapture(e.pointerId);
+    } catch {}
   };
 
   const handlePointerMove = (e: React.PointerEvent) => {
+    // Two-finger touchscreen pinch-to-zoom active
+    if (e.pointerType === "touch" && activePointersRef.current.has(e.pointerId)) {
+      activePointersRef.current.set(e.pointerId, { clientX: e.clientX, clientY: e.clientY });
+
+      if (activePointersRef.current.size >= 2 && pinchStartRef.current) {
+        e.preventDefault();
+        const pts = Array.from(activePointersRef.current.values());
+        const currentDist = Math.hypot(pts[0].clientX - pts[1].clientX, pts[0].clientY - pts[1].clientY);
+        const { dist: startDist, zoom: startZoom, midX } = pinchStartRef.current;
+
+        if (startDist > 0) {
+          const scale = currentDist / startDist;
+          const nextZoom = Math.min(1.25, Math.max(0.10, Number((startZoom * scale).toFixed(3))));
+          const anchor = findAnchorAtX(midX);
+          if (anchor) {
+            focalAnchorRef.current = anchor;
+          }
+          setDesktopZoom((prev) => (Math.abs(prev - nextZoom) < 0.001 ? prev : nextZoom));
+        }
+        return;
+      }
+    }
+
     if (!isPointerDownRef.current) return;
     const canvas = desktopCanvasRef.current;
     if (!canvas) return;
@@ -1035,11 +1091,20 @@ export function TimelineClient({ eras, events, initialIfRoutes }: TimelineClient
   };
 
   const handlePointerUp = (e: React.PointerEvent) => {
+    if (e.pointerType === "touch") {
+      activePointersRef.current.delete(e.pointerId);
+      if (activePointersRef.current.size < 2) {
+        pinchStartRef.current = null;
+      }
+    }
+
     if (!isPointerDownRef.current) return;
 
     const canvas = desktopCanvasRef.current;
     if (canvas && canvas.hasPointerCapture(e.pointerId)) {
-      canvas.releasePointerCapture(e.pointerId);
+      try {
+        canvas.releasePointerCapture(e.pointerId);
+      } catch {}
     }
 
     const wasDragging = isDraggingRef.current;
@@ -1238,12 +1303,31 @@ export function TimelineClient({ eras, events, initialIfRoutes }: TimelineClient
     let accumulatedDeltaY = 0;
     let lastClientX = 0;
 
+    // Continuously maintain last pointer position for accurate focal zooming
+    const handleGlobalPointerMove = (e: PointerEvent) => {
+      lastClientX = e.clientX;
+    };
+    window.addEventListener("pointermove", handleGlobalPointerMove, { passive: true });
+
     const handleWheel = (e: WheelEvent) => {
-      // Touchpad pinch or Ctrl + Mouse Wheel
-      if (e.ctrlKey) {
+      const canvas = desktopCanvasRef.current;
+      if (!canvas) return;
+
+      // Touchpad pinch or Ctrl / Cmd + Mouse Wheel
+      if (e.ctrlKey || e.metaKey) {
         e.preventDefault();
-        accumulatedDeltaY += e.deltaY;
-        lastClientX = e.clientX;
+
+        let delta = e.deltaY;
+        if (e.deltaMode === 1) { // Line delta
+          delta *= 24;
+        } else if (e.deltaMode === 2) { // Page delta
+          delta *= 400;
+        }
+
+        accumulatedDeltaY += delta;
+        if (e.clientX > 0) {
+          lastClientX = e.clientX;
+        }
 
         if (wheelRafId === null) {
           wheelRafId = requestAnimationFrame(() => {
@@ -1251,7 +1335,11 @@ export function TimelineClient({ eras, events, initialIfRoutes }: TimelineClient
             const deltaY = accumulatedDeltaY;
             accumulatedDeltaY = 0;
 
-            const anchor = findAnchorAtX(lastClientX);
+            const canvasRect = canvas.getBoundingClientRect();
+            const isOverCanvas = lastClientX >= canvasRect.left && lastClientX <= canvasRect.right;
+            const targetX = isOverCanvas && lastClientX > 0 ? lastClientX : (canvasRect.left + canvasRect.width / 2);
+
+            const anchor = findAnchorAtX(targetX);
             if (anchor) {
               focalAnchorRef.current = anchor;
             }
@@ -1263,6 +1351,12 @@ export function TimelineClient({ eras, events, initialIfRoutes }: TimelineClient
             });
           });
         }
+        return;
+      }
+
+      // Check if scroll is intended for the canvas
+      const target = e.target as HTMLElement | null;
+      if (!target?.closest?.("[data-timeline-canvas]")) {
         return;
       }
 
@@ -1291,10 +1385,136 @@ export function TimelineClient({ eras, events, initialIfRoutes }: TimelineClient
       }
     };
 
-    canvas.addEventListener("wheel", handleWheel, { passive: false });
+    // Native Tauri GTK gesture listener (Linux Wayland / X11 WebKitGTK continuous pinch zoom)
+    let isTauriGestureActive = false;
+    let tauriGestureStartZoom = desktopZoomRef.current;
+
+    const handleTauriPinchStart = (e: Event) => {
+      isTauriGestureActive = true;
+      tauriGestureStartZoom = desktopZoomRef.current;
+      const ce = e as CustomEvent<{ x?: number | null; y?: number | null }>;
+      const canvas = desktopCanvasRef.current;
+      if (canvas) {
+        const clientX = typeof ce.detail?.x === "number" && ce.detail.x > 0
+          ? ce.detail.x
+          : (canvas.getBoundingClientRect().left + canvas.clientWidth / 2);
+        const anchor = findAnchorAtX(clientX);
+        if (anchor) focalAnchorRef.current = anchor;
+      }
+    };
+
+    const handleTauriPinchChange = (e: Event) => {
+      const ce = e as CustomEvent<{ scale?: number; x?: number | null; y?: number | null; isLevelDelta?: boolean }>;
+      const scale = typeof ce.detail?.scale === "number" && ce.detail.scale > 0 ? ce.detail.scale : 1;
+      const canvas = desktopCanvasRef.current;
+      if (canvas && typeof ce.detail?.x === "number" && ce.detail.x > 0) {
+        const anchor = findAnchorAtX(ce.detail.x);
+        if (anchor) focalAnchorRef.current = anchor;
+      }
+
+      if (ce.detail?.isLevelDelta) {
+        setDesktopZoom((prev) => {
+          const nextZoom = Math.min(1.25, Math.max(0.10, Number((prev * scale).toFixed(3))));
+          return Math.abs(prev - nextZoom) < 0.001 ? prev : nextZoom;
+        });
+        return;
+      }
+
+      if (!isTauriGestureActive) {
+        isTauriGestureActive = true;
+        tauriGestureStartZoom = desktopZoomRef.current;
+      }
+      const nextZoom = Math.min(1.25, Math.max(0.10, Number((tauriGestureStartZoom * scale).toFixed(3))));
+      setDesktopZoom((prev) => (Math.abs(prev - nextZoom) < 0.001 ? prev : nextZoom));
+    };
+
+    const handleTauriPinchEnd = () => {
+      isTauriGestureActive = false;
+      focalAnchorRef.current = null;
+    };
+
+    // WebKit Gesture Events (Safari & WebKitGTK trackpad pinch gestures)
+    let gestureStartZoom = desktopZoomRef.current;
+    const handleGestureStart = (e: Event) => {
+      e.preventDefault();
+      e.stopPropagation();
+      gestureStartZoom = desktopZoomRef.current;
+      const ge = e as unknown as { clientX?: number };
+      const clientX = ge.clientX ?? (canvas.getBoundingClientRect().left + canvas.clientWidth / 2);
+      const anchor = findAnchorAtX(clientX);
+      if (anchor) focalAnchorRef.current = anchor;
+    };
+
+    const handleGestureChange = (e: Event) => {
+      e.preventDefault();
+      e.stopPropagation();
+      const ge = e as unknown as { scale?: number };
+      const scale = typeof ge.scale === "number" ? ge.scale : 1;
+      const nextZoom = Math.min(1.25, Math.max(0.10, Number((gestureStartZoom * scale).toFixed(3))));
+      setDesktopZoom((prev) => (Math.abs(prev - nextZoom) < 0.001 ? prev : nextZoom));
+    };
+
+    const handleGestureEnd = (e: Event) => {
+      e.preventDefault();
+      e.stopPropagation();
+    };
+
+    // Native Touch events for multi-touch touchscreens/trackpads with passive: false to cancel native webview zoom
+    let touchStartDist = 0;
+    let touchStartZoom = desktopZoomRef.current;
+    let touchMidX = 0;
+
+    const handleTouchStart = (e: TouchEvent) => {
+      if (e.touches.length === 2) {
+        e.preventDefault();
+        touchStartDist = Math.hypot(
+          e.touches[0].clientX - e.touches[1].clientX,
+          e.touches[0].clientY - e.touches[1].clientY
+        );
+        touchStartZoom = desktopZoomRef.current;
+        touchMidX = (e.touches[0].clientX + e.touches[1].clientX) / 2;
+        const anchor = findAnchorAtX(touchMidX);
+        if (anchor) focalAnchorRef.current = anchor;
+      }
+    };
+
+    const handleTouchMove = (e: TouchEvent) => {
+      if (e.touches.length === 2 && touchStartDist > 0) {
+        e.preventDefault();
+        const dist = Math.hypot(
+          e.touches[0].clientX - e.touches[1].clientX,
+          e.touches[0].clientY - e.touches[1].clientY
+        );
+        const scale = dist / touchStartDist;
+        const nextZoom = Math.min(1.25, Math.max(0.10, Number((touchStartZoom * scale).toFixed(3))));
+        const anchor = findAnchorAtX(touchMidX);
+        if (anchor) focalAnchorRef.current = anchor;
+        setDesktopZoom((prev) => (Math.abs(prev - nextZoom) < 0.001 ? prev : nextZoom));
+      }
+    };
+
+    window.addEventListener("wheel", handleWheel, { passive: false });
+    window.addEventListener("tauri-pinch-zoom-start", handleTauriPinchStart);
+    window.addEventListener("tauri-pinch-zoom-change", handleTauriPinchChange);
+    window.addEventListener("tauri-pinch-zoom-end", handleTauriPinchEnd);
+    window.addEventListener("gesturestart", handleGestureStart as EventListener, { passive: false });
+    window.addEventListener("gesturechange", handleGestureChange as EventListener, { passive: false });
+    window.addEventListener("gestureend", handleGestureEnd as EventListener, { passive: false });
+    canvas.addEventListener("touchstart", handleTouchStart, { passive: false });
+    canvas.addEventListener("touchmove", handleTouchMove, { passive: false });
+
     return () => {
       if (wheelRafId !== null) cancelAnimationFrame(wheelRafId);
-      canvas.removeEventListener("wheel", handleWheel);
+      window.removeEventListener("pointermove", handleGlobalPointerMove);
+      window.removeEventListener("wheel", handleWheel);
+      window.removeEventListener("tauri-pinch-zoom-start", handleTauriPinchStart);
+      window.removeEventListener("tauri-pinch-zoom-change", handleTauriPinchChange);
+      window.removeEventListener("tauri-pinch-zoom-end", handleTauriPinchEnd);
+      window.removeEventListener("gesturestart", handleGestureStart as EventListener);
+      window.removeEventListener("gesturechange", handleGestureChange as EventListener);
+      window.removeEventListener("gestureend", handleGestureEnd as EventListener);
+      canvas.removeEventListener("touchstart", handleTouchStart);
+      canvas.removeEventListener("touchmove", handleTouchMove);
     };
   }, []);
 
@@ -3159,14 +3379,16 @@ export function TimelineClient({ eras, events, initialIfRoutes }: TimelineClient
 
                 <div
                   ref={desktopCanvasRef}
+                  data-timeline-canvas="true"
                   tabIndex={0}
                   onPointerDown={handlePointerDown}
                   onPointerMove={handlePointerMove}
                   onPointerUp={handlePointerUp}
                   onPointerCancel={handlePointerUp}
-                  className="relative w-full max-h-[82vh] overflow-auto rounded-2xl border border-[var(--border-subtle)] bg-[var(--bg-elevated)]/30 px-6 py-5 select-none cursor-grab active:cursor-grabbing focus:outline-none timeline-scrollbar flex flex-col"
+                  className="relative w-full max-h-[82vh] overflow-auto rounded-2xl border border-[var(--border-subtle)] bg-[var(--bg-elevated)]/30 px-6 py-5 select-none cursor-grab active:cursor-grabbing focus:outline-none timeline-scrollbar flex flex-col touch-none"
                   style={{
                     minHeight: `${Math.max(360, Math.min(800, Math.round(baseContentHeight * desktopZoom)))}px`,
+                    touchAction: "none",
                   }}
                 >
                 {/* Sizing envelope: dictating scroll container dimensions & centered horizontally and vertically when fully zoomed out */}

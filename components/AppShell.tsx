@@ -11,6 +11,7 @@ import { OnboardingModal } from "./OnboardingModal";
 import { SearchModal } from "./SearchModal";
 import { ShareModal } from "./ShareModal";
 import { AppUpdater } from "./AppUpdater";
+import { ExternalLinkHandler } from "./ExternalLinkHandler";
 import "../lib/navigation-events";
 
 export function AppShell({ children }: { children: React.ReactNode }) {
@@ -27,6 +28,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
             <SearchModal />
             <ShareModal />
             <AppUpdater />
+            <ExternalLinkHandler />
           </div>
         </ShareProvider>
       </BookmarksProvider>
