@@ -1,7 +1,7 @@
 {
   "id": "4211",
-  "question": "Do you prefer a harem, Emilia or Rem?",
-  "answer": "I prefer Emilia.",
+  "question": "Among the girls in the harem, which do you like better, Emilia or Rem?",
+  "answer": "I like Emilia better.",
   "characters": [
     "Emilia",
     "Rem"
@@ -10,8 +10,6 @@
     "Character Relationships"
   ],
   "arc": "general",
-  "verified": true,
-  "dateTime": "2017-10-23",
   "sources": [
     {
       "type": "url",
@@ -21,5 +19,7 @@
       "type": "url",
       "value": "https://live.nicovideo.jp/watch/lv307587181"
     }
-  ]
+  ],
+  "verified": true,
+  "dateTime": "2017-10-23"
 }
