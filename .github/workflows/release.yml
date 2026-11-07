@@ -17,16 +17,20 @@ jobs:
       matrix:
         include:
           - os: windows-latest
-            target: x86_64-pc-windows-msvc
+            rust-targets: x86_64-pc-windows-msvc
+            tauri-args: --target x86_64-pc-windows-msvc
             label: windows-x64
           - os: windows-latest
-            target: aarch64-pc-windows-msvc
+            rust-targets: aarch64-pc-windows-msvc
+            tauri-args: --target aarch64-pc-windows-msvc
             label: windows-arm64
           - os: ubuntu-22.04
-            target: x86_64-unknown-linux-gnu
+            rust-targets: x86_64-unknown-linux-gnu
+            tauri-args: --target x86_64-unknown-linux-gnu
             label: linux-x64
           - os: macos-latest
-            target: universal-apple-darwin
+            rust-targets: aarch64-apple-darwin,x86_64-apple-darwin
+            tauri-args: --target universal-apple-darwin
             label: macos-universal
 
     runs-on: ${{ matrix.os }}
@@ -43,7 +47,7 @@ jobs:
       - name: Setup Rust
         uses: dtolnay/rust-toolchain@stable
         with:
-          targets: ${{ matrix.target }}
+          targets: ${{ matrix.rust-targets }}
 
       - name: Install Linux build dependencies
         if: runner.os == 'Linux'
@@ -67,11 +71,13 @@ jobs:
           releaseDraft: false
           prerelease: false
           includeUpdaterJson: true
-          args: --target ${{ matrix.target }}
+          args: ${{ matrix.tauri-args }}
 
   build-android:
     name: Build Android APK
     runs-on: ubuntu-latest
+    env:
+      ANDROID_HOME: /usr/local/lib/android/sdk
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -90,18 +96,26 @@ jobs:
 
       - name: Setup Android SDK
         uses: android-actions/setup-android@v3
+        with:
+          packages: "platform-tools"
+
+      - name: Configure Android NDK
+        run: |
+          ANDROID_NDK_HOME=$(find $ANDROID_HOME/ndk -maxdepth 1 -mindepth 1 | sort -V | tail -n 1)
+          echo "NDK_HOME=$ANDROID_NDK_HOME" >> $GITHUB_ENV
+          echo "ANDROID_NDK_HOME=$ANDROID_NDK_HOME" >> $GITHUB_ENV
 
       - name: Setup Rust
         uses: dtolnay/rust-toolchain@stable
         with:
-          targets: aarch64-linux-android,x86_64-linux-android
+          targets: aarch64-linux-android,armv7-linux-androideabi,i686-linux-android,x86_64-linux-android
 
       - name: Install npm dependencies
         run: npm ci
 
       - name: Build Android APK
         run: |
-          npx tauri android init || true
+          npx tauri android init --ci || true
           npx tauri android build --apk
 
       - name: Upload APK to Release
@@ -135,13 +149,23 @@ jobs:
 
       - name: Build iOS Application
         run: |
-          npx tauri ios init || true
-          npx tauri ios build --no-watch
+          npx tauri ios init --ci || true
+          npm run build
+          npx tauri ios build --ci --no-sign || {
+            APP_NAME=$(node -p "require('./src-tauri/tauri.conf.json').productName || 'Od-Lagna'")
+            xcodebuild archive \
+              -project src-tauri/gen/apple/${APP_NAME}.xcodeproj \
+              -scheme "${APP_NAME}_iOS" \
+              -configuration Release \
+              -archivePath src-tauri/gen/apple/build/${APP_NAME}.xcarchive \
+              CODE_SIGNING_REQUIRED=NO \
+              CODE_SIGNING_ALLOWED=NO
+          }
 
       - name: Package Sideloadable IPA
         run: |
           mkdir -p Payload
-          APP_PATH=$(find src-tauri/gen/apple/build -name "*.app" | head -n 1)
+          APP_PATH=$(find src-tauri/gen/apple -name "*.app" | head -n 1)
           if [ -d "$APP_PATH" ]; then
             cp -r "$APP_PATH" Payload/
             zip -r od-lagna.ipa Payload/
@@ -156,4 +180,3 @@ jobs:
           files: od-lagna.ipa
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
