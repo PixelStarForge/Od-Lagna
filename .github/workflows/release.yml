@@ -42,6 +42,8 @@ jobs:
             label: macos-universal
 
     runs-on: ${{ matrix.os }}
+    permissions:
+      contents: write
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -113,6 +115,8 @@ jobs:
   build-android:
     name: Build Android APK
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     env:
       ANDROID_HOME: /usr/local/lib/android/sdk
     steps:
@@ -186,16 +190,55 @@ jobs:
           npx tauri android build --apk
 
       - name: Upload APK to Release
-        uses: softprops/action-gh-release@v2
-        if: startsWith(github.ref, 'refs/tags/')
-        with:
-          files: src-tauri/gen/android/app/build/outputs/apk/release/*.apk
+        if: startsWith(github.ref, 'refs/tags/v')
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          TAG="${{ github.ref_name }}"
+          VERSION="${TAG#v}"
+
+          mkdir -p dist-android
+          APK_COUNT=0
+          while IFS= read -r apk; do
+            [ -f "$apk" ] || continue
+            APK_NAME=$(basename "$apk")
+            NEW_NAME="Od-Lagna_${VERSION}_${APK_NAME}"
+            NEW_NAME=$(echo "$NEW_NAME" | sed 's/_app-/_/' | sed 's/-unsigned//')
+            cp "$apk" "dist-android/$NEW_NAME"
+            echo "Prepared $apk -> dist-android/$NEW_NAME"
+            APK_COUNT=$((APK_COUNT + 1))
+          done < <(find src-tauri/gen/android/app/build/outputs/apk -name "*.apk" -type f)
+
+          if [ "$APK_COUNT" -eq 0 ]; then
+            echo "Error: No APK files found in src-tauri/gen/android/app/build/outputs/apk"
+            exit 1
+          fi
+
+          echo "Found $APK_COUNT APK asset(s). Checking GitHub Release for $TAG..."
+          for i in {1..15}; do
+            if gh release view "$TAG" >/dev/null 2>&1; then
+              echo "Release $TAG found."
+              break
+            fi
+            echo "Waiting for release $TAG to be created ($i/15)..."
+            sleep 10
+          done
+
+          if ! gh release view "$TAG" >/dev/null 2>&1; then
+            echo "Release not found; creating release $TAG..."
+            gh release create "$TAG" --title "Od-Lagna $TAG" --notes "Release $TAG"
+          fi
+
+          for file in dist-android/*.apk; do
+            echo "Uploading $file..."
+            gh release upload "$TAG" "$file" --clobber
+          done
 
   build-ios:
     name: Build iOS IPA
     runs-on: macos-latest
+    permissions:
+      contents: write
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -270,9 +313,34 @@ jobs:
           fi
 
       - name: Upload IPA to Release
-        uses: softprops/action-gh-release@v2
-        if: startsWith(github.ref, 'refs/tags/')
-        with:
-          files: od-lagna.ipa
+        if: startsWith(github.ref, 'refs/tags/v')
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          TAG="${{ github.ref_name }}"
+          VERSION="${TAG#v}"
+
+          if [ -f od-lagna.ipa ]; then
+            RELEASE_IPA="Od-Lagna_${VERSION}.ipa"
+            cp od-lagna.ipa "$RELEASE_IPA"
+            echo "Prepared $RELEASE_IPA for release upload."
+
+            for i in {1..15}; do
+              if gh release view "$TAG" >/dev/null 2>&1; then
+                echo "Release $TAG found."
+                break
+              fi
+              echo "Waiting for release $TAG to be created ($i/15)..."
+              sleep 10
+            done
+
+            if ! gh release view "$TAG" >/dev/null 2>&1; then
+              echo "Release not found; creating release $TAG..."
+              gh release create "$TAG" --title "Od-Lagna $TAG" --notes "Release $TAG"
+            fi
+
+            echo "Uploading $RELEASE_IPA to release $TAG..."
+            gh release upload "$TAG" "$RELEASE_IPA" --clobber
+          else
+            echo "No od-lagna.ipa found, skipping upload."
+          fi
