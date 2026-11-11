@@ -1,6 +1,6 @@
 {
   "name": "od-lagna",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "private": true,
   "scripts": {
     "predev": "tsx scripts/build-search-index.ts",

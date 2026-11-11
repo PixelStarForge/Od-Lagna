@@ -189,6 +189,9 @@ export function CustomMultiSelect({
         return next;
       });
     } else if (e.key === "Enter" || e.key === " ") {
+      if (e.key === "Enter" && (e.nativeEvent.isComposing || e.keyCode === 229)) {
+        return;
+      }
       if (
         document.activeElement === searchInputRef.current &&
         e.key === " "

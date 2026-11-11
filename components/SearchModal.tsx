@@ -447,6 +447,9 @@ export function SearchModal() {
 
     if (e.key === "Enter") {
       e.preventDefault();
+      if (e.nativeEvent.isComposing || e.keyCode === 229) {
+        return;
+      }
       const selected = groupedResults.flatList[selectedIndex];
       if (selected) {
         handleSelectItem(selected);
@@ -492,14 +495,14 @@ export function SearchModal() {
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-start justify-center pt-12 sm:pt-20 px-4 bg-black/60 transition-opacity"
+      className="fixed inset-0 z-50 flex items-start justify-center pt-12 sm:pt-20 px-4 bg-black/60 transition-opacity overscroll-contain"
       role="dialog"
       aria-modal="true"
       aria-label="Command Palette Search"
       onClick={() => setIsSearchOpen(false)}
     >
       <div
-        className="w-full max-w-2xl bg-[var(--bg-surface)] border border-[var(--border-subtle)] rounded-2xl shadow-2xl overflow-hidden flex flex-col max-h-[80vh] animate-in fade-in zoom-in-95"
+        className="w-full max-w-2xl bg-[var(--bg-surface)] border border-[var(--border-subtle)] rounded-2xl shadow-2xl overflow-hidden flex flex-col max-h-[80vh] animate-in fade-in zoom-in-95 overscroll-contain"
         onClick={(e) => e.stopPropagation()}
         onKeyDown={handleKeyDown}
       >

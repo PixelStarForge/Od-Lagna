@@ -239,6 +239,9 @@ export function CharactersClient({
         });
       } else if (e.key === "Enter" && highlightedSuggestion >= 0) {
         e.preventDefault();
+        if (e.nativeEvent.isComposing || e.keyCode === 229) {
+          return;
+        }
         const chosen = filteredSuggestions[highlightedSuggestion];
         setSearchQuery(chosen.label);
         setShowSuggestions(false);

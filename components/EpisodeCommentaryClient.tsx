@@ -118,7 +118,7 @@ export function EpisodeCommentaryClient({
     const cleanIdQuery = q.replace(/^#/, "").trim();
 
     return indexedComments
-      .filter(({ comment, idStr, textLower, charactersLower, topicsLower }) => {
+      .filter(({ idStr, textLower, charactersLower, topicsLower }) => {
         // Keyword Search
         if (q) {
           const matchesText = textLower.includes(q);
@@ -492,11 +492,13 @@ export function EpisodeCommentaryClient({
       {/* Commentary Cards List */}
       {sortedComments.length > 0 ? (
         <div className="space-y-3">
-          {sortedComments.map((comment) => (
+          {sortedComments.map((comment, idx) => (
             <article
               id={`comment-${comment.id}`}
               key={comment.id}
-              className="group p-4 sm:p-5 rounded-xl border border-[var(--border-subtle)] bg-[var(--bg-surface)] hover:border-[var(--accent-border)] transition-colors space-y-3 shadow-xs scroll-mt-20"
+              className={`group p-4 sm:p-5 rounded-xl border border-[var(--border-subtle)] bg-[var(--bg-surface)] hover:border-[var(--accent-border)] transition-colors space-y-3 shadow-xs scroll-mt-20 ${
+                idx >= 4 ? "content-visibility-auto" : ""
+              }`}
             >
               {/* Comment Body */}
               <p className="text-sm sm:text-base text-[var(--text-main)] leading-relaxed whitespace-pre-line">

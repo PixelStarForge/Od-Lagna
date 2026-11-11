@@ -377,7 +377,7 @@ async function runTests() {
     if (!Array.isArray(animeCatalog) || animeCatalog.length === 0) {
       throw new Error("Expected anime catalog array with seasons");
     }
-    const s1 = animeCatalog.find((s: any) => s.id === "season-1");
+    const s1 = animeCatalog.find((s: { id: string; episodes: unknown[] }) => s.id === "season-1");
     if (!s1 || s1.episodes.length === 0) {
       throw new Error("Expected season-1 with episodes in anime catalog");
     }

@@ -401,6 +401,7 @@ const storyWithoutTitle = twitterShortStorySchema.parse({
   url: "https://x.com/nezumiironyanko/status/123456789",
   date: "2021-01-01",
 });
+assert(storyWithoutTitle.id === "TSS-0003", "Expected storyWithoutTitle to parse successfully");
 // Test that urls array is supported for multi-tweet threads
 const multiUrlStory = twitterShortStorySchema.parse({
   id: "TSS-0004",

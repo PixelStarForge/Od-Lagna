@@ -150,6 +150,9 @@ export function CustomSelect({
       });
     } else if (e.key === "Enter") {
       e.preventDefault();
+      if (e.nativeEvent.isComposing || e.keyCode === 229) {
+        return;
+      }
       if (filteredOptions[highlightedIndex]) {
         onChange(filteredOptions[highlightedIndex].value);
         closeDropdown();

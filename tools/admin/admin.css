@@ -215,10 +215,17 @@
     .btn-draft-action:hover { background: rgba(248, 113, 113, 0.15); }
 
     /* Modern sleek scrollbars */
-    ::-webkit-scrollbar { width: 6px; height: 6px; }
-    ::-webkit-scrollbar-track { background: transparent; }
-    ::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.14); border-radius: 9999px; }
-    ::-webkit-scrollbar-thumb:hover { background: rgba(255, 255, 255, 0.28); }
+    :root {
+      scrollbar-color: rgba(255, 255, 255, 0.14) transparent;
+      scrollbar-width: thin;
+    }
+
+    @supports not (scrollbar-color: auto) {
+      ::-webkit-scrollbar { width: 6px; height: 6px; }
+      ::-webkit-scrollbar-track { background: transparent; }
+      ::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.14); border-radius: 9999px; }
+      ::-webkit-scrollbar-thumb:hover { background: rgba(255, 255, 255, 0.28); }
+    }
 
     /* Date selector components */
     .sub-label { font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-muted); margin-bottom: 0.25rem; display: block; }

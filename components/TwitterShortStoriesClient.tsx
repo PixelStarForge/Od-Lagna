@@ -614,13 +614,14 @@ export function TwitterShortStoriesClient({ stories }: TwitterShortStoriesClient
       {/* Story Cards List */}
       {paginatedStories.length > 0 ? (
         <div className="space-y-6">
-          {paginatedStories.map((story) => (
-            <TwitterShortStoryCard
-              key={story.id}
-              story={story}
-              onTagClick={handleTagClick}
-              isHighlighted={targetId === story.id}
-            />
+          {paginatedStories.map((story, idx) => (
+            <div key={story.id} className={idx >= 3 ? "content-visibility-auto" : ""}>
+              <TwitterShortStoryCard
+                story={story}
+                onTagClick={handleTagClick}
+                isHighlighted={targetId === story.id}
+              />
+            </div>
           ))}
         </div>
       ) : (

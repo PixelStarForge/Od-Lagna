@@ -2,6 +2,19 @@
  * Date formatting and utility helpers for Q&A records
  */
 
+const utcDateFormatter = new Intl.DateTimeFormat("en-US", {
+  timeZone: "UTC",
+  year: "numeric",
+  month: "short",
+  day: "numeric",
+});
+
+const localDateFormatter = new Intl.DateTimeFormat("en-US", {
+  year: "numeric",
+  month: "short",
+  day: "numeric",
+});
+
 export function formatQnaDate(dateStr?: string): string | null {
   if (!dateStr || typeof dateStr !== "string") return null;
 
@@ -18,12 +31,7 @@ export function formatQnaDate(dateStr?: string): string | null {
     if (/^\d{4}-\d{2}-\d{2}$/.test(trimmed)) {
       const [year, month, day] = trimmed.split("-").map(Number);
       const d = new Date(Date.UTC(year, month - 1, day));
-      return d.toLocaleDateString("en-US", {
-        timeZone: "UTC",
-        year: "numeric",
-        month: "short",
-        day: "numeric",
-      });
+      return utcDateFormatter.format(d);
     }
 
     // If format is ISO datetime or similar
@@ -32,19 +40,7 @@ export function formatQnaDate(dateStr?: string): string | null {
       return trimmed;
     }
 
-    if (trimmed.includes("T") || trimmed.includes(":")) {
-      return d.toLocaleDateString("en-US", {
-        year: "numeric",
-        month: "short",
-        day: "numeric",
-      });
-    }
-
-    return d.toLocaleDateString("en-US", {
-      year: "numeric",
-      month: "short",
-      day: "numeric",
-    });
+    return localDateFormatter.format(d);
   } catch {
     return trimmed;
   }

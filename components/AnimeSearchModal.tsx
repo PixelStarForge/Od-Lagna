@@ -63,19 +63,31 @@ export function AnimeSearchModal({
   });
   const [selectedIndex, setSelectedIndex] = useState(0);
 
+  // Sync state when modal opens or query/scope changes without cascading effects
+  const [prevIsOpen, setPrevIsOpen] = useState(isOpen);
+  if (isOpen !== prevIsOpen) {
+    setPrevIsOpen(isOpen);
+    if (isOpen) {
+      setQuery("");
+      setSelectedIndex(0);
+      setScope(currentEpisodeComments && currentEpisodeComments.length > 0 ? "episode" : "global");
+    }
+  }
+
+  const [prevQuery, setPrevQuery] = useState(deferredQuery);
+  const [prevScope, setPrevScope] = useState(scope);
+  if (prevQuery !== deferredQuery || prevScope !== scope) {
+    setPrevQuery(deferredQuery);
+    setPrevScope(scope);
+    setSelectedIndex(0);
+  }
+
   const inputRef = useRef<HTMLInputElement>(null);
   const listRef = useRef<HTMLDivElement>(null);
 
   // Autofocus when modal opens
   useEffect(() => {
     if (isOpen) {
-      setQuery("");
-      setSelectedIndex(0);
-      if (currentEpisodeComments && currentEpisodeComments.length > 0) {
-        setScope("episode");
-      } else {
-        setScope("global");
-      }
       const timer = setTimeout(() => {
         if (inputRef.current) {
           inputRef.current.focus();
@@ -83,7 +95,7 @@ export function AnimeSearchModal({
       }, 30);
       return () => clearTimeout(timer);
     }
-  }, [isOpen, currentEpisodeComments]);
+  }, [isOpen]);
 
   // Global keyboard shortcut: ? to open, Escape to close
   useEffect(() => {
@@ -172,11 +184,6 @@ export function AnimeSearchModal({
       .slice(0, 40);
   }, [deferredQuery, activePool, indexedPool]);
 
-  // Reset selected index when query or results change
-  useEffect(() => {
-    setSelectedIndex(0);
-  }, [deferredQuery, scope]);
-
   // Scroll active item into view
   useEffect(() => {
     if (listRef.current) {
@@ -228,6 +235,9 @@ export function AnimeSearchModal({
       setSelectedIndex((prev) => (prev > 0 ? prev - 1 : searchResults.length - 1));
     } else if (e.key === "Enter") {
       e.preventDefault();
+      if (e.nativeEvent.isComposing || e.keyCode === 229) {
+        return;
+      }
       const selected = searchResults[selectedIndex];
       if (selected) {
         handleSelectComment(selected);
@@ -239,14 +249,14 @@ export function AnimeSearchModal({
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-start justify-center pt-12 sm:pt-20 px-4 bg-black/60 backdrop-blur-xs transition-opacity"
+      className="fixed inset-0 z-50 flex items-start justify-center pt-12 sm:pt-20 px-4 bg-black/60 backdrop-blur-xs transition-opacity overscroll-contain"
       role="dialog"
       aria-modal="true"
       aria-label="Anime Live-Tweets Search"
       onClick={onClose}
     >
       <div
-        className="w-full max-w-2xl bg-[var(--bg-surface)] border border-[var(--border-subtle)] rounded-2xl shadow-2xl overflow-hidden flex flex-col max-h-[80vh] animate-in fade-in zoom-in-95 duration-100"
+        className="w-full max-w-2xl bg-[var(--bg-surface)] border border-[var(--border-subtle)] rounded-2xl shadow-2xl overflow-hidden flex flex-col max-h-[80vh] animate-in fade-in zoom-in-95 duration-100 overscroll-contain"
         onClick={(e) => e.stopPropagation()}
         onKeyDown={handleKeyDown}
       >

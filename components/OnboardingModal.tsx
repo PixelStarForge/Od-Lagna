@@ -41,7 +41,7 @@ export function OnboardingModal() {
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-black/75 backdrop-blur-xs overflow-y-auto transition-opacity"
+      className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-black/75 backdrop-blur-xs overflow-y-auto transition-opacity overscroll-contain"
       role="dialog"
       aria-modal="true"
       aria-labelledby="onboarding-title"
@@ -53,7 +53,7 @@ export function OnboardingModal() {
     >
       <div
         ref={modalRef}
-        className="w-full max-w-lg my-auto bg-[var(--bg-surface)] border border-[var(--border-strong)] rounded-2xl shadow-2xl overflow-hidden flex flex-col max-h-[calc(100dvh-1.5rem)] sm:max-h-[90dvh] animate-in fade-in zoom-in-95"
+        className="w-full max-w-lg my-auto bg-[var(--bg-surface)] border border-[var(--border-strong)] rounded-2xl shadow-2xl overflow-hidden flex flex-col max-h-[calc(100dvh-1.5rem)] sm:max-h-[90dvh] animate-in fade-in zoom-in-95 overscroll-contain"
       >
         {/* Header (pinned/fixed) */}
         <div className="shrink-0 p-4 sm:p-6 pb-3 sm:pb-4 border-b border-[var(--border-subtle)] space-y-2">

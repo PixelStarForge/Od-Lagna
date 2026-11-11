@@ -7,6 +7,11 @@
 }
 
 :root {
+  color-scheme: light dark;
+  --scrollbar-thumb: var(--border-strong);
+  --scrollbar-track: transparent;
+  scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track);
+  scrollbar-width: thin;
   --bg-main: #fbfbfb;
   --bg-surface: #ffffff;
   --bg-elevated: #f4f4f5;
@@ -31,6 +36,7 @@
 }
 
 .dark {
+  color-scheme: dark;
   --bg-main: #09090b;
   --bg-surface: #121215;
   --bg-elevated: #18181b;
@@ -77,48 +83,58 @@ body {
 }
 
 /* Scrollbar styling */
-::-webkit-scrollbar {
-  width: 6px;
-  height: 6px;
-}
+@supports not (scrollbar-color: auto) {
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
 
-::-webkit-scrollbar-track {
-  background: transparent;
-}
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
 
-::-webkit-scrollbar-thumb {
-  background: var(--border-strong);
-  border-radius: 3px;
-}
+  ::-webkit-scrollbar-thumb {
+    background: var(--border-strong);
+    border-radius: 3px;
+  }
 
-::-webkit-scrollbar-thumb:hover {
-  background: var(--text-faint);
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--text-faint);
+  }
 }
 
 /* Timeline Custom Accent Scrollbar */
-.timeline-scrollbar::-webkit-scrollbar {
-  height: 8px;
-}
-
-.timeline-scrollbar::-webkit-scrollbar-track {
-  background: var(--bg-surface);
-  border-radius: 9999px;
-  margin: 0 16px;
-}
-
-.timeline-scrollbar::-webkit-scrollbar-thumb {
-  background: var(--accent);
-  border-radius: 9999px;
-  border: 1px solid var(--border-subtle);
-}
-
-.timeline-scrollbar::-webkit-scrollbar-thumb:hover {
-  filter: brightness(1.15);
-}
-
 .timeline-scrollbar {
   scrollbar-color: var(--accent) var(--bg-surface);
   scrollbar-width: thin;
+}
+
+@supports not (scrollbar-color: auto) {
+  .timeline-scrollbar::-webkit-scrollbar {
+    height: 8px;
+  }
+
+  .timeline-scrollbar::-webkit-scrollbar-track {
+    background: var(--bg-surface);
+    border-radius: 9999px;
+    margin: 0 16px;
+  }
+
+  .timeline-scrollbar::-webkit-scrollbar-thumb {
+    background: var(--accent);
+    border-radius: 9999px;
+    border: 1px solid var(--border-subtle);
+  }
+
+  .timeline-scrollbar::-webkit-scrollbar-thumb:hover {
+    filter: brightness(1.15);
+  }
+}
+
+/* Content visibility optimization for off-screen cards (defer rendering) */
+.content-visibility-auto {
+  content-visibility: auto;
+  contain-intrinsic-size: auto none auto 220px;
 }
 
 /* Timeline Card Smooth & Noticeable Entrance Animation */

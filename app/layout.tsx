@@ -45,6 +45,7 @@ export const viewport: Viewport = {
     { media: "(prefers-color-scheme: light)", color: "#fbfbfb" },
     { media: "(prefers-color-scheme: dark)", color: "#09090b" },
   ],
+  colorScheme: "light dark",
   width: "device-width",
   initialScale: 1,
   maximumScale: 1,
@@ -65,6 +66,7 @@ export default function RootLayout({
       className={`${inter.variable} h-full`}
     >
       <head>
+        <meta name="color-scheme" content="light dark" />
         <meta httpEquiv="X-Content-Type-Options" content="nosniff" />
         <meta name="referrer" content="strict-origin-when-cross-origin" />
         <script

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef, useEffect, useLayoutEffect, useMemo } from "react";
+import { useState, useRef, useEffect, useLayoutEffect, useMemo, useCallback } from "react";
 import Link from "next/link";
 import { TimelineEra, TimelineEvent, TimelineIfRoute, TimelineIfEvent } from "../lib/schema";
 import { CustomSelect, SelectOption } from "./CustomSelect";
@@ -368,9 +368,11 @@ export function TimelineClient({ eras, events, initialIfRoutes }: TimelineClient
   const [zoomLevel, setZoomLevel] = useState<number>(3);
 
   // Synchronize desktop zoom scale to zoomLevel tier
-  useEffect(() => {
-    setZoomLevel((prev) => (prev !== desktopTier ? desktopTier : prev));
-  }, [desktopTier]);
+  const [prevDesktopTier, setPrevDesktopTier] = useState(desktopTier);
+  if (prevDesktopTier !== desktopTier) {
+    setPrevDesktopTier(desktopTier);
+    setZoomLevel(desktopTier);
+  }
 
   const [selectedEvent, setSelectedEvent] = useState<TimelineEvent | null>(null);
   const [activeEraId, setActiveEraId] = useState<string>(eras[0]?.id || "ancient-era");
@@ -389,6 +391,31 @@ export function TimelineClient({ eras, events, initialIfRoutes }: TimelineClient
   const [isMinimapOpen, setIsMinimapOpen] = useState(true);
   const minimapTrackRef = useRef<HTMLDivElement>(null);
   const isMinimapScrubbingRef = useRef(false);
+
+  // Refs for desktop horizontal navigation & smooth pointer drag
+  const desktopCanvasRef = useRef<HTMLDivElement>(null);
+  const eraRefs = useRef<Record<string, HTMLDivElement | null>>({});
+  const isPointerDownRef = useRef(false);
+  const isDraggingRef = useRef(false);
+  const startXRef = useRef(0);
+  const startYRef = useRef(0);
+  const scrollLeftRef = useRef(0);
+  const scrollTopRef = useRef(0);
+  const hasMovedRef = useRef(false);
+  const pressedEventRef = useRef<TimelineEvent | null>(null);
+  const dragDistanceRef = useRef(0);
+  const isProgrammaticScrollRef = useRef(false);
+  const targetEraIdRef = useRef<string | null>(null);
+  const scrollDebounceTimerRef = useRef<NodeJS.Timeout | null>(null);
+  const desktopZoomRef = useRef(desktopZoom);
+  useEffect(() => {
+    desktopZoomRef.current = desktopZoom;
+  }, [desktopZoom]);
+
+  const registerEraRef = useCallback((id: string, el: HTMLDivElement | null) => {
+    eraRefs.current[id] = el;
+  }, []);
+
   const [canvasScrollMetrics, setCanvasScrollMetrics] = useState({
     scrollLeft: 0,
     scrollTop: 0,
@@ -429,26 +456,6 @@ export function TimelineClient({ eras, events, initialIfRoutes }: TimelineClient
       });
     });
   };
-
-  // Refs for desktop horizontal navigation & smooth pointer drag
-  const desktopCanvasRef = useRef<HTMLDivElement>(null);
-  const eraRefs = useRef<Record<string, HTMLDivElement | null>>({});
-  const isPointerDownRef = useRef(false);
-  const isDraggingRef = useRef(false);
-  const startXRef = useRef(0);
-  const startYRef = useRef(0);
-  const scrollLeftRef = useRef(0);
-  const scrollTopRef = useRef(0);
-  const hasMovedRef = useRef(false);
-  const pressedEventRef = useRef<TimelineEvent | null>(null);
-  const dragDistanceRef = useRef(0);
-  const isProgrammaticScrollRef = useRef(false);
-  const targetEraIdRef = useRef<string | null>(null);
-  const scrollDebounceTimerRef = useRef<NodeJS.Timeout | null>(null);
-  const desktopZoomRef = useRef(desktopZoom);
-  useEffect(() => {
-    desktopZoomRef.current = desktopZoom;
-  }, [desktopZoom]);
   const activePointersRef = useRef<Map<number, { clientX: number; clientY: number }>>(new Map());
   const pinchStartRef = useRef<{ dist: number; zoom: number; midX: number } | null>(null);
 
@@ -721,8 +728,7 @@ export function TimelineClient({ eras, events, initialIfRoutes }: TimelineClient
     return map;
   }, [eras, desktopFilteredEvents]);
 
-  // Backwards-compatible aliases
-  const filteredEvents = mobileFilteredEvents;
+  // Backwards-compatible alias
   const eventsByEra = mobileEventsByEra;
 
   // Mobile active era
@@ -855,9 +861,8 @@ export function TimelineClient({ eras, events, initialIfRoutes }: TimelineClient
     return eras.find((e) => e.id === selectedEvent.eraId) || null;
   }, [selectedEvent, eras]);
 
-  // Click handler that ignores accidental clicks when dragging
+  // Click handler for opening card details modal
   const handleCardClick = (event: TimelineEvent) => {
-    if (hasMovedRef.current || isDraggingRef.current) return;
     setSelectedEvent(event);
   };
 
@@ -1122,8 +1127,17 @@ export function TimelineClient({ eras, events, initialIfRoutes }: TimelineClient
     }
 
     if (wasDragging) {
-      // Update active era based on final landing position
+      // Suppress synthetic post-drag click on descendant cards in capture phase
       if (canvas) {
+        canvas.addEventListener(
+          "click",
+          (clickEvent) => {
+            clickEvent.stopPropagation();
+            clickEvent.preventDefault();
+          },
+          { capture: true, once: true }
+        );
+
         const canvasRect = canvas.getBoundingClientRect();
         const probeX = canvasRect.left + 260;
         for (const era of eras) {
@@ -2461,13 +2475,15 @@ export function TimelineClient({ eras, events, initialIfRoutes }: TimelineClient
   const totalDesktopCount = desktopFilteredEvents.length;
 
   const minimapEraDividers = useMemo(() => {
+    const dividers: Array<{ id: string; name: string; pct: number }> = [];
     let accumulated = 0;
-    return eras.map((era) => {
+    for (const era of eras) {
       const count = desktopEventsByEra[era.id]?.length || 0;
       accumulated += count;
       const pct = totalDesktopCount > 0 ? (accumulated / totalDesktopCount) * 100 : 0;
-      return { id: era.id, name: era.name, pct };
-    });
+      dividers.push({ id: era.id, name: era.name, pct });
+    }
+    return dividers;
   }, [eras, desktopEventsByEra, totalDesktopCount]);
 
   const getIfMinimapPosition = (divergenceEventId: string): number => {
@@ -2487,7 +2503,7 @@ export function TimelineClient({ eras, events, initialIfRoutes }: TimelineClient
           Re:Zero World Timeline
         </h1>
         <p className="text-base sm:text-lg text-[var(--text-muted)] leading-relaxed w-full">
-          A chronological Timeline of the <em>Re:Zero</em> world, tracking events from ancient myths and the Witch of Envy&apos;s calamity to the Demi-Human War and Modern day and the story's events.
+          A chronological Timeline of the <em>Re:Zero</em> world, tracking events from ancient myths and the Witch of Envy&apos;s calamity to the Demi-Human War and Modern day and the story&apos;s events.
         </p>
 
         {/* Disclaimer Notice */}
@@ -3422,9 +3438,7 @@ export function TimelineClient({ eras, events, initialIfRoutes }: TimelineClient
               return (
                 <div
                   key={era.id}
-                  ref={(el) => {
-                    eraRefs.current[era.id] = el;
-                  }}
+                  ref={(el) => registerEraRef(era.id, el)}
                   className="inline-flex items-center relative z-10 shrink-0"
                 >
                   {/* Era Milestone Gateway Card */}

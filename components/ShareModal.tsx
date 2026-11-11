@@ -162,7 +162,7 @@ function ShareModalDialog({ entry, onClose }: ShareModalDialogProps) {
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-end sm:items-center justify-center p-0 sm:p-4 bg-black/75 backdrop-blur-xs transition-opacity"
+      className="fixed inset-0 z-50 flex items-end sm:items-center justify-center p-0 sm:p-4 bg-black/75 backdrop-blur-xs transition-opacity overscroll-contain"
       role="dialog"
       aria-modal="true"
       aria-labelledby="share-heading"
@@ -202,7 +202,7 @@ function ShareModalDialog({ entry, onClose }: ShareModalDialogProps) {
 
       <div
         ref={modalRef}
-        className="w-full sm:max-w-2xl md:max-w-3xl bg-[var(--bg-surface)] border border-[var(--border-subtle)] rounded-t-2xl sm:rounded-2xl shadow-2xl p-5 sm:p-6 space-y-5 max-h-[92vh] overflow-y-auto animate-in fade-in zoom-in-95 sm:zoom-in-95 min-w-0"
+        className="w-full sm:max-w-2xl md:max-w-3xl bg-[var(--bg-surface)] border border-[var(--border-subtle)] rounded-t-2xl sm:rounded-2xl shadow-2xl p-5 sm:p-6 space-y-5 max-h-[92vh] overflow-y-auto animate-in fade-in zoom-in-95 sm:zoom-in-95 min-w-0 overscroll-contain"
       >
         {/* Header */}
         <div className="flex items-start justify-between gap-3 pb-3 border-b border-[var(--border-subtle)]">

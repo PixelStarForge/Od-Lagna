@@ -10,7 +10,7 @@ export function SettingsModal() {
   const { isSettingsOpen, setIsSettingsOpen, theme, setTheme } = usePreferences();
   const modalRef = useRef<HTMLDivElement>(null);
   const inApp = useIsApp();
-  const [appVersion, setAppVersion] = useState<string>("0.1.5");
+  const [appVersion, setAppVersion] = useState<string>("0.1.6");
   const [isChecking, setIsChecking] = useState(false);
   const [isUpdating, setIsUpdating] = useState(false);
   const [updateProgress, setUpdateProgress] = useState<number | null>(null);
@@ -98,7 +98,7 @@ export function SettingsModal() {
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-end sm:items-center justify-center p-0 sm:p-4 bg-black/60 transition-opacity"
+      className="fixed inset-0 z-50 flex items-end sm:items-center justify-center p-0 sm:p-4 bg-black/60 transition-opacity overscroll-contain"
       role="dialog"
       aria-modal="true"
       aria-labelledby="settings-heading"
@@ -110,7 +110,7 @@ export function SettingsModal() {
     >
       <div
         ref={modalRef}
-        className="w-full sm:max-w-2xl md:max-w-3xl lg:max-w-4xl bg-[var(--bg-surface)] border border-[var(--border-subtle)] rounded-t-2xl sm:rounded-2xl shadow-2xl p-5 sm:p-7 md:p-8 space-y-6 max-h-[90vh] overflow-y-auto animate-in fade-in zoom-in-95 sm:zoom-in-95 min-w-0"
+        className="w-full sm:max-w-2xl md:max-w-3xl lg:max-w-4xl bg-[var(--bg-surface)] border border-[var(--border-subtle)] rounded-t-2xl sm:rounded-2xl shadow-2xl p-5 sm:p-7 md:p-8 space-y-6 max-h-[90vh] overflow-y-auto animate-in fade-in zoom-in-95 sm:zoom-in-95 min-w-0 overscroll-contain"
       >
         {/* Header */}
         <div className="flex items-center justify-between pb-4 border-b border-[var(--border-subtle)]">

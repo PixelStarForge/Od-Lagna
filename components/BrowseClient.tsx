@@ -1231,21 +1231,24 @@ export function BrowseClient({
           {/* Cards List */}
           {currentEntries.length > 0 ? (
             <div className="space-y-4">
-              {currentEntries.map((entry) =>
-                entry.entryType === "trivia" ? (
-                  <TriviaCard
-                    key={`trivia-${entry.id}`}
-                    entry={entry}
-                    onTagClick={handleTagClick}
-                  />
-                ) : (
-                  <QnaCard
-                    key={`qna-${entry.id}`}
-                    entry={entry}
-                    onTagClick={handleTagClick}
-                  />
-                )
-              )}
+              {currentEntries.map((entry, idx) => (
+                <div
+                  key={entry.entryType === "trivia" ? `trivia-${entry.id}` : `qna-${entry.id}`}
+                  className={idx >= 3 ? "content-visibility-auto" : ""}
+                >
+                  {entry.entryType === "trivia" ? (
+                    <TriviaCard
+                      entry={entry}
+                      onTagClick={handleTagClick}
+                    />
+                  ) : (
+                    <QnaCard
+                      entry={entry}
+                      onTagClick={handleTagClick}
+                    />
+                  )}
+                </div>
+              ))}
             </div>
           ) : (
             <div className="p-12 rounded-xl border border-[var(--border-subtle)] bg-[var(--bg-surface)] text-center space-y-3">
