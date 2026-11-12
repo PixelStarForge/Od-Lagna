@@ -1,17 +1,18 @@
 {
   "id": "0180",
   "question": "Was the reason Priscilla kissed Liliana because of the effect of her divine blessing? Or, was she trying to bring her back to normal by surprising her?",
-  "answer": "The former, although also a little of the later.",
+  "answer": "The former, although also a little of the later.\n\nNote: The Divine Protection in Question was not a Divine Protection but Priscilla's Soul Marriage thing",
   "characters": [
-    "Priscilla Barielle"
+    "Priscilla Barielle",
+    "Liliana Masquerade"
   ],
   "topics": [
     "Divine Protections"
   ],
-  "arc": "arc-5",
+  "arc": "arc-7",
   "source": {
     "type": "text",
     "value": ""
   },
-  "verified": false
+  "verified": true
 }
