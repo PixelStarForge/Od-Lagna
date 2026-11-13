@@ -48,28 +48,6 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: 22
-          cache: npm
-
-      - name: Setup Rust
-        uses: dtolnay/rust-toolchain@stable
-        with:
-          targets: ${{ matrix.rust-targets }}
-
-      - name: Rust cache
-        uses: Swatinem/rust-cache@v2
-        with:
-          workspaces: "src-tauri -> target"
-
-      - name: Install Linux build dependencies
-        if: runner.os == 'Linux'
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y --no-install-recommends libwebkit2gtk-4.1-dev libappindicator3-dev librsvg2-dev patchelf
-
       - name: Sync version from git tag
         if: startsWith(github.ref, 'refs/tags/v')
         shell: bash
@@ -82,20 +60,54 @@ jobs:
             const v = '${VERSION}';
 
             const pkg = JSON.parse(fs.readFileSync('package.json', 'utf8'));
-            pkg.version = v;
-            fs.writeFileSync('package.json', JSON.stringify(pkg, null, 2) + '\n');
+            if (pkg.version !== v) {
+              pkg.version = v;
+              fs.writeFileSync('package.json', JSON.stringify(pkg, null, 2) + '\n');
+            }
 
-            const tauri = JSON.parse(fs.readFileSync('src-tauri/tauri.conf.json', 'utf8'));
-            tauri.version = v;
-            fs.writeFileSync('src-tauri/tauri.conf.json', JSON.stringify(tauri, null, 2) + '\n');
+            if (fs.existsSync('package-lock.json')) {
+              const lock = JSON.parse(fs.readFileSync('package-lock.json', 'utf8'));
+              lock.version = v;
+              if (lock.packages && lock.packages['']) {
+                lock.packages[''].version = v;
+              }
+              fs.writeFileSync('package-lock.json', JSON.stringify(lock, null, 2) + '\n');
+            }
 
             let cargo = fs.readFileSync('src-tauri/Cargo.toml', 'utf8');
-            cargo = cargo.replace(/^version = \".*\"/m, 'version = \"' + v + '\"');
-            fs.writeFileSync('src-tauri/Cargo.toml', cargo);
+            const updatedCargo = cargo.replace(/^version\s*=\s*\".*\"/m, 'version = \"' + v + '\"');
+            if (cargo !== updatedCargo) {
+              fs.writeFileSync('src-tauri/Cargo.toml', updatedCargo);
+            }
           "
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
 
       - name: Install npm dependencies
         run: npm ci
+
+      - name: Setup Rust
+        uses: dtolnay/rust-toolchain@stable
+        with:
+          targets: ${{ matrix.rust-targets }}
+
+      - name: Rust cache
+        uses: Swatinem/rust-cache@v2
+        with:
+          workspaces: "src-tauri -> src-tauri/target"
+          cache-all-targets: "true"
+          cache-on-failure: "true"
+          prefix-key: "v2-rust-${{ matrix.label }}"
+
+      - name: Install Linux build dependencies
+        if: runner.os == 'Linux'
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends libwebkit2gtk-4.1-dev libappindicator3-dev librsvg2-dev patchelf
 
       - name: Build Tauri Desktop Application
         uses: tauri-apps/tauri-action@v0
@@ -123,17 +135,54 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: Sync version from git tag
+        if: startsWith(github.ref, 'refs/tags/v')
+        shell: bash
+        run: |
+          RAW_TAG="${{ github.ref_name }}"
+          VERSION="${RAW_TAG#v}"
+          echo "Setting release version to ${VERSION}..."
+          node -e "
+            const fs = require('fs');
+            const v = '${VERSION}';
+
+            const pkg = JSON.parse(fs.readFileSync('package.json', 'utf8'));
+            if (pkg.version !== v) {
+              pkg.version = v;
+              fs.writeFileSync('package.json', JSON.stringify(pkg, null, 2) + '\n');
+            }
+
+            if (fs.existsSync('package-lock.json')) {
+              const lock = JSON.parse(fs.readFileSync('package-lock.json', 'utf8'));
+              lock.version = v;
+              if (lock.packages && lock.packages['']) {
+                lock.packages[''].version = v;
+              }
+              fs.writeFileSync('package-lock.json', JSON.stringify(lock, null, 2) + '\n');
+            }
+
+            let cargo = fs.readFileSync('src-tauri/Cargo.toml', 'utf8');
+            const updatedCargo = cargo.replace(/^version\s*=\s*\".*\"/m, 'version = \"' + v + '\"');
+            if (cargo !== updatedCargo) {
+              fs.writeFileSync('src-tauri/Cargo.toml', updatedCargo);
+            }
+          "
+
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 22
           cache: npm
 
+      - name: Install npm dependencies
+        run: npm ci
+
       - name: Setup Java 17
         uses: actions/setup-java@v4
         with:
           distribution: temurin
           java-version: 17
+          cache: gradle
 
       - name: Setup Android SDK
         uses: android-actions/setup-android@v3
@@ -154,34 +203,10 @@ jobs:
       - name: Rust cache
         uses: Swatinem/rust-cache@v2
         with:
-          workspaces: "src-tauri -> target"
-
-      - name: Sync version from git tag
-        if: startsWith(github.ref, 'refs/tags/v')
-        shell: bash
-        run: |
-          RAW_TAG="${{ github.ref_name }}"
-          VERSION="${RAW_TAG#v}"
-          echo "Setting release version to ${VERSION}..."
-          node -e "
-            const fs = require('fs');
-            const v = '${VERSION}';
-
-            const pkg = JSON.parse(fs.readFileSync('package.json', 'utf8'));
-            pkg.version = v;
-            fs.writeFileSync('package.json', JSON.stringify(pkg, null, 2) + '\n');
-
-            const tauri = JSON.parse(fs.readFileSync('src-tauri/tauri.conf.json', 'utf8'));
-            tauri.version = v;
-            fs.writeFileSync('src-tauri/tauri.conf.json', JSON.stringify(tauri, null, 2) + '\n');
-
-            let cargo = fs.readFileSync('src-tauri/Cargo.toml', 'utf8');
-            cargo = cargo.replace(/^version = \".*\"/m, 'version = \"' + v + '\"');
-            fs.writeFileSync('src-tauri/Cargo.toml', cargo);
-          "
-
-      - name: Install npm dependencies
-        run: npm ci
+          workspaces: "src-tauri -> src-tauri/target"
+          cache-all-targets: "true"
+          cache-on-failure: "true"
+          prefix-key: "v2-rust-android"
 
       - name: Build Android APK
         run: |
@@ -246,22 +271,6 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: 22
-          cache: npm
-
-      - name: Setup Rust
-        uses: dtolnay/rust-toolchain@stable
-        with:
-          targets: aarch64-apple-ios
-
-      - name: Rust cache
-        uses: Swatinem/rust-cache@v2
-        with:
-          workspaces: "src-tauri -> target"
-
       - name: Sync version from git tag
         if: startsWith(github.ref, 'refs/tags/v')
         shell: bash
@@ -274,20 +283,48 @@ jobs:
             const v = '${VERSION}';
 
             const pkg = JSON.parse(fs.readFileSync('package.json', 'utf8'));
-            pkg.version = v;
-            fs.writeFileSync('package.json', JSON.stringify(pkg, null, 2) + '\n');
+            if (pkg.version !== v) {
+              pkg.version = v;
+              fs.writeFileSync('package.json', JSON.stringify(pkg, null, 2) + '\n');
+            }
 
-            const tauri = JSON.parse(fs.readFileSync('src-tauri/tauri.conf.json', 'utf8'));
-            tauri.version = v;
-            fs.writeFileSync('src-tauri/tauri.conf.json', JSON.stringify(tauri, null, 2) + '\n');
+            if (fs.existsSync('package-lock.json')) {
+              const lock = JSON.parse(fs.readFileSync('package-lock.json', 'utf8'));
+              lock.version = v;
+              if (lock.packages && lock.packages['']) {
+                lock.packages[''].version = v;
+              }
+              fs.writeFileSync('package-lock.json', JSON.stringify(lock, null, 2) + '\n');
+            }
 
             let cargo = fs.readFileSync('src-tauri/Cargo.toml', 'utf8');
-            cargo = cargo.replace(/^version = \".*\"/m, 'version = \"' + v + '\"');
-            fs.writeFileSync('src-tauri/Cargo.toml', cargo);
+            const updatedCargo = cargo.replace(/^version\s*=\s*\".*\"/m, 'version = \"' + v + '\"');
+            if (cargo !== updatedCargo) {
+              fs.writeFileSync('src-tauri/Cargo.toml', updatedCargo);
+            }
           "
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
 
       - name: Install npm dependencies
         run: npm ci
+
+      - name: Setup Rust
+        uses: dtolnay/rust-toolchain@stable
+        with:
+          targets: aarch64-apple-ios
+
+      - name: Rust cache
+        uses: Swatinem/rust-cache@v2
+        with:
+          workspaces: "src-tauri -> src-tauri/target"
+          cache-all-targets: "true"
+          cache-on-failure: "true"
+          prefix-key: "v2-rust-ios"
 
       - name: Build iOS Application
         run: |

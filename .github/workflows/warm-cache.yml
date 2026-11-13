@@ -1,0 +1,78 @@
+name: Rust & Build Cache
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "src-tauri/**"
+      - "package.json"
+      - "package-lock.json"
+      - ".github/workflows/**"
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  CARGO_INCREMENTAL: "0"
+  CARGO_TERM_COLOR: always
+
+jobs:
+  warm-desktop:
+    name: Warm Cache (${{ matrix.label }})
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - os: windows-latest
+            rust-targets: x86_64-pc-windows-msvc
+            label: windows-x64
+          - os: windows-latest
+            rust-targets: aarch64-pc-windows-msvc
+            label: windows-arm64
+          - os: ubuntu-22.04
+            rust-targets: x86_64-unknown-linux-gnu
+            label: linux-x64
+          - os: macos-latest
+            rust-targets: aarch64-apple-darwin,x86_64-apple-darwin
+            label: macos-universal
+
+    runs-on: ${{ matrix.os }}
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install npm dependencies
+        run: npm ci
+
+      - name: Setup Rust
+        uses: dtolnay/rust-toolchain@stable
+        with:
+          targets: ${{ matrix.rust-targets }}
+
+      - name: Rust cache
+        uses: Swatinem/rust-cache@v2
+        with:
+          workspaces: "src-tauri -> src-tauri/target"
+          cache-all-targets: "true"
+          cache-on-failure: "true"
+          prefix-key: "v2-rust-${{ matrix.label }}"
+
+      - name: Install Linux build dependencies
+        if: runner.os == 'Linux'
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends libwebkit2gtk-4.1-dev libappindicator3-dev librsvg2-dev patchelf
+
+      - name: Compile and Cache Rust Crates
+        run: |
+          cargo check --manifest-path src-tauri/Cargo.toml --release
+
