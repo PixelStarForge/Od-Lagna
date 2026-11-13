@@ -11,6 +11,7 @@
     "admin": "tsx watch tools/admin/server.ts",
     "start": "next start",
     "lint": "eslint",
+    "bump": "tsx scripts/bump-version.ts",
     "tauri": "tauri"
   },
   "dependencies": {

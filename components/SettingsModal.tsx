@@ -10,7 +10,9 @@ export function SettingsModal() {
   const { isSettingsOpen, setIsSettingsOpen, theme, setTheme } = usePreferences();
   const modalRef = useRef<HTMLDivElement>(null);
   const inApp = useIsApp();
-  const [appVersion, setAppVersion] = useState<string>("0.1.7");
+  const [appVersion, setAppVersion] = useState<string>(
+    process.env.NEXT_PUBLIC_APP_VERSION || "0.0.0"
+  );
   const [isChecking, setIsChecking] = useState(false);
   const [isUpdating, setIsUpdating] = useState(false);
   const [updateProgress, setUpdateProgress] = useState<number | null>(null);

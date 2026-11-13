@@ -1,7 +1,7 @@
 {
   "$schema": "../node_modules/@tauri-apps/cli/config.schema.json",
   "productName": "Od-Lagna",
-  "version": "0.1.7",
+  "version": "../package.json",
   "identifier": "dev.odlagna.archive",
   "build": {
     "frontendDist": "../out",
