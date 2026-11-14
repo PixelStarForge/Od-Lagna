@@ -58,4 +58,9 @@ scratch/
 
 # Tauri
 src-tauri/target/
+
+# Agent & spec docs
+docs/superpowers/
+.agents/
+skills-lock.json
 src-tauri/gen/

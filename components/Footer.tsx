@@ -78,6 +78,11 @@ export function Footer() {
                 </Link>
               </li>
               <li>
+                <Link href="/constellation" className={linkClass}>
+                  Constellations
+                </Link>
+              </li>
+              <li>
                 <Link href="/anime" className={linkClass}>
                   Anime Comments
                 </Link>

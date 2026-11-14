@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect, useRef } from "react";
+import { Button } from "@ui-sdk/react/button";
 import { toBlob } from "html-to-image";
 import { useShareModal } from "../lib/share";
 import { getEntrySources } from "../lib/schema";
@@ -219,16 +220,15 @@ function ShareModalDialog({ entry, onClose }: ShareModalDialogProps) {
               Export high-resolution card image or copy formatted Markdown.
             </p>
           </div>
-          <button
-            type="button"
+          <Button
             onClick={onClose}
             aria-label="Close share dialog"
-            className="p-1.5 rounded-lg text-[var(--text-muted)] hover:text-[var(--text-main)] hover:bg-[var(--bg-elevated)] border border-transparent hover:border-[var(--border-subtle)] transition-colors cursor-pointer shrink-0"
+            className="p-1.5 rounded-lg text-[var(--text-muted)] hover:text-[var(--text-main)] hover:bg-[var(--bg-elevated)] border border-transparent hover:border-[var(--border-subtle)] transition-colors cursor-pointer shrink-0 h-auto"
           >
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
             </svg>
-          </button>
+          </Button>
         </div>
 
         {/* Section 1: Exact Card Preview & Image Export */}
@@ -248,11 +248,10 @@ function ShareModalDialog({ entry, onClose }: ShareModalDialogProps) {
 
           {/* Image Action Buttons */}
           <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
-            <button
-              type="button"
+            <Button
               onClick={handleCopyImage}
               disabled={isCapturing}
-              className="flex items-center justify-center gap-1.5 px-3 py-2 rounded-lg bg-[var(--accent)] hover:bg-[var(--accent-hover)] text-white text-xs sm:text-sm font-semibold transition-all cursor-pointer shadow-xs active:scale-98 disabled:opacity-50"
+              className="flex items-center justify-center gap-1.5 px-3 py-2 rounded-lg bg-[var(--accent)] hover:bg-[var(--accent-hover)] text-white text-xs sm:text-sm font-semibold transition-all cursor-pointer shadow-xs active:scale-98 disabled:opacity-50 h-auto"
             >
               {copiedAction === "image" ? (
                 <>
@@ -276,13 +275,12 @@ function ShareModalDialog({ entry, onClose }: ShareModalDialogProps) {
                   <span>{isCapturing ? "Capturing..." : "Copy Image"}</span>
                 </>
               )}
-            </button>
+            </Button>
 
-            <button
-              type="button"
+            <Button
               onClick={handleDownloadImage}
               disabled={isCapturing}
-              className="flex items-center justify-center gap-1.5 px-3 py-2 rounded-lg bg-[var(--bg-elevated)] hover:bg-[var(--border-subtle)] border border-[var(--border-subtle)] text-[var(--text-main)] text-xs sm:text-sm font-semibold transition-all cursor-pointer shadow-2xs active:scale-98 disabled:opacity-50"
+              className="flex items-center justify-center gap-1.5 px-3 py-2 rounded-lg bg-[var(--bg-elevated)] hover:bg-[var(--border-subtle)] border border-[var(--border-subtle)] text-[var(--text-main)] text-xs sm:text-sm font-semibold transition-all cursor-pointer shadow-2xs active:scale-98 disabled:opacity-50 h-auto"
             >
               {copiedAction === "download" ? (
                 <>
@@ -299,13 +297,12 @@ function ShareModalDialog({ entry, onClose }: ShareModalDialogProps) {
                   <span>Download PNG</span>
                 </>
               )}
-            </button>
+            </Button>
 
-            <button
-              type="button"
+            <Button
               onClick={handleCopySources}
               title="Copy primary source citations and Od-Lagna archive link"
-              className="col-span-2 sm:col-span-1 flex items-center justify-center gap-1.5 px-3 py-2 rounded-lg bg-[var(--bg-elevated)] hover:bg-[var(--border-subtle)] border border-[var(--border-subtle)] hover:border-[var(--accent-border)] text-[var(--accent)] hover:text-[var(--accent-hover)] text-xs sm:text-sm font-semibold transition-all cursor-pointer shadow-2xs active:scale-98"
+              className="col-span-2 sm:col-span-1 flex items-center justify-center gap-1.5 px-3 py-2 rounded-lg bg-[var(--bg-elevated)] hover:bg-[var(--border-subtle)] border border-[var(--border-subtle)] hover:border-[var(--accent-border)] text-[var(--accent)] hover:text-[var(--accent-hover)] text-xs sm:text-sm font-semibold transition-all cursor-pointer shadow-2xs active:scale-98 h-auto"
             >
               {copiedAction === "sources" ? (
                 <>
@@ -322,7 +319,7 @@ function ShareModalDialog({ entry, onClose }: ShareModalDialogProps) {
                   <span>{sources.length > 1 ? "Copy Sources" : "Copy Source"}</span>
                 </>
               )}
-            </button>
+            </Button>
           </div>
         </div>
 
@@ -344,24 +341,22 @@ function ShareModalDialog({ entry, onClose }: ShareModalDialogProps) {
 
           {/* Action buttons */}
           <div className="flex items-center gap-2 flex-wrap">
-            <button
-              type="button"
+            <Button
               onClick={handleCopyMarkdown}
-              className="flex-1 min-w-[130px] flex items-center justify-center gap-1.5 px-3 py-2 rounded-lg bg-[var(--bg-elevated)] hover:bg-[var(--border-subtle)] border border-[var(--border-subtle)] text-[var(--text-main)] text-xs sm:text-sm font-semibold transition-colors cursor-pointer"
+              className="flex-1 min-w-[130px] flex items-center justify-center gap-1.5 px-3 py-2 rounded-lg bg-[var(--bg-elevated)] hover:bg-[var(--border-subtle)] border border-[var(--border-subtle)] text-[var(--text-main)] text-xs sm:text-sm font-semibold transition-colors cursor-pointer h-auto"
             >
               <svg className="w-4 h-4 text-[var(--accent)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
               </svg>
               <span>{copiedAction === "markdown" ? "✓ Copied Markdown!" : "Copy Markdown"}</span>
-            </button>
+            </Button>
 
-            <button
-              type="button"
+            <Button
               onClick={handleCopyText}
-              className="px-3 py-2 rounded-lg bg-[var(--bg-elevated)] hover:bg-[var(--border-subtle)] border border-[var(--border-subtle)] text-[var(--text-muted)] hover:text-[var(--text-main)] text-xs sm:text-sm font-medium transition-colors cursor-pointer"
+              className="px-3 py-2 rounded-lg bg-[var(--bg-elevated)] hover:bg-[var(--border-subtle)] border border-[var(--border-subtle)] text-[var(--text-muted)] hover:text-[var(--text-main)] text-xs sm:text-sm font-medium transition-colors cursor-pointer h-auto"
             >
               <span>{copiedAction === "text" ? "✓ Copied!" : "Copy Plain Text"}</span>
-            </button>
+            </Button>
           </div>
         </div>
       </div>

@@ -85,6 +85,7 @@ export function Header() {
   const isCharactersActive = pathname?.startsWith("/characters");
   const isAnimeActive = pathname?.startsWith("/anime");
   const isTimelineActive = pathname === "/timeline" || pathname?.startsWith("/timeline");
+  const isConstellationActive = pathname === "/constellation" || pathname?.startsWith("/constellation");
   const isGuideActive =
     pathname === "/guide" ||
     pathname?.startsWith("/guide") ||
@@ -157,6 +158,16 @@ export function Header() {
               }`}
             >
               Timeline
+            </Link>
+            <Link
+              href="/constellation"
+              className={`px-3 py-1.5 rounded-md text-sm font-medium transition-colors ${
+                isConstellationActive
+                  ? "bg-[var(--bg-elevated)] text-[var(--accent)] font-semibold"
+                  : "text-[var(--text-muted)] hover:text-[var(--text-main)] hover:bg-[var(--bg-elevated)]"
+              }`}
+            >
+              Constellations
             </Link>
 
             {/* Stories Dropdown */}
@@ -629,6 +640,20 @@ export function Header() {
               <span>World Timeline</span>
               <span className={`text-xs font-mono ${isTimelineActive ? "text-[var(--accent)] font-medium" : "text-[var(--text-muted)]"}`}>
                 History
+              </span>
+            </Link>
+            <Link
+              href="/constellation"
+              onClick={() => setIsMobileMenuOpen(false)}
+              className={`flex items-center justify-between px-3 py-2 rounded-lg text-sm font-medium transition-colors ${
+                isConstellationActive
+                  ? "bg-[var(--bg-elevated)] text-[var(--accent)] font-semibold"
+                  : "text-[var(--text-muted)] hover:text-[var(--text-main)] hover:bg-[var(--bg-elevated)]"
+              }`}
+            >
+              <span>Constellations</span>
+              <span className={`text-xs font-mono ${isConstellationActive ? "text-[var(--accent)] font-medium" : "text-[var(--text-muted)]"}`}>
+                3D Sky
               </span>
             </Link>
           </div>

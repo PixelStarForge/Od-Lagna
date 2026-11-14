@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useEffect, useRef, useState } from "react";
+import { Button } from "@ui-sdk/react/button";
 import { usePreferences, ThemeMode } from "../lib/preferences";
 import { SpoilerControls } from "./SpoilerControls";
 import { useIsApp } from "../lib/is-app";
@@ -124,11 +125,10 @@ export function SettingsModal() {
               Customize spoiler gating and display appearance. Changes apply instantly.
             </p>
           </div>
-          <button
-            type="button"
+          <Button
             onClick={() => setIsSettingsOpen(false)}
             aria-label="Close settings dialog"
-            className="p-1.5 rounded-lg text-[var(--text-muted)] hover:text-[var(--text-main)] hover:bg-[var(--bg-elevated)] border border-transparent hover:border-[var(--border-subtle)] transition-colors cursor-pointer"
+            className="p-1.5 rounded-lg text-[var(--text-muted)] hover:text-[var(--text-main)] hover:bg-[var(--bg-elevated)] border border-transparent hover:border-[var(--border-subtle)] transition-colors cursor-pointer h-auto"
           >
             <svg
               className="w-5 h-5"
@@ -143,7 +143,7 @@ export function SettingsModal() {
                 d="M6 18L18 6M6 6l12 12"
               />
             </svg>
-          </button>
+          </Button>
         </div>
 
         {/* Section 1: Spoiler Protection */}
@@ -236,23 +236,21 @@ export function SettingsModal() {
                   </p>
                 </div>
                 {!availableUpdate ? (
-                  <button
-                    type="button"
+                  <Button
                     onClick={handleManualCheck}
                     disabled={isChecking}
-                    className="px-3 py-1.5 text-xs font-medium rounded-lg bg-[var(--bg-surface)] hover:bg-[var(--accent)] hover:text-white border border-[var(--border-subtle)] transition-colors cursor-pointer shrink-0 disabled:opacity-50"
+                    className="px-3 py-1.5 text-xs font-medium rounded-lg bg-[var(--bg-surface)] hover:bg-[var(--accent)] hover:text-white border border-[var(--border-subtle)] transition-colors cursor-pointer shrink-0 disabled:opacity-50 h-auto"
                   >
                     {isChecking ? "Checking..." : "Check for Updates"}
-                  </button>
+                  </Button>
                 ) : (
-                  <button
-                    type="button"
+                  <Button
                     onClick={handleInstallFromModal}
                     disabled={isUpdating}
-                    className="px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-[var(--accent-solid)] hover:bg-[var(--accent-solid-hover)] text-white shadow-xs transition-colors cursor-pointer shrink-0 disabled:opacity-50 flex items-center gap-1.5"
+                    className="px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-[var(--accent-solid)] hover:bg-[var(--accent-solid-hover)] text-white shadow-xs transition-colors cursor-pointer shrink-0 disabled:opacity-50 flex items-center gap-1.5 h-auto"
                   >
                     <span>{isUpdating ? "Updating..." : "Update Now"}</span>
-                  </button>
+                  </Button>
                 )}
               </div>
               {updateProgress !== null && isUpdating && (
@@ -269,13 +267,12 @@ export function SettingsModal() {
 
         {/* Footer actions */}
         <div className="pt-4 border-t border-[var(--border-subtle)] flex justify-end">
-          <button
-            type="button"
+          <Button
             onClick={() => setIsSettingsOpen(false)}
-            className="px-4 py-2 text-sm font-medium rounded-lg bg-[var(--text-main)] text-[var(--bg-main)] hover:opacity-90 cursor-pointer transition-opacity"
+            className="px-4 py-2 text-sm font-medium rounded-lg bg-[var(--text-main)] text-[var(--bg-main)] hover:opacity-90 cursor-pointer transition-opacity h-auto"
           >
             Done
-          </button>
+          </Button>
         </div>
       </div>
     </div>

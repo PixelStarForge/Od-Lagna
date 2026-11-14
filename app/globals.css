@@ -1,3 +1,4 @@
+@layer ui-sdk;
 @import "tailwindcss";
 
 @custom-variant dark (&:where(.dark, .dark *));
@@ -33,6 +34,18 @@
   --unverified-text: #b45309;
   --unverified-bg: #fffbeb;
   --unverified-border: #fde68a;
+
+  /* ui-sdk design tokens mapped to theme */
+  --ui-background: var(--bg-surface);
+  --ui-foreground: var(--text-main);
+  --ui-muted: var(--bg-elevated);
+  --ui-muted-foreground: var(--text-muted);
+  --ui-border: var(--border-subtle);
+  --ui-input: var(--border-strong);
+  --ui-primary: var(--accent);
+  --ui-primary-foreground: #ffffff;
+  --ui-radius: 0.5rem;
+  --ui-font-sans: var(--font-sans);
 }
 
 .dark {
@@ -58,6 +71,16 @@
   --unverified-text: #fbbf24;
   --unverified-bg: #451a03;
   --unverified-border: #78350f;
+
+  /* ui-sdk design tokens in dark mode */
+  --ui-background: var(--bg-surface);
+  --ui-foreground: var(--text-main);
+  --ui-muted: var(--bg-elevated);
+  --ui-muted-foreground: var(--text-muted);
+  --ui-border: var(--border-subtle);
+  --ui-input: var(--border-strong);
+  --ui-primary: var(--accent);
+  --ui-primary-foreground: #ffffff;
 }
 
 body {

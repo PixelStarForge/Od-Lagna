@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useEffect, useRef } from "react";
+import { Button } from "@ui-sdk/react/button";
 import { usePreferences } from "../lib/preferences";
 import { SpoilerControls } from "./SpoilerControls";
 
@@ -64,16 +65,15 @@ export function OnboardingModal() {
               </svg>
               <span>Spoiler Protection Active</span>
             </div>
-            <button
-              type="button"
+            <Button
               onClick={handleDismiss}
               aria-label="Close spoiler setup"
-              className="p-1.5 -mr-1.5 text-[var(--text-muted)] hover:text-[var(--text-main)] hover:bg-[var(--bg-elevated)] rounded-lg transition-colors cursor-pointer"
+              className="p-1.5 -mr-1.5 text-[var(--text-muted)] hover:text-[var(--text-main)] hover:bg-[var(--bg-elevated)] rounded-lg transition-colors cursor-pointer border-0 bg-transparent h-auto"
             >
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
               </svg>
-            </button>
+            </Button>
           </div>
           <h2 id="onboarding-title" className="text-xl sm:text-2xl font-bold tracking-tight text-[var(--text-main)]">
             Welcome to Od-Lagna
@@ -94,13 +94,12 @@ export function OnboardingModal() {
           <p className="text-xs text-[var(--text-muted)] text-center sm:text-left">
             You can change this anytime via the Settings icon in the header.
           </p>
-          <button
-            type="button"
+          <Button
             onClick={handleDismiss}
-            className="w-full sm:w-auto px-5 py-2.5 text-sm font-semibold rounded-lg bg-[var(--accent-solid)] text-white hover:bg-[var(--accent-solid-hover)] cursor-pointer transition-colors shadow-sm shrink-0"
+            className="w-full sm:w-auto px-5 py-2.5 text-sm font-semibold rounded-lg bg-[var(--accent-solid)] text-white hover:bg-[var(--accent-solid-hover)] cursor-pointer transition-colors shadow-sm shrink-0 border-0 h-auto"
           >
             Confirm &amp; Enter Archive
-          </button>
+          </Button>
         </div>
       </div>
     </div>

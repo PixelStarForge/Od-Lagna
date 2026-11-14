@@ -15,6 +15,11 @@ import {
   timelineEventSchema,
   timelineIfRouteSchema,
 } from "../lib/schema";
+import {
+  starSchema,
+  constellationSchema,
+  characterStarSchema,
+} from "../lib/constellation-schema";
 
 const ROOT_DIR = path.resolve(__dirname, "..");
 const CONTENT_CONFIG_DIR = path.join(ROOT_DIR, "content", "config");
@@ -23,6 +28,7 @@ const CONTENT_TRIVIA_DIR = path.join(ROOT_DIR, "content", "trivia");
 const CONTENT_CHARACTERS_DIR = path.join(ROOT_DIR, "content", "characters");
 const CONTENT_TWITTER_STORIES_DIR = path.join(ROOT_DIR, "content", "twitter-short-stories");
 const CONTENT_TIMELINE_DIR = path.join(ROOT_DIR, "content", "timeline");
+const CONTENT_CONSTELLATIONS_DIR = path.join(ROOT_DIR, "content", "constellations");
 
 function getValidArcSlugs(): Set<string> {
   const arcsFile = path.join(CONTENT_CONFIG_DIR, "arcs.json");
@@ -622,6 +628,90 @@ export function validateTimelineContent(): { valid: boolean; errors: string[] } 
   return { valid: errors.length === 0, errors };
 }
 
+export function validateConstellationsDirectory(dirPath = CONTENT_CONSTELLATIONS_DIR): { valid: boolean; errors: string[] } {
+  const errors: string[] = [];
+  if (!fs.existsSync(dirPath)) {
+    return { valid: true, errors: [] };
+  }
+
+  const starsFile = path.join(dirPath, "stars.json");
+  const constellationsFile = path.join(dirPath, "constellations.json");
+  const characterStarsFile = path.join(dirPath, "character-stars.json");
+
+  const validStarIds = new Set<string>();
+
+  if (fs.existsSync(starsFile)) {
+    try {
+      const stars = JSON.parse(fs.readFileSync(starsFile, "utf-8"));
+      if (!Array.isArray(stars)) {
+        errors.push("stars.json must be an array");
+      } else {
+        stars.forEach((s, idx) => {
+          const res = starSchema.safeParse(s);
+          if (!res.success) {
+            errors.push(`stars.json [${idx}]: ${res.error.message}`);
+          } else {
+            validStarIds.add(res.data.id);
+          }
+        });
+      }
+    } catch (e: unknown) {
+      errors.push(`stars.json failed to parse: ${e instanceof Error ? e.message : String(e)}`);
+    }
+  }
+
+  if (fs.existsSync(constellationsFile)) {
+    try {
+      const constellations = JSON.parse(fs.readFileSync(constellationsFile, "utf-8"));
+      if (!Array.isArray(constellations)) {
+        errors.push("constellations.json must be an array");
+      } else {
+        constellations.forEach((c, idx) => {
+          const res = constellationSchema.safeParse(c);
+          if (!res.success) {
+            errors.push(`constellations.json [${idx}]: ${res.error.message}`);
+          } else {
+            for (const [starA, starB] of res.data.lines) {
+              if (!validStarIds.has(starA)) {
+                errors.push(`constellations.json [${c.id}]: star '${starA}' in lines does not exist in stars.json`);
+              }
+              if (!validStarIds.has(starB)) {
+                errors.push(`constellations.json [${c.id}]: star '${starB}' in lines does not exist in stars.json`);
+              }
+            }
+          }
+        });
+      }
+    } catch (e: unknown) {
+      errors.push(`constellations.json failed to parse: ${e instanceof Error ? e.message : String(e)}`);
+    }
+  }
+
+  if (fs.existsSync(characterStarsFile)) {
+    try {
+      const charStars = JSON.parse(fs.readFileSync(characterStarsFile, "utf-8"));
+      if (!Array.isArray(charStars)) {
+        errors.push("character-stars.json must be an array");
+      } else {
+        charStars.forEach((cs, idx) => {
+          const res = characterStarSchema.safeParse(cs);
+          if (!res.success) {
+            errors.push(`character-stars.json [${idx}]: ${res.error.message}`);
+          } else {
+            if (!validStarIds.has(res.data.starId)) {
+              errors.push(`character-stars.json [${cs.characterId}]: star '${res.data.starId}' does not exist in stars.json`);
+            }
+          }
+        });
+      }
+    } catch (e: unknown) {
+      errors.push(`character-stars.json failed to parse: ${e instanceof Error ? e.message : String(e)}`);
+    }
+  }
+
+  return { valid: errors.length === 0, errors };
+}
+
 function run() {
   console.log("Validating Q&A content in content/qna/...");
   const qnaResult = validateQnaDirectory();
@@ -647,6 +737,9 @@ function run() {
   console.log("Validating world timeline in content/timeline/...");
   const timelineResult = validateTimelineContent();
 
+  console.log("Validating constellations in content/constellations/...");
+  const constellationsResult = validateConstellationsDirectory();
+
   const allErrors = [
     ...qnaResult.errors,
     ...triviaResult.errors,
@@ -656,6 +749,7 @@ function run() {
     ...animeResult.errors,
     ...twitterStoriesResult.errors,
     ...timelineResult.errors,
+    ...constellationsResult.errors,
   ];
 
   if (allErrors.length > 0) {

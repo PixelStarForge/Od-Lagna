@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import { Button } from "@ui-sdk/react/button";
 
 interface AnimeSearchBarProps {
   placeholder?: string;
@@ -16,10 +17,9 @@ export function AnimeSearchBar({
   badgeText,
 }: AnimeSearchBarProps) {
   return (
-    <button
-      type="button"
+    <Button
       onClick={onClick}
-      className={`group w-full flex items-center justify-between gap-3 px-4 py-3 rounded-xl border border-[var(--border-subtle)] bg-[var(--bg-surface)] hover:bg-[var(--bg-elevated)] hover:border-[var(--accent)] transition-all cursor-pointer shadow-2xs text-left ${className}`}
+      className={`group w-full flex items-center justify-between gap-3 px-4 py-3 rounded-xl border border-[var(--border-subtle)] bg-[var(--bg-surface)] hover:bg-[var(--bg-elevated)] hover:border-[var(--accent)] transition-all cursor-pointer shadow-2xs text-left h-auto ${className}`}
     >
       <div className="flex items-center gap-3 min-w-0 flex-1">
         <svg
@@ -53,6 +53,6 @@ export function AnimeSearchBar({
           ?
         </kbd>
       </div>
-    </button>
+    </Button>
   );
 }

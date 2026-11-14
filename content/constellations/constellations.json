@@ -1,0 +1,164 @@
+[
+  {
+    "id": "ORI",
+    "name": "Orion",
+    "englishName": "The Hunter",
+    "family": "Orion",
+    "lines": [
+      ["betelgeuse", "bellatrix"],
+      ["bellatrix", "mintaka"],
+      ["mintaka", "alnilam"],
+      ["alnilam", "alnitak"],
+      ["alnitak", "saiph"],
+      ["betelgeuse", "alnitak"],
+      ["bellatrix", "rigel"],
+      ["saiph", "rigel"],
+      ["betelgeuse", "meissa"],
+      ["bellatrix", "meissa"]
+    ]
+  },
+  {
+    "id": "TAU",
+    "name": "Taurus",
+    "englishName": "The Bull",
+    "family": "Zodiac",
+    "lines": [
+      ["aldebaran", "elnath"],
+      ["aldebaran", "alcyone"],
+      ["alcyone", "electra"],
+      ["alcyone", "maia"],
+      ["maia", "merope"]
+    ]
+  },
+  {
+    "id": "LEO",
+    "name": "Leo",
+    "englishName": "The Lion",
+    "family": "Zodiac",
+    "lines": [
+      ["regulus", "algieba"],
+      ["algieba", "zosma"],
+      ["zosma", "denebola"],
+      ["regulus", "denebola"]
+    ]
+  },
+  {
+    "id": "CMA",
+    "name": "Canis Major",
+    "englishName": "The Greater Dog",
+    "family": "Bayer",
+    "lines": [
+      ["sirius", "mirzam"],
+      ["sirius", "wezen"],
+      ["wezen", "adhara"]
+    ]
+  },
+  {
+    "id": "AUR",
+    "name": "Auriga",
+    "englishName": "The Charioteer",
+    "family": "Perseus",
+    "lines": [
+      ["capella", "menkalinan"],
+      ["menkalinan", "elnath"],
+      ["elnath", "capella"]
+    ]
+  },
+  {
+    "id": "SCO",
+    "name": "Scorpius",
+    "englishName": "The Scorpion",
+    "family": "Zodiac",
+    "lines": [
+      ["antares", "dschubba"],
+      ["antares", "sargas"],
+      ["sargas", "shaula"]
+    ]
+  },
+  {
+    "id": "CET",
+    "name": "Cetus",
+    "englishName": "The Sea Monster (Whale)",
+    "family": "Heavenly Waters",
+    "lines": [
+      ["menkar", "mira"],
+      ["mira", "baten-kaitos"],
+      ["baten-kaitos", "deneb-kaitos"]
+    ]
+  },
+  {
+    "id": "HYA",
+    "name": "Hydra",
+    "englishName": "The Water Snake",
+    "family": "Hercules",
+    "lines": [
+      ["alphard", "regulus"]
+    ]
+  },
+  {
+    "id": "LEP",
+    "name": "Lepus",
+    "englishName": "The Hare",
+    "family": "Orion",
+    "lines": [
+      ["arneb", "nihal"],
+      ["arneb", "rigel"]
+    ]
+  },
+  {
+    "id": "VIR",
+    "name": "Virgo",
+    "englishName": "The Maiden",
+    "family": "Zodiac",
+    "lines": [
+      ["spica", "porrima"],
+      ["porrima", "vindemiatrix"]
+    ]
+  },
+  {
+    "id": "GRU",
+    "name": "Grus",
+    "englishName": "The Crane",
+    "family": "Bayer",
+    "lines": [
+      ["alnair", "fomalhaut"]
+    ]
+  },
+  {
+    "id": "UMA",
+    "name": "Ursa Major",
+    "englishName": "The Great Bear",
+    "family": "Ursa Major",
+    "lines": [
+      ["dubhe", "merak"],
+      ["merak", "phecda"],
+      ["phecda", "megrez"],
+      ["megrez", "dubhe"],
+      ["megrez", "alioth"],
+      ["alioth", "mizar"],
+      ["mizar", "alkaid"],
+      ["mizar", "alcor"]
+    ]
+  },
+  {
+    "id": "GEM",
+    "name": "Gemini",
+    "englishName": "The Twins",
+    "family": "Zodiac",
+    "lines": [
+      ["castor", "pollux"]
+    ]
+  },
+  {
+    "id": "CYG",
+    "name": "Cygnus",
+    "englishName": "The Swan",
+    "family": "Hercules",
+    "lines": [
+      ["deneb", "vega"],
+      ["vega", "altair"],
+      ["altair", "deneb"]
+    ]
+  }
+]
+
